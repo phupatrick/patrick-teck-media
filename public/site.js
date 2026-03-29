@@ -1,10 +1,20 @@
-const browserRoot = document.querySelector("[data-story-browser]");
+const documentLanguage = document.documentElement.lang === "en" ? "en" : "vi";
 
-if (browserRoot) {
+initStoryBrowser();
+initLiveDesk();
+
+function initStoryBrowser() {
+  const browserRoot = document.querySelector("[data-story-browser]");
+
+  if (!browserRoot) {
+    return;
+  }
+
   const input = browserRoot.querySelector("[data-story-search]");
   const chips = [...browserRoot.querySelectorAll("[data-story-filter]")];
   const cards = [...browserRoot.querySelectorAll("[data-story-card]")];
   const counter = browserRoot.querySelector("[data-story-count]");
+  const countLabel = documentLanguage === "vi" ? "bài" : "stories";
   let activeStatus = "all";
 
   const applyFilters = () => {
@@ -25,7 +35,7 @@ if (browserRoot) {
     }
 
     if (counter) {
-      counter.textContent = `${visible}/${cards.length} stories`;
+      counter.textContent = `${visible}/${cards.length} ${countLabel}`;
     }
   };
 
@@ -41,4 +51,89 @@ if (browserRoot) {
 
   input?.addEventListener("input", applyFilters);
   applyFilters();
+}
+
+function initLiveDesk() {
+  const liveRoot = document.querySelector("[data-live-desk]");
+
+  if (!liveRoot) {
+    return;
+  }
+
+  const language = liveRoot.dataset.lang === "en" ? "en" : "vi";
+  const refreshedNode = liveRoot.querySelector("[data-live-refreshed]");
+  const nextNode = liveRoot.querySelector("[data-live-next]");
+  const tickerNode = liveRoot.querySelector("[data-live-ticker]");
+  let refreshTimer = null;
+
+  const formatTime = (value) =>
+    new Date(value).toLocaleTimeString(language === "vi" ? "vi-VN" : "en-US", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+
+  const renderTicker = (items) =>
+    items
+      .map(
+        (item) => `
+          <a class="live-item" href="${item.href}">
+            <span>${escapeHtml(item.topic)}</span>
+            <strong>${escapeHtml(item.title)}</strong>
+            <em>${escapeHtml(item.updated_text)}</em>
+          </a>
+        `
+      )
+      .join("");
+
+  const applyLiveData = (payload) => {
+    if (refreshedNode) {
+      refreshedNode.textContent = formatTime(payload.refreshedAt);
+    }
+
+    if (nextNode) {
+      nextNode.textContent = formatTime(payload.nextRefreshAt);
+    }
+
+    for (const card of payload.cards || []) {
+      const target = liveRoot.querySelector(`[data-live-card="${card.id}"]`);
+      if (target) {
+        target.textContent = card.value;
+      }
+    }
+
+    if (tickerNode) {
+      tickerNode.innerHTML = renderTicker(payload.ticker || []);
+    }
+
+    if (refreshTimer) {
+      clearTimeout(refreshTimer);
+    }
+
+    refreshTimer = window.setTimeout(fetchLiveDesk, payload.refreshIntervalMs || 45000);
+  };
+
+  const fetchLiveDesk = async () => {
+    try {
+      const response = await fetch(`/api/newsroom/live?lang=${language}`, { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`Live desk request failed with ${response.status}`);
+      }
+      const payload = await response.json();
+      applyLiveData(payload);
+    } catch (error) {
+      console.error(error);
+      refreshTimer = window.setTimeout(fetchLiveDesk, 45000);
+    }
+  };
+
+  fetchLiveDesk();
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }

@@ -21,6 +21,19 @@ const DATE_FORMATTERS = {
   })
 };
 
+const TIME_ONLY_FORMATTERS = {
+  vi: new Intl.DateTimeFormat("vi-VN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Asia/Saigon"
+  }),
+  en: new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "Asia/Saigon"
+  })
+};
+
 const VERIFICATION_META = {
   trend: {
     labels: { vi: "Trend Watch", en: "Trend Watch" },
@@ -55,9 +68,113 @@ const SOURCE_TYPE_META = {
   "internal-roundup": { vi: "Roundup nội bộ", en: "Internal roundup" }
 };
 
+const LIVE_REFRESH_MS = 45_000;
+const STORY_VISUALS = {
+  "viettel-edge-ai-pilot": {
+    motif: "assistant",
+    palette: ["#0f7f54", "#f6d79f", "#17352b"],
+    kicker: { vi: "Triển khai hiện trường", en: "Field deployment" },
+    caption: {
+      vi: "Ảnh bìa cho tuyến bài về trợ lý AI edge hỗ trợ đội ngũ bán hàng hiện trường.",
+      en: "Cover art for the story about an edge AI assistant supporting field sales teams."
+    }
+  },
+  "android-16-battery-intelligence": {
+    motif: "battery",
+    palette: ["#2f8f83", "#d7f0ea", "#1b403d"],
+    kicker: { vi: "Pin và phần mềm", en: "Battery and software" },
+    caption: {
+      vi: "Ảnh bìa cho câu chuyện về dashboard pin và tín hiệu tối ưu năng lượng trên Android.",
+      en: "Cover art for the story about battery dashboards and energy intelligence on Android."
+    }
+  },
+  "handheld-emulator-overlay-rumor": {
+    motif: "handheld",
+    palette: ["#e6527d", "#f7d3df", "#3f1826"],
+    kicker: { vi: "Gaming handheld", en: "Handheld gaming" },
+    caption: {
+      vi: "Ảnh bìa cho cụm bài theo dõi giao diện overlay mới trên hệ máy chơi game cầm tay.",
+      en: "Cover art for the cluster tracking a rumored new overlay on handheld gaming devices."
+    }
+  },
+  "luma-team-spaces-rollout": {
+    motif: "workspace",
+    palette: ["#2463eb", "#d9e6ff", "#112957"],
+    kicker: { vi: "Không gian làm việc", en: "Team workspace" },
+    caption: {
+      vi: "Ảnh bìa cho bài viết về không gian cộng tác mới dành cho editor và creator team.",
+      en: "Cover art for the story on a new collaboration space for editors and creator teams."
+    }
+  },
+  "messaging-app-dark-mode-leak": {
+    motif: "phone",
+    palette: ["#344154", "#dde3ed", "#18212e"],
+    kicker: { vi: "Giao diện di động", en: "Mobile interface" },
+    caption: {
+      vi: "Ảnh bìa cho tin theo dõi thay đổi giao diện dark mode trên ứng dụng nhắn tin.",
+      en: "Cover art for the story tracking a dark mode interface change inside a messaging app."
+    }
+  },
+  "patrick-tech-weekly-roundup": {
+    motif: "newsdesk",
+    palette: ["#0f7f54", "#f5e4c8", "#14231d"],
+    kicker: { vi: "Bản tin cuối tuần", en: "Weekend briefing" },
+    caption: {
+      vi: "Ảnh bìa cho bản tổng hợp cuối tuần gom những chuyển động công nghệ đáng chú ý nhất.",
+      en: "Cover art for the weekend briefing packaging the most useful technology shifts of the week."
+    }
+  },
+  "best-ai-note-taking-tools": {
+    motif: "notes",
+    palette: ["#ff8a3d", "#fde2cf", "#5c2b0b"],
+    kicker: { vi: "Công cụ ghi chú", en: "Note-taking tools" },
+    caption: {
+      vi: "Ảnh bìa cho bài hướng dẫn chọn công cụ ghi chú, tóm tắt và theo dõi việc cần làm.",
+      en: "Cover art for the guide to note-taking, summarization, and meeting follow-up tools."
+    }
+  },
+  "chatgpt-gemini-claude-freelancer-compare": {
+    motif: "comparison",
+    palette: ["#8a5cf6", "#ebe3ff", "#28124b"],
+    kicker: { vi: "So sánh công cụ", en: "Tool comparison" },
+    caption: {
+      vi: "Ảnh bìa cho bài so sánh các trợ lý viết và nghiên cứu dành cho freelancer.",
+      en: "Cover art for the comparison of writing and research assistants for freelancers."
+    }
+  },
+  "asia-npu-laptop-wave": {
+    motif: "laptop",
+    palette: ["#2463eb", "#d9e6ff", "#1b2d63"],
+    kicker: { vi: "Thiết bị AI", en: "AI hardware" },
+    caption: {
+      vi: "Ảnh bìa cho tuyến bài về làn sóng laptop có NPU tại thị trường châu Á.",
+      en: "Cover art for the story on the growing NPU laptop wave across Asia."
+    }
+  },
+  "passkeys-guide-vietnam-teams": {
+    motif: "shield",
+    palette: ["#9b4dca", "#eedbff", "#351347"],
+    kicker: { vi: "Bảo mật đội nhóm", en: "Team security" },
+    caption: {
+      vi: "Ảnh bìa cho bài hướng dẫn triển khai passkeys và kiểm soát truy cập trong team nhỏ.",
+      en: "Cover art for the guide to passkeys and access control in small teams."
+    }
+  },
+  "vietnam-fiber-home-lab-trend": {
+    motif: "network",
+    palette: ["#0f7f54", "#d7f3e3", "#133227"],
+    kicker: { vi: "Hạ tầng số", en: "Digital infrastructure" },
+    caption: {
+      vi: "Ảnh bìa cho bài viết về home lab mini, fiber ổn định và hạ tầng tự vận hành.",
+      en: "Cover art for the story on mini home labs, stable fiber, and self-hosted infrastructure."
+    }
+  }
+};
+
 export function buildNewsroomState(options = {}) {
-  const siteUrl = normalizeSiteUrl(options.siteUrl || "https://patrickteck.media");
-  const storeUrl = normalizeSiteUrl(options.storeUrl || "https://store.patrickteck.media");
+  const siteUrl = normalizeSiteUrl(options.siteUrl || "https://patricktech.media");
+  const storeUrl = normalizeSiteUrl(options.storeUrl || "https://store.patricktech.media");
+  const now = new Date(options.now || new Date().toISOString());
   const articles = buildArticles().map((article) => enrichArticle(article, { siteUrl, storeUrl }));
   const articlesByHref = new Map(articles.map((article) => [article.href, article]));
   const topics = getTopics();
@@ -84,15 +201,16 @@ export function buildNewsroomState(options = {}) {
 
   return {
     site: {
-      name: "Patrick Teck Media",
+      name: "Patrick Tech Media",
       description: {
-        vi: "Newsroom song ngữ theo dõi công nghệ, AI, phần mềm và nhịp Internet Việt Nam lẫn thế giới bằng mô hình OpenClaw-first.",
-        en: "A bilingual newsroom tracking technology, AI, software, and internet shifts across Vietnam and the wider world with an OpenClaw-first workflow."
+        vi: "Toà soạn số song ngữ theo dõi công nghệ, phần mềm, thiết bị và đời sống Internet với nhịp cập nhật liên tục cho độc giả Việt Nam và quốc tế.",
+        en: "A bilingual digital newsroom covering technology, software, devices, and internet culture with a continuously updated reading experience for Vietnam and global audiences."
       },
       siteUrl,
       storeUrl,
       supportedLanguages: [...LANGUAGES]
     },
+    runtime: buildRuntime(now, authors),
     topics,
     contentTypeMeta,
     policies: getPolicyPages(),
@@ -129,6 +247,7 @@ export function getHomeData(state, language) {
     trending,
     evergreen,
     latest,
+    liveDesk: getLiveDeskData(state, language),
     browserStories: localized.slice(0, 10),
     topicSections,
     metrics: getNewsroomMetrics(state, language)
@@ -207,50 +326,50 @@ export function getWorkflowData(state, language) {
       ? {
           steps: [
             {
-              title: "1. OpenClaw quét tín hiệu",
-              body: "Crawler đi qua web, social, nguồn chính thức và cộng đồng để gom topic, source metadata và tín hiệu tăng nhiệt."
+              title: "1. Desk gom tín hiệu đầu ngày",
+              body: "Hệ thống tổng hợp nguồn từ web, social, blog chính thức và cộng đồng để tạo ra danh sách câu chuyện đáng theo dõi cho bàn tin."
             },
             {
-              title: "2. Newsroom cluster và chấm điểm",
-              body: "Hệ thống gom bài cùng một câu chuyện, gán trạng thái trend/emerging/verified, đồng thời quyết định khả năng bật ads."
+              title: "2. Hàng chờ biên tập nhóm theo câu chuyện",
+              body: "Các tín hiệu cùng chủ đề được gom lại, gắn trạng thái trend, emerging hoặc verified và kiểm tra xem có đủ điều kiện hiển thị quảng cáo hay chưa."
             },
             {
-              title: "3. Xuất bản và mở feed",
-              body: "Sau khi qua guardrails, bài được xuất lên homepage, RSS, JSON feed và route song ngữ với hreflang."
+              title: "3. Xuất bản và phân phối",
+              body: "Sau khi qua guardrails, bài được đưa lên homepage, feed, sitemap và các route song ngữ với cấu trúc điều hướng rõ ràng."
             }
           ],
           guardrails: [
-            "Trend pages vẫn được index nhưng không render ad slot.",
-            "Chỉ bài đủ điều kiện mới hiện module quảng cáo.",
-            "Store CTA bị tắt ở bài social-only hoặc trend nhạy cảm.",
-            "Mỗi bài phải giữ attribution nguồn và trạng thái xác minh."
+            "Bài trend vẫn được index nhưng không hiển thị slot quảng cáo.",
+            "Chỉ những trang đủ điều kiện mới mở module quảng cáo.",
+            "Store CTA được làm nhẹ hoặc tắt hẳn ở các bài nhạy cảm.",
+            "Mỗi bài đều giữ nguồn tham khảo và trạng thái xác minh rõ ràng."
           ],
-          endpointsLabel: "Feed và endpoint demo",
-          matrixLabel: "Phân bổ nội dung"
+          endpointsLabel: "Feed và endpoint newsroom",
+          matrixLabel: "Phân bổ tuyến bài"
         }
       : {
           steps: [
             {
-              title: "1. OpenClaw sweeps signals",
-              body: "The crawler moves across web, social, official sources, and communities to collect topics, source metadata, and heat signals."
+              title: "1. The desk gathers the first signal sweep",
+              body: "The system collects leads from the web, social platforms, official blogs, and communities to form the newsroom watchlist."
             },
             {
-              title: "2. The newsroom clusters and scores",
-              body: "The system groups items into a shared story, assigns trend/emerging/verified state, and decides whether ads are allowed."
+              title: "2. The editorial queue groups story lines",
+              body: "Related signals are clustered together, assigned a trend, emerging, or verified state, and checked for ad eligibility."
             },
             {
-              title: "3. Publishing opens feeds",
-              body: "Once the story clears guardrails, it is published to the homepage, RSS, JSON feed, and bilingual routes with hreflang."
+              title: "3. Publishing distributes the page",
+              body: "Once a story clears the guardrails, it flows into the homepage, feeds, sitemap, and bilingual routes with clear navigation."
             }
           ],
           guardrails: [
             "Trend pages stay indexable but do not render ad slots.",
             "Only qualified pages show advertising surfaces.",
-            "Store CTAs are disabled on social-only or sensitive trend stories.",
+            "Store CTAs stay light or switch off entirely on sensitive stories.",
             "Every story keeps source attribution and verification state visible."
           ],
-          endpointsLabel: "Demo feeds and endpoints",
-          matrixLabel: "Content distribution"
+          endpointsLabel: "Newsroom feeds and endpoints",
+          matrixLabel: "Desk coverage mix"
         };
 
   const contentMatrix = Object.keys(state.contentTypeMeta).map((type) => ({
@@ -269,8 +388,53 @@ export function getWorkflowData(state, language) {
       `/${language}/feed.json`,
       `/${language}/feed.xml`,
       `/api/newsroom/overview?lang=${language}`,
-      `/api/newsroom/radar?lang=${language}`
+      `/api/newsroom/radar?lang=${language}`,
+      `/api/newsroom/live?lang=${language}`
     ]
+  };
+}
+
+export function getLiveDeskData(state, language) {
+  const localized = getArticlesForLanguage(state, language);
+  const refreshedAt = state.runtime.generatedAt;
+  const editor = state.runtime.editor;
+  const cards =
+    language === "vi"
+      ? [
+          { id: "refreshed", label: "Làm mới lúc", value: formatTimeOnly(language, refreshedAt) },
+          { id: "status", label: "Tình trạng bàn tin", value: state.runtime.statusLabel.vi },
+          {
+            id: "watch",
+            label: "Bài đang theo dõi",
+            value: String(localized.filter((article) => article.verification_state !== "verified").length)
+          },
+          { id: "editor", label: "Biên tập trực", value: editor.name }
+        ]
+      : [
+          { id: "refreshed", label: "Refreshed", value: formatTimeOnly(language, refreshedAt) },
+          { id: "status", label: "Desk status", value: state.runtime.statusLabel.en },
+          {
+            id: "watch",
+            label: "Stories under watch",
+            value: String(localized.filter((article) => article.verification_state !== "verified").length)
+          },
+          { id: "editor", label: "Editor on duty", value: editor.name }
+        ];
+
+  return {
+    refreshedAt,
+    nextRefreshAt: state.runtime.nextRefreshAt,
+    refreshIntervalMs: state.runtime.refreshIntervalMs,
+    refreshedLabel: language === "vi" ? "Cập nhật tự động" : "Auto refresh",
+    nextRefreshLabel: language === "vi" ? "Lượt quét tiếp theo" : "Next refresh",
+    cards,
+    ticker: localized.slice(0, 5).map((article) => ({
+      href: article.href,
+      title: article.title,
+      topic: article.topic_label,
+      verification_label: VERIFICATION_META[article.verification_state].labels[language],
+      updated_text: formatRelativeFrom(refreshedAt, article.updated_at, language)
+    }))
   };
 }
 
@@ -278,11 +442,11 @@ export function getDashboardData(state, language) {
   const localized = getArticlesForLanguage(state, language);
   const headlineCards = [
     {
-      label: language === "vi" ? "Stories live" : "Stories live",
+      label: language === "vi" ? "Bài đang live" : "Stories live",
       value: localized.length
     },
     {
-      label: language === "vi" ? "Ads ready" : "Ads ready",
+      label: language === "vi" ? "Trang đủ ads" : "Ads ready",
       value: localized.filter((article) => article.ad_eligible).length
     },
     {
@@ -290,7 +454,7 @@ export function getDashboardData(state, language) {
       value: localized.filter((article) => article.verification_state === "trend").length
     },
     {
-      label: language === "vi" ? "Topics active" : "Topics active",
+      label: language === "vi" ? "Chuyên mục active" : "Topics active",
       value: new Set(localized.map((article) => article.topic)).size
     }
   ];
@@ -306,15 +470,15 @@ export function getDashboardData(state, language) {
     action:
       article.verification_state === "trend"
         ? language === "vi"
-          ? "Chờ corroboration"
-          : "Wait for corroboration"
+          ? "Chờ xác nhận thêm"
+          : "Waiting for stronger confirmation"
         : article.verification_state === "emerging"
           ? language === "vi"
             ? "Theo dõi để nâng hạng"
             : "Track for upgrade"
           : language === "vi"
-            ? "Đang xuất bản"
-            : "Publishing"
+            ? "Đang phân phối"
+            : "Distributing"
   }));
 
   const statusBoard = ["verified", "emerging", "trend"].map((status) => ({
@@ -367,7 +531,7 @@ export function getNewsroomMetrics(state, language) {
     verifiedCount: localized.filter((article) => article.verification_state === "verified").length,
     trendCount: localized.filter((article) => article.verification_state === "trend").length,
     emergingCount: localized.filter((article) => article.verification_state === "emerging").length,
-    label: language === "vi" ? "Tình trạng OpenClaw" : "OpenClaw Radar"
+    label: language === "vi" ? "Tình trạng bàn tin" : "Desk status"
   };
 }
 
@@ -421,8 +585,8 @@ export function getFooterLinks(language) {
       label: language === "vi" ? "Chính sách biên tập" : "Editorial Policy"
     },
     {
-      href: `/${language}/ai-content-policy`,
-      label: language === "vi" ? "Chính sách nội dung AI" : "AI Content Policy"
+      href: `/${language}/publishing-standards`,
+      label: language === "vi" ? "Nguyên tắc xuất bản" : "Publishing Standards"
     },
     {
       href: `/${language}/corrections`,
@@ -530,6 +694,7 @@ export function buildJsonFeed(state, language) {
       url: `${state.site.siteUrl}${article.href}`,
       title: article.title,
       summary: article.summary,
+      image: article.hero_image?.url,
       content_text: [article.summary, ...article.sections.map((section) => `${section.heading}\n${section.body}`)].join("\n\n"),
       date_published: new Date(article.published_at).toISOString(),
       date_modified: new Date(article.updated_at || article.published_at).toISOString(),
@@ -604,11 +769,73 @@ export function buildHumanSitemap(state, language) {
   return groups;
 }
 
+export function buildStoryArtSvg(state, clusterId, language = "vi") {
+  const article =
+    state.articles.find((entry) => entry.cluster_id === clusterId && entry.language === language) ||
+    state.articles.find((entry) => entry.cluster_id === clusterId) ||
+    state.articles[0];
+
+  if (!article) {
+    return buildFallbackArtSvg();
+  }
+
+  const visual = article.hero_image.meta;
+  const [primary, secondary, deep] = visual.palette;
+  const kicker = visual.kicker?.[language] || article.topic_label;
+  const caption = visual.caption?.[language] || article.summary;
+  const titleLines = wrapText(article.title, 20, 3);
+  const summaryLines = wrapText(article.summary, 44, 2);
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">${escapeXml(article.title)}</title>
+  <desc id="desc">${escapeXml(caption)}</desc>
+  <defs>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="${secondary}" />
+      <stop offset="100%" stop-color="#fffaf2" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="${primary}" />
+      <stop offset="100%" stop-color="${deep}" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="${deep}" flood-opacity="0.16" />
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="#efe8da" />
+  <circle cx="200" cy="180" r="170" fill="${secondary}" opacity="0.8" />
+  <circle cx="1390" cy="120" r="110" fill="${primary}" opacity="0.14" />
+  <circle cx="1480" cy="870" r="180" fill="${secondary}" opacity="0.65" />
+  <rect x="48" y="48" width="1504" height="904" rx="44" fill="url(#card)" filter="url(#shadow)" />
+  <rect x="92" y="94" width="670" height="812" rx="32" fill="#fffdf7" opacity="0.94" />
+  <text x="126" y="142" fill="${primary}" font-family="'Manrope', Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6">PATRICK TECH MEDIA</text>
+  <text x="126" y="190" fill="${deep}" font-family="'Manrope', Arial, sans-serif" font-size="22" font-weight="700">${escapeXml(kicker)}</text>
+  <text x="126" y="270" fill="#13221c" font-family="'Cormorant Garamond', Georgia, serif" font-size="86" font-weight="700">
+    ${titleLines.map((line, index) => `<tspan x="126" dy="${index === 0 ? 0 : 86}">${escapeXml(line)}</tspan>`).join("")}
+  </text>
+  <text x="126" y="625" fill="#40524a" font-family="'Source Serif 4', Georgia, serif" font-size="28">
+    ${summaryLines.map((line, index) => `<tspan x="126" dy="${index === 0 ? 0 : 36}">${escapeXml(line)}</tspan>`).join("")}
+  </text>
+  <rect x="126" y="738" width="228" height="50" rx="25" fill="${primary}" />
+  <text x="154" y="772" fill="#fffdf7" font-family="'Manrope', Arial, sans-serif" font-size="22" font-weight="700">${escapeXml(article.topic_label)}</text>
+  <text x="126" y="840" fill="#57675f" font-family="'Manrope', Arial, sans-serif" font-size="22">${escapeXml(caption)}</text>
+  <g transform="translate(930 176)">
+    <rect x="0" y="0" width="542" height="648" rx="38" fill="url(#accent)" opacity="0.12" />
+    <rect x="38" y="42" width="466" height="564" rx="34" fill="#fffdf8" opacity="0.9" />
+    ${getMotifMarkup(visual.motif, { primary, secondary, deep })}
+  </g>
+  <rect x="930" y="860" width="390" height="54" rx="27" fill="#fffdf8" />
+  <text x="966" y="895" fill="${deep}" font-family="'Manrope', Arial, sans-serif" font-size="22" font-weight="700">${escapeXml(VERIFICATION_META[article.verification_state].labels[language])}</text>
+</svg>`;
+}
+
 function enrichArticle(article, { siteUrl, storeUrl }) {
   return {
     ...article,
     canonicalUrl: `${siteUrl}${article.href}`,
     storeUrl,
+    hero_image: buildStoryVisual(article, siteUrl),
     editorial_label: article.show_editorial_label
       ? VERIFICATION_META[article.verification_state].labels[article.language]
       : null
@@ -675,6 +902,239 @@ function dedupeEntries(entries) {
   }
 
   return [...map.values()].sort((left, right) => left.href.localeCompare(right.href));
+}
+
+function buildRuntime(now, authors) {
+  const statusIndex = now.getMinutes() % 3;
+  const statusLabel =
+    statusIndex === 0
+      ? { vi: "Đang quét nguồn", en: "Scanning sources" }
+      : statusIndex === 1
+        ? { vi: "Đang làm mới headline", en: "Refreshing headlines" }
+        : { vi: "Đang đẩy feed", en: "Refreshing feeds" };
+
+  return {
+    generatedAt: now.toISOString(),
+    nextRefreshAt: new Date(now.getTime() + LIVE_REFRESH_MS).toISOString(),
+    refreshIntervalMs: LIVE_REFRESH_MS,
+    editor: authors[now.getMinutes() % authors.length] || authors[0],
+    statusLabel
+  };
+}
+
+function buildStoryVisual(article, siteUrl) {
+  const meta = STORY_VISUALS[article.cluster_id] || {
+    motif: "newsdesk",
+    palette: [article.topic_accent || "#0f7f54", "#f5e4c8", "#14231d"],
+    kicker: { vi: article.topic_label, en: article.topic_label },
+    caption: {
+      vi: "Ảnh bìa theo chuyên mục bài viết.",
+      en: "Cover art aligned with the story topic."
+    }
+  };
+  const src = `/media/story/${article.cluster_id}.svg?lang=${article.language}`;
+  return {
+    src,
+    url: `${siteUrl}${src}`,
+    alt:
+      article.language === "vi"
+        ? `Ảnh bìa cho bài: ${article.title}`
+        : `Cover image for: ${article.title}`,
+    caption: meta.caption[article.language] || article.summary,
+    credit: "Patrick Tech Media",
+    meta
+  };
+}
+
+function getMotifMarkup(motif, colors) {
+  const { primary, secondary, deep } = colors;
+
+  if (motif === "assistant") {
+    return `
+      <circle cx="266" cy="118" r="54" fill="${secondary}" />
+      <rect x="180" y="206" width="176" height="182" rx="34" fill="${primary}" />
+      <rect x="208" y="236" width="120" height="104" rx="22" fill="#fffdf8" />
+      <circle cx="244" cy="288" r="12" fill="${deep}" />
+      <circle cx="292" cy="288" r="12" fill="${deep}" />
+      <path d="M224 330 C246 350, 290 350, 312 330" fill="none" stroke="${deep}" stroke-width="10" stroke-linecap="round" />
+      <path d="M164 440 C244 392, 288 392, 370 440" fill="none" stroke="${primary}" stroke-width="30" stroke-linecap="round" />
+    `;
+  }
+
+  if (motif === "battery") {
+    return `
+      <rect x="156" y="204" width="224" height="330" rx="42" fill="${deep}" />
+      <rect x="226" y="160" width="84" height="34" rx="16" fill="${deep}" />
+      <rect x="182" y="232" width="172" height="274" rx="28" fill="#fffdf8" />
+      <rect x="210" y="400" width="116" height="78" rx="22" fill="${primary}" />
+      <path d="M278 270 L228 362 H278 L248 440" fill="none" stroke="${primary}" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
+    `;
+  }
+
+  if (motif === "handheld") {
+    return `
+      <rect x="102" y="252" width="332" height="200" rx="52" fill="${deep}" />
+      <rect x="166" y="286" width="204" height="132" rx="28" fill="#fffdf8" />
+      <circle cx="156" cy="354" r="26" fill="${primary}" />
+      <circle cx="382" cy="354" r="26" fill="${primary}" />
+      <circle cx="410" cy="322" r="10" fill="${secondary}" />
+      <circle cx="438" cy="354" r="10" fill="${secondary}" />
+      <circle cx="410" cy="386" r="10" fill="${secondary}" />
+    `;
+  }
+
+  if (motif === "workspace") {
+    return `
+      <rect x="122" y="180" width="292" height="210" rx="28" fill="${primary}" />
+      <rect x="154" y="212" width="228" height="146" rx="20" fill="#fffdf8" />
+      <rect x="176" y="242" width="184" height="16" rx="8" fill="${secondary}" />
+      <rect x="176" y="274" width="126" height="16" rx="8" fill="${secondary}" />
+      <rect x="186" y="426" width="164" height="24" rx="12" fill="${deep}" />
+      <rect x="148" y="450" width="238" height="24" rx="12" fill="${deep}" opacity="0.6" />
+    `;
+  }
+
+  if (motif === "phone") {
+    return `
+      <rect x="186" y="142" width="164" height="376" rx="38" fill="${deep}" />
+      <rect x="206" y="170" width="124" height="320" rx="26" fill="#fffdf8" />
+      <circle cx="268" cy="454" r="10" fill="${primary}" />
+      <rect x="232" y="212" width="72" height="14" rx="7" fill="${secondary}" />
+      <rect x="232" y="246" width="86" height="86" rx="24" fill="${primary}" />
+      <rect x="232" y="352" width="62" height="12" rx="6" fill="${secondary}" />
+      <rect x="232" y="378" width="96" height="12" rx="6" fill="${secondary}" />
+    `;
+  }
+
+  if (motif === "newsdesk") {
+    return `
+      <rect x="118" y="148" width="314" height="390" rx="34" fill="#fffdf8" stroke="${primary}" stroke-width="12" />
+      <rect x="160" y="206" width="230" height="18" rx="9" fill="${secondary}" />
+      <rect x="160" y="242" width="168" height="18" rx="9" fill="${secondary}" />
+      <rect x="160" y="306" width="230" height="16" rx="8" fill="${primary}" opacity="0.8" />
+      <rect x="160" y="338" width="230" height="16" rx="8" fill="${primary}" opacity="0.55" />
+      <rect x="160" y="370" width="198" height="16" rx="8" fill="${primary}" opacity="0.32" />
+      <circle cx="376" cy="456" r="46" fill="${primary}" />
+      <rect x="160" y="444" width="174" height="18" rx="9" fill="${secondary}" />
+    `;
+  }
+
+  if (motif === "notes") {
+    return `
+      <rect x="152" y="142" width="232" height="388" rx="30" fill="#fffdf8" stroke="${primary}" stroke-width="12" />
+      <rect x="186" y="198" width="164" height="18" rx="9" fill="${secondary}" />
+      <rect x="186" y="236" width="128" height="18" rx="9" fill="${secondary}" />
+      <path d="M188 314 L224 350 L350 224" fill="none" stroke="${primary}" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
+      <rect x="186" y="404" width="164" height="16" rx="8" fill="${primary}" opacity="0.42" />
+      <rect x="186" y="436" width="120" height="16" rx="8" fill="${primary}" opacity="0.24" />
+    `;
+  }
+
+  if (motif === "comparison") {
+    return `
+      <rect x="110" y="186" width="132" height="308" rx="28" fill="${primary}" />
+      <rect x="258" y="142" width="132" height="352" rx="28" fill="${secondary}" />
+      <rect x="406" y="228" width="72" height="266" rx="22" fill="${deep}" />
+      <circle cx="176" cy="450" r="18" fill="#fffdf8" />
+      <circle cx="324" cy="450" r="18" fill="${deep}" />
+      <circle cx="442" cy="450" r="14" fill="#fffdf8" />
+    `;
+  }
+
+  if (motif === "laptop") {
+    return `
+      <rect x="132" y="162" width="304" height="220" rx="28" fill="${deep}" />
+      <rect x="162" y="192" width="244" height="160" rx="18" fill="#fffdf8" />
+      <rect x="104" y="392" width="360" height="34" rx="17" fill="${primary}" />
+      <rect x="180" y="232" width="210" height="18" rx="9" fill="${secondary}" />
+      <rect x="180" y="270" width="148" height="18" rx="9" fill="${secondary}" />
+      <circle cx="370" cy="288" r="28" fill="${primary}" opacity="0.28" />
+    `;
+  }
+
+  if (motif === "shield") {
+    return `
+      <path d="M270 132 L392 176 V310 C392 398, 338 470, 270 514 C202 470, 148 398, 148 310 V176 Z" fill="${primary}" />
+      <path d="M270 184 L342 210 V304 C342 360, 310 412, 270 444 C230 412, 198 360, 198 304 V210 Z" fill="#fffdf8" />
+      <path d="M228 320 L256 348 L316 276" fill="none" stroke="${deep}" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
+    `;
+  }
+
+  if (motif === "network") {
+    return `
+      <circle cx="170" cy="214" r="34" fill="${primary}" />
+      <circle cx="382" cy="214" r="34" fill="${primary}" />
+      <circle cx="276" cy="406" r="38" fill="${deep}" />
+      <path d="M204 234 L348 234" fill="none" stroke="${secondary}" stroke-width="18" stroke-linecap="round" />
+      <path d="M196 244 L258 372" fill="none" stroke="${secondary}" stroke-width="18" stroke-linecap="round" />
+      <path d="M356 244 L294 372" fill="none" stroke="${secondary}" stroke-width="18" stroke-linecap="round" />
+      <circle cx="276" cy="298" r="22" fill="#fffdf8" />
+    `;
+  }
+
+  return `
+    <circle cx="276" cy="276" r="148" fill="${secondary}" />
+    <circle cx="276" cy="276" r="92" fill="${primary}" opacity="0.4" />
+    <circle cx="276" cy="276" r="38" fill="${deep}" />
+  `;
+}
+
+function buildFallbackArtSvg() {
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#f5efe5" />
+  <rect x="60" y="60" width="1480" height="880" rx="40" fill="#fffdf8" />
+  <text x="120" y="180" fill="#0f7f54" font-family="Arial, sans-serif" font-size="34" font-weight="700">PATRICK TECH MEDIA</text>
+</svg>`;
+}
+
+function wrapText(value, maxLength, maxLines) {
+  const words = String(value).split(/\s+/).filter(Boolean);
+  const lines = [];
+  let current = "";
+  let consumed = 0;
+
+  for (const word of words) {
+    const next = current ? `${current} ${word}` : word;
+    if (next.length <= maxLength || !current) {
+      current = next;
+      consumed += word.length + 1;
+      continue;
+    }
+
+    lines.push(current);
+    current = word;
+    consumed += word.length + 1;
+
+    if (lines.length === maxLines - 1) {
+      break;
+    }
+  }
+
+  if (current && lines.length < maxLines) {
+    lines.push(current);
+  }
+
+  if (consumed < String(value).length && lines.length) {
+    lines[lines.length - 1] = `${lines[lines.length - 1].replace(/[.,;:!?]+$/, "")}…`;
+  }
+
+  return lines;
+}
+
+function formatTimeOnly(language, dateString) {
+  return TIME_ONLY_FORMATTERS[language].format(new Date(dateString));
+}
+
+function formatRelativeFrom(baseDate, targetDate, language) {
+  const deltaMs = Math.max(0, new Date(baseDate).getTime() - new Date(targetDate).getTime());
+  const minutes = Math.max(1, Math.round(deltaMs / 60_000));
+
+  if (minutes <= 1) {
+    return language === "vi" ? "vừa cập nhật" : "just updated";
+  }
+
+  return language === "vi" ? `${minutes} phút trước` : `${minutes} minutes ago`;
 }
 
 function sortByDateDesc(left, right) {

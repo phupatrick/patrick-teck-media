@@ -1,12 +1,12 @@
-# Patrick Teck Media
+# Patrick Tech Media
 
-Patrick Teck Media is a lightweight Node newsroom for a bilingual `VI/EN` tech media site. It ships with:
+Patrick Tech Media is a lightweight Node newsroom for a bilingual `VI/EN` tech media site. It ships with:
 
-- OpenClaw-first editorial model and sample content
+- editorial-first sample content and a more magazine-style presentation
 - verification states: `trend`, `emerging`, `verified`
 - ad guardrails so `trend` pages stay indexable but do not render ads
 - bilingual article routes under `/vi/...` and `/en/...`
-- topic pages, authors, policy pages, human sitemap, `sitemap.xml`, and `robots.txt`
+- article cover artwork, live desk refresh, topic pages, authors, policy pages, human sitemap, `sitemap.xml`, and `robots.txt`
 
 ## Run locally
 
@@ -23,8 +23,8 @@ npm start
 
 ```env
 PORT=3000
-SITE_URL=https://patrickteck.media
-PATRICK_TECH_STORE_URL=https://store.patrickteck.media
+SITE_URL=https://patricktech.media
+PATRICK_TECH_STORE_URL=https://store.patricktech.media
 GOOGLE_ADSENSE_CLIENT=
 GOOGLE_ADSENSE_SLOT_HERO=
 GOOGLE_ADSENSE_SLOT_INLINE=
@@ -57,6 +57,7 @@ If AdSense values are empty, the site renders clearly marked reserved ad placeho
 - `/api/newsroom/articles?lang=vi`
 - `/api/newsroom/radar?lang=vi`
 - `/api/newsroom/dashboard?lang=vi`
+- `/api/newsroom/live?lang=vi`
 
 ## Test
 

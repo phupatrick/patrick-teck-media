@@ -4,6 +4,7 @@ import { createServer } from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  buildStoryArtSvg,
   buildHumanSitemap,
   buildNewsroomState,
   buildJsonFeed,
@@ -40,8 +41,8 @@ const envFromFile = loadEnvFile(path.join(__dirname, ".env"));
 
 const config = {
   port: Number(process.env.PORT || envFromFile.PORT || 3000),
-  siteUrl: process.env.SITE_URL || envFromFile.SITE_URL || "https://patrickteck.media",
-  storeUrl: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://store.patrickteck.media",
+  siteUrl: process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktech.media",
+  storeUrl: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://store.patricktech.media",
   adsenseClient: process.env.GOOGLE_ADSENSE_CLIENT || envFromFile.GOOGLE_ADSENSE_CLIENT || "",
   adsenseSlots: {
     hero: process.env.GOOGLE_ADSENSE_SLOT_HERO || envFromFile.GOOGLE_ADSENSE_SLOT_HERO || "",
@@ -64,14 +65,22 @@ const adsConfig = {
   slots: { ...config.adsenseSlots }
 };
 
-const state = buildState();
+let cachedState = buildState();
+let cachedAt = Date.now();
 const server = createServer(async (req, res) => {
   try {
     const requestUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
     const pathname = decodeURIComponent(requestUrl.pathname);
+    const state = getState();
 
     if (pathname.startsWith("/api/")) {
-      return handleApi(pathname, requestUrl, res);
+      return handleApi(pathname, requestUrl, res, state);
+    }
+
+    if (pathname.startsWith("/media/story/") && pathname.endsWith(".svg")) {
+      const clusterId = pathname.slice("/media/story/".length, -".svg".length);
+      const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
+      return sendText(res, 200, buildStoryArtSvg(state, clusterId, language), "image/svg+xml; charset=utf-8");
     }
 
     if (pathname === "/") {
@@ -168,7 +177,7 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(config.port, () => {
-  console.log(`Patrick Teck Media is running at http://localhost:${config.port}`);
+  console.log(`Patrick Tech Media is running at http://localhost:${config.port}`);
 });
 
 export { server, buildState };
@@ -176,7 +185,8 @@ export { server, buildState };
 function buildState() {
   const newsroom = buildNewsroomState({
     siteUrl: config.siteUrl,
-    storeUrl: config.storeUrl
+    storeUrl: config.storeUrl,
+    now: new Date().toISOString()
   });
 
   newsroom.home = {
@@ -197,6 +207,15 @@ function buildState() {
   };
 
   return newsroom;
+}
+
+function getState() {
+  if (Date.now() - cachedAt > 30_000) {
+    cachedState = buildState();
+    cachedAt = Date.now();
+  }
+
+  return cachedState;
 }
 
 async function tryStatic(pathname, res) {
@@ -224,7 +243,7 @@ async function tryStatic(pathname, res) {
   }
 }
 
-function handleApi(pathname, requestUrl, res) {
+function handleApi(pathname, requestUrl, res, state) {
   if (pathname === "/api/newsroom/overview") {
     const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
     const home = state.home[language];
@@ -262,6 +281,11 @@ function handleApi(pathname, requestUrl, res) {
   if (pathname === "/api/newsroom/dashboard") {
     const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
     return sendJson(res, 200, state.dashboard[language]);
+  }
+
+  if (pathname === "/api/newsroom/live") {
+    const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
+    return sendJson(res, 200, state.home[language].liveDesk);
   }
 
   return sendJson(res, 404, { error: "Not found." });

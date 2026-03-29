@@ -41,7 +41,8 @@ const tests = [
       assert.equal(article.verification_state, "verified");
       assert.equal(article.ad_eligible, true);
       assert.match(html, /Reserved for Google AdSense/);
-      assert.match(html, /hreflang="vi" href="https:\/\/patrickteck\.media\/vi\/tin-tuc\/viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang"/);
+      assert.match(html, /hreflang="vi" href="https:\/\/patricktech\.media\/vi\/tin-tuc\/viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang"/);
+      assert.match(html, /media\/story\/viettel-edge-ai-pilot\.svg\?lang=en/);
     }
   },
   {
@@ -58,12 +59,21 @@ const tests = [
     name: "emits bilingual sitemap entries with hreflang links",
     run() {
       const xml = buildSitemapXml(state);
-      assert.match(xml, /<loc>https:\/\/patrickteck\.media\/vi\//);
-      assert.match(xml, /<loc>https:\/\/patrickteck\.media\/en\//);
+      assert.match(xml, /<loc>https:\/\/patricktech\.media\/vi\//);
+      assert.match(xml, /<loc>https:\/\/patricktech\.media\/en\//);
       assert.match(xml, /hreflang="vi"/);
       assert.match(xml, /hreflang="en"/);
       assert.match(xml, /viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang/);
       assert.match(xml, /viettel-pilots-edge-ai-assistant-for-field-sales-teams/);
+    }
+  },
+  {
+    name: "home data exposes a live desk payload for continuous refresh",
+    run() {
+      const home = getHomeData(state, "vi");
+      assert.equal(home.liveDesk.cards.length, 4);
+      assert.ok(home.liveDesk.ticker.length > 0);
+      assert.ok(home.liveDesk.refreshIntervalMs > 0);
     }
   },
   {
@@ -108,8 +118,8 @@ if (failed > 0) {
 
 function createState() {
   const newsroom = buildNewsroomState({
-    siteUrl: "https://patrickteck.media",
-    storeUrl: "https://store.patrickteck.media"
+    siteUrl: "https://patricktech.media",
+    storeUrl: "https://store.patricktech.media"
   });
   newsroom.home = {
     vi: getHomeData(newsroom, "vi"),

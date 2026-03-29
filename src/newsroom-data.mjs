@@ -121,34 +121,34 @@ const STORE_ITEMS = [
 const POLICY_PAGES = [
   {
     key: "about",
-    titles: { vi: "Về Patrick Teck Media", en: "About Patrick Teck Media" },
+    titles: { vi: "Về Patrick Tech Media", en: "About Patrick Tech Media" },
     intros: {
-      vi: "Patrick Teck Media là newsroom media song ngữ theo dõi công nghệ, AI, phần mềm và hạ tầng số với góc nhìn thực tế cho người dùng Việt Nam lẫn độc giả quốc tế.",
-      en: "Patrick Teck Media is a bilingual newsroom following technology, AI, software, and digital infrastructure with a practical lens for Vietnam and global readers."
+      vi: "Patrick Tech Media là toà soạn số song ngữ theo dõi công nghệ, phần mềm, thiết bị và đời sống Internet với nhịp đưa tin gọn, rõ và dễ đọc cho độc giả Việt Nam lẫn quốc tế.",
+      en: "Patrick Tech Media is a bilingual digital newsroom covering technology, software, devices, and internet culture with a clear, practical reading experience for Vietnam and global audiences."
     },
     sections: {
       vi: [
         {
           heading: "Chúng tôi làm gì",
           body:
-            "Site kết hợp quét tín hiệu từ OpenClaw với biên tập cấu trúc để tạo ra tin nhanh, bài so sánh, bài evergreen và roundup. Mục tiêu là giúp độc giả hiểu điều gì vừa xảy ra, vì sao quan trọng và nên theo dõi bước tiếp theo nào."
+            "Site tổ chức nội dung theo nhịp một newsroom hiện đại: tin nhanh khi sự kiện vừa lên sóng, bài nền để giữ bối cảnh, bài so sánh để giúp người đọc ra quyết định và các bản tổng hợp để chắt lọc tuần công nghệ."
         },
         {
           heading: "Vị trí trong hệ sinh thái Patrick Tech",
           body:
-            "Patrick Teck Media là cánh media của hệ sinh thái. Nội dung tập trung giá trị biên tập; các gợi ý sản phẩm chỉ xuất hiện khi thực sự liên quan và không chi phối trải nghiệm đọc."
+            "Patrick Tech Media là cánh media của hệ sinh thái Patrick Tech. Nội dung luôn ưu tiên giá trị biên tập; các gợi ý sản phẩm chỉ xuất hiện khi thực sự liên quan và không chi phối trải nghiệm đọc."
         }
       ],
       en: [
         {
           heading: "What We Do",
           body:
-            "The site combines OpenClaw signal gathering with structured editorial packaging to publish fast news, comparisons, evergreen explainers, and roundups. The goal is to show what happened, why it matters, and what readers should watch next."
+            "The site is organized like a modern digital desk: fast updates when news breaks, deeper context pieces for staying power, comparisons for decision-making, and weekly roundups that distill the busiest shifts."
         },
         {
           heading: "Role Inside Patrick Tech",
           body:
-            "Patrick Teck Media is the media arm of the Patrick Teck ecosystem. Editorial value comes first; product suggestions only appear when they are contextually useful."
+            "Patrick Tech Media is the media arm of the Patrick Tech ecosystem. Editorial value comes first; product suggestions only appear when they are contextually useful."
         }
       ]
     }
@@ -164,7 +164,7 @@ const POLICY_PAGES = [
       vi: [
         {
           heading: "Kênh phản hồi",
-          body: "Email biên tập: editorial@patricktech.news. Tín hiệu nguồn tin khẩn: signals@patricktech.news."
+          body: "Email biên tập: editorial@patricktech.media. Tín hiệu nguồn tin khẩn: desk@patricktech.media."
         },
         {
           heading: "Hợp tác thương hiệu",
@@ -175,7 +175,7 @@ const POLICY_PAGES = [
       en: [
         {
           heading: "Feedback Channels",
-          body: "Editorial email: editorial@patricktech.news. Urgent signal tips: signals@patricktech.news."
+          body: "Editorial email: editorial@patricktech.media. Urgent desk tips: desk@patricktech.media."
         },
         {
           heading: "Brand Partnerships",
@@ -284,35 +284,35 @@ const POLICY_PAGES = [
     }
   },
   {
-    key: "ai-content-policy",
-    titles: { vi: "Chính sách nội dung AI", en: "AI Content Policy" },
+    key: "publishing-standards",
+    titles: { vi: "Nguyên tắc xuất bản", en: "Publishing Standards" },
     intros: {
-      vi: "OpenClaw hỗ trợ phát hiện tín hiệu, gom nguồn và dựng cấu trúc bài. Nội dung xuất bản phải thêm bối cảnh, giải thích hoặc góc nhìn biên tập.",
-      en: "OpenClaw helps discover signals, gather sources, and shape article structure. Published content must add context, explanation, or editorial judgment."
+      vi: "Mỗi bài trên Patrick Tech Media cần có tóm tắt riêng, bối cảnh rõ, nguồn tham khảo minh bạch và giọng biên tập nhất quán trước khi lên trang.",
+      en: "Every story on Patrick Tech Media needs its own summary, clear context, transparent sourcing, and a consistent editorial voice before publication."
     },
     sections: {
       vi: [
         {
-          heading: "Không xuất bản kiểu scrape-rewrite",
+          heading: "Không đăng lại nguyên xi",
           body:
             "Newsroom không chủ đích sao chép cấu trúc nguyên bản của nguồn. Mỗi bài phải có phần tóm tắt riêng, giải thích tác động và khung nguồn rõ ràng."
         },
         {
-          heading: "Disclosure",
+          heading: "Giọng điệu biên tập",
           body:
-            "Một số bài nhạy cảm sẽ được gắn nhãn Trend Watch hoặc Social Pulse. Với các bài còn lại, disclosure tổng thể được giữ ở trang policy và hộp nguồn."
+            "Bài viết cần giữ giọng điệu báo chí mạch lạc, tránh phóng đại và phải cho người đọc biết điều gì đã xác nhận, điều gì còn đang được theo dõi."
         }
       ],
       en: [
         {
-          heading: "No Scrape-and-Rewrite Publishing",
+          heading: "No Mirror Publishing",
           body:
             "The newsroom does not intentionally mirror source structure. Every story needs its own summary, impact framing, and a clear source box."
         },
         {
-          heading: "Disclosure",
+          heading: "Editorial voice",
           body:
-            "Some sensitive stories carry labels such as Trend Watch or Social Pulse. Broader disclosure remains available through the policy page and source box."
+            "Stories should keep a clean, journalistic tone, avoid overclaiming, and make it clear which facts are confirmed and which details remain under watch."
         }
       ]
     }
@@ -824,7 +824,7 @@ const CLUSTERS = [
     source_set: [
       {
         source_type: "internal-roundup",
-        source_name: "Patrick Tech Newsroom",
+        source_name: "Patrick Tech Media Desk",
         source_url: "https://example.com/internal-roundup-source",
         region: "VN",
         language: "vi",
@@ -834,8 +834,8 @@ const CLUSTERS = [
     ],
     content: {
       vi: {
-        slug: "ban-tin-cuoi-tuan-openclaw-viet-nam-va-the-gioi",
-        title: "Bản tin cuối tuần: OpenClaw bắt nhịp công nghệ Việt Nam và thế giới",
+        slug: "ban-tin-cong-nghe-cuoi-tuan-viet-nam-va-the-gioi",
+        title: "Bản tin cuối tuần: nhịp công nghệ Việt Nam và thế giới",
         summary:
           "Roundup này gom những chuyển động đáng theo dõi nhất trong tuần từ AI, thiết bị, app làm việc đến các tín hiệu social đang nổi lên nhanh.",
         dek:
@@ -859,8 +859,8 @@ const CLUSTERS = [
         ]
       },
       en: {
-        slug: "the-weekly-brief-how-openclaw-reads-vietnam-and-global-tech-signals",
-        title: "The weekly brief: how OpenClaw reads Vietnam and global tech signals",
+        slug: "the-weekly-brief-vietnam-and-global-tech-moves",
+        title: "The weekly brief: Vietnam and global tech moves",
         summary:
           "This roundup packages the week’s most useful shifts across AI, devices, work apps, and fast social signals instead of treating every headline as equally important.",
         dek:

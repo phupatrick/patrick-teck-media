@@ -53,20 +53,24 @@ export function renderHomePage(state, language, adsConfig) {
               <span>${copy.trendStories}</span>
             </article>
           </div>
+          ${renderLiveDesk(home.liveDesk, language, copy)}
         </aside>
       </section>
 
       <section class="featured-split">
         <article class="featured-story topic-${home.featured.topic}">
-          <div class="story-meta-line">
-            <span class="pill">${escapeHtml(home.featured.content_type_label)}</span>
-            <span>${escapeHtml(home.featured.topic_label)}</span>
-            <span>${escapeHtml(formatPublishDate(language, home.featured.published_at))}</span>
+          ${renderStoryImage(home.featured, "featured-media", true)}
+          <div class="featured-copy">
+            <div class="story-meta-line">
+              <span class="pill">${escapeHtml(home.featured.content_type_label)}</span>
+              <span>${escapeHtml(home.featured.topic_label)}</span>
+              <span>${escapeHtml(formatPublishDate(language, home.featured.published_at))}</span>
+            </div>
+            <h2><a href="${home.featured.href}">${escapeHtml(home.featured.title)}</a></h2>
+            <p class="story-dek">${escapeHtml(home.featured.dek)}</p>
+            <p class="story-summary">${escapeHtml(home.featured.summary)}</p>
+            <a class="read-link" href="${home.featured.href}">${copy.readStory}</a>
           </div>
-          <h2><a href="${home.featured.href}">${escapeHtml(home.featured.title)}</a></h2>
-          <p class="story-dek">${escapeHtml(home.featured.dek)}</p>
-          <p class="story-summary">${escapeHtml(home.featured.summary)}</p>
-          <a class="read-link" href="${home.featured.href}">${copy.readStory}</a>
         </article>
 
         <aside class="briefing-rail">
@@ -496,7 +500,7 @@ export function renderTopicPage(state, language, topicPage, adsConfig) {
     path: `/${language}/topics/${topicPage.slug}`,
     adsConfig,
     title: `${topicPage.label} | ${state.site.name}`,
-    description: language === "vi" ? `Chuyên mục ${topicPage.label} của Patrick Teck Media.` : `${topicPage.label} coverage from Patrick Teck Media.`,
+    description: language === "vi" ? `Chuyên mục ${topicPage.label} của Patrick Tech Media.` : `${topicPage.label} coverage from Patrick Tech Media.`,
     content: `
       <section class="simple-hero" style="--topic-accent:${topicPage.accent}">
         <p class="eyebrow">${copy.topicLabel}</p>
@@ -524,6 +528,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
     datePublished: article.published_at,
     dateModified: article.updated_at,
     mainEntityOfPage: article.canonicalUrl,
+    image: article.hero_image?.url,
     author: { "@type": "Person", name: article.author.name },
     publisher: {
       "@type": "Organization",
@@ -561,6 +566,11 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
             <span>${escapeHtml(verification.description)}</span>
           </div>
         </header>
+
+        <figure class="article-hero-media">
+          <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="eager" />
+          <figcaption>${escapeHtml(article.hero_image.caption)} <span>${escapeHtml(article.hero_image.credit)}</span></figcaption>
+        </figure>
 
         <div class="article-layout">
           <div class="article-content">
@@ -790,7 +800,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     <div class="site-shell">
       <header class="topbar">
         <a class="brand-lockup" href="${homePath}">
-          <span class="brand-kicker">Patrick Teck</span>
+          <span class="brand-kicker">Patrick Tech</span>
           <strong>${state.site.name}</strong>
         </a>
         <nav class="nav-strip" aria-label="Primary">
@@ -825,6 +835,7 @@ function renderStoryCard(article, language) {
   const searchIndex = [article.title, article.summary, article.topic_label, article.verification_state].join(" ").toLowerCase();
   return `
     <article class="story-card topic-${article.topic}" data-story-card data-status="${article.verification_state}" data-topic="${article.topic}" data-search="${escapeHtml(searchIndex)}">
+      ${renderStoryImage(article, "story-media")}
       <div class="story-meta-line">
         <span class="pill">${escapeHtml(article.content_type_label)}</span>
         <span>${escapeHtml(article.topic_label)}</span>
@@ -843,14 +854,73 @@ function renderStoryCard(article, language) {
 function renderStackItem(article, language, withBadge) {
   return `
     <article class="stack-item">
-      <div class="stack-topline">
-        <span>${escapeHtml(article.topic_label)}</span>
-        ${withBadge && article.editorial_label ? `<span>${escapeHtml(article.editorial_label)}</span>` : ""}
+      <div class="stack-row">
+        ${renderStoryImage(article, "stack-media")}
+        <div class="stack-copy">
+          <div class="stack-topline">
+            <span>${escapeHtml(article.topic_label)}</span>
+            ${withBadge && article.editorial_label ? `<span>${escapeHtml(article.editorial_label)}</span>` : ""}
+          </div>
+          <a href="${article.href}">${escapeHtml(article.title)}</a>
+          <p>${escapeHtml(article.summary)}</p>
+          <span class="stack-date">${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+        </div>
       </div>
-      <a href="${article.href}">${escapeHtml(article.title)}</a>
-      <p>${escapeHtml(article.summary)}</p>
-      <span class="stack-date">${escapeHtml(formatPublishDate(language, article.published_at))}</span>
     </article>
+  `;
+}
+
+function renderStoryImage(article, className, eager = false) {
+  return `
+    <figure class="${className}">
+      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="${eager ? "eager" : "lazy"}" />
+    </figure>
+  `;
+}
+
+function renderLiveDesk(liveDesk, language, copy) {
+  return `
+    <section class="live-desk" data-live-desk data-lang="${language}">
+      <div class="live-desk-head">
+        <div>
+          <p class="rail-label">${copy.liveLabel}</p>
+          <h3>${copy.liveTitle}</h3>
+        </div>
+        <span class="live-ping"></span>
+      </div>
+      <p class="live-refresh-line">
+        <strong>${copy.liveRefreshLabel}</strong>
+        <span data-live-refreshed>${escapeHtml(liveDesk.cards[0].value)}</span>
+        <span class="live-separator">•</span>
+        <strong>${copy.liveNextLabel}</strong>
+        <span data-live-next>${escapeHtml(new Date(liveDesk.nextRefreshAt).toLocaleTimeString(language === "vi" ? "vi-VN" : "en-US", { hour: "2-digit", minute: "2-digit" }))}</span>
+      </p>
+      <div class="live-grid">
+        ${liveDesk.cards
+          .map(
+            (card) => `
+              <article class="live-card">
+                <span>${escapeHtml(card.label)}</span>
+                <strong data-live-card="${card.id}">${escapeHtml(card.value)}</strong>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+      <div class="live-ticker" data-live-ticker>
+        ${liveDesk.ticker
+          .map(
+            (item) => `
+              <a class="live-item" href="${item.href}">
+                <span>${escapeHtml(item.topic)}</span>
+                <strong>${escapeHtml(item.title)}</strong>
+                <em>${escapeHtml(item.updated_text)}</em>
+              </a>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
   `;
 }
 
@@ -910,14 +980,18 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
 function getCopy(language) {
   if (language === "vi") {
     return {
-      homeTitle: "OpenClaw-first newsroom cho Việt Nam và thế giới",
-      eyebrow: "Newsroom song ngữ",
-      heroTitle: "Tin công nghệ chạy bằng tín hiệu OpenClaw, nhưng vẫn giữ kỷ luật editorial.",
+      homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
+      eyebrow: "Toà soạn song ngữ",
+      heroTitle: "Tin công nghệ với giọng biên tập rõ ràng và nhịp cập nhật liên tục.",
       heroText:
-        "Patrick Teck Media gom tín hiệu từ social, web và nguồn chính thống để tạo ra một newsroom ưu tiên tốc độ, vẫn giữ cờ xác minh và chỉ bật quảng cáo khi bài đạt điều kiện.",
-      badgeSignals: "Quét social + web",
-      badgeAds: "Trend index, ads off",
+        "Patrick Tech Media theo dõi công nghệ, ứng dụng, thiết bị và đời sống Internet bằng cấu trúc một newsroom số: lên bài nhanh, trình bày gọn và giữ nhịp đọc mạch lạc.",
+      badgeSignals: "Việt Nam + thế giới",
+      badgeAds: "Bố cục sạch, đọc dễ",
       badgeBilingual: "Song ngữ VI/EN",
+      liveLabel: "Live desk",
+      liveTitle: "Nhịp cập nhật newsroom",
+      liveRefreshLabel: "Làm mới",
+      liveNextLabel: "Tiếp theo",
       clusters: "cụm chủ đề đang hoạt động",
       sourceFamilies: "nhóm nguồn",
       verifiedStories: "bài verified",
@@ -935,18 +1009,18 @@ function getCopy(language) {
       evergreenLabel: "Evergreen & compare",
       evergreenTitle: "Bài giữ traffic dài hạn",
       ecosystemLabel: "Hệ sinh thái",
-      ecosystemTitle: "Liên kết nhẹ với Patrick Teck Store",
+      ecosystemTitle: "Liên kết nhẹ với Patrick Tech Store",
       ecosystemText: "Các gợi ý sản phẩm chỉ xuất hiện khi có ngữ cảnh phù hợp, không chiếm phần đầu bài và không bật trên trend pages.",
-      visitStore: "Mở Patrick Teck Store",
+      visitStore: "Mở Patrick Tech Store",
       demoRadarLabel: "Demo radar",
-      demoRadarTitle: "Xem OpenClaw Radar hoạt động",
+      demoRadarTitle: "Xem newsroom radar hoạt động",
       demoRadarText: "Bảng này gom lane trend, emerging và verified để bạn thấy rõ newsroom đang ưu tiên câu chuyện nào và vì sao.",
       demoWorkflowLabel: "Demo workflow",
-      demoWorkflowTitle: "Mở luồng xuất bản tự động",
-      demoWorkflowText: "Trang workflow giải thích cách tín hiệu được quét, cluster, gắn trạng thái và chuyển thành bài public có guardrail quảng cáo.",
+      demoWorkflowTitle: "Mở quy trình xuất bản",
+      demoWorkflowText: "Trang workflow giải thích cách bàn tin gom nguồn, xếp hàng chờ biên tập, gắn trạng thái và đưa bài lên site với guardrail quảng cáo.",
       demoFeedLabel: "Feed",
       demoFeedTitle: "Xuất JSON và RSS",
-      demoFeedText: "Demo v1 đã mở feed máy đọc được để sau này nối OpenClaw, social bot hoặc subscriber inbox dễ hơn.",
+      demoFeedText: "Feed máy đọc được đã sẵn sàng cho phân phối, subscriber inbox hoặc các lớp theo dõi cập nhật về sau.",
       browserLabel: "Signal browser",
       browserTitle: "Lọc nhanh stories trong demo",
       browserText: "Phần này giúp bạn thử ngay cách site phân loại story theo verification state mà không cần rời homepage.",
@@ -967,17 +1041,17 @@ function getCopy(language) {
       workflowGuardrailsTitle: "Những nguyên tắc bảo vệ ads và editorial",
       workflowEndpointsLabel: "Endpoints",
       sourcesShort: "nguồn",
-      sourceBoxTitle: "Nguồn và attribution",
+      sourceBoxTitle: "Nguồn tham khảo",
       relatedLabel: "Bài liên quan",
-      articleRailLabel: "Trạng thái monetization",
-      adsOn: "Trang này đủ điều kiện chạy quảng cáo.",
-      adsOff: "Trang này được index nhưng không bật quảng cáo.",
+      articleRailLabel: "Biên tập & quảng cáo",
+      adsOn: "Trang này đủ điều kiện hiển thị quảng cáo mà vẫn giữ bố cục đọc.",
+      adsOff: "Trang này ưu tiên trải nghiệm đọc và không hiển thị quảng cáo.",
       languageSwitchLabel: "Phiên bản ngôn ngữ",
-      storePanelLabel: "Từ hệ Patrick Teck",
+      storePanelLabel: "Từ hệ Patrick Tech",
       storePanelTitle: "Công cụ liên quan theo ngữ cảnh",
       authorsLabel: "Tác giả",
       authorsTitle: "Đội biên tập",
-      authorsText: "Mỗi bài đều gắn một biên tập viên phụ trách mảng để giữ góc nhìn nhất quán giữa các đợt quét tự động.",
+      authorsText: "Mỗi bài đều gắn một biên tập viên phụ trách mảng để giữ góc nhìn nhất quán giữa các đợt cập nhật.",
       sitemapLabel: "Sitemap",
       sitemapTitle: "Sơ đồ điều hướng site",
       sitemapText: "Trang này gom các điểm vào chính của site dành cho người đọc và kiểm tra vận hành.",
@@ -985,8 +1059,8 @@ function getCopy(language) {
       notFoundText: "Route này chưa có nội dung hoặc đã đổi slug.",
       backHome: "Quay về trang chủ",
       dashboardLabel: "Dashboard",
-      dashboardTitle: "Bảng điều khiển newsroom demo",
-      dashboardText: "Trang này gom các chỉ số xuất bản, dòng tín hiệu và checklist repo để bạn nhìn bản demo theo góc độ vận hành thay vì chỉ bề mặt public.",
+      dashboardTitle: "Bảng điều khiển newsroom",
+      dashboardText: "Trang này gom các chỉ số xuất bản, dòng tín hiệu và checklist repo để bạn nhìn site theo góc độ vận hành thay vì chỉ bề mặt public.",
       dashboardStreamLabel: "Signal stream",
       dashboardStreamTitle: "Dòng tín hiệu mới nhất đang đi qua newsroom",
       dashboardHeatLabel: "Topic heat",
@@ -1000,14 +1074,18 @@ function getCopy(language) {
   }
 
   return {
-    homeTitle: "An OpenClaw-first newsroom for Vietnam and the wider web",
+    homeTitle: "Patrick Tech Media | Technology from Vietnam and the wider web",
     eyebrow: "Bilingual newsroom",
-    heroTitle: "Technology coverage driven by OpenClaw signals, still disciplined by editorial rules.",
+    heroTitle: "Technology coverage with a cleaner editorial voice and a continuously refreshed desk.",
     heroText:
-      "Patrick Teck Media combines social, web, and official signals into a newsroom that moves fast, keeps verification states visible, and only unlocks ads when pages qualify.",
-    badgeSignals: "Social + web sweep",
-    badgeAds: "Trend indexed, ads off",
+      "Patrick Tech Media covers technology, software, devices, and internet culture with a digital newsroom structure built for speed, clarity, and readable presentation.",
+    badgeSignals: "Vietnam + world",
+    badgeAds: "Cleaner reading layout",
     badgeBilingual: "VI/EN bilingual",
+    liveLabel: "Live desk",
+    liveTitle: "Continuous desk updates",
+    liveRefreshLabel: "Refreshed",
+    liveNextLabel: "Next",
     clusters: "active clusters",
     sourceFamilies: "source families",
     verifiedStories: "verified stories",
@@ -1025,18 +1103,18 @@ function getCopy(language) {
     evergreenLabel: "Evergreen and compare",
     evergreenTitle: "Long-tail traffic pieces",
     ecosystemLabel: "Ecosystem",
-    ecosystemTitle: "Soft links into Patrick Teck Store",
+    ecosystemTitle: "Soft links into Patrick Tech Store",
       ecosystemText: "Product suggestions appear only when the context fits. They stay away from the top of trend pages and never override the editorial frame.",
-    visitStore: "Open Patrick Teck Store",
+    visitStore: "Open Patrick Tech Store",
       demoRadarLabel: "Radar demo",
-      demoRadarTitle: "See the OpenClaw Radar in motion",
+      demoRadarTitle: "See the newsroom radar in motion",
       demoRadarText: "This board groups trend, emerging, and verified lanes so you can quickly see what the newsroom is prioritizing and why.",
       demoWorkflowLabel: "Workflow demo",
-      demoWorkflowTitle: "Open the automated publishing flow",
-      demoWorkflowText: "The workflow page explains how signals are swept, clustered, scored, and turned into public stories with ad guardrails.",
+      demoWorkflowTitle: "Open the publishing workflow",
+      demoWorkflowText: "The workflow page explains how the desk gathers sources, groups story lines, assigns states, and publishes pages with ad guardrails.",
       demoFeedLabel: "Feed",
       demoFeedTitle: "Export JSON and RSS",
-      demoFeedText: "Demo v1 already exposes machine-readable feeds so OpenClaw, bots, or inbox digests can plug in later.",
+      demoFeedText: "Machine-readable feeds are already available for distribution, inbox digests, or future monitoring layers.",
       browserLabel: "Signal browser",
       browserTitle: "Filter stories inside the demo",
       browserText: "Use this area to test how the site sorts stories by verification state without leaving the homepage.",
@@ -1057,17 +1135,17 @@ function getCopy(language) {
       workflowGuardrailsTitle: "Rules protecting ads and editorial quality",
       workflowEndpointsLabel: "Endpoints",
       sourcesShort: "sources",
-      sourceBoxTitle: "Sources and attribution",
+      sourceBoxTitle: "Source notes",
     relatedLabel: "Related stories",
-    articleRailLabel: "Monetization state",
-    adsOn: "This page is eligible to run ads.",
-    adsOff: "This page is indexed for discovery but does not run ads.",
+    articleRailLabel: "Editorial and ads",
+    adsOn: "This page is eligible to show ads while keeping a clean reading layout.",
+    adsOff: "This page stays ad-free to protect the reading experience.",
     languageSwitchLabel: "Language versions",
-    storePanelLabel: "From Patrick Teck",
+    storePanelLabel: "From Patrick Tech",
     storePanelTitle: "Contextual tools",
     authorsLabel: "Authors",
     authorsTitle: "Editorial team",
-    authorsText: "Each story is tied to an editor covering the beat so the newsroom keeps a consistent lens even as automation expands.",
+    authorsText: "Each story is tied to an editor covering the beat so the newsroom keeps a consistent lens across updates.",
     sitemapLabel: "Sitemap",
     sitemapTitle: "Site navigation map",
     sitemapText: "This page collects the main entry points for readers and operational review.",
@@ -1075,8 +1153,8 @@ function getCopy(language) {
     notFoundText: "This route does not exist yet or the slug has changed.",
     backHome: "Back to home",
     dashboardLabel: "Dashboard",
-    dashboardTitle: "The newsroom demo dashboard",
-    dashboardText: "This page collects publishing metrics, live signal flow, and repo-readiness checks so you can review the demo as an operating system, not just a public front end.",
+    dashboardTitle: "The newsroom dashboard",
+    dashboardText: "This page collects publishing metrics, live signal flow, and repo-readiness checks so you can review the site as an operating system, not just a front end.",
     dashboardStreamLabel: "Signal stream",
     dashboardStreamTitle: "The latest items moving through the newsroom",
     dashboardHeatLabel: "Topic heat",
