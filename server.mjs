@@ -67,7 +67,9 @@ const adsConfig = {
 
 let cachedState = buildState();
 let cachedAt = Date.now();
-const server = createServer(async (req, res) => {
+const server = createServer(handleRequest);
+
+async function handleRequest(req, res) {
   try {
     const requestUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
     const pathname = decodeURIComponent(requestUrl.pathname);
@@ -174,13 +176,15 @@ const server = createServer(async (req, res) => {
   } catch (error) {
     return sendJson(res, 500, { error: error.message || "Unexpected server error." });
   }
-});
+}
 
-server.listen(config.port, () => {
-  console.log(`Patrick Tech Media is running at http://localhost:${config.port}`);
-});
+if (isDirectExecution()) {
+  server.listen(config.port, () => {
+    console.log(`Patrick Tech Media is running at http://localhost:${config.port}`);
+  });
+}
 
-export { server, buildState };
+export { server, buildState, handleRequest };
 
 function buildState() {
   const newsroom = buildNewsroomState({
@@ -216,6 +220,10 @@ function getState() {
   }
 
   return cachedState;
+}
+
+function isDirectExecution() {
+  return path.resolve(process.argv[1] || "") === __filename;
 }
 
 async function tryStatic(pathname, res) {
