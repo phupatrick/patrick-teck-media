@@ -804,6 +804,8 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
         </nav>
         <div class="topbar-actions">
+          <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Writer" : "Writer"}</a>
+          <a class="lang-pill" href="/${language}/login">${language === "vi" ? "Đăng nhập" : "Login"}</a>
           <a class="lang-pill" href="${alternatePath}">${language === "vi" ? "EN" : "VI"}</a>
           <a class="lang-pill subtle" href="${state.site.storeUrl}">${copy.storeLabel}</a>
         </div>

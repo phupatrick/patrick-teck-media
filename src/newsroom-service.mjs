@@ -181,14 +181,17 @@ export function buildNewsroomState(options = {}) {
   const topics = getTopics();
   const contentTypeMeta = getContentTypeMeta();
   const contentPath = resolveContentPath(options.contentPath);
-  const sourceArticles = loadExternalArticles(contentPath, { topics, contentTypeMeta }) || buildArticles();
+  const sourceArticles = mergeArticleSets(
+    loadExternalArticles(contentPath, { topics, contentTypeMeta }) || buildArticles(),
+    normalizeInjectedArticles(options.injectedArticles, { topics, contentTypeMeta })
+  );
   const articles = sourceArticles.map((article) => enrichArticle(article, { siteUrl, storeUrl }));
   const articlesByHref = new Map(articles.map((article) => [article.href, article]));
   const storeItems = getStoreItems().map((item) => ({
     ...item,
     url: `${storeUrl}${item.path}`
   }));
-  const authors = getAuthors().map((author) => ({
+  const authors = [...getAuthors(), ...collectExternalAuthors(sourceArticles)].map((author) => ({
     ...author,
     href: `/vi/authors#${author.id}`,
     href_en: `/en/authors#${author.id}`
@@ -904,6 +907,31 @@ function loadExternalArticles(contentPath, { topics, contentTypeMeta }) {
   }
 }
 
+function normalizeInjectedArticles(articles, { topics, contentTypeMeta }) {
+  if (!Array.isArray(articles) || articles.length === 0) {
+    return [];
+  }
+
+  return articles
+    .map((article) => normalizeExternalArticle(article, { topics, contentTypeMeta }))
+    .filter(Boolean);
+}
+
+function mergeArticleSets(primaryArticles, injectedArticles) {
+  const articleMap = new Map();
+
+  for (const article of [...(primaryArticles || []), ...(injectedArticles || [])]) {
+    const key = article.id || article.href || `${article.language}:${article.content_type}:${article.slug}`;
+    const previous = articleMap.get(key);
+
+    if (!previous || new Date(article.updated_at || article.published_at || 0) >= new Date(previous.updated_at || previous.published_at || 0)) {
+      articleMap.set(key, article);
+    }
+  }
+
+  return [...articleMap.values()].sort(sortArticlesByDateDesc);
+}
+
 function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
   if (!article || typeof article !== "object") {
     return null;
@@ -930,6 +958,9 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     path_segment: article.path_segment || typeMeta.segments[language],
     slug: article.slug,
     title: article.title,
+    author_name: article.author_name || "",
+    author_role_vi: article.author_role_vi || "",
+    author_role_en: article.author_role_en || "",
     summary: article.summary || "",
     dek: article.dek || article.summary || "",
     sections: Array.isArray(article.sections) ? article.sections : [],
@@ -965,6 +996,29 @@ function buildStoryVisual(article, siteUrl) {
   }
 
   return buildPlaceholderVisual(article);
+}
+
+function collectExternalAuthors(articles) {
+  const authors = new Map();
+
+  for (const article of articles) {
+    if (!article.author_id || !article.author_name) {
+      continue;
+    }
+
+    if (!authors.has(article.author_id)) {
+      authors.set(article.author_id, {
+        id: article.author_id,
+        name: article.author_name,
+        role: {
+          vi: article.author_role_vi || "Cộng tác viên",
+          en: article.author_role_en || "Contributor"
+        }
+      });
+    }
+  }
+
+  return [...authors.values()];
 }
 
 function legacyStoryVisualBlock() {
@@ -1262,6 +1316,10 @@ function formatRelativeFrom(baseDate, targetDate, language) {
 
 function sortByDateDesc(left, right) {
   return new Date(right).getTime() - new Date(left).getTime();
+}
+
+function sortArticlesByDateDesc(left, right) {
+  return new Date(right.published_at || right.updated_at || 0).getTime() - new Date(left.published_at || left.updated_at || 0).getTime();
 }
 
 function normalizeSiteUrl(siteUrl) {

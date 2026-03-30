@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.mjs",
     "dev": "node --watch server.mjs",
-    "test": "node test/newsroom.test.mjs",
+    "test": "node test/newsroom.test.mjs && node test/platform.test.mjs",
     "newsroom:publish": "node scripts/newsroom-publish.mjs",
     "newsroom:refresh": "node scripts/newsroom-refresh.mjs"
   }

@@ -7,6 +7,7 @@ Patrick Tech Media is a lightweight Node newsroom for a bilingual `VI/EN` tech m
 - ad guardrails so `trend` pages stay indexable but do not render ads
 - bilingual article routes under `/vi/...` and `/en/...`
 - source-first article images with attribution, live desk refresh, topic pages, authors, policy pages, human sitemap, `sitemap.xml`, and `robots.txt`
+- writer accounts, admin review, automatic story scoring, and Binance withdrawal requests
 - a file-based publishing pipeline so stories can update without code edits
 
 ## Run locally
@@ -24,9 +25,14 @@ npm start
 
 ```env
 PORT=3000
-SITE_URL=https://patricktech.media
+SITE_URL=https://patricktechmedia.vercel.app
 PATRICK_TECH_STORE_URL=https://store.patricktech.media
 NEWSROOM_CONTENT_PATH=data/newsroom-content.json
+PLATFORM_STATE_PATH=data/platform-state.json
+SESSION_SECRET=replace-with-a-long-random-secret
+ADMIN_GOOGLE_EMAILS=hphumail@gmail.com,phupunpin@gmail.com,hoangphupatrick@gmail.com
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 NEWSROOM_PULL_URL=
 NEWSROOM_PULL_TOKEN=
 GOOGLE_ADSENSE_CLIENT=
@@ -38,6 +44,14 @@ GOOGLE_ADSENSE_SLOT_MID=
 If AdSense values are empty, the site renders clearly marked reserved ad placeholders only on ad-eligible surfaces. Trend pages still render no ad container.
 
 `NEWSROOM_CONTENT_PATH` points to the JSON file that powers the live newsroom. If the file is missing, the app falls back to the built-in editorial seed data.
+
+`PLATFORM_STATE_PATH` stores users, submissions, and withdrawal requests. In local development it writes to the project file. In locked-down serverless environments, the app falls back to a temp file automatically so the account flow can still run without crashing.
+
+Google admin login is restricted to:
+
+- `hphumail@gmail.com`
+- `phupunpin@gmail.com`
+- `hoangphupatrick@gmail.com`
 
 ## Key routes
 
@@ -51,6 +65,12 @@ If AdSense values are empty, the site renders clearly marked reserved ad placeho
 - `/en/workflow`
 - `/vi/feed.json`
 - `/en/feed.xml`
+- `/vi/login`
+- `/en/login`
+- `/vi/portal`
+- `/en/portal`
+- `/vi/admin`
+- `/en/admin`
 - `/vi/tin-tuc/:slug`
 - `/en/news/:slug`
 - `/vi/topics/:slug`
@@ -64,6 +84,20 @@ If AdSense values are empty, the site renders clearly marked reserved ad placeho
 - `/api/newsroom/radar?lang=vi`
 - `/api/newsroom/dashboard?lang=vi`
 - `/api/newsroom/live?lang=vi`
+
+## Contributor workflow
+
+1. Writers create a local account at `/vi/login` or `/en/login`.
+2. Writers submit stories through the writer portal.
+3. The system scores each submission automatically:
+   - title, dek, summary length
+   - section depth
+   - source count
+   - reference image availability
+   - promotional language penalty
+4. Approved stories appear on the public newsroom automatically.
+5. Revenue is tracked per story with an `80 / 20` writer/platform split.
+6. Writers can request Binance withdrawals and admins can mark payouts as paid.
 
 ## Test
 
