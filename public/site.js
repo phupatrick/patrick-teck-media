@@ -2,6 +2,7 @@ const documentLanguage = document.documentElement.lang === "en" ? "en" : "vi";
 
 initStoryBrowser();
 initLiveDesk();
+initAuthTabs();
 
 function initStoryBrowser() {
   const browserRoot = document.querySelector("[data-story-browser]");
@@ -127,6 +128,39 @@ function initLiveDesk() {
   };
 
   fetchLiveDesk();
+}
+
+function initAuthTabs() {
+  const authRoot = document.querySelector("[data-auth-shell]");
+
+  if (!authRoot) {
+    return;
+  }
+
+  const tabs = [...authRoot.querySelectorAll("[data-auth-tab]")];
+  const panels = [...authRoot.querySelectorAll("[data-auth-panel]")];
+  let activeTab = authRoot.dataset.defaultTab || "login";
+
+  const sync = () => {
+    for (const tab of tabs) {
+      const isActive = tab.dataset.authTab === activeTab;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", isActive ? "true" : "false");
+    }
+
+    for (const panel of panels) {
+      panel.classList.toggle("is-active", panel.dataset.authPanel === activeTab);
+    }
+  };
+
+  for (const tab of tabs) {
+    tab.addEventListener("click", () => {
+      activeTab = tab.dataset.authTab || "login";
+      sync();
+    });
+  }
+
+  sync();
 }
 
 function escapeHtml(value) {

@@ -127,6 +127,10 @@ async function handleRequest(req, res) {
       return redirect(res, "/vi/");
     }
 
+    if (pathname === "/store") {
+      return redirect(res, config.storeUrl);
+    }
+
     if (pathname === "/robots.txt") {
       return sendText(res, 200, buildRobotsTxt(state), "text/plain; charset=utf-8");
     }
@@ -156,7 +160,7 @@ async function handleRequest(req, res) {
         200,
         renderAuthPage(state, language, {
           notice: requestUrl.searchParams.get("notice") || requestUrl.searchParams.get("error") || "",
-          googleEnabled: platformService.isGoogleConfigured()
+          activeTab: requestUrl.searchParams.get("tab") === "register" ? "register" : "login"
         })
       );
     }
@@ -208,6 +212,10 @@ async function handleRequest(req, res) {
 
     if (segments[1] === "feed.xml") {
       return sendText(res, 200, buildRssXml(state, language), "application/xml; charset=utf-8");
+    }
+
+    if (segments[1] === "store") {
+      return redirect(res, config.storeUrl);
     }
 
     if (segments[1] === "topics" && segments[2]) {
@@ -437,6 +445,10 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
 
   try {
     if (pathname === "/auth/register") {
+      if (form.password !== form.password_confirm) {
+        throw new Error(language === "vi" ? "Mật khẩu xác nhận chưa khớp." : "Password confirmation does not match.");
+      }
+
       const user = platformService.registerWriter({
         name: form.name,
         email: form.email,
@@ -535,8 +547,17 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
 
     return sendJson(res, 404, { error: "Not found." });
   } catch (error) {
-    const fallbackPath = pathname.startsWith("/admin") ? `/${language}/admin` : pathname.startsWith("/portal") ? `/${language}/portal` : `/${language}/login`;
-    return redirect(res, `${fallbackPath}?error=${encodeURIComponent(error.message || "Request failed.")}`);
+    const fallbackPath = pathname.startsWith("/admin")
+      ? `/${language}/admin`
+      : pathname.startsWith("/portal")
+        ? `/${language}/portal`
+        : pathname === "/auth/register"
+          ? `/${language}/login`
+          : `/${language}/login`;
+    const separator = fallbackPath.includes("?") ? "&" : "?";
+    const tabParam = pathname === "/auth/register" ? `${separator}tab=register` : "";
+    const errorSeparator = tabParam ? "&" : separator;
+    return redirect(res, `${fallbackPath}${tabParam}${errorSeparator}error=${encodeURIComponent(error.message || "Request failed.")}`);
   }
 }
 

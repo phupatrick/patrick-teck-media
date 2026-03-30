@@ -1,74 +1,109 @@
 import { getFooterLinks, getPrimaryNav } from "./newsroom-service.mjs";
 
-export function renderAuthPage(state, language, { notice = "", googleEnabled = false }) {
+export function renderAuthPage(state, language, { notice = "", activeTab = "login" }) {
   const copy = language === "vi" ? getVietnameseCopy() : getEnglishCopy();
+  const ui =
+    language === "vi"
+      ? {
+          authTabsLabel: "Biểu mẫu tài khoản",
+          loginTitle: "Đăng nhập và đăng ký cộng tác",
+          loginText: "Tạo tài khoản để gửi bài, theo dõi bài đã duyệt và quản lý phần doanh thu của bạn trên Patrick Tech Media.",
+          signInTabLabel: "Đăng nhập",
+          registerTabLabel: "Đăng ký",
+          writerLoginText: "Đăng nhập để gửi bài, theo dõi trạng thái duyệt và xem doanh thu từng bài viết.",
+          writerRegisterText: "Đăng ký để trở thành người viết bài và đưa bài vào hệ thống kiểm tra, chấm điểm và duyệt tự động của toà soạn.",
+          emailPlaceholder: "Nhập email",
+          passwordPlaceholder: "Nhập mật khẩu",
+          namePlaceholder: "Nhập tên hiển thị",
+          confirmPasswordLabel: "Xác nhận mật khẩu",
+          confirmPasswordPlaceholder: "Nhập lại mật khẩu",
+          registerTermsText: "Khi bấm đăng ký, bạn đồng ý với quy định biên tập và nguyên tắc cộng tác của Patrick Tech Media."
+        }
+      : {
+          authTabsLabel: "Account forms",
+          loginTitle: "Sign in or register",
+          loginText: "Create an account to submit stories, track review status, and manage your writer revenue on Patrick Tech Media.",
+          signInTabLabel: "Sign in",
+          registerTabLabel: "Register",
+          writerLoginText: "Sign in to submit stories, follow review decisions, and track article revenue.",
+          writerRegisterText: "Register to become a writer and send stories into the newsroom’s automated review and publishing flow.",
+          emailPlaceholder: "Enter your email",
+          passwordPlaceholder: "Enter your password",
+          namePlaceholder: "Enter your display name",
+          confirmPasswordLabel: "Confirm password",
+          confirmPasswordPlaceholder: "Enter your password again",
+          registerTermsText: "By creating an account, you agree to the newsroom’s contributor and editorial standards."
+        };
 
   return renderPlatformLayout({
     state,
     language,
-    title: `${copy.loginTitle} | ${state.site.name}`,
-    description: copy.loginText,
+    title: `${ui.loginTitle} | ${state.site.name}`,
+    description: ui.loginText,
     path: `/${language}/login`,
     content: `
-      <section class="simple-hero">
+      <section class="simple-hero auth-hero">
         <p class="eyebrow">${copy.accountEyebrow}</p>
-        <h1>${copy.loginTitle}</h1>
-        <p>${copy.loginText}</p>
+        <h1>${ui.loginTitle}</h1>
+        <p>${ui.loginText}</p>
       </section>
 
       ${notice ? `<section class="notice-banner">${escapeHtml(notice)}</section>` : ""}
 
-      <section class="account-grid">
-        <article class="account-card">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">${copy.writerLoginLabel}</p>
-              <h2>${copy.writerLoginTitle}</h2>
-            </div>
-          </div>
-          <form class="platform-form" method="post" action="/auth/login">
-            <input type="hidden" name="lang" value="${language}" />
-            ${renderInput("email", copy.emailLabel, "email", true)}
-            ${renderInput("password", copy.passwordLabel, "password", true)}
-            <button class="action-button" type="submit">${copy.signInLabel}</button>
-          </form>
-        </article>
+      <section class="auth-shell" data-auth-shell data-default-tab="${activeTab === "register" ? "register" : "login"}">
+        <div class="auth-tabs" role="tablist" aria-label="${ui.authTabsLabel}">
+          <button
+            class="auth-tab ${activeTab === "register" ? "" : "is-active"}"
+            type="button"
+            role="tab"
+            aria-selected="${activeTab === "register" ? "false" : "true"}"
+            data-auth-tab="login"
+          >${ui.signInTabLabel}</button>
+          <button
+            class="auth-tab ${activeTab === "register" ? "is-active" : ""}"
+            type="button"
+            role="tab"
+            aria-selected="${activeTab === "register" ? "true" : "false"}"
+            data-auth-tab="register"
+          >${ui.registerTabLabel}</button>
+        </div>
 
-        <article class="account-card">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">${copy.writerRegisterLabel}</p>
-              <h2>${copy.writerRegisterTitle}</h2>
+        <div class="auth-panels">
+          <article class="account-card auth-panel ${activeTab === "register" ? "" : "is-active"}" data-auth-panel="login">
+            <div class="auth-panel-head">
+              <div>
+                <p class="eyebrow">${copy.writerLoginLabel}</p>
+                <h2>${copy.writerLoginTitle}</h2>
+              </div>
+              <p>${ui.writerLoginText}</p>
             </div>
-          </div>
-          <form class="platform-form" method="post" action="/auth/register">
-            <input type="hidden" name="lang" value="${language}" />
-            ${renderInput("name", copy.nameLabel, "text", true)}
-            ${renderInput("email", copy.emailLabel, "email", true)}
-            ${renderInput("password", copy.passwordLabel, "password", true)}
-            <button class="action-button" type="submit">${copy.createWriterLabel}</button>
-          </form>
-        </article>
+            <form class="platform-form auth-form" method="post" action="/auth/login">
+              <input type="hidden" name="lang" value="${language}" />
+              ${renderInput("email", copy.emailLabel, "email", true, `placeholder="${escapeHtml(ui.emailPlaceholder)}" autocomplete="email"`)}
+              ${renderInput("password", copy.passwordLabel, "password", true, `placeholder="${escapeHtml(ui.passwordPlaceholder)}" autocomplete="current-password"`)}
+              <button class="action-button auth-submit" type="submit">${copy.signInLabel}</button>
+            </form>
+          </article>
 
-        <article class="account-card admin-card">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">${copy.adminLabel}</p>
-              <h2>${copy.adminTitle}</h2>
+          <article class="account-card auth-panel ${activeTab === "register" ? "is-active" : ""}" data-auth-panel="register">
+            <div class="auth-panel-head">
+              <div>
+                <p class="eyebrow">${copy.writerRegisterLabel}</p>
+                <h2>${copy.writerRegisterTitle}</h2>
+              </div>
+              <p>${ui.writerRegisterText}</p>
             </div>
-          </div>
-          <p>${copy.adminText}</p>
-          ${
-            googleEnabled
-              ? `<a class="action-button" href="/auth/google/start?lang=${language}">${copy.googleLoginLabel}</a>`
-              : `<p class="muted-text">${copy.googleMissingText}</p>`
-          }
-          <div class="tag-list">
-            <span>${escapeHtml("hphumail@gmail.com")}</span>
-            <span>${escapeHtml("phupunpin@gmail.com")}</span>
-            <span>${escapeHtml("hoangphupatrick@gmail.com")}</span>
-          </div>
-        </article>
+            <form class="platform-form auth-form" method="post" action="/auth/register">
+              <input type="hidden" name="lang" value="${language}" />
+              ${renderInput("email", copy.emailLabel, "email", true, `placeholder="${escapeHtml(ui.emailPlaceholder)}" autocomplete="email"`)}
+              ${renderInput("name", copy.nameLabel, "text", true, `placeholder="${escapeHtml(ui.namePlaceholder)}" autocomplete="name"`)}
+              ${renderInput("password", copy.passwordLabel, "password", true, `placeholder="${escapeHtml(ui.passwordPlaceholder)}" autocomplete="new-password"`)}
+              ${renderInput("password_confirm", ui.confirmPasswordLabel, "password", true, `placeholder="${escapeHtml(ui.confirmPasswordPlaceholder)}" autocomplete="new-password"`)}
+              <p class="auth-terms">${ui.registerTermsText}</p>
+              <button class="action-button auth-submit" type="submit">${copy.createWriterLabel}</button>
+            </form>
+          </article>
+        </div>
       </section>
     `
   });
@@ -358,6 +393,8 @@ function renderPlatformLayout({ state, language, title, description, path, conte
   const nav = getPrimaryNav(state, language);
   const footerLinks = getFooterLinks(language);
   const alternatePath = path.replace(/^\/(vi|en)\//, (_, current) => `/${current === "vi" ? "en" : "vi"}/`);
+  const canonicalUrl = `${state.site.siteUrl}${path}`;
+  const ogImageUrl = `${state.site.siteUrl}/patrick-tech-media-mark.svg`;
 
   return `<!doctype html>
 <html lang="${language}">
@@ -366,9 +403,24 @@ function renderPlatformLayout({ state, language, title, description, path, conte
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
-    <link rel="canonical" href="${state.site.siteUrl}${path}" />
-    <link rel="alternate" hreflang="${language}" href="${state.site.siteUrl}${path}" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="/patrick-tech-media-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/patrick-tech-media-icon.svg" />
+    <link rel="canonical" href="${canonicalUrl}" />
+    <link rel="alternate" hreflang="${language}" href="${canonicalUrl}" />
     <link rel="alternate" hreflang="${language === "vi" ? "en" : "vi"}" href="${state.site.siteUrl}${alternatePath}" />
+    <meta property="og:site_name" content="${escapeHtml(state.site.name)}" />
+    <meta property="og:title" content="${escapeHtml(title)}" />
+    <meta property="og:description" content="${escapeHtml(description)}" />
+    <meta property="og:url" content="${canonicalUrl}" />
+    <meta property="og:image" content="${ogImageUrl}" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeHtml(title)}" />
+    <meta name="twitter:description" content="${escapeHtml(description)}" />
+    <meta name="twitter:image" content="${ogImageUrl}" />
     <link rel="stylesheet" href="/site.css" />
     <script defer src="/site.js"></script>
   </head>
@@ -377,8 +429,7 @@ function renderPlatformLayout({ state, language, title, description, path, conte
     <div class="site-shell">
       <header class="topbar">
         <a class="brand-lockup" href="/${language}/">
-          <span class="brand-kicker">Patrick Tech</span>
-          <strong>${state.site.name}</strong>
+          <img class="brand-logo" src="/patrick-tech-media-mark.svg" alt="${escapeHtml(state.site.name)}" />
         </a>
         <nav class="nav-strip" aria-label="Primary">
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
@@ -386,7 +437,7 @@ function renderPlatformLayout({ state, language, title, description, path, conte
         <div class="topbar-actions">
           <a class="lang-pill" href="/${language}/portal">${copy.portalNavLabel}</a>
           <a class="lang-pill" href="/${language}/login">${copy.loginNavLabel}</a>
-          <a class="lang-pill subtle" href="${state.site.storeUrl}">${copy.storeLabel}</a>
+          <a class="lang-pill subtle" href="/${language}/store">${copy.storeLabel}</a>
           <a class="lang-pill" href="${alternatePath}">${language === "vi" ? "EN" : "VI"}</a>
         </div>
       </header>

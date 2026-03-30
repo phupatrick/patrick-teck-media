@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 240" role="img" aria-labelledby="title desc">
+  <title>Patrick Tech Media</title>
+  <desc>Patrick Tech Media logo with blue monogram and editorial wordmark.</desc>
+  <rect width="760" height="240" rx="28" fill="#fcfcfb"/>
+  <defs>
+    <linearGradient id="ptmBlueWide" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#1175d8"/>
+      <stop offset="100%" stop-color="#0b57c2"/>
+    </linearGradient>
+  </defs>
+  <path d="M56 42h96c44.183 0 80 35.817 80 80s-35.817 80-80 80h-40v28H56V42z" fill="url(#ptmBlueWide)"/>
+  <circle cx="104" cy="82" r="14" fill="#ffffff"/>
+  <circle cx="140" cy="54" r="14" fill="#ffffff"/>
+  <circle cx="154" cy="96" r="14" fill="#ffffff"/>
+  <path d="M104 96v52h24l26-26v-14" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/>
+  <text x="282" y="104" fill="#162534" font-family="Source Sans 3, Segoe UI, Arial, sans-serif" font-size="88" font-weight="800">Patrick</text>
+  <text x="282" y="178" fill="#162534" font-family="Source Sans 3, Segoe UI, Arial, sans-serif" font-size="88" font-weight="800">Tech Media</text>
+</svg>

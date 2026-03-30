@@ -114,13 +114,16 @@ export function renderHomePage(state, language, adsConfig) {
             ${home.evergreen.map((article) => renderStoryCard(article, language)).join("")}
           </div>
         </div>
-        <aside class="section-block ecosystem-block">
+        <aside class="section-block ecosystem-block company-block">
           <div class="section-head">
             <p class="eyebrow">${copy.ecosystemLabel}</p>
             <h2>${copy.ecosystemTitle}</h2>
           </div>
           <p>${copy.ecosystemText}</p>
-          <a class="text-link" href="${state.site.storeUrl}">${copy.visitStore}</a>
+          <div class="company-links">
+            <a class="text-link" href="/${language}/store">${copy.visitStore}</a>
+            <a class="text-link" href="/${language}/about">${language === "vi" ? "Về Patrick Tech Media" : "About Patrick Tech Media"}</a>
+          </div>
         </aside>
       </section>
 
@@ -742,14 +745,31 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
   const nav = getPrimaryNav(state, language);
   const footerLinks = getFooterLinks(language);
   const homePath = `/${language}/`;
+  const canonicalUrl = `${state.site.siteUrl}${path}`;
+  const ogImageUrl = `${state.site.siteUrl}/patrick-tech-media-mark.svg`;
   const headTags = [
     `<meta charset="utf-8" />`,
     `<meta name="viewport" content="width=device-width, initial-scale=1" />`,
     `<title>${escapeHtml(title)}</title>`,
     `<meta name="description" content="${escapeHtml(description)}" />`,
-    `<link rel="canonical" href="${state.site.siteUrl}${path}" />`,
-    `<link rel="alternate" hreflang="${language}" href="${state.site.siteUrl}${path}" />`,
+    `<meta name="robots" content="index,follow,max-image-preview:large" />`,
+    `<link rel="preconnect" href="https://fonts.googleapis.com" />`,
+    `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`,
+    `<link rel="icon" href="/patrick-tech-media-icon.svg" type="image/svg+xml" />`,
+    `<link rel="apple-touch-icon" href="/patrick-tech-media-icon.svg" />`,
+    `<link rel="canonical" href="${canonicalUrl}" />`,
+    `<link rel="alternate" hreflang="${language}" href="${canonicalUrl}" />`,
     `<link rel="alternate" hreflang="${language === "vi" ? "en" : "vi"}" href="${state.site.siteUrl}${alternatePath}" />`,
+    `<meta property="og:site_name" content="${escapeHtml(state.site.name)}" />`,
+    `<meta property="og:title" content="${escapeHtml(title)}" />`,
+    `<meta property="og:description" content="${escapeHtml(description)}" />`,
+    `<meta property="og:url" content="${canonicalUrl}" />`,
+    `<meta property="og:image" content="${ogImageUrl}" />`,
+    `<meta property="og:type" content="${schema?.["@type"] === "NewsArticle" ? "article" : "website"}" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
+    `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
+    `<meta name="twitter:image" content="${ogImageUrl}" />`,
     `<link rel="stylesheet" href="/site.css" />`,
     `<script defer src="/site.js"></script>`
   ];
@@ -774,8 +794,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     <div class="site-shell">
       <header class="topbar">
         <a class="brand-lockup" href="${homePath}">
-          <span class="brand-kicker">Patrick Tech</span>
-          <strong>${state.site.name}</strong>
+          <img class="brand-logo" src="/patrick-tech-media-mark.svg" alt="${escapeHtml(state.site.name)}" />
         </a>
         <nav class="nav-strip" aria-label="Primary">
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
@@ -784,7 +803,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
           <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Viết bài" : "Write"}</a>
           <a class="lang-pill" href="/${language}/login">${language === "vi" ? "Đăng nhập" : "Login"}</a>
           <a class="lang-pill" href="${alternatePath}">${language === "vi" ? "EN" : "VI"}</a>
-          <a class="lang-pill subtle" href="${state.site.storeUrl}">${copy.storeLabel}</a>
+          <a class="lang-pill subtle" href="/${language}/store">${copy.storeLabel}</a>
         </div>
       </header>
 
@@ -1130,10 +1149,10 @@ function getCopy(language) {
       trendingTitle: "Những chủ đề kéo độc giả vào đọc",
       evergreenLabel: "Evergreen & compare",
       evergreenTitle: "Bài còn giá trị sau nhịp tin nóng",
-      ecosystemLabel: "Hệ sinh thái",
-      ecosystemTitle: "Liên kết nhẹ với Patrick Tech Store",
-      ecosystemText: "Các gợi ý sản phẩm chỉ xuất hiện khi có ngữ cảnh phù hợp, không chiếm phần đầu bài và không bật trên trend pages.",
-      visitStore: "Mở Patrick Tech Store",
+      ecosystemLabel: "Công ty",
+      ecosystemTitle: "Patrick Tech Co. VN",
+      ecosystemText: "Patrick Tech Media là cánh nội dung của Patrick Tech Co. VN. Từ đây, độc giả có thể đọc tin và đi tiếp sang Patrick Tech Store để xem các gói tài khoản, tool và phần mềm thuộc cùng hệ.",
+      visitStore: "Đi tới Patrick Tech Store",
       radarLabel: "Newsroom radar",
       radarTitle: "Xem newsroom radar hoạt động",
       radarText: "Bảng này gom lane trend, emerging và verified để bạn thấy rõ newsroom đang ưu tiên câu chuyện nào và vì sao.",
@@ -1238,9 +1257,9 @@ function getCopy(language) {
     trendingTitle: "The themes pulling readers in",
     evergreenLabel: "Evergreen and compare",
     evergreenTitle: "Pieces with value beyond the news cycle",
-    ecosystemLabel: "Ecosystem",
-    ecosystemTitle: "Soft links into Patrick Tech Store",
-      ecosystemText: "Product suggestions appear only when the context fits. They stay away from the top of trend pages and never override the editorial frame.",
+    ecosystemLabel: "Company",
+    ecosystemTitle: "Patrick Tech Co. VN",
+      ecosystemText: "Patrick Tech Media is the editorial arm of Patrick Tech Co. VN. Readers can move from the newsroom to Patrick Tech Store to explore accounts, tools, and software in the same ecosystem.",
     visitStore: "Open Patrick Tech Store",
       radarLabel: "Newsroom radar",
       radarTitle: "See the newsroom radar in motion",
