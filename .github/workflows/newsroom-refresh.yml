@@ -1,0 +1,41 @@
+name: Refresh Patrick Tech Media
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Pull newsroom feed
+        env:
+          NEWSROOM_PULL_URL: ${{ secrets.NEWSROOM_PULL_URL }}
+          NEWSROOM_PULL_TOKEN: ${{ secrets.NEWSROOM_PULL_TOKEN }}
+          NEWSROOM_CONTENT_PATH: data/newsroom-content.json
+        run: node scripts/newsroom-refresh.mjs
+
+      - name: Commit refreshed newsroom
+        run: |
+          if git diff --quiet -- data/newsroom-content.json; then
+            echo "No newsroom changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/newsroom-content.json
+          git commit -m "Refresh Patrick Tech Media newsroom"
+          git push

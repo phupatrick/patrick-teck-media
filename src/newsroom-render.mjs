@@ -87,21 +87,21 @@ export function renderHomePage(state, language, adsConfig) {
         </aside>
       </section>
 
-      <section class="demo-strip">
-        <a class="demo-card radar" href="/${language}/radar">
-          <p class="eyebrow">${copy.demoRadarLabel}</p>
-          <h2>${copy.demoRadarTitle}</h2>
-          <p>${copy.demoRadarText}</p>
+      <section class="newsroom-strip">
+        <a class="newsroom-card radar" href="/${language}/radar">
+          <p class="eyebrow">${copy.radarLabel}</p>
+          <h2>${copy.radarTitle}</h2>
+          <p>${copy.radarText}</p>
         </a>
-        <a class="demo-card workflow" href="/${language}/workflow">
-          <p class="eyebrow">${copy.demoWorkflowLabel}</p>
-          <h2>${copy.demoWorkflowTitle}</h2>
-          <p>${copy.demoWorkflowText}</p>
+        <a class="newsroom-card workflow" href="/${language}/workflow">
+          <p class="eyebrow">${copy.workflowLabel}</p>
+          <h2>${copy.workflowTitle}</h2>
+          <p>${copy.workflowText}</p>
         </a>
-        <a class="demo-card feed" href="/${language}/feed.json">
-          <p class="eyebrow">${copy.demoFeedLabel}</p>
-          <h2>${copy.demoFeedTitle}</h2>
-          <p>${copy.demoFeedText}</p>
+        <a class="newsroom-card feed" href="/${language}/feed.json">
+          <p class="eyebrow">${copy.feedLabel}</p>
+          <h2>${copy.feedTitle}</h2>
+          <p>${copy.feedText}</p>
         </a>
       </section>
 
@@ -205,20 +205,20 @@ export function renderRadarPage(state, language, radar, adsConfig) {
     language,
     path: `/${language}/radar`,
     adsConfig,
-    title: `${copy.demoRadarTitle} | ${state.site.name}`,
-    description: copy.demoRadarText,
+    title: `${copy.radarTitle} | ${state.site.name}`,
+    description: copy.radarText,
     content: `
       <section class="simple-hero">
-        <p class="eyebrow">${copy.demoRadarLabel}</p>
-        <h1>${copy.demoRadarTitle}</h1>
-        <p>${copy.demoRadarText}</p>
+        <p class="eyebrow">${copy.radarLabel}</p>
+        <h1>${copy.radarTitle}</h1>
+        <p>${copy.radarText}</p>
       </section>
 
-      <section class="demo-strip metrics-strip">
+      <section class="newsroom-strip metrics-strip">
         ${radar.scorecards
           .map(
             (card) => `
-              <article class="demo-card stat">
+              <article class="newsroom-card stat">
                 <p class="eyebrow">${escapeHtml(card.label)}</p>
                 <h2>${card.value}</h2>
               </article>
@@ -307,13 +307,13 @@ export function renderWorkflowPage(state, language, workflow, adsConfig) {
     language,
     path: `/${language}/workflow`,
     adsConfig,
-    title: `${copy.demoWorkflowTitle} | ${state.site.name}`,
-    description: copy.demoWorkflowText,
+    title: `${copy.workflowTitle} | ${state.site.name}`,
+    description: copy.workflowText,
     content: `
       <section class="simple-hero">
-        <p class="eyebrow">${copy.demoWorkflowLabel}</p>
-        <h1>${copy.demoWorkflowTitle}</h1>
-        <p>${copy.demoWorkflowText}</p>
+        <p class="eyebrow">${copy.workflowLabel}</p>
+        <h1>${copy.workflowTitle}</h1>
+        <p>${copy.workflowText}</p>
       </section>
 
       <section class="lane-grid workflow-grid">
@@ -337,11 +337,11 @@ export function renderWorkflowPage(state, language, workflow, adsConfig) {
               <h2>${escapeHtml(workflow.matrixLabel)}</h2>
             </div>
           </div>
-          <div class="demo-strip metrics-strip">
+          <div class="newsroom-strip metrics-strip">
             ${workflow.contentMatrix
               .map(
                 (entry) => `
-                  <article class="demo-card stat">
+                  <article class="newsroom-card stat">
                     <p class="eyebrow">${escapeHtml(entry.label)}</p>
                     <h2>${entry.count}</h2>
                   </article>
@@ -395,11 +395,11 @@ export function renderDashboardPage(state, language, dashboard, adsConfig) {
         <p>${copy.dashboardText}</p>
       </section>
 
-      <section class="demo-strip metrics-strip">
+      <section class="newsroom-strip metrics-strip">
         ${dashboard.headlineCards
           .map(
             (card) => `
-              <article class="demo-card stat">
+              <article class="newsroom-card stat">
                 <p class="eyebrow">${escapeHtml(card.label)}</p>
                 <h2>${card.value}</h2>
               </article>
@@ -1012,17 +1012,17 @@ function getCopy(language) {
       ecosystemTitle: "Liên kết nhẹ với Patrick Tech Store",
       ecosystemText: "Các gợi ý sản phẩm chỉ xuất hiện khi có ngữ cảnh phù hợp, không chiếm phần đầu bài và không bật trên trend pages.",
       visitStore: "Mở Patrick Tech Store",
-      demoRadarLabel: "Demo radar",
-      demoRadarTitle: "Xem newsroom radar hoạt động",
-      demoRadarText: "Bảng này gom lane trend, emerging và verified để bạn thấy rõ newsroom đang ưu tiên câu chuyện nào và vì sao.",
-      demoWorkflowLabel: "Demo workflow",
-      demoWorkflowTitle: "Mở quy trình xuất bản",
-      demoWorkflowText: "Trang workflow giải thích cách bàn tin gom nguồn, xếp hàng chờ biên tập, gắn trạng thái và đưa bài lên site với guardrail quảng cáo.",
-      demoFeedLabel: "Feed",
-      demoFeedTitle: "Xuất JSON và RSS",
-      demoFeedText: "Feed máy đọc được đã sẵn sàng cho phân phối, subscriber inbox hoặc các lớp theo dõi cập nhật về sau.",
+      radarLabel: "Newsroom radar",
+      radarTitle: "Xem newsroom radar hoạt động",
+      radarText: "Bảng này gom lane trend, emerging và verified để bạn thấy rõ newsroom đang ưu tiên câu chuyện nào và vì sao.",
+      workflowLabel: "Quy trình xuất bản",
+      workflowTitle: "Mở quy trình xuất bản",
+      workflowText: "Trang workflow giải thích cách bàn tin gom nguồn, xếp hàng chờ biên tập, gắn trạng thái và đưa bài lên site với guardrail quảng cáo.",
+      feedLabel: "Feed",
+      feedTitle: "Xuất JSON và RSS",
+      feedText: "Feed máy đọc được đã sẵn sàng cho phân phối, subscriber inbox hoặc các lớp theo dõi cập nhật về sau.",
       browserLabel: "Signal browser",
-      browserTitle: "Lọc nhanh stories trong demo",
+      browserTitle: "Lọc nhanh toàn bộ tuyến bài",
       browserText: "Phần này giúp bạn thử ngay cách site phân loại story theo verification state mà không cần rời homepage.",
       browserPlaceholder: "Tìm theo tiêu đề, topic hoặc trạng thái...",
       filterAll: "Tất cả",
@@ -1032,7 +1032,7 @@ function getCopy(language) {
       moreLabel: "Xem thêm",
       topicLabel: "Chuyên mục",
       topicIntro: "Toàn bộ stories trong chuyên mục này được giữ cùng một cấu trúc xác minh, attribution và tiêu chí bật quảng cáo.",
-      radarQueueLabel: "Queue demo",
+      radarQueueLabel: "Queue newsroom",
       radarQueueTitle: "Những story đang nổi trong pipeline",
       radarSourceMixLabel: "Source mix",
       radarSourceMixTitle: "Tỉ trọng nguồn đang đi vào newsroom",
@@ -1106,17 +1106,17 @@ function getCopy(language) {
     ecosystemTitle: "Soft links into Patrick Tech Store",
       ecosystemText: "Product suggestions appear only when the context fits. They stay away from the top of trend pages and never override the editorial frame.",
     visitStore: "Open Patrick Tech Store",
-      demoRadarLabel: "Radar demo",
-      demoRadarTitle: "See the newsroom radar in motion",
-      demoRadarText: "This board groups trend, emerging, and verified lanes so you can quickly see what the newsroom is prioritizing and why.",
-      demoWorkflowLabel: "Workflow demo",
-      demoWorkflowTitle: "Open the publishing workflow",
-      demoWorkflowText: "The workflow page explains how the desk gathers sources, groups story lines, assigns states, and publishes pages with ad guardrails.",
-      demoFeedLabel: "Feed",
-      demoFeedTitle: "Export JSON and RSS",
-      demoFeedText: "Machine-readable feeds are already available for distribution, inbox digests, or future monitoring layers.",
+      radarLabel: "Newsroom radar",
+      radarTitle: "See the newsroom radar in motion",
+      radarText: "This board groups trend, emerging, and verified lanes so you can quickly see what the newsroom is prioritizing and why.",
+      workflowLabel: "Publishing workflow",
+      workflowTitle: "Open the publishing workflow",
+      workflowText: "The workflow page explains how the desk gathers sources, groups story lines, assigns states, and publishes pages with ad guardrails.",
+      feedLabel: "Feed",
+      feedTitle: "Export JSON and RSS",
+      feedText: "Machine-readable feeds are already available for distribution, inbox digests, or future monitoring layers.",
       browserLabel: "Signal browser",
-      browserTitle: "Filter stories inside the demo",
+      browserTitle: "Filter the live newsroom stream",
       browserText: "Use this area to test how the site sorts stories by verification state without leaving the homepage.",
       browserPlaceholder: "Search by title, topic, or state...",
       filterAll: "All",
@@ -1126,7 +1126,7 @@ function getCopy(language) {
       moreLabel: "More",
       topicLabel: "Topic",
       topicIntro: "Every story in this section follows the same verification structure, attribution rules, and ad-eligibility logic.",
-      radarQueueLabel: "Demo queue",
+      radarQueueLabel: "Newsroom queue",
       radarQueueTitle: "Stories now moving through the pipeline",
       radarSourceMixLabel: "Source mix",
       radarSourceMixTitle: "What kinds of sources are entering the newsroom",

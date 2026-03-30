@@ -43,6 +43,7 @@ const config = {
   port: Number(process.env.PORT || envFromFile.PORT || 3000),
   siteUrl: process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktech.media",
   storeUrl: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://store.patricktech.media",
+  contentPath: process.env.NEWSROOM_CONTENT_PATH || envFromFile.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
   adsenseClient: process.env.GOOGLE_ADSENSE_CLIENT || envFromFile.GOOGLE_ADSENSE_CLIENT || "",
   adsenseSlots: {
     hero: process.env.GOOGLE_ADSENSE_SLOT_HERO || envFromFile.GOOGLE_ADSENSE_SLOT_HERO || "",
@@ -190,6 +191,7 @@ function buildState() {
   const newsroom = buildNewsroomState({
     siteUrl: config.siteUrl,
     storeUrl: config.storeUrl,
+    contentPath: config.contentPath,
     now: new Date().toISOString()
   });
 

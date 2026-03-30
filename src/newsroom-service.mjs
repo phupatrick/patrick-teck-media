@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import {
   buildArticles,
   getAuthors,
@@ -8,6 +10,7 @@ import {
 } from "./newsroom-data.mjs";
 
 const LANGUAGES = ["vi", "en"];
+const DEFAULT_CONTENT_PATH = path.join(process.cwd(), "data", "newsroom-content.json");
 const DATE_FORMATTERS = {
   vi: new Intl.DateTimeFormat("vi-VN", {
     dateStyle: "medium",
@@ -175,10 +178,12 @@ export function buildNewsroomState(options = {}) {
   const siteUrl = normalizeSiteUrl(options.siteUrl || "https://patricktech.media");
   const storeUrl = normalizeSiteUrl(options.storeUrl || "https://store.patricktech.media");
   const now = new Date(options.now || new Date().toISOString());
-  const articles = buildArticles().map((article) => enrichArticle(article, { siteUrl, storeUrl }));
-  const articlesByHref = new Map(articles.map((article) => [article.href, article]));
   const topics = getTopics();
   const contentTypeMeta = getContentTypeMeta();
+  const contentPath = resolveContentPath(options.contentPath);
+  const sourceArticles = loadExternalArticles(contentPath, { topics, contentTypeMeta }) || buildArticles();
+  const articles = sourceArticles.map((article) => enrichArticle(article, { siteUrl, storeUrl }));
+  const articlesByHref = new Map(articles.map((article) => [article.href, article]));
   const storeItems = getStoreItems().map((item) => ({
     ...item,
     url: `${storeUrl}${item.path}`
@@ -211,6 +216,7 @@ export function buildNewsroomState(options = {}) {
       supportedLanguages: [...LANGUAGES]
     },
     runtime: buildRuntime(now, authors),
+    contentPath,
     topics,
     contentTypeMeta,
     policies: getPolicyPages(),
@@ -500,13 +506,13 @@ export function getDashboardData(state, language) {
   const repoChecklist =
     language === "vi"
       ? [
-          "README đã mô tả route demo chính.",
+          "README đã mô tả các route newsroom chính.",
           ".gitignore chặn file tạm, log và outbox.",
           "Feed JSON/RSS sẵn cho bot hoặc subscriber.",
           "Policy pages và sitemap đã có mặt."
         ]
       : [
-          "README documents the main demo routes.",
+          "README documents the main newsroom routes.",
           ".gitignore blocks temp files, logs, and outbox folders.",
           "JSON and RSS feeds are available for bots or subscribers.",
           "Policy pages and sitemap are in place."
@@ -919,6 +925,78 @@ function buildRuntime(now, authors) {
     refreshIntervalMs: LIVE_REFRESH_MS,
     editor: authors[now.getMinutes() % authors.length] || authors[0],
     statusLabel
+  };
+}
+
+function resolveContentPath(contentPath) {
+  const raw = contentPath || process.env.NEWSROOM_CONTENT_PATH || DEFAULT_CONTENT_PATH;
+  return path.isAbsolute(raw) ? raw : path.resolve(process.cwd(), raw);
+}
+
+function loadExternalArticles(contentPath, { topics, contentTypeMeta }) {
+  try {
+    if (!fs.existsSync(contentPath)) {
+      return null;
+    }
+
+    const payload = JSON.parse(fs.readFileSync(contentPath, "utf8"));
+    const items = Array.isArray(payload) ? payload : Array.isArray(payload?.articles) ? payload.articles : null;
+
+    if (!items || items.length === 0) {
+      return null;
+    }
+
+    const normalized = items
+      .map((article) => normalizeExternalArticle(article, { topics, contentTypeMeta }))
+      .filter(Boolean);
+
+    return normalized.length > 0 ? normalized : null;
+  } catch {
+    return null;
+  }
+}
+
+function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
+  if (!article || typeof article !== "object") {
+    return null;
+  }
+
+  const language = article.language === "en" ? "en" : "vi";
+  const topic = topics.find((entry) => entry.id === article.topic);
+  const typeMeta = contentTypeMeta[article.content_type];
+
+  if (!topic || !typeMeta || !article.slug || !article.title) {
+    return null;
+  }
+
+  return {
+    id: article.id || `${article.cluster_id || article.slug}-${language}`,
+    cluster_id: article.cluster_id || article.slug,
+    language,
+    topic: topic.id,
+    topic_label: article.topic_label || topic.labels[language],
+    topic_slug: article.topic_slug || topic.slugs[language],
+    topic_accent: article.topic_accent || topic.accent,
+    content_type: article.content_type,
+    content_type_label: article.content_type_label || typeMeta.labels[language],
+    path_segment: article.path_segment || typeMeta.segments[language],
+    slug: article.slug,
+    title: article.title,
+    summary: article.summary || "",
+    dek: article.dek || article.summary || "",
+    sections: Array.isArray(article.sections) ? article.sections : [],
+    verification_state: article.verification_state || "trend",
+    quality_score: Number.isFinite(article.quality_score) ? article.quality_score : 80,
+    ad_eligible: Boolean(article.ad_eligible),
+    show_editorial_label: Boolean(article.show_editorial_label),
+    indexable: article.indexable !== false,
+    store_link_mode: article.store_link_mode || "off",
+    related_store_items: Array.isArray(article.related_store_items) ? article.related_store_items : [],
+    source_set: Array.isArray(article.source_set) ? article.source_set : [],
+    author_id: article.author_id || "mai-linh",
+    published_at: article.published_at || new Date().toISOString(),
+    updated_at: article.updated_at || article.published_at || new Date().toISOString(),
+    href: article.href || `/${language}/${typeMeta.segments[language]}/${article.slug}`
   };
 }
 

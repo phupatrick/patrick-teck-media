@@ -248,7 +248,7 @@ h3 {
 .article-layout,
 .topic-band,
 .author-grid,
-.demo-strip,
+.newsroom-strip,
 .lane-grid,
 .endpoint-grid {
   display: grid;
@@ -454,30 +454,30 @@ h3 {
   gap: 14px;
 }
 
-.demo-strip {
+.newsroom-strip {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.demo-card {
+.newsroom-card {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.76);
   padding: 22px;
 }
 
-.demo-card.radar {
+.newsroom-card.radar {
   background: linear-gradient(135deg, rgba(255, 138, 61, 0.14), rgba(255, 255, 255, 0.72));
 }
 
-.demo-card.workflow {
+.newsroom-card.workflow {
   background: linear-gradient(135deg, rgba(15, 127, 84, 0.12), rgba(255, 255, 255, 0.72));
 }
 
-.demo-card.feed {
+.newsroom-card.feed {
   background: linear-gradient(135deg, rgba(36, 99, 235, 0.12), rgba(255, 255, 255, 0.72));
 }
 
-.demo-card.stat h2 {
+.newsroom-card.stat h2 {
   font-size: 2.6rem;
   margin-top: 8px;
 }
@@ -946,7 +946,7 @@ h3 {
   }
 
   .topic-band,
-  .demo-strip {
+  .newsroom-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -982,7 +982,7 @@ h3 {
   .story-grid,
   .compact-grid,
   .topic-band,
-  .demo-strip,
+  .newsroom-strip,
   .author-grid,
   .stat-grid,
   .endpoint-grid,

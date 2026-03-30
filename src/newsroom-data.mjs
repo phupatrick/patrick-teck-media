@@ -453,7 +453,7 @@ const CLUSTERS = [
           {
             heading: "Why it matters",
             body:
-              "Running more of the model stack near the device stabilizes response times when connectivity is weak. That is a strong fit for Vietnam-heavy field operations, where mobility and consistency often matter more than flashy demos."
+              "Running more of the model stack near the device stabilizes response times when connectivity is weak. That is a strong fit for Vietnam-heavy field operations, where mobility and consistency often matter more than flashy prototypes."
           },
           {
             heading: "Patrick Tech angle",

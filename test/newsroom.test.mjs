@@ -1,4 +1,7 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import {
   buildJsonFeed,
   buildSitemapXml,
@@ -13,7 +16,7 @@ import { renderArticlePage } from "../src/newsroom-render.mjs";
 const state = createState();
 const tests = [
   {
-    name: "ships at least 20 localized sample articles across at least 10 clusters",
+    name: "ships at least 20 localized newsroom articles across at least 10 clusters",
     run() {
       assert.ok(state.articles.length >= 20);
       assert.ok(new Set(state.articles.map((article) => article.cluster_id)).size >= 10);
@@ -77,12 +80,30 @@ const tests = [
     }
   },
   {
-    name: "builds a machine-readable JSON feed for the demo",
+    name: "builds a machine-readable JSON feed for the newsroom",
     run() {
       const feed = buildJsonFeed(state, "vi");
       assert.equal(feed.version, "https://jsonfeed.org/version/1.1");
       assert.equal(feed.items.length, 11);
       assert.match(feed.items[0].url, /\/vi\//);
+    }
+  },
+  {
+    name: "loads live newsroom content from an external JSON file",
+    run() {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-media-"));
+      const contentPath = path.join(tempDir, "newsroom-content.json");
+      fs.writeFileSync(contentPath, JSON.stringify({ articles: [state.articles[0]] }, null, 2), "utf8");
+
+      const fileState = buildNewsroomState({
+        siteUrl: "https://patricktech.media",
+        storeUrl: "https://store.patricktech.media",
+        contentPath
+      });
+
+      assert.equal(fileState.articles.length, 1);
+      assert.equal(fileState.contentPath, contentPath);
+      assert.equal(fileState.articles[0].title, state.articles[0].title);
     }
   },
   {
