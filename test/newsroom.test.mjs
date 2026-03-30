@@ -11,7 +11,7 @@ import {
   getRadarData,
   getTopicPage
 } from "../src/newsroom-service.mjs";
-import { renderArticlePage } from "../src/newsroom-render.mjs";
+import { renderArticlePage, renderHomePage } from "../src/newsroom-render.mjs";
 
 const state = createState();
 const tests = [
@@ -79,6 +79,18 @@ const tests = [
       assert.equal(home.liveDesk.cards.length, 4);
       assert.ok(home.liveDesk.ticker.length > 0);
       assert.ok(home.liveDesk.refreshIntervalMs > 0);
+    }
+  },
+  {
+    name: "keeps internal automation branding off public pages and generates hooks for every article",
+    run() {
+      const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
+      const article = getArticleByRoute(state, "en", "news", "viettel-pilots-edge-ai-assistant-for-field-sales-teams");
+      const articleHtml = renderArticlePage(state, "en", article, [], { client: "", slots: {} });
+
+      assert.ok(state.articles.every((entry) => entry.hook && /[.?!]$/.test(entry.hook)));
+      assert.doesNotMatch(homeHtml, /OpenClaw/i);
+      assert.doesNotMatch(articleHtml, /OpenClaw/i);
     }
   },
   {

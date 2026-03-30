@@ -35,6 +35,8 @@ GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 NEWSROOM_PULL_URL=
 NEWSROOM_PULL_TOKEN=
+OPENCLAW_NEWSROOM_URL=
+OPENCLAW_NEWSROOM_TOKEN=
 GOOGLE_ADSENSE_CLIENT=
 GOOGLE_ADSENSE_SLOT_HERO=
 GOOGLE_ADSENSE_SLOT_INLINE=
@@ -165,6 +167,8 @@ The refresh flow reads:
 
 - `NEWSROOM_PULL_URL`: URL returning JSON article payloads
 - `NEWSROOM_PULL_TOKEN`: optional bearer token
+- `OPENCLAW_NEWSROOM_URL`: optional alias for the same pull URL
+- `OPENCLAW_NEWSROOM_TOKEN`: optional alias for the same bearer token
 - `NEWSROOM_CONTENT_PATH`: destination file for the merged newsroom
 
 A ready-to-enable GitHub Actions workflow is included at `.github/workflows/newsroom-refresh.yml`. Once the two secrets above are added in GitHub, the workflow can refresh the newsroom on a schedule and trigger a new Vercel deploy.
