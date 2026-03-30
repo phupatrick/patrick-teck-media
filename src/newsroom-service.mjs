@@ -1037,7 +1037,7 @@ function buildEditorialTitleSuffix({ language, topic, verificationState, content
   }
 
   if (contentType === "ComparisonPage") {
-    return language === "vi" ? "đâu là khác biệt đáng nhìn kỹ" : "which differences matter most";
+    return language === "vi" ? "đâu là khác biệt đáng nhìn kỹ" : "where the real differences show";
   }
 
   if (contentType === "EvergreenGuide") {
@@ -1047,40 +1047,40 @@ function buildEditorialTitleSuffix({ language, topic, verificationState, content
   const fallback = {
     verified: {
       ai: {
-        vi: "vì sao đội vận hành đang đọc kỹ",
-        en: "why operating teams are reading closely"
+        vi: "vì sao team vận hành nên đọc kỹ",
+        en: "why teams are taking a closer look"
       },
       software: {
         vi: "vì sao người dùng nên để mắt tới",
-        en: "why users should keep an eye on it"
+        en: "why users should pay attention"
       },
       devices: {
-        vi: "điều thay đổi nhỏ nhưng đáng để ý",
-        en: "the small shift worth noticing"
+        vi: "điểm thay đổi đáng để ý",
+        en: "the device shift worth noticing"
       },
       security: {
-        vi: "điều team vận hành không nên bỏ qua",
-        en: "the point teams should not ignore"
+        vi: "điều team vận hành không nên lướt qua",
+        en: "the risk teams should not shrug off"
       },
       gaming: {
-        vi: "vì sao cộng đồng đang theo dõi sát",
-        en: "why the community is watching closely"
+        vi: "vì sao cộng đồng đang nói nhiều về nó",
+        en: "why the community keeps talking about it"
       },
       "internet-business": {
-        vi: "điều nó có thể đổi với người dùng số",
-        en: "what it could change for digital users"
+        vi: "điều có thể đổi với người dùng số",
+        en: "what could change for digital users"
       }
     },
     emerging: {
       default: {
-        vi: "vì sao tín hiệu này đáng theo dõi thêm",
-        en: "why this signal deserves a closer watch"
+        vi: "vì sao tín hiệu này đang đậm dần",
+        en: "why this signal is getting harder to ignore"
       }
     },
     trend: {
       default: {
-        vi: "điều gì đã lộ ra và điều gì còn thiếu",
-        en: "what is showing up and what is still missing"
+        vi: "cộng đồng đang nhìn thấy gì",
+        en: "what people are seeing so far"
       }
     }
   };
@@ -1106,8 +1106,8 @@ function polishExternalDek({ value, summary, sections, language }) {
   }
 
   return language === "vi"
-    ? "Bài viết gom lại thay đổi chính, bối cảnh liên quan và tác động thực tế để người đọc nắm điều đáng chú ý ngay từ phần mở đầu."
-    : "This story pulls together the key shift, the surrounding context, and the real-world consequence so readers can catch the important part immediately.";
+    ? "Bài viết kéo thay đổi chính về đúng bối cảnh, chỉ ra phần đáng chú ý và giúp người đọc nắm nhanh điều gì đang thực sự dịch chuyển."
+    : "This story pulls the key shift into context, surfaces the meaningful angle, and explains why it matters without losing reading momentum.";
 }
 
 function polishExternalSummary({ value, dek, sections, language }) {
@@ -1126,8 +1126,8 @@ function polishExternalSummary({ value, dek, sections, language }) {
   }
 
   return language === "vi"
-    ? "Bài viết đi thẳng vào điều vừa xảy ra, vì sao nó đáng để dành thời gian đọc kỹ, và tác động thực tế của nó với người dùng hoặc đội vận hành."
-    : "The story moves quickly into what happened, why it deserves a closer read, and the practical effect it may have on users or operating teams.";
+    ? "Bài viết đi thẳng vào điều vừa xảy ra, vì sao người đọc nên dừng lại lâu hơn một headline, và tác động thực tế của nó với người dùng hoặc đội vận hành."
+    : "The piece moves quickly through what changed, why it deserves more than a passing glance, and what readers should watch next.";
 }
 
 function normalizeArticleHook(article, { language, topic, verificationState, contentType, summary, dek, sections }) {
@@ -1159,51 +1159,51 @@ function normalizeArticleHook(article, { language, topic, verificationState, con
 function buildEditorialAngle({ language, topic, verificationState, contentType }) {
   if (contentType === "Roundup") {
     return language === "vi"
-      ? "Điều khiến bản tổng hợp này đáng đọc là nó giúp bạn thấy câu chuyện nào thật sự nên đào sâu và câu chuyện nào chỉ cần tiếp tục theo dõi."
-      : "What makes this roundup worth reading is that it separates the stories that deserve a deeper read from the ones that belong on a watch list.";
+      ? "Điều khiến bản tổng hợp này đáng đọc là nó chỉ ra câu chuyện nào thật sự nên đào sâu và câu chuyện nào chỉ cần tiếp tục theo dõi."
+      : "What makes this roundup useful is that it tells readers which stories deserve a deeper read and which ones belong on the watch list.";
   }
 
   if (contentType === "ComparisonPage") {
     return language === "vi"
-      ? "Phần đáng đọc nằm ở chỗ nó kéo mọi lựa chọn về cùng một mặt bàn để bạn nhìn ra khác biệt thật sự."
-      : "The useful part is that it puts every option on the same table so the real differences are easier to see.";
+      ? "Phần đáng đọc nằm ở chỗ mọi lựa chọn được kéo về cùng một bàn cân để khác biệt thật sự lộ ra rõ hơn."
+      : "The useful part is that every option is placed on the same table before any conclusion is drawn.";
   }
 
   if (contentType === "EvergreenGuide") {
     return language === "vi"
-      ? "Giá trị của bài nằm ở việc bạn có thể đọc xong rồi áp dụng ngay, thay vì chỉ lướt qua một headline nữa."
-      : "The value here is that you can finish the piece and actually use it, instead of just consuming another headline.";
+      ? "Giá trị của bài nằm ở chỗ đọc xong là có thể đem đi dùng ngay, thay vì chỉ lướt qua thêm một headline."
+      : "The value here is that readers can finish the piece and use something from it right away.";
   }
 
   const statusMap = {
     trend: {
-      vi: "Điểm nên theo dõi lúc này là liệu tiếng bàn tán có chuyển thành xác nhận chính thức hay không.",
-      en: "The part worth tracking now is whether the buzz turns into an official confirmation."
+      vi: "Điểm nên giữ trong tầm mắt lúc này là liệu tiếng bàn tán có đi tiếp thành xác nhận hay không.",
+      en: "The key thing to watch now is whether the chatter hardens into something official."
     },
     emerging: {
-      vi: "Điều đáng đọc không chỉ nằm ở cập nhật mới, mà ở khả năng nó sẽ sớm trở thành thay đổi thật trên diện rộng.",
-      en: "What matters is not just the update itself, but the chance that it could soon turn into a real, broader change."
+      vi: "Điều khiến câu chuyện này đáng theo dõi là tín hiệu đã bắt đầu dày lên, nhưng vẫn chưa đến mức có thể chốt hạ.",
+      en: "What makes this worth following is that the signal is getting stronger without being fully settled yet."
     },
     verified: {
       ai: {
-        vi: "Điểm đáng nói là AI đang rời phần trình diễn để chạm vào công việc hằng ngày.",
-        en: "The key angle is that AI is moving out of the demo stage and into everyday work."
+        vi: "Điểm đáng nói là AI đang đi gần hơn tới việc dùng thật, không còn chỉ đứng ở phần trình diễn.",
+        en: "The interesting part is that AI is edging closer to practical work, not just polished demos."
       },
       software: {
-        vi: "Phần đáng đọc nằm ở việc thói quen dùng ứng dụng có thể đổi rất nhanh sau kiểu cập nhật này.",
-        en: "The part worth reading is how quickly everyday app behavior can change after this kind of update."
+        vi: "Phần đáng đọc nằm ở chỗ thói quen dùng ứng dụng có thể đổi khá nhanh sau kiểu cập nhật này.",
+        en: "The part worth reading is how quickly everyday product behavior can shift after an update like this."
       },
       devices: {
-        vi: "Những thay đổi kiểu này thường nhỏ trên giấy tờ nhưng lại chạm thẳng vào niềm tin khi dùng thiết bị mỗi ngày.",
-        en: "Shifts like this can look small on paper while changing how much people trust a device day to day."
+        vi: "Những thay đổi kiểu này thường nhỏ trên giấy tờ nhưng lại chạm mạnh vào cảm giác dùng máy mỗi ngày.",
+        en: "Shifts like this can look minor on paper while changing how a device feels in daily use."
       },
       security: {
-        vi: "Giá trị thật của câu chuyện nằm ở chỗ nó chạm tới an toàn vận hành, không chỉ thêm một lớp cài đặt.",
-        en: "The real value of this story is that it affects operational safety, not just another settings layer."
+        vi: "Giá trị thật của câu chuyện nằm ở an toàn vận hành, chứ không chỉ thêm một lớp cài đặt mới.",
+        en: "The real value of this story is that it touches operational safety, not just another settings layer."
       },
       gaming: {
-        vi: "Với cộng đồng game, kiểu thay đổi này thường lan nhanh hơn bất kỳ thông báo marketing nào.",
-        en: "In gaming communities, shifts like this usually travel faster than any marketing announcement."
+        vi: "Với cộng đồng game, kiểu thay đổi này thường lan nhanh hơn bất kỳ thông báo chính thức nào.",
+        en: "In gaming communities, shifts like this usually travel faster than any formal announcement."
       },
       "internet-business": {
         vi: "Điều đáng đọc là nó có thể đổi cách người dùng số phản ứng, làm việc hoặc chi tiền.",
@@ -1615,7 +1615,7 @@ function extractEditorialPhrases(value) {
 
 function isEditorialTitleCompelling(title, language) {
   const normalized = title.toLowerCase();
-  const hasShape = /[:?!]/.test(title) || title.length >= 66 || /nhưng|vì sao|what|why|but|how/i.test(normalized);
+  const hasShape = /[:?!]/.test(title) || title.length >= 72 || /nhưng|vì sao|what|why|but|how/i.test(normalized);
   const banned =
     language === "vi"
       ? ["mua ngay", "giam gia", "khuyen mai", "hot nhat hom nay"]

@@ -166,6 +166,7 @@ export function createPlatformService(options) {
       const title = strengthenSubmissionTitle(safeTrim(formData.title), {
         language,
         topic: formData.topic || "ai",
+        contentType: formData.content_type || "NewsArticle",
         summary: safeTrim(formData.summary),
         dek: safeTrim(formData.dek),
         sections
@@ -185,6 +186,8 @@ export function createPlatformService(options) {
       const hook = buildSubmissionHook({
         value: safeTrim(formData.hook),
         title,
+        topic: formData.topic || "ai",
+        contentType: formData.content_type || "NewsArticle",
         dek,
         summary,
         sections,
@@ -531,60 +534,65 @@ function sanitizeImage(image) {
   };
 }
 
-function strengthenSubmissionTitle(title, { language, topic, summary, dek, sections }) {
+function strengthenSubmissionTitle(title, { language, topic, contentType, summary, dek, sections }) {
   const normalized = stripTrailingPunctuation(title);
 
   if (!normalized) {
     return normalized;
   }
 
-  if (normalized.length >= 46 && /[:?!]/.test(normalized)) {
+  if (isCompellingTitle(normalized, language)) {
     return normalized;
   }
 
-  const suffix = buildTitleSuffix({ language, topic, summary, dek, sections });
+  const suffix = buildTitleSuffix({ language, topic, contentType, summary, dek, sections });
   return suffix && !normalized.toLowerCase().includes(suffix.toLowerCase()) ? `${normalized}: ${suffix}` : normalized;
 }
 
-function buildTitleSuffix({ language, topic, summary, dek, sections }) {
-  const sourceText = [dek, summary, ...sections.map((section) => section.heading), ...sections.map((section) => section.body)].join(" ");
-  const phrases = extractKeyPhrases(sourceText);
+function buildTitleSuffix({ language, topic, contentType }) {
+  if (contentType === "Roundup") {
+    return language === "vi" ? "những chuyển động nên giữ trong tầm mắt" : "the shifts worth keeping in view";
+  }
 
-  if (phrases.length > 0) {
-    return phrases[0];
+  if (contentType === "ComparisonPage") {
+    return language === "vi" ? "đâu là khác biệt đáng nhìn kỹ" : "where the real differences show";
+  }
+
+  if (contentType === "EvergreenGuide") {
+    return language === "vi" ? "đọc xong là dùng được ngay" : "built to be useful right away";
   }
 
   const fallbackByTopic = {
     ai: {
-      vi: "điều đội vận hành đang để mắt tới",
-      en: "why teams are paying attention"
+      vi: "vì sao team vận hành nên đọc kỹ",
+      en: "why teams are taking a closer look"
     },
     software: {
-      vi: "điều người dùng nên để ý",
-      en: "what users should watch"
+      vi: "vì sao người dùng nên để mắt tới",
+      en: "why users should pay attention"
     },
     devices: {
-      vi: "điểm thay đổi đáng chú ý",
-      en: "the hardware shift to watch"
+      vi: "điểm thay đổi đáng để ý",
+      en: "the device shift worth noticing"
     },
     security: {
-      vi: "rủi ro không nên bỏ qua",
-      en: "the risk worth noticing"
+      vi: "điều team vận hành không nên lướt qua",
+      en: "the risk teams should not shrug off"
     },
     gaming: {
-      vi: "lý do cộng đồng đang bàn tán",
-      en: "why the community is talking"
+      vi: "vì sao cộng đồng đang nói nhiều về nó",
+      en: "why the community keeps talking about it"
     },
     "internet-business": {
-      vi: "tác động tới người dùng số",
-      en: "what it changes for digital users"
+      vi: "điều có thể đổi với người dùng số",
+      en: "what could change for digital users"
     }
   };
 
   return fallbackByTopic[topic]?.[language] || fallbackByTopic.ai[language];
 }
 
-function buildSubmissionHook({ value, dek, summary, sections, language }) {
+function buildSubmissionHook({ value, topic, contentType, dek, summary, sections, language }) {
   const provided = finalizeSentence(value);
 
   if (provided && provided.length >= 70) {
@@ -592,20 +600,17 @@ function buildSubmissionHook({ value, dek, summary, sections, language }) {
   }
 
   const opening = finalizeSentence(dek) || firstSentence(summary) || firstSentence(sections[0]?.body || "");
+  const angle = buildSubmissionAngle({ language, topic, contentType });
 
   if (!opening) {
-    return language === "vi"
-      ? "Câu chuyện này đáng đọc vì nó không chỉ là một cập nhật mới, mà còn gợi ra cách người dùng và đội vận hành sẽ phản ứng với thay đổi kế tiếp."
-      : "This story matters because it is not just another update; it hints at how users and operating teams may react next.";
+    return angle;
   }
 
-  if (opening.length >= 110) {
+  if (opening.length >= 120 || opening.toLowerCase().includes(angle.toLowerCase())) {
     return opening;
   }
 
-  return language === "vi"
-    ? `${opening} Đây là phần đáng đọc kỹ trước khi xu hướng này đi xa hơn.`
-    : `${opening} That is the part worth watching before the shift moves any further.`;
+  return `${opening} ${angle}`.trim();
 }
 
 function polishDek({ value, summary, sections, language }) {
@@ -622,8 +627,8 @@ function polishDek({ value, summary, sections, language }) {
   }
 
   return language === "vi"
-    ? "Bài viết này gom lại bối cảnh, thay đổi chính và tác động thực tế để người đọc nắm nhanh điều quan trọng nhất."
-    : "This story pulls together the context, the shift, and the practical impact so readers can grasp the key point quickly.";
+    ? "Bài viết kéo thay đổi chính về đúng bối cảnh, chỉ ra phần đáng chú ý và giúp người đọc nắm nhanh điều gì đang thực sự dịch chuyển."
+    : "This story pulls the key shift into context, surfaces the meaningful angle, and explains why it matters without losing reading momentum.";
 }
 
 function polishSummary({ value, dek, sections, language }) {
@@ -642,8 +647,57 @@ function polishSummary({ value, dek, sections, language }) {
   }
 
   return language === "vi"
-    ? "Bài viết đi thẳng vào điều đã xảy ra, vì sao nó đáng chú ý và tác động thực tế tới người dùng hoặc đội vận hành."
-    : "The story goes straight to what happened, why it matters, and the practical effect on users or operating teams.";
+    ? "Bài viết đi thẳng vào điều đã xảy ra, vì sao người đọc nên dừng lại lâu hơn một headline, và tác động thực tế của nó với người dùng hoặc đội vận hành."
+    : "The piece moves quickly through what changed, why it deserves more than a passing glance, and what readers should watch next.";
+}
+
+function buildSubmissionAngle({ language, topic, contentType }) {
+  if (contentType === "Roundup") {
+    return language === "vi"
+      ? "Điều khiến bản tổng hợp này đáng đọc là nó chỉ ra câu chuyện nào thật sự nên đào sâu và câu chuyện nào chỉ cần tiếp tục theo dõi."
+      : "What makes this roundup useful is that it tells readers which stories deserve a deeper read and which ones belong on the watch list.";
+  }
+
+  if (contentType === "ComparisonPage") {
+    return language === "vi"
+      ? "Phần đáng đọc nằm ở chỗ mọi lựa chọn được kéo về cùng một bàn cân để khác biệt thật sự lộ ra rõ hơn."
+      : "The useful part is that every option is placed on the same table before any conclusion is drawn.";
+  }
+
+  if (contentType === "EvergreenGuide") {
+    return language === "vi"
+      ? "Giá trị của bài nằm ở chỗ đọc xong là có thể đem đi dùng ngay, thay vì chỉ lướt qua thêm một headline."
+      : "The value here is that readers can finish the piece and use something from it right away.";
+  }
+
+  const topicMap = {
+    ai: {
+      vi: "Điểm đáng nói là công nghệ này đang đi gần hơn tới việc dùng thật, không còn chỉ đứng ở phần trình diễn.",
+      en: "The interesting part is that this technology is edging closer to practical work, not just polished demos."
+    },
+    software: {
+      vi: "Phần đáng đọc nằm ở chỗ thói quen dùng ứng dụng có thể đổi khá nhanh sau kiểu cập nhật này.",
+      en: "The part worth reading is how quickly everyday product behavior can shift after an update like this."
+    },
+    devices: {
+      vi: "Những thay đổi kiểu này thường nhỏ trên giấy tờ nhưng lại chạm mạnh vào cảm giác dùng máy mỗi ngày.",
+      en: "Shifts like this can look minor on paper while changing how a device feels in daily use."
+    },
+    security: {
+      vi: "Giá trị thật của câu chuyện nằm ở an toàn vận hành, chứ không chỉ thêm một lớp cài đặt mới.",
+      en: "The real value of this story is that it touches operational safety, not just another settings layer."
+    },
+    gaming: {
+      vi: "Với cộng đồng game, kiểu thay đổi này thường lan nhanh hơn bất kỳ thông báo chính thức nào.",
+      en: "In gaming communities, shifts like this usually travel faster than any formal announcement."
+    },
+    "internet-business": {
+      vi: "Điều đáng đọc là nó có thể đổi cách người dùng số phản ứng, làm việc hoặc chi tiền.",
+      en: "What makes it worth reading is how it could change how digital users react, work, or spend."
+    }
+  };
+
+  return topicMap[topic]?.[language] || topicMap.ai[language];
 }
 
 function containsHeavyPromoLanguage(submission) {
@@ -656,7 +710,7 @@ function containsHeavyPromoLanguage(submission) {
 
 function isCompellingTitle(title, language) {
   const normalized = title.toLowerCase();
-  const hasStructure = /[:?!]/.test(title) || title.length >= 46;
+  const hasStructure = /[:?!]/.test(title) || title.length >= 60 || /nhưng|vì sao|what|why|but|how/i.test(normalized);
   const banned = language === "vi"
     ? ["mua ngay", "giam gia", "khuyen mai", "hot nhat hom nay"]
     : ["buy now", "limited offer", "best deal", "cheap"];

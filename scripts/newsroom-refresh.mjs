@@ -2,8 +2,8 @@ import path from "node:path";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
 
 const outputPath = process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
-const sourceUrl = process.env.NEWSROOM_PULL_URL || "";
-const sourceToken = process.env.NEWSROOM_PULL_TOKEN || "";
+const sourceUrl = process.env.NEWSROOM_PULL_URL || process.env.OPENCLAW_NEWSROOM_URL || "";
+const sourceToken = process.env.NEWSROOM_PULL_TOKEN || process.env.OPENCLAW_NEWSROOM_TOKEN || "";
 
 if (!sourceUrl) {
   console.log("NEWSROOM_PULL_URL is not configured. Skipping refresh.");
