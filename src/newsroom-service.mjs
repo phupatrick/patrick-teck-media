@@ -681,8 +681,34 @@ export function buildSitemapXml(state) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
 }
 
+export function buildNewsSitemapXml(state) {
+  const items = state.articles
+    .filter((article) => article.indexable && article.content_type === "NewsArticle")
+    .sort((left, right) => new Date(right.updated_at || right.published_at) - new Date(left.updated_at || left.published_at))
+    .slice(0, 1000)
+    .map((article) => {
+      const publicationDate = new Date(article.published_at).toISOString();
+      return [
+        "<url>",
+        `  <loc>${escapeXml(`${state.site.siteUrl}${article.href}`)}</loc>`,
+        "  <news:news>",
+        "    <news:publication>",
+        `      <news:name>${escapeXml(state.site.name)}</news:name>`,
+        `      <news:language>${article.language}</news:language>`,
+        "    </news:publication>",
+        `    <news:publication_date>${publicationDate}</news:publication_date>`,
+        `    <news:title>${escapeXml(article.title)}</news:title>`,
+        "  </news:news>",
+        "</url>"
+      ].join("\n");
+    })
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n${items}\n</urlset>\n`;
+}
+
 export function buildRobotsTxt(state) {
-  return `User-agent: *\nAllow: /\nSitemap: ${state.site.siteUrl}/sitemap.xml\n`;
+  return `User-agent: *\nAllow: /\nSitemap: ${state.site.siteUrl}/sitemap.xml\nSitemap: ${state.site.siteUrl}/sitemap-news.xml\n`;
 }
 
 export function buildJsonFeed(state, language) {

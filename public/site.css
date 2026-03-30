@@ -30,6 +30,7 @@ html,
 body {
   margin: 0;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -82,6 +83,16 @@ a {
   background: var(--surface);
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 100%;
+}
+
+.topbar > *,
+.hero-panel > *,
+.featured-split > *,
+.section-grid > *,
+.article-layout > * {
+  min-width: 0;
 }
 
 .topbar {
@@ -100,6 +111,7 @@ a {
 .brand-lockup {
   display: flex;
   align-items: center;
+  gap: 16px;
   min-width: 210px;
 }
 
@@ -133,6 +145,26 @@ h3 {
   display: block;
   width: min(100%, 242px);
   height: auto;
+}
+
+.brand-meta {
+  display: grid;
+  gap: 4px;
+}
+
+.brand-company {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.brand-note {
+  max-width: 220px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
 }
 
 .nav-strip {
@@ -1436,12 +1468,42 @@ h3 {
 
   .topbar {
     grid-template-columns: 1fr;
+    position: static;
     border-radius: 28px;
+    padding: 14px;
   }
 
   .nav-strip,
   .topbar-actions {
     justify-content: start;
+  }
+
+  .brand-lockup {
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .brand-logo {
+    width: min(100%, 184px);
+  }
+
+  .brand-meta {
+    gap: 2px;
+  }
+
+  .brand-note {
+    max-width: none;
+    font-size: 0.86rem;
+  }
+
+  .nav-strip a,
+  .lang-pill,
+  .hero-badges span,
+  .pill {
+    padding: 9px 12px;
+    font-size: 0.88rem;
   }
 
   .hero-panel,
@@ -1451,6 +1513,11 @@ h3 {
   .article-shell,
   .site-footer {
     padding: 20px;
+  }
+
+  .hero-panel,
+  .hero-aside {
+    gap: 14px;
   }
 
   .story-grid,
@@ -1488,7 +1555,27 @@ h3 {
   .hero-copy h1,
   .simple-hero h1,
   .article-header h1 {
-    font-size: clamp(2.2rem, 10vw, 3.4rem);
+    max-width: 100%;
+    font-size: clamp(1.95rem, 8.8vw, 2.85rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-text,
+  .simple-hero p,
+  .article-dek {
+    font-size: 0.98rem;
+    line-height: 1.66;
+  }
+
+  .reader-card h2,
+  .reader-card h3 {
+    font-size: 1.45rem;
+    line-height: 1.08;
+  }
+
+  .story-card h3 {
+    font-size: 1.34rem;
   }
 
   .featured-story h2 {

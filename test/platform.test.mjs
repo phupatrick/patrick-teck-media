@@ -3,6 +3,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { buildNewsroomState, getArticleByRoute } from "../src/newsroom-service.mjs";
+import { renderAuthPage } from "../src/platform-render.mjs";
 import { createPlatformService } from "../src/platform-service.mjs";
 
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-media-platform-"));
@@ -160,6 +161,25 @@ const tests = [
           ),
         /not allowed as admin/i
       );
+    }
+  },
+  {
+    name: "keeps the public login page focused on writer auth only",
+    run() {
+      const newsroom = buildNewsroomState({
+        siteUrl: "https://patricktechmedia.vercel.app",
+        storeUrl: "https://patricktechstore.vercel.app"
+      });
+      const html = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login" });
+
+      assert.match(html, /data-auth-shell/);
+      assert.match(html, /Đăng nhập/);
+      assert.match(html, /Đăng ký/);
+      assert.match(html, /password_confirm/);
+      assert.doesNotMatch(html, /hphumail@gmail\.com/);
+      assert.doesNotMatch(html, /phupunpin@gmail\.com/);
+      assert.doesNotMatch(html, /hoangphupatrick@gmail\.com/);
+      assert.doesNotMatch(html, /Đăng nhập admin bằng Google/);
     }
   }
 ];

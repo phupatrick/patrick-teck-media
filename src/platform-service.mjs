@@ -163,9 +163,11 @@ export function createPlatformService(options) {
       const sections = sanitizeSections(formData.sections || []);
       const sourceSet = sanitizeSources(formData.sources || []);
       const image = sanitizeImage(formData.image || {});
+      const topic = normalizeSubmissionTopic(formData.topic);
+      const editorialTopic = aliasSubmissionTopic(topic);
       const title = strengthenSubmissionTitle(safeTrim(formData.title), {
         language,
-        topic: formData.topic || "ai",
+        topic: editorialTopic,
         contentType: formData.content_type || "NewsArticle",
         summary: safeTrim(formData.summary),
         dek: safeTrim(formData.dek),
@@ -186,7 +188,7 @@ export function createPlatformService(options) {
       const hook = buildSubmissionHook({
         value: safeTrim(formData.hook),
         title,
-        topic: formData.topic || "ai",
+        topic: editorialTopic,
         contentType: formData.content_type || "NewsArticle",
         dek,
         summary,
@@ -200,7 +202,7 @@ export function createPlatformService(options) {
         author_role_vi: "Cộng tác viên",
         author_role_en: "Contributor",
         language: language === "en" ? "en" : "vi",
-        topic: formData.topic || "ai",
+        topic,
         content_type: formData.content_type || "NewsArticle",
         title,
         slug: slugify(title),
@@ -698,6 +700,32 @@ function buildSubmissionAngle({ language, topic, contentType }) {
   };
 
   return topicMap[topic]?.[language] || topicMap.ai[language];
+}
+
+function normalizeSubmissionTopic(topic) {
+  const value = String(topic || "").trim();
+
+  if (value === "software") {
+    return "apps-software";
+  }
+
+  if (value === "internet-business") {
+    return "internet-business-tech";
+  }
+
+  return value || "ai";
+}
+
+function aliasSubmissionTopic(topic) {
+  if (topic === "apps-software") {
+    return "software";
+  }
+
+  if (topic === "internet-business-tech") {
+    return "internet-business";
+  }
+
+  return topic || "ai";
 }
 
 function containsHeavyPromoLanguage(submission) {

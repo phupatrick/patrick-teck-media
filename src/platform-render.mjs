@@ -150,11 +150,11 @@ export function renderPortalPage(state, language, portal, { notice = "" }) {
               ${renderInput("title", copy.titleLabel, "text", true)}
               ${renderSelect("topic", copy.topicLabel, [
                 { value: "ai", label: "AI" },
-                { value: "software", label: language === "vi" ? "Ứng dụng & Phần mềm" : "Apps & Software" },
+                { value: "apps-software", label: language === "vi" ? "Ứng dụng & Phần mềm" : "Apps & Software" },
                 { value: "devices", label: language === "vi" ? "Thiết bị" : "Devices" },
                 { value: "security", label: language === "vi" ? "Bảo mật" : "Security" },
                 { value: "gaming", label: "Gaming" },
-                { value: "internet-business", label: language === "vi" ? "Internet & Doanh nghiệp số" : "Internet & Business Tech" }
+                { value: "internet-business-tech", label: language === "vi" ? "Internet & Doanh nghiệp số" : "Internet & Business Tech" }
               ])}
               ${renderSelect("content_type", copy.contentTypeLabel, [
                 { value: "NewsArticle", label: language === "vi" ? "Tin nhanh" : "News" },
@@ -430,6 +430,10 @@ function renderPlatformLayout({ state, language, title, description, path, conte
       <header class="topbar">
         <a class="brand-lockup" href="/${language}/">
           <img class="brand-logo" src="/patrick-tech-media-mark.svg" alt="${escapeHtml(state.site.name)}" />
+          <span class="brand-meta">
+            <span class="brand-company">Patrick Tech Co. VN</span>
+            <span class="brand-note">${language === "vi" ? "Toà soạn công nghệ và hệ sinh thái số" : "Technology newsroom and digital ecosystem"}</span>
+          </span>
         </a>
         <nav class="nav-strip" aria-label="Primary">
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}

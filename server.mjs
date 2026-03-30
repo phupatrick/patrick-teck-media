@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import {
   buildStoryArtSvg,
   buildHumanSitemap,
+  buildNewsSitemapXml,
   buildNewsroomState,
   buildJsonFeed,
   buildRobotsTxt,
@@ -137,6 +138,10 @@ async function handleRequest(req, res) {
 
     if (pathname === "/sitemap.xml") {
       return sendText(res, 200, buildSitemapXml(state), "application/xml; charset=utf-8");
+    }
+
+    if (pathname === "/sitemap-news.xml") {
+      return sendText(res, 200, buildNewsSitemapXml(state), "application/xml; charset=utf-8");
     }
 
     if (await tryStatic(pathname, res)) {
@@ -574,7 +579,7 @@ async function readFormBody(req) {
 
 function mapSubmissionForm(form) {
   return {
-    topic: form.topic,
+    topic: normalizeTopic(form.topic),
     content_type: form.content_type,
     title: form.title,
     hook: form.hook,
@@ -595,6 +600,17 @@ function mapSubmissionForm(form) {
       caption: form.image_caption
     }
   };
+}
+
+function normalizeTopic(topic) {
+  const value = String(topic || "").trim();
+  if (value === "software") {
+    return "apps-software";
+  }
+  if (value === "internet-business") {
+    return "internet-business-tech";
+  }
+  return value || "ai";
 }
 
 function compactArticle(article) {

@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import {
   buildJsonFeed,
+  buildNewsSitemapXml,
   buildSitemapXml,
   buildNewsroomState,
   getArticleByRoute,
@@ -70,6 +71,17 @@ const tests = [
       assert.match(xml, /hreflang="en"/);
       assert.match(xml, /viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang/);
       assert.match(xml, /viettel-pilots-edge-ai-assistant-for-field-sales-teams/);
+    }
+  },
+  {
+    name: "emits a dedicated news sitemap for indexable news articles",
+    run() {
+      const xml = buildNewsSitemapXml(state);
+
+      assert.match(xml, /<news:news>/);
+      assert.match(xml, /viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang/);
+      assert.match(xml, /<news:language>vi<\/news:language>/);
+      assert.match(xml, /<news:language>en<\/news:language>/);
     }
   },
   {

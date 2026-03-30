@@ -795,6 +795,10 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
       <header class="topbar">
         <a class="brand-lockup" href="${homePath}">
           <img class="brand-logo" src="/patrick-tech-media-mark.svg" alt="${escapeHtml(state.site.name)}" />
+          <span class="brand-meta">
+            <span class="brand-company">Patrick Tech Co. VN</span>
+            <span class="brand-note">${language === "vi" ? "Toà soạn công nghệ và hệ sinh thái số" : "Technology newsroom and digital ecosystem"}</span>
+          </span>
         </a>
         <nav class="nav-strip" aria-label="Primary">
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
@@ -1122,11 +1126,11 @@ function getCopy(language) {
       badgeSignals: "Việt Nam + thế giới",
       badgeAds: "Hook rõ, đọc cuốn",
       badgeBilingual: "Song ngữ VI/EN",
-      readerDeskLabel: "Cho người đọc",
-      readerDeskTitle: "Vào trang chủ là biết nên đọc gì trước.",
-      readerDeskText: "Mục này giờ được giữ cho độc giả: chọn nhanh bài nên mở trước, bản tổng hợp nên đọc sau, và những chủ đề đang nóng thật sự.",
-      readerStartLabel: "Bắt đầu từ đây",
-      readerStartTitle: "3 bài nên mở trước",
+      readerDeskLabel: "Góc biên tập",
+      readerDeskTitle: "Nhịp đáng đọc trong ngày.",
+      readerDeskText: "Một góc đọc nhanh để giữ bài lead, bản tổng hợp và vài chủ đề đang kéo nhịp công nghệ hôm nay trong tầm mắt.",
+      readerStartLabel: "Chọn lọc",
+      readerStartTitle: "3 bài giữ nhịp hôm nay",
       readerWatchLabel: "Đang nóng",
       readerWatchTitle: "Những chủ đề đang kéo người đọc vào",
       liveLabel: "Live desk",
@@ -1230,11 +1234,11 @@ function getCopy(language) {
     badgeSignals: "Vietnam + world",
     badgeAds: "Hooks that read human",
     badgeBilingual: "VI/EN bilingual",
-    readerDeskLabel: "For readers",
-    readerDeskTitle: "Open the homepage and know what to read first.",
-    readerDeskText: "This area is now built for readers: a quick first read, a briefing worth opening next, and the themes genuinely heating up.",
-    readerStartLabel: "Start here",
-    readerStartTitle: "3 pieces worth opening first",
+    readerDeskLabel: "Editorial picks",
+    readerDeskTitle: "The day's reading rhythm.",
+    readerDeskText: "A quick editorial corner for the lead story, the briefing worth keeping open, and the themes shaping today's tech cycle.",
+    readerStartLabel: "Selected reads",
+    readerStartTitle: "3 pieces holding the day",
     readerWatchLabel: "Heating up",
     readerWatchTitle: "Themes pulling readers in right now",
     liveLabel: "Live desk",
