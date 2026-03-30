@@ -85,7 +85,7 @@ const tests = [
 
       const state = buildNewsroomState({
         siteUrl: "https://patricktechmedia.vercel.app",
-        storeUrl: "https://store.patricktech.media",
+        storeUrl: "https://patricktechstore.vercel.app",
         injectedArticles: service.listPublishedArticles()
       });
       const article = getArticleByRoute(state, "vi", "tin-tuc", submission.slug);

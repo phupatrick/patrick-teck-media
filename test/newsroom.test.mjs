@@ -111,7 +111,7 @@ const tests = [
 
       const fileState = buildNewsroomState({
         siteUrl: "https://patricktech.media",
-        storeUrl: "https://store.patricktech.media",
+        storeUrl: "https://patricktechstore.vercel.app",
         contentPath
       });
 
@@ -145,7 +145,7 @@ const tests = [
 
       const fileState = buildNewsroomState({
         siteUrl: "https://patricktech.media",
-        storeUrl: "https://store.patricktech.media",
+        storeUrl: "https://patricktechstore.vercel.app",
         contentPath
       });
       const html = renderArticlePage(fileState, "en", fileState.articles[0], [], { client: "", slots: {} });
@@ -190,7 +190,7 @@ if (failed > 0) {
 function createState() {
   const newsroom = buildNewsroomState({
     siteUrl: "https://patricktech.media",
-    storeUrl: "https://store.patricktech.media"
+    storeUrl: "https://patricktechstore.vercel.app"
   });
   newsroom.home = {
     vi: getHomeData(newsroom, "vi"),

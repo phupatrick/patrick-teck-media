@@ -56,7 +56,7 @@ const envFromFile = loadEnvFile(path.join(__dirname, ".env"));
 const config = {
   port: Number(process.env.PORT || envFromFile.PORT || 3000),
   siteUrl: process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.vercel.app",
-  storeUrl: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://store.patricktech.media",
+  storeUrl: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || envFromFile.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
   platformStatePath: process.env.PLATFORM_STATE_PATH || envFromFile.PLATFORM_STATE_PATH || "data/platform-state.json",
   sessionSecret: process.env.SESSION_SECRET || envFromFile.SESSION_SECRET || "patrick-tech-media-dev-secret",

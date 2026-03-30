@@ -176,7 +176,7 @@ const STORY_VISUALS = {
 
 export function buildNewsroomState(options = {}) {
   const siteUrl = normalizeSiteUrl(options.siteUrl || "https://patricktech.media");
-  const storeUrl = normalizeSiteUrl(options.storeUrl || "https://store.patricktech.media");
+  const storeUrl = normalizeSiteUrl(options.storeUrl || "https://patricktechstore.vercel.app");
   const now = new Date(options.now || new Date().toISOString());
   const topics = getTopics();
   const contentTypeMeta = getContentTypeMeta();
