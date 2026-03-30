@@ -567,10 +567,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
           </div>
         </header>
 
-        <figure class="article-hero-media">
-          <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="eager" />
-          <figcaption>${escapeHtml(article.hero_image.caption)} <span>${escapeHtml(article.hero_image.credit)}</span></figcaption>
-        </figure>
+        ${renderArticleHero(article)}
 
         <div class="article-layout">
           <div class="article-content">
@@ -871,10 +868,46 @@ function renderStackItem(article, language, withBadge) {
 }
 
 function renderStoryImage(article, className, eager = false) {
+  if (article.hero_image.kind !== "source") {
+    return `
+      <figure class="${className} story-placeholder">
+        ${renderImagePlaceholder(article, className === "stack-media" ? "stack-placeholder-card" : "story-placeholder-card")}
+      </figure>
+    `;
+  }
+
   return `
     <figure class="${className}">
-      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="${eager ? "eager" : "lazy"}" />
+      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="${eager ? "eager" : "lazy"}" referrerpolicy="no-referrer" />
     </figure>
+  `;
+}
+
+function renderArticleHero(article) {
+  if (article.hero_image.kind !== "source") {
+    return `
+      <figure class="article-hero-media article-hero-media-placeholder">
+        ${renderImagePlaceholder(article, "article-placeholder-card")}
+        <figcaption>${escapeHtml(article.hero_image.caption)}</figcaption>
+      </figure>
+    `;
+  }
+
+  return `
+    <figure class="article-hero-media">
+      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="eager" referrerpolicy="no-referrer" />
+      <figcaption>${escapeHtml(article.hero_image.caption)}${article.hero_image.credit ? ` <span>${escapeHtml(article.hero_image.credit)}</span>` : ""}</figcaption>
+    </figure>
+  `;
+}
+
+function renderImagePlaceholder(article, className) {
+  return `
+    <div class="${className}">
+      <span>${escapeHtml(article.topic_label)}</span>
+      <strong>${escapeHtml(article.hero_image.label)}</strong>
+      <p>${escapeHtml(article.hero_image.caption)}</p>
+    </div>
   `;
 }
 

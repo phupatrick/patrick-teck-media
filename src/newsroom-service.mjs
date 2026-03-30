@@ -700,7 +700,7 @@ export function buildJsonFeed(state, language) {
       url: `${state.site.siteUrl}${article.href}`,
       title: article.title,
       summary: article.summary,
-      image: article.hero_image?.url,
+      ...(article.hero_image?.kind === "source" ? { image: article.hero_image.url } : {}),
       content_text: [article.summary, ...article.sections.map((section) => `${section.heading}\n${section.body}`)].join("\n\n"),
       date_published: new Date(article.published_at).toISOString(),
       date_modified: new Date(article.updated_at || article.published_at).toISOString(),
@@ -781,59 +781,7 @@ export function buildStoryArtSvg(state, clusterId, language = "vi") {
     state.articles.find((entry) => entry.cluster_id === clusterId) ||
     state.articles[0];
 
-  if (!article) {
-    return buildFallbackArtSvg();
-  }
-
-  const visual = article.hero_image.meta;
-  const [primary, secondary, deep] = visual.palette;
-  const kicker = visual.kicker?.[language] || article.topic_label;
-  const caption = visual.caption?.[language] || article.summary;
-  const titleLines = wrapText(article.title, 20, 3);
-  const summaryLines = wrapText(article.summary, 44, 2);
-
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-  <title id="title">${escapeXml(article.title)}</title>
-  <desc id="desc">${escapeXml(caption)}</desc>
-  <defs>
-    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="${secondary}" />
-      <stop offset="100%" stop-color="#fffaf2" />
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="${primary}" />
-      <stop offset="100%" stop-color="${deep}" />
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="${deep}" flood-opacity="0.16" />
-    </filter>
-  </defs>
-  <rect width="1600" height="1000" fill="#efe8da" />
-  <circle cx="200" cy="180" r="170" fill="${secondary}" opacity="0.8" />
-  <circle cx="1390" cy="120" r="110" fill="${primary}" opacity="0.14" />
-  <circle cx="1480" cy="870" r="180" fill="${secondary}" opacity="0.65" />
-  <rect x="48" y="48" width="1504" height="904" rx="44" fill="url(#card)" filter="url(#shadow)" />
-  <rect x="92" y="94" width="670" height="812" rx="32" fill="#fffdf7" opacity="0.94" />
-  <text x="126" y="142" fill="${primary}" font-family="'Manrope', Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6">PATRICK TECH MEDIA</text>
-  <text x="126" y="190" fill="${deep}" font-family="'Manrope', Arial, sans-serif" font-size="22" font-weight="700">${escapeXml(kicker)}</text>
-  <text x="126" y="270" fill="#13221c" font-family="'Cormorant Garamond', Georgia, serif" font-size="86" font-weight="700">
-    ${titleLines.map((line, index) => `<tspan x="126" dy="${index === 0 ? 0 : 86}">${escapeXml(line)}</tspan>`).join("")}
-  </text>
-  <text x="126" y="625" fill="#40524a" font-family="'Source Serif 4', Georgia, serif" font-size="28">
-    ${summaryLines.map((line, index) => `<tspan x="126" dy="${index === 0 ? 0 : 36}">${escapeXml(line)}</tspan>`).join("")}
-  </text>
-  <rect x="126" y="738" width="228" height="50" rx="25" fill="${primary}" />
-  <text x="154" y="772" fill="#fffdf7" font-family="'Manrope', Arial, sans-serif" font-size="22" font-weight="700">${escapeXml(article.topic_label)}</text>
-  <text x="126" y="840" fill="#57675f" font-family="'Manrope', Arial, sans-serif" font-size="22">${escapeXml(caption)}</text>
-  <g transform="translate(930 176)">
-    <rect x="0" y="0" width="542" height="648" rx="38" fill="url(#accent)" opacity="0.12" />
-    <rect x="38" y="42" width="466" height="564" rx="34" fill="#fffdf8" opacity="0.9" />
-    ${getMotifMarkup(visual.motif, { primary, secondary, deep })}
-  </g>
-  <rect x="930" y="860" width="390" height="54" rx="27" fill="#fffdf8" />
-  <text x="966" y="895" fill="${deep}" font-family="'Manrope', Arial, sans-serif" font-size="22" font-weight="700">${escapeXml(VERIFICATION_META[article.verification_state].labels[language])}</text>
-</svg>`;
+  return buildFallbackArtSvg(article, language);
 }
 
 function enrichArticle(article, { siteUrl, storeUrl }) {
@@ -985,6 +933,7 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     summary: article.summary || "",
     dek: article.dek || article.summary || "",
     sections: Array.isArray(article.sections) ? article.sections : [],
+    image: normalizeExternalImage(article.image),
     verification_state: article.verification_state || "trend",
     quality_score: Number.isFinite(article.quality_score) ? article.quality_score : 80,
     ad_eligible: Boolean(article.ad_eligible),
@@ -1001,16 +950,32 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
 }
 
 function buildStoryVisual(article, siteUrl) {
-  const meta = STORY_VISUALS[article.cluster_id] || {
-    motif: "newsdesk",
-    palette: [article.topic_accent || "#0f7f54", "#f5e4c8", "#14231d"],
-    kicker: { vi: article.topic_label, en: article.topic_label },
+  const directImage = normalizeSourceImage(article.image, article, siteUrl);
+
+  if (directImage) {
+    return directImage;
+  }
+
+  for (const source of article.source_set) {
+    const sourceImage = normalizeSourceImage(source, article, siteUrl, source);
+
+    if (sourceImage) {
+      return sourceImage;
+    }
+  }
+
+  return buildPlaceholderVisual(article);
+}
+
+function legacyStoryVisualBlock() {
+  const { primary, secondary, deep } = colors;
+  /*
     caption: {
       vi: "Ảnh bìa theo chuyên mục bài viết.",
       en: "Cover art aligned with the story topic."
     }
-  };
-  const src = `/media/story/${article.cluster_id}.svg?lang=${article.language}`;
+  */
+  /*
   return {
     src,
     url: `${siteUrl}${src}`,
@@ -1021,7 +986,7 @@ function buildStoryVisual(article, siteUrl) {
     caption: meta.caption[article.language] || article.summary,
     credit: "Patrick Tech Media",
     meta
-  };
+  */
 }
 
 function getMotifMarkup(motif, colors) {
@@ -1157,13 +1122,93 @@ function getMotifMarkup(motif, colors) {
   `;
 }
 
-function buildFallbackArtSvg() {
+function buildFallbackArtSvg(article, language = "vi") {
+  const title = article?.title || "Patrick Tech Media";
+  const subtitle = language === "vi" ? "Ảnh nguồn đang được cập nhật" : "Source image pending";
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">${escapeXml(title)}</title>
+  <desc id="desc">${escapeXml(subtitle)}</desc>
   <rect width="1600" height="1000" fill="#f5efe5" />
   <rect x="60" y="60" width="1480" height="880" rx="40" fill="#fffdf8" />
   <text x="120" y="180" fill="#0f7f54" font-family="Arial, sans-serif" font-size="34" font-weight="700">PATRICK TECH MEDIA</text>
+  <text x="120" y="320" fill="#14231d" font-family="Georgia, serif" font-size="78" font-weight="700">${escapeXml(subtitle)}</text>
 </svg>`;
+}
+
+function normalizeExternalImage(image) {
+  if (!image || typeof image !== "object") {
+    return null;
+  }
+
+  return {
+    src: image.src || image.url || "",
+    alt: image.alt || "",
+    caption: image.caption || "",
+    credit: image.credit || "",
+    source_url: image.source_url || ""
+  };
+}
+
+function normalizeSourceImage(candidate, article, siteUrl, source = null) {
+  const rawSrc =
+    typeof candidate === "string"
+      ? candidate
+      : candidate?.src || candidate?.url || candidate?.image_url || candidate?.image || "";
+
+  if (!isValidImageSource(rawSrc) || rawSrc.includes("/media/story/")) {
+    return null;
+  }
+
+  return {
+    kind: "source",
+    src: rawSrc,
+    url: toAbsoluteAssetUrl(rawSrc, siteUrl),
+    alt:
+      candidate?.alt ||
+      candidate?.image_alt ||
+      (article.language === "vi" ? `Ảnh tham khảo cho bài: ${article.title}` : `Reference image for: ${article.title}`),
+    caption:
+      candidate?.caption ||
+      candidate?.image_caption ||
+      (source?.source_name
+        ? article.language === "vi"
+          ? `Ảnh tham khảo từ ${source.source_name}.`
+          : `Reference image from ${source.source_name}.`
+        : article.summary),
+    credit: candidate?.credit || candidate?.image_credit || source?.source_name || "Source",
+    source_url: candidate?.source_url || source?.source_url || ""
+  };
+}
+
+function buildPlaceholderVisual(article) {
+  return {
+    kind: "placeholder",
+    src: "",
+    url: "",
+    alt:
+      article.language === "vi"
+        ? `Ảnh nguồn đang cập nhật cho bài: ${article.title}`
+        : `Source image pending for: ${article.title}`,
+    label: article.language === "vi" ? "Ảnh nguồn đang cập nhật" : "Source image pending",
+    caption:
+      article.language === "vi"
+        ? "Bài viết sẽ hiển thị ảnh gốc khi pipeline thu thập được ảnh hợp lệ từ nguồn tham khảo."
+        : "This story will show a reference image once the pipeline collects a valid source image.",
+    credit: ""
+  };
+}
+
+function isValidImageSource(value) {
+  return typeof value === "string" && /^(https?:\/\/|\/)/i.test(value);
+}
+
+function toAbsoluteAssetUrl(value, siteUrl) {
+  if (/^https?:\/\//i.test(value)) {
+    return value;
+  }
+
+  return `${normalizeSiteUrl(siteUrl)}${value.startsWith("/") ? value : `/${value}`}`;
 }
 
 function wrapText(value, maxLength, maxLines) {

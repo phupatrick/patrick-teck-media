@@ -43,9 +43,11 @@ const tests = [
 
       assert.equal(article.verification_state, "verified");
       assert.equal(article.ad_eligible, true);
+      assert.equal(article.hero_image.kind, "placeholder");
       assert.match(html, /Reserved for Google AdSense/);
       assert.match(html, /hreflang="vi" href="https:\/\/patricktech\.media\/vi\/tin-tuc\/viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang"/);
-      assert.match(html, /media\/story\/viettel-edge-ai-pilot\.svg\?lang=en/);
+      assert.match(html, /Source image pending/);
+      assert.doesNotMatch(html, /media\/story\/viettel-edge-ai-pilot\.svg\?lang=en/);
     }
   },
   {
@@ -104,6 +106,42 @@ const tests = [
       assert.equal(fileState.articles.length, 1);
       assert.equal(fileState.contentPath, contentPath);
       assert.equal(fileState.articles[0].title, state.articles[0].title);
+    }
+  },
+  {
+    name: "prefers collected source images over generated artwork",
+    run() {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-media-images-"));
+      const contentPath = path.join(tempDir, "newsroom-content.json");
+      const article = {
+        ...state.articles.find((entry) => entry.language === "en"),
+        slug: "source-image-story",
+        href: "/en/news/source-image-story",
+        source_set: [
+          {
+            source_type: "press",
+            source_name: "Tech Press",
+            source_url: "https://example.com/story",
+            image_url: "https://images.example.com/story.jpg",
+            image_caption: "Reference image from the source story.",
+            image_credit: "Tech Press"
+          }
+        ]
+      };
+
+      fs.writeFileSync(contentPath, JSON.stringify({ articles: [article] }, null, 2), "utf8");
+
+      const fileState = buildNewsroomState({
+        siteUrl: "https://patricktech.media",
+        storeUrl: "https://store.patricktech.media",
+        contentPath
+      });
+      const html = renderArticlePage(fileState, "en", fileState.articles[0], [], { client: "", slots: {} });
+
+      assert.equal(fileState.articles[0].hero_image.kind, "source");
+      assert.equal(fileState.articles[0].hero_image.src, "https://images.example.com/story.jpg");
+      assert.match(html, /https:\/\/images\.example\.com\/story\.jpg/);
+      assert.match(html, /Tech Press/);
     }
   },
   {

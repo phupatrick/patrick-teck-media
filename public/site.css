@@ -383,6 +383,69 @@ h3 {
   font-weight: 700;
 }
 
+.story-placeholder,
+.article-hero-media-placeholder {
+  display: flex;
+}
+
+.story-placeholder-card,
+.stack-placeholder-card,
+.article-placeholder-card {
+  display: grid;
+  align-content: end;
+  gap: 10px;
+  width: 100%;
+  min-height: 100%;
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(20, 35, 29, 0.05)),
+    linear-gradient(135deg, rgba(245, 228, 200, 0.9), rgba(255, 255, 255, 0.82));
+}
+
+.story-placeholder-card span,
+.stack-placeholder-card span,
+.article-placeholder-card span {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+}
+
+.story-placeholder-card strong,
+.stack-placeholder-card strong,
+.article-placeholder-card strong {
+  font-family: var(--font-head);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  line-height: 0.95;
+}
+
+.story-placeholder-card p,
+.stack-placeholder-card p,
+.article-placeholder-card p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+}
+
+.stack-placeholder-card {
+  padding: 14px;
+}
+
+.stack-placeholder-card strong {
+  font-size: 1.12rem;
+}
+
+.stack-placeholder-card p {
+  font-size: 0.88rem;
+}
+
+.article-placeholder-card {
+  min-height: 420px;
+  padding: 28px;
+}
+
 .featured-story {
   position: relative;
   overflow: hidden;

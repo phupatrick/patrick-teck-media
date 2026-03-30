@@ -6,7 +6,7 @@ Patrick Tech Media is a lightweight Node newsroom for a bilingual `VI/EN` tech m
 - verification states: `trend`, `emerging`, `verified`
 - ad guardrails so `trend` pages stay indexable but do not render ads
 - bilingual article routes under `/vi/...` and `/en/...`
-- article cover artwork, live desk refresh, topic pages, authors, policy pages, human sitemap, `sitemap.xml`, and `robots.txt`
+- source-first article images with attribution, live desk refresh, topic pages, authors, policy pages, human sitemap, `sitemap.xml`, and `robots.txt`
 - a file-based publishing pipeline so stories can update without code edits
 
 ## Run locally
@@ -86,6 +86,38 @@ npm run newsroom:publish -- --input .\incoming\batch.json --replace
 ```
 
 The input can be either a raw array of articles or an object shaped like `{ "articles": [...] }`.
+
+To show collected reference images, pass either:
+
+```json
+{
+  "image": {
+    "src": "https://cdn.example.com/story.jpg",
+    "alt": "Reference image alt text",
+    "caption": "Reference image from the source story.",
+    "credit": "Source publication",
+    "source_url": "https://example.com/source-story"
+  }
+}
+```
+
+or attach image metadata to a source item:
+
+```json
+{
+  "source_set": [
+    {
+      "source_name": "Source publication",
+      "source_url": "https://example.com/source-story",
+      "image_url": "https://cdn.example.com/story.jpg",
+      "image_caption": "Reference image from the source story.",
+      "image_credit": "Source publication"
+    }
+  ]
+}
+```
+
+If a story has no valid reference image yet, the site renders a neutral placeholder instead of generating an illustration.
 
 ## Continuous refresh
 
