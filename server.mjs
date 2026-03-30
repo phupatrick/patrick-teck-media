@@ -556,6 +556,7 @@ function mapSubmissionForm(form) {
     topic: form.topic,
     content_type: form.content_type,
     title: form.title,
+    hook: form.hook,
     dek: form.dek,
     summary: form.summary,
     sections: [

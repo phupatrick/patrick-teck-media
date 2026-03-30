@@ -678,6 +678,21 @@ h3 {
   font-size: 1.12rem;
 }
 
+.story-hook,
+.article-hook {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0;
+}
+
+.story-card .story-hook,
+.stack-copy .story-hook {
+  font-size: 1rem;
+  color: var(--accent-deep);
+}
+
 .read-link,
 .text-link,
 .mini-link {

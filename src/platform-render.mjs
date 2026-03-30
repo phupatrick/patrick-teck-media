@@ -108,6 +108,7 @@ export function renderPortalPage(state, language, portal, { notice = "" }) {
               <h2>${portal.labels.submitHeading}</h2>
             </div>
           </div>
+          <p class="muted-text">${copy.submitHint}</p>
           <form class="platform-form" method="post" action="/portal/submissions">
             <input type="hidden" name="lang" value="${language}" />
             <div class="form-grid two-col">
@@ -128,6 +129,7 @@ export function renderPortalPage(state, language, portal, { notice = "" }) {
               ])}
               ${renderInput("dek", copy.dekLabel, "text", true)}
             </div>
+            ${renderTextarea("hook", copy.hookLabel, false)}
             ${renderTextarea("summary", copy.summaryLabel, true)}
             <div class="form-grid three-col">
               ${renderInput("section_heading_1", copy.sectionOneLabel, "text", true)}
@@ -499,10 +501,12 @@ function getVietnameseCopy() {
     platformRevenueLabel: "Phần nền tảng 20%",
     availableRevenueLabel: "Khả dụng để rút",
     submitEyebrow: "Bài mới",
-    titleLabel: "Tiêu đề bài",
+    submitHint: "Tiêu đề nên cụ thể, hook nên mở mạnh ngay từ 1-2 câu đầu, và mỗi section nên đưa thêm bối cảnh hoặc tác động thực tế.",
+    titleLabel: "Tiêu đề hút người đọc",
     topicLabel: "Chuyên mục",
     contentTypeLabel: "Loại nội dung",
     dekLabel: "Dek / mô tả ngắn",
+    hookLabel: "Hook mở bài / 1-2 câu đầu",
     summaryLabel: "Tóm tắt bài",
     sectionOneLabel: "Heading phần 1",
     sectionTwoLabel: "Heading phần 2",
@@ -515,7 +519,7 @@ function getVietnameseCopy() {
     imageUrlLabel: "Link ảnh nguồn",
     imageCreditLabel: "Credit ảnh",
     imageCaptionLabel: "Caption ảnh",
-    submitStoryLabel: "Gửi bài để hệ thống duyệt",
+    submitStoryLabel: "Gửi bài để chấm điểm và duyệt",
     withdrawEyebrow: "Thanh toán",
     withdrawAmountLabel: "Số tiền muốn rút (USD)",
     binanceAccountLabel: "Binance email / UID",
@@ -583,10 +587,12 @@ function getEnglishCopy() {
     platformRevenueLabel: "Platform 20% share",
     availableRevenueLabel: "Available to withdraw",
     submitEyebrow: "New story",
-    titleLabel: "Story title",
+    submitHint: "Make the headline specific, open with a strong hook, and give each section a clear layer of context or consequence.",
+    titleLabel: "Headline that pulls readers in",
     topicLabel: "Topic",
     contentTypeLabel: "Content type",
     dekLabel: "Dek / short description",
+    hookLabel: "Opening hook / 1-2 lead lines",
     summaryLabel: "Summary",
     sectionOneLabel: "Section 1 heading",
     sectionTwoLabel: "Section 2 heading",
@@ -599,7 +605,7 @@ function getEnglishCopy() {
     imageUrlLabel: "Reference image URL",
     imageCreditLabel: "Image credit",
     imageCaptionLabel: "Image caption",
-    submitStoryLabel: "Submit for automatic review",
+    submitStoryLabel: "Submit for scoring and review",
     withdrawEyebrow: "Payout",
     withdrawAmountLabel: "Withdrawal amount (USD)",
     binanceAccountLabel: "Binance email / UID",

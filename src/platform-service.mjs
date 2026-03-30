@@ -163,6 +163,33 @@ export function createPlatformService(options) {
       const sections = sanitizeSections(formData.sections || []);
       const sourceSet = sanitizeSources(formData.sources || []);
       const image = sanitizeImage(formData.image || {});
+      const title = strengthenSubmissionTitle(safeTrim(formData.title), {
+        language,
+        topic: formData.topic || "ai",
+        summary: safeTrim(formData.summary),
+        dek: safeTrim(formData.dek),
+        sections
+      });
+      const dek = polishDek({
+        value: safeTrim(formData.dek),
+        summary: safeTrim(formData.summary),
+        sections,
+        language
+      });
+      const summary = polishSummary({
+        value: safeTrim(formData.summary),
+        dek,
+        sections,
+        language
+      });
+      const hook = buildSubmissionHook({
+        value: safeTrim(formData.hook),
+        title,
+        dek,
+        summary,
+        sections,
+        language
+      });
       const submission = {
         id: makeId("submission"),
         author_id: user.id,
@@ -172,10 +199,11 @@ export function createPlatformService(options) {
         language: language === "en" ? "en" : "vi",
         topic: formData.topic || "ai",
         content_type: formData.content_type || "NewsArticle",
-        title: safeTrim(formData.title),
-        slug: slugify(formData.title),
-        summary: safeTrim(formData.summary),
-        dek: safeTrim(formData.dek),
+        title,
+        slug: slugify(title),
+        hook,
+        summary,
+        dek,
         sections,
         source_set: sourceSet,
         image,
@@ -330,10 +358,16 @@ export function reviewSubmission(submission, language) {
   let score = 0;
   const notes = [];
 
-  if (submission.title.length >= 18) {
-    score += 15;
+  if (submission.title.length >= 28 && isCompellingTitle(submission.title, language)) {
+    score += 20;
   } else {
     notes.push(language === "vi" ? "Tiêu đề còn quá ngắn." : "The title is still too short.");
+  }
+
+  if (submission.hook?.length >= 70) {
+    score += 10;
+  } else {
+    notes.push(language === "vi" ? "BĂ i nĂªn cĂ³ 1 hook má»Ÿ Ä‘áº§u rá»‘ rĂ ng." : "The story needs a sharper opening hook.");
   }
 
   if (submission.summary.length >= 80) {
@@ -411,6 +445,7 @@ function submissionToArticle(submission) {
     content_type: submission.content_type,
     slug: submission.slug,
     title: submission.title,
+    hook: submission.hook || "",
     summary: submission.summary,
     dek: submission.dek,
     sections: submission.sections,
@@ -496,12 +531,137 @@ function sanitizeImage(image) {
   };
 }
 
+function strengthenSubmissionTitle(title, { language, topic, summary, dek, sections }) {
+  const normalized = stripTrailingPunctuation(title);
+
+  if (!normalized) {
+    return normalized;
+  }
+
+  if (normalized.length >= 46 && /[:?!]/.test(normalized)) {
+    return normalized;
+  }
+
+  const suffix = buildTitleSuffix({ language, topic, summary, dek, sections });
+  return suffix && !normalized.toLowerCase().includes(suffix.toLowerCase()) ? `${normalized}: ${suffix}` : normalized;
+}
+
+function buildTitleSuffix({ language, topic, summary, dek, sections }) {
+  const sourceText = [dek, summary, ...sections.map((section) => section.heading), ...sections.map((section) => section.body)].join(" ");
+  const phrases = extractKeyPhrases(sourceText);
+
+  if (phrases.length > 0) {
+    return phrases[0];
+  }
+
+  const fallbackByTopic = {
+    ai: {
+      vi: "điều đội vận hành đang để mắt tới",
+      en: "why teams are paying attention"
+    },
+    software: {
+      vi: "điều người dùng nên để ý",
+      en: "what users should watch"
+    },
+    devices: {
+      vi: "điểm thay đổi đáng chú ý",
+      en: "the hardware shift to watch"
+    },
+    security: {
+      vi: "rủi ro không nên bỏ qua",
+      en: "the risk worth noticing"
+    },
+    gaming: {
+      vi: "lý do cộng đồng đang bàn tán",
+      en: "why the community is talking"
+    },
+    "internet-business": {
+      vi: "tác động tới người dùng số",
+      en: "what it changes for digital users"
+    }
+  };
+
+  return fallbackByTopic[topic]?.[language] || fallbackByTopic.ai[language];
+}
+
+function buildSubmissionHook({ value, dek, summary, sections, language }) {
+  const provided = finalizeSentence(value);
+
+  if (provided && provided.length >= 70) {
+    return provided;
+  }
+
+  const opening = finalizeSentence(dek) || firstSentence(summary) || firstSentence(sections[0]?.body || "");
+
+  if (!opening) {
+    return language === "vi"
+      ? "Câu chuyện này đáng đọc vì nó không chỉ là một cập nhật mới, mà còn gợi ra cách người dùng và đội vận hành sẽ phản ứng với thay đổi kế tiếp."
+      : "This story matters because it is not just another update; it hints at how users and operating teams may react next.";
+  }
+
+  if (opening.length >= 110) {
+    return opening;
+  }
+
+  return language === "vi"
+    ? `${opening} Đây là phần đáng đọc kỹ trước khi xu hướng này đi xa hơn.`
+    : `${opening} That is the part worth watching before the shift moves any further.`;
+}
+
+function polishDek({ value, summary, sections, language }) {
+  const provided = finalizeSentence(value);
+
+  if (provided && provided.length >= 60) {
+    return provided;
+  }
+
+  const source = finalizeSentence(summary) || firstSentence(sections[0]?.body || "");
+
+  if (source) {
+    return source;
+  }
+
+  return language === "vi"
+    ? "Bài viết này gom lại bối cảnh, thay đổi chính và tác động thực tế để người đọc nắm nhanh điều quan trọng nhất."
+    : "This story pulls together the context, the shift, and the practical impact so readers can grasp the key point quickly.";
+}
+
+function polishSummary({ value, dek, sections, language }) {
+  const provided = finalizeSentence(value);
+
+  if (provided && provided.length >= 100) {
+    return provided;
+  }
+
+  const source = [finalizeSentence(dek), firstSentence(sections[0]?.body || ""), firstSentence(sections[1]?.body || "")]
+    .filter(Boolean)
+    .join(" ");
+
+  if (source.length >= 100) {
+    return source;
+  }
+
+  return language === "vi"
+    ? "Bài viết đi thẳng vào điều đã xảy ra, vì sao nó đáng chú ý và tác động thực tế tới người dùng hoặc đội vận hành."
+    : "The story goes straight to what happened, why it matters, and the practical effect on users or operating teams.";
+}
+
 function containsHeavyPromoLanguage(submission) {
   const corpus = [submission.title, submission.summary, submission.dek, ...submission.sections.map((section) => section.body)]
     .join(" ")
     .toLowerCase();
 
   return ["mua ngay", "giảm giá", "khuyến mãi", "buy now", "limited offer", "cheap account"].some((term) => corpus.includes(term));
+}
+
+function isCompellingTitle(title, language) {
+  const normalized = title.toLowerCase();
+  const hasStructure = /[:?!]/.test(title) || title.length >= 46;
+  const banned = language === "vi"
+    ? ["mua ngay", "giam gia", "khuyen mai", "hot nhat hom nay"]
+    : ["buy now", "limited offer", "best deal", "cheap"];
+
+  return hasStructure && !banned.some((term) => normalized.includes(term));
 }
 
 function sanitizeUser(user) {
@@ -528,6 +688,40 @@ function normalizeEmail(email) {
 
 function safeTrim(value) {
   return String(value || "").trim();
+}
+
+function stripTrailingPunctuation(value) {
+  return safeTrim(value).replace(/[.?!:;,]+$/g, "");
+}
+
+function finalizeSentence(value) {
+  const normalized = safeTrim(value).replace(/\s+/g, " ");
+
+  if (!normalized) {
+    return "";
+  }
+
+  return /[.?!]$/.test(normalized) ? normalized : `${normalized}.`;
+}
+
+function firstSentence(value) {
+  const normalized = safeTrim(value).replace(/\s+/g, " ");
+
+  if (!normalized) {
+    return "";
+  }
+
+  const match = normalized.match(/[^.?!]+[.?!]?/);
+  return finalizeSentence(match?.[0] || normalized);
+}
+
+function extractKeyPhrases(value) {
+  return safeTrim(value)
+    .split(/[.?!]/)
+    .map((entry) => entry.trim())
+    .filter((entry) => entry.length >= 22 && entry.length <= 68)
+    .map((entry) => entry.replace(/^(vì|để|khi|that|because|when)\s+/i, ""))
+    .slice(0, 2);
 }
 
 function slugify(value) {

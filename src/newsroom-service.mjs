@@ -958,6 +958,7 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     path_segment: article.path_segment || typeMeta.segments[language],
     slug: article.slug,
     title: article.title,
+    hook: normalizeArticleHook(article),
     author_name: article.author_name || "",
     author_role_vi: article.author_role_vi || "",
     author_role_en: article.author_role_en || "",
@@ -978,6 +979,22 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     updated_at: article.updated_at || article.published_at || new Date().toISOString(),
     href: article.href || `/${language}/${typeMeta.segments[language]}/${article.slug}`
   };
+}
+
+function normalizeArticleHook(article) {
+  const explicit = normalizeHookText(article.hook);
+
+  if (explicit) {
+    return explicit;
+  }
+
+  const dek = normalizeHookText(article.dek);
+
+  if (dek) {
+    return dek;
+  }
+
+  return normalizeHookText(article.summary);
 }
 
 function buildStoryVisual(article, siteUrl) {
@@ -1332,6 +1349,16 @@ function escapeXml(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function normalizeHookText(value) {
+  const normalized = String(value || "").trim().replace(/\s+/g, " ");
+
+  if (!normalized) {
+    return "";
+  }
+
+  return /[.?!]$/.test(normalized) ? normalized : `${normalized}.`;
 }
 
 function makeArticleKey(language, segment, slug) {

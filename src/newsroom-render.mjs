@@ -67,6 +67,7 @@ export function renderHomePage(state, language, adsConfig) {
               <span>${escapeHtml(formatPublishDate(language, home.featured.published_at))}</span>
             </div>
             <h2><a href="${home.featured.href}">${escapeHtml(home.featured.title)}</a></h2>
+            <p class="story-hook">${escapeHtml(home.featured.hook || home.featured.dek)}</p>
             <p class="story-dek">${escapeHtml(home.featured.dek)}</p>
             <p class="story-summary">${escapeHtml(home.featured.summary)}</p>
             <a class="read-link" href="${home.featured.href}">${copy.readStory}</a>
@@ -556,6 +557,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
           </div>
           ${shouldShowBadge ? `<div class="story-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
           <h1>${escapeHtml(article.title)}</h1>
+          <p class="article-hook">${escapeHtml(article.hook || article.dek)}</p>
           <p class="article-dek">${escapeHtml(article.dek)}</p>
           <div class="article-byline">
             <span>${escapeHtml(article.author.name)}</span>
@@ -831,7 +833,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
 }
 
 function renderStoryCard(article, language) {
-  const searchIndex = [article.title, article.summary, article.topic_label, article.verification_state].join(" ").toLowerCase();
+  const searchIndex = [article.title, article.hook || "", article.summary, article.topic_label, article.verification_state].join(" ").toLowerCase();
   return `
     <article class="story-card topic-${article.topic}" data-story-card data-status="${article.verification_state}" data-topic="${article.topic}" data-search="${escapeHtml(searchIndex)}">
       ${renderStoryImage(article, "story-media")}
@@ -841,7 +843,8 @@ function renderStoryCard(article, language) {
       </div>
       ${article.editorial_label ? `<div class="story-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
       <h3><a href="${article.href}">${escapeHtml(article.title)}</a></h3>
-      <p>${escapeHtml(article.summary)}</p>
+      <p class="story-hook">${escapeHtml(article.hook || article.summary)}</p>
+      <p>${escapeHtml(renderStoryExcerpt(article))}</p>
       <div class="story-footer">
         <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         <a class="mini-link" href="${article.href}">${language === "vi" ? "Đọc" : "Read"}</a>
@@ -861,12 +864,25 @@ function renderStackItem(article, language, withBadge) {
             ${withBadge && article.editorial_label ? `<span>${escapeHtml(article.editorial_label)}</span>` : ""}
           </div>
           <a href="${article.href}">${escapeHtml(article.title)}</a>
-          <p>${escapeHtml(article.summary)}</p>
+          <p class="story-hook">${escapeHtml(article.hook || article.summary)}</p>
+          <p>${escapeHtml(renderStoryExcerpt(article))}</p>
           <span class="stack-date">${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         </div>
       </div>
     </article>
   `;
+}
+
+function renderStoryExcerpt(article) {
+  if (article.summary && article.hook && article.summary !== article.hook) {
+    return article.summary;
+  }
+
+  if (article.dek && article.dek !== article.hook) {
+    return article.dek;
+  }
+
+  return article.summary || article.dek || "";
 }
 
 function renderStoryImage(article, className, eager = false) {
@@ -1017,11 +1033,11 @@ function getCopy(language) {
     return {
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
-      heroTitle: "Tin công nghệ với giọng biên tập rõ ràng và nhịp cập nhật liên tục.",
+      heroTitle: "Tin công nghệ đáng đọc, mở nhanh là muốn đọc tiếp.",
       heroText:
-        "Patrick Tech Media theo dõi công nghệ, ứng dụng, thiết bị và đời sống Internet bằng cấu trúc một newsroom số: lên bài nhanh, trình bày gọn và giữ nhịp đọc mạch lạc.",
+        "Patrick Tech Media chọn góc đáng nói nhất của mỗi câu chuyện, mở bài bằng một hook rõ ràng rồi đi thẳng vào thứ người đọc thực sự cần biết: điều gì đang thay đổi, vì sao đáng chú ý và nó chạm tới đời sống số ra sao.",
       badgeSignals: "Việt Nam + thế giới",
-      badgeAds: "Bố cục sạch, đọc dễ",
+      badgeAds: "Hook rõ, đọc cuốn",
       badgeBilingual: "Song ngữ VI/EN",
       liveLabel: "Live desk",
       liveTitle: "Nhịp cập nhật newsroom",
@@ -1111,11 +1127,11 @@ function getCopy(language) {
   return {
     homeTitle: "Patrick Tech Media | Technology from Vietnam and the wider web",
     eyebrow: "Bilingual newsroom",
-    heroTitle: "Technology coverage with a cleaner editorial voice and a continuously refreshed desk.",
+    heroTitle: "Technology stories that pull readers in and stay sharp after the first scroll.",
     heroText:
-      "Patrick Tech Media covers technology, software, devices, and internet culture with a digital newsroom structure built for speed, clarity, and readable presentation.",
+      "Patrick Tech Media looks for the angle that actually matters, opens with a clear hook, and then moves quickly into the context, consequence, and practical signal readers want to understand.",
     badgeSignals: "Vietnam + world",
-    badgeAds: "Cleaner reading layout",
+    badgeAds: "Hooks that read human",
     badgeBilingual: "VI/EN bilingual",
     liveLabel: "Live desk",
     liveTitle: "Continuous desk updates",
