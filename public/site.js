@@ -1,7 +1,29 @@
 const documentLanguage = document.documentElement.lang === "en" ? "en" : "vi";
 
+initSpeedInsights();
 initStoryBrowser();
 initLiveDesk();
+
+function initSpeedInsights() {
+  // Initialize Vercel Speed Insights
+  // Check if script is already loaded
+  if (document.querySelector('script[src*="speed-insights"]')) {
+    return;
+  }
+
+  // Create and inject the Speed Insights script
+  const script = document.createElement('script');
+  script.src = '/_vercel/speed-insights/script.js';
+  script.defer = true;
+  script.dataset.sdkn = '@vercel/speed-insights';
+  script.dataset.sdkv = '2.0.0';
+  
+  script.onerror = () => {
+    console.log('[Vercel Speed Insights] Failed to load script. Please check if any content blockers are enabled.');
+  };
+  
+  document.head.appendChild(script);
+}
 
 function initStoryBrowser() {
   const browserRoot = document.querySelector("[data-story-browser]");

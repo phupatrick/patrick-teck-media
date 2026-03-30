@@ -9,5 +9,8 @@
     "test": "node test/newsroom.test.mjs && node test/platform.test.mjs",
     "newsroom:publish": "node scripts/newsroom-publish.mjs",
     "newsroom:refresh": "node scripts/newsroom-refresh.mjs"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
   }
 }
