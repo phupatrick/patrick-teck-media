@@ -29,32 +29,7 @@ export function renderHomePage(state, language, adsConfig) {
             <span>${copy.badgeBilingual}</span>
           </div>
         </div>
-        <aside class="hero-aside">
-          <div class="stat-card accent">
-            <p>${escapeHtml(home.metrics.label)}</p>
-            <strong>${home.metrics.activeClusters}</strong>
-            <span>${copy.clusters}</span>
-          </div>
-          <div class="stat-grid">
-            <article class="stat-card">
-              <strong>${home.metrics.sourceFamilies}</strong>
-              <span>${copy.sourceFamilies}</span>
-            </article>
-            <article class="stat-card">
-              <strong>${home.metrics.verifiedCount}</strong>
-              <span>${copy.verifiedStories}</span>
-            </article>
-            <article class="stat-card">
-              <strong>${home.metrics.emergingCount}</strong>
-              <span>${copy.emergingStories}</span>
-            </article>
-            <article class="stat-card caution">
-              <strong>${home.metrics.trendCount}</strong>
-              <span>${copy.trendStories}</span>
-            </article>
-          </div>
-          ${renderLiveDesk(home.liveDesk, language, copy)}
-        </aside>
+        ${renderHeroReaderAside(home, language, copy)}
       </section>
 
       <section class="featured-split">
@@ -885,6 +860,85 @@ function renderStoryExcerpt(article) {
   return article.summary || article.dek || "";
 }
 
+function renderHeroReaderAside(home, language, copy) {
+  const quickReads = dedupeStories([home.featured, home.briefing, ...home.latest]).slice(0, 3);
+  const hotReads = home.trending.slice(0, 3);
+
+  return `
+    <aside class="hero-aside hero-reader-aside">
+      <article class="reader-card accent">
+        <p class="eyebrow">${copy.readerDeskLabel}</p>
+        <h2>${copy.readerDeskTitle}</h2>
+        <p>${copy.readerDeskText}</p>
+        <a class="text-link" href="${home.featured.href}">${copy.readStory}</a>
+      </article>
+
+      <article class="reader-card">
+        <div class="reader-card-head">
+          <div>
+            <p class="eyebrow">${copy.readerStartLabel}</p>
+            <h3>${copy.readerStartTitle}</h3>
+          </div>
+        </div>
+        <div class="reader-list">
+          ${quickReads
+            .map(
+              (article, index) => `
+                <a class="reader-list-item" href="${article.href}">
+                  <span class="reader-index">0${index + 1}</span>
+                  <div>
+                    <strong>${escapeHtml(article.title)}</strong>
+                    <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+                  </div>
+                </a>
+              `
+            )
+            .join("")}
+        </div>
+      </article>
+
+      <article class="reader-card">
+        <div class="reader-card-head">
+          <div>
+            <p class="eyebrow">${copy.readerWatchLabel}</p>
+            <h3>${copy.readerWatchTitle}</h3>
+          </div>
+        </div>
+        <div class="reader-list compact">
+          ${hotReads
+            .map(
+              (article) => `
+                <a class="reader-list-item compact" href="${article.href}">
+                  <div>
+                    <strong>${escapeHtml(article.title)}</strong>
+                    <span>${escapeHtml(article.editorial_label || article.topic_label)}</span>
+                  </div>
+                </a>
+              `
+            )
+            .join("")}
+        </div>
+      </article>
+    </aside>
+  `;
+}
+
+function dedupeStories(stories) {
+  const seen = new Set();
+  const output = [];
+
+  for (const story of stories) {
+    if (!story || seen.has(story.href)) {
+      continue;
+    }
+
+    seen.add(story.href);
+    output.push(story);
+  }
+
+  return output;
+}
+
 function shouldRenderSeparateDek(article) {
   if (!article.dek) {
     return false;
@@ -1049,6 +1103,13 @@ function getCopy(language) {
       badgeSignals: "Việt Nam + thế giới",
       badgeAds: "Hook rõ, đọc cuốn",
       badgeBilingual: "Song ngữ VI/EN",
+      readerDeskLabel: "Cho người đọc",
+      readerDeskTitle: "Vào trang chủ là biết nên đọc gì trước.",
+      readerDeskText: "Mục này giờ được giữ cho độc giả: chọn nhanh bài nên mở trước, bản tổng hợp nên đọc sau, và những chủ đề đang nóng thật sự.",
+      readerStartLabel: "Bắt đầu từ đây",
+      readerStartTitle: "3 bài nên mở trước",
+      readerWatchLabel: "Đang nóng",
+      readerWatchTitle: "Những chủ đề đang kéo người đọc vào",
       liveLabel: "Live desk",
       liveTitle: "Nhịp cập nhật newsroom",
       liveRefreshLabel: "Làm mới",
@@ -1150,6 +1211,13 @@ function getCopy(language) {
     badgeSignals: "Vietnam + world",
     badgeAds: "Hooks that read human",
     badgeBilingual: "VI/EN bilingual",
+    readerDeskLabel: "For readers",
+    readerDeskTitle: "Open the homepage and know what to read first.",
+    readerDeskText: "This area is now built for readers: a quick first read, a briefing worth opening next, and the themes genuinely heating up.",
+    readerStartLabel: "Start here",
+    readerStartTitle: "3 pieces worth opening first",
+    readerWatchLabel: "Heating up",
+    readerWatchTitle: "Themes pulling readers in right now",
     liveLabel: "Live desk",
     liveTitle: "Continuous desk updates",
     liveRefreshLabel: "Refreshed",
