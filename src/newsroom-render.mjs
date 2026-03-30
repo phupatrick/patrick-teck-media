@@ -68,7 +68,7 @@ export function renderHomePage(state, language, adsConfig) {
             </div>
             <h2><a href="${home.featured.href}">${escapeHtml(home.featured.title)}</a></h2>
             <p class="story-hook">${escapeHtml(home.featured.hook || home.featured.dek)}</p>
-            <p class="story-dek">${escapeHtml(home.featured.dek)}</p>
+            ${shouldRenderSeparateDek(home.featured) ? `<p class="story-dek">${escapeHtml(home.featured.dek)}</p>` : ""}
             <p class="story-summary">${escapeHtml(home.featured.summary)}</p>
             <a class="read-link" href="${home.featured.href}">${copy.readStory}</a>
           </div>
@@ -89,20 +89,20 @@ export function renderHomePage(state, language, adsConfig) {
       </section>
 
       <section class="newsroom-strip">
-        <a class="newsroom-card radar" href="/${language}/radar">
-          <p class="eyebrow">${copy.radarLabel}</p>
-          <h2>${copy.radarTitle}</h2>
-          <p>${copy.radarText}</p>
+        <a class="newsroom-card radar" href="${home.featured.href}">
+          <p class="eyebrow">${copy.homeSpotlightLabel}</p>
+          <h2>${copy.homeSpotlightTitle}</h2>
+          <p>${escapeHtml(home.featured.hook || home.featured.summary)}</p>
         </a>
-        <a class="newsroom-card workflow" href="/${language}/workflow">
-          <p class="eyebrow">${copy.workflowLabel}</p>
-          <h2>${copy.workflowTitle}</h2>
-          <p>${copy.workflowText}</p>
+        <a class="newsroom-card workflow" href="${home.briefing.href}">
+          <p class="eyebrow">${copy.homeBriefLabel}</p>
+          <h2>${copy.homeBriefTitle}</h2>
+          <p>${escapeHtml(home.briefing.summary)}</p>
         </a>
-        <a class="newsroom-card feed" href="/${language}/feed.json">
-          <p class="eyebrow">${copy.feedLabel}</p>
-          <h2>${copy.feedTitle}</h2>
-          <p>${copy.feedText}</p>
+        <a class="newsroom-card feed" href="/${language}/authors">
+          <p class="eyebrow">${copy.homeAuthorsLabel}</p>
+          <h2>${copy.homeAuthorsTitle}</h2>
+          <p>${copy.homeAuthorsText}</p>
         </a>
       </section>
 
@@ -558,7 +558,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
           ${shouldShowBadge ? `<div class="story-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
           <h1>${escapeHtml(article.title)}</h1>
           <p class="article-hook">${escapeHtml(article.hook || article.dek)}</p>
-          <p class="article-dek">${escapeHtml(article.dek)}</p>
+          ${shouldRenderSeparateDek(article) ? `<p class="article-dek">${escapeHtml(article.dek)}</p>` : ""}
           <div class="article-byline">
             <span>${escapeHtml(article.author.name)}</span>
             <span>${escapeHtml(article.author.role[language])}</span>
@@ -806,7 +806,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
         </nav>
         <div class="topbar-actions">
-          <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Writer" : "Writer"}</a>
+          <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Viết bài" : "Write"}</a>
           <a class="lang-pill" href="/${language}/login">${language === "vi" ? "Đăng nhập" : "Login"}</a>
           <a class="lang-pill" href="${alternatePath}">${language === "vi" ? "EN" : "VI"}</a>
           <a class="lang-pill subtle" href="${state.site.storeUrl}">${copy.storeLabel}</a>
@@ -883,6 +883,16 @@ function renderStoryExcerpt(article) {
   }
 
   return article.summary || article.dek || "";
+}
+
+function shouldRenderSeparateDek(article) {
+  if (!article.dek) {
+    return false;
+  }
+
+  const hook = String(article.hook || "").toLowerCase();
+  const dek = String(article.dek || "").toLowerCase();
+  return Boolean(dek) && (!hook || !hook.includes(dek));
 }
 
 function renderStoryImage(article, className, eager = false) {
@@ -1033,9 +1043,9 @@ function getCopy(language) {
     return {
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
-      heroTitle: "Tin công nghệ đáng đọc, mở nhanh là muốn đọc tiếp.",
+      heroTitle: "Tin công nghệ đáng đọc, mở ra là có thứ giữ bạn lại.",
       heroText:
-        "Patrick Tech Media chọn góc đáng nói nhất của mỗi câu chuyện, mở bài bằng một hook rõ ràng rồi đi thẳng vào thứ người đọc thực sự cần biết: điều gì đang thay đổi, vì sao đáng chú ý và nó chạm tới đời sống số ra sao.",
+        "Patrick Tech Media không xếp headline cho đủ nhịp tin. Mỗi bài được mở bằng một hook rõ, đi nhanh vào bối cảnh quan trọng và giữ nhịp đọc gọn để người xem biết ngay vì sao câu chuyện này đáng dừng lại lâu hơn một lượt lướt.",
       badgeSignals: "Việt Nam + thế giới",
       badgeAds: "Hook rõ, đọc cuốn",
       badgeBilingual: "Song ngữ VI/EN",
@@ -1048,17 +1058,17 @@ function getCopy(language) {
       verifiedStories: "bài verified",
       emergingStories: "bài emerging",
       trendStories: "bài trend",
-      readStory: "Đọc câu chuyện nổi bật",
-      briefingLabel: "Bản brief",
-      policyLabel: "Guardrail",
-      policyText: "Newsroom giữ một luồng bài công khai nhưng dùng verification state và ad eligibility để khóa rủi ro.",
+      readStory: "Đọc bài nổi bật",
+      briefingLabel: "Đọc nhanh",
+      policyLabel: "Nhịp biên tập",
+      policyText: "Tòa soạn vẫn lên bài nhanh, nhưng chỉ bật quảng cáo ở những trang đã đủ ngưỡng kiểm chứng và trình bày.",
       viewPolicy: "Xem chính sách biên tập",
       latestLabel: "Mới nhất",
-      latestTitle: "Tin đang lên sóng",
-      trendingLabel: "Radar social",
-      trendingTitle: "Nhịp chủ đề cần theo dõi",
+      latestTitle: "Bài vừa lên sóng",
+      trendingLabel: "Đang được bàn tán",
+      trendingTitle: "Những chủ đề kéo độc giả vào đọc",
       evergreenLabel: "Evergreen & compare",
-      evergreenTitle: "Bài giữ traffic dài hạn",
+      evergreenTitle: "Bài còn giá trị sau nhịp tin nóng",
       ecosystemLabel: "Hệ sinh thái",
       ecosystemTitle: "Liên kết nhẹ với Patrick Tech Store",
       ecosystemText: "Các gợi ý sản phẩm chỉ xuất hiện khi có ngữ cảnh phù hợp, không chiếm phần đầu bài và không bật trên trend pages.",
@@ -1072,14 +1082,21 @@ function getCopy(language) {
       feedLabel: "Feed",
       feedTitle: "Xuất JSON và RSS",
       feedText: "Feed máy đọc được đã sẵn sàng cho phân phối, subscriber inbox hoặc các lớp theo dõi cập nhật về sau.",
-      browserLabel: "Signal browser",
-      browserTitle: "Lọc nhanh toàn bộ tuyến bài",
-      browserText: "Phần này giúp bạn thử ngay cách site phân loại story theo verification state mà không cần rời homepage.",
+      browserLabel: "Lọc theo nhịp đọc",
+      browserTitle: "Chọn đúng tuyến bài bạn muốn đọc",
+      browserText: "Lọc nhanh theo headline, chủ đề hoặc mức độ kiểm chứng để đi thẳng tới nhóm bài phù hợp với mối quan tâm của bạn.",
       browserPlaceholder: "Tìm theo tiêu đề, topic hoặc trạng thái...",
       filterAll: "Tất cả",
       filterVerified: "Verified",
       filterEmerging: "Emerging",
       filterTrend: "Trend",
+      homeSpotlightLabel: "Tiêu điểm",
+      homeSpotlightTitle: "Mở bài nổi bật hôm nay",
+      homeBriefLabel: "Bản tổng hợp",
+      homeBriefTitle: "Đọc nhanh để nắm cả nhịp ngày",
+      homeAuthorsLabel: "Đội biên tập",
+      homeAuthorsTitle: "Gặp những người đang giữ giọng điệu của newsroom",
+      homeAuthorsText: "Mỗi tuyến bài đều có người theo dõi riêng để headline, hook và góc nhìn không bị loãng.",
       moreLabel: "Xem thêm",
       topicLabel: "Chuyên mục",
       topicIntro: "Toàn bộ stories trong chuyên mục này được giữ cùng một cấu trúc xác minh, attribution và tiêu chí bật quảng cáo.",
@@ -1127,9 +1144,9 @@ function getCopy(language) {
   return {
     homeTitle: "Patrick Tech Media | Technology from Vietnam and the wider web",
     eyebrow: "Bilingual newsroom",
-    heroTitle: "Technology stories that pull readers in and stay sharp after the first scroll.",
+    heroTitle: "Technology stories worth opening, and strong enough to keep you reading.",
     heroText:
-      "Patrick Tech Media looks for the angle that actually matters, opens with a clear hook, and then moves quickly into the context, consequence, and practical signal readers want to understand.",
+      "Patrick Tech Media is not trying to stack headlines for the sake of volume. Each story opens with a clean hook, moves fast into the useful context, and keeps the reading rhythm tight enough that the important angle is clear before attention drifts.",
     badgeSignals: "Vietnam + world",
     badgeAds: "Hooks that read human",
     badgeBilingual: "VI/EN bilingual",
@@ -1142,17 +1159,17 @@ function getCopy(language) {
     verifiedStories: "verified stories",
     emergingStories: "emerging stories",
     trendStories: "trend stories",
-    readStory: "Read the featured story",
-    briefingLabel: "Briefing",
-    policyLabel: "Guardrail",
-    policyText: "The newsroom keeps one public stream while using verification state and ad eligibility to manage risk.",
+    readStory: "Read the featured piece",
+    briefingLabel: "Quick read",
+    policyLabel: "Editorial rhythm",
+    policyText: "The desk moves quickly, but ads only appear on pages that meet the stronger verification and presentation bar.",
     viewPolicy: "Read the editorial policy",
     latestLabel: "Latest",
     latestTitle: "Stories now live",
-    trendingLabel: "Social radar",
-    trendingTitle: "Topics worth watching",
+    trendingLabel: "People are talking about",
+    trendingTitle: "The themes pulling readers in",
     evergreenLabel: "Evergreen and compare",
-    evergreenTitle: "Long-tail traffic pieces",
+    evergreenTitle: "Pieces with value beyond the news cycle",
     ecosystemLabel: "Ecosystem",
     ecosystemTitle: "Soft links into Patrick Tech Store",
       ecosystemText: "Product suggestions appear only when the context fits. They stay away from the top of trend pages and never override the editorial frame.",
@@ -1166,14 +1183,21 @@ function getCopy(language) {
       feedLabel: "Feed",
       feedTitle: "Export JSON and RSS",
       feedText: "Machine-readable feeds are already available for distribution, inbox digests, or future monitoring layers.",
-      browserLabel: "Signal browser",
-      browserTitle: "Filter the live newsroom stream",
-      browserText: "Use this area to test how the site sorts stories by verification state without leaving the homepage.",
+      browserLabel: "Read by lane",
+      browserTitle: "Filter the stream the way you want to read it",
+      browserText: "Jump straight to the stories that match the headline style, topic, or level of verification you care about most.",
       browserPlaceholder: "Search by title, topic, or state...",
       filterAll: "All",
       filterVerified: "Verified",
       filterEmerging: "Emerging",
       filterTrend: "Trend",
+      homeSpotlightLabel: "Spotlight",
+      homeSpotlightTitle: "Start with the strongest lead today",
+      homeBriefLabel: "Briefing",
+      homeBriefTitle: "Catch the day’s rhythm in one pass",
+      homeAuthorsLabel: "Editorial team",
+      homeAuthorsTitle: "Meet the people shaping the newsroom voice",
+      homeAuthorsText: "Each coverage lane has a real editorial owner so headlines, hooks, and angle do not drift into the same flat tone.",
       moreLabel: "More",
       topicLabel: "Topic",
       topicIntro: "Every story in this section follows the same verification structure, attribution rules, and ad-eligibility logic.",

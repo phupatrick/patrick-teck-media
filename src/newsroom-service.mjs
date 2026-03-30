@@ -582,9 +582,6 @@ export function getAuthorCollection(state, language) {
 
 export function getFooterLinks(language) {
   return [
-    { href: `/${language}/dashboard`, label: language === "vi" ? "Dashboard" : "Dashboard" },
-    { href: `/${language}/radar`, label: language === "vi" ? "Radar" : "Radar" },
-    { href: `/${language}/workflow`, label: language === "vi" ? "Workflow" : "Workflow" },
     { href: `/${language}/about`, label: language === "vi" ? "Về chúng tôi" : "About" },
     { href: `/${language}/contact`, label: language === "vi" ? "Liên hệ" : "Contact" },
     { href: `/${language}/privacy`, label: language === "vi" ? "Quyền riêng tư" : "Privacy" },
@@ -610,13 +607,11 @@ export function getFooterLinks(language) {
 
 export function getPrimaryNav(state, language) {
   return [
-    { href: `/${language}/dashboard`, label: language === "vi" ? "Dashboard" : "Dashboard" },
-    { href: `/${language}/radar`, label: language === "vi" ? "Radar" : "Radar" },
-    { href: `/${language}/workflow`, label: language === "vi" ? "Workflow" : "Workflow" },
     ...state.topics.map((topic) => ({
       href: `/${language}/topics/${topic.slugs[language]}`,
       label: topic.labels[language]
-    }))
+    })),
+    { href: `/${language}/authors`, label: language === "vi" ? "Tác giả" : "Authors" }
   ];
 }
 
@@ -945,6 +940,40 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     return null;
   }
 
+  const verificationState = article.verification_state || "trend";
+  const sections = Array.isArray(article.sections) ? article.sections : [];
+  const summary = polishExternalSummary({
+    value: article.summary || "",
+    dek: article.dek || "",
+    sections,
+    language
+  });
+  const dek = polishExternalDek({
+    value: article.dek || "",
+    summary,
+    sections,
+    language
+  });
+  const title = strengthenEditorialTitle(article.title, {
+    language,
+    topic: topic.id,
+    verificationState,
+    contentType: article.content_type,
+    summary,
+    dek,
+    sections
+  });
+  const hook = normalizeArticleHook(article, {
+    language,
+    topic: topic.id,
+    verificationState,
+    contentType: article.content_type,
+    title,
+    summary,
+    dek,
+    sections
+  });
+
   return {
     id: article.id || `${article.cluster_id || article.slug}-${language}`,
     cluster_id: article.cluster_id || article.slug,
@@ -957,16 +986,16 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     content_type_label: article.content_type_label || typeMeta.labels[language],
     path_segment: article.path_segment || typeMeta.segments[language],
     slug: article.slug,
-    title: article.title,
-    hook: normalizeArticleHook(article),
+    title,
+    hook,
     author_name: article.author_name || "",
     author_role_vi: article.author_role_vi || "",
     author_role_en: article.author_role_en || "",
-    summary: article.summary || "",
-    dek: article.dek || article.summary || "",
-    sections: Array.isArray(article.sections) ? article.sections : [],
+    summary,
+    dek,
+    sections,
     image: normalizeExternalImage(article.image),
-    verification_state: article.verification_state || "trend",
+    verification_state: verificationState,
     quality_score: Number.isFinite(article.quality_score) ? article.quality_score : 80,
     ad_eligible: Boolean(article.ad_eligible),
     show_editorial_label: Boolean(article.show_editorial_label),
@@ -981,20 +1010,209 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
   };
 }
 
-function normalizeArticleHook(article) {
-  const explicit = normalizeHookText(article.hook);
+function strengthenEditorialTitle(title, { language, topic, verificationState, contentType, summary, dek, sections }) {
+  const normalized = stripEditorialTrailingPunctuation(title);
 
-  if (explicit) {
+  if (!normalized) {
+    return "";
+  }
+
+  if (isEditorialTitleCompelling(normalized, language)) {
+    return normalized;
+  }
+
+  const suffix = buildEditorialTitleSuffix({ language, topic, verificationState, contentType, summary, dek, sections });
+
+  if (!suffix || normalized.toLowerCase().includes(suffix.toLowerCase())) {
+    return normalized;
+  }
+
+  const candidate = `${normalized}: ${suffix}`;
+  return candidate.length <= 120 ? candidate : normalized;
+}
+
+function buildEditorialTitleSuffix({ language, topic, verificationState, contentType }) {
+  if (contentType === "Roundup") {
+    return language === "vi" ? "những chuyển động đáng giữ trong tầm mắt" : "the shifts worth keeping in view";
+  }
+
+  if (contentType === "ComparisonPage") {
+    return language === "vi" ? "đâu là khác biệt đáng nhìn kỹ" : "which differences matter most";
+  }
+
+  if (contentType === "EvergreenGuide") {
+    return language === "vi" ? "đọc xong là dùng được ngay" : "built to be useful right away";
+  }
+
+  const fallback = {
+    verified: {
+      ai: {
+        vi: "vì sao đội vận hành đang đọc kỹ",
+        en: "why operating teams are reading closely"
+      },
+      software: {
+        vi: "vì sao người dùng nên để mắt tới",
+        en: "why users should keep an eye on it"
+      },
+      devices: {
+        vi: "điều thay đổi nhỏ nhưng đáng để ý",
+        en: "the small shift worth noticing"
+      },
+      security: {
+        vi: "điều team vận hành không nên bỏ qua",
+        en: "the point teams should not ignore"
+      },
+      gaming: {
+        vi: "vì sao cộng đồng đang theo dõi sát",
+        en: "why the community is watching closely"
+      },
+      "internet-business": {
+        vi: "điều nó có thể đổi với người dùng số",
+        en: "what it could change for digital users"
+      }
+    },
+    emerging: {
+      default: {
+        vi: "vì sao tín hiệu này đáng theo dõi thêm",
+        en: "why this signal deserves a closer watch"
+      }
+    },
+    trend: {
+      default: {
+        vi: "điều gì đã lộ ra và điều gì còn thiếu",
+        en: "what is showing up and what is still missing"
+      }
+    }
+  };
+
+  return (
+    fallback[verificationState]?.[topic]?.[language] ||
+    fallback[verificationState]?.default?.[language] ||
+    fallback.verified.ai[language]
+  );
+}
+
+function polishExternalDek({ value, summary, sections, language }) {
+  const provided = finalizeEditorialSentence(value);
+
+  if (provided && provided.length >= 68) {
+    return provided;
+  }
+
+  const source = finalizeEditorialSentence(summary) || firstEditorialSentence(sections[0]?.body || "");
+
+  if (source) {
+    return source;
+  }
+
+  return language === "vi"
+    ? "Bài viết gom lại thay đổi chính, bối cảnh liên quan và tác động thực tế để người đọc nắm điều đáng chú ý ngay từ phần mở đầu."
+    : "This story pulls together the key shift, the surrounding context, and the real-world consequence so readers can catch the important part immediately.";
+}
+
+function polishExternalSummary({ value, dek, sections, language }) {
+  const provided = finalizeEditorialSentence(value);
+
+  if (provided && provided.length >= 100) {
+    return provided;
+  }
+
+  const source = [finalizeEditorialSentence(dek), firstEditorialSentence(sections[0]?.body || ""), firstEditorialSentence(sections[1]?.body || "")]
+    .filter(Boolean)
+    .join(" ");
+
+  if (source.length >= 100) {
+    return source;
+  }
+
+  return language === "vi"
+    ? "Bài viết đi thẳng vào điều vừa xảy ra, vì sao nó đáng để dành thời gian đọc kỹ, và tác động thực tế của nó với người dùng hoặc đội vận hành."
+    : "The story moves quickly into what happened, why it deserves a closer read, and the practical effect it may have on users or operating teams.";
+}
+
+function normalizeArticleHook(article, { language, topic, verificationState, contentType, summary, dek, sections }) {
+  const explicit = finalizeEditorialSentence(article.hook);
+
+  if (explicit.length >= 80) {
     return explicit;
   }
 
-  const dek = normalizeHookText(article.dek);
+  const openingCandidates =
+    verificationState === "trend"
+      ? [summary, sections[0]?.body || "", dek]
+      : [dek, summary, sections[0]?.body || ""];
+  const opening = openingCandidates.map((entry) => firstEditorialSentence(entry)).find(Boolean) || "";
+  const angle = buildEditorialAngle({ language, topic, verificationState, contentType });
 
-  if (dek) {
-    return dek;
+  if (!opening) {
+    return angle;
   }
 
-  return normalizeHookText(article.summary);
+  if (!angle || opening.toLowerCase().includes(angle.toLowerCase())) {
+    return opening;
+  }
+
+  const combined = `${opening} ${angle}`.trim();
+  return combined.length <= 240 ? combined : opening.length >= 90 ? opening : angle;
+}
+
+function buildEditorialAngle({ language, topic, verificationState, contentType }) {
+  if (contentType === "Roundup") {
+    return language === "vi"
+      ? "Điều khiến bản tổng hợp này đáng đọc là nó giúp bạn thấy câu chuyện nào thật sự nên đào sâu và câu chuyện nào chỉ cần tiếp tục theo dõi."
+      : "What makes this roundup worth reading is that it separates the stories that deserve a deeper read from the ones that belong on a watch list.";
+  }
+
+  if (contentType === "ComparisonPage") {
+    return language === "vi"
+      ? "Phần đáng đọc nằm ở chỗ nó kéo mọi lựa chọn về cùng một mặt bàn để bạn nhìn ra khác biệt thật sự."
+      : "The useful part is that it puts every option on the same table so the real differences are easier to see.";
+  }
+
+  if (contentType === "EvergreenGuide") {
+    return language === "vi"
+      ? "Giá trị của bài nằm ở việc bạn có thể đọc xong rồi áp dụng ngay, thay vì chỉ lướt qua một headline nữa."
+      : "The value here is that you can finish the piece and actually use it, instead of just consuming another headline.";
+  }
+
+  const statusMap = {
+    trend: {
+      vi: "Điểm nên theo dõi lúc này là liệu tiếng bàn tán có chuyển thành xác nhận chính thức hay không.",
+      en: "The part worth tracking now is whether the buzz turns into an official confirmation."
+    },
+    emerging: {
+      vi: "Điều đáng đọc không chỉ nằm ở cập nhật mới, mà ở khả năng nó sẽ sớm trở thành thay đổi thật trên diện rộng.",
+      en: "What matters is not just the update itself, but the chance that it could soon turn into a real, broader change."
+    },
+    verified: {
+      ai: {
+        vi: "Điểm đáng nói là AI đang rời phần trình diễn để chạm vào công việc hằng ngày.",
+        en: "The key angle is that AI is moving out of the demo stage and into everyday work."
+      },
+      software: {
+        vi: "Phần đáng đọc nằm ở việc thói quen dùng ứng dụng có thể đổi rất nhanh sau kiểu cập nhật này.",
+        en: "The part worth reading is how quickly everyday app behavior can change after this kind of update."
+      },
+      devices: {
+        vi: "Những thay đổi kiểu này thường nhỏ trên giấy tờ nhưng lại chạm thẳng vào niềm tin khi dùng thiết bị mỗi ngày.",
+        en: "Shifts like this can look small on paper while changing how much people trust a device day to day."
+      },
+      security: {
+        vi: "Giá trị thật của câu chuyện nằm ở chỗ nó chạm tới an toàn vận hành, không chỉ thêm một lớp cài đặt.",
+        en: "The real value of this story is that it affects operational safety, not just another settings layer."
+      },
+      gaming: {
+        vi: "Với cộng đồng game, kiểu thay đổi này thường lan nhanh hơn bất kỳ thông báo marketing nào.",
+        en: "In gaming communities, shifts like this usually travel faster than any marketing announcement."
+      },
+      "internet-business": {
+        vi: "Điều đáng đọc là nó có thể đổi cách người dùng số phản ứng, làm việc hoặc chi tiền.",
+        en: "What makes it worth reading is how it could change how digital users react, work, or spend."
+      }
+    }
+  };
+
+  return statusMap[verificationState]?.[topic]?.[language] || statusMap[verificationState]?.[language] || statusMap.verified.ai[language];
 }
 
 function buildStoryVisual(article, siteUrl) {
@@ -1349,6 +1567,61 @@ function escapeXml(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function safeEditorialTrim(value) {
+  return String(value || "").trim();
+}
+
+function stripEditorialTrailingPunctuation(value) {
+  return safeEditorialTrim(value).replace(/[.?!:;,]+$/g, "");
+}
+
+function finalizeEditorialSentence(value) {
+  const normalized = safeEditorialTrim(value).replace(/\s+/g, " ");
+
+  if (!normalized) {
+    return "";
+  }
+
+  return /[.?!]$/.test(normalized) ? normalized : `${normalized}.`;
+}
+
+function firstEditorialSentence(value) {
+  const normalized = safeEditorialTrim(value).replace(/\s+/g, " ");
+
+  if (!normalized) {
+    return "";
+  }
+
+  const match = normalized.match(/[^.?!]+[.?!]?/);
+  return finalizeEditorialSentence(match?.[0] || normalized);
+}
+
+function extractEditorialPhrases(value) {
+  return safeEditorialTrim(value)
+    .split(/[.?!,;]/)
+    .map((entry) => entry.trim())
+    .filter((entry) => entry.length >= 26 && entry.length <= 72)
+    .map((entry) =>
+      entry.replace(
+        /^(đây là|điều này là|bài viết này là|bài này là|this is|this story is|the story is|that is)\s+/i,
+        ""
+      )
+    )
+    .filter((entry) => !/^(hiện|currently|bài này|this story)/i.test(entry))
+    .slice(0, 3);
+}
+
+function isEditorialTitleCompelling(title, language) {
+  const normalized = title.toLowerCase();
+  const hasShape = /[:?!]/.test(title) || title.length >= 66 || /nhưng|vì sao|what|why|but|how/i.test(normalized);
+  const banned =
+    language === "vi"
+      ? ["mua ngay", "giam gia", "khuyen mai", "hot nhat hom nay"]
+      : ["buy now", "limited offer", "best deal", "cheap"];
+
+  return hasShape && !banned.some((term) => normalized.includes(term));
 }
 
 function normalizeHookText(value) {

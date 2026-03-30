@@ -680,17 +680,33 @@ h3 {
 
 .story-hook,
 .article-hook {
-  font-family: var(--font-head);
-  font-size: 1.2rem;
-  line-height: 1.35;
-  color: var(--ink);
+  position: relative;
   margin: 0;
+  padding-left: 16px;
+  font-family: var(--font-body);
+  font-size: 1.16rem;
+  line-height: 1.72;
+  font-style: italic;
+  color: var(--accent-deep);
+  max-width: 44ch;
+}
+
+.story-hook::before,
+.article-hook::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.28em;
+  bottom: 0.28em;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(15, 127, 84, 0.95), rgba(255, 138, 61, 0.85));
 }
 
 .story-card .story-hook,
 .stack-copy .story-hook {
-  font-size: 1rem;
-  color: var(--accent-deep);
+  font-size: 0.98rem;
+  max-width: none;
 }
 
 .read-link,
