@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600;6..72,700&family=Source+Sans+3:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;500;600;700;800&display=swap");
 
 :root {
   --bg: #f7f1e7;
@@ -18,8 +18,8 @@
   --radius-lg: 22px;
   --radius-md: 16px;
   --font-ui: "Source Sans 3", "Segoe UI", sans-serif;
-  --font-head: "Newsreader", Georgia, serif;
-  --font-body: "Source Serif 4", Georgia, serif;
+  --font-head: "Merriweather", Georgia, serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
 }
 
 * {
@@ -120,7 +120,9 @@ h1,
 h2,
 h3 {
   font-family: var(--font-head);
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .brand-kicker,
@@ -223,8 +225,23 @@ h3 {
 .simple-hero h1,
 .article-header h1 {
   margin: 0;
-  font-size: clamp(2.9rem, 6vw, 5.3rem);
-  line-height: 0.96;
+  font-size: clamp(2.6rem, 5.4vw, 4.7rem);
+  line-height: 1.03;
+}
+
+.hero-copy h1 {
+  max-width: 13ch;
+}
+
+.simple-hero h1 {
+  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+  line-height: 1.05;
+}
+
+.article-header h1 {
+  max-width: 15ch;
+  font-size: clamp(2.4rem, 4.8vw, 4.15rem);
+  line-height: 1.07;
 }
 
 .hero-text,
@@ -235,8 +252,8 @@ h3 {
 .policy-card p,
 .author-card p {
   color: var(--muted);
-  line-height: 1.78;
-  font-size: 1.04rem;
+  line-height: 1.72;
+  font-size: 1.01rem;
   font-family: var(--font-body);
 }
 
@@ -271,8 +288,8 @@ h3 {
 
 .hero-notebook h2 {
   margin: 6px 0 0;
-  font-size: 1.7rem;
-  line-height: 1.05;
+  font-size: 1.48rem;
+  line-height: 1.16;
 }
 
 .hero-notebook-list {
@@ -296,9 +313,9 @@ h3 {
 
 .hero-notebook-item strong {
   display: block;
-  font-family: var(--font-body);
-  font-size: 1.02rem;
-  line-height: 1.45;
+  font-family: var(--font-head);
+  font-size: 0.96rem;
+  line-height: 1.42;
 }
 
 .hero-notebook-item p {
@@ -338,14 +355,14 @@ h3 {
 .reader-card h2,
 .reader-card h3 {
   margin: 0;
-  font-size: 1.55rem;
-  line-height: 1.02;
+  font-size: 1.34rem;
+  line-height: 1.16;
 }
 
 .reader-card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.62;
   font-family: var(--font-body);
 }
 
@@ -378,9 +395,9 @@ h3 {
 
 .reader-list-item strong {
   display: block;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.45;
+  font-family: var(--font-head);
+  font-size: 0.94rem;
+  line-height: 1.4;
 }
 
 .reader-list-item span {
@@ -521,16 +538,18 @@ h3 {
 .policy-card h2,
 .author-card h2 {
   margin: 0;
-  font-size: clamp(1.45rem, 2.2vw, 2.1rem);
-  line-height: 1.08;
+  font-size: clamp(1.32rem, 1.95vw, 1.92rem);
+  line-height: 1.16;
 }
 
 .featured-story h2 {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-size: clamp(1.95rem, 3.3vw, 2.85rem);
+  line-height: 1.12;
 }
 
 .story-card h3 {
-  font-size: 1.55rem;
+  font-size: 1.36rem;
+  line-height: 1.18;
 }
 
 .featured-media,
@@ -974,11 +993,12 @@ h3 {
   margin: 0;
   padding-left: 16px;
   font-family: var(--font-body);
-  font-size: 1.16rem;
-  line-height: 1.72;
-  font-style: italic;
-  color: var(--accent-deep);
-  max-width: 44ch;
+  font-size: 1.03rem;
+  line-height: 1.68;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--muted);
+  max-width: 50ch;
 }
 
 .story-hook::before,
@@ -995,7 +1015,7 @@ h3 {
 
 .story-card .story-hook,
 .stack-copy .story-hook {
-  font-size: 0.98rem;
+  font-size: 0.94rem;
   max-width: none;
 }
 
@@ -1381,7 +1401,7 @@ h3 {
 }
 
 .article-summary {
-  font-size: 1.08rem;
+  font-size: 1.02rem;
   font-family: var(--font-body);
 }
 
@@ -1392,9 +1412,9 @@ h3 {
 
 .article-section p {
   color: var(--muted);
-  line-height: 1.85;
+  line-height: 1.78;
   font-family: var(--font-body);
-  font-size: 1.08rem;
+  font-size: 1.04rem;
 }
 
 .feedback-head {
@@ -1780,9 +1800,9 @@ h3 {
   .simple-hero h1,
   .article-header h1 {
     max-width: 100%;
-    font-size: clamp(1.95rem, 8.8vw, 2.85rem);
-    line-height: 0.98;
-    letter-spacing: -0.04em;
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
   }
 
   .hero-text,
@@ -1794,16 +1814,16 @@ h3 {
 
   .reader-card h2,
   .reader-card h3 {
-    font-size: 1.45rem;
-    line-height: 1.08;
+    font-size: 1.3rem;
+    line-height: 1.15;
   }
 
   .story-card h3 {
-    font-size: 1.34rem;
+    font-size: 1.24rem;
   }
 
   .featured-story h2 {
-    font-size: 2.1rem;
+    font-size: 1.86rem;
   }
 
   .footer-brand strong {
