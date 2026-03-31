@@ -3,25 +3,25 @@
     "id": "openclaw",
     "name": "OpenClaw",
     "mode": "autonomous",
-    "startedAt": "2026-03-31T17:24:48.405Z",
-    "finishedAt": "2026-03-31T17:25:01.319Z"
+    "startedAt": "2026-03-31T19:16:24.492Z",
+    "finishedAt": "2026-03-31T19:16:33.123Z"
   },
   "newsroom": {
-    "contentPath": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\newsroom-content.json",
-    "totalArticles": 25,
+    "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+    "totalArticles": 37,
     "refresh": {
       "ok": true,
       "exitCode": 0,
       "mode": "curated-rss",
-      "output": "Refreshed 27 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\newsroom-content.json",
+      "output": "Refreshed 27 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     }
   },
   "platform": {
-    "statePath": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\platform-state.json",
+    "statePath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/platform-state.json",
     "submissionReview": {
       "reviewer": "openclaw",
-      "reviewedAt": "2026-03-31T17:25:01.315Z",
+      "reviewedAt": "2026-03-31T19:16:33.122Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
