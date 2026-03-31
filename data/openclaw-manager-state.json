@@ -3,16 +3,16 @@
     "id": "openclaw",
     "name": "OpenClaw",
     "mode": "autonomous",
-    "startedAt": "2026-03-31T21:51:55.031Z",
-    "finishedAt": "2026-03-31T21:52:04.860Z"
+    "startedAt": "2026-03-31T22:48:23.300Z",
+    "finishedAt": "2026-03-31T22:48:32.301Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 51,
+    "totalArticles": 54,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 27 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1774993915058-bc93ae.json Generated OpenClaw hidden feed with 27 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 27 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1774997303326-42ccdc.json Generated OpenClaw hidden feed with 27 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -27,7 +27,7 @@
     "webControl": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, internet-business-tech, devices, security, gaming, apps-software.",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, internet-business-tech, security, devices, gaming, apps-software.",
       "warnings": ""
     }
   },
@@ -36,7 +36,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-03-31T21:52:04.859Z",
+      "reviewedAt": "2026-03-31T22:48:32.300Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
