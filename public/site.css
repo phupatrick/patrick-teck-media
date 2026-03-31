@@ -208,8 +208,15 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.85fr);
   gap: 22px;
+  align-items: start;
   border-radius: var(--radius-xl);
   padding: 28px;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 18px;
+  align-content: start;
 }
 
 .hero-copy h1,
@@ -233,11 +240,80 @@ h3 {
   font-family: var(--font-body);
 }
 
+.hero-text {
+  max-width: 42rem;
+  margin: 0;
+}
+
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 24px;
+  margin-top: 6px;
+}
+
+.hero-notebook {
+  max-width: 760px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 244, 234, 0.9));
+  padding: 18px 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.hero-notebook-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 14px;
+}
+
+.hero-notebook h2 {
+  margin: 6px 0 0;
+  font-size: 1.7rem;
+  line-height: 1.05;
+}
+
+.hero-notebook-list {
+  display: grid;
+  gap: 12px;
+}
+
+.hero-notebook-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.hero-notebook-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.hero-notebook-item strong {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.hero-notebook-item p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+.hero-notebook-item span {
+  color: var(--accent-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .hero-aside {
@@ -262,7 +338,7 @@ h3 {
 .reader-card h2,
 .reader-card h3 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.55rem;
   line-height: 1.02;
 }
 
@@ -1645,6 +1721,27 @@ h3 {
   .hero-panel,
   .hero-aside {
     gap: 14px;
+  }
+
+  .hero-notebook {
+    padding: 16px;
+  }
+
+  .hero-notebook-head,
+  .hero-notebook-item {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-notebook-head {
+    align-items: start;
+  }
+
+  .hero-notebook h2 {
+    font-size: 1.42rem;
+  }
+
+  .hero-notebook-item span {
+    font-size: 0.76rem;
   }
 
   .story-grid,

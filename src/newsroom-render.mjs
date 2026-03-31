@@ -29,6 +29,7 @@ export function renderHomePage(state, language, adsConfig) {
             <span>${copy.badgeAds}</span>
             <span>${copy.badgeBilingual}</span>
           </div>
+          ${renderHeroNotebook(home, language, copy)}
         </div>
         ${renderHeroReaderAside(home, language, copy)}
       </section>
@@ -854,20 +855,11 @@ function renderStoryExcerpt(article) {
 }
 
 function renderHeroReaderAside(home, language, copy) {
-  const quickReads = dedupeStories(home.latest).slice(0, 4);
-  const hotReads = home.trending.slice(0, 3);
-  const latestHref = home.latest[0]?.href || home.featured.href;
-  const latestTimestamp = home.latest[0]?.updated_at || home.latest[0]?.published_at || home.featured.updated_at || home.featured.published_at;
+  const quickReads = dedupeStories(home.latest).slice(0, 3);
+  const hotReads = dedupeStories(home.trending).slice(0, 2);
 
   return `
     <aside class="hero-aside hero-reader-aside">
-      <article class="reader-card accent">
-        <p class="eyebrow">${copy.readerDeskLabel}</p>
-        <h2>${copy.readerDeskTitle}</h2>
-        <p>${copy.readerDeskText} ${escapeHtml(formatPublishDate(language, latestTimestamp))}.</p>
-        <a class="text-link" href="${latestHref}">${copy.readerDeskCta}</a>
-      </article>
-
       <article class="reader-card">
         <div class="reader-card-head">
           <div>
@@ -915,6 +907,37 @@ function renderHeroReaderAside(home, language, copy) {
         </div>
       </article>
     </aside>
+  `;
+}
+
+function renderHeroNotebook(home, language, copy) {
+  const spotlightStories = dedupeStories([home.featured, ...home.latest, ...home.trending]).slice(0, 3);
+
+  return `
+    <section class="hero-notebook">
+      <div class="hero-notebook-head">
+        <div>
+          <p class="eyebrow">${copy.heroNotebookLabel}</p>
+          <h2>${copy.heroNotebookTitle}</h2>
+        </div>
+        <a class="mini-link" href="#latest">${copy.heroNotebookCta}</a>
+      </div>
+      <div class="hero-notebook-list">
+        ${spotlightStories
+          .map(
+            (article) => `
+              <a class="hero-notebook-item" href="${article.href}">
+                <div>
+                  <strong>${escapeHtml(article.title)}</strong>
+                  <p>${escapeHtml(article.hook || article.summary)}</p>
+                </div>
+                <span>${escapeHtml(article.topic_label)}</span>
+              </a>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
   `;
 }
 
@@ -1175,18 +1198,16 @@ function getCopy(language) {
       heroTitle: "Patrick Tech Media là toà soạn công nghệ của Patrick Tech Co. VN.",
       heroText:
         "Toà soạn theo dõi công nghệ Việt Nam và thế giới, tập trung vào AI, Big Tech, mạng xã hội, phần mềm, thiết bị và những thủ thuật đáng lưu.",
-    badgeSignals: "Việt Nam + thế giới",
-    badgeAds: "AI, Big Tech, social",
-    badgeBilingual: "Tin mới + thủ thuật",
-    readerDeskLabel: "Cập nhật",
-      readerDeskTitle: "Tin mới đang lên theo giờ.",
-      readerDeskText:
-        "Nhịp tin được làm mới liên tục trong ngày, ưu tiên những câu chuyện vừa có diễn biến mới và đáng mở ngay. Lượt mới nhất:",
-    readerDeskCta: "Đọc tin mới nhất",
-      readerStartLabel: "Mới cập nhật",
-      readerStartTitle: "4 bài vừa lên trang",
-      readerWatchLabel: "Đang theo dõi",
-      readerWatchTitle: "Những câu chuyện đang nóng",
+      badgeSignals: "Việt Nam + thế giới",
+      badgeAds: "AI, Big Tech, social",
+      badgeBilingual: "Tin mới + thủ thuật",
+      heroNotebookLabel: "Điểm đáng đọc",
+      heroNotebookTitle: "Mở vào là thấy ngay những gì đáng bấm trước.",
+      heroNotebookCta: "Xem thêm tin mới",
+      readerStartLabel: "Vừa lên",
+      readerStartTitle: "3 bài mới để bắt nhịp",
+      readerWatchLabel: "Được chú ý",
+      readerWatchTitle: "2 câu chuyện đang được bàn tán",
       liveLabel: "Live desk",
       liveTitle: "Nhịp cập nhật newsroom",
       liveRefreshLabel: "Làm mới",
@@ -1209,9 +1230,9 @@ function getCopy(language) {
       evergreenTitle: "Bài đọc xong dùng được ngay",
       tipsLabel: "Thủ thuật",
       tipsTitle: "Hướng dẫn và mẹo đáng lưu",
-      updateLabel: "Cập nhật gần đây",
-      updateTitle: "Dòng tin mới đang chạy trên trang chủ",
-      updateText: "Những bài vừa lên gần nhất được gom tại đây để người đọc vào là thấy ngay nhịp tin.",
+      updateLabel: "Vừa lên",
+      updateTitle: "3 tin mới để bắt nhịp",
+      updateText: "Mở nhanh những bài mới nhất nếu bạn muốn nắm nhịp ngay từ đầu.",
       ecosystemLabel: "Công ty",
       ecosystemTitle: "Patrick Tech Co. VN",
       ecosystemText: "Patrick Tech Media là mảng nội dung của Patrick Tech Co. VN, kết nối tin tức, thủ thuật và Patrick Tech Store trong cùng hệ sinh thái.",
@@ -1304,15 +1325,13 @@ function getCopy(language) {
     badgeSignals: "Vietnam + world",
     badgeAds: "AI, Big Tech, social",
     badgeBilingual: "News + how-tos",
-    readerDeskLabel: "Now updating",
-      readerDeskTitle: "Fresh stories land every hour.",
-      readerDeskText:
-        "The homepage is refreshed through the day, with priority given to stories that have new movement and immediate reader value. Latest sweep:",
-    readerDeskCta: "Open the newest story",
-    readerStartLabel: "Just updated",
-      readerStartTitle: "4 stories newly live",
-      readerWatchLabel: "Under watch",
-      readerWatchTitle: "Stories still heating up",
+    heroNotebookLabel: "Worth opening",
+    heroNotebookTitle: "The first stories that tell you what matters right now.",
+    heroNotebookCta: "More fresh stories",
+    readerStartLabel: "Just in",
+    readerStartTitle: "3 fresh stories to start with",
+    readerWatchLabel: "Getting attention",
+    readerWatchTitle: "2 stories readers keep opening",
     liveLabel: "Live desk",
     liveTitle: "Continuous desk updates",
     liveRefreshLabel: "Refreshed",
@@ -1335,9 +1354,9 @@ function getCopy(language) {
     evergreenTitle: "Pieces readers can use right away",
     tipsLabel: "How-tos",
     tipsTitle: "Practical guides worth saving",
-    updateLabel: "Recent updates",
-    updateTitle: "The newest stories moving through the homepage",
-    updateText: "The latest pieces are collected here first so the site feels like a live desk, not a static showcase.",
+    updateLabel: "Just in",
+    updateTitle: "3 fresh stories to catch the pace",
+    updateText: "Open these first if you want the newest turns on the site.",
     ecosystemLabel: "Company",
     ecosystemTitle: "Patrick Tech Co. VN",
       ecosystemText: "Patrick Tech Media is the editorial arm of Patrick Tech Co. VN, linking news coverage, practical guides, and Patrick Tech Store in one ecosystem.",

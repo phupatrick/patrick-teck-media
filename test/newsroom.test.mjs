@@ -230,11 +230,13 @@ const tests = [
       });
 
       assert.match(homeHtml, /Patrick Tech Media là toà soạn công nghệ của Patrick Tech Co\. VN/);
-      assert.match(homeHtml, /Tin mới đang lên theo giờ/);
-      assert.match(homeHtml, /4 bài vừa lên trang/);
+      assert.match(homeHtml, /Điểm đáng đọc/);
+      assert.match(homeHtml, /3 bài mới để bắt nhịp/);
+      assert.match(homeHtml, /3 tin mới để bắt nhịp/);
       assert.match(homeHtml, /Hướng dẫn và mẹo đáng lưu/);
       assert.doesNotMatch(homeHtml, /3 bài giữ nhịp hôm nay/);
       assert.doesNotMatch(homeHtml, /Những chủ đề kéo độc giả vào đọc/);
+      assert.doesNotMatch(homeHtml, /Dòng tin mới đang chạy trên trang chủ/);
       assert.match(articleHtml, /Bạn thấy bài này thế nào/);
       assert.match(articleHtml, /Gửi bình luận/);
       assert.match(articleHtml, /Hữu ích/);
