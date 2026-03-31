@@ -5,7 +5,9 @@ import path from "node:path";
 const DEFAULT_STATE = {
   users: [],
   submissions: [],
-  withdrawals: []
+  withdrawals: [],
+  articleComments: [],
+  articleReactions: []
 };
 
 export function createPlatformStore({ statePath }) {
@@ -55,7 +57,9 @@ function normalizeState(state) {
   return {
     users: Array.isArray(state?.users) ? state.users : [],
     submissions: Array.isArray(state?.submissions) ? state.submissions : [],
-    withdrawals: Array.isArray(state?.withdrawals) ? state.withdrawals : []
+    withdrawals: Array.isArray(state?.withdrawals) ? state.withdrawals : [],
+    articleComments: Array.isArray(state?.articleComments) ? state.articleComments : [],
+    articleReactions: Array.isArray(state?.articleReactions) ? state.articleReactions : []
   };
 }
 

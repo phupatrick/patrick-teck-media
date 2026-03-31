@@ -212,8 +212,12 @@ export function buildNewsroomState(options = {}) {
     site: {
       name: "Patrick Tech Media",
       description: {
-        vi: "Toà soạn số song ngữ theo dõi công nghệ, phần mềm, thiết bị và đời sống Internet với nhịp cập nhật liên tục cho độc giả Việt Nam và quốc tế.",
-        en: "A bilingual digital newsroom covering technology, software, devices, and internet culture with a continuously updated reading experience for Vietnam and global audiences."
+        vi: "Patrick Tech Media là toà soạn công nghệ của Patrick Tech Co. VN, theo dõi AI, Big Tech, mạng xã hội, thiết bị và thủ thuật đáng lưu.",
+        en: "Patrick Tech Media is the technology newsroom of Patrick Tech Co. VN, covering AI, Big Tech, social platforms, devices, and useful how-tos."
+      },
+      shortDescription: {
+        vi: "Tin công nghệ, AI, Big Tech, mạng xã hội và thủ thuật đáng lưu.",
+        en: "Technology, AI, Big Tech, social platforms, and useful how-tos."
       },
       siteUrl,
       storeUrl,
@@ -235,21 +239,43 @@ export function buildNewsroomState(options = {}) {
 
 export function getHomeData(state, language) {
   const localized = getArticlesForLanguage(state, language);
+  const latest = localized.slice(0, 6);
   const verifiedStories = localized.filter((article) => article.verification_state === "verified" && article.content_type === "NewsArticle");
-  const featured = verifiedStories[0] || localized[0];
-  const briefing = localized.find((article) => article.content_type === "Roundup") || localized[0];
+  const leadStories = localized.filter((article) => article.content_type === "NewsArticle" && article.verification_state !== "trend");
+  const featured =
+    leadStories.find((article) => article.hero_image?.kind === "source") ||
+    verifiedStories.find((article) => article.hero_image?.kind === "source") ||
+    verifiedStories[0] ||
+    leadStories[0] ||
+    localized[0];
+  const briefing =
+    localized.find(
+      (article) =>
+        article.content_type === "Roundup" &&
+        isStoryFreshRelativeToAnchor(article, latest[0]?.updated_at || latest[0]?.published_at, 5)
+    ) ||
+    latest.find((article) => article.href !== featured?.href) ||
+    localized.find((article) => article.href !== featured?.href) ||
+    localized[0];
   const trending = localized
-    .filter((article) => article.verification_state !== "verified")
-    .slice(0, 4);
+      .filter((article) => article.verification_state !== "verified")
+      .slice(0, 4);
   const evergreen = localized
     .filter((article) => article.content_type === "EvergreenGuide" || article.content_type === "ComparisonPage")
     .slice(0, 4);
-  const latest = localized.slice(0, 6);
-  const topicSections = state.topics.map((topic) => ({
-    ...topic,
-    label: topic.labels[language],
-    slug: topic.slugs[language],
-    stories: localized.filter((article) => article.topic === topic.id).slice(0, 3)
+  const tips = localized
+    .filter(
+      (article) =>
+        article.content_type === "EvergreenGuide" ||
+        article.content_type === "ComparisonPage" ||
+        /mẹo|thủ thuật|hướng dẫn|cách |how to|how-to|guide/i.test(`${article.title} ${article.summary} ${article.dek}`)
+    )
+    .slice(0, 4);
+    const topicSections = state.topics.map((topic) => ({
+      ...topic,
+      label: topic.labels[language],
+      slug: topic.slugs[language],
+      stories: localized.filter((article) => article.topic === topic.id).slice(0, 3)
   }));
 
   return {
@@ -257,6 +283,7 @@ export function getHomeData(state, language) {
     briefing,
     trending,
     evergreen,
+    tips,
     latest,
     liveDesk: getLiveDeskData(state, language),
     browserStories: localized.slice(0, 10),
@@ -953,6 +980,21 @@ function mergeArticleSets(primaryArticles, injectedArticles) {
   }
 
   return [...articleMap.values()].sort(sortArticlesByDateDesc);
+}
+
+function isStoryFreshRelativeToAnchor(article, anchorDateString, maxAgeInDays) {
+  if (!anchorDateString) {
+    return true;
+  }
+
+  const articleTimestamp = new Date(article.updated_at || article.published_at || 0).getTime();
+  const anchorTimestamp = new Date(anchorDateString).getTime();
+
+  if (!Number.isFinite(articleTimestamp) || !Number.isFinite(anchorTimestamp)) {
+    return true;
+  }
+
+  return Math.abs(anchorTimestamp - articleTimestamp) <= maxAgeInDays * 24 * 60 * 60 * 1000;
 }
 
 function normalizeExternalArticle(article, { topics, contentTypeMeta }) {

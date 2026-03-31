@@ -9,6 +9,7 @@ export function renderHomePage(state, language, adsConfig) {
   const home = state.home[language];
   const copy = getCopy(language);
   const path = `/${language}/`;
+  const tips = home.tips?.length ? home.tips : home.evergreen;
 
   return renderLayout({
     state,
@@ -51,39 +52,25 @@ export function renderHomePage(state, language, adsConfig) {
 
         <aside class="briefing-rail">
           <div class="rail-card">
+            <p class="rail-label">${copy.updateLabel}</p>
+            <h3>${copy.updateTitle}</h3>
+            <p>${copy.updateText}</p>
+            <div class="stack-list compact-stack">
+              ${home.latest.slice(0, 3).map((article) => renderStackItem(article, language, false)).join("")}
+            </div>
+          </div>
+          <div class="rail-card">
             <p class="rail-label">${copy.briefingLabel}</p>
             <h3><a href="${home.briefing.href}">${escapeHtml(home.briefing.title)}</a></h3>
             <p>${escapeHtml(home.briefing.summary)}</p>
-          </div>
-          <div class="rail-card">
-            <p class="rail-label">${copy.policyLabel}</p>
-            <p>${copy.policyText}</p>
-            <a class="text-link" href="/${language}/editorial-policy">${copy.viewPolicy}</a>
+            <a class="text-link" href="${home.briefing.href}">${copy.readStory}</a>
           </div>
         </aside>
       </section>
 
-      <section class="newsroom-strip">
-        <a class="newsroom-card radar" href="${home.featured.href}">
-          <p class="eyebrow">${copy.homeSpotlightLabel}</p>
-          <h2>${copy.homeSpotlightTitle}</h2>
-          <p>${escapeHtml(home.featured.hook || home.featured.summary)}</p>
-        </a>
-        <a class="newsroom-card workflow" href="${home.briefing.href}">
-          <p class="eyebrow">${copy.homeBriefLabel}</p>
-          <h2>${copy.homeBriefTitle}</h2>
-          <p>${escapeHtml(home.briefing.summary)}</p>
-        </a>
-        <a class="newsroom-card feed" href="/${language}/authors">
-          <p class="eyebrow">${copy.homeAuthorsLabel}</p>
-          <h2>${copy.homeAuthorsTitle}</h2>
-          <p>${copy.homeAuthorsText}</p>
-        </a>
-      </section>
-
       ${renderSlot(adsConfig, { language, pageAllowsAds: true, placement: "hero" })}
 
-      <section class="section-grid">
+      <section class="section-grid" id="latest">
         <div class="section-block">
           <div class="section-head">
             <p class="eyebrow">${copy.latestLabel}</p>
@@ -104,14 +91,14 @@ export function renderHomePage(state, language, adsConfig) {
         </aside>
       </section>
 
-      <section class="section-grid secondary-grid">
+      <section class="section-grid secondary-grid" id="tips">
         <div class="section-block">
           <div class="section-head">
-            <p class="eyebrow">${copy.evergreenLabel}</p>
-            <h2>${copy.evergreenTitle}</h2>
+            <p class="eyebrow">${copy.tipsLabel}</p>
+            <h2>${copy.tipsTitle}</h2>
           </div>
           <div class="story-grid compact-grid">
-            ${home.evergreen.map((article) => renderStoryCard(article, language)).join("")}
+            ${tips.map((article) => renderStoryCard(article, language)).join("")}
           </div>
         </div>
         <aside class="section-block ecosystem-block company-block">
@@ -125,34 +112,6 @@ export function renderHomePage(state, language, adsConfig) {
             <a class="text-link" href="/${language}/about">${language === "vi" ? "Về Patrick Tech Media" : "About Patrick Tech Media"}</a>
           </div>
         </aside>
-      </section>
-
-      <section class="section-block browser-block" data-story-browser>
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">${copy.browserLabel}</p>
-            <h2>${copy.browserTitle}</h2>
-          </div>
-          <p class="browser-caption">${copy.browserText}</p>
-        </div>
-        <div class="browser-controls">
-          <input
-            class="search-input"
-            type="search"
-            placeholder="${escapeHtml(copy.browserPlaceholder)}"
-            data-story-search
-          />
-          <div class="chip-row">
-            <button class="filter-chip is-active" type="button" data-story-filter="all">${copy.filterAll}</button>
-            <button class="filter-chip" type="button" data-story-filter="verified">${copy.filterVerified}</button>
-            <button class="filter-chip" type="button" data-story-filter="emerging">${copy.filterEmerging}</button>
-            <button class="filter-chip" type="button" data-story-filter="trend">${copy.filterTrend}</button>
-          </div>
-        </div>
-        <div class="story-grid compact-grid" data-story-grid>
-          ${home.browserStories.map((article) => renderStoryCard(article, language)).join("")}
-        </div>
-        <p class="result-count" data-story-count></p>
       </section>
 
       <section class="topic-band">
@@ -494,10 +453,11 @@ export function renderTopicPage(state, language, topicPage, adsConfig) {
   });
 }
 
-export function renderArticlePage(state, language, article, relatedStories, adsConfig) {
+export function renderArticlePage(state, language, article, relatedStories, adsConfig, options = {}) {
   const copy = getCopy(language);
   const verification = getVerificationMeta(article.verification_state, language);
   const shouldShowBadge = Boolean(article.editorial_label);
+  const feedback = options.feedback || { reactions: [], comments: [], totalComments: 0, totalReactions: 0 };
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -586,6 +546,11 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
                 ? renderStorePanel(state, article, language)
                 : ""
             }
+
+            ${renderArticleCommunity(article, feedback, language, options.viewer, {
+              notice: options.notice || "",
+              error: options.error || ""
+            })}
 
             <section class="article-section">
               <h2>${copy.relatedLabel}</h2>
@@ -802,7 +767,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
           <img class="brand-logo" src="${logoPath}" alt="${escapeHtml(state.site.name)}" />
           <span class="brand-meta">
             <span class="brand-company">Patrick Tech Co. VN</span>
-            <span class="brand-note">${language === "vi" ? "Toà soạn công nghệ và hệ sinh thái số" : "Technology newsroom and digital ecosystem"}</span>
+            <span class="brand-note">${language === "vi" ? "Toà soạn công nghệ & hệ sinh thái số" : "Technology newsroom & digital ecosystem"}</span>
           </span>
         </a>
         <nav class="nav-strip" aria-label="Primary">
@@ -823,7 +788,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
       <footer class="site-footer">
         <div class="footer-brand">
           <strong>${state.site.name}</strong>
-          <p>${escapeHtml(state.site.description[language])}</p>
+          <p>${escapeHtml(copy.footerBlurb || state.site.shortDescription?.[language] || state.site.description[language])}</p>
         </div>
         <div class="footer-links">
           ${footerLinks.map((link) => `<a href="${link.href}">${escapeHtml(link.label)}</a>`).join("")}
@@ -889,17 +854,18 @@ function renderStoryExcerpt(article) {
 }
 
 function renderHeroReaderAside(home, language, copy) {
-  const quickReads = dedupeStories([home.featured, home.briefing, ...home.latest]).slice(0, 3);
+  const quickReads = dedupeStories(home.latest).slice(0, 4);
   const hotReads = home.trending.slice(0, 3);
-  const aboutHref = `/${language}/about`;
+  const latestHref = home.latest[0]?.href || home.featured.href;
+  const latestTimestamp = home.latest[0]?.updated_at || home.latest[0]?.published_at || home.featured.updated_at || home.featured.published_at;
 
   return `
     <aside class="hero-aside hero-reader-aside">
       <article class="reader-card accent">
         <p class="eyebrow">${copy.readerDeskLabel}</p>
         <h2>${copy.readerDeskTitle}</h2>
-        <p>${copy.readerDeskText}</p>
-        <a class="text-link" href="${aboutHref}">${copy.readerDeskCta}</a>
+        <p>${copy.readerDeskText} ${escapeHtml(formatPublishDate(language, latestTimestamp))}.</p>
+        <a class="text-link" href="${latestHref}">${copy.readerDeskCta}</a>
       </article>
 
       <article class="reader-card">
@@ -1068,6 +1034,86 @@ function renderLiveDesk(liveDesk, language, copy) {
   `;
 }
 
+function renderArticleCommunity(article, feedback, language, viewer, { notice = "", error = "" }) {
+  const copy = getCopy(language);
+  const viewerName = viewer?.name || "";
+
+  return `
+    <section class="article-section feedback-section" id="community">
+      <div class="feedback-head">
+        <div>
+          <p class="eyebrow">${copy.communityLabel}</p>
+          <h2>${copy.communityTitle}</h2>
+        </div>
+        <p>${copy.communityText}</p>
+      </div>
+
+      ${notice ? `<p class="feedback-notice is-success">${escapeHtml(notice)}</p>` : ""}
+      ${error ? `<p class="feedback-notice is-error">${escapeHtml(error)}</p>` : ""}
+
+      <form class="reaction-bar" method="post" action="/article/reactions">
+        <input type="hidden" name="lang" value="${language}" />
+        <input type="hidden" name="article_id" value="${escapeHtml(article.id)}" />
+        <input type="hidden" name="article_href" value="${escapeHtml(article.href)}" />
+        <input type="hidden" name="return_to" value="${escapeHtml(article.href)}" />
+        ${feedback.reactions
+          .map(
+            (reaction) => `
+              <button class="reaction-button" type="submit" name="reaction" value="${reaction.id}">
+                <span>${reaction.emoji}</span>
+                <strong>${escapeHtml(reaction.label)}</strong>
+                <em>${reaction.count}</em>
+              </button>
+            `
+          )
+          .join("")}
+      </form>
+
+      <div class="comment-shell">
+        <form class="comment-form" method="post" action="/article/comments">
+          <input type="hidden" name="lang" value="${language}" />
+          <input type="hidden" name="article_id" value="${escapeHtml(article.id)}" />
+          <input type="hidden" name="article_href" value="${escapeHtml(article.href)}" />
+          <input type="hidden" name="return_to" value="${escapeHtml(article.href)}" />
+          <label class="field">
+            <span>${copy.commentNameLabel}</span>
+            <input name="name" type="text" value="${escapeHtml(viewerName)}" ${viewerName ? `readonly` : `placeholder="${escapeHtml(copy.commentNamePlaceholder)}"`} />
+          </label>
+          <label class="field">
+            <span>${copy.commentBodyLabel}</span>
+            <textarea name="comment" rows="4" required placeholder="${escapeHtml(copy.commentBodyPlaceholder)}"></textarea>
+          </label>
+          <button class="action-button" type="submit">${copy.commentSubmitLabel}</button>
+        </form>
+
+        <div class="comment-list">
+          <div class="comment-list-head">
+            <p class="eyebrow">${copy.commentListLabel}</p>
+            <strong>${feedback.totalComments}</strong>
+          </div>
+          ${
+            feedback.comments.length
+              ? feedback.comments
+                  .map(
+                    (comment) => `
+                      <article class="comment-card">
+                        <div class="comment-card-head">
+                          <strong>${escapeHtml(comment.author_name)}</strong>
+                          <span>${escapeHtml(formatPublishDate(language, comment.created_at))}</span>
+                        </div>
+                        <p>${escapeHtml(comment.body)}</p>
+                      </article>
+                    `
+                  )
+                  .join("")
+              : `<p class="comment-empty">${copy.commentEmpty}</p>`
+          }
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderStorePanel(state, article, language) {
   const copy = getCopy(language);
   const cards = article.related_store_cards.slice(0, article.store_link_mode === "full" ? 2 : 1);
@@ -1126,21 +1172,21 @@ function getCopy(language) {
     return {
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
-    heroTitle: "Patrick Tech Media theo sát nhịp công nghệ Việt Nam và thế giới.",
-    heroText:
-      "Đây là tòa soạn công nghệ thuộc Patrick Tech Co. VN, tập trung vào AI, các ông lớn công nghệ, mạng xã hội, phần mềm, thiết bị và những thủ thuật đáng lưu lại trên internet. Mỗi bài được biên tập để người đọc nắm câu chuyện nhanh nhưng vẫn thấy rõ bối cảnh và điều đáng quan tâm.",
+      heroTitle: "Patrick Tech Media là toà soạn công nghệ của Patrick Tech Co. VN.",
+      heroText:
+        "Toà soạn theo dõi công nghệ Việt Nam và thế giới, tập trung vào AI, Big Tech, mạng xã hội, phần mềm, thiết bị và những thủ thuật đáng lưu.",
     badgeSignals: "Việt Nam + thế giới",
     badgeAds: "AI, Big Tech, social",
     badgeBilingual: "Tin mới + thủ thuật",
-    readerDeskLabel: "Giới thiệu",
-    readerDeskTitle: "Một newsroom công nghệ mang tên Patrick Tech Media.",
-    readerDeskText:
-      "Patrick Tech Media chọn lọc những cập nhật đáng chú ý nhất từ công nghệ Việt Nam và thế giới, rồi biên tập lại theo lối viết gọn, rõ và dễ theo dõi hơn cho người đọc phổ thông lẫn người làm nghề.",
-    readerDeskCta: "Về Patrick Tech Media",
-      readerStartLabel: "Chọn lọc",
-      readerStartTitle: "3 bài giữ nhịp hôm nay",
-      readerWatchLabel: "Đang nóng",
-      readerWatchTitle: "Những chủ đề đang kéo người đọc vào",
+    readerDeskLabel: "Cập nhật",
+      readerDeskTitle: "Tin mới đang lên theo giờ.",
+      readerDeskText:
+        "Nhịp tin được làm mới liên tục trong ngày, ưu tiên những câu chuyện vừa có diễn biến mới và đáng mở ngay. Lượt mới nhất:",
+    readerDeskCta: "Đọc tin mới nhất",
+      readerStartLabel: "Mới cập nhật",
+      readerStartTitle: "4 bài vừa lên trang",
+      readerWatchLabel: "Đang theo dõi",
+      readerWatchTitle: "Những câu chuyện đang nóng",
       liveLabel: "Live desk",
       liveTitle: "Nhịp cập nhật newsroom",
       liveRefreshLabel: "Làm mới",
@@ -1156,14 +1202,19 @@ function getCopy(language) {
       policyText: "Tòa soạn vẫn lên bài nhanh, nhưng chỉ bật quảng cáo ở những trang đã đủ ngưỡng kiểm chứng và trình bày.",
       viewPolicy: "Xem chính sách biên tập",
       latestLabel: "Mới nhất",
-      latestTitle: "Bài vừa lên sóng",
-      trendingLabel: "Đang được bàn tán",
-      trendingTitle: "Những chủ đề kéo độc giả vào đọc",
-      evergreenLabel: "Evergreen & compare",
-      evergreenTitle: "Bài còn giá trị sau nhịp tin nóng",
+      latestTitle: "Tin mới nhất",
+      trendingLabel: "Đang theo dõi",
+      trendingTitle: "Những câu chuyện cần để mắt",
+      evergreenLabel: "Thủ thuật & hướng dẫn",
+      evergreenTitle: "Bài đọc xong dùng được ngay",
+      tipsLabel: "Thủ thuật",
+      tipsTitle: "Hướng dẫn và mẹo đáng lưu",
+      updateLabel: "Cập nhật gần đây",
+      updateTitle: "Dòng tin mới đang chạy trên trang chủ",
+      updateText: "Những bài vừa lên gần nhất được gom tại đây để người đọc vào là thấy ngay nhịp tin.",
       ecosystemLabel: "Công ty",
       ecosystemTitle: "Patrick Tech Co. VN",
-      ecosystemText: "Patrick Tech Media là cánh nội dung của Patrick Tech Co. VN. Từ đây, độc giả có thể đọc tin và đi tiếp sang Patrick Tech Store để xem các gói tài khoản, tool và phần mềm thuộc cùng hệ.",
+      ecosystemText: "Patrick Tech Media là mảng nội dung của Patrick Tech Co. VN, kết nối tin tức, thủ thuật và Patrick Tech Store trong cùng hệ sinh thái.",
       visitStore: "Đi tới Patrick Tech Store",
       radarLabel: "Newsroom radar",
       radarTitle: "Xem newsroom radar hoạt động",
@@ -1209,9 +1260,20 @@ function getCopy(language) {
       languageSwitchLabel: "Phiên bản ngôn ngữ",
       storePanelLabel: "Từ hệ Patrick Tech",
       storePanelTitle: "Công cụ liên quan theo ngữ cảnh",
+      communityLabel: "Cộng đồng",
+      communityTitle: "Bạn thấy bài này thế nào?",
+      communityText: "Thả cảm xúc hoặc để lại bình luận ngay dưới bài viết.",
+      commentNameLabel: "Tên hiển thị",
+      commentNamePlaceholder: "Nhập tên của bạn",
+      commentBodyLabel: "Bình luận",
+      commentBodyPlaceholder: "Viết cảm nhận, góp ý hoặc bổ sung thông tin...",
+      commentSubmitLabel: "Gửi bình luận",
+      commentListLabel: "Bình luận mới",
+      commentEmpty: "Chưa có bình luận nào. Bạn có thể là người mở đầu cuộc trò chuyện.",
       authorsLabel: "Tác giả",
       authorsTitle: "Đội biên tập",
       authorsText: "Mỗi bài đều gắn một biên tập viên phụ trách mảng để giữ góc nhìn nhất quán giữa các đợt cập nhật.",
+      footerBlurb: "Tin công nghệ, AI, Big Tech, mạng xã hội và thủ thuật đáng lưu.",
       sitemapLabel: "Sitemap",
       sitemapTitle: "Sơ đồ điều hướng site",
       sitemapText: "Trang này gom các điểm vào chính của site dành cho người đọc và kiểm tra vận hành.",
@@ -1236,21 +1298,21 @@ function getCopy(language) {
   return {
     homeTitle: "Patrick Tech Media | Technology from Vietnam and the wider web",
     eyebrow: "Bilingual newsroom",
-    heroTitle: "Patrick Tech Media tracks the technology story across Vietnam and the wider web.",
-    heroText:
-      "Patrick Tech Media is the technology newsroom inside Patrick Tech Co. VN, following AI, big tech, social platforms, software, devices, and practical how-tos that matter on the internet right now. Every piece is edited to stay readable, useful, and grounded in clear context.",
+      heroTitle: "Patrick Tech Media is the technology newsroom of Patrick Tech Co. VN.",
+      heroText:
+        "The desk tracks Vietnam and global technology with a focus on AI, Big Tech, social platforms, software, devices, and practical how-tos worth saving.",
     badgeSignals: "Vietnam + world",
     badgeAds: "AI, Big Tech, social",
     badgeBilingual: "News + how-tos",
-    readerDeskLabel: "About",
-    readerDeskTitle: "A technology newsroom shaped as Patrick Tech Media.",
-    readerDeskText:
-      "The desk follows the biggest updates from Vietnam and abroad, then rewrites them into cleaner, sharper stories that feel easier to read without losing the important angle.",
-    readerDeskCta: "About Patrick Tech Media",
-    readerStartLabel: "Selected reads",
-    readerStartTitle: "3 pieces holding the day",
-    readerWatchLabel: "Heating up",
-    readerWatchTitle: "Themes pulling readers in right now",
+    readerDeskLabel: "Now updating",
+      readerDeskTitle: "Fresh stories land every hour.",
+      readerDeskText:
+        "The homepage is refreshed through the day, with priority given to stories that have new movement and immediate reader value. Latest sweep:",
+    readerDeskCta: "Open the newest story",
+    readerStartLabel: "Just updated",
+      readerStartTitle: "4 stories newly live",
+      readerWatchLabel: "Under watch",
+      readerWatchTitle: "Stories still heating up",
     liveLabel: "Live desk",
     liveTitle: "Continuous desk updates",
     liveRefreshLabel: "Refreshed",
@@ -1266,14 +1328,19 @@ function getCopy(language) {
     policyText: "The desk moves quickly, but ads only appear on pages that meet the stronger verification and presentation bar.",
     viewPolicy: "Read the editorial policy",
     latestLabel: "Latest",
-    latestTitle: "Stories now live",
-    trendingLabel: "People are talking about",
-    trendingTitle: "The themes pulling readers in",
-    evergreenLabel: "Evergreen and compare",
-    evergreenTitle: "Pieces with value beyond the news cycle",
+    latestTitle: "Latest stories",
+    trendingLabel: "Under watch",
+    trendingTitle: "The stories worth watching next",
+    evergreenLabel: "How-tos and guides",
+    evergreenTitle: "Pieces readers can use right away",
+    tipsLabel: "How-tos",
+    tipsTitle: "Practical guides worth saving",
+    updateLabel: "Recent updates",
+    updateTitle: "The newest stories moving through the homepage",
+    updateText: "The latest pieces are collected here first so the site feels like a live desk, not a static showcase.",
     ecosystemLabel: "Company",
     ecosystemTitle: "Patrick Tech Co. VN",
-      ecosystemText: "Patrick Tech Media is the editorial arm of Patrick Tech Co. VN. Readers can move from the newsroom to Patrick Tech Store to explore accounts, tools, and software in the same ecosystem.",
+      ecosystemText: "Patrick Tech Media is the editorial arm of Patrick Tech Co. VN, linking news coverage, practical guides, and Patrick Tech Store in one ecosystem.",
     visitStore: "Open Patrick Tech Store",
       radarLabel: "Newsroom radar",
       radarTitle: "See the newsroom radar in motion",
@@ -1319,9 +1386,20 @@ function getCopy(language) {
     languageSwitchLabel: "Language versions",
     storePanelLabel: "From Patrick Tech",
     storePanelTitle: "Contextual tools",
+    communityLabel: "Community",
+    communityTitle: "What did you think of this story?",
+    communityText: "Drop a reaction or leave a comment right below the article.",
+    commentNameLabel: "Display name",
+    commentNamePlaceholder: "Enter your name",
+    commentBodyLabel: "Comment",
+    commentBodyPlaceholder: "Share your take, feedback, or extra context...",
+    commentSubmitLabel: "Post comment",
+    commentListLabel: "Latest comments",
+    commentEmpty: "No comments yet. You can start the conversation.",
     authorsLabel: "Authors",
     authorsTitle: "Editorial team",
     authorsText: "Each story is tied to an editor covering the beat so the newsroom keeps a consistent lens across updates.",
+    footerBlurb: "Technology, AI, Big Tech, social platforms, and useful how-tos.",
     sitemapLabel: "Sitemap",
     sitemapTitle: "Site navigation map",
     sitemapText: "This page collects the main entry points for readers and operational review.",

@@ -255,8 +255,22 @@ async function handleRequest(req, res) {
       const relatedStories = getArticlesForLanguage(state, language)
         .filter((story) => story.cluster_id !== article.cluster_id && story.topic === article.topic)
         .slice(0, 3);
+      const feedback = platformService.getArticleFeedback({
+        articleId: article.id,
+        href: article.href,
+        language
+      });
 
-      return sendHtml(res, 200, renderArticlePage(state, language, article, relatedStories, adsConfig));
+      return sendHtml(
+        res,
+        200,
+        renderArticlePage(state, language, article, relatedStories, adsConfig, {
+          feedback,
+          viewer,
+          notice: requestUrl.searchParams.get("notice") || "",
+          error: requestUrl.searchParams.get("error") || ""
+        })
+      );
     }
 
     return sendHtml(res, 404, renderNotFoundPage(state, language, adsConfig));
@@ -479,6 +493,41 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
       return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Bạn đã đăng xuất." : "You have been signed out.")}`);
     }
 
+    if (pathname === "/article/reactions") {
+      platformService.addArticleReaction({
+        articleId: form.article_id,
+        href: form.article_href,
+        reaction: form.reaction,
+        user: viewer,
+        language
+      });
+
+      return redirect(
+        res,
+        `${safeReturnPath(form.return_to, language)}?notice=${encodeURIComponent(
+          language === "vi" ? "Đã ghi nhận cảm xúc của bạn." : "Your reaction has been recorded."
+        )}#community`
+      );
+    }
+
+    if (pathname === "/article/comments") {
+      platformService.addArticleComment({
+        articleId: form.article_id,
+        href: form.article_href,
+        name: form.name,
+        body: form.comment,
+        user: viewer,
+        language
+      });
+
+      return redirect(
+        res,
+        `${safeReturnPath(form.return_to, language)}?notice=${encodeURIComponent(
+          language === "vi" ? "Bình luận của bạn đã được đăng." : "Your comment has been published."
+        )}#community`
+      );
+    }
+
     if (pathname === "/portal/submissions") {
       if (!viewer) {
         return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Vui lòng đăng nhập trước khi gửi bài." : "Please sign in before submitting a story.")}`);
@@ -552,7 +601,9 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
 
     return sendJson(res, 404, { error: "Not found." });
   } catch (error) {
-    const fallbackPath = pathname.startsWith("/admin")
+    const fallbackPath = pathname.startsWith("/article/")
+      ? safeReturnPath(form.return_to, language)
+      : pathname.startsWith("/admin")
       ? `/${language}/admin`
       : pathname.startsWith("/portal")
         ? `/${language}/portal`
@@ -622,6 +673,17 @@ function compactArticle(article) {
     ad_eligible: article.ad_eligible,
     topic: article.topic
   };
+}
+
+function safeReturnPath(candidate, language) {
+  const fallback = `/${language}/`;
+  const value = String(candidate || "").trim();
+
+  if (!value.startsWith("/") || value.startsWith("//") || value.includes("\r") || value.includes("\n")) {
+    return fallback;
+  }
+
+  return value;
 }
 
 function redirect(res, location) {

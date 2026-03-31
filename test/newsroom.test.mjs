@@ -106,6 +106,36 @@ const tests = [
     }
   },
   {
+    name: "renders a news-first homepage and article community section",
+    run() {
+      const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
+      const article = getArticleByRoute(state, "vi", "tin-tuc", "viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang");
+      const articleHtml = renderArticlePage(state, "vi", article, [], { client: "", slots: {} }, {
+        feedback: {
+          totalReactions: 3,
+          totalComments: 1,
+          reactions: [
+            { id: "useful", emoji: "👍", label: "Hữu ích", count: 2 },
+            { id: "love", emoji: "🔥", label: "Hay", count: 1 }
+          ],
+          comments: [{ id: "comment-1", author_name: "Phú", body: "Bài này khá sát với nhu cầu thực tế.", created_at: "2026-03-31T02:00:00.000Z" }]
+        },
+        notice: "",
+        error: ""
+      });
+
+      assert.match(homeHtml, /Patrick Tech Media là toà soạn công nghệ của Patrick Tech Co\. VN/);
+      assert.match(homeHtml, /Tin mới đang lên theo giờ/);
+      assert.match(homeHtml, /4 bài vừa lên trang/);
+      assert.match(homeHtml, /Hướng dẫn và mẹo đáng lưu/);
+      assert.doesNotMatch(homeHtml, /3 bài giữ nhịp hôm nay/);
+      assert.doesNotMatch(homeHtml, /Những chủ đề kéo độc giả vào đọc/);
+      assert.match(articleHtml, /Bạn thấy bài này thế nào/);
+      assert.match(articleHtml, /Gửi bình luận/);
+      assert.match(articleHtml, /Hữu ích/);
+    }
+  },
+  {
     name: "versions public assets so deploys bust stale browser cache",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
@@ -122,7 +152,7 @@ const tests = [
     run() {
       const feed = buildJsonFeed(state, "vi");
       assert.equal(feed.version, "https://jsonfeed.org/version/1.1");
-      assert.equal(feed.items.length, 11);
+      assert.equal(feed.items.length, state.articles.filter((article) => article.language === "vi").length);
       assert.match(feed.items[0].url, /\/vi\//);
     }
   },

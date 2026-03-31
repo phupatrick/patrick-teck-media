@@ -137,6 +137,40 @@ const tests = [
     }
   },
   {
+    name: "stores article reactions and comments for public readers",
+    run() {
+      const submission = service.getAdminDashboard("vi").submissions[0];
+
+      service.addArticleReaction({
+        articleId: submission.published_article_id,
+        href: submission.published_href,
+        reaction: "useful",
+        user: null,
+        language: "vi"
+      });
+
+      service.addArticleComment({
+        articleId: submission.published_article_id,
+        href: submission.published_href,
+        name: "Patrick Reader",
+        body: "Mình muốn thấy thêm các bài công nghệ Việt Nam cập nhật theo giờ.",
+        user: null,
+        language: "vi"
+      });
+
+      const feedback = service.getArticleFeedback({
+        articleId: submission.published_article_id,
+        href: submission.published_href,
+        language: "vi"
+      });
+
+      assert.equal(feedback.totalReactions, 1);
+      assert.equal(feedback.totalComments, 1);
+      assert.equal(feedback.reactions.find((entry) => entry.id === "useful")?.count, 1);
+      assert.match(feedback.comments[0].body, /cập nhật theo giờ/i);
+    }
+  },
+  {
     name: "limits Google admin access to the approved email list",
     run() {
       const admin = service.upsertAdminFromGoogle(

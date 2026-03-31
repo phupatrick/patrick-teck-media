@@ -30,6 +30,66 @@ export function createPlatformService(options) {
       }
       return sanitizeUser(store.readState().users.find((user) => user.id === userId) || null);
     },
+    getArticleFeedback({ articleId, href, language }) {
+      return buildArticleFeedback(store.readState(), {
+        articleId,
+        href,
+        language
+      });
+    },
+    addArticleReaction({ articleId, href, reaction, user, language }) {
+      const normalizedReaction = normalizeArticleReaction(reaction);
+
+      if (!normalizedReaction) {
+        throw new Error(language === "vi" ? "Cảm xúc này chưa được hỗ trợ." : "That reaction is not supported.");
+      }
+
+      const entry = {
+        id: makeId("reaction"),
+        article_id: safeTrim(articleId),
+        article_href: safeTrim(href),
+        reaction: normalizedReaction,
+        author_id: user?.id || "",
+        author_name: user?.name || "",
+        created_at: new Date().toISOString()
+      };
+
+      store.updateState((draft) => {
+        draft.articleReactions.unshift(entry);
+        return draft;
+      });
+
+      return entry;
+    },
+    addArticleComment({ articleId, href, name, body, user, language }) {
+      const authorName = safeTrim(user?.name || name);
+      const normalizedBody = normalizeCommentBody(body);
+
+      if (!authorName || authorName.length < 2) {
+        throw new Error(language === "vi" ? "Vui lòng nhập tên để gửi bình luận." : "Please enter a name before posting.");
+      }
+
+      if (!normalizedBody || normalizedBody.length < 8) {
+        throw new Error(language === "vi" ? "Bình luận cần rõ ý hơn một chút." : "Please write a more meaningful comment.");
+      }
+
+      const entry = {
+        id: makeId("comment"),
+        article_id: safeTrim(articleId),
+        article_href: safeTrim(href),
+        author_id: user?.id || "",
+        author_name: authorName,
+        body: normalizedBody,
+        created_at: new Date().toISOString()
+      };
+
+      store.updateState((draft) => {
+        draft.articleComments.unshift(entry);
+        return draft;
+      });
+
+      return entry;
+    },
     registerWriter({ name, email, password, language }) {
       const normalizedEmail = normalizeEmail(email);
 
@@ -726,6 +786,72 @@ function aliasSubmissionTopic(topic) {
   }
 
   return topic || "ai";
+}
+
+function buildArticleFeedback(state, { articleId, href, language }) {
+  const matchesArticle = (entry) => {
+    if (!entry || typeof entry !== "object") {
+      return false;
+    }
+
+    if (articleId && entry.article_id === articleId) {
+      return true;
+    }
+
+    return Boolean(href && entry.article_href === href);
+  };
+
+  const reactions = (state.articleReactions || []).filter(matchesArticle);
+  const comments = (state.articleComments || []).filter(matchesArticle).sort(sortByCreatedAtDesc);
+  const counts = createReactionCounts(reactions);
+
+  return {
+    totalReactions: reactions.length,
+    totalComments: comments.length,
+    reactions: getReactionCatalog(language).map((item) => ({
+      ...item,
+      count: counts[item.id] || 0
+    })),
+    comments: comments.slice(0, 20).map((comment) => ({
+      id: comment.id,
+      author_name: comment.author_name,
+      body: comment.body,
+      created_at: comment.created_at
+    }))
+  };
+}
+
+function getReactionCatalog(language) {
+  return language === "vi"
+    ? [
+        { id: "useful", emoji: "👍", label: "Hữu ích" },
+        { id: "love", emoji: "🔥", label: "Hay" },
+        { id: "wow", emoji: "🤯", label: "Bất ngờ" }
+      ]
+    : [
+        { id: "useful", emoji: "👍", label: "Useful" },
+        { id: "love", emoji: "🔥", label: "Love" },
+        { id: "wow", emoji: "🤯", label: "Wow" }
+      ];
+}
+
+function createReactionCounts(reactions) {
+  return reactions.reduce(
+    (counts, reaction) => ({
+      ...counts,
+      [reaction.reaction]: (counts[reaction.reaction] || 0) + 1
+    }),
+    {}
+  );
+}
+
+function normalizeArticleReaction(value) {
+  const normalized = safeTrim(value).toLowerCase();
+  return ["useful", "love", "wow"].includes(normalized) ? normalized : "";
+}
+
+function normalizeCommentBody(value) {
+  return safeTrim(value).replace(/\s+/g, " ").slice(0, 800);
 }
 
 function containsHeavyPromoLanguage(submission) {

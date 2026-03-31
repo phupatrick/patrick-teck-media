@@ -456,7 +456,7 @@ function renderPlatformLayout({ state, language, title, description, path, conte
       <footer class="site-footer">
         <div class="footer-brand">
           <strong>${state.site.name}</strong>
-          <p>${escapeHtml(state.site.description[language])}</p>
+          <p>${escapeHtml(copy.footerBlurb || state.site.shortDescription?.[language] || state.site.description[language])}</p>
         </div>
         <div class="footer-links">
           ${footerLinks.map((link) => `<a href="${link.href}">${escapeHtml(link.label)}</a>`).join("")}
@@ -616,7 +616,8 @@ function getVietnameseCopy() {
     markPendingLabel: "Chuyen ve cho xu ly",
     portalNavLabel: "Writer",
     loginNavLabel: "Đăng nhập",
-    storeLabel: "Store"
+    storeLabel: "Store",
+    footerBlurb: "Tin công nghệ, AI, Big Tech, mạng xã hội và thủ thuật đáng lưu."
   };
 }
 
@@ -702,6 +703,7 @@ function getEnglishCopy() {
     markPendingLabel: "Return to pending",
     portalNavLabel: "Writer",
     loginNavLabel: "Login",
-    storeLabel: "Store"
+    storeLabel: "Store",
+    footerBlurb: "Technology, AI, Big Tech, social platforms, and useful how-tos."
   };
 }
