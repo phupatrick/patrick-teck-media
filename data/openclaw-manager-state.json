@@ -3,40 +3,40 @@
     "id": "openclaw",
     "name": "OpenClaw",
     "mode": "autonomous",
-    "startedAt": "2026-03-31T21:29:33.019Z",
-    "finishedAt": "2026-03-31T21:29:44.286Z"
+    "startedAt": "2026-03-31T21:51:55.031Z",
+    "finishedAt": "2026-03-31T21:52:04.860Z"
   },
   "newsroom": {
-    "contentPath": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\newsroom-content.json",
-    "totalArticles": 49,
+    "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+    "totalArticles": 51,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 27 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\.openclaw-hidden-feed-seed-1774992573221-55c146.json Generated OpenClaw hidden feed with 26 article(s) at C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-hidden-feed.json",
+      "output": "Refreshed 27 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1774993915058-bc93ae.json Generated OpenClaw hidden feed with 27 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "",
-      "path": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-hidden-feed.json",
+      "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
     "refresh": {
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 26 article(s) from external-feed into C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\newsroom-content.json",
+      "output": "Refreshed 27 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     },
     "webControl": {
       "ok": true,
-      "path": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-web-state.json",
-      "output": "OpenClaw web control updated C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-web-state.json with frontpage tuning for ai, internet-business-tech, devices, gaming, security, apps-software.",
+      "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, internet-business-tech, devices, security, gaming, apps-software.",
       "warnings": ""
     }
   },
   "platform": {
-    "statePath": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\platform-state.json",
+    "statePath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/platform-state.json",
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-03-31T21:29:44.283Z",
+      "reviewedAt": "2026-03-31T21:52:04.859Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
@@ -47,7 +47,7 @@
     }
   },
   "automation": {
-    "webStatePath": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-web-state.json",
+    "webStatePath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
     "gitAutopush": false
   }
 }
