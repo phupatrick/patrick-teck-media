@@ -180,6 +180,8 @@ const tests = [
       assert.doesNotMatch(html, /phupunpin@gmail\.com/);
       assert.doesNotMatch(html, /hoangphupatrick@gmail\.com/);
       assert.doesNotMatch(html, /Đăng nhập admin bằng Google/);
+      assert.match(html, /\/site\.css\?v=/);
+      assert.match(html, /\/site\.js\?v=/);
     }
   }
 ];

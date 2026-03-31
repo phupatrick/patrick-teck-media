@@ -185,6 +185,7 @@ export function buildNewsroomState(options = {}) {
     loadExternalArticles(contentPath, { topics, contentTypeMeta }) || buildArticles(),
     normalizeInjectedArticles(options.injectedArticles, { topics, contentTypeMeta })
   );
+  const assetVersion = resolveAssetVersion(options.assetVersion, sourceArticles, now);
   const articles = sourceArticles.map((article) => enrichArticle(article, { siteUrl, storeUrl }));
   const articlesByHref = new Map(articles.map((article) => [article.href, article]));
   const storeItems = getStoreItems().map((item) => ({
@@ -216,6 +217,7 @@ export function buildNewsroomState(options = {}) {
       },
       siteUrl,
       storeUrl,
+      assetVersion,
       supportedLanguages: [...LANGUAGES]
     },
     runtime: buildRuntime(now, authors),
@@ -1585,6 +1587,27 @@ function sortArticlesByDateDesc(left, right) {
 
 function normalizeSiteUrl(siteUrl) {
   return String(siteUrl).replace(/\/+$/, "");
+}
+
+function resolveAssetVersion(optionVersion, sourceArticles, now) {
+  const envVersion =
+    optionVersion ||
+    process.env.VERCEL_GIT_COMMIT_SHA ||
+    process.env.GIT_COMMIT_SHA ||
+    process.env.COMMIT_SHA ||
+    latestArticleTimestamp(sourceArticles) ||
+    now.toISOString();
+
+  return String(envVersion).replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 24) || "patrick-tech-media";
+}
+
+function latestArticleTimestamp(sourceArticles) {
+  const latest = [...sourceArticles]
+    .map((article) => article.updated_at || article.published_at)
+    .filter(Boolean)
+    .sort((left, right) => new Date(right).getTime() - new Date(left).getTime())[0];
+
+  return latest || "";
 }
 
 function escapeXml(value) {

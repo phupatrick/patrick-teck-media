@@ -394,7 +394,12 @@ function renderPlatformLayout({ state, language, title, description, path, conte
   const footerLinks = getFooterLinks(language);
   const alternatePath = path.replace(/^\/(vi|en)\//, (_, current) => `/${current === "vi" ? "en" : "vi"}/`);
   const canonicalUrl = `${state.site.siteUrl}${path}`;
-  const ogImageUrl = `${state.site.siteUrl}/patrick-tech-media-mark.svg`;
+  const assetVersion = encodeURIComponent(state.site.assetVersion || "patrick-tech-media");
+  const logoPath = `/patrick-tech-media-mark.svg?v=${assetVersion}`;
+  const iconPath = `/patrick-tech-media-icon.svg?v=${assetVersion}`;
+  const stylesheetPath = `/site.css?v=${assetVersion}`;
+  const scriptPath = `/site.js?v=${assetVersion}`;
+  const ogImageUrl = `${state.site.siteUrl}${logoPath}`;
 
   return `<!doctype html>
 <html lang="${language}">
@@ -406,8 +411,8 @@ function renderPlatformLayout({ state, language, title, description, path, conte
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" href="/patrick-tech-media-icon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/patrick-tech-media-icon.svg" />
+    <link rel="icon" href="${iconPath}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="${iconPath}" />
     <link rel="canonical" href="${canonicalUrl}" />
     <link rel="alternate" hreflang="${language}" href="${canonicalUrl}" />
     <link rel="alternate" hreflang="${language === "vi" ? "en" : "vi"}" href="${state.site.siteUrl}${alternatePath}" />
@@ -421,15 +426,15 @@ function renderPlatformLayout({ state, language, title, description, path, conte
     <meta name="twitter:title" content="${escapeHtml(title)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${ogImageUrl}" />
-    <link rel="stylesheet" href="/site.css" />
-    <script defer src="/site.js"></script>
+    <link rel="stylesheet" href="${stylesheetPath}" />
+    <script defer src="${scriptPath}"></script>
   </head>
   <body>
     <div class="backdrop"></div>
     <div class="site-shell">
       <header class="topbar">
         <a class="brand-lockup" href="/${language}/">
-          <img class="brand-logo" src="/patrick-tech-media-mark.svg" alt="${escapeHtml(state.site.name)}" />
+          <img class="brand-logo" src="${logoPath}" alt="${escapeHtml(state.site.name)}" />
           <span class="brand-meta">
             <span class="brand-company">Patrick Tech Co. VN</span>
             <span class="brand-note">${language === "vi" ? "Toà soạn công nghệ và hệ sinh thái số" : "Technology newsroom and digital ecosystem"}</span>

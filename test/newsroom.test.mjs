@@ -106,6 +106,18 @@ const tests = [
     }
   },
   {
+    name: "versions public assets so deploys bust stale browser cache",
+    run() {
+      const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
+
+      assert.match(homeHtml, /\/site\.css\?v=/);
+      assert.match(homeHtml, /\/site\.js\?v=/);
+      assert.match(homeHtml, /\/patrick-tech-media-mark\.svg\?v=/);
+      assert.equal(typeof state.site.assetVersion, "string");
+      assert.ok(state.site.assetVersion.length > 0);
+    }
+  },
+  {
     name: "builds a machine-readable JSON feed for the newsroom",
     run() {
       const feed = buildJsonFeed(state, "vi");
