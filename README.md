@@ -35,8 +35,10 @@ GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 NEWSROOM_PULL_URL=
 NEWSROOM_PULL_TOKEN=
+NEWSROOM_PULL_FILE=
 OPENCLAW_NEWSROOM_URL=
 OPENCLAW_NEWSROOM_TOKEN=
+OPENCLAW_NEWSROOM_FILE=data/openclaw-hidden-feed.json
 OPENCLAW_MANAGER_NAME=OpenClaw
 OPENCLAW_MANAGER_STATE_PATH=data/openclaw-manager-state.json
 GOOGLE_ADSENSE_CLIENT=
@@ -169,9 +171,17 @@ The refresh flow reads:
 
 - `NEWSROOM_PULL_URL`: URL returning JSON article payloads
 - `NEWSROOM_PULL_TOKEN`: optional bearer token
+- `NEWSROOM_PULL_FILE`: local JSON payload file returning article objects
 - `OPENCLAW_NEWSROOM_URL`: optional alias for the same pull URL
 - `OPENCLAW_NEWSROOM_TOKEN`: optional alias for the same bearer token
+- `OPENCLAW_NEWSROOM_FILE`: optional alias for a local hidden-feed JSON file
 - `NEWSROOM_CONTENT_PATH`: destination file for the merged newsroom
+
+Generate the hidden OpenClaw feed locally:
+
+```powershell
+npm run openclaw:feed
+```
 
 ## OpenClaw manager cycle
 
@@ -184,6 +194,8 @@ npm run openclaw:manage
 This manager cycle:
 
 - refreshes the public newsroom file from `NEWSROOM_PULL_URL` or `OPENCLAW_NEWSROOM_URL`
+- can also read a local hidden feed from `NEWSROOM_PULL_FILE` or `OPENCLAW_NEWSROOM_FILE`
+- auto-generates `data/openclaw-hidden-feed.json` before refresh when no external URL/file is configured
 - falls back to curated RSS sources when no hidden feed is configured
 - re-checks writer submissions through the automatic editorial gate
 - auto-publishes only stories that still clear the publish bar

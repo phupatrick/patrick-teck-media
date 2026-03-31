@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { spawnSync } from "node:child_process";
 import {
   buildJsonFeed,
   buildNewsSitemapXml,
@@ -335,6 +336,79 @@ const tests = [
       assert.ok(radar.lanes.some((lane) => lane.stories.length > 0));
       assert.ok(radar.sourceMix.length > 0);
       assert.ok(radar.queue.length > 0);
+    }
+  },
+  {
+    name: "refresh accepts a local hidden feed file as an external newsroom source",
+    run() {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-refresh-file-"));
+      const sourcePath = path.join(tempDir, "hidden-feed.json");
+      const outputPath = path.join(tempDir, "newsroom-content.json");
+      const article = makeScenarioArticle({
+        language: "vi",
+        content_type: "NewsArticle",
+        verification_state: "verified",
+        title: "Patrick Tech Media nháº­n luá»“ng hidden feed cá»¥c bá»™ Ä‘á»ƒ cÃ³ thá»ƒ lĂ m má»›i newsroom mĂ  khĂ´ng cáº§n URL ngoĂ i",
+        slug: "patrick-tech-media-nhan-luong-hidden-feed-cuc-bo-de-co-the-lam-moi-newsroom-ma-khong-can-url-ngoai",
+        summary: "BĂ i kiá»ƒm tra nĂ y mĂ´ phá»ng hidden feed cá»¥c bá»™ Ä‘á»ƒ newsroom cĂ³ thá»ƒ Ä‘á»c payload JSON ngay trĂªn mĂ¡y vĂ  váº«n Ä‘i qua cĂ¹ng quality gate nhÆ° má»™t nguá»“n bên ngoĂ i.",
+        dek: "Luá»“ng file cĂ¥c bá»™ giĂºp manager Ä‘á»“ng bá»™ vĂ²ng OpenClaw vá»›i newsroom mĂ  khĂ´ng pháº£i chá» endpoint xa, miá»…n lĂ  payload váº«n Ä‘á»§ title, hook, dek, section vĂ  nguá»“n.",
+        hook: "Luá»“ng file cĂ¥c bá»™ giĂºp manager Ä‘á»“ng bá»™ vĂ²ng OpenClaw vá»›i newsroom mĂ  khĂ´ng pháº£i chá» endpoint xa, miá»…n lĂ  payload váº«n Ä‘á»§ title, hook, dek, section vĂ  nguá»“n Ä‘á»ƒ xuáº¥t báº£n.",
+        sections: [
+          {
+            heading: "Luá»“ng feed",
+            body: "Hidden feed trong bĂ i test nĂ y Ä‘Æ°á»£c ghi ra tá»« payload JSON cá»¥c bá»™, giá»¯ nguyĂªn title, nguá»“n, hĂ¬nh áº£nh vĂ  cáº¥u trĂºc section Ä‘á»ƒ refresh script cĂ³ thá»ƒ Ä‘á»c ná»‘i tiáº¿p nhÆ° má»™t external feed."
+          },
+          {
+            heading: "Quality gate",
+            body: "BĂ i máº«u váº«n Ä‘i qua cĂ¡c Ä‘iá»u kiá»‡n báº¯t buá»™c nhÆ° summary Ä‘á»§ dĂ i, dek rĂµ, hook hoĂ n chá»‰nh, nguá»“n áº£nh há»£p lá»‡ vĂ  ba section cá»§ thÃ¢n bĂ i khĂ´ng trá»‘ng."
+          },
+          {
+            heading: "Káº¿t quáº£",
+            body: "Khi manager Ä‘á»c Ä‘Æ°á»£c hidden feed cĂ¥c bá»™, nĂ³ cĂ³ thá»ƒ Ä‘Ă¡nh dáº¥u refresh á»Ÿ cháº¿ Ä‘á»™ external-feed thay vĂ¬ rÆ¡i xuá»‘ng curated-rss, tá»« Ä‘Ă³ giĂºp OpenClaw tháº­t sá»± nắm newsroom cycle."
+          }
+        ],
+        image: {
+          src: "https://images.example.com/openclaw-hidden-feed.jpg",
+          caption: "áº¢nh tham kháº£o tá»« luá»“ng hidden feed cá»¥c bá»™.",
+          credit: "Patrick Tech Media",
+          source_url: "https://example.com/openclaw-hidden-feed"
+        },
+        source_set: [
+          {
+            source_type: "editorial-research",
+            source_name: "Patrick Tech Media",
+            source_url: "https://example.com/openclaw-hidden-feed",
+            region: "VN",
+            language: "vi",
+            trust_tier: "editorial",
+            image_url: "https://images.example.com/openclaw-hidden-feed.jpg",
+            image_caption: "áº¢nh tham kháº£o tá»« luá»“ng hidden feed cá»¥c bá»™.",
+            image_credit: "Patrick Tech Media"
+          }
+        ]
+      });
+
+      fs.writeFileSync(sourcePath, JSON.stringify({ articles: [article] }, null, 2), "utf8");
+
+      const result = spawnSync(process.execPath, ["scripts/newsroom-refresh.mjs"], {
+        cwd: path.resolve(process.cwd()),
+        env: {
+          ...process.env,
+          NEWSROOM_PULL_URL: "",
+          OPENCLAW_NEWSROOM_URL: "",
+          NEWSROOM_PULL_FILE: sourcePath,
+          OPENCLAW_NEWSROOM_FILE: "",
+          NEWSROOM_CONTENT_PATH: outputPath
+        },
+        encoding: "utf8"
+      });
+
+      assert.equal(result.status, 0, result.stderr || result.stdout);
+      assert.match(result.stdout, /external-feed/);
+
+      const output = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+      assert.equal(output.articles.length, 1);
+      assert.equal(output.articles[0].slug, article.slug);
     }
   }
 ];

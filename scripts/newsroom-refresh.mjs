@@ -1,9 +1,11 @@
+import fs from "node:fs";
 import crypto from "node:crypto";
 import path from "node:path";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
 
 const outputPath = process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
 const sourceUrl = process.env.NEWSROOM_PULL_URL || process.env.OPENCLAW_NEWSROOM_URL || "";
+const sourceFile = process.env.NEWSROOM_PULL_FILE || process.env.OPENCLAW_NEWSROOM_FILE || "";
 const sourceToken = process.env.NEWSROOM_PULL_TOKEN || process.env.OPENCLAW_NEWSROOM_TOKEN || "";
 const now = new Date().toISOString();
 
@@ -85,6 +87,17 @@ if (sourceUrl) {
     }
 
     const payload = await response.json();
+    incomingArticles = normalizeArticles(payload);
+    sourceLabel = "external-feed";
+  } catch (error) {
+    console.warn(`${error.message || error}. Falling back to curated RSS feeds.`);
+  }
+}
+
+if (!incomingArticles.length && sourceFile) {
+  try {
+    const sourcePath = path.resolve(process.cwd(), sourceFile);
+    const payload = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
     incomingArticles = normalizeArticles(payload);
     sourceLabel = "external-feed";
   } catch (error) {
