@@ -1,6 +1,6 @@
 import { getFooterLinks, getPrimaryNav } from "./newsroom-service.mjs";
 
-export function renderAuthPage(state, language, { notice = "", activeTab = "login" }) {
+export function renderAuthPage(state, language, { notice = "", activeTab = "login", csrf = {} }) {
   const copy = language === "vi" ? getVietnameseCopy() : getEnglishCopy();
   const ui =
     language === "vi"
@@ -79,6 +79,7 @@ export function renderAuthPage(state, language, { notice = "", activeTab = "logi
             </div>
             <form class="platform-form auth-form" method="post" action="/auth/login">
               <input type="hidden" name="lang" value="${language}" />
+              ${renderCsrfInput(csrf.login)}
               ${renderInput("email", copy.emailLabel, "email", true, `placeholder="${escapeHtml(ui.emailPlaceholder)}" autocomplete="email"`)}
               ${renderInput("password", copy.passwordLabel, "password", true, `placeholder="${escapeHtml(ui.passwordPlaceholder)}" autocomplete="current-password"`)}
               <button class="action-button auth-submit" type="submit">${copy.signInLabel}</button>
@@ -95,6 +96,7 @@ export function renderAuthPage(state, language, { notice = "", activeTab = "logi
             </div>
             <form class="platform-form auth-form" method="post" action="/auth/register">
               <input type="hidden" name="lang" value="${language}" />
+              ${renderCsrfInput(csrf.register)}
               ${renderInput("email", copy.emailLabel, "email", true, `placeholder="${escapeHtml(ui.emailPlaceholder)}" autocomplete="email"`)}
               ${renderInput("name", copy.nameLabel, "text", true, `placeholder="${escapeHtml(ui.namePlaceholder)}" autocomplete="name"`)}
               ${renderInput("password", copy.passwordLabel, "password", true, `placeholder="${escapeHtml(ui.passwordPlaceholder)}" autocomplete="new-password"`)}
@@ -109,7 +111,7 @@ export function renderAuthPage(state, language, { notice = "", activeTab = "logi
   });
 }
 
-export function renderPortalPage(state, language, portal, { notice = "" }) {
+export function renderPortalPage(state, language, portal, { notice = "", csrf = {} }) {
   const copy = language === "vi" ? getVietnameseCopy() : getEnglishCopy();
   const totals = portal.totals;
 
@@ -146,6 +148,7 @@ export function renderPortalPage(state, language, portal, { notice = "" }) {
           <p class="muted-text">${copy.submitHint}</p>
           <form class="platform-form" method="post" action="/portal/submissions">
             <input type="hidden" name="lang" value="${language}" />
+            ${renderCsrfInput(csrf.portalSubmissions)}
             <div class="form-grid two-col">
               ${renderInput("title", copy.titleLabel, "text", true)}
               ${renderSelect("topic", copy.topicLabel, [
@@ -198,6 +201,7 @@ export function renderPortalPage(state, language, portal, { notice = "" }) {
           </div>
           <form class="platform-form" method="post" action="/portal/withdrawals">
             <input type="hidden" name="lang" value="${language}" />
+            ${renderCsrfInput(csrf.portalWithdrawals)}
             ${renderInput("amount", copy.withdrawAmountLabel, "number", true, 'min="10" step="0.01"')}
             ${renderInput("binance_account", copy.binanceAccountLabel, "text", true)}
             ${renderInput("wallet_address", copy.walletLabel, "text", false)}
@@ -263,6 +267,7 @@ export function renderPortalPage(state, language, portal, { notice = "" }) {
           </div>
           <form method="post" action="/auth/logout">
             <input type="hidden" name="lang" value="${language}" />
+            ${renderCsrfInput(csrf.logout)}
             <button class="ghost-button" type="submit">${copy.logoutLabel}</button>
           </form>
         </article>
@@ -271,7 +276,7 @@ export function renderPortalPage(state, language, portal, { notice = "" }) {
   });
 }
 
-export function renderAdminPage(state, language, dashboard, { notice = "" }) {
+export function renderAdminPage(state, language, dashboard, { notice = "", csrf = {} }) {
   const copy = language === "vi" ? getVietnameseCopy() : getEnglishCopy();
 
   return renderPlatformLayout({
@@ -325,18 +330,21 @@ export function renderAdminPage(state, language, dashboard, { notice = "" }) {
                   <div class="inline-forms">
                     <form method="post" action="/admin/review">
                       <input type="hidden" name="lang" value="${language}" />
+                      ${renderCsrfInput(csrf.adminReview)}
                       <input type="hidden" name="submission_id" value="${submission.id}" />
                       <input type="hidden" name="decision" value="approve" />
                       <button class="action-button" type="submit">${copy.approveLabel}</button>
                     </form>
                     <form method="post" action="/admin/review">
                       <input type="hidden" name="lang" value="${language}" />
+                      ${renderCsrfInput(csrf.adminReview)}
                       <input type="hidden" name="submission_id" value="${submission.id}" />
                       <input type="hidden" name="decision" value="reject" />
                       <button class="ghost-button danger" type="submit">${copy.rejectLabel}</button>
                     </form>
                     <form class="inline-form revenue-form" method="post" action="/admin/revenue">
                       <input type="hidden" name="lang" value="${language}" />
+                      ${renderCsrfInput(csrf.adminRevenue)}
                       <input type="hidden" name="submission_id" value="${submission.id}" />
                       <label>
                         <span>${copy.revenueInputLabel}</span>
@@ -369,6 +377,7 @@ export function renderAdminPage(state, language, dashboard, { notice = "" }) {
                     <span>${escapeHtml(statusLabel(withdrawal.status, language))}</span>
                     <form class="inline-form payout-form" method="post" action="/admin/withdrawals">
                       <input type="hidden" name="lang" value="${language}" />
+                      ${renderCsrfInput(csrf.adminWithdrawals)}
                       <input type="hidden" name="withdrawal_id" value="${withdrawal.id}" />
                       <input type="hidden" name="status" value="${withdrawal.status === "paid" ? "pending" : "paid"}" />
                       <button class="ghost-button" type="submit">${withdrawal.status === "paid" ? copy.markPendingLabel : copy.markPaidLabel}</button>
@@ -380,6 +389,7 @@ export function renderAdminPage(state, language, dashboard, { notice = "" }) {
           </div>
           <form method="post" action="/auth/logout">
             <input type="hidden" name="lang" value="${language}" />
+            ${renderCsrfInput(csrf.logout)}
             <button class="ghost-button" type="submit">${copy.logoutLabel}</button>
           </form>
         </article>
@@ -465,6 +475,10 @@ function renderPlatformLayout({ state, language, title, description, path, conte
     </div>
   </body>
 </html>`;
+}
+
+function renderCsrfInput(token) {
+  return token ? `<input type="hidden" name="csrf_token" value="${escapeHtml(token)}" />` : "";
 }
 
 function renderInput(name, label, type, required, extra = "") {

@@ -550,7 +550,8 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
 
             ${renderArticleCommunity(article, feedback, language, options.viewer, {
               notice: options.notice || "",
-              error: options.error || ""
+              error: options.error || "",
+              csrf: options.csrf || {}
             })}
 
             <section class="article-section">
@@ -1057,7 +1058,7 @@ function renderLiveDesk(liveDesk, language, copy) {
   `;
 }
 
-function renderArticleCommunity(article, feedback, language, viewer, { notice = "", error = "" }) {
+function renderArticleCommunity(article, feedback, language, viewer, { notice = "", error = "", csrf = {} }) {
   const copy = getCopy(language);
   const viewerName = viewer?.name || "";
 
@@ -1076,6 +1077,7 @@ function renderArticleCommunity(article, feedback, language, viewer, { notice = 
 
       <form class="reaction-bar" method="post" action="/article/reactions">
         <input type="hidden" name="lang" value="${language}" />
+        ${renderCsrfInput(csrf.articleReactions)}
         <input type="hidden" name="article_id" value="${escapeHtml(article.id)}" />
         <input type="hidden" name="article_href" value="${escapeHtml(article.href)}" />
         <input type="hidden" name="return_to" value="${escapeHtml(article.href)}" />
@@ -1095,6 +1097,7 @@ function renderArticleCommunity(article, feedback, language, viewer, { notice = 
       <div class="comment-shell">
         <form class="comment-form" method="post" action="/article/comments">
           <input type="hidden" name="lang" value="${language}" />
+          ${renderCsrfInput(csrf.articleComments)}
           <input type="hidden" name="article_id" value="${escapeHtml(article.id)}" />
           <input type="hidden" name="article_href" value="${escapeHtml(article.href)}" />
           <input type="hidden" name="return_to" value="${escapeHtml(article.href)}" />
@@ -1188,6 +1191,10 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
       <div class="ad-slot placeholder-slot">${language === "vi" ? "Reserved for Google AdSense" : "Reserved for Google AdSense"}</div>
     </section>
   `;
+}
+
+function renderCsrfInput(token) {
+  return token ? `<input type="hidden" name="csrf_token" value="${escapeHtml(token)}" />` : "";
 }
 
 function getCopy(language) {

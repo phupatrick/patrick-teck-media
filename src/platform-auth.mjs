@@ -1,7 +1,9 @@
 import crypto from "node:crypto";
 
 const SESSION_COOKIE = "ptm_session";
+const SECURE_SESSION_COOKIE = "__Host-ptm_session";
 const GOOGLE_STATE_COOKIE = "ptm_google_state";
+const SECURE_GOOGLE_STATE_COOKIE = "__Host-ptm_google_state";
 
 export function hashPassword(password) {
   const salt = crypto.randomBytes(16).toString("hex");
@@ -21,7 +23,14 @@ export function verifyPassword(password, storedHash) {
   }
 
   const actualHash = crypto.scryptSync(password, salt, 64).toString("hex");
-  return crypto.timingSafeEqual(Buffer.from(expectedHash, "hex"), Buffer.from(actualHash, "hex"));
+  const expectedBuffer = Buffer.from(expectedHash, "hex");
+  const actualBuffer = Buffer.from(actualHash, "hex");
+
+  if (expectedBuffer.length !== actualBuffer.length) {
+    return false;
+  }
+
+  return crypto.timingSafeEqual(expectedBuffer, actualBuffer);
 }
 
 export function parseCookies(headerValue = "") {
@@ -43,7 +52,7 @@ export function parseCookies(headerValue = "") {
 
 export function readSessionUserId(req, sessionSecret) {
   const cookies = parseCookies(req.headers.cookie || "");
-  const payload = verifySignedToken(cookies[SESSION_COOKIE], sessionSecret);
+  const payload = verifySignedToken(readNamedCookie(cookies, [SECURE_SESSION_COOKIE, SESSION_COOKIE]), sessionSecret);
   return payload?.userId || null;
 }
 
@@ -55,30 +64,24 @@ export function setSessionCookie(res, userId, sessionSecret, maxAgeSeconds = 60 
     },
     sessionSecret
   );
+  const cookieName = cookieOptions.secure ? SECURE_SESSION_COOKIE : SESSION_COOKIE;
 
   appendCookie(
     res,
-    serializeCookie(SESSION_COOKIE, token, {
+    serializeCookie(cookieName, token, {
       maxAge: maxAgeSeconds,
+      expires: new Date(Date.now() + maxAgeSeconds * 1000),
       httpOnly: true,
       sameSite: "Lax",
       path: "/",
+      priority: "High",
       secure: Boolean(cookieOptions.secure)
     })
   );
 }
 
 export function clearSessionCookie(res, cookieOptions = {}) {
-  appendCookie(
-    res,
-    serializeCookie(SESSION_COOKIE, "", {
-      maxAge: 0,
-      httpOnly: true,
-      sameSite: "Lax",
-      path: "/",
-      secure: Boolean(cookieOptions.secure)
-    })
-  );
+  clearCookieByNames(res, [SESSION_COOKIE, SECURE_SESSION_COOKIE], cookieOptions, "Lax");
 }
 
 export function createGoogleStateValue(sessionSecret) {
@@ -92,13 +95,16 @@ export function createGoogleStateValue(sessionSecret) {
 }
 
 export function setGoogleStateCookie(res, value, cookieOptions = {}) {
+  const cookieName = cookieOptions.secure ? SECURE_GOOGLE_STATE_COOKIE : GOOGLE_STATE_COOKIE;
   appendCookie(
     res,
-    serializeCookie(GOOGLE_STATE_COOKIE, value, {
+    serializeCookie(cookieName, value, {
       maxAge: 600,
+      expires: new Date(Date.now() + 600_000),
       httpOnly: true,
       sameSite: "Lax",
       path: "/",
+      priority: "High",
       secure: Boolean(cookieOptions.secure)
     })
   );
@@ -106,19 +112,35 @@ export function setGoogleStateCookie(res, value, cookieOptions = {}) {
 
 export function readGoogleState(req, sessionSecret) {
   const cookies = parseCookies(req.headers.cookie || "");
-  return verifySignedToken(cookies[GOOGLE_STATE_COOKIE], sessionSecret);
+  const token = readNamedCookie(cookies, [SECURE_GOOGLE_STATE_COOKIE, GOOGLE_STATE_COOKIE]);
+  const payload = verifySignedToken(token, sessionSecret);
+  return payload ? { ...payload, token } : null;
 }
 
 export function clearGoogleStateCookie(res, cookieOptions = {}) {
-  appendCookie(
-    res,
-    serializeCookie(GOOGLE_STATE_COOKIE, "", {
-      maxAge: 0,
-      httpOnly: true,
-      sameSite: "Lax",
-      path: "/",
-      secure: Boolean(cookieOptions.secure)
-    })
+  clearCookieByNames(res, [GOOGLE_STATE_COOKIE, SECURE_GOOGLE_STATE_COOKIE], cookieOptions, "Lax");
+}
+
+export function createCsrfToken(pathname, sessionSecret, userId = null, maxAgeSeconds = 60 * 60 * 2) {
+  return createSignedToken(
+    {
+      scope: "csrf",
+      pathname,
+      userId: userId || null,
+      exp: Math.floor(Date.now() / 1000) + maxAgeSeconds
+    },
+    sessionSecret
+  );
+}
+
+export function verifyCsrfToken(token, sessionSecret, pathname, userId = null) {
+  const payload = verifySignedToken(token, sessionSecret);
+
+  return Boolean(
+    payload &&
+      payload.scope === "csrf" &&
+      payload.pathname === pathname &&
+      (payload.userId || null) === (userId || null)
   );
 }
 
@@ -183,8 +205,10 @@ function verifySignedToken(token, secret) {
 
   const [body, signature] = String(token).split(".");
   const expected = crypto.createHmac("sha256", secret).update(body).digest("base64url");
+  const signatureBuffer = Buffer.from(signature);
+  const expectedBuffer = Buffer.from(expected);
 
-  if (!signature || !crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) {
+  if (!signature || signatureBuffer.length !== expectedBuffer.length || !crypto.timingSafeEqual(signatureBuffer, expectedBuffer)) {
     return null;
   }
 
@@ -208,6 +232,10 @@ function serializeCookie(name, value, options = {}) {
     parts.push(`Max-Age=${options.maxAge}`);
   }
 
+  if (options.expires) {
+    parts.push(`Expires=${options.expires.toUTCString()}`);
+  }
+
   if (options.httpOnly) {
     parts.push("HttpOnly");
   }
@@ -224,7 +252,38 @@ function serializeCookie(name, value, options = {}) {
     parts.push("Secure");
   }
 
+  if (options.priority) {
+    parts.push(`Priority=${options.priority}`);
+  }
+
   return parts.join("; ");
+}
+
+function readNamedCookie(cookies, names) {
+  for (const name of names) {
+    if (cookies[name]) {
+      return cookies[name];
+    }
+  }
+
+  return "";
+}
+
+function clearCookieByNames(res, names, cookieOptions, sameSite) {
+  for (const name of names) {
+    appendCookie(
+      res,
+      serializeCookie(name, "", {
+        maxAge: 0,
+        expires: new Date(0),
+        httpOnly: true,
+        sameSite,
+        path: "/",
+        priority: "High",
+        secure: name.startsWith("__Host-") ? true : Boolean(cookieOptions.secure)
+      })
+    );
+  }
 }
 
 function appendCookie(res, cookieValue) {

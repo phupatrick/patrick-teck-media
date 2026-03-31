@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { readFile } from "node:fs/promises";
+import crypto from "node:crypto";
 import { createServer } from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -25,6 +26,7 @@ import {
 import {
   buildGoogleAuthUrl,
   clearGoogleStateCookie,
+  createCsrfToken,
   clearSessionCookie,
   createGoogleStateValue,
   exchangeGoogleCode,
@@ -32,7 +34,8 @@ import {
   readGoogleState,
   readSessionUserId,
   setGoogleStateCookie,
-  setSessionCookie
+  setSessionCookie,
+  verifyCsrfToken
 } from "./src/platform-auth.mjs";
 import { renderAdminPage, renderAuthPage, renderPortalPage } from "./src/platform-render.mjs";
 import { createPlatformService } from "./src/platform-service.mjs";
@@ -53,14 +56,17 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, "public");
 const envFromFile = loadEnvFile(path.join(__dirname, ".env"));
+const DEFAULT_SESSION_SECRET = "patrick-tech-media-dev-secret";
+const rawSiteUrl = process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.vercel.app";
+const sessionSecretResolution = resolveSessionSecret(process.env.SESSION_SECRET || envFromFile.SESSION_SECRET || "", rawSiteUrl);
 
 const config = {
   port: Number(process.env.PORT || envFromFile.PORT || 3000),
-  siteUrl: process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.vercel.app",
+  siteUrl: rawSiteUrl,
   storeUrl: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || envFromFile.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
   platformStatePath: process.env.PLATFORM_STATE_PATH || envFromFile.PLATFORM_STATE_PATH || "data/platform-state.json",
-  sessionSecret: process.env.SESSION_SECRET || envFromFile.SESSION_SECRET || "patrick-tech-media-dev-secret",
+  sessionSecret: sessionSecretResolution.value,
   googleClientId: process.env.GOOGLE_CLIENT_ID || envFromFile.GOOGLE_CLIENT_ID || "",
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET || envFromFile.GOOGLE_CLIENT_SECRET || "",
   adminEmails: (process.env.ADMIN_GOOGLE_EMAILS || envFromFile.ADMIN_GOOGLE_EMAILS || "").split(",").map((value) => value.trim()).filter(Boolean),
@@ -70,6 +76,19 @@ const config = {
     inline: process.env.GOOGLE_ADSENSE_SLOT_INLINE || envFromFile.GOOGLE_ADSENSE_SLOT_INLINE || "",
     mid: process.env.GOOGLE_ADSENSE_SLOT_MID || envFromFile.GOOGLE_ADSENSE_SLOT_MID || ""
   }
+};
+const rateLimitBuckets = new Map();
+const RATE_LIMIT_RULES = {
+  "/auth/register": { windowMs: 15 * 60 * 1000, max: 5, messages: { vi: "Bạn thao tác đăng ký quá nhanh. Vui lòng thử lại sau vài phút.", en: "You are registering too quickly. Please try again in a few minutes." } },
+  "/auth/login": { windowMs: 10 * 60 * 1000, max: 8, messages: { vi: "Bạn đăng nhập quá nhiều lần trong thời gian ngắn. Vui lòng thử lại sau.", en: "Too many sign-in attempts in a short period. Please try again later." } },
+  "/auth/logout": { windowMs: 5 * 60 * 1000, max: 20, messages: { vi: "Bạn thao tác quá nhanh. Vui lòng thử lại sau.", en: "You are acting too quickly. Please try again later." } },
+  "/article/reactions": { windowMs: 10 * 60 * 1000, max: 40, messages: { vi: "Bạn đang thả cảm xúc quá nhanh. Vui lòng chờ một chút rồi thử lại.", en: "You are reacting too quickly. Please wait a moment and try again." } },
+  "/article/comments": { windowMs: 10 * 60 * 1000, max: 8, messages: { vi: "Bạn gửi bình luận quá nhanh. Vui lòng chờ một chút rồi thử lại.", en: "You are commenting too quickly. Please wait a moment and try again." } },
+  "/portal/submissions": { windowMs: 30 * 60 * 1000, max: 8, messages: { vi: "Bạn gửi bài quá nhanh. Vui lòng rà lại nội dung và thử lại sau.", en: "You are submitting too quickly. Please review your story and try again later." } },
+  "/portal/withdrawals": { windowMs: 30 * 60 * 1000, max: 5, messages: { vi: "Bạn gửi yêu cầu rút tiền quá nhanh. Vui lòng thử lại sau.", en: "You are requesting withdrawals too quickly. Please try again later." } },
+  "/admin/review": { windowMs: 10 * 60 * 1000, max: 80, messages: { vi: "Bàn duyệt đang nhận quá nhiều thao tác. Vui lòng chờ một chút.", en: "The review desk is receiving too many actions. Please wait a moment." } },
+  "/admin/revenue": { windowMs: 10 * 60 * 1000, max: 60, messages: { vi: "Bạn đang cập nhật doanh thu quá nhanh. Vui lòng thử lại sau.", en: "Revenue updates are happening too quickly. Please try again later." } },
+  "/admin/withdrawals": { windowMs: 10 * 60 * 1000, max: 60, messages: { vi: "Bạn đang cập nhật trạng thái rút tiền quá nhanh. Vui lòng thử lại sau.", en: "Withdrawal status changes are happening too quickly. Please try again later." } }
 };
 
 const mimeTypes = {
@@ -97,6 +116,10 @@ const platformService = createPlatformService({
 let cachedState = buildState();
 let cachedAt = Date.now();
 const server = createServer(handleRequest);
+
+if (sessionSecretResolution.warning) {
+  console.warn(sessionSecretResolution.warning);
+}
 
 async function handleRequest(req, res) {
   try {
@@ -165,7 +188,8 @@ async function handleRequest(req, res) {
         200,
         renderAuthPage(state, language, {
           notice: requestUrl.searchParams.get("notice") || requestUrl.searchParams.get("error") || "",
-          activeTab: requestUrl.searchParams.get("tab") === "register" ? "register" : "login"
+          activeTab: requestUrl.searchParams.get("tab") === "register" ? "register" : "login",
+          csrf: buildCsrfTokens()
         })
       );
     }
@@ -180,7 +204,8 @@ async function handleRequest(req, res) {
         res,
         200,
         renderPortalPage(state, language, portal, {
-          notice: requestUrl.searchParams.get("notice") || ""
+          notice: requestUrl.searchParams.get("notice") || "",
+          csrf: buildCsrfTokens(viewer)
         })
       );
     }
@@ -194,7 +219,8 @@ async function handleRequest(req, res) {
         res,
         200,
         renderAdminPage(state, language, platformService.getAdminDashboard(language), {
-          notice: requestUrl.searchParams.get("notice") || ""
+          notice: requestUrl.searchParams.get("notice") || "",
+          csrf: buildCsrfTokens(viewer)
         })
       );
     }
@@ -268,7 +294,8 @@ async function handleRequest(req, res) {
           feedback,
           viewer,
           notice: requestUrl.searchParams.get("notice") || "",
-          error: requestUrl.searchParams.get("error") || ""
+          error: requestUrl.searchParams.get("error") || "",
+          csrf: buildCsrfTokens(viewer)
         })
       );
     }
@@ -334,6 +361,23 @@ function isDirectExecution() {
   return path.resolve(process.argv[1] || "") === __filename;
 }
 
+function buildCsrfTokens(viewer = null) {
+  const userId = viewer?.id || null;
+
+  return {
+    login: createCsrfToken("/auth/login", config.sessionSecret, null),
+    register: createCsrfToken("/auth/register", config.sessionSecret, null),
+    logout: createCsrfToken("/auth/logout", config.sessionSecret, userId),
+    articleReactions: createCsrfToken("/article/reactions", config.sessionSecret, userId),
+    articleComments: createCsrfToken("/article/comments", config.sessionSecret, userId),
+    portalSubmissions: createCsrfToken("/portal/submissions", config.sessionSecret, userId),
+    portalWithdrawals: createCsrfToken("/portal/withdrawals", config.sessionSecret, userId),
+    adminReview: createCsrfToken("/admin/review", config.sessionSecret, userId),
+    adminRevenue: createCsrfToken("/admin/revenue", config.sessionSecret, userId),
+    adminWithdrawals: createCsrfToken("/admin/withdrawals", config.sessionSecret, userId)
+  };
+}
+
 async function tryStatic(pathname, res) {
   const staticPath = pathname.replace(/^\/+/, "");
   const filePath = path.normalize(path.join(publicDir, staticPath));
@@ -344,10 +388,13 @@ async function tryStatic(pathname, res) {
 
   try {
     const file = await readFile(filePath);
-    res.writeHead(200, {
-      "Cache-Control": "public, max-age=300",
-      "Content-Type": mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream"
-    });
+    res.writeHead(
+      200,
+      createResponseHeaders({
+        cacheControl: "public, max-age=300",
+        contentType: mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream"
+      })
+    );
     res.end(file);
     return true;
   } catch (error) {
@@ -407,6 +454,66 @@ function handleApi(pathname, requestUrl, res, state) {
   return sendJson(res, 404, { error: "Not found." });
 }
 
+function enforceFormSecurity(req, pathname, form, viewer, language) {
+  if (!isAllowedFormOrigin(req)) {
+    throw new Error(
+      language === "vi"
+        ? "Yêu cầu bị chặn vì nguồn gửi biểu mẫu không hợp lệ."
+        : "The request was blocked because the form origin is invalid."
+    );
+  }
+
+  if (!verifyCsrfToken(form.csrf_token, config.sessionSecret, pathname, viewer?.id || null)) {
+    throw new Error(
+      language === "vi"
+        ? "Phiên biểu mẫu đã hết hạn hoặc không hợp lệ. Vui lòng tải lại trang và thử lại."
+        : "The form session is invalid or has expired. Please reload the page and try again."
+    );
+  }
+
+  enforceRateLimit(pathname, viewer, req, language);
+}
+
+function enforceRateLimit(pathname, viewer, req, language) {
+  const rule = RATE_LIMIT_RULES[pathname];
+
+  if (!rule) {
+    return;
+  }
+
+  const now = Date.now();
+  const actor = viewer?.id ? `user:${viewer.id}` : `ip:${getClientAddress(req)}`;
+  const key = `${pathname}:${actor}`;
+  const existing = rateLimitBuckets.get(key);
+  const entry =
+    existing && existing.resetAt > now
+      ? existing
+      : {
+          count: 0,
+          resetAt: now + rule.windowMs
+        };
+
+  entry.count += 1;
+  rateLimitBuckets.set(key, entry);
+  pruneRateLimitBuckets(now);
+
+  if (entry.count > rule.max) {
+    throw new Error(rule.messages[language] || rule.messages.vi);
+  }
+}
+
+function pruneRateLimitBuckets(now) {
+  if (rateLimitBuckets.size < 500) {
+    return;
+  }
+
+  for (const [key, value] of rateLimitBuckets.entries()) {
+    if (value.resetAt <= now) {
+      rateLimitBuckets.delete(key);
+    }
+  }
+}
+
 async function handleAuthRoute(req, res, requestUrl, pathname, viewer, cookies) {
   const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
 
@@ -435,7 +542,7 @@ async function handleAuthRoute(req, res, requestUrl, pathname, viewer, cookies) 
 
     try {
       const googleState = readGoogleState(req, config.sessionSecret);
-      if (!requestUrl.searchParams.get("code") || !googleState || requestUrl.searchParams.get("state") !== cookies.ptm_google_state) {
+      if (!requestUrl.searchParams.get("code") || !googleState || requestUrl.searchParams.get("state") !== googleState.token) {
         throw new Error(language === "vi" ? "Phiên đăng nhập Google không hợp lệ." : "Invalid Google sign-in state.");
       }
 
@@ -459,10 +566,14 @@ async function handleAuthRoute(req, res, requestUrl, pathname, viewer, cookies) 
 }
 
 async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
-  const form = await readFormBody(req);
-  const language = form.lang === "en" ? "en" : "vi";
+  let form = {};
+  let language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
 
   try {
+    form = await readFormBody(req);
+    language = form.lang === "en" ? "en" : language;
+    enforceFormSecurity(req, pathname, form, viewer, language);
+
     if (pathname === "/auth/register") {
       if (form.password !== form.password_confirm) {
         throw new Error(language === "vi" ? "Mật khẩu xác nhận chưa khớp." : "Password confirmation does not match.");
@@ -619,9 +730,17 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
 
 async function readFormBody(req) {
   const chunks = [];
+  let totalBytes = 0;
 
   for await (const chunk of req) {
-    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+    const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+    totalBytes += buffer.length;
+
+    if (totalBytes > 256 * 1024) {
+      throw new Error("Payload too large.");
+    }
+
+    chunks.push(buffer);
   }
 
   const raw = Buffer.concat(chunks).toString("utf8");
@@ -687,7 +806,13 @@ function safeReturnPath(candidate, language) {
 }
 
 function redirect(res, location) {
-  res.writeHead(302, { Location: location });
+  res.writeHead(
+    302,
+    createResponseHeaders({
+      location,
+      cacheControl: "no-store"
+    })
+  );
   res.end();
 }
 
@@ -703,27 +828,150 @@ function shouldUseSecureCookies(req) {
 }
 
 function sendHtml(res, statusCode, html) {
-  res.writeHead(statusCode, {
-    "Cache-Control": "no-store",
-    "Content-Type": "text/html; charset=utf-8"
-  });
+  res.writeHead(
+    statusCode,
+    createResponseHeaders({
+      cacheControl: "no-store",
+      contentType: "text/html; charset=utf-8"
+    })
+  );
   res.end(html);
 }
 
 function sendText(res, statusCode, content, contentType) {
-  res.writeHead(statusCode, {
-    "Cache-Control": "no-store",
-    "Content-Type": contentType
-  });
+  res.writeHead(
+    statusCode,
+    createResponseHeaders({
+      cacheControl: "no-store",
+      contentType
+    })
+  );
   res.end(content);
 }
 
 function sendJson(res, statusCode, payload) {
-  res.writeHead(statusCode, {
-    "Cache-Control": "no-store",
-    "Content-Type": "application/json; charset=utf-8"
-  });
+  res.writeHead(
+    statusCode,
+    createResponseHeaders({
+      cacheControl: "no-store",
+      contentType: "application/json; charset=utf-8"
+    })
+  );
   res.end(JSON.stringify(payload));
+}
+
+function createResponseHeaders({ cacheControl = "no-store", contentType = "", location = "" } = {}) {
+  const headers = {
+    "Cache-Control": cacheControl,
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Permissions-Policy": "accelerometer=(), autoplay=(), browsing-topics=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), microphone=(), payment=(), usb=()",
+    "Cross-Origin-Opener-Policy": "same-origin",
+    "Content-Security-Policy": buildContentSecurityPolicy()
+  };
+
+  if (/^https:\/\//i.test(config.siteUrl)) {
+    headers["Strict-Transport-Security"] = "max-age=15552000; includeSubDomains";
+  }
+
+  if (contentType) {
+    headers["Content-Type"] = contentType;
+  }
+
+  if (location) {
+    headers.Location = location;
+  }
+
+  return headers;
+}
+
+function buildContentSecurityPolicy() {
+  return [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "frame-ancestors 'none'",
+    "form-action 'self'",
+    "object-src 'none'",
+    "img-src 'self' data: https: blob:",
+    "font-src 'self' data: https://fonts.gstatic.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://partner.googleadservices.com https://www.googletagservices.com https://www.google.com https://www.gstatic.com",
+    "connect-src 'self' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com",
+    "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com",
+    "manifest-src 'self'",
+    "media-src 'self' https: data:",
+    "worker-src 'self' blob:"
+  ].join("; ");
+}
+
+function getClientAddress(req) {
+  const forwarded = String(req.headers["x-forwarded-for"] || "")
+    .split(",")
+    .map((value) => value.trim())
+    .find(Boolean);
+
+  return forwarded || req.socket?.remoteAddress || "unknown";
+}
+
+function isAllowedFormOrigin(req) {
+  const allowedOrigins = new Set([new URL(config.siteUrl).origin]);
+  const requestOrigin = getRequestOrigin(req);
+
+  if (requestOrigin) {
+    allowedOrigins.add(requestOrigin);
+  }
+
+  const originHeader = String(req.headers.origin || "").trim();
+  if (originHeader) {
+    return allowedOrigins.has(originHeader);
+  }
+
+  const refererHeader = String(req.headers.referer || "").trim();
+  if (!refererHeader) {
+    return true;
+  }
+
+  try {
+    return allowedOrigins.has(new URL(refererHeader).origin);
+  } catch {
+    return false;
+  }
+}
+
+function getRequestOrigin(req) {
+  const host = String(req.headers["x-forwarded-host"] || req.headers.host || "")
+    .split(",")[0]
+    .trim();
+
+  if (!host) {
+    return "";
+  }
+
+  const forwardedProto = String(req.headers["x-forwarded-proto"] || "")
+    .split(",")[0]
+    .trim()
+    .toLowerCase();
+  const protocol = forwardedProto || (/^(localhost|127\.0\.0\.1)(:\d+)?$/i.test(host) ? "http" : "https");
+  return `${protocol}://${host}`;
+}
+
+function resolveSessionSecret(value, siteUrl) {
+  const trimmed = String(value || "").trim();
+  const isProductionLike = /^https:\/\//i.test(siteUrl) && !/localhost|127\.0\.0\.1/i.test(siteUrl);
+
+  if (trimmed && trimmed !== DEFAULT_SESSION_SECRET) {
+    return { value: trimmed, warning: "" };
+  }
+
+  if (!isProductionLike) {
+    return { value: trimmed || DEFAULT_SESSION_SECRET, warning: "" };
+  }
+
+  return {
+    value: crypto.randomBytes(32).toString("hex"),
+    warning: "SESSION_SECRET is missing or using the demo default in production-like mode. A temporary in-memory secret was generated; set a real SESSION_SECRET to keep sessions stable and protected."
+  };
 }
 
 function loadEnvFile(filePath) {
