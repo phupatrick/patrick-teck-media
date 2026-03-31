@@ -137,9 +137,70 @@ const tests = [
     }
   },
   {
+    name: "rechecks incomplete writer drafts through the autonomous editorial gate",
+    run() {
+      const writer = service.registerWriter({
+        name: "Le Thi Ngan",
+        email: "writer-pending@example.com",
+        password: "strong-pass-456",
+        language: "vi"
+      });
+
+      const submission = service.createSubmission({
+        userId: writer.id,
+        language: "vi",
+        formData: {
+          topic: "ai",
+          content_type: "NewsArticle",
+          title: "Startup Việt thử AI cho chăm sóc khách hàng",
+          dek: "Nhóm nhỏ đang thử AI trong ca hỗ trợ khách hàng.",
+          summary: "Một thử nghiệm nhỏ đang được theo dõi.",
+          sections: [
+            {
+              heading: "Bối cảnh",
+              body:
+                "Nhóm vận hành thử một lớp AI để bớt câu hỏi lặp và giữ phản hồi đều hơn ở giờ đông."
+            },
+            {
+              heading: "Điểm đang thử",
+              body:
+                "Mô hình hiện chỉ xử lý ca đơn giản, còn phần nhạy cảm vẫn chuyển cho người trực để tránh lệch ngữ cảnh."
+            },
+            {
+              heading: "Vì sao nên theo dõi",
+              body:
+                "Nếu chạy ổn, nhóm nhỏ có thể chăm sóc khách hàng đều tay hơn mà không phải tăng ca trực."
+            }
+          ],
+          sources: [
+            {
+              source_type: "press",
+              source_name: "Tech Community Vietnam",
+              source_url: "https://example.com/pending-reference-1",
+              region: "Vietnam",
+              language: "vi",
+              trust_tier: "community"
+            }
+          ]
+        }
+      });
+
+      assert.equal(submission.status, "pending_review");
+
+      const cycle = service.runAutonomousReviewCycle();
+      const reviewed = service.getAdminDashboard("vi").submissions.find((entry) => entry.id === submission.id);
+
+      assert.ok(cycle.reviewed >= 1);
+      assert.equal(reviewed.status, "pending_review");
+      assert.equal(reviewed.review?.reviewed_by, "openclaw");
+      assert.equal(reviewed.review?.review_mode, "autonomous");
+      assert.match((reviewed.review?.notes || []).join(" "), /giữ lại để chờ nguồn|held until/i);
+    }
+  },
+  {
     name: "stores article reactions and comments for public readers",
     run() {
-      const submission = service.getAdminDashboard("vi").submissions[0];
+      const submission = service.getAdminDashboard("vi").submissions.find((entry) => entry.status === "approved");
 
       service.addArticleReaction({
         articleId: submission.published_article_id,

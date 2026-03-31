@@ -1,0 +1,34 @@
+{
+  "manager": {
+    "id": "openclaw",
+    "name": "OpenClaw",
+    "mode": "autonomous",
+    "startedAt": "2026-03-31T17:24:48.405Z",
+    "finishedAt": "2026-03-31T17:25:01.319Z"
+  },
+  "newsroom": {
+    "contentPath": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\newsroom-content.json",
+    "totalArticles": 25,
+    "refresh": {
+      "ok": true,
+      "exitCode": 0,
+      "mode": "curated-rss",
+      "output": "Refreshed 27 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\newsroom-content.json",
+      "warnings": ""
+    }
+  },
+  "platform": {
+    "statePath": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\platform-state.json",
+    "submissionReview": {
+      "reviewer": "openclaw",
+      "reviewedAt": "2026-03-31T17:25:01.315Z",
+      "totalSubmissions": 0,
+      "reviewed": 0,
+      "approved": 0,
+      "held": 0,
+      "rejected": 0,
+      "published": 0,
+      "unchanged": 0
+    }
+  }
+}

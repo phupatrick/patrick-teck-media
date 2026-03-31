@@ -37,6 +37,8 @@ NEWSROOM_PULL_URL=
 NEWSROOM_PULL_TOKEN=
 OPENCLAW_NEWSROOM_URL=
 OPENCLAW_NEWSROOM_TOKEN=
+OPENCLAW_MANAGER_NAME=OpenClaw
+OPENCLAW_MANAGER_STATE_PATH=data/openclaw-manager-state.json
 GOOGLE_ADSENSE_CLIENT=
 GOOGLE_ADSENSE_SLOT_HERO=
 GOOGLE_ADSENSE_SLOT_INLINE=
@@ -171,4 +173,24 @@ The refresh flow reads:
 - `OPENCLAW_NEWSROOM_TOKEN`: optional alias for the same bearer token
 - `NEWSROOM_CONTENT_PATH`: destination file for the merged newsroom
 
-A ready-to-enable GitHub Actions workflow is included at `.github/workflows/newsroom-refresh.yml`. Once the two secrets above are added in GitHub, the workflow can refresh the newsroom on a schedule and trigger a new Vercel deploy.
+## OpenClaw manager cycle
+
+Run the full autonomous newsroom cycle:
+
+```powershell
+npm run openclaw:manage
+```
+
+This manager cycle:
+
+- refreshes the public newsroom file from `NEWSROOM_PULL_URL` or `OPENCLAW_NEWSROOM_URL`
+- falls back to curated RSS sources when no hidden feed is configured
+- re-checks writer submissions through the automatic editorial gate
+- auto-publishes only stories that still clear the publish bar
+- writes a private machine state snapshot to `OPENCLAW_MANAGER_STATE_PATH`
+
+The ready-to-enable GitHub Actions workflow at `.github/workflows/newsroom-refresh.yml` now runs this OpenClaw manager cycle on an hourly schedule and commits:
+
+- `data/newsroom-content.json`
+- `data/platform-state.json`
+- `data/openclaw-manager-state.json`

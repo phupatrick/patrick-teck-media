@@ -1,4 +1,4 @@
-name: Refresh Patrick Tech Media
+name: OpenClaw Manager Cycle
 
 on:
   workflow_dispatch:
@@ -21,21 +21,25 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Pull newsroom feed
+      - name: Run OpenClaw manager
         env:
           NEWSROOM_PULL_URL: ${{ secrets.NEWSROOM_PULL_URL }}
           NEWSROOM_PULL_TOKEN: ${{ secrets.NEWSROOM_PULL_TOKEN }}
+          OPENCLAW_NEWSROOM_URL: ${{ secrets.OPENCLAW_NEWSROOM_URL }}
+          OPENCLAW_NEWSROOM_TOKEN: ${{ secrets.OPENCLAW_NEWSROOM_TOKEN }}
           NEWSROOM_CONTENT_PATH: data/newsroom-content.json
-        run: node scripts/newsroom-refresh.mjs
+          PLATFORM_STATE_PATH: data/platform-state.json
+          OPENCLAW_MANAGER_STATE_PATH: data/openclaw-manager-state.json
+        run: node scripts/openclaw-manager.mjs
 
-      - name: Commit refreshed newsroom
+      - name: Commit refreshed newsroom state
         run: |
-          if git diff --quiet -- data/newsroom-content.json; then
-            echo "No newsroom changes to commit."
+          if git diff --quiet -- data/newsroom-content.json data/platform-state.json data/openclaw-manager-state.json; then
+            echo "No OpenClaw changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/newsroom-content.json
-          git commit -m "Refresh Patrick Tech Media newsroom"
+          git add data/newsroom-content.json data/platform-state.json data/openclaw-manager-state.json
+          git commit -m "Run OpenClaw manager cycle"
           git push

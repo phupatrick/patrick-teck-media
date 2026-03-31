@@ -15,7 +15,8 @@ export function createPlatformService(options) {
     googleClientId: options.googleClientId || "",
     googleClientSecret: options.googleClientSecret || "",
     googleRedirectUri: options.googleRedirectUri || `${options.siteUrl}/auth/google/callback`,
-    adminEmails: new Set((options.adminEmails?.length ? options.adminEmails : DEFAULT_ADMIN_EMAILS).map((email) => email.toLowerCase()))
+    adminEmails: new Set((options.adminEmails?.length ? options.adminEmails : DEFAULT_ADMIN_EMAILS).map((email) => email.toLowerCase())),
+    autonomousReviewerId: options.autonomousReviewerId || "openclaw"
   };
 
   return {
@@ -211,6 +212,88 @@ export function createPlatformService(options) {
     },
     listPublishedArticles() {
       return store.readState().submissions.filter((entry) => entry.status === "approved").map((entry) => submissionToArticle(entry)).sort(sortByPublishedArticleDateDesc);
+    },
+    runAutonomousReviewCycle() {
+      const reviewedAt = new Date().toISOString();
+      const summary = {
+        reviewer: config.autonomousReviewerId,
+        reviewedAt,
+        totalSubmissions: 0,
+        reviewed: 0,
+        approved: 0,
+        held: 0,
+        rejected: 0,
+        published: 0,
+        unchanged: 0
+      };
+
+      store.updateState((draft) => {
+        summary.totalSubmissions = draft.submissions.length;
+
+        for (const submission of draft.submissions) {
+          const language = submission.language === "en" ? "en" : "vi";
+          const previousStatus = submission.status || "draft";
+          const previousReview = submission.review || null;
+          const nextReview = reviewSubmission(submission, language, {
+            reviewedAt,
+            reviewerId: config.autonomousReviewerId,
+            reviewMode: "autonomous"
+          });
+          nextReview.notes = dedupeNotes([
+            ...(previousReview?.notes || []),
+            ...nextReview.notes,
+            buildAutonomousReviewNote(nextReview.status, language)
+          ]);
+
+          if (previousStatus === "approved" && nextReview.status !== "approved") {
+            nextReview.status = "approved";
+          }
+
+          const needsPublication = nextReview.status === "approved" && (!submission.published_article_id || !submission.published_href);
+          const changed = previousStatus !== nextReview.status || reviewSignature(previousReview) !== reviewSignature(nextReview) || needsPublication;
+
+          if (!changed) {
+            summary.unchanged += 1;
+            continue;
+          }
+
+          summary.reviewed += 1;
+          submission.review = nextReview;
+          submission.status = nextReview.status;
+          submission.updated_at = reviewedAt;
+
+          if (nextReview.status === "approved") {
+            const publication = buildPublicationMeta(submission);
+            if (!submission.published_href) {
+              summary.published += 1;
+            }
+            if (previousStatus !== "approved") {
+              summary.approved += 1;
+            }
+            submission.published_article_id = publication.id;
+            submission.published_href = publication.href;
+            continue;
+          }
+
+          delete submission.published_article_id;
+          delete submission.published_href;
+
+          if (nextReview.status === "pending_review") {
+            if (previousStatus !== "pending_review") {
+              summary.held += 1;
+            }
+            continue;
+          }
+
+          if (previousStatus !== "rejected") {
+            summary.rejected += 1;
+          }
+        }
+
+        return draft;
+      });
+
+      return summary;
     },
     createSubmission({ userId, language, formData }) {
       const state = store.readState();
@@ -419,7 +502,7 @@ export function createPlatformService(options) {
   };
 }
 
-export function reviewSubmission(submission, language) {
+export function reviewSubmission(submission, language, options = {}) {
   let score = 0;
   const notes = [];
 
@@ -480,7 +563,10 @@ export function reviewSubmission(submission, language) {
   return {
     score,
     status: score >= 78 ? "approved" : score >= 60 ? "pending_review" : "rejected",
-    notes
+    notes,
+    reviewed_at: options.reviewedAt || "",
+    reviewed_by: options.reviewerId || "",
+    review_mode: options.reviewMode || ""
   };
 }
 
@@ -860,6 +946,53 @@ function containsHeavyPromoLanguage(submission) {
     .toLowerCase();
 
   return ["mua ngay", "giảm giá", "khuyến mãi", "buy now", "limited offer", "cheap account"].some((term) => corpus.includes(term));
+}
+
+function buildAutonomousReviewNote(status, language) {
+  if (status === "approved") {
+    return language === "vi"
+      ? "Bài đã vượt qua hàng rào biên tập tự động và đủ điều kiện xuất bản."
+      : "This story cleared the automated editorial gate and is ready to publish.";
+  }
+
+  if (status === "pending_review") {
+    return language === "vi"
+      ? "Bài đang được giữ lại để chờ nguồn, ảnh hoặc phần thân đầy đặn hơn."
+      : "This story is being held until its sourcing, imagery, or body is more complete.";
+  }
+
+  return language === "vi"
+    ? "Bài chưa vượt qua hàng rào biên tập tự động ở lần rà soát này."
+    : "This story did not clear the automated editorial gate in this review pass.";
+}
+
+function dedupeNotes(notes) {
+  const seen = new Set();
+  return notes
+    .map((note) => safeTrim(note))
+    .filter(Boolean)
+    .filter((note) => {
+      const key = note.toLowerCase();
+      if (seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+}
+
+function reviewSignature(review) {
+  if (!review || typeof review !== "object") {
+    return "";
+  }
+
+  return JSON.stringify({
+    score: Number(review.score || 0),
+    status: review.status || "",
+    notes: Array.isArray(review.notes) ? review.notes : [],
+    reviewed_by: review.reviewed_by || "",
+    review_mode: review.review_mode || ""
+  });
 }
 
 function isCompellingTitle(title, language) {
