@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { evaluateArticleReadiness, isArticlePublishReady } from "./newsroom-quality.mjs";
 import {
   buildArticles,
   getAuthors,
@@ -184,7 +185,7 @@ export function buildNewsroomState(options = {}) {
   const sourceArticles = mergeArticleSets(
     loadExternalArticles(contentPath, { topics, contentTypeMeta }) || buildArticles(),
     normalizeInjectedArticles(options.injectedArticles, { topics, contentTypeMeta })
-  );
+  ).filter(isArticlePublishReady);
   const assetVersion = resolveAssetVersion(options.assetVersion, sourceArticles, now);
   const articles = sourceArticles.map((article) => enrichArticle(article, { siteUrl, storeUrl }));
   const articlesByHref = new Map(articles.map((article) => [article.href, article]));
@@ -1076,7 +1077,8 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     author_id: article.author_id || "mai-linh",
     published_at: article.published_at || new Date().toISOString(),
     updated_at: article.updated_at || article.published_at || new Date().toISOString(),
-    href: article.href || `/${language}/${typeMeta.segments[language]}/${article.slug}`
+    href: article.href || `/${language}/${typeMeta.segments[language]}/${article.slug}`,
+    readiness: evaluateArticleReadiness(article)
   };
 }
 

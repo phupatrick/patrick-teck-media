@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isArticlePublishReady } from "../src/newsroom-quality.mjs";
 
 export function publishArticles({ incomingArticles, outputPath, replaceMode = false, now = new Date().toISOString() }) {
   if (!Array.isArray(incomingArticles) || incomingArticles.length === 0) {
@@ -11,10 +12,10 @@ export function publishArticles({ incomingArticles, outputPath, replaceMode = fa
   fs.mkdirSync(path.dirname(resolvedOutputPath), { recursive: true });
 
   const existingPayload = replaceMode ? { articles: [] } : readJson(resolvedOutputPath);
-  const existingArticles = normalizeArticles(existingPayload).sort(sortByDateDesc);
+  const existingArticles = normalizeArticles(existingPayload).filter(isArticlePublishReady).sort(sortByDateDesc);
   const articleMap = new Map(existingArticles.map((article) => [articleKey(article), article]));
 
-  for (const article of incomingArticles.filter(isArticleLike)) {
+  for (const article of incomingArticles.filter(isArticleLike).filter(isArticlePublishReady)) {
     const key = articleKey(article);
     const previous = articleMap.get(key) || null;
     const merged = {
@@ -28,7 +29,7 @@ export function publishArticles({ incomingArticles, outputPath, replaceMode = fa
     });
   }
 
-  const articles = [...articleMap.values()].sort(sortByDateDesc);
+  const articles = [...articleMap.values()].filter(isArticlePublishReady).sort(sortByDateDesc);
   const changed = JSON.stringify(existingArticles) !== JSON.stringify(articles);
 
   if (!changed && fs.existsSync(resolvedOutputPath)) {

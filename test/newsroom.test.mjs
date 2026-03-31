@@ -26,8 +26,59 @@ const tests = [
   {
     name: "keeps trend stories indexable but ad-free",
     run() {
-      const article = getArticleByRoute(state, "vi", "tin-tuc", "cong-dong-ban-tan-ve-overlay-moi-cho-he-gia-lap-may-handheld");
-      const html = renderArticlePage(state, "vi", article, [], { client: "", slots: {} });
+      const scenario = buildScenarioState([
+        makeScenarioArticle({
+          language: "vi",
+          content_type: "NewsArticle",
+          verification_state: "trend",
+          title: "Cộng đồng đang dõi theo bản cập nhật mới của một ứng dụng mạng xã hội",
+          slug: "cong-dong-dang-doi-theo-ban-cap-nhat-moi-cua-mot-ung-dung-mang-xa-hoi",
+          summary: "Một tín hiệu đang lan nhanh trong cộng đồng công nghệ Việt Nam sau khi người dùng phát hiện bản cập nhật mới xuất hiện theo từng nhóm nhỏ.",
+          dek: "Câu chuyện đã có ảnh nguồn, phần mở, phần giải thích và đủ dữ liệu để index, nhưng vẫn chưa nên bật quảng cáo khi mức xác nhận còn sớm.",
+          hook: "Một tín hiệu đang lan nhanh trong cộng đồng công nghệ Việt Nam sau khi người dùng phát hiện bản cập nhật mới xuất hiện theo từng nhóm nhỏ, đủ để đọc nhưng chưa đủ để quảng cáo.",
+          sections: [
+            {
+              heading: "Điều vừa xảy ra",
+              body: "Người dùng trong nhiều nhóm cộng đồng đồng loạt phát hiện bản cập nhật mới xuất hiện trên một số tài khoản thử nghiệm, kèm ảnh chụp màn hình và mô tả trải nghiệm ban đầu."
+            },
+            {
+              heading: "Vì sao đáng chú ý",
+              body: "Đây là kiểu tín hiệu thường đi trước một đợt rollout rộng hơn, nhất là khi thay đổi chạm vào khu vực có tần suất sử dụng hằng ngày và dễ tạo tranh luận trong cộng đồng."
+            },
+            {
+              heading: "Điều cần theo dõi tiếp",
+              body: "Điểm cần chờ thêm là xác nhận chính thức từ nền tảng và việc tính năng này có được mở rộng từ nhóm thử nghiệm nhỏ sang diện người dùng rộng hơn hay không."
+            }
+          ],
+          image: {
+            src: "https://images.example.com/trend-social-update.jpg",
+            caption: "Ảnh tham khảo từ nguồn theo dõi cộng đồng.",
+            credit: "Community Watch",
+            source_url: "https://example.com/trend-social-update"
+          },
+          source_set: [
+            {
+              source_type: "community",
+              source_name: "Community Watch",
+              source_url: "https://example.com/trend-social-update",
+              region: "VN",
+              language: "vi",
+              trust_tier: "community",
+              published_at: "2026-03-31T11:00:00.000Z",
+              image_url: "https://images.example.com/trend-social-update.jpg",
+              image_caption: "Ảnh tham khảo từ nguồn theo dõi cộng đồng.",
+              image_credit: "Community Watch"
+            }
+          ]
+        })
+      ]);
+      const article = getArticleByRoute(
+        scenario,
+        "vi",
+        "tin-tuc",
+        "cong-dong-dang-doi-theo-ban-cap-nhat-moi-cua-mot-ung-dung-mang-xa-hoi"
+      );
+      const html = renderArticlePage(scenario, "vi", article, [], { client: "", slots: {} });
 
       assert.equal(article.verification_state, "trend");
       assert.equal(article.ad_eligible, false);
@@ -39,16 +90,65 @@ const tests = [
   {
     name: "renders ad placeholders for verified stories when AdSense is not configured",
     run() {
-      const article = getArticleByRoute(state, "en", "news", "viettel-pilots-edge-ai-assistant-for-field-sales-teams");
-      const html = renderArticlePage(state, "en", article, [], { client: "", slots: {} });
+      const scenario = buildScenarioState([
+        makeScenarioArticle({
+          language: "en",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          title: "A major cloud platform is expanding local AI processing for support teams",
+          slug: "a-major-cloud-platform-is-expanding-local-ai-processing-for-support-teams",
+          summary: "A verified rollout shows a major cloud platform moving more AI work closer to the device so response time and reliability improve for real support operations.",
+          dek: "The important part is not the demo value but the move toward a production workflow that reduces latency, keeps more work available offline, and gives teams a simpler operating path.",
+          hook: "A verified rollout shows a major cloud platform moving more AI work closer to the device so response time and reliability improve for real support operations, which is exactly the kind of shift support teams tend to notice first.",
+          sections: [
+            {
+              heading: "What happened",
+              body: "The company outlined a verified rollout that moves more of the assistant stack onto hardware closer to the user, reducing the need to send every request back to the cloud."
+            },
+            {
+              heading: "Why it matters",
+              body: "That kind of shift usually means faster answers, better resilience when connectivity is weak, and a more believable path from pilot feature to something teams can rely on in everyday operations."
+            },
+            {
+              heading: "What to watch next",
+              body: "The next thing to watch is whether the rollout stays limited to one workflow or expands into field support, internal documentation, and ticket triage over the next few release cycles."
+            }
+          ],
+          image: {
+            src: "https://images.example.com/verified-edge-ai.jpg",
+            caption: "Reference image from the verified rollout.",
+            credit: "Example Cloud",
+            source_url: "https://example.com/verified-edge-ai"
+          },
+          source_set: [
+            {
+              source_type: "official-site",
+              source_name: "Example Cloud",
+              source_url: "https://example.com/verified-edge-ai",
+              region: "Global",
+              language: "en",
+              trust_tier: "official",
+              published_at: "2026-03-31T10:00:00.000Z",
+              image_url: "https://images.example.com/verified-edge-ai.jpg",
+              image_caption: "Reference image from the verified rollout.",
+              image_credit: "Example Cloud"
+            }
+          ]
+        })
+      ]);
+      const article = getArticleByRoute(
+        scenario,
+        "en",
+        "news",
+        "a-major-cloud-platform-is-expanding-local-ai-processing-for-support-teams"
+      );
+      const html = renderArticlePage(scenario, "en", article, [], { client: "", slots: {} });
 
       assert.equal(article.verification_state, "verified");
       assert.equal(article.ad_eligible, true);
-      assert.equal(article.hero_image.kind, "placeholder");
+      assert.equal(article.hero_image.kind, "source");
       assert.match(html, /Reserved for Google AdSense/);
-      assert.match(html, /hreflang="vi" href="https:\/\/patricktech\.media\/vi\/tin-tuc\/viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang"/);
-      assert.match(html, /Source image pending/);
-      assert.doesNotMatch(html, /media\/story\/viettel-edge-ai-pilot\.svg\?lang=en/);
+      assert.match(html, /https:\/\/images\.example\.com\/verified-edge-ai\.jpg/);
     }
   },
   {
@@ -65,21 +165,26 @@ const tests = [
     name: "emits bilingual sitemap entries with hreflang links",
     run() {
       const xml = buildSitemapXml(state);
+      const viStory = state.articles.find((article) => article.language === "vi");
+      const enStory = state.articles.find((article) => article.language === "en");
       assert.match(xml, /<loc>https:\/\/patricktech\.media\/vi\//);
       assert.match(xml, /<loc>https:\/\/patricktech\.media\/en\//);
       assert.match(xml, /hreflang="vi"/);
       assert.match(xml, /hreflang="en"/);
-      assert.match(xml, /viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang/);
-      assert.match(xml, /viettel-pilots-edge-ai-assistant-for-field-sales-teams/);
+      assert.match(xml, new RegExp(escapeRegExp(viStory.slug)));
+      assert.match(xml, new RegExp(escapeRegExp(enStory.slug)));
     }
   },
   {
     name: "emits a dedicated news sitemap for indexable news articles",
     run() {
       const xml = buildNewsSitemapXml(state);
+      const viNews = state.articles.find((article) => article.language === "vi" && article.content_type === "NewsArticle");
+      const enNews = state.articles.find((article) => article.language === "en" && article.content_type === "NewsArticle");
 
       assert.match(xml, /<news:news>/);
-      assert.match(xml, /viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang/);
+      assert.match(xml, new RegExp(escapeRegExp(viNews.slug)));
+      assert.match(xml, new RegExp(escapeRegExp(enNews.slug)));
       assert.match(xml, /<news:language>vi<\/news:language>/);
       assert.match(xml, /<news:language>en<\/news:language>/);
     }
@@ -97,7 +202,7 @@ const tests = [
     name: "keeps internal automation branding off public pages and generates hooks for every article",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
-      const article = getArticleByRoute(state, "en", "news", "viettel-pilots-edge-ai-assistant-for-field-sales-teams");
+      const article = state.articles.find((entry) => entry.language === "en");
       const articleHtml = renderArticlePage(state, "en", article, [], { client: "", slots: {} });
 
       assert.ok(state.articles.every((entry) => entry.hook && /[.?!]$/.test(entry.hook)));
@@ -109,7 +214,7 @@ const tests = [
     name: "renders a news-first homepage and article community section",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
-      const article = getArticleByRoute(state, "vi", "tin-tuc", "viettel-thu-nghiem-tro-ly-ai-edge-cho-doi-ban-hang");
+      const article = state.articles.find((entry) => entry.language === "vi");
       const articleHtml = renderArticlePage(state, "vi", article, [], { client: "", slots: {} }, {
         feedback: {
           totalReactions: 3,
@@ -157,6 +262,15 @@ const tests = [
     }
   },
   {
+    name: "publishes only articles that are complete enough for the public site",
+    run() {
+      assert.ok(state.articles.length > 0);
+      assert.ok(state.articles.every((article) => article.hero_image.kind === "source"));
+      assert.ok(state.articles.every((article) => article.sections.length >= 3));
+      assert.ok(state.articles.every((article) => article.summary.length >= 90));
+    }
+  },
+  {
     name: "loads live newsroom content from an external JSON file",
     run() {
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-media-"));
@@ -183,6 +297,7 @@ const tests = [
         ...state.articles.find((entry) => entry.language === "en"),
         slug: "source-image-story",
         href: "/en/news/source-image-story",
+        image: {},
         source_set: [
           {
             source_type: "press",
@@ -215,7 +330,7 @@ const tests = [
     run() {
       const radar = getRadarData(state, "en");
       assert.equal(radar.lanes.length, 3);
-      assert.ok(radar.lanes.every((lane) => lane.stories.length > 0));
+      assert.ok(radar.lanes.some((lane) => lane.stories.length > 0));
       assert.ok(radar.sourceMix.length > 0);
       assert.ok(radar.queue.length > 0);
     }
@@ -251,4 +366,64 @@ function createState() {
     en: getHomeData(newsroom, "en")
   };
   return newsroom;
+}
+
+function buildScenarioState(injectedArticles) {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-scenario-"));
+  const contentPath = path.join(tempDir, "newsroom-content.json");
+  fs.writeFileSync(contentPath, JSON.stringify({ articles: [] }, null, 2), "utf8");
+
+  const newsroom = buildNewsroomState({
+    siteUrl: "https://patricktech.media",
+    storeUrl: "https://patricktechstore.vercel.app",
+    contentPath,
+    injectedArticles
+  });
+
+  newsroom.home = {
+    vi: getHomeData(newsroom, "vi"),
+    en: getHomeData(newsroom, "en")
+  };
+
+  return newsroom;
+}
+
+function makeScenarioArticle(overrides) {
+  const language = overrides.language === "en" ? "en" : "vi";
+  const segmentByType = {
+    NewsArticle: language === "vi" ? "tin-tuc" : "news",
+    EvergreenGuide: language === "vi" ? "huong-dan" : "guides",
+    ComparisonPage: language === "vi" ? "so-sanh" : "compare"
+  };
+
+  return {
+    id: `scenario-${overrides.slug}-${language}`,
+    cluster_id: `scenario-${overrides.slug}`,
+    language,
+    topic: overrides.topic || "ai",
+    content_type: overrides.content_type || "NewsArticle",
+    slug: overrides.slug,
+    title: overrides.title,
+    summary: overrides.summary,
+    dek: overrides.dek,
+    hook: overrides.hook,
+    sections: overrides.sections,
+    verification_state: overrides.verification_state || "emerging",
+    quality_score: 90,
+    ad_eligible: overrides.verification_state !== "trend",
+    show_editorial_label: false,
+    indexable: true,
+    store_link_mode: "soft",
+    related_store_items: ["ai-workspace-bundle"],
+    source_set: overrides.source_set,
+    author_id: "mai-linh",
+    published_at: "2026-03-31T10:00:00.000Z",
+    updated_at: "2026-03-31T10:00:00.000Z",
+    image: overrides.image,
+    href: `/${language}/${segmentByType[overrides.content_type || "NewsArticle"]}/${overrides.slug}`
+  };
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
