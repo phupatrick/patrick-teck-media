@@ -7,7 +7,7 @@ import {
 
 export function renderHomePage(state, language, adsConfig) {
   const home = state.home[language];
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
   const path = `/${language}/`;
   const tips = home.tips?.length ? home.tips : home.evergreen;
   const leadStories = dedupeStories([home.featured, ...home.latest, ...home.trending, home.briefing, ...tips]);
@@ -156,7 +156,7 @@ export function renderHomePage(state, language, adsConfig) {
 }
 
 export function renderRadarPage(state, language, radar, adsConfig) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
 
   return renderLayout({
     state,
@@ -258,7 +258,7 @@ export function renderRadarPage(state, language, radar, adsConfig) {
 }
 
 export function renderWorkflowPage(state, language, workflow, adsConfig) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
 
   return renderLayout({
     state,
@@ -337,7 +337,7 @@ export function renderWorkflowPage(state, language, workflow, adsConfig) {
 }
 
 export function renderDashboardPage(state, language, dashboard, adsConfig) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
 
   return renderLayout({
     state,
@@ -451,7 +451,7 @@ export function renderDashboardPage(state, language, dashboard, adsConfig) {
 }
 
 export function renderTopicPage(state, language, topicPage, adsConfig) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
   return renderLayout({
     state,
     language,
@@ -474,7 +474,7 @@ export function renderTopicPage(state, language, topicPage, adsConfig) {
 }
 
 export function renderArticlePage(state, language, article, relatedStories, adsConfig, options = {}) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
   const verification = getVerificationMeta(article.verification_state, language);
   const shouldShowBadge = Boolean(article.editorial_label);
   const feedback = options.feedback || { reactions: [], comments: [], totalComments: 0, totalReactions: 0 };
@@ -630,7 +630,7 @@ export function renderPolicyPage(state, language, page, adsConfig) {
 }
 
 export function renderAuthorsPage(state, language, authors, adsConfig) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
   return renderLayout({
     state,
     language,
@@ -662,7 +662,7 @@ export function renderAuthorsPage(state, language, authors, adsConfig) {
 }
 
 export function renderHumanSitemapPage(state, language, groups, adsConfig) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
   return renderLayout({
     state,
     language,
@@ -705,7 +705,7 @@ export function renderHumanSitemapPage(state, language, groups, adsConfig) {
 }
 
 export function renderNotFoundPage(state, language, adsConfig) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
   return renderLayout({
     state,
     language,
@@ -725,7 +725,7 @@ export function renderNotFoundPage(state, language, adsConfig) {
 }
 
 function renderLayout({ state, language, path, alternateHref = null, adsConfig, title, description, content, schema = null }) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
   const alternatePath =
     alternateHref || path.replace(/^\/(vi|en)\//, (_, current) => `/${current === "vi" ? "en" : "vi"}/`);
   const nav = getPrimaryNav(state, language);
@@ -1144,7 +1144,7 @@ function renderLiveDesk(liveDesk, language, copy) {
 }
 
 function renderArticleCommunity(article, feedback, language, viewer, { notice = "", error = "", csrf = {} }) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy({ site: { frontpageCopy: {} } }, language);
   const viewerName = viewer?.name || "";
 
   return `
@@ -1226,7 +1226,7 @@ function renderArticleCommunity(article, feedback, language, viewer, { notice = 
 }
 
 function renderStorePanel(state, article, language) {
-  const copy = getCopy(language);
+  const copy = getRenderCopy(state, language);
   const cards = article.related_store_cards.slice(0, article.store_link_mode === "full" ? 2 : 1);
 
   return `
@@ -1280,6 +1280,13 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
 
 function renderCsrfInput(token) {
   return token ? `<input type="hidden" name="csrf_token" value="${escapeHtml(token)}" />` : "";
+}
+
+function getRenderCopy(state, language) {
+  return {
+    ...getCopy(language),
+    ...(state?.site?.frontpageCopy?.[language] || {})
+  };
 }
 
 function getCopy(language) {

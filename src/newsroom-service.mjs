@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { evaluateArticleReadiness, isArticlePublishReady } from "./newsroom-quality.mjs";
+import { createNewsroomStore, normalizeNewsroomPayload } from "./newsroom-store.mjs";
+import { createOpenClawWebStore, normalizeOpenClawWebState } from "./openclaw-web-store.mjs";
 import {
   buildArticles,
   getAuthors,
@@ -12,6 +14,7 @@ import {
 
 const LANGUAGES = ["vi", "en"];
 const DEFAULT_CONTENT_PATH = path.join(process.cwd(), "data", "newsroom-content.json");
+const DEFAULT_WEB_STATE_PATH = path.join(process.cwd(), "data", "openclaw-web-state.json");
 const DATE_FORMATTERS = {
   vi: new Intl.DateTimeFormat("vi-VN", {
     dateStyle: "medium",
@@ -282,11 +285,23 @@ export function buildNewsroomState(options = {}) {
   const topics = getTopics();
   const contentTypeMeta = getContentTypeMeta();
   const contentPath = resolveContentPath(options.contentPath);
-  const sourceArticles = mergeArticleSets(
-    loadExternalArticles(contentPath, { topics, contentTypeMeta }) || buildArticles(),
-    normalizeInjectedArticles(options.injectedArticles, { topics, contentTypeMeta })
-  ).filter(isArticlePublishReady);
+  const webStatePath = resolveWebStatePath(options.webStatePath);
+  const webControl = normalizeOpenClawWebState(options.webControl || loadLocalOpenClawWebState(webStatePath));
+  const baseArticles = Array.isArray(options.externalArticles)
+    ? normalizeInjectedArticles(options.externalArticles, { topics, contentTypeMeta })
+    : loadExternalArticles(contentPath, { topics, contentTypeMeta }) || buildArticles();
+  const sourceArticles = mergeArticleSets(baseArticles, normalizeInjectedArticles(options.injectedArticles, { topics, contentTypeMeta })).filter(
+    isArticlePublishReady
+  );
   const assetVersion = resolveAssetVersion(options.assetVersion, sourceArticles, now);
+  const frontPageTopicWeights = {
+    ...FRONT_PAGE_TOPIC_WEIGHTS,
+    ...webControl.ranking.topicWeights
+  };
+  const frontPageSourceWeights = {
+    ...FRONT_PAGE_SOURCE_WEIGHTS,
+    ...webControl.ranking.sourceTypeWeights
+  };
   const articles = sourceArticles.map((article) => enrichArticle(article, { siteUrl, storeUrl }));
   const articlesByHref = new Map(articles.map((article) => [article.href, article]));
   const storeItems = getStoreItems().map((item) => ({
@@ -322,7 +337,16 @@ export function buildNewsroomState(options = {}) {
       },
       siteUrl,
       storeUrl,
+      webStatePath,
       assetVersion,
+      frontpageCopy: webControl.frontpageCopy,
+      frontPageTopicWeights,
+      frontPageSourceWeights,
+      openclaw: {
+        generatedAt: webControl.generated_at,
+        manager: webControl.manager,
+        permissions: webControl.permissions
+      },
       supportedLanguages: [...LANGUAGES]
     },
     runtime: buildRuntime(now, authors),
@@ -340,7 +364,12 @@ export function buildNewsroomState(options = {}) {
 
 export function getHomeData(state, language) {
   const localized = getArticlesForLanguage(state, language);
-  const prioritized = sortStoriesForFrontPage(localized, state.runtime.generatedAt);
+  const prioritized = sortStoriesForFrontPage(
+    localized,
+    state.runtime.generatedAt,
+    state.site.frontPageTopicWeights,
+    state.site.frontPageSourceWeights
+  );
   const latest = prioritized.slice(0, 6);
   const verifiedStories = prioritized.filter((article) => article.verification_state === "verified" && article.content_type === "NewsArticle");
   const leadStories = prioritized.filter((article) => article.content_type === "NewsArticle" && article.verification_state !== "trend");
@@ -368,7 +397,9 @@ export function getHomeData(state, language) {
       .slice(0, 4);
   const evergreen = sortStoriesForFrontPage(
     localized.filter((article) => article.content_type === "EvergreenGuide" || article.content_type === "ComparisonPage"),
-    state.runtime.generatedAt
+    state.runtime.generatedAt,
+    state.site.frontPageTopicWeights,
+    state.site.frontPageSourceWeights
   )
     .slice(0, 4);
   const tips = sortStoriesForFrontPage(
@@ -378,7 +409,9 @@ export function getHomeData(state, language) {
         article.content_type === "ComparisonPage" ||
         /mẹo|thủ thuật|hướng dẫn|cách |how to|how-to|guide/i.test(`${article.title} ${article.summary} ${article.dek}`)
     ),
-    state.runtime.generatedAt
+    state.runtime.generatedAt,
+    state.site.frontPageTopicWeights,
+    state.site.frontPageSourceWeights
   )
     .slice(0, 4);
     const topicSections = state.topics.map((topic) => ({
@@ -387,7 +420,9 @@ export function getHomeData(state, language) {
       slug: topic.slugs[language],
       stories: sortStoriesForFrontPage(
         localized.filter((article) => article.topic === topic.id),
-        state.runtime.generatedAt
+        state.runtime.generatedAt,
+        state.site.frontPageTopicWeights,
+        state.site.frontPageSourceWeights
       ).slice(0, 3)
   }));
 
@@ -405,9 +440,37 @@ export function getHomeData(state, language) {
   };
 }
 
-function sortStoriesForFrontPage(stories, anchorDate) {
+export async function loadNewsroomState(options = {}) {
+  const databaseUrl = options.databaseUrl || process.env.DATABASE_URL || "";
+
+  if (!databaseUrl) {
+    return buildNewsroomState(options);
+  }
+
+  const store = createNewsroomStore({
+    contentPath: options.contentPath || DEFAULT_CONTENT_PATH,
+    databaseUrl
+  });
+  const webStore = createOpenClawWebStore({
+    statePath: options.webStatePath || DEFAULT_WEB_STATE_PATH,
+    databaseUrl
+  });
+  const [payload, webControl] = await Promise.all([
+    store.readPayload(),
+    webStore.readState()
+  ]);
+  return buildNewsroomState({
+    ...options,
+    externalArticles: normalizeNewsroomPayload(payload).articles,
+    webControl
+  });
+}
+
+function sortStoriesForFrontPage(stories, anchorDate, topicWeights = FRONT_PAGE_TOPIC_WEIGHTS, sourceWeights = FRONT_PAGE_SOURCE_WEIGHTS) {
   return [...stories].sort((left, right) => {
-    const scoreGap = computeFrontPagePriority(right, anchorDate) - computeFrontPagePriority(left, anchorDate);
+    const scoreGap =
+      computeFrontPagePriority(right, anchorDate, topicWeights, sourceWeights) -
+      computeFrontPagePriority(left, anchorDate, topicWeights, sourceWeights);
 
     if (scoreGap !== 0) {
       return scoreGap;
@@ -417,7 +480,7 @@ function sortStoriesForFrontPage(stories, anchorDate) {
   });
 }
 
-function computeFrontPagePriority(article, anchorDate) {
+function computeFrontPagePriority(article, anchorDate, topicWeights = FRONT_PAGE_TOPIC_WEIGHTS, sourceWeights = FRONT_PAGE_SOURCE_WEIGHTS) {
   const topic = normalizeTopicId(article.topic);
   const sourceTypes = [...new Set((article.source_set || []).map((source) => source.source_type))];
   const sourceNames = [article.source_name, ...(article.source_set || []).map((source) => source.source_name)].filter(Boolean).join(" ");
@@ -431,7 +494,7 @@ function computeFrontPagePriority(article, anchorDate) {
     .filter(Boolean)
     .join(" ");
 
-  let score = FRONT_PAGE_TOPIC_WEIGHTS[topic] || 12;
+  let score = topicWeights[topic] || 12;
   score += article.content_type === "NewsArticle" ? 18 : article.content_type === "Roundup" ? 8 : 10;
   score += article.verification_state === "verified" ? 26 : article.verification_state === "emerging" ? 14 : -16;
   score += article.ad_eligible ? 6 : 0;
@@ -440,7 +503,7 @@ function computeFrontPagePriority(article, anchorDate) {
   score += computeFreshnessPriority(article, anchorDate);
 
   for (const sourceType of sourceTypes) {
-    score += FRONT_PAGE_SOURCE_WEIGHTS[sourceType] || 0;
+    score += sourceWeights[sourceType] || 0;
   }
 
   if (sourceTypes.length > 1) {
@@ -1139,6 +1202,23 @@ function buildRuntime(now, authors) {
 function resolveContentPath(contentPath) {
   const raw = contentPath || process.env.NEWSROOM_CONTENT_PATH || DEFAULT_CONTENT_PATH;
   return path.isAbsolute(raw) ? raw : path.resolve(process.cwd(), raw);
+}
+
+function resolveWebStatePath(webStatePath) {
+  const raw = webStatePath || process.env.OPENCLAW_WEB_STATE_PATH || DEFAULT_WEB_STATE_PATH;
+  return path.isAbsolute(raw) ? raw : path.resolve(process.cwd(), raw);
+}
+
+function loadLocalOpenClawWebState(webStatePath) {
+  try {
+    if (!fs.existsSync(webStatePath)) {
+      return {};
+    }
+
+    return JSON.parse(fs.readFileSync(webStatePath, "utf8"));
+  } catch {
+    return {};
+  }
 }
 
 function loadExternalArticles(contentPath, { topics, contentTypeMeta }) {

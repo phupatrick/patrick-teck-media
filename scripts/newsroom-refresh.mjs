@@ -115,10 +115,11 @@ if (incomingArticles.length === 0) {
   process.exit(0);
 }
 
-const result = publishArticles({
+const result = await publishArticles({
   incomingArticles,
   outputPath,
-  now
+  now,
+  databaseUrl: process.env.DATABASE_URL || ""
 });
 
 if (!result.changed) {

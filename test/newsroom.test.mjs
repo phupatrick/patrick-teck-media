@@ -300,6 +300,108 @@ const tests = [
     }
   },
   {
+    name: "lets OpenClaw tune the front page through web control state",
+    run() {
+      const gamingArticle = makeScenarioArticle({
+          language: "vi",
+          topic: "gaming",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          title: "Rockstar xác nhận thêm một đợt hé lộ mới cho GTA 6",
+          slug: "rockstar-xac-nhan-them-mot-dot-he-lo-moi-cho-gta-6",
+          summary: "Bài gaming này đủ mạnh để lên trang, nhưng sẽ chỉ được đẩy lên cao nhất nếu web control thực sự ưu tiên nó.",
+          dek: "Bài gaming này đủ mạnh để lên trang, nhưng sẽ chỉ được đẩy lên cao nhất nếu web control thực sự ưu tiên nó.",
+          hook: "Bài gaming này đủ mạnh để lên trang, nhưng sẽ chỉ được đẩy lên cao nhất nếu web control thực sự ưu tiên nó.",
+          sections: [
+            { heading: "Điều vừa xác nhận", body: "Rockstar vừa xác nhận thêm một nhịp hé lộ mới khiến cộng đồng game tiếp tục theo dõi sát mọi động thái liên quan GTA 6." },
+            { heading: "Vì sao được chú ý", body: "Đây là nhóm headline kéo tương tác mạnh, nhất là khi người chơi vẫn chờ thêm mốc thời gian cụ thể cho các bản cập nhật lớn." },
+            { heading: "Điều cần theo dõi", body: "Điểm tiếp theo là liệu nhịp hé lộ này có kéo thêm những thay đổi về kế hoạch ra mắt hoặc demo công khai hay không." }
+          ],
+          image: {
+            src: "https://images.example.com/gaming-lead.jpg",
+            caption: "Ảnh tham khảo từ nguồn game.",
+            credit: "Gaming Desk",
+            source_url: "https://example.com/gaming-lead"
+          },
+          source_set: [
+            {
+              source_type: "press",
+              source_name: "Gaming Desk",
+              source_url: "https://example.com/gaming-lead",
+              region: "VN",
+              language: "vi",
+              trust_tier: "established-media",
+              image_url: "https://images.example.com/gaming-lead.jpg",
+              image_caption: "Ảnh tham khảo từ nguồn game.",
+              image_credit: "Gaming Desk"
+            }
+          ]
+        });
+      const aiArticle = makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          title: "OpenAI mở rộng trợ lý AI cho khối vận hành doanh nghiệp",
+          slug: "openai-mo-rong-tro-ly-ai-cho-khoi-van-hanh-doanh-nghiep",
+          summary: "Bài AI đủ mạnh, nhưng test này sẽ xác nhận rằng OpenClaw web control có thể đổi trọng số ưu tiên khi cần.",
+          dek: "Bài AI đủ mạnh, nhưng test này sẽ xác nhận rằng OpenClaw web control có thể đổi trọng số ưu tiên khi cần.",
+          hook: "Bài AI đủ mạnh, nhưng test này sẽ xác nhận rằng OpenClaw web control có thể đổi trọng số ưu tiên khi cần.",
+          sections: [
+            { heading: "Điều vừa xảy ra", body: "OpenAI mở rộng trợ lý AI cho khối vận hành, nhắm tới các tác vụ hỗ trợ đội chăm sóc khách hàng và nhóm vận hành nội bộ." },
+            { heading: "Vì sao đáng chú ý", body: "Đây là nhóm tin cốt lõi của newsroom, thường được ưu tiên ở đầu trang vì liên quan trực tiếp tới AI ứng dụng và Big Tech." },
+            { heading: "Điều cần theo dõi", body: "Điểm tiếp theo là mức độ mở rộng sang thị trường châu Á và cách hệ sinh thái doanh nghiệp phản ứng với nhịp thay đổi này." }
+          ],
+          image: {
+            src: "https://images.example.com/ai-lead.jpg",
+            caption: "Ảnh tham khảo từ nguồn AI.",
+            credit: "AI Desk",
+            source_url: "https://example.com/ai-lead"
+          },
+          source_set: [
+            {
+              source_type: "official-site",
+              source_name: "AI Desk",
+              source_url: "https://example.com/ai-lead",
+              region: "Global",
+              language: "vi",
+              trust_tier: "official",
+              image_url: "https://images.example.com/ai-lead.jpg",
+              image_caption: "Ảnh tham khảo từ nguồn AI.",
+              image_credit: "AI Desk"
+            }
+          ]
+        });
+      const controlled = buildNewsroomState({
+        siteUrl: "https://patricktech.media",
+        storeUrl: "https://patricktechstore.vercel.app",
+        externalArticles: [gamingArticle, aiArticle],
+        webControl: {
+          frontpageCopy: {
+            vi: {
+              heroTitle: "OpenClaw đang giữ nhịp mặt tiền theo dữ liệu nóng nhất."
+            }
+          },
+          ranking: {
+            topicWeights: {
+              gaming: 220,
+              ai: -20
+            }
+          }
+        }
+      });
+      controlled.home = {
+        vi: getHomeData(controlled, "vi"),
+        en: getHomeData(controlled, "en")
+      };
+      const html = renderHomePage(controlled, "vi", { client: "", slots: {} });
+
+      assert.equal(controlled.site.frontPageTopicWeights.gaming, 220);
+      assert.equal(controlled.site.frontPageTopicWeights.ai, -20);
+      assert.match(html, /OpenClaw đang giữ nhịp mặt tiền theo dữ liệu nóng nhất/);
+    }
+  },
+  {
     name: "renders a news-first homepage and article community section",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
@@ -372,7 +474,8 @@ const tests = [
       const fileState = buildNewsroomState({
         siteUrl: "https://patricktech.media",
         storeUrl: "https://patricktechstore.vercel.app",
-        contentPath
+        contentPath,
+        webControl: {}
       });
 
       assert.equal(fileState.articles.length, 1);
@@ -407,7 +510,8 @@ const tests = [
       const fileState = buildNewsroomState({
         siteUrl: "https://patricktech.media",
         storeUrl: "https://patricktechstore.vercel.app",
-        contentPath
+        contentPath,
+        webControl: {}
       });
       const html = renderArticlePage(fileState, "en", fileState.articles[0], [], { client: "", slots: {} });
 
@@ -605,7 +709,8 @@ if (failed > 0) {
 function createState() {
   const newsroom = buildNewsroomState({
     siteUrl: "https://patricktech.media",
-    storeUrl: "https://patricktechstore.vercel.app"
+    storeUrl: "https://patricktechstore.vercel.app",
+    webControl: {}
   });
   newsroom.home = {
     vi: getHomeData(newsroom, "vi"),
@@ -623,7 +728,8 @@ function buildScenarioState(injectedArticles) {
     siteUrl: "https://patricktech.media",
     storeUrl: "https://patricktechstore.vercel.app",
     contentPath,
-    injectedArticles
+    injectedArticles,
+    webControl: {}
   });
 
   newsroom.home = {

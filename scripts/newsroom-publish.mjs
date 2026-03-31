@@ -2,16 +2,24 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { isArticlePublishReady } from "../src/newsroom-quality.mjs";
+import { createNewsroomStore, normalizeNewsroomPayload } from "../src/newsroom-store.mjs";
 
-export function publishArticles({ incomingArticles, outputPath, replaceMode = false, now = new Date().toISOString() }) {
+export async function publishArticles({
+  incomingArticles,
+  outputPath,
+  replaceMode = false,
+  now = new Date().toISOString(),
+  databaseUrl = process.env.DATABASE_URL || ""
+}) {
   if (!Array.isArray(incomingArticles) || incomingArticles.length === 0) {
     throw new Error("No articles found in the input payload.");
   }
 
-  const resolvedOutputPath = path.resolve(process.cwd(), outputPath || "data/newsroom-content.json");
-  fs.mkdirSync(path.dirname(resolvedOutputPath), { recursive: true });
-
-  const existingPayload = replaceMode ? { articles: [] } : readJson(resolvedOutputPath);
+  const store = createNewsroomStore({
+    contentPath: outputPath || "data/newsroom-content.json",
+    databaseUrl
+  });
+  const existingPayload = replaceMode ? { articles: [] } : await store.readPayload();
   const existingArticles = normalizeArticles(existingPayload).filter(isArticlePublishReady).sort(sortByDateDesc);
   const articleMap = new Map(existingArticles.map((article) => [articleKey(article), article]));
 
@@ -32,10 +40,11 @@ export function publishArticles({ incomingArticles, outputPath, replaceMode = fa
   const articles = [...articleMap.values()].filter(isArticlePublishReady).sort(sortByDateDesc);
   const changed = JSON.stringify(existingArticles) !== JSON.stringify(articles);
 
-  if (!changed && fs.existsSync(resolvedOutputPath)) {
+  if (!changed) {
     return {
       changed: false,
-      outputPath: resolvedOutputPath,
+      outputPath: store.contentPath,
+      storageMode: store.storageMode,
       publishedCount: incomingArticles.length,
       totalArticles: existingArticles.length
     };
@@ -46,11 +55,12 @@ export function publishArticles({ incomingArticles, outputPath, replaceMode = fa
     articles
   };
 
-  fs.writeFileSync(resolvedOutputPath, `${JSON.stringify(outputPayload, null, 2)}\n`, "utf8");
+  await store.writePayload(outputPayload);
 
   return {
     changed: true,
-    outputPath: resolvedOutputPath,
+    outputPath: store.contentPath,
+    storageMode: store.storageMode,
     publishedCount: incomingArticles.length,
     totalArticles: articles.length
   };
@@ -139,9 +149,14 @@ if (isDirectExecution()) {
   const incomingArticles = normalizeArticles(incomingPayload);
 
   try {
-    const result = publishArticles({ incomingArticles, outputPath, replaceMode });
+    const result = await publishArticles({
+      incomingArticles,
+      outputPath,
+      replaceMode,
+      databaseUrl: process.env.DATABASE_URL || ""
+    });
     const label = result.changed ? "Published" : "No changes found for";
-    console.log(`${label} ${result.publishedCount} article(s) into ${result.outputPath}`);
+    console.log(`${label} ${result.publishedCount} article(s) into ${result.outputPath} via ${result.storageMode}`);
   } catch (error) {
     console.error(error.message || error);
     process.exit(1);

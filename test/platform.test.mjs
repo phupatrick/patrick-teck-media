@@ -16,15 +16,15 @@ const service = createPlatformService({
 const tests = [
   {
     name: "registers a writer and auto-publishes a strong submission into the newsroom",
-    run() {
-      const writer = service.registerWriter({
+    async run() {
+      const writer = await service.registerWriter({
         name: "Nguyen Hoang Phu",
         email: "writer@example.com",
         password: "strong-pass-123",
         language: "vi"
       });
 
-      const submission = service.createSubmission({
+      const submission = await service.createSubmission({
         userId: writer.id,
         language: "vi",
         formData: {
@@ -87,7 +87,8 @@ const tests = [
       const state = buildNewsroomState({
         siteUrl: "https://patricktechmedia.vercel.app",
         storeUrl: "https://patricktechstore.vercel.app",
-        injectedArticles: service.listPublishedArticles()
+        injectedArticles: await service.listPublishedArticles(),
+        webControl: {}
       });
       const article = getArticleByRoute(state, "vi", "tin-tuc", submission.slug);
 
@@ -99,16 +100,16 @@ const tests = [
   },
   {
     name: "tracks revenue split and writer withdrawal requests",
-    run() {
-      const submission = service.getAdminDashboard("en").submissions[0];
-      service.updateRevenue({
+    async run() {
+      const submission = (await service.getAdminDashboard("en")).submissions[0];
+      await service.updateRevenue({
         submissionId: submission.id,
         grossUsd: 125.5,
         language: "en"
       });
 
-      const writer = service.getPortalData(submission.author_id, "en").user;
-      const withdrawal = service.createWithdrawal({
+      const writer = (await service.getPortalData(submission.author_id, "en")).user;
+      const withdrawal = await service.createWithdrawal({
         userId: writer.id,
         amount: 50,
         binanceAccount: "writer-binance-uid",
@@ -120,14 +121,14 @@ const tests = [
 
       assert.equal(withdrawal.status, "pending");
 
-      const portal = service.getPortalData(writer.id, "en");
+      const portal = await service.getPortalData(writer.id, "en");
       assert.equal(portal.totals.grossUsd, 125.5);
       assert.equal(portal.totals.writerEarnedUsd, 100.4);
       assert.equal(portal.totals.platformUsd, 25.1);
       assert.equal(portal.totals.pendingWithdrawalUsd, 50);
       assert.equal(portal.totals.availableUsd, 50.4);
 
-      const updated = service.updateWithdrawalStatus({
+      const updated = await service.updateWithdrawalStatus({
         withdrawalId: withdrawal.id,
         status: "paid",
         language: "en"
@@ -138,15 +139,15 @@ const tests = [
   },
   {
     name: "rechecks incomplete writer drafts through the autonomous editorial gate",
-    run() {
-      const writer = service.registerWriter({
+    async run() {
+      const writer = await service.registerWriter({
         name: "Le Thi Ngan",
         email: "writer-pending@example.com",
         password: "strong-pass-456",
         language: "vi"
       });
 
-      const submission = service.createSubmission({
+      const submission = await service.createSubmission({
         userId: writer.id,
         language: "vi",
         formData: {
@@ -187,22 +188,25 @@ const tests = [
 
       assert.equal(submission.status, "pending_review");
 
-      const cycle = service.runAutonomousReviewCycle();
-      const reviewed = service.getAdminDashboard("vi").submissions.find((entry) => entry.id === submission.id);
+      const cycle = await service.runAutonomousReviewCycle();
+      const reviewed = (await service.getAdminDashboard("vi")).submissions.find((entry) => entry.id === submission.id);
+      const autonomousActor = await service.getUserById("openclaw");
 
       assert.ok(cycle.reviewed >= 1);
+      assert.equal(cycle.trustMode, "owner");
       assert.equal(reviewed.status, "pending_review");
       assert.equal(reviewed.review?.reviewed_by, "openclaw");
-      assert.equal(reviewed.review?.review_mode, "autonomous");
+      assert.equal(reviewed.review?.review_mode, "owner-delegated");
+      assert.equal(autonomousActor?.role, "owner");
       assert.match((reviewed.review?.notes || []).join(" "), /giữ lại để chờ nguồn|held until/i);
     }
   },
   {
     name: "stores article reactions and comments for public readers",
-    run() {
-      const submission = service.getAdminDashboard("vi").submissions.find((entry) => entry.status === "approved");
+    async run() {
+      const submission = (await service.getAdminDashboard("vi")).submissions.find((entry) => entry.status === "approved");
 
-      service.addArticleReaction({
+      await service.addArticleReaction({
         articleId: submission.published_article_id,
         href: submission.published_href,
         reaction: "useful",
@@ -210,7 +214,7 @@ const tests = [
         language: "vi"
       });
 
-      service.addArticleComment({
+      await service.addArticleComment({
         articleId: submission.published_article_id,
         href: submission.published_href,
         name: "Patrick Reader",
@@ -219,7 +223,7 @@ const tests = [
         language: "vi"
       });
 
-      const feedback = service.getArticleFeedback({
+      const feedback = await service.getArticleFeedback({
         articleId: submission.published_article_id,
         href: submission.published_href,
         language: "vi"
@@ -233,8 +237,8 @@ const tests = [
   },
   {
     name: "limits Google admin access to the approved email list",
-    run() {
-      const admin = service.upsertAdminFromGoogle(
+    async run() {
+      const admin = await service.upsertAdminFromGoogle(
         {
           email: "hphumail@gmail.com",
           name: "Patrick Admin",
@@ -245,7 +249,7 @@ const tests = [
 
       assert.equal(admin.role, "admin");
 
-      assert.throws(
+      await assert.rejects(
         () =>
           service.upsertAdminFromGoogle(
             {
@@ -263,7 +267,8 @@ const tests = [
     run() {
       const newsroom = buildNewsroomState({
         siteUrl: "https://patricktechmedia.vercel.app",
-        storeUrl: "https://patricktechstore.vercel.app"
+        storeUrl: "https://patricktechstore.vercel.app",
+        webControl: {}
       });
       const html = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login" });
 
@@ -285,7 +290,7 @@ let failed = 0;
 
 for (const entry of tests) {
   try {
-    entry.run();
+    await entry.run();
     console.log(`PASS ${entry.name}`);
   } catch (error) {
     failed += 1;

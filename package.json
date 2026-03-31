@@ -10,6 +10,11 @@
     "newsroom:publish": "node scripts/newsroom-publish.mjs",
     "newsroom:refresh": "node scripts/newsroom-refresh.mjs",
     "openclaw:feed": "node scripts/openclaw-newsroom-feed.mjs",
+    "openclaw:web": "node scripts/openclaw-web-control.mjs",
+    "openclaw:git-sync": "node scripts/openclaw-git-sync.mjs",
     "openclaw:manage": "node scripts/openclaw-manager.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
   }
 }

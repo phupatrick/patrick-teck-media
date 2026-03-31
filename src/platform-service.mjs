@@ -6,7 +6,8 @@ const DEFAULT_ADMIN_EMAILS = ["hphumail@gmail.com", "phupunpin@gmail.com", "hoan
 
 export function createPlatformService(options) {
   const store = createPlatformStore({
-    statePath: options.statePath || "data/platform-state.json"
+    statePath: options.statePath || "data/platform-state.json",
+    databaseUrl: options.databaseUrl || process.env.DATABASE_URL || ""
   });
 
   const config = {
@@ -16,7 +17,8 @@ export function createPlatformService(options) {
     googleClientSecret: options.googleClientSecret || "",
     googleRedirectUri: options.googleRedirectUri || `${options.siteUrl}/auth/google/callback`,
     adminEmails: new Set((options.adminEmails?.length ? options.adminEmails : DEFAULT_ADMIN_EMAILS).map((email) => email.toLowerCase())),
-    autonomousReviewerId: options.autonomousReviewerId || "openclaw"
+    autonomousReviewerId: options.autonomousReviewerId || "openclaw",
+    openclawTrustMode: options.openclawTrustMode || process.env.OPENCLAW_TRUST_MODE || "owner"
   };
 
   return {
@@ -25,20 +27,21 @@ export function createPlatformService(options) {
     newsroomContentPath: config.newsroomContentPath,
     isGoogleConfigured: () => Boolean(config.googleClientId && config.googleClientSecret),
     getGoogleConfig: () => ({ clientId: config.googleClientId, clientSecret: config.googleClientSecret, redirectUri: config.googleRedirectUri }),
-    getUserById(userId) {
+    async getUserById(userId) {
       if (!userId) {
         return null;
       }
-      return sanitizeUser(store.readState().users.find((user) => user.id === userId) || null);
+      const state = await store.readState();
+      return sanitizeUser(state.users.find((user) => user.id === userId) || null);
     },
-    getArticleFeedback({ articleId, href, language }) {
-      return buildArticleFeedback(store.readState(), {
+    async getArticleFeedback({ articleId, href, language }) {
+      return buildArticleFeedback(await store.readState(), {
         articleId,
         href,
         language
       });
     },
-    addArticleReaction({ articleId, href, reaction, user, language }) {
+    async addArticleReaction({ articleId, href, reaction, user, language }) {
       const normalizedReaction = normalizeArticleReaction(reaction);
 
       if (!normalizedReaction) {
@@ -55,14 +58,14 @@ export function createPlatformService(options) {
         created_at: new Date().toISOString()
       };
 
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
         draft.articleReactions.unshift(entry);
         return draft;
       });
 
       return entry;
     },
-    addArticleComment({ articleId, href, name, body, user, language }) {
+    async addArticleComment({ articleId, href, name, body, user, language }) {
       const authorName = safeTrim(user?.name || name);
       const normalizedBody = normalizeCommentBody(body);
 
@@ -84,14 +87,14 @@ export function createPlatformService(options) {
         created_at: new Date().toISOString()
       };
 
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
         draft.articleComments.unshift(entry);
         return draft;
       });
 
       return entry;
     },
-    registerWriter({ name, email, password, language }) {
+    async registerWriter({ name, email, password, language }) {
       const normalizedEmail = normalizeEmail(email);
 
       if (!normalizedEmail || !password || password.length < 8) {
@@ -99,7 +102,7 @@ export function createPlatformService(options) {
       }
 
       let createdUser = null;
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
         if (draft.users.some((user) => user.email === normalizedEmail)) {
           throw new Error(language === "vi" ? "Email này đã tồn tại." : "This email already exists.");
         }
@@ -121,9 +124,10 @@ export function createPlatformService(options) {
 
       return sanitizeUser(createdUser);
     },
-    loginWriter({ email, password, language }) {
+    async loginWriter({ email, password, language }) {
       const normalizedEmail = normalizeEmail(email);
-      const user = store.readState().users.find((entry) => entry.email === normalizedEmail && entry.provider === "local");
+      const state = await store.readState();
+      const user = state.users.find((entry) => entry.email === normalizedEmail && entry.provider === "local");
 
       if (!user || !verifyPassword(password, user.password_hash)) {
         throw new Error(language === "vi" ? "Sai email hoặc mật khẩu." : "Wrong email or password.");
@@ -131,7 +135,7 @@ export function createPlatformService(options) {
 
       return sanitizeUser(user);
     },
-    upsertAdminFromGoogle(profile, language) {
+    async upsertAdminFromGoogle(profile, language) {
       const normalizedEmail = normalizeEmail(profile?.email);
 
       if (!normalizedEmail || !config.adminEmails.has(normalizedEmail)) {
@@ -140,7 +144,7 @@ export function createPlatformService(options) {
 
       let adminUser = null;
 
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
         adminUser = draft.users.find((user) => user.email === normalizedEmail) || null;
 
         if (adminUser) {
@@ -170,8 +174,8 @@ export function createPlatformService(options) {
 
       return sanitizeUser(adminUser);
     },
-    getPortalData(userId, language) {
-      const state = store.readState();
+    async getPortalData(userId, language) {
+      const state = await store.readState();
       const user = state.users.find((entry) => entry.id === userId);
 
       if (!user) {
@@ -194,8 +198,8 @@ export function createPlatformService(options) {
         }
       };
     },
-    getAdminDashboard(language) {
-      const state = store.readState();
+    async getAdminDashboard(language) {
+      const state = await store.readState();
       const submissions = state.submissions.sort(sortByUpdatedAtDesc);
 
       return {
@@ -210,13 +214,15 @@ export function createPlatformService(options) {
         language
       };
     },
-    listPublishedArticles() {
-      return store.readState().submissions.filter((entry) => entry.status === "approved").map((entry) => submissionToArticle(entry)).sort(sortByPublishedArticleDateDesc);
+    async listPublishedArticles() {
+      const state = await store.readState();
+      return state.submissions.filter((entry) => entry.status === "approved").map((entry) => submissionToArticle(entry)).sort(sortByPublishedArticleDateDesc);
     },
-    runAutonomousReviewCycle() {
+    async runAutonomousReviewCycle() {
       const reviewedAt = new Date().toISOString();
       const summary = {
         reviewer: config.autonomousReviewerId,
+        trustMode: config.openclawTrustMode,
         reviewedAt,
         totalSubmissions: 0,
         reviewed: 0,
@@ -227,7 +233,9 @@ export function createPlatformService(options) {
         unchanged: 0
       };
 
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
+        const autonomousActor = ensureAutonomousActor(draft.users, config, reviewedAt);
+        summary.reviewer = autonomousActor.id;
         summary.totalSubmissions = draft.submissions.length;
 
         for (const submission of draft.submissions) {
@@ -236,8 +244,8 @@ export function createPlatformService(options) {
           const previousReview = submission.review || null;
           const nextReview = reviewSubmission(submission, language, {
             reviewedAt,
-            reviewerId: config.autonomousReviewerId,
-            reviewMode: "autonomous"
+            reviewerId: autonomousActor.id,
+            reviewMode: config.openclawTrustMode === "owner" ? "owner-delegated" : "autonomous"
           });
           nextReview.notes = dedupeNotes([
             ...(previousReview?.notes || []),
@@ -295,8 +303,8 @@ export function createPlatformService(options) {
 
       return summary;
     },
-    createSubmission({ userId, language, formData }) {
-      const state = store.readState();
+    async createSubmission({ userId, language, formData }) {
+      const state = await store.readState();
       const user = state.users.find((entry) => entry.id === userId);
 
       if (!user) {
@@ -376,17 +384,17 @@ export function createPlatformService(options) {
         submission.published_href = publication.href;
       }
 
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
         draft.submissions.unshift(submission);
         return draft;
       });
 
       return submission;
     },
-    reviewSubmissionDecision({ submissionId, decision, language }) {
+    async reviewSubmissionDecision({ submissionId, decision, language }) {
       let updatedSubmission = null;
 
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
         const submission = draft.submissions.find((entry) => entry.id === submissionId);
 
         if (!submission) {
@@ -418,10 +426,10 @@ export function createPlatformService(options) {
 
       return updatedSubmission;
     },
-    updateRevenue({ submissionId, grossUsd, language }) {
+    async updateRevenue({ submissionId, grossUsd, language }) {
       let updatedSubmission = null;
 
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
         const submission = draft.submissions.find((entry) => entry.id === submissionId);
 
         if (!submission) {
@@ -441,8 +449,8 @@ export function createPlatformService(options) {
 
       return updatedSubmission;
     },
-    createWithdrawal({ userId, amount, binanceAccount, walletAddress, network, note, language }) {
-      const state = store.readState();
+    async createWithdrawal({ userId, amount, binanceAccount, walletAddress, network, note, language }) {
+      const state = await store.readState();
       const user = state.users.find((entry) => entry.id === userId);
 
       if (!user) {
@@ -474,17 +482,17 @@ export function createPlatformService(options) {
         created_at: new Date().toISOString()
       };
 
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
         draft.withdrawals.unshift(request);
         return draft;
       });
 
       return request;
     },
-    updateWithdrawalStatus({ withdrawalId, status, language }) {
+    async updateWithdrawalStatus({ withdrawalId, status, language }) {
       let updatedRequest = null;
 
-      store.updateState((draft) => {
+      await store.updateState((draft) => {
         const request = draft.withdrawals.find((entry) => entry.id === withdrawalId);
 
         if (!request) {
@@ -1021,6 +1029,46 @@ function sanitizeUser(user) {
     created_at: user.created_at,
     updated_at: user.updated_at || user.created_at
   };
+}
+
+function ensureAutonomousActor(users, config, timestamp) {
+  let actor =
+    users.find((user) => user.id === config.autonomousReviewerId) ||
+    users.find((user) => user.provider === "openclaw" && user.role === "owner");
+
+  const role = config.openclawTrustMode === "owner" ? "owner" : "admin";
+
+  if (!actor) {
+    actor = {
+      id: config.autonomousReviewerId,
+      role,
+      provider: "openclaw",
+      status: "active",
+      name: role === "owner" ? "OpenClaw Owner Delegate" : "OpenClaw Editorial Admin",
+      email: "openclaw@patricktechmedia.local",
+      delegated_by: "site-owner",
+      created_at: timestamp,
+      updated_at: timestamp
+    };
+    users.unshift(actor);
+    return actor;
+  }
+
+  actor.role = role;
+  actor.provider = "openclaw";
+  actor.status = "active";
+  actor.delegated_by = "site-owner";
+  actor.updated_at = timestamp;
+
+  if (!actor.email) {
+    actor.email = "openclaw@patricktechmedia.local";
+  }
+
+  if (!actor.name) {
+    actor.name = role === "owner" ? "OpenClaw Owner Delegate" : "OpenClaw Editorial Admin";
+  }
+
+  return actor;
 }
 
 function normalizeEmail(email) {

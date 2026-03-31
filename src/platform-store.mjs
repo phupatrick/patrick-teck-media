@@ -1,6 +1,4 @@
-import fs from "node:fs";
-import os from "node:os";
-import path from "node:path";
+import { createDocumentStore } from "./document-store.mjs";
 
 const DEFAULT_STATE = {
   users: [],
@@ -10,47 +8,27 @@ const DEFAULT_STATE = {
   articleReactions: []
 };
 
-export function createPlatformStore({ statePath }) {
-  const preferredPath = path.isAbsolute(statePath) ? statePath : path.resolve(process.cwd(), statePath);
-  const resolvedPath = resolveWritablePath(preferredPath);
+export function createPlatformStore({ statePath, databaseUrl = process.env.DATABASE_URL || "" }) {
+  const documentStore = createDocumentStore({
+    documentKey: "platform_state",
+    fallbackPath: statePath,
+    initialValue: DEFAULT_STATE,
+    databaseUrl
+  });
 
   return {
-    statePath: resolvedPath,
-    storageMode: resolvedPath === preferredPath ? "project-file" : "temp-file",
-    readState: () => readStateFile(resolvedPath),
-    writeState: (nextState) => writeStateFile(resolvedPath, nextState),
-    updateState(updater) {
-      const currentState = readStateFile(resolvedPath);
-      const draft = JSON.parse(JSON.stringify(currentState));
-      const updated = updater(draft) || draft;
-      writeStateFile(resolvedPath, updated);
-      return updated;
+    statePath: documentStore.statePath,
+    storageMode: documentStore.storageMode,
+    readState: async () => normalizeState(await documentStore.read()),
+    writeState: async (nextState) => documentStore.write(normalizeState(nextState)),
+    async updateState(updater) {
+      return documentStore.update((draft) => {
+        const normalizedDraft = normalizeState(draft);
+        const updated = updater(normalizedDraft) || normalizedDraft;
+        return normalizeState(updated);
+      });
     }
   };
-}
-
-function ensureStateFile(filePath) {
-  if (fs.existsSync(filePath)) {
-    return true;
-  }
-
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, `${JSON.stringify(DEFAULT_STATE, null, 2)}\n`, "utf8");
-  return true;
-}
-
-function readStateFile(filePath) {
-  try {
-    const payload = JSON.parse(fs.readFileSync(filePath, "utf8"));
-    return normalizeState(payload);
-  } catch {
-    return JSON.parse(JSON.stringify(DEFAULT_STATE));
-  }
-}
-
-function writeStateFile(filePath, state) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, `${JSON.stringify(normalizeState(state), null, 2)}\n`, "utf8");
 }
 
 function normalizeState(state) {
@@ -61,17 +39,4 @@ function normalizeState(state) {
     articleComments: Array.isArray(state?.articleComments) ? state.articleComments : [],
     articleReactions: Array.isArray(state?.articleReactions) ? state.articleReactions : []
   };
-}
-
-function resolveWritablePath(preferredPath) {
-  try {
-    ensureStateFile(preferredPath);
-    fs.accessSync(preferredPath, fs.constants.R_OK | fs.constants.W_OK);
-    return preferredPath;
-  } catch {
-    const fallbackPath = path.join(os.tmpdir(), "patrick-tech-media", "platform-state.json");
-    ensureStateFile(fallbackPath);
-    fs.accessSync(fallbackPath, fs.constants.R_OK | fs.constants.W_OK);
-    return fallbackPath;
-  }
 }

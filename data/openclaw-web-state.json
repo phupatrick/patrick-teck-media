@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-03-31T21:29:44.245Z",
+  "manager": {
+    "id": "openclaw",
+    "autonomy": "owner-delegated-full"
+  },
+  "permissions": {
+    "content": true,
+    "frontpage": true,
+    "git": true,
+    "deploy_by_push": true
+  },
+  "priorityTopics": [
+    "ai",
+    "internet-business-tech",
+    "devices",
+    "gaming",
+    "security",
+    "apps-software"
+  ],
+  "ranking": {
+    "topicWeights": {
+      "ai": 46,
+      "security": 26,
+      "internet-business-tech": 30,
+      "apps-software": 20,
+      "devices": 23,
+      "gaming": 11
+    },
+    "sourceTypeWeights": {
+      "official-site": 20,
+      "press": 12,
+      "official-social": 9,
+      "editorial-research": 8,
+      "internal-roundup": 6,
+      "community": -12,
+      "social-buzz": -14
+    }
+  },
+  "frontpageCopy": {
+    "vi": {
+      "heroTitle": "AI, Big Tech và những nhịp công nghệ đáng mở đầu tiên.",
+      "heroText": "Patrick Tech Media ưu tiên AI, Internet & Doanh nghiệp số và Thiết bị, rồi mở rộng sang phần mềm, thiết bị và thủ thuật thật sự đáng lưu trong ngày.",
+      "badgeSignals": "AI",
+      "badgeAds": "Internet & Doanh nghiệp số",
+      "badgeBilingual": "Thiết bị",
+      "hotTitle": "Tin nóng đang kéo lượt đọc",
+      "editorsTitle": "Bài nên mở tiếp theo",
+      "ribbonTitle": "Tin mới lên theo giờ",
+      "companyBrief": "Nhánh nội dung của Patrick Tech Co. VN, nơi tin nóng, bài đọc sâu và Patrick Tech Store gặp nhau trong một newsroom công nghệ duy nhất.",
+      "readerStartTitle": "3 bài mới để bắt nhịp",
+      "readerWatchTitle": "2 câu chuyện đang được mở nhiều",
+      "updateTitle": "3 tin mới để bắt nhịp",
+      "hotLabel": "Nóng lúc này",
+      "editorsLabel": "Biên tập chọn",
+      "ribbonLabel": "Tin vừa lên",
+      "latestTitle": "Tin mới nhất",
+      "tipsTitle": "Hướng dẫn và mẹo đáng lưu",
+      "ecosystemTitle": "Patrick Tech Co. VN",
+      "browserTitle": "Lướt nhanh những gì vừa nóng lên",
+      "ecosystemText": "Tòa soạn ưu tiên bài có ảnh nguồn, headline đủ lực kéo và phần thân bài hoàn chỉnh trước khi đưa lên mặt tiền.",
+      "homeSpotlightTitle": "Mở bài nổi bật hôm nay"
+    },
+    "en": {
+      "heroTitle": "AI, Big Tech, and the technology shifts worth opening first.",
+      "heroText": "Patrick Tech Media gives front-page priority to AI, Internet & Business Tech and Devices, then keeps the pace with software, devices, and practical how-tos that stay useful after the click.",
+      "badgeSignals": "AI",
+      "badgeAds": "Internet & Business Tech",
+      "badgeBilingual": "Devices",
+      "hotTitle": "The headlines pulling readers in",
+      "editorsTitle": "What to open next",
+      "ribbonTitle": "Stories moving by the hour",
+      "companyBrief": "The editorial branch of Patrick Tech Co. VN, where breaking coverage, deeper reads, and Patrick Tech Store move inside one technology newsroom.",
+      "readerStartTitle": "3 fresh stories to start with",
+      "readerWatchTitle": "2 stories readers keep opening",
+      "updateTitle": "3 fresh stories to catch the pace",
+      "hotLabel": "Hot now",
+      "editorsLabel": "Editors' picks",
+      "ribbonLabel": "Just moved",
+      "latestTitle": "Latest stories",
+      "tipsTitle": "Practical guides worth saving",
+      "ecosystemTitle": "Patrick Tech Co. VN",
+      "ecosystemText": "The desk gives the front page to complete stories with strong images, stronger headlines, and enough editorial depth to deserve the space.",
+      "browserTitle": "Scan the stories rising right now",
+      "homeSpotlightTitle": "Start with the strongest lead today"
+    }
+  }
+}

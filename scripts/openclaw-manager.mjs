@@ -9,6 +9,7 @@ const envFromFile = loadEnvFile(path.join(rootDir, ".env"));
 const config = {
   siteUrl: process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.vercel.app",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || envFromFile.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
+  webStatePath: process.env.OPENCLAW_WEB_STATE_PATH || envFromFile.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json",
   platformStatePath: process.env.PLATFORM_STATE_PATH || envFromFile.PLATFORM_STATE_PATH || "data/platform-state.json",
   managerStatePath: process.env.OPENCLAW_MANAGER_STATE_PATH || envFromFile.OPENCLAW_MANAGER_STATE_PATH || "data/openclaw-manager-state.json",
   hiddenFeedPath:
@@ -27,22 +28,27 @@ const config = {
 const startedAt = new Date().toISOString();
 const feedSource = ensureHiddenFeedSource();
 const refresh = runRefreshCycle(feedSource.refreshSource);
+const webControl = runWebControlCycle();
 const platformService = createPlatformService({
   statePath: config.platformStatePath,
+  databaseUrl: process.env.DATABASE_URL || envFromFile.DATABASE_URL || "",
   newsroomContentPath: config.contentPath,
   siteUrl: config.siteUrl,
   adminEmails: config.adminEmails,
-  autonomousReviewerId: "openclaw"
+  autonomousReviewerId: "openclaw",
+  openclawTrustMode: "owner"
 });
-const submissionReview = platformService.runAutonomousReviewCycle();
+const submissionReview = await platformService.runAutonomousReviewCycle();
 const managerSnapshot = buildManagerSnapshot({
   startedAt,
   finishedAt: new Date().toISOString(),
   feedSource,
   refresh,
+  webControl,
   submissionReview,
   contentPath: config.contentPath,
-  platformStatePath: platformService.statePath
+  platformStatePath: platformService.statePath,
+  webStatePath: config.webStatePath
 });
 
 writeJson(config.managerStatePath, managerSnapshot);
@@ -152,7 +158,42 @@ function runRefreshCycle(refreshSource = null) {
   };
 }
 
-function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, submissionReview, contentPath, platformStatePath }) {
+function runWebControlCycle() {
+  const scriptPath = path.resolve(rootDir, "scripts/openclaw-web-control.mjs");
+  const result = spawnSync(process.execPath, [scriptPath], {
+    cwd: rootDir,
+    env: {
+      ...process.env,
+      SITE_URL: config.siteUrl,
+      PATRICK_TECH_STORE_URL: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+      NEWSROOM_CONTENT_PATH: config.contentPath,
+      OPENCLAW_WEB_STATE_PATH: config.webStatePath,
+      DATABASE_URL: process.env.DATABASE_URL || envFromFile.DATABASE_URL || ""
+    },
+    encoding: "utf8"
+  });
+
+  if (result.stdout) {
+    process.stdout.write(result.stdout);
+  }
+
+  if (result.stderr) {
+    process.stderr.write(result.stderr);
+  }
+
+  if (result.status !== 0) {
+    throw new Error(result.stderr || result.stdout || "The OpenClaw web control cycle failed.");
+  }
+
+  return {
+    ok: true,
+    path: path.resolve(rootDir, config.webStatePath),
+    output: compactText(result.stdout),
+    warnings: compactText(result.stderr)
+  };
+}
+
+function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, webControl, submissionReview, contentPath, platformStatePath, webStatePath }) {
   const payload = readJson(contentPath);
   const articles = Array.isArray(payload?.articles) ? payload.articles : [];
 
@@ -175,11 +216,16 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, subm
         path: feedSource.refreshSource?.file ? path.resolve(rootDir, feedSource.refreshSource.file) : "",
         url: feedSource.refreshSource?.url || ""
       },
-      refresh
+      refresh,
+      webControl
     },
     platform: {
       statePath: path.resolve(rootDir, platformStatePath),
       submissionReview
+    },
+    automation: {
+      webStatePath: path.resolve(rootDir, webStatePath),
+      gitAutopush: /^(1|true|yes|on)$/i.test(String(process.env.OPENCLAW_GIT_AUTOPUSH || envFromFile.OPENCLAW_GIT_AUTOPUSH || ""))
     }
   };
 }

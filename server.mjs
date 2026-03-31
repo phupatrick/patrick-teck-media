@@ -21,7 +21,8 @@ import {
   getPolicyPage,
   getTopicPage,
   getArticlesForLanguage,
-  getWorkflowData
+  getWorkflowData,
+  loadNewsroomState
 } from "./src/newsroom-service.mjs";
 import {
   buildGoogleAuthUrl,
@@ -64,7 +65,9 @@ const config = {
   port: Number(process.env.PORT || envFromFile.PORT || 3000),
   siteUrl: rawSiteUrl,
   storeUrl: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+  databaseUrl: process.env.DATABASE_URL || envFromFile.DATABASE_URL || "",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || envFromFile.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
+  webStatePath: process.env.OPENCLAW_WEB_STATE_PATH || envFromFile.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json",
   platformStatePath: process.env.PLATFORM_STATE_PATH || envFromFile.PLATFORM_STATE_PATH || "data/platform-state.json",
   sessionSecret: sessionSecretResolution.value,
   googleClientId: process.env.GOOGLE_CLIENT_ID || envFromFile.GOOGLE_CLIENT_ID || "",
@@ -106,6 +109,7 @@ const adsConfig = {
 };
 const platformService = createPlatformService({
   statePath: config.platformStatePath,
+  databaseUrl: config.databaseUrl,
   newsroomContentPath: config.contentPath,
   siteUrl: config.siteUrl,
   googleClientId: config.googleClientId,
@@ -113,8 +117,9 @@ const platformService = createPlatformService({
   adminEmails: config.adminEmails
 });
 
-let cachedState = buildState();
+let cachedState = await buildState();
 let cachedAt = Date.now();
+let refreshPromise = null;
 const server = createServer(handleRequest);
 
 if (sessionSecretResolution.warning) {
@@ -125,9 +130,9 @@ async function handleRequest(req, res) {
   try {
     const requestUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
     const pathname = decodeURIComponent(requestUrl.pathname);
-    const state = getState();
+    const state = await getState();
     const cookies = parseCookies(req.headers.cookie || "");
-    const viewer = platformService.getUserById(readSessionUserId(req, config.sessionSecret));
+    const viewer = await platformService.getUserById(readSessionUserId(req, config.sessionSecret));
 
     if (req.method === "POST") {
       return handleFormRoute(req, res, requestUrl, pathname, viewer);
@@ -199,7 +204,7 @@ async function handleRequest(req, res) {
         return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Vui lòng đăng nhập để mở writer portal." : "Please sign in to open the writer portal.")}`);
       }
 
-      const portal = platformService.getPortalData(viewer.id, language);
+      const portal = await platformService.getPortalData(viewer.id, language);
       return sendHtml(
         res,
         200,
@@ -218,7 +223,7 @@ async function handleRequest(req, res) {
       return sendHtml(
         res,
         200,
-        renderAdminPage(state, language, platformService.getAdminDashboard(language), {
+        renderAdminPage(state, language, await platformService.getAdminDashboard(language), {
           notice: requestUrl.searchParams.get("notice") || "",
           csrf: buildCsrfTokens(viewer)
         })
@@ -281,7 +286,7 @@ async function handleRequest(req, res) {
       const relatedStories = getArticlesForLanguage(state, language)
         .filter((story) => story.cluster_id !== article.cluster_id && story.topic === article.topic)
         .slice(0, 3);
-      const feedback = platformService.getArticleFeedback({
+      const feedback = await platformService.getArticleFeedback({
         articleId: article.id,
         href: article.href,
         language
@@ -314,12 +319,14 @@ if (isDirectExecution()) {
 
 export { server, buildState, handleRequest };
 
-function buildState() {
-  const communityArticles = platformService.listPublishedArticles();
-  const newsroom = buildNewsroomState({
+async function buildState() {
+  const communityArticles = await platformService.listPublishedArticles();
+  const newsroom = await loadNewsroomState({
     siteUrl: config.siteUrl,
     storeUrl: config.storeUrl,
+    databaseUrl: config.databaseUrl,
     contentPath: config.contentPath,
+    webStatePath: config.webStatePath,
     injectedArticles: communityArticles,
     now: new Date().toISOString()
   });
@@ -344,17 +351,25 @@ function buildState() {
   return newsroom;
 }
 
-function getState() {
+async function getState() {
   if (Date.now() - cachedAt > 30_000) {
-    refreshState();
+    await refreshState();
   }
 
   return cachedState;
 }
 
-function refreshState() {
-  cachedState = buildState();
-  cachedAt = Date.now();
+async function refreshState() {
+  if (!refreshPromise) {
+    refreshPromise = (async () => {
+      cachedState = await buildState();
+      cachedAt = Date.now();
+    })().finally(() => {
+      refreshPromise = null;
+    });
+  }
+
+  await refreshPromise;
 }
 
 function isDirectExecution() {
@@ -552,7 +567,7 @@ async function handleAuthRoute(req, res, requestUrl, pathname, viewer, cookies) 
         clientId: config.googleClientId,
         clientSecret: config.googleClientSecret
       });
-      const adminUser = platformService.upsertAdminFromGoogle(profile, language);
+      const adminUser = await platformService.upsertAdminFromGoogle(profile, language);
       clearGoogleStateCookie(res, { secure: shouldUseSecureCookies(req) });
       setSessionCookie(res, adminUser.id, config.sessionSecret, undefined, { secure: shouldUseSecureCookies(req) });
       return redirect(res, `/${language}/admin?notice=${encodeURIComponent(language === "vi" ? "Đăng nhập admin thành công." : "Admin sign-in completed.")}`);
@@ -579,7 +594,7 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
         throw new Error(language === "vi" ? "Mật khẩu xác nhận chưa khớp." : "Password confirmation does not match.");
       }
 
-      const user = platformService.registerWriter({
+      const user = await platformService.registerWriter({
         name: form.name,
         email: form.email,
         password: form.password,
@@ -590,7 +605,7 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
     }
 
     if (pathname === "/auth/login") {
-      const user = platformService.loginWriter({
+      const user = await platformService.loginWriter({
         email: form.email,
         password: form.password,
         language
@@ -605,7 +620,7 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
     }
 
     if (pathname === "/article/reactions") {
-      platformService.addArticleReaction({
+      await platformService.addArticleReaction({
         articleId: form.article_id,
         href: form.article_href,
         reaction: form.reaction,
@@ -622,7 +637,7 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
     }
 
     if (pathname === "/article/comments") {
-      platformService.addArticleComment({
+      await platformService.addArticleComment({
         articleId: form.article_id,
         href: form.article_href,
         name: form.name,
@@ -644,12 +659,12 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
         return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Vui lòng đăng nhập trước khi gửi bài." : "Please sign in before submitting a story.")}`);
       }
 
-      platformService.createSubmission({
+      await platformService.createSubmission({
         userId: viewer.id,
         language,
         formData: mapSubmissionForm(form)
       });
-      refreshState();
+      await refreshState();
       return redirect(res, `/${language}/portal?notice=${encodeURIComponent(language === "vi" ? "Bài viết đã được đưa vào hệ thống duyệt tự động." : "Your story has entered the automatic review flow.")}`);
     }
 
@@ -658,7 +673,7 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
         return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Vui lòng đăng nhập trước khi rút tiền." : "Please sign in before requesting a withdrawal.")}`);
       }
 
-      platformService.createWithdrawal({
+      await platformService.createWithdrawal({
         userId: viewer.id,
         amount: form.amount,
         binanceAccount: form.binance_account,
@@ -675,12 +690,12 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
         return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Chỉ admin mới thao tác được." : "Only admins can perform this action.")}`);
       }
 
-      platformService.reviewSubmissionDecision({
+      await platformService.reviewSubmissionDecision({
         submissionId: form.submission_id,
         decision: form.decision,
         language
       });
-      refreshState();
+      await refreshState();
       return redirect(res, `/${language}/admin?notice=${encodeURIComponent(language === "vi" ? "Đã cập nhật trạng thái bài viết." : "The story status has been updated.")}`);
     }
 
@@ -689,7 +704,7 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
         return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Chỉ admin mới thao tác được." : "Only admins can perform this action.")}`);
       }
 
-      platformService.updateRevenue({
+      await platformService.updateRevenue({
         submissionId: form.submission_id,
         grossUsd: form.gross_usd,
         language
@@ -702,7 +717,7 @@ async function handleFormRoute(req, res, requestUrl, pathname, viewer) {
         return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Chá»‰ admin má»›i thao tĂ¡c Ä‘Æ°á»£c." : "Only admins can perform this action.")}`);
       }
 
-      platformService.updateWithdrawalStatus({
+      await platformService.updateWithdrawalStatus({
         withdrawalId: form.withdrawal_id,
         status: form.status,
         language

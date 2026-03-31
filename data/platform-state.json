@@ -1,5 +1,17 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "openclaw",
+      "role": "owner",
+      "provider": "openclaw",
+      "status": "active",
+      "name": "OpenClaw Owner Delegate",
+      "email": "openclaw@patricktechmedia.local",
+      "delegated_by": "site-owner",
+      "created_at": "2026-03-31T21:28:23.034Z",
+      "updated_at": "2026-03-31T21:29:44.283Z"
+    }
+  ],
   "submissions": [],
   "withdrawals": [],
   "articleComments": [],
