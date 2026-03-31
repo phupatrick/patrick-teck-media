@@ -200,6 +200,94 @@ const tests = [
     }
   },
   {
+    name: "front page prioritizes AI and core technology stories over softer gaming chatter",
+    run() {
+      const scenario = buildScenarioState([
+        makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: "NewsArticle",
+          verification_state: "emerging",
+          title: "Rockstar làm GTA 6 theo cách không ai ngờ: tạo 10.000 âm thanh bước chân rồi chỉ dùng 100",
+          slug: "rockstar-lam-gta-6-theo-cach-khong-ai-ngo-tao-10000-am-thanh-buoc-chan-roi-chi-dung-100",
+          summary: "Bài này lên rất nhanh từ mảng game và cộng đồng, có hình nguồn nhưng giá trị ở front page nên thấp hơn các diễn biến AI hay bảo mật có tác động rộng hơn.",
+          dek: "Dù mới và hút click, đây vẫn là kiểu câu chuyện nên nằm ở lớp theo dõi hoặc chuyên mục game thay vì chiếm vị trí dẫn đầu trang chủ công nghệ.",
+          hook: "Dù mới và hút click, đây vẫn là kiểu câu chuyện nên nằm ở lớp theo dõi hoặc chuyên mục game thay vì chiếm vị trí dẫn đầu trang chủ công nghệ.",
+          published_at: "2026-03-31T11:30:00.000Z",
+          updated_at: "2026-03-31T11:30:00.000Z",
+          sections: [
+            { heading: "Cộng đồng đang nói gì", body: "Người chơi bàn nhiều về chi tiết sản xuất âm thanh và cách đội ngũ của Rockstar chọn ra số lượng âm thanh thật sự dùng trong game." },
+            { heading: "Vì sao lan nhanh", body: "GTA 6 luôn là từ khóa có khả năng kéo tương tác mạnh, đặc biệt khi câu chuyện đụng vào chi tiết hậu trường dễ chia sẻ trong cộng đồng game." },
+            { heading: "Nó nên đứng ở đâu", body: "Dạng bài này phù hợp ở chuyên mục gaming hoặc cụm theo dõi, thay vì lên đầu toàn bộ newsroom công nghệ." }
+          ],
+          image: {
+            src: "https://images.example.com/gta6-audio.jpg",
+            caption: "Ảnh tham khảo từ nguồn game.",
+            credit: "GenK Apps-Games",
+            source_url: "https://example.com/gta6-audio"
+          },
+          source_set: [
+            {
+              source_type: "press",
+              source_name: "GenK Apps-Games",
+              source_url: "https://example.com/gta6-audio",
+              region: "VN",
+              language: "vi",
+              trust_tier: "established-media",
+              published_at: "2026-03-31T11:30:00.000Z",
+              image_url: "https://images.example.com/gta6-audio.jpg",
+              image_caption: "Ảnh tham khảo từ nguồn game.",
+              image_credit: "GenK Apps-Games"
+            }
+          ]
+        }),
+        makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          title: "OpenAI thử nghiệm trợ lý AI cho nhóm chăm sóc khách hàng tại Đông Nam Á",
+          slug: "openai-thu-nghiem-tro-ly-ai-cho-nhom-cham-soc-khach-hang-tai-dong-nam-a",
+          summary: "Một đợt thử nghiệm mới cho thấy AI đang đi nhanh hơn vào vận hành thật, chạm thẳng vào nhóm công việc mà doanh nghiệp Việt Nam và khu vực theo dõi sát từng tuần.",
+          dek: "Câu chuyện có độ ưu tiên cao hơn vì nó liên quan trực tiếp tới AI ứng dụng, cách doanh nghiệp vận hành đội hỗ trợ và hướng đi của các nền tảng lớn.",
+          hook: "Câu chuyện có độ ưu tiên cao hơn vì nó liên quan trực tiếp tới AI ứng dụng, cách doanh nghiệp vận hành đội hỗ trợ và hướng đi của các nền tảng lớn.",
+          published_at: "2026-03-31T11:00:00.000Z",
+          updated_at: "2026-03-31T11:00:00.000Z",
+          sections: [
+            { heading: "Điều vừa xảy ra", body: "OpenAI đang thử nghiệm một luồng trợ lý mới cho đội ngũ chăm sóc khách hàng, tập trung vào trả lời nhanh, tóm tắt ngữ cảnh và giữ độ ổn định khi tải tăng." },
+            { heading: "Vì sao đáng lên đầu trang", body: "Đây là kiểu diễn biến có sức nặng với độc giả công nghệ vì nó chạm vào AI ứng dụng, chiến lược nền tảng lớn và câu hỏi xem AI đang tiến xa tới đâu trong công việc thật." },
+            { heading: "Điều cần theo dõi", body: "Điểm tiếp theo cần xem là mức độ mở rộng sang các thị trường châu Á và cách những đối thủ như Google hay Microsoft phản ứng." }
+          ],
+          image: {
+            src: "https://images.example.com/openai-support.jpg",
+            caption: "Ảnh tham khảo từ nguồn xác thực.",
+            credit: "OpenAI",
+            source_url: "https://example.com/openai-support"
+          },
+          source_set: [
+            {
+              source_type: "official-site",
+              source_name: "OpenAI",
+              source_url: "https://example.com/openai-support",
+              region: "Global",
+              language: "vi",
+              trust_tier: "official",
+              published_at: "2026-03-31T11:00:00.000Z",
+              image_url: "https://images.example.com/openai-support.jpg",
+              image_caption: "Ảnh tham khảo từ nguồn xác thực.",
+              image_credit: "OpenAI"
+            }
+          ]
+        })
+      ]);
+      const home = getHomeData(scenario, "vi");
+      const gamingStory = scenario.articles.find((article) => article.slug.includes("rockstar-lam-gta-6"));
+
+      assert.equal(home.featured.slug, "openai-thu-nghiem-tro-ly-ai-cho-nhom-cham-soc-khach-hang-tai-dong-nam-a");
+      assert.equal(gamingStory.topic, "gaming");
+    }
+  },
+  {
     name: "keeps internal automation branding off public pages and generates hooks for every article",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
@@ -575,8 +663,8 @@ function makeScenarioArticle(overrides) {
     related_store_items: ["ai-workspace-bundle"],
     source_set: overrides.source_set,
     author_id: "mai-linh",
-    published_at: "2026-03-31T10:00:00.000Z",
-    updated_at: "2026-03-31T10:00:00.000Z",
+    published_at: overrides.published_at || "2026-03-31T10:00:00.000Z",
+    updated_at: overrides.updated_at || overrides.published_at || "2026-03-31T10:00:00.000Z",
     image: overrides.image,
     href: `/${language}/${segmentByType[overrides.content_type || "NewsArticle"]}/${overrides.slug}`
   };
