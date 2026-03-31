@@ -10,6 +10,14 @@ export function renderHomePage(state, language, adsConfig) {
   const copy = getCopy(language);
   const path = `/${language}/`;
   const tips = home.tips?.length ? home.tips : home.evergreen;
+  const leadStories = dedupeStories([home.featured, ...home.latest, ...home.trending, home.briefing, ...tips]);
+  const leadFeature = leadStories[0];
+  const leadSideStories = excludeStories(leadStories.slice(1), [leadFeature]).slice(0, 2);
+  const ribbonStories = excludeStories(dedupeStories([...home.latest, ...home.trending, home.briefing]), [leadFeature, ...leadSideStories]).slice(0, 5);
+  const latestStories = excludeStories(dedupeStories(home.latest), [leadFeature, ...leadSideStories]).slice(0, 4);
+  const watchStories = excludeStories(dedupeStories([...home.trending, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories]).slice(0, 4);
+  const guideLead = excludeStories(dedupeStories([...tips, home.briefing]), [leadFeature, ...leadSideStories])[0] || home.briefing;
+  const guideStories = excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead]).slice(0, 3);
 
   return renderLayout({
     state,
@@ -19,48 +27,79 @@ export function renderHomePage(state, language, adsConfig) {
     title: `${state.site.name} | ${copy.homeTitle}`,
     description: state.site.description[language],
     content: `
-      <section class="hero-panel">
-        <div class="hero-copy">
+      <section class="frontpage-masthead">
+        <div class="frontpage-masthead-copy">
           <p class="eyebrow">${copy.eyebrow}</p>
           <h1>${escapeHtml(copy.heroTitle)}</h1>
-          <p class="hero-text">${escapeHtml(copy.heroText)}</p>
-          <div class="hero-badges">
-            <span>${copy.badgeSignals}</span>
-            <span>${copy.badgeAds}</span>
-            <span>${copy.badgeBilingual}</span>
-          </div>
-          ${renderHeroNotebook(home, language, copy)}
         </div>
-        ${renderHeroReaderAside(home, language, copy)}
+        <p class="frontpage-masthead-text">${escapeHtml(copy.heroText)}</p>
+        <div class="hero-badges">
+          <span>${copy.badgeSignals}</span>
+          <span>${copy.badgeAds}</span>
+          <span>${copy.badgeBilingual}</span>
+        </div>
       </section>
 
-      <section class="featured-split">
-        <article class="featured-story topic-${home.featured.topic}">
-          ${renderStoryImage(home.featured, "featured-media", true)}
-          <div class="featured-copy">
-            <div class="story-meta-line">
-              <span class="pill">${escapeHtml(home.featured.content_type_label)}</span>
-              <span>${escapeHtml(home.featured.topic_label)}</span>
-              <span>${escapeHtml(formatPublishDate(language, home.featured.published_at))}</span>
-            </div>
-            <h2><a href="${home.featured.href}">${escapeHtml(home.featured.title)}</a></h2>
-            <p class="story-hook">${escapeHtml(home.featured.hook || home.featured.dek)}</p>
-            ${shouldRenderSeparateDek(home.featured) ? `<p class="story-dek">${escapeHtml(home.featured.dek)}</p>` : ""}
-            <p class="story-summary">${escapeHtml(home.featured.summary)}</p>
-            <a class="read-link" href="${home.featured.href}">${copy.readStory}</a>
+      <section class="frontpage-hero">
+        ${renderLeadFeature(leadFeature, language, copy)}
+        <aside class="frontpage-rail">
+          <div class="lead-mini-grid">
+            ${leadSideStories.map((article) => renderLeadMini(article, language)).join("")}
           </div>
-        </article>
+          <article class="rail-card hot-card">
+            <div class="section-head compact-head">
+              <div>
+                <p class="eyebrow">${copy.hotLabel}</p>
+                <h2>${copy.hotTitle}</h2>
+              </div>
+            </div>
+            <div class="headline-list">
+              ${watchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
+            </div>
+          </article>
+          <article class="rail-card company-flash-card">
+            <p class="rail-label">${copy.ecosystemLabel}</p>
+            <h3>${copy.ecosystemTitle}</h3>
+            <p>${copy.companyBrief}</p>
+            <div class="company-links">
+              <a class="text-link" href="/${language}/store">${copy.visitStore}</a>
+              <a class="text-link" href="/${language}/about">${copy.aboutLabel}</a>
+            </div>
+          </article>
+        </aside>
+      </section>
 
-        <aside class="briefing-rail">
-          <div class="rail-card">
-            <p class="rail-label">${copy.updateLabel}</p>
-            <h3>${copy.updateTitle}</h3>
-            <p>${copy.updateText}</p>
-            <div class="stack-list compact-stack">
-              ${home.latest.slice(0, 3).map((article) => renderStackItem(article, language, false)).join("")}
-            </div>
+      <section class="headline-ribbon" id="latest">
+        <div class="headline-ribbon-head">
+          <p class="eyebrow">${copy.ribbonLabel}</p>
+          <h2>${copy.ribbonTitle}</h2>
+        </div>
+        <div class="headline-ribbon-track">
+          ${ribbonStories.map((article) => renderRibbonItem(article, language)).join("")}
+        </div>
+      </section>
+
+      ${renderSlot(adsConfig, { language, pageAllowsAds: true, placement: "hero" })}
+
+      <section class="frontpage-grid">
+        <div class="section-block">
+          <div class="section-head">
+            <p class="eyebrow">${copy.latestLabel}</p>
+            <h2>${copy.latestTitle}</h2>
           </div>
-          <div class="rail-card">
+          <div class="story-grid">
+            ${latestStories.map((article) => renderStoryCard(article, language)).join("")}
+          </div>
+        </div>
+        <aside class="section-block editors-block">
+          <div class="section-head">
+            <p class="eyebrow">${copy.editorsLabel}</p>
+            <h2>${copy.editorsTitle}</h2>
+          </div>
+          <div class="stack-list">
+            ${watchStories.map((article) => renderStackItem(article, language, true)).join("")}
+          </div>
+          <div class="newsroom-brief">
             <p class="rail-label">${copy.briefingLabel}</p>
             <h3><a href="${home.briefing.href}">${escapeHtml(home.briefing.title)}</a></h3>
             <p>${escapeHtml(home.briefing.summary)}</p>
@@ -69,48 +108,28 @@ export function renderHomePage(state, language, adsConfig) {
         </aside>
       </section>
 
-      ${renderSlot(adsConfig, { language, pageAllowsAds: true, placement: "hero" })}
-
-      <section class="section-grid" id="latest">
-        <div class="section-block">
-          <div class="section-head">
-            <p class="eyebrow">${copy.latestLabel}</p>
-            <h2>${copy.latestTitle}</h2>
+      <section class="guide-showcase" id="tips">
+        <article class="guide-showcase-lead topic-${guideLead.topic}">
+          ${renderStoryImage(guideLead, "guide-showcase-media")}
+          <div class="guide-showcase-copy">
+            <div class="story-meta-line">
+              <span class="pill">${escapeHtml(guideLead.content_type_label)}</span>
+              <span>${escapeHtml(guideLead.topic_label)}</span>
+              <span>${escapeHtml(formatPublishDate(language, guideLead.published_at))}</span>
+            </div>
+            <h2><a href="${guideLead.href}">${escapeHtml(guideLead.title)}</a></h2>
+            <p class="story-hook">${escapeHtml(guideLead.hook || guideLead.dek)}</p>
+            <p>${escapeHtml(renderStoryExcerpt(guideLead))}</p>
+            <a class="read-link" href="${guideLead.href}">${copy.readStory}</a>
           </div>
-          <div class="story-grid">
-            ${home.latest.map((article) => renderStoryCard(article, language)).join("")}
-          </div>
-        </div>
-        <aside class="section-block trending-block">
-          <div class="section-head">
-            <p class="eyebrow">${copy.trendingLabel}</p>
-            <h2>${copy.trendingTitle}</h2>
-          </div>
-          <div class="stack-list">
-            ${home.trending.map((article) => renderStackItem(article, language, true)).join("")}
-          </div>
-        </aside>
-      </section>
-
-      <section class="section-grid secondary-grid" id="tips">
-        <div class="section-block">
+        </article>
+        <aside class="section-block guide-showcase-side">
           <div class="section-head">
             <p class="eyebrow">${copy.tipsLabel}</p>
             <h2>${copy.tipsTitle}</h2>
           </div>
-          <div class="story-grid compact-grid">
-            ${tips.map((article) => renderStoryCard(article, language)).join("")}
-          </div>
-        </div>
-        <aside class="section-block ecosystem-block company-block">
-          <div class="section-head">
-            <p class="eyebrow">${copy.ecosystemLabel}</p>
-            <h2>${copy.ecosystemTitle}</h2>
-          </div>
-          <p>${copy.ecosystemText}</p>
-          <div class="company-links">
-            <a class="text-link" href="/${language}/store">${copy.visitStore}</a>
-            <a class="text-link" href="/${language}/about">${language === "vi" ? "Về Patrick Tech Media" : "About Patrick Tech Media"}</a>
+          <div class="stack-list">
+            ${guideStories.map((article) => renderStackItem(article, language, false)).join("")}
           </div>
         </aside>
       </section>
@@ -855,6 +874,67 @@ function renderStoryExcerpt(article) {
   return article.summary || article.dek || "";
 }
 
+function renderLeadFeature(article, language, copy) {
+  return `
+    <article class="lead-feature topic-${article.topic}">
+      ${renderStoryImage(article, "lead-feature-media", true)}
+      <div class="lead-feature-overlay"></div>
+      <div class="lead-feature-copy">
+        <div class="lead-feature-topline">
+          <span class="pill hot-pill">${copy.hotLabel}</span>
+          <span>${escapeHtml(article.topic_label)}</span>
+          <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+        </div>
+        ${article.editorial_label ? `<div class="story-flag lead-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
+        <h2><a href="${article.href}">${escapeHtml(article.title)}</a></h2>
+        <p class="lead-feature-hook">${escapeHtml(article.hook || article.dek || article.summary)}</p>
+        <div class="lead-feature-actions">
+          <a class="read-link inverted" href="${article.href}">${copy.readStory}</a>
+          <span class="lead-feature-source">${escapeHtml(article.content_type_label)}</span>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderLeadMini(article, language) {
+  return `
+    <article class="lead-mini topic-${article.topic}">
+      ${renderStoryImage(article, "lead-mini-media")}
+      <div class="lead-mini-copy">
+        <div class="stack-topline">
+          <span>${escapeHtml(article.topic_label)}</span>
+          <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+        </div>
+        <h3><a href="${article.href}">${escapeHtml(article.title)}</a></h3>
+        <p class="story-hook">${escapeHtml(article.hook || article.summary)}</p>
+      </div>
+    </article>
+  `;
+}
+
+function renderHeadlineItem(article, language, index) {
+  return `
+    <a class="headline-item" href="${article.href}">
+      <span class="headline-index">${String(index).padStart(2, "0")}</span>
+      <div>
+        <strong>${escapeHtml(article.title)}</strong>
+        <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+      </div>
+    </a>
+  `;
+}
+
+function renderRibbonItem(article, language) {
+  return `
+    <a class="ribbon-item" href="${article.href}">
+      <span>${escapeHtml(article.topic_label)}</span>
+      <strong>${escapeHtml(article.title)}</strong>
+      <em>${escapeHtml(formatPublishDate(language, article.published_at))}</em>
+    </a>
+  `;
+}
+
 function renderHeroReaderAside(home, language, copy) {
   const quickReads = dedupeStories(home.latest).slice(0, 3);
   const hotReads = dedupeStories(home.trending).slice(0, 2);
@@ -956,6 +1036,11 @@ function dedupeStories(stories) {
   }
 
   return output;
+}
+
+function excludeStories(stories, excluded) {
+  const blocked = new Set((excluded || []).filter(Boolean).map((story) => story.href));
+  return (stories || []).filter((story) => story && !blocked.has(story.href));
 }
 
 function shouldRenderSeparateDek(article) {
@@ -1319,7 +1404,18 @@ function getCopy(language) {
       dashboardRepoLabel: "Repo",
       dashboardRepoTitle: "Checklist để đẩy lên GitHub",
       humanSitemapLabel: "Sitemap người đọc",
-      storeLabel: "Store"
+      storeLabel: "Store",
+      heroTitle: "Tin công nghệ mới nhất từ Việt Nam và thế giới.",
+      heroText:
+        "Patrick Tech Media bám sát AI, Big Tech, mạng xã hội, phần mềm, thiết bị và những thủ thuật đáng lưu, với ưu tiên rõ cho ảnh đẹp và headline đủ lực kéo người đọc vào ngay từ cái nhìn đầu tiên.",
+      hotLabel: "Nóng lúc này",
+      hotTitle: "Những headline đang kéo lượt đọc",
+      editorsLabel: "Biên tập chọn",
+      editorsTitle: "Đáng đọc tiếp theo",
+      ribbonLabel: "Đường dây nóng",
+      ribbonTitle: "Các tin vừa bật lên",
+      companyBrief: "Tòa soạn nội dung của Patrick Tech Co. VN, kết nối tin tức, thủ thuật và Patrick Tech Store trong cùng một hệ sinh thái công nghệ.",
+      aboutLabel: "Về Patrick Tech Media"
     };
   }
 
@@ -1443,7 +1539,18 @@ function getCopy(language) {
     dashboardRepoLabel: "Repo",
     dashboardRepoTitle: "Checklist for pushing to GitHub",
     humanSitemapLabel: "Reader sitemap",
-    storeLabel: "Store"
+    storeLabel: "Store",
+    heroTitle: "Fresh technology news from Vietnam and the wider web.",
+    heroText:
+      "Patrick Tech Media tracks AI, Big Tech, social platforms, software, devices, and practical how-tos with a front page that gives priority to visual stories and headlines that make people stop scrolling.",
+    hotLabel: "Hot now",
+    hotTitle: "Headlines pulling readers in",
+    editorsLabel: "Editors' picks",
+    editorsTitle: "What to open next",
+    ribbonLabel: "Fast line",
+    ribbonTitle: "Stories that just moved",
+    companyBrief: "The newsroom branch of Patrick Tech Co. VN, connecting technology coverage, practical guides, and Patrick Tech Store in one ecosystem.",
+    aboutLabel: "About Patrick Tech Media"
   };
 }
 
