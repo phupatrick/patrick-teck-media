@@ -891,6 +891,7 @@ function renderStoryExcerpt(article) {
 function renderHeroReaderAside(home, language, copy) {
   const quickReads = dedupeStories([home.featured, home.briefing, ...home.latest]).slice(0, 3);
   const hotReads = home.trending.slice(0, 3);
+  const aboutHref = `/${language}/about`;
 
   return `
     <aside class="hero-aside hero-reader-aside">
@@ -898,7 +899,7 @@ function renderHeroReaderAside(home, language, copy) {
         <p class="eyebrow">${copy.readerDeskLabel}</p>
         <h2>${copy.readerDeskTitle}</h2>
         <p>${copy.readerDeskText}</p>
-        <a class="text-link" href="${home.featured.href}">${copy.readStory}</a>
+        <a class="text-link" href="${aboutHref}">${copy.readerDeskCta}</a>
       </article>
 
       <article class="reader-card">
@@ -1125,15 +1126,17 @@ function getCopy(language) {
     return {
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
-      heroTitle: "Tin công nghệ đáng đọc, mở ra là có thứ giữ bạn lại.",
-      heroText:
-        "Patrick Tech Media không xếp headline cho đủ nhịp tin. Mỗi bài được mở bằng một hook rõ, đi nhanh vào bối cảnh quan trọng và giữ nhịp đọc gọn để người xem biết ngay vì sao câu chuyện này đáng dừng lại lâu hơn một lượt lướt.",
-      badgeSignals: "Việt Nam + thế giới",
-      badgeAds: "Hook rõ, đọc cuốn",
-      badgeBilingual: "Song ngữ VI/EN",
-      readerDeskLabel: "Góc biên tập",
-      readerDeskTitle: "Nhịp đáng đọc trong ngày.",
-      readerDeskText: "Một góc đọc nhanh để giữ bài lead, bản tổng hợp và vài chủ đề đang kéo nhịp công nghệ hôm nay trong tầm mắt.",
+    heroTitle: "Patrick Tech Media theo sát nhịp công nghệ Việt Nam và thế giới.",
+    heroText:
+      "Đây là tòa soạn công nghệ thuộc Patrick Tech Co. VN, tập trung vào AI, các ông lớn công nghệ, mạng xã hội, phần mềm, thiết bị và những thủ thuật đáng lưu lại trên internet. Mỗi bài được biên tập để người đọc nắm câu chuyện nhanh nhưng vẫn thấy rõ bối cảnh và điều đáng quan tâm.",
+    badgeSignals: "Việt Nam + thế giới",
+    badgeAds: "AI, Big Tech, social",
+    badgeBilingual: "Tin mới + thủ thuật",
+    readerDeskLabel: "Giới thiệu",
+    readerDeskTitle: "Một newsroom công nghệ mang tên Patrick Tech Media.",
+    readerDeskText:
+      "Patrick Tech Media chọn lọc những cập nhật đáng chú ý nhất từ công nghệ Việt Nam và thế giới, rồi biên tập lại theo lối viết gọn, rõ và dễ theo dõi hơn cho người đọc phổ thông lẫn người làm nghề.",
+    readerDeskCta: "Về Patrick Tech Media",
       readerStartLabel: "Chọn lọc",
       readerStartTitle: "3 bài giữ nhịp hôm nay",
       readerWatchLabel: "Đang nóng",
@@ -1233,15 +1236,17 @@ function getCopy(language) {
   return {
     homeTitle: "Patrick Tech Media | Technology from Vietnam and the wider web",
     eyebrow: "Bilingual newsroom",
-    heroTitle: "Technology stories worth opening, and strong enough to keep you reading.",
+    heroTitle: "Patrick Tech Media tracks the technology story across Vietnam and the wider web.",
     heroText:
-      "Patrick Tech Media is not trying to stack headlines for the sake of volume. Each story opens with a clean hook, moves fast into the useful context, and keeps the reading rhythm tight enough that the important angle is clear before attention drifts.",
+      "Patrick Tech Media is the technology newsroom inside Patrick Tech Co. VN, following AI, big tech, social platforms, software, devices, and practical how-tos that matter on the internet right now. Every piece is edited to stay readable, useful, and grounded in clear context.",
     badgeSignals: "Vietnam + world",
-    badgeAds: "Hooks that read human",
-    badgeBilingual: "VI/EN bilingual",
-    readerDeskLabel: "Editorial picks",
-    readerDeskTitle: "The day's reading rhythm.",
-    readerDeskText: "A quick editorial corner for the lead story, the briefing worth keeping open, and the themes shaping today's tech cycle.",
+    badgeAds: "AI, Big Tech, social",
+    badgeBilingual: "News + how-tos",
+    readerDeskLabel: "About",
+    readerDeskTitle: "A technology newsroom shaped as Patrick Tech Media.",
+    readerDeskText:
+      "The desk follows the biggest updates from Vietnam and abroad, then rewrites them into cleaner, sharper stories that feel easier to read without losing the important angle.",
+    readerDeskCta: "About Patrick Tech Media",
     readerStartLabel: "Selected reads",
     readerStartTitle: "3 pieces holding the day",
     readerWatchLabel: "Heating up",
