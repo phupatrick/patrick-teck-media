@@ -410,6 +410,87 @@ const tests = [
       assert.equal(output.articles.length, 1);
       assert.equal(output.articles[0].slug, article.slug);
     }
+  },
+  {
+    name: "refresh repairs common mojibake from mixed RSS and HTML encodings",
+    run() {
+      const brokenOpen = "\u00e2\u20ac\u02dc";
+      const brokenClose = "\u00e2\u20ac\u2122";
+      const brokenDash = "\u00e2\u20ac\u201d";
+      const brokenOpenDouble = "\u00e2\u20ac\u0153";
+      const brokenCloseDouble = "\u00e2\u20ac\u009d";
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-refresh-fix-"));
+      const sourcePath = path.join(tempDir, "hidden-feed.json");
+      const outputPath = path.join(tempDir, "newsroom-content.json");
+      const article = makeScenarioArticle({
+        language: "en",
+        content_type: "NewsArticle",
+        verification_state: "verified",
+        title: `Google Photos is losing some of its editing shortcuts to ${brokenOpen}reduce accidental triggers${brokenClose}`,
+        slug: "google-photos-is-losing-some-of-its-editing-shortcuts-to-reduce-accidental-triggers",
+        summary: `Google Photos has become much more than a way to manage and backup your photos and videos, especially in the age of AI. Not everyone needs ${brokenDash} or, more accurately, wants ${brokenDash} to trigger these functions on a regular basis, though, and a new update is helping to eliminate those annoying pop-ups.`,
+        dek: "Google Photos has become much more than a way to manage and backup your photos and videos, especially in the age of AI, and the latest cleanup is meant to reduce accidental triggers.",
+        hook: `Google Photos has become much more than a way to manage and backup your photos and videos, especially in the age of AI. Not everyone needs ${brokenDash} or, more accurately, wants ${brokenDash} to trigger these functions on a regular basis, though, and a new update is helping to eliminate those annoying pop-ups.`,
+        sections: [
+          {
+            heading: "What happened",
+            body: `Google Photos has become much more than a way to manage and backup your photos and videos, especially in the age of AI. Not everyone needs ${brokenDash} or, more accurately, wants ${brokenDash} to trigger these functions on a regular basis, though, and a new update is helping to eliminate those annoying pop-ups.`
+          },
+          {
+            heading: "Why it matters",
+            body: `Google is removing shortcuts you might have been using to access editing tools in Photos on Android, all in the name of ${brokenOpenDouble}reducing accidental triggers.${brokenCloseDouble} The practical effect is a calmer editor and fewer unwanted jumps into AI tools.`
+          },
+          {
+            heading: "What to watch next",
+            body: "The next thing to watch is whether the cleaner interaction model rolls out across Android first and then shows up in the web editor, with the same focus on making common actions feel direct again."
+          }
+        ],
+        image: {
+          src: "https://images.example.com/google-photos.jpg",
+          caption: "Reference image from the source story.",
+          credit: "Android Authority",
+          source_url: "https://example.com/google-photos"
+        },
+        source_set: [
+          {
+            source_type: "press",
+            source_name: "Android Authority",
+            source_url: "https://example.com/google-photos",
+            region: "Global",
+            language: "en",
+            trust_tier: "established-media",
+            image_url: "https://images.example.com/google-photos.jpg",
+            image_caption: "Reference image from the source story.",
+            image_credit: "Android Authority"
+          }
+        ]
+      });
+
+      fs.writeFileSync(sourcePath, JSON.stringify({ articles: [article] }, null, 2), "utf8");
+
+      const result = spawnSync(process.execPath, ["scripts/newsroom-refresh.mjs"], {
+        cwd: path.resolve(process.cwd()),
+        env: {
+          ...process.env,
+          NEWSROOM_PULL_URL: "",
+          OPENCLAW_NEWSROOM_URL: "",
+          NEWSROOM_PULL_FILE: sourcePath,
+          OPENCLAW_NEWSROOM_FILE: "",
+          NEWSROOM_CONTENT_PATH: outputPath
+        },
+        encoding: "utf8"
+      });
+
+      assert.equal(result.status, 0, result.stderr || result.stdout);
+
+      const output = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+      const published = output.articles[0];
+      const blob = JSON.stringify(published);
+
+      assert.doesNotMatch(blob, /\u00e2\u20ac|\u00c3|\u00c2/);
+      assert.match(published.title, /‘reduce accidental triggers’/);
+      assert.match(published.summary, /everyone needs — or, more accurately, wants —/);
+    }
   }
 ];
 
