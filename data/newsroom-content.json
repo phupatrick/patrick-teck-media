@@ -1,6 +1,518 @@
 {
-  "generated_at": "2026-04-01T13:59:41.904Z",
+  "generated_at": "2026-04-01T15:21:50.644Z",
   "articles": [
+    {
+      "id": "feed-0a948eaf29be-en",
+      "cluster_id": "feed-0a948eaf29be",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "anthropic-s-leaked-claude-code-was-an-internal-error-not-an-attack",
+      "title": "Anthropic’s leaked Claude code was an internal error, not an attack",
+      "summary": "Claude’s source code was mistakenly published by Anthropic in the middle of the night, and users have already begun recreating pieces of the internal AI interface leak for their own use. Anthropic has been on a tear, gaining user traction with helpful features like real-time graphics and remote computer control for complicated tasks.",
+      "dek": "Claude’s source code was mistakenly published by Anthropic in the middle of the night, and users have already begun recreating pieces of the internal AI interface leak for their own use.",
+      "hook": "Claude’s source code was mistakenly published by Anthropic in the middle of the night, and users have already begun recreating pieces of the internal AI interface leak for their own use.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Claude’s source code was mistakenly published by Anthropic in the middle of the night, and users have already begun recreating pieces of the internal AI interface leak for their own use."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Anthropic has been on a tear, gaining user traction with helpful features like real-time graphics and remote computer control for complicated tasks. All of these round out the tool set users can access through Anthropic’s interface, but a recent leak may have jeopardized its proprietary nature."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "At around 4 a.m. on Tuesday morning, Anthropic pushed what was supposed to be a routine update to Claude (via VentureBeat ). Apparently, included in that update was a source map file that led right to Claude’s source code. The debugging file contained 512,000 lines of proprietary TypeScript code, which was initially spotted and posted by someone on Twitter/X ."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "9to5Google",
+          "source_url": "https://9to5google.com/2026/04/01/claude-source-code-leak-internal-error/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T15:08:55.000Z",
+          "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2024/07/anthrophic-claude-android-1.jpg?quality=82&strip=all&w=1600",
+          "image_caption": "Reference image from 9to5Google.",
+          "image_credit": "9to5Google"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T15:08:55.000Z",
+      "updated_at": "2026-04-01T15:08:55.000Z",
+      "image": {
+        "src": "https://9to5google.com/wp-content/uploads/sites/4/2024/07/anthrophic-claude-android-1.jpg?quality=82&strip=all&w=1600",
+        "caption": "Reference image from 9to5Google.",
+        "credit": "9to5Google",
+        "source_url": "https://9to5google.com/2026/04/01/claude-source-code-leak-internal-error/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T15:21:50.609Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-ff07faf73feb-en",
+      "cluster_id": "feed-ff07faf73feb",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "ikea-s-new-matter-lights-and-sensors-work-with-google-home-10-speaker-can-form-a-network",
+      "title": "IKEA’s new Matter lights and sensors work with Google Home, $10 speaker can form a network",
+      "summary": "IKEA is today officially launching new lights and sensors that work with Google Home, while the furniture giant is also launching a super-cheap $10 speaker that can form a network of audio throughout your home. Following an early preview at CES 2026 earlier this year, IKEA is launching a few new products in its smart home catalog today.",
+      "dek": "IKEA is today officially launching new lights and sensors that work with Google Home, while the furniture giant is also launching a super-cheap $10 speaker that can form a network of audio throughout your home.",
+      "hook": "IKEA is today officially launching new lights and sensors that work with Google Home, while the furniture giant is also launching a super-cheap $10 speaker that can form a network of audio throughout your home.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "IKEA is today officially launching new lights and sensors that work with Google Home, while the furniture giant is also launching a super-cheap $10 speaker that can form a network of audio throughout your home."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Following an early preview at CES 2026 earlier this year, IKEA is launching a few new products in its smart home catalog today."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "This starts with the VARMBLIXT table lamp, the revival of a hugely popular lamp that IKEA says “sold once every 5 minutes in the US” since its debut a few years ago. This new variation features remote control and full color controls either through IKEA’s app or other Matter apps such as Google Home. The lamp does also come bundled with one of IKEA’s button remotes. It costs $99.99. Meanwhile, a pendant version of the lamp is also launching for $159.99 with a unique design and the same smart controls."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "9to5Google",
+          "source_url": "https://9to5google.com/2026/04/01/ikeas-new-matter-lights-and-sensors-work-with-google-home-10-speaker-can-form-a-network/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T15:05:00.000Z",
+          "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2026/01/ikea-ces-2026-2.jpg?quality=82&strip=all&w=1600",
+          "image_caption": "Reference image from 9to5Google.",
+          "image_credit": "9to5Google"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T15:05:00.000Z",
+      "updated_at": "2026-04-01T15:05:00.000Z",
+      "image": {
+        "src": "https://9to5google.com/wp-content/uploads/sites/4/2026/01/ikea-ces-2026-2.jpg?quality=82&strip=all&w=1600",
+        "caption": "Reference image from 9to5Google.",
+        "credit": "9to5Google",
+        "source_url": "https://9to5google.com/2026/04/01/ikeas-new-matter-lights-and-sensors-work-with-google-home-10-speaker-can-form-a-network/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T15:21:50.609Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-1885954a862d-en",
+      "cluster_id": "feed-1885954a862d",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "black-hole-mergers-put-limits-on-star-destroying-supernovae",
+      "title": "Black hole mergers put limits on star-destroying supernovae",
+      "summary": "Many of the early exoplanet discoveries were exciting on their own, confirming that there really were strange new worlds out in the Universe. But over time, our focus has shifted more toward numbers, as we began using the frequency of objects like super-Earths and mini-Neptunes to learn more about how planets form.",
+      "dek": "Many of the early exoplanet discoveries were exciting on their own, confirming that there really were strange new worlds out in the Universe.",
+      "hook": "Many of the early exoplanet discoveries were exciting on their own, confirming that there really were strange new worlds out in the Universe. But over time, our focus has shifted more toward numbers, as we began using the frequency of objects like super-Earths and mini-Neptunes to learn more about how planets form. With four gravitational wave detectors now having generated years of data, we may be on the verge of seeing something similar happen with black hole mergers.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Many of the early exoplanet discoveries were exciting on their own, confirming that there really were strange new worlds out in the Universe. But over time, our focus has shifted more toward numbers, as we began using the frequency of objects like super-Earths and mini-Neptunes to learn more about how planets form. With four gravitational wave detectors now having generated years of data, we may be on the verge of seeing something similar happen with black hole mergers."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "On Wednesday, researchers released an analysis suggesting that there’s a “mass gap” in the population of black holes that we’ve detected so far. And that gap supports the idea that some stars are so massive that they die in something called a pair-instability supernova, which is so violent that it leaves nothing but debris behind."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Black holes result from the collapse of a star’s core during a supernova. While the outer layers of a star explode outward, the innermost layers plunge inward, funneling a fraction of the star’s mass into the black hole (or neutron star if the star’s mass is too small). We’re not sure what the upper limit on a star’s mass is, so you might naively think the distribution of black hole masses tails off gently."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Ars Technica",
+          "source_url": "https://arstechnica.com/science/2026/04/black-hole-mergers-put-limits-on-star-destroying-supernovae/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T15:00:01.000Z",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/image-8-1152x648.jpeg",
+          "image_caption": "Reference image from Ars Technica.",
+          "image_credit": "Ars Technica"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T15:00:01.000Z",
+      "updated_at": "2026-04-01T15:00:01.000Z",
+      "image": {
+        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/image-8-1152x648.jpeg",
+        "caption": "Reference image from Ars Technica.",
+        "credit": "Ars Technica",
+        "source_url": "https://arstechnica.com/science/2026/04/black-hole-mergers-put-limits-on-star-destroying-supernovae/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T15:21:50.609Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-53442c0a0364-vi",
+      "cluster_id": "feed-53442c0a0364",
+      "language": "vi",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "dlss-a-co-trong-fallout-4-tren-nintendo-switch-2-nhung-digital-foundry-phong-to-het-co-van-khong",
+      "title": "DLSS đã có trong Fallout 4 trên Nintendo Switch 2, nhưng Digital Foundry phóng to hết cỡ vẫn không thấy khác biệt ở 40FPS",
+      "summary": "Fallout 4 Anniversary Edition trên Nintendo Switch 2 ra mắt không có DLSS, nhưng Bethesda Game Studios đã bổ sung tính năng này qua bản cập nhật phát hành tuần trước. Changelog chính thức xác nhận DLSS hiện hoạt động ở cả chế độ 40FPS và 60FPS, đồng thời tự động tắt khi mở các menu nặng giao diện như Pip-Boy.",
+      "dek": "Fallout 4 Anniversary Edition trên Nintendo Switch 2 ra mắt không có DLSS, nhưng Bethesda Game Studios đã bổ sung tính năng này qua bản cập nhật phát hành tuần trước.",
+      "hook": "Fallout 4 Anniversary Edition trên Nintendo Switch 2 ra mắt không có DLSS, nhưng Bethesda Game Studios đã bổ sung tính năng này qua bản cập nhật phát hành tuần trước. Changelog chính thức xác nhận DLSS hiện hoạt động ở cả chế độ 40FPS và 60FPS, đồng thời tự động tắt khi mở các menu nặng giao diện như Pip-Boy.",
+      "sections": [
+        {
+          "heading": "Điều vừa xảy ra",
+          "body": "Fallout 4 Anniversary Edition trên Nintendo Switch 2 ra mắt không có DLSS, nhưng Bethesda Game Studios đã bổ sung tính năng này qua bản cập nhật phát hành tuần trước. Changelog chính thức xác nhận DLSS hiện hoạt động ở cả chế độ 40FPS và 60FPS, đồng thời tự động tắt khi mở các menu nặng giao diện như Pip-Boy."
+        },
+        {
+          "heading": "Vì sao đáng chú ý",
+          "body": "Digital Foundry đã kiểm tra bản cập nhật và đưa ra đánh giá không mấy tích cực. Ở chế độ 40FPS, không có sự khác biệt rõ ràng về chất lượng hình ảnh ngay cả khi phóng to để so sánh trực tiếp. Chế độ 60FPS cho kết quả khả quan hơn: DLSS cải thiện độ sắc nét và ổn định ảnh động, loại bỏ hiện tượng nhấp nháy trong các cảnh tĩnh. Về hiệu năng, DLSS hỗ trợ một phần ở chế độ 60FPS nhưng không tạo ra thay đổi đáng kể. Các hiện tượng giật khi di chuyển vẫn còn nguyên sau bản vá."
+        },
+        {
+          "heading": "Điều cần theo dõi tiếp",
+          "body": "Nhóm Digital Foundry xác định Bethesda đã chọn DLSS Light - phiên bản nhẹ hơn về tính toán, được phát triển riêng cho Nintendo Switch 2 - thay vì mô hình CNN (mạng nơ-ron tích chập) thông thường mà người dùng PC vẫn dùng cho đến khi các mô hình transformer ra đời gần đây."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "GenK Apps-Games",
+          "source_url": "https://genk.vn/dlss-da-co-trong-fallout-4-tren-nintendo-switch-2-nhung-digital-foundry-phong-to-het-co-van-khong-thay-khac-biet-o-40fps-165260104083349191.chn",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T15:00:00.000Z",
+          "image_url": "https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/4/1/avatar1775019466004-17750194662621565079642.jpg",
+          "image_caption": "Ảnh tham khảo từ GenK Apps-Games.",
+          "image_credit": "GenK Apps-Games"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T15:00:00.000Z",
+      "updated_at": "2026-04-01T15:00:00.000Z",
+      "image": {
+        "src": "https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/4/1/avatar1775019466004-17750194662621565079642.jpg",
+        "caption": "Ảnh tham khảo từ GenK Apps-Games.",
+        "credit": "GenK Apps-Games",
+        "source_url": "https://genk.vn/dlss-da-co-trong-fallout-4-tren-nintendo-switch-2-nhung-digital-foundry-phong-to-het-co-van-khong-thay-khac-biet-o-40fps-165260104083349191.chn"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T15:21:50.609Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-75ed073da136-en",
+      "cluster_id": "feed-75ed073da136",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "hasbro-says-it-was-hacked-and-may-take-several-weeks-to-recover",
+      "title": "Hasbro says it was hacked, and may take ‘several weeks’ to recover",
+      "summary": "American toy-making giant Hasbro has confirmed a cyberattack, and the company says it may take “several weeks” before the incident is resolved. The owner of properties including Transformers, Peppe Pig, and Dungeons & Dragons said in a legally required disclosure with the U.S.",
+      "dek": "American toy-making giant Hasbro has confirmed a cyberattack, and the company says it may take “several weeks” before the incident is resolved.",
+      "hook": "American toy-making giant Hasbro has confirmed a cyberattack, and the company says it may take “several weeks” before the incident is resolved.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "American toy-making giant Hasbro has confirmed a cyberattack, and the company says it may take “several weeks” before the incident is resolved."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "The owner of properties including Transformers, Peppe Pig, and Dungeons & Dragons said in a legally required disclosure with the U.S. Securities and Exchange Commission on Wednesday that it detected an intrusion on March 28, which prompted the company to take down some of its systems."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Hasbro said it has implemented and continues to roll out business continuity plans to allow it to “take orders, ship product and conduct other key operations while it resolves this situation.”."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/04/01/hasbro-hacked-may-take-several-weeks-to-recover/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T14:50:32.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/04/hasbro-logo-2226484802.jpg?resize=1200,805",
+          "image_caption": "Reference image from TechCrunch.",
+          "image_credit": "TechCrunch"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T14:50:32.000Z",
+      "updated_at": "2026-04-01T14:50:32.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2026/04/hasbro-logo-2226484802.jpg?resize=1200,805",
+        "caption": "Reference image from TechCrunch.",
+        "credit": "TechCrunch",
+        "source_url": "https://techcrunch.com/2026/04/01/hasbro-hacked-may-take-several-weeks-to-recover/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T15:21:50.609Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-db160fc7aa76-en",
+      "cluster_id": "feed-db160fc7aa76",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "lenovo-has-raised-prices-on-its-android-tablets-ended-legion-tab-sales",
+      "title": "Lenovo has raised prices on its Android tablets, ended Legion Tab sales",
+      "summary": "Lenovo has ended sales of its Legion Tab (Gen 3) ahead of an upgrade and, in turn, more expensive sequel, while also issuing price hikes to its entire family of Android tablets. The ongoing RAM/storage crisis has sent shockwaves through the entire tech industry, and even Lenovo as one of the biggest tech companies is not immune.",
+      "dek": "Lenovo has ended sales of its Legion Tab (Gen 3) ahead of an upgrade and, in turn, more expensive sequel, while also issuing price hikes to its entire family of Android tablets.",
+      "hook": "Lenovo has ended sales of its Legion Tab (Gen 3) ahead of an upgrade and, in turn, more expensive sequel, while also issuing price hikes to its entire family of Android tablets.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Lenovo has ended sales of its Legion Tab (Gen 3) ahead of an upgrade and, in turn, more expensive sequel, while also issuing price hikes to its entire family of Android tablets."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "The ongoing RAM/storage crisis has sent shockwaves through the entire tech industry, and even Lenovo as one of the biggest tech companies is not immune. Lenovo warned earlier this year that it would raise prices on some of its products throughout March 2026 and, as it turns out, that includes its entire lineup of Android tablets."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Of the dozen Android tablets Lenovo currently sells, every single one has seen at least a minor price bump. The folks over at PhoneArena first spotted these changes on Lenovo’s US store . We’ve not been able to corroborate all of the original prices – archive data, especially for retail sites, can be spotty at best – but most of these do line up with prior press releases and our own coverage. In fact, based on our findings, this isn’t even the first price hike for some of these tablets. Lenovo Idea Tab Pro was originally supposed to be $349, for example."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "9to5Google",
+          "source_url": "https://9to5google.com/2026/04/01/lenovo-has-raised-prices-on-its-android-tablets-ended-legion-tab-sales/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T14:35:00.000Z",
+          "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2025/01/lenovo-legion-tab-2_bbcc58.jpg?quality=82&strip=all&w=1600",
+          "image_caption": "Reference image from 9to5Google.",
+          "image_credit": "9to5Google"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T14:35:00.000Z",
+      "updated_at": "2026-04-01T14:35:00.000Z",
+      "image": {
+        "src": "https://9to5google.com/wp-content/uploads/sites/4/2025/01/lenovo-legion-tab-2_bbcc58.jpg?quality=82&strip=all&w=1600",
+        "caption": "Reference image from 9to5Google.",
+        "credit": "9to5Google",
+        "source_url": "https://9to5google.com/2026/04/01/lenovo-has-raised-prices-on-its-android-tablets-ended-legion-tab-sales/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T15:21:50.609Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-5e310b358f9e-en",
+      "cluster_id": "feed-5e310b358f9e",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "less-than-a-month-strictlyvc-san-francisco-brings-leaders-from-tdk-ventures-replit-and-more-toge",
+      "title": "Less than a month: StrictlyVC San Francisco brings leaders from TDK Ventures, Replit, and more together",
+      "summary": "All good things come to those who wait. The first StrictlyVC of the year is headed to San Francisco in less than a month, on April 30, at the Sentro Filipino Cultural Center.",
+      "dek": "The piece brings the story back into context and explains why it is worth opening right now.",
+      "hook": "All good things come to those who wait. The first StrictlyVC of the year is headed to San Francisco in less than a month, on April 30, at the Sentro Filipino Cultural Center. And you won’t want to miss out on another lineup of stellar speakers to punctuate the night’s networking and mingling. AI innovators and founders in search of funding will be particularly well-served by the event’s discussions.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "All good things come to those who wait. The first StrictlyVC of the year is headed to San Francisco in less than a month, on April 30, at the Sentro Filipino Cultural Center. And you won’t want to miss out on another lineup of stellar speakers to punctuate the night’s networking and mingling. AI innovators and founders in search of funding will be particularly well-served by the event’s discussions."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "You can get a ticket right now , but for those who haven’t been to a StrictlyVC event in the past and already clicked that link, let’s dive into what’s particularly exciting about this one …."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "TDK Ventures president Nicolas Sauvage will kick things off after you get your requisite beverages and networking in, as he makes the case for corporate VCs in a conversation with TechCrunch editor-in-chief Connie Loizos. Sauvage, who leads TDK Ventures’ $500 million effort to invest in early-stage startups, will explain what makes corporate VCs operate differently and what founders should know about what catches his eye in an investment."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/04/01/join-the-first-strictlyvc-of-2026-in-sf-with-leaders-from-tdk-ventures-and-replits-co-founder/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T14:00:00.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/03/54963244981_66492e96cc_6k.jpg?resize=1200,800",
+          "image_caption": "Reference image from TechCrunch.",
+          "image_credit": "TechCrunch"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T14:00:00.000Z",
+      "updated_at": "2026-04-01T14:00:00.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2026/03/54963244981_66492e96cc_6k.jpg?resize=1200,800",
+        "caption": "Reference image from TechCrunch.",
+        "credit": "TechCrunch",
+        "source_url": "https://techcrunch.com/2026/04/01/join-the-first-strictlyvc-of-2026-in-sf-with-leaders-from-tdk-ventures-and-replits-co-founder/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T15:21:50.609Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-dbe5f500f10a-en",
+      "cluster_id": "feed-dbe5f500f10a",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "sweden-goes-back-to-basics-swapping-screens-for-books-in-the-classroom",
+      "title": "Sweden goes back to basics, swapping screens for books in the classroom",
+      "summary": "In 2023, the Swedish government announced that the country’s schools would be going back to basics , emphasizing skills such as reading and writing, particularly in early grades. After mostly being sidelined, physical books are now being reintroduced into classrooms, and students are learning to write the old-fashioned way: by hand, with a pencil or pen, on sheets of paper.",
+      "dek": "In 2023, the Swedish government announced that the country’s schools would be going back to basics , emphasizing skills such as reading and writing, particularly in early grades.",
+      "hook": "In 2023, the Swedish government announced that the country’s schools would be going back to basics , emphasizing skills such as reading and writing, particularly in early grades. After mostly being sidelined, physical books are now being reintroduced into classrooms, and students are learning to write the old-fashioned way: by hand, with a pencil or pen, on sheets of paper. The Swedish government also plans to make schools cellphone-free throughout the country.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "In 2023, the Swedish government announced that the country’s schools would be going back to basics , emphasizing skills such as reading and writing, particularly in early grades. After mostly being sidelined, physical books are now being reintroduced into classrooms, and students are learning to write the old-fashioned way: by hand, with a pencil or pen, on sheets of paper. The Swedish government also plans to make schools cellphone-free throughout the country."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Educational authorities have been investing heavily. Last year alone, the education ministry allocated $83 million to purchase textbooks and teachers’ guides. In a country with about 11 million people, the aim is for every student to have a physical textbook for each subject. The government also put $54 million towards the purchase of fiction and non-fiction books for students."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "These moves represent a dramatic pivot from previous decades, during which Sweden—and many other nations— moved away from physical books in favor of tablets and digital resources in an effort to prepare students for life in an online world. Perhaps unsurprisingly, the Nordic country’s efforts have sparked a debate on the role of digital technology in education, one that extends well beyond the country’s borders. US parents in districts that have adopted digital technology to a great extent may be wondering if educators will reverse course, too."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Ars Technica",
+          "source_url": "https://arstechnica.com/science/2026/04/sweden-goes-back-to-basics-swapping-screens-for-books-in-the-classroom/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T13:46:22.000Z",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/book-laptop-school-1152x648.jpg",
+          "image_caption": "Reference image from Ars Technica.",
+          "image_credit": "Ars Technica"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T13:46:22.000Z",
+      "updated_at": "2026-04-01T13:46:22.000Z",
+      "image": {
+        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/book-laptop-school-1152x648.jpg",
+        "caption": "Reference image from Ars Technica.",
+        "credit": "Ars Technica",
+        "source_url": "https://arstechnica.com/science/2026/04/sweden-goes-back-to-basics-swapping-screens-for-books-in-the-classroom/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T15:21:50.609Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-1b5c49a432c4-en",
       "cluster_id": "feed-1b5c49a432c4",
@@ -61,7 +573,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.866Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -125,7 +637,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -189,7 +701,71 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-77cd84ba9c8e-en",
+      "cluster_id": "feed-77cd84ba9c8e",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "launch-day-has-arrived-for-nasa-s-artemis-ii-mission-here-s-what-to-expect",
+      "title": "Launch day has arrived for NASA's Artemis II mission—here's what to expect",
+      "summary": "KENNEDY SPACE CENTER, Florida —Launching to the Moon is an all-day undertaking, something the four astronauts waiting to climb aboard NASA’s Artemis II rocket know well. “It is actually a very long day,” said Victor Glover, the pilot on Artemis II.",
+      "dek": "KENNEDY SPACE CENTER, Florida —Launching to the Moon is an all-day undertaking, something the four astronauts waiting to climb aboard NASA’s Artemis II rocket know well.",
+      "hook": "KENNEDY SPACE CENTER, Florida —Launching to the Moon is an all-day undertaking, something the four astronauts waiting to climb aboard NASA’s Artemis II rocket know well.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "KENNEDY SPACE CENTER, Florida —Launching to the Moon is an all-day undertaking, something the four astronauts waiting to climb aboard NASA’s Artemis II rocket know well."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "“It is actually a very long day,” said Victor Glover, the pilot on Artemis II. “We wake up about eight hours before launch, and there’s a pretty tight schedule of things to get out there.”."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Glover and his three crewmates have their schedules planned to the minute throughout the nine-day Artemis II mission. If all goes according to plan, their mission will carry them more than a quarter-million miles from Earth, farther from home than anyone has ventured in human history. After looping behind the Moon, the astronauts and their Orion capsule will fall back to Earth at some 25,000 mph (40,000 km/hr), setting another record for the fastest that humans have ever traveled."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Ars Technica",
+          "source_url": "https://arstechnica.com/space/2026/04/launch-day-has-arrived-for-nasas-artemis-ii-mission-heres-what-to-expect/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T13:04:27.000Z",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/KSC-20260324-PH-JBS01_0016large-1152x648.jpg",
+          "image_caption": "Reference image from Ars Technica.",
+          "image_credit": "Ars Technica"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T13:04:27.000Z",
+      "updated_at": "2026-04-01T13:04:27.000Z",
+      "image": {
+        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/KSC-20260324-PH-JBS01_0016large-1152x648.jpg",
+        "caption": "Reference image from Ars Technica.",
+        "credit": "Ars Technica",
+        "source_url": "https://arstechnica.com/space/2026/04/launch-day-has-arrived-for-nasas-artemis-ii-mission-heres-what-to-expect/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -253,7 +829,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -317,7 +893,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -381,7 +957,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -445,7 +1021,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -509,7 +1085,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -573,7 +1149,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -637,7 +1213,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -765,7 +1341,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -829,7 +1405,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -893,7 +1469,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -957,7 +1533,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -2493,7 +3069,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -3661,7 +4237,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -3725,7 +4301,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },
@@ -4597,7 +5173,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T13:59:41.867Z",
+        "generated_at": "2026-04-01T15:21:50.609Z",
         "origin": "local-curated-rss"
       }
     },

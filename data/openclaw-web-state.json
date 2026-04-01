@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-01T13:59:42.050Z",
+  "generated_at": "2026-04-01T15:21:50.853Z",
   "manager": {
     "id": "openclaw",
     "autonomy": "owner-delegated-full"
@@ -12,8 +12,8 @@
   },
   "priorityTopics": [
     "ai",
-    "internet-business-tech",
     "security",
+    "internet-business-tech",
     "devices",
     "gaming",
     "apps-software"
@@ -21,8 +21,8 @@
   "ranking": {
     "topicWeights": {
       "ai": 46,
-      "security": 29,
-      "internet-business-tech": 30,
+      "security": 32,
+      "internet-business-tech": 27,
       "apps-software": 20,
       "devices": 21,
       "gaming": 10
@@ -40,10 +40,10 @@
   "frontpageCopy": {
     "vi": {
       "heroTitle": "AI, Big Tech và những nhịp công nghệ đáng mở đầu tiên.",
-      "heroText": "Patrick Tech Media ưu tiên AI, Internet & Doanh nghiệp số và Bảo mật, rồi mở rộng sang phần mềm, thiết bị và thủ thuật thật sự đáng lưu trong ngày.",
+      "heroText": "Patrick Tech Media ưu tiên AI, Bảo mật và Internet & Doanh nghiệp số, rồi mở rộng sang phần mềm, thiết bị và thủ thuật thật sự đáng lưu trong ngày.",
       "badgeSignals": "AI",
-      "badgeAds": "Internet & Doanh nghiệp số",
-      "badgeBilingual": "Bảo mật",
+      "badgeAds": "Bảo mật",
+      "badgeBilingual": "Internet & Doanh nghiệp số",
       "hotTitle": "Tin nóng đang kéo lượt đọc",
       "editorsTitle": "Bài nên mở tiếp theo",
       "ribbonTitle": "Tin mới lên theo giờ",
@@ -63,10 +63,10 @@
     },
     "en": {
       "heroTitle": "AI, Big Tech, and the technology shifts worth opening first.",
-      "heroText": "Patrick Tech Media gives front-page priority to AI, Internet & Business Tech and Security, then keeps the pace with software, devices, and practical how-tos that stay useful after the click.",
+      "heroText": "Patrick Tech Media gives front-page priority to AI, Security and Internet & Business Tech, then keeps the pace with software, devices, and practical how-tos that stay useful after the click.",
       "badgeSignals": "AI",
-      "badgeAds": "Internet & Business Tech",
-      "badgeBilingual": "Security",
+      "badgeAds": "Security",
+      "badgeBilingual": "Internet & Business Tech",
       "hotTitle": "The headlines pulling readers in",
       "editorsTitle": "What to open next",
       "ribbonTitle": "Stories moving by the hour",
