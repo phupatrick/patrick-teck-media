@@ -10,11 +10,11 @@ Patrick Tech Media is a lightweight Node newsroom for a bilingual `VI/EN` tech m
 - writer accounts, admin review, automatic story scoring, and Binance withdrawal requests
 - a file-based publishing pipeline so stories can update without code edits
 - optional Neon Postgres storage so newsroom, platform state, and OpenClaw web control survive redeploys
-- an OpenClaw control layer that can tune the front page, commit newsroom state, and deploy by Git push
+- an OpenClaw control layer that can tune the front page, update core web files, commit newsroom state, and deploy by Git push
 
 ## Run locally
 
-1. Copy `.env.example` to `.env` if you want to customize the site URL or connect AdSense.
+1. Copy `.env.example` to `.env` if you want to customize the site URL, connect AdSense, or point storage to Neon.
 2. Start the server:
 
 ```powershell
@@ -27,7 +27,7 @@ npm start
 
 ```env
 PORT=3000
-SITE_URL=https://patricktechmedia.vercel.app
+SITE_URL=https://patricktechmedia.com
 PATRICK_TECH_STORE_URL=https://patricktechstore.vercel.app
 NEWSROOM_CONTENT_PATH=data/newsroom-content.json
 OPENCLAW_WEB_STATE_PATH=data/openclaw-web-state.json
@@ -43,6 +43,7 @@ NEWSROOM_PULL_FILE=
 OPENCLAW_NEWSROOM_URL=
 OPENCLAW_NEWSROOM_TOKEN=
 OPENCLAW_NEWSROOM_FILE=data/openclaw-hidden-feed.json
+OPENCLAW_OWNER_BRIEF_PATH=data/openclaw-owner-brief.json
 OPENCLAW_MANAGER_NAME=OpenClaw
 OPENCLAW_MANAGER_STATE_PATH=data/openclaw-manager-state.json
 OPENCLAW_TRUST_MODE=owner
@@ -62,6 +63,8 @@ If AdSense values are empty, the site renders clearly marked reserved ad placeho
 `NEWSROOM_CONTENT_PATH` points to the JSON file that powers the live newsroom. If the file is missing, the app falls back to the built-in editorial seed data.
 
 `OPENCLAW_WEB_STATE_PATH` stores the front-page control state that OpenClaw uses to tune homepage copy and ranking without hard-editing templates.
+
+`OPENCLAW_OWNER_BRIEF_PATH` points to the owner brief that captures the product, editorial, design, SEO, monetization, and operational rules OpenClaw should treat as standing instructions.
 
 `PLATFORM_STATE_PATH` stores users, submissions, and withdrawal requests. In local development it writes to the project file. In locked-down serverless environments, the app falls back to a temp file automatically so the account flow can still run without crashing.
 
@@ -210,10 +213,11 @@ This manager cycle:
 - auto-generates `data/openclaw-hidden-feed.json` before refresh when no external URL/file is configured
 - falls back to curated RSS sources when no hidden feed is configured
 - updates `data/openclaw-web-state.json` so OpenClaw can tune front-page copy and ranking
+- reads `data/openclaw-owner-brief.json` so each cycle keeps the same owner instructions
 - re-checks writer submissions through the automatic editorial gate
 - auto-publishes only stories that still clear the publish bar
 - writes a private machine state snapshot to `OPENCLAW_MANAGER_STATE_PATH`
-- can run in `OPENCLAW_TRUST_MODE=owner`, which records OpenClaw as an owner-delegated actor for direct newsroom writes
+- can run in `OPENCLAW_TRUST_MODE=owner`, which records OpenClaw as an owner-delegated actor for direct newsroom writes and code-managed updates
 
 Generate or refresh only the web-control layer:
 
@@ -233,3 +237,4 @@ The ready-to-enable GitHub Actions workflow at `.github/workflows/newsroom-refre
 - `data/platform-state.json`
 - `data/openclaw-manager-state.json`
 - `data/openclaw-web-state.json`
+- `data/openclaw-owner-brief.json`

@@ -1,31 +1,48 @@
 {
-  "generated_at": "2026-04-01T17:08:34.673Z",
+  "generated_at": "2026-04-01T21:48:12.938Z",
   "manager": {
     "id": "openclaw",
     "autonomy": "owner-delegated-full"
   },
+  "brief": {
+    "path": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-owner-brief.json",
+    "trust_mode": "owner-delegated",
+    "brand_name": "Patrick Tech Media",
+    "priority_beats": [
+      "AI",
+      "Vietnam technology news",
+      "Global technology news",
+      "Big Tech",
+      "Social platforms",
+      "Software",
+      "Devices",
+      "Security",
+      "Practical how-tos and tips"
+    ]
+  },
   "permissions": {
     "content": true,
     "frontpage": true,
+    "code": true,
     "git": true,
     "deploy_by_push": true
   },
   "priorityTopics": [
     "ai",
-    "security",
     "internet-business-tech",
     "devices",
     "gaming",
+    "security",
     "apps-software"
   ],
   "ranking": {
     "topicWeights": {
       "ai": 46,
-      "security": 32,
-      "internet-business-tech": 27,
+      "security": 26,
+      "internet-business-tech": 30,
       "apps-software": 20,
-      "devices": 21,
-      "gaming": 10
+      "devices": 23,
+      "gaming": 11
     },
     "sourceTypeWeights": {
       "official-site": 20,
@@ -39,15 +56,14 @@
   },
   "frontpageCopy": {
     "vi": {
-      "heroTitle": "AI, Big Tech và những nhịp công nghệ đáng mở đầu tiên.",
-      "heroText": "Patrick Tech Media ưu tiên AI, Bảo mật và Internet & Doanh nghiệp số, rồi mở rộng sang phần mềm, thiết bị và thủ thuật thật sự đáng lưu trong ngày.",
+      "heroTitle": "Tin AI, Big Tech và công nghệ cần mở đầu tiên.",
       "badgeSignals": "AI",
-      "badgeAds": "Bảo mật",
-      "badgeBilingual": "Internet & Doanh nghiệp số",
-      "hotTitle": "Tin nóng đang kéo lượt đọc",
-      "editorsTitle": "Bài nên mở tiếp theo",
+      "badgeAds": "Internet & Doanh nghiệp số",
+      "badgeBilingual": "Thiết bị",
+      "hotTitle": "Tin nóng lúc này",
+      "editorsTitle": "Biên tập chọn",
       "ribbonTitle": "Tin mới lên theo giờ",
-      "companyBrief": "Nhánh nội dung của Patrick Tech Co. VN, nơi tin nóng, bài đọc sâu và Patrick Tech Store gặp nhau trong một newsroom công nghệ duy nhất.",
+      "companyBrief": "Patrick Tech Co. VN",
       "readerStartTitle": "3 bài mới để bắt nhịp",
       "readerWatchTitle": "2 câu chuyện đang được mở nhiều",
       "updateTitle": "3 tin mới để bắt nhịp",
@@ -55,22 +71,20 @@
       "editorsLabel": "Biên tập chọn",
       "ribbonLabel": "Tin vừa lên",
       "latestTitle": "Tin mới nhất",
-      "tipsTitle": "Hướng dẫn và mẹo đáng lưu",
+      "tipsTitle": "Thủ thuật đáng lưu",
       "ecosystemTitle": "Patrick Tech Co. VN",
-      "browserTitle": "Lướt nhanh những gì vừa nóng lên",
-      "ecosystemText": "Tòa soạn ưu tiên bài có ảnh nguồn, headline đủ lực kéo và phần thân bài hoàn chỉnh trước khi đưa lên mặt tiền.",
+      "browserTitle": "Đang được quan tâm",
       "homeSpotlightTitle": "Mở bài nổi bật hôm nay"
     },
     "en": {
-      "heroTitle": "AI, Big Tech, and the technology shifts worth opening first.",
-      "heroText": "Patrick Tech Media gives front-page priority to AI, Security and Internet & Business Tech, then keeps the pace with software, devices, and practical how-tos that stay useful after the click.",
+      "heroTitle": "AI, Big Tech, and the stories worth opening first.",
       "badgeSignals": "AI",
-      "badgeAds": "Security",
-      "badgeBilingual": "Internet & Business Tech",
-      "hotTitle": "The headlines pulling readers in",
-      "editorsTitle": "What to open next",
-      "ribbonTitle": "Stories moving by the hour",
-      "companyBrief": "The editorial branch of Patrick Tech Co. VN, where breaking coverage, deeper reads, and Patrick Tech Store move inside one technology newsroom.",
+      "badgeAds": "Internet & Business Tech",
+      "badgeBilingual": "Devices",
+      "hotTitle": "Hot right now",
+      "editorsTitle": "Editors' picks",
+      "ribbonTitle": "Just moved",
+      "companyBrief": "Patrick Tech Co. VN",
       "readerStartTitle": "3 fresh stories to start with",
       "readerWatchTitle": "2 stories readers keep opening",
       "updateTitle": "3 fresh stories to catch the pace",
@@ -80,8 +94,7 @@
       "latestTitle": "Latest stories",
       "tipsTitle": "Practical guides worth saving",
       "ecosystemTitle": "Patrick Tech Co. VN",
-      "ecosystemText": "The desk gives the front page to complete stories with strong images, stronger headlines, and enough editorial depth to deserve the space.",
-      "browserTitle": "Scan the stories rising right now",
+      "browserTitle": "Rising now",
       "homeSpotlightTitle": "Start with the strongest lead today"
     }
   }

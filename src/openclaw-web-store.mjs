@@ -6,9 +6,16 @@ export const DEFAULT_OPENCLAW_WEB_STATE = {
     id: "openclaw",
     autonomy: "guarded-full"
   },
+  brief: {
+    path: "",
+    trust_mode: "",
+    brand_name: "",
+    priority_beats: []
+  },
   permissions: {
     content: true,
     frontpage: true,
+    code: false,
     git: true,
     deploy_by_push: true
   },
@@ -55,9 +62,18 @@ export function normalizeOpenClawWebState(payload) {
       id: normalized.manager?.id || DEFAULT_OPENCLAW_WEB_STATE.manager.id,
       autonomy: normalized.manager?.autonomy || DEFAULT_OPENCLAW_WEB_STATE.manager.autonomy
     },
+    brief: {
+      path: normalized.brief?.path || "",
+      trust_mode: normalized.brief?.trust_mode || "",
+      brand_name: normalized.brief?.brand_name || "",
+      priority_beats: Array.isArray(normalized.brief?.priority_beats)
+        ? normalized.brief.priority_beats.map((value) => String(value || "").trim()).filter(Boolean)
+        : []
+    },
     permissions: {
       content: normalized.permissions?.content !== false,
       frontpage: normalized.permissions?.frontpage !== false,
+      code: normalized.permissions?.code === true,
       git: normalized.permissions?.git !== false,
       deploy_by_push: normalized.permissions?.deploy_by_push !== false
     },

@@ -1,15 +1,18 @@
+import fs from "node:fs";
 import path from "node:path";
 import { createOpenClawWebStore } from "../src/openclaw-web-store.mjs";
 import { getArticlesForLanguage, loadNewsroomState } from "../src/newsroom-service.mjs";
 
 const rootDir = process.cwd();
 const config = {
-  siteUrl: process.env.SITE_URL || "https://patricktechmedia.vercel.app",
+  siteUrl: process.env.SITE_URL || "https://patricktechmedia.com",
   storeUrl: process.env.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
   databaseUrl: process.env.DATABASE_URL || "",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
-  webStatePath: process.env.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json"
+  webStatePath: process.env.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json",
+  ownerBriefPath: process.env.OPENCLAW_OWNER_BRIEF_PATH || "data/openclaw-owner-brief.json"
 };
+const ownerBrief = readJson(config.ownerBriefPath);
 
 const state = await loadNewsroomState({
   siteUrl: config.siteUrl,
@@ -51,9 +54,18 @@ function buildWebControlState(state) {
       id: "openclaw",
       autonomy: "owner-delegated-full"
     },
+    brief: {
+      path: path.resolve(rootDir, config.ownerBriefPath),
+      trust_mode: ownerBrief.owner?.trust_mode || "owner-delegated",
+      brand_name: ownerBrief.brand?.site_name || "Patrick Tech Media",
+      priority_beats: Array.isArray(ownerBrief.editorial_priorities?.beats)
+        ? ownerBrief.editorial_priorities.beats
+        : []
+    },
     permissions: {
       content: true,
       frontpage: true,
+      code: true,
       git: true,
       deploy_by_push: true
     },
@@ -119,16 +131,15 @@ function buildFrontpageCopy(state, language, priorityTopics) {
 
   if (language === "vi") {
     return {
-      heroTitle: "AI, Big Tech và những nhịp công nghệ đáng mở đầu tiên.",
-      heroText: `Patrick Tech Media ưu tiên ${joinLabels(topTopicLabels, "vi")}, rồi mở rộng sang phần mềm, thiết bị và thủ thuật thật sự đáng lưu trong ngày.`,
+      heroTitle: "Tin AI, Big Tech và công nghệ cần mở đầu tiên.",
+      heroText: "",
       badgeSignals: topTopicLabels[0] || "AI",
       badgeAds: topTopicLabels[1] || "Big Tech",
-      badgeBilingual: topTopicLabels[2] || "Thủ thuật",
-      hotTitle: "Tin nóng đang kéo lượt đọc",
-      editorsTitle: "Bài nên mở tiếp theo",
+      badgeBilingual: topTopicLabels[2] || "Công nghệ",
+      hotTitle: "Tin nóng lúc này",
+      editorsTitle: "Biên tập chọn",
       ribbonTitle: "Tin mới lên theo giờ",
-      companyBrief:
-        "Nhánh nội dung của Patrick Tech Co. VN, nơi tin nóng, bài đọc sâu và Patrick Tech Store gặp nhau trong một newsroom công nghệ duy nhất.",
+      companyBrief: "Patrick Tech Co. VN",
       readerStartTitle: "3 bài mới để bắt nhịp",
       readerWatchTitle: "2 câu chuyện đang được mở nhiều",
       updateTitle: "3 tin mới để bắt nhịp",
@@ -136,25 +147,24 @@ function buildFrontpageCopy(state, language, priorityTopics) {
       editorsLabel: "Biên tập chọn",
       ribbonLabel: "Tin vừa lên",
       latestTitle: "Tin mới nhất",
-      tipsTitle: "Hướng dẫn và mẹo đáng lưu",
+      tipsTitle: "Thủ thuật đáng lưu",
       ecosystemTitle: "Patrick Tech Co. VN",
-      browserTitle: "Lướt nhanh những gì vừa nóng lên",
-      ecosystemText: "Tòa soạn ưu tiên bài có ảnh nguồn, headline đủ lực kéo và phần thân bài hoàn chỉnh trước khi đưa lên mặt tiền.",
+      browserTitle: "Đang được quan tâm",
+      ecosystemText: "",
       homeSpotlightTitle: "Mở bài nổi bật hôm nay"
     };
   }
 
   return {
-    heroTitle: "AI, Big Tech, and the technology shifts worth opening first.",
-    heroText: `Patrick Tech Media gives front-page priority to ${joinLabels(topTopicLabels, "en")}, then keeps the pace with software, devices, and practical how-tos that stay useful after the click.`,
+    heroTitle: "AI, Big Tech, and the stories worth opening first.",
+    heroText: "",
     badgeSignals: topTopicLabels[0] || "AI",
     badgeAds: topTopicLabels[1] || "Big Tech",
-    badgeBilingual: topTopicLabels[2] || "How-tos",
-    hotTitle: "The headlines pulling readers in",
-    editorsTitle: "What to open next",
-    ribbonTitle: "Stories moving by the hour",
-    companyBrief:
-      "The editorial branch of Patrick Tech Co. VN, where breaking coverage, deeper reads, and Patrick Tech Store move inside one technology newsroom.",
+    badgeBilingual: topTopicLabels[2] || "Technology",
+    hotTitle: "Hot right now",
+    editorsTitle: "Editors' picks",
+    ribbonTitle: "Just moved",
+    companyBrief: "Patrick Tech Co. VN",
     readerStartTitle: "3 fresh stories to start with",
     readerWatchTitle: "2 stories readers keep opening",
     updateTitle: "3 fresh stories to catch the pace",
@@ -164,8 +174,8 @@ function buildFrontpageCopy(state, language, priorityTopics) {
     latestTitle: "Latest stories",
     tipsTitle: "Practical guides worth saving",
     ecosystemTitle: "Patrick Tech Co. VN",
-    ecosystemText: "The desk gives the front page to complete stories with strong images, stronger headlines, and enough editorial depth to deserve the space.",
-    browserTitle: "Scan the stories rising right now",
+    ecosystemText: "",
+    browserTitle: "Rising now",
     homeSpotlightTitle: "Start with the strongest lead today"
   };
 }
@@ -229,4 +239,12 @@ function joinLabels(labels, language) {
   }
 
   return `${labels.slice(0, -1).join(", ")} ${language === "vi" ? "và" : "and"} ${labels[labels.length - 1]}`;
+}
+
+function readJson(targetPath) {
+  try {
+    return JSON.parse(fs.readFileSync(path.resolve(rootDir, targetPath), "utf8"));
+  } catch {
+    return {};
+  }
 }

@@ -7,9 +7,10 @@ const rootDir = process.cwd();
 const envFromFile = loadEnvFile(path.join(rootDir, ".env"));
 
 const config = {
-  siteUrl: process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.vercel.app",
+  siteUrl: process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.com",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || envFromFile.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
   webStatePath: process.env.OPENCLAW_WEB_STATE_PATH || envFromFile.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json",
+  ownerBriefPath: process.env.OPENCLAW_OWNER_BRIEF_PATH || envFromFile.OPENCLAW_OWNER_BRIEF_PATH || "data/openclaw-owner-brief.json",
   platformStatePath: process.env.PLATFORM_STATE_PATH || envFromFile.PLATFORM_STATE_PATH || "data/platform-state.json",
   managerStatePath: process.env.OPENCLAW_MANAGER_STATE_PATH || envFromFile.OPENCLAW_MANAGER_STATE_PATH || "data/openclaw-manager-state.json",
   hiddenFeedPath:
@@ -29,6 +30,7 @@ const startedAt = new Date().toISOString();
 const feedSource = ensureHiddenFeedSource();
 const refresh = runRefreshCycle(feedSource.refreshSource);
 const webControl = runWebControlCycle();
+const ownerBrief = readJson(config.ownerBriefPath);
 const platformService = createPlatformService({
   statePath: config.platformStatePath,
   databaseUrl: process.env.DATABASE_URL || envFromFile.DATABASE_URL || "",
@@ -45,6 +47,7 @@ const managerSnapshot = buildManagerSnapshot({
   feedSource,
   refresh,
   webControl,
+  ownerBrief,
   submissionReview,
   contentPath: config.contentPath,
   platformStatePath: platformService.statePath,
@@ -168,6 +171,7 @@ function runWebControlCycle() {
       PATRICK_TECH_STORE_URL: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
       NEWSROOM_CONTENT_PATH: config.contentPath,
       OPENCLAW_WEB_STATE_PATH: config.webStatePath,
+      OPENCLAW_OWNER_BRIEF_PATH: config.ownerBriefPath,
       DATABASE_URL: process.env.DATABASE_URL || envFromFile.DATABASE_URL || ""
     },
     encoding: "utf8"
@@ -193,7 +197,7 @@ function runWebControlCycle() {
   };
 }
 
-function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, webControl, submissionReview, contentPath, platformStatePath, webStatePath }) {
+function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, webControl, ownerBrief, submissionReview, contentPath, platformStatePath, webStatePath }) {
   const payload = readJson(contentPath);
   const articles = Array.isArray(payload?.articles) ? payload.articles : [];
 
@@ -202,6 +206,7 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, webC
       id: "openclaw",
       name: config.managerName,
       mode: "autonomous",
+      briefPath: path.resolve(rootDir, config.ownerBriefPath),
       startedAt,
       finishedAt
     },
@@ -225,7 +230,14 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, webC
     },
     automation: {
       webStatePath: path.resolve(rootDir, webStatePath),
-      gitAutopush: /^(1|true|yes|on)$/i.test(String(process.env.OPENCLAW_GIT_AUTOPUSH || envFromFile.OPENCLAW_GIT_AUTOPUSH || ""))
+      gitAutopush: /^(1|true|yes|on)$/i.test(String(process.env.OPENCLAW_GIT_AUTOPUSH || envFromFile.OPENCLAW_GIT_AUTOPUSH || "")),
+      ownerBrief: {
+        siteName: ownerBrief.brand?.site_name || "",
+        companyName: ownerBrief.brand?.company_name || "",
+        trustMode: ownerBrief.owner?.trust_mode || "",
+        beats: Array.isArray(ownerBrief.editorial_priorities?.beats) ? ownerBrief.editorial_priorities.beats : [],
+        authority: Array.isArray(ownerBrief.owner?.authority) ? ownerBrief.owner.authority : []
+      }
     }
   };
 }

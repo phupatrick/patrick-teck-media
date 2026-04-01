@@ -1011,7 +1011,7 @@ export function buildRobotsTxt(state) {
 }
 
 export function buildJsonFeed(state, language) {
-  const items = getArticlesForLanguage(state, language).slice(0, 20);
+  const items = getArticlesForLanguage(state, language);
   return {
     version: "https://jsonfeed.org/version/1.1",
     title: `${state.site.name} (${language.toUpperCase()})`,

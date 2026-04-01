@@ -1,16 +1,27 @@
 import { spawnSync } from "node:child_process";
 
 const allowedPaths = [
+  "server.mjs",
+  "vercel.json",
+  "package.json",
+  "README.md",
+  ".env.example",
+  "api",
+  "public",
+  "src",
+  "scripts",
+  "test",
   "data/newsroom-content.json",
   "data/platform-state.json",
   "data/openclaw-hidden-feed.json",
   "data/openclaw-manager-state.json",
-  "data/openclaw-web-state.json"
+  "data/openclaw-web-state.json",
+  "data/openclaw-owner-brief.json"
 ];
 
 const autopush = isEnabled(process.env.OPENCLAW_GIT_AUTOPUSH);
 const runTests = !isEnabled(process.env.OPENCLAW_GIT_SKIP_TESTS);
-const commitMessage = process.env.OPENCLAW_GIT_COMMIT_MESSAGE || "OpenClaw: refresh newsroom and frontpage";
+const commitMessage = process.env.OPENCLAW_GIT_COMMIT_MESSAGE || "OpenClaw: refresh newsroom, frontpage, and web code";
 const gitUserName = process.env.OPENCLAW_GIT_USER_NAME || "OpenClaw[bot]";
 const gitUserEmail = process.env.OPENCLAW_GIT_USER_EMAIL || "openclaw@users.noreply.github.com";
 

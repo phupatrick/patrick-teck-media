@@ -24,7 +24,7 @@ export function renderHomePage(state, language, adsConfig) {
     language,
     path,
     adsConfig,
-    title: `${state.site.name} | ${copy.homeTitle}`,
+    title: copy.homeTitle,
     description: state.site.description[language],
     content: `
       <section class="frontpage-masthead">
@@ -32,7 +32,6 @@ export function renderHomePage(state, language, adsConfig) {
           <p class="eyebrow">${copy.eyebrow}</p>
           <h1>${escapeHtml(copy.heroTitle)}</h1>
         </div>
-        <p class="frontpage-masthead-text">${escapeHtml(copy.heroText)}</p>
         <div class="hero-badges">
           <span>${copy.badgeSignals}</span>
           <span>${copy.badgeAds}</span>
@@ -60,7 +59,6 @@ export function renderHomePage(state, language, adsConfig) {
           <article class="rail-card company-flash-card">
             <p class="rail-label">${copy.ecosystemLabel}</p>
             <h3>${copy.ecosystemTitle}</h3>
-            <p>${copy.companyBrief}</p>
             <div class="company-links">
               <a class="text-link" href="/${language}/store">${copy.visitStore}</a>
               <a class="text-link" href="/${language}/about">${copy.aboutLabel}</a>
@@ -102,7 +100,6 @@ export function renderHomePage(state, language, adsConfig) {
           <div class="newsroom-brief">
             <p class="rail-label">${copy.briefingLabel}</p>
             <h3><a href="${home.briefing.href}">${escapeHtml(home.briefing.title)}</a></h3>
-            <p>${escapeHtml(home.briefing.summary)}</p>
             <a class="text-link" href="${home.briefing.href}">${copy.readStory}</a>
           </div>
         </aside>
@@ -118,8 +115,6 @@ export function renderHomePage(state, language, adsConfig) {
               <span>${escapeHtml(formatPublishDate(language, guideLead.published_at))}</span>
             </div>
             <h2><a href="${guideLead.href}">${escapeHtml(guideLead.title)}</a></h2>
-            <p class="story-hook">${escapeHtml(guideLead.hook || guideLead.dek)}</p>
-            <p>${escapeHtml(renderStoryExcerpt(guideLead))}</p>
             <a class="read-link" href="${guideLead.href}">${copy.readStory}</a>
           </div>
         </article>
@@ -788,7 +783,6 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
           <img class="brand-logo" src="${logoPath}" alt="${escapeHtml(state.site.name)}" />
           <span class="brand-meta">
             <span class="brand-company">Patrick Tech Co. VN</span>
-            <span class="brand-note">${language === "vi" ? "Toà soạn công nghệ & hệ sinh thái số" : "Technology newsroom & digital ecosystem"}</span>
           </span>
         </a>
         <nav class="nav-strip" aria-label="Primary">
@@ -832,8 +826,6 @@ function renderStoryCard(article, language) {
       </div>
       ${article.editorial_label ? `<div class="story-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
       <h3><a href="${article.href}">${escapeHtml(article.title)}</a></h3>
-      <p class="story-hook">${escapeHtml(article.hook || article.summary)}</p>
-      <p>${escapeHtml(renderStoryExcerpt(article))}</p>
       <div class="story-footer">
         <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         <a class="mini-link" href="${article.href}">${language === "vi" ? "Đọc" : "Read"}</a>
@@ -853,8 +845,6 @@ function renderStackItem(article, language, withBadge) {
             ${withBadge && article.editorial_label ? `<span>${escapeHtml(article.editorial_label)}</span>` : ""}
           </div>
           <a href="${article.href}">${escapeHtml(article.title)}</a>
-          <p class="story-hook">${escapeHtml(article.hook || article.summary)}</p>
-          <p>${escapeHtml(renderStoryExcerpt(article))}</p>
           <span class="stack-date">${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         </div>
       </div>
@@ -887,7 +877,6 @@ function renderLeadFeature(article, language, copy) {
         </div>
         ${article.editorial_label ? `<div class="story-flag lead-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
         <h2><a href="${article.href}">${escapeHtml(article.title)}</a></h2>
-        <p class="lead-feature-hook">${escapeHtml(article.hook || article.dek || article.summary)}</p>
         <div class="lead-feature-actions">
           <a class="read-link inverted" href="${article.href}">${copy.readStory}</a>
           <span class="lead-feature-source">${escapeHtml(article.content_type_label)}</span>
@@ -907,7 +896,6 @@ function renderLeadMini(article, language) {
           <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         </div>
         <h3><a href="${article.href}">${escapeHtml(article.title)}</a></h3>
-        <p class="story-hook">${escapeHtml(article.hook || article.summary)}</p>
       </div>
     </article>
   `;

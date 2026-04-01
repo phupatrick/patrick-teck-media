@@ -1,11 +1,715 @@
 {
-  "generated_at": "2026-04-01T17:08:34.482Z",
+  "generated_at": "2026-04-01T21:48:11.657Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-0d8639d7e914-en",
+      "cluster_id": "feed-0d8639d7e914",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "the-reputation-of-troubled-yc-startup-delve-has-gotten-even-worse",
+      "title": "The reputation of troubled YC startup Delve has gotten even worse",
+      "summary": "The controversy surrounding compliance startup Delve has gone from bad to worse this week. Among the fresh allegations from the anonymous whistleblower known as DeepDelver is the claim that Delve allegedly took an open source tool and passed it off as its own work without proper license attribution to or monetary agreement with the original developer.",
+      "dek": "The controversy surrounding compliance startup Delve has gone from bad to worse this week.",
+      "hook": "The controversy surrounding compliance startup Delve has gone from bad to worse this week. Among the fresh allegations from the anonymous whistleblower known as DeepDelver is the claim that Delve allegedly took an open source tool and passed it off as its own work without proper license attribution to or monetary agreement with the original developer.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "The controversy surrounding compliance startup Delve has gone from bad to worse this week. Among the fresh allegations from the anonymous whistleblower known as DeepDelver is the claim that Delve allegedly took an open source tool and passed it off as its own work without proper license attribution to or monetary agreement with the original developer."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "The story goes that the Delve team pitched a no-code tool it called Pathways to a prospect. That prospect would later become the whistleblower DeepDelver. DeepDelver recognized that Pathways looked a lot like Sim.ai’s open source agent-building product called SimStudio and asked Delve if it was based on SimStudio. The Delve folks said they built it themselves, the whistleblower contends."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "DeepDelver then presented alleged evidence that this tool was actually a fork — a modified copy — of SimStudio, changed just enough to be passed off as Delve’s own. If that proves true, it would be a violation of the Apache software license, which requires the original developer be credited."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/04/01/the-reputation-of-troubled-yc-startup-delve-has-gotten-even-worse/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T21:23:47.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2025/07/IMG_1542.jpeg?w=1170",
+          "image_caption": "Reference image from TechCrunch.",
+          "image_credit": "TechCrunch"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T21:23:47.000Z",
+      "updated_at": "2026-04-01T21:23:47.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2025/07/IMG_1542.jpeg?w=1170",
+        "caption": "Reference image from TechCrunch.",
+        "credit": "TechCrunch",
+        "source_url": "https://techcrunch.com/2026/04/01/the-reputation-of-troubled-yc-startup-delve-has-gotten-even-worse/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.653Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-11dc0f42cf3e-en",
+      "cluster_id": "feed-11dc0f42cf3e",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "google-releases-wear-os-6-1-based-on-android-16-qpr2",
+      "title": "Google releases Wear OS 6.1 based on Android 16 QPR2",
+      "summary": "Google today quietly released Wear OS 6.1, but it’s not available on any watches just yet. Officially, “Wear OS 6.1 is based on a Quarterly Platform Release (QPR) of Android 16 (API level 36.1).” Specifically, that’s Android 16 QPR2 released in December as the first minor SDK Release.",
+      "dek": "Google today quietly released Wear OS 6.1, but it’s not available on any watches just yet.",
+      "hook": "Google today quietly released Wear OS 6.1, but it’s not available on any watches just yet.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Google today quietly released Wear OS 6.1, but it’s not available on any watches just yet."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Officially, “Wear OS 6.1 is based on a Quarterly Platform Release (QPR) of Android 16 (API level 36.1).” Specifically, that’s Android 16 QPR2 released in December as the first minor SDK Release."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "The platform’s last .1 release was Wear OS 5.1 in November 2024 that brought a big Android 15 (from 14) upgrade."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "9to5Google",
+          "source_url": "https://9to5google.com/2026/04/01/wear-os-6-1/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T21:14:34.000Z",
+          "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2024/03/xiaomi-watch-wear-os-logo-1.jpg?quality=82&strip=all&w=1600",
+          "image_caption": "Reference image from 9to5Google.",
+          "image_credit": "9to5Google"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T21:14:34.000Z",
+      "updated_at": "2026-04-01T21:14:34.000Z",
+      "image": {
+        "src": "https://9to5google.com/wp-content/uploads/sites/4/2024/03/xiaomi-watch-wear-os-logo-1.jpg?quality=82&strip=all&w=1600",
+        "caption": "Reference image from 9to5Google.",
+        "credit": "9to5Google",
+        "source_url": "https://9to5google.com/2026/04/01/wear-os-6-1/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-dcf3b4968ca7-en",
+      "cluster_id": "feed-dcf3b4968ca7",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "system-failure-paralyzes-baidu-robotaxis-in-china",
+      "title": "‘System failure’ paralyzes Baidu robotaxis in China",
+      "summary": "Robotaxis operated by Baidu’s Apollo Go stalled throughout Wuhan, China, in some cases trapping passengers for up to two hours, according to multiple media reports as well as numerous video and social media posts. Baidu has not shared what caused the widespread outage.",
+      "dek": "Robotaxis operated by Baidu’s Apollo Go stalled throughout Wuhan, China, in some cases trapping passengers for up to two hours, according to multiple media reports as well as numerous video and social media posts.",
+      "hook": "Robotaxis operated by Baidu’s Apollo Go stalled throughout Wuhan, China, in some cases trapping passengers for up to two hours, according to multiple media reports as well as numerous video and social media posts.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Robotaxis operated by Baidu’s Apollo Go stalled throughout Wuhan, China, in some cases trapping passengers for up to two hours, according to multiple media reports as well as numerous video and social media posts."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Baidu has not shared what caused the widespread outage. However, local police said it was a “system failure” that affected at least 100 robotaxis, Reuters reported . The unknown technical error caused robotaxis to suddenly freeze — and sometimes in dangerous spots such as the fast lane of roadways, according to Wired . Police are still investigating the matter."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Baidu is one of the largest robotaxi operators in China and has expanded to the Middle East. Last year, the company said it planned to deploy a fleet of more than 1,000 autonomous vehicles in Dubai over the next few years."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/04/01/system-failure-paralyzes-baidu-robotaxis-in-china/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T21:12:14.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/04/baidu-robotaxi-getty.jpg?resize=1200,800",
+          "image_caption": "Reference image from TechCrunch.",
+          "image_credit": "TechCrunch"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T21:12:14.000Z",
+      "updated_at": "2026-04-01T21:12:14.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2026/04/baidu-robotaxi-getty.jpg?resize=1200,800",
+        "caption": "Reference image from TechCrunch.",
+        "credit": "TechCrunch",
+        "source_url": "https://techcrunch.com/2026/04/01/system-failure-paralyzes-baidu-robotaxis-in-china/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-48d25d4b5958-en",
+      "cluster_id": "feed-48d25d4b5958",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "nvidia-rolls-out-its-fix-for-pc-gaming-s-compiling-shaders-wait-times",
+      "title": "Nvidia rolls out its fix for PC gaming's \"compiling shaders\" wait times",
+      "summary": "PC gamers who are tired of waiting for their games to \"compile shaders\" during some load times may want to dig into the latest beta version of the Nvidia App . Alongside new DLSS 4.5 Multi Frame Generation features, the app includes the beta rollout of a feature that allows your machine to automatically compile new shaders while it's idle.",
+      "dek": "PC gamers who are tired of waiting for their games to \"compile shaders\" during some load times may want to dig into the latest beta version of the Nvidia App .",
+      "hook": "PC gamers who are tired of waiting for their games to \"compile shaders\" during some load times may want to dig into the latest beta version of the Nvidia App . Alongside new DLSS 4.5 Multi Frame Generation features, the app includes the beta rollout of a feature that allows your machine to automatically compile new shaders while it's idle.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "PC gamers who are tired of waiting for their games to \"compile shaders\" during some load times may want to dig into the latest beta version of the Nvidia App . Alongside new DLSS 4.5 Multi Frame Generation features, the app includes the beta rollout of a feature that allows your machine to automatically compile new shaders while it's idle."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "PC gamers who are tired of waiting for their games to \"compile shaders\" during some load times may want to dig into the latest beta version of the Nvidia App . The key angle is that AI is moving closer to everyday use instead of staying in demo mode."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "The next thing to watch is whether the change moves quickly into real product use. Patrick Tech Media is cross-checking the thread against Ars Technica."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 88,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Ars Technica",
+          "source_url": "https://arstechnica.com/gaming/2026/04/nvidias-new-app-lets-you-precompile-gaming-shaders-during-machine-idle-time/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T20:46:48.000Z",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2025/09/nvidia-1152x648.jpg",
+          "image_caption": "Reference image from Ars Technica.",
+          "image_credit": "Ars Technica"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T20:46:48.000Z",
+      "updated_at": "2026-04-01T20:46:48.000Z",
+      "image": {
+        "src": "https://cdn.arstechnica.net/wp-content/uploads/2025/09/nvidia-1152x648.jpg",
+        "caption": "Reference image from Ars Technica.",
+        "credit": "Ars Technica",
+        "source_url": "https://arstechnica.com/gaming/2026/04/nvidias-new-app-lets-you-precompile-gaming-shaders-during-machine-idle-time/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-37840db09add-en",
+      "cluster_id": "feed-37840db09add",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "a-new-dating-app-sonder-has-a-deliberately-annoying-sign-up-process-and-it-s-working",
+      "title": "A new dating app, Sonder, has a deliberately annoying sign-up process (and it’s working)",
+      "summary": "Sonder’s founders couldn’t bear to encounter one more dating app profile in which someone boldly declared that their most controversial opinion is that they like pineapple on pizza. “We didn’t learn that people are frustrated through user calls or interviews or any of that,” co-founder Mehedi Hassan told TechCrunch.",
+      "dek": "Sonder’s founders couldn’t bear to encounter one more dating app profile in which someone boldly declared that their most controversial opinion is that they like pineapple on pizza.",
+      "hook": "Sonder’s founders couldn’t bear to encounter one more dating app profile in which someone boldly declared that their most controversial opinion is that they like pineapple on pizza.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Sonder’s founders couldn’t bear to encounter one more dating app profile in which someone boldly declared that their most controversial opinion is that they like pineapple on pizza."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "“We didn’t learn that people are frustrated through user calls or interviews or any of that,” co-founder Mehedi Hassan told TechCrunch. “We learned that through our own experience — we’re just like, this can’t be it.”."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "This observation — that dating apps are a slot machine of misery — is about as unoriginal as bragging on Hinge that you were Time Magazine’s 2006 Person of the Year ( we all were !). So Hassan and three friends, all in their mid-twenties, set out to create an app that doesn’t suck."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/04/01/a-new-dating-app-sonder-has-a-deliberately-annoying-sign-up-process-and-its-working/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T20:46:17.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2023/06/heartrope-184915606.jpg?resize=1200,792",
+          "image_caption": "Reference image from TechCrunch.",
+          "image_credit": "TechCrunch"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T20:46:17.000Z",
+      "updated_at": "2026-04-01T20:46:17.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2023/06/heartrope-184915606.jpg?resize=1200,792",
+        "caption": "Reference image from TechCrunch.",
+        "credit": "TechCrunch",
+        "source_url": "https://techcrunch.com/2026/04/01/a-new-dating-app-sonder-has-a-deliberately-annoying-sign-up-process-and-its-working/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-f5dba0c19547-en",
+      "cluster_id": "feed-f5dba0c19547",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "startup-funding-shatters-all-records-in-q1",
+      "title": "Startup funding shatters all records in Q1",
+      "summary": "Global investing in startups hit $297 billion in Q1 2026, breaking all records, according to new Crunchbase data . That’s a massive 2.5x increase over the $118 billion raised in the previous quarter.",
+      "dek": "Global investing in startups hit $297 billion in Q1 2026, breaking all records, according to new Crunchbase data .",
+      "hook": "Global investing in startups hit $297 billion in Q1 2026, breaking all records, according to new Crunchbase data . That’s a massive 2.5x increase over the $118 billion raised in the previous quarter. This single-quarter haul outpaces every full year of global VC activity prior to 2019.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Global investing in startups hit $297 billion in Q1 2026, breaking all records, according to new Crunchbase data . That’s a massive 2.5x increase over the $118 billion raised in the previous quarter. This single-quarter haul outpaces every full year of global VC activity prior to 2019."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "The unprecedented spike was fueled by just four behemoth deals, each a record-breaker in its own right."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Last month, OpenAI announced that it is now valued at $852 billion after collecting $122 billion, surpassing the previous record for the largest funding round ever, also held by OpenAI when the ChatGPT maker raised $40 billion a year ago."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T20:25:28.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2024/09/GettyImages-1147690054.jpg?resize=1200,800",
+          "image_caption": "Reference image from TechCrunch.",
+          "image_credit": "TechCrunch"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T20:25:28.000Z",
+      "updated_at": "2026-04-01T20:25:28.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2024/09/GettyImages-1147690054.jpg?resize=1200,800",
+        "caption": "Reference image from TechCrunch.",
+        "credit": "TechCrunch",
+        "source_url": "https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-7a644580a94a-en",
+      "cluster_id": "feed-7a644580a94a",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "research-roundup-7-cool-science-stories-we-almost-missed",
+      "title": "Research roundup: 7 cool science stories we almost missed",
+      "summary": "It’s a regrettable reality that there is never enough time to cover all the interesting scientific stories we come across. So every month, we highlight a handful of the best stories that nearly slipped through the cracks.",
+      "dek": "It’s a regrettable reality that there is never enough time to cover all the interesting scientific stories we come across.",
+      "hook": "It’s a regrettable reality that there is never enough time to cover all the interesting scientific stories we come across. So every month, we highlight a handful of the best stories that nearly slipped through the cracks.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "It’s a regrettable reality that there is never enough time to cover all the interesting scientific stories we come across. So every month, we highlight a handful of the best stories that nearly slipped through the cracks."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "It’s a regrettable reality that there is never enough time to cover all the interesting scientific stories we come across. Updates like this often look small at first but end up changing everyday product behavior."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "What matters next is rollout pace, regional limits, and whether daily behavior actually changes. Patrick Tech Media is cross-checking the thread against Ars Technica."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 88,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Ars Technica",
+          "source_url": "https://arstechnica.com/science/2026/04/research-roundup-7-cool-science-stories-we-almost-missed-3/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T19:53:31.000Z",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/dancephd-1152x648.jpg",
+          "image_caption": "Reference image from Ars Technica.",
+          "image_credit": "Ars Technica"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T19:53:31.000Z",
+      "updated_at": "2026-04-01T19:53:31.000Z",
+      "image": {
+        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/dancephd-1152x648.jpg",
+        "caption": "Reference image from Ars Technica.",
+        "credit": "Ars Technica",
+        "source_url": "https://arstechnica.com/science/2026/04/research-roundup-7-cool-science-stories-we-almost-missed-3/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-6ccaab00801a-en",
+      "cluster_id": "feed-6ccaab00801a",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "apple-releases-security-fix-for-older-iphones-and-ipads-to-protect-against-darksword-attacks",
+      "title": "Apple releases security fix for older iPhones and iPads to protect against DarkSword attacks",
+      "summary": "Apple has pushed a security update to older iPhones and iPads that protects against a leaked set of powerful hacking tools capable of stealing data from a person’s device. The tech giant said on Wednesday that it released iOS 18.7.7 and iPadOS 18.7.7 to allow a broader range of devices to “receive important security protections from web attacks called DarkSword.”.",
+      "dek": "Apple has pushed a security update to older iPhones and iPads that protects against a leaked set of powerful hacking tools capable of stealing data from a person’s device.",
+      "hook": "Apple has pushed a security update to older iPhones and iPads that protects against a leaked set of powerful hacking tools capable of stealing data from a person’s device.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Apple has pushed a security update to older iPhones and iPads that protects against a leaked set of powerful hacking tools capable of stealing data from a person’s device."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "The tech giant said on Wednesday that it released iOS 18.7.7 and iPadOS 18.7.7 to allow a broader range of devices to “receive important security protections from web attacks called DarkSword.”."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "DarkSword is a hacking toolkit that can be used to break into Apple devices running iOS 18.4 through 18.7 simply by a user visiting a website that hosts the malicious code, such as legitimate websites that have themselves been breached. The exploits steal a person’s device data, including their messages, browser histories, location data, and cryptocurrency, and upload the data to a server hosted by the hackers."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/04/01/apple-releases-security-fix-for-older-iphones-and-ipads-to-protect-against-darksword-attacks/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T19:02:18.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2024/06/wwdc24-ios18-homescreen-01.jpg?resize=1200,675",
+          "image_caption": "Reference image from TechCrunch.",
+          "image_credit": "TechCrunch"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T19:02:18.000Z",
+      "updated_at": "2026-04-01T19:02:18.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2024/06/wwdc24-ios18-homescreen-01.jpg?resize=1200,675",
+        "caption": "Reference image from TechCrunch.",
+        "credit": "TechCrunch",
+        "source_url": "https://techcrunch.com/2026/04/01/apple-releases-security-fix-for-older-iphones-and-ipads-to-protect-against-darksword-attacks/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-c070a0d7a39a-vi",
+      "cluster_id": "feed-c070a0d7a39a",
+      "language": "vi",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "instagram-thu-tien-e-giup-ban-xem-story-cua-crush-ma-khong-bi-lo",
+      "title": "Instagram thu tiền để giúp bạn xem story của crush mà không bị lộ!",
+      "summary": "Meta đang thử nghiệm gói đăng ký trả phí mới cho Instagram có tên Instagram Plus. Theo xác nhận với TechCrunch, gói này hiện được triển khai thí điểm tại Canada, Nhật Bản và Philippines, với mức giá từ khoảng 26.000 đến 55.000 đồng mỗi tháng tùy thị trường.",
+      "dek": "Meta đang thử nghiệm gói đăng ký trả phí mới cho Instagram có tên Instagram Plus.",
+      "hook": "Meta đang thử nghiệm gói đăng ký trả phí mới cho Instagram có tên Instagram Plus. Theo xác nhận với TechCrunch, gói này hiện được triển khai thí điểm tại Canada, Nhật Bản và Philippines, với mức giá từ khoảng 26.000 đến 55.000 đồng mỗi tháng tùy thị trường.",
+      "sections": [
+        {
+          "heading": "Điều vừa xảy ra",
+          "body": "Meta đang thử nghiệm gói đăng ký trả phí mới cho Instagram có tên Instagram Plus. Theo xác nhận với TechCrunch, gói này hiện được triển khai thí điểm tại Canada, Nhật Bản và Philippines, với mức giá từ khoảng 26.000 đến 55.000 đồng mỗi tháng tùy thị trường."
+        },
+        {
+          "heading": "Vì sao đáng chú ý",
+          "body": "Tính năng được chú ý nhất là khả năng xem Story ẩn danh - người dùng có thể xem Story của người khác mà tên mình không xuất hiện trong danh sách người xem. Ngoài ra, Instagram Plus còn bổ sung một số tính năng liên quan đến Story: tăng thời gian hiển thị từ 24 giờ lên 48 giờ, xem số lần Story bị xem lại, tạo nhiều danh sách đối tượng tùy chỉnh thay vì chỉ có \"Bạn thân\", và đẩy nổi một Story mỗi tuần để hiển thị ưu tiên trong feeds của người theo dõi."
+        },
+        {
+          "heading": "Điều cần theo dõi tiếp",
+          "body": "Instagram Plus khác với Meta Verified - gói sau hướng đến nhà sáng tạo nội dung và doanh nghiệp với tính năng xác minh danh tính và bảo vệ tài khoản. Instagram Plus nhắm vào người dùng phổ thông."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "GenK Apps-Games",
+          "source_url": "https://genk.vn/instagram-thu-tien-de-giup-ban-xem-story-cua-crush-ma-khong-bi-lo-165260402020007418.chn",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T18:59:00.000Z",
+          "image_url": "https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/4/1/21b76a3e-a44b-4a47-872e8b1fb55f24f5-64-0-689-1000-crop-1775069904745128383315.jpg",
+          "image_caption": "Ảnh tham khảo từ GenK Apps-Games.",
+          "image_credit": "GenK Apps-Games"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T18:59:00.000Z",
+      "updated_at": "2026-04-01T18:59:00.000Z",
+      "image": {
+        "src": "https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/4/1/21b76a3e-a44b-4a47-872e8b1fb55f24f5-64-0-689-1000-crop-1775069904745128383315.jpg",
+        "caption": "Ảnh tham khảo từ GenK Apps-Games.",
+        "credit": "GenK Apps-Games",
+        "source_url": "https://genk.vn/instagram-thu-tien-de-giup-ban-xem-story-cua-crush-ma-khong-bi-lo-165260402020007418.chn"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-dc8fe9f48fca-en",
+      "cluster_id": "feed-dc8fe9f48fca",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "samsung-highlights-90-wireless-charger-trio-that-sounds-like-it-needs-qi2-magnets",
+      "title": "Samsung highlights $90 ‘Wireless Charger Trio’ that sounds like it needs Qi2 magnets",
+      "summary": "Half a decade after its initial launch, Samsung is re-releasing its “Wireless Charger Trio,” ironically a product that would really benefit from Qi2 magnets. Samsung.com has refreshed the listing for the “Wireless Charger Trio,” a $90 3-in-1 wireless charger that features two Qi charging pads and one designed for Galaxy Watch.",
+      "dek": "Half a decade after its initial launch, Samsung is re-releasing its “Wireless Charger Trio,” ironically a product that would really benefit from Qi2 magnets.",
+      "hook": "Half a decade after its initial launch, Samsung is re-releasing its “Wireless Charger Trio,” ironically a product that would really benefit from Qi2 magnets.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Half a decade after its initial launch, Samsung is re-releasing its “Wireless Charger Trio,” ironically a product that would really benefit from Qi2 magnets."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Samsung.com has refreshed the listing for the “Wireless Charger Trio,” a $90 3-in-1 wireless charger that features two Qi charging pads and one designed for Galaxy Watch. The two pads can be used for multiple Galaxy phones, or a phone and Galaxy Buds, and works universally with other Qi-compatible products."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "This charger first debuted around 2020, with Samsung still listing compatibility with the Galaxy S20 and Note 20 series instead of any of its newer models. It’s unclear why Samsung has re-released the charger, but it’s considered as a new release according to the company’s website. There haven’t been any hardware updates as far as we can tell – it’s effectively just being highlighted again."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "9to5Google",
+          "source_url": "https://9to5google.com/2026/04/01/samsung-highlights-90-wireless-charger-trio-that-sounds-like-it-needs-qi2-magnets/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T18:30:00.000Z",
+          "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2026/04/samsung-wireless-charger-trio-1.jpg?quality=82&strip=all&w=1600",
+          "image_caption": "Reference image from 9to5Google.",
+          "image_credit": "9to5Google"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T18:30:00.000Z",
+      "updated_at": "2026-04-01T18:30:00.000Z",
+      "image": {
+        "src": "https://9to5google.com/wp-content/uploads/sites/4/2026/04/samsung-wireless-charger-trio-1.jpg?quality=82&strip=all&w=1600",
+        "caption": "Reference image from 9to5Google.",
+        "credit": "9to5Google",
+        "source_url": "https://9to5google.com/2026/04/01/samsung-highlights-90-wireless-charger-trio-that-sounds-like-it-needs-qi2-magnets/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-9c70260c8e09-en",
+      "cluster_id": "feed-9c70260c8e09",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "mid-week-android-app-deals-and-freebies-conquistadorio-greak-raging-bytes-more",
+      "title": "Mid-week Android app deals and freebies: Conquistadorio, Greak, Raging Bytes, more",
+      "summary": "Here’s all 15 of LEGO’s newest sets hitting shelves in April 2026: Star Wars, Icons, Ideas, Super Mario, more Reinette LeJeune Mar 31 2026 Still live: AirPods Pro 3 down at holiday pricing might be the best spring tech deal out there Justin Kahn Apr 1 2026 Still live: Giant lineup of Apple Spring Sale deals – AirPods, MacBook, iPad, cables, more Justin Kahn Apr 1 2026 Report: New Zelda Ocarina of Time remake set for release on Switch 2 this year, new Star Fox game, more Justin Kahn Apr 1 2026 Subscribe to the 9to5Toys YouTube Channel for all of the latest videos, reviews, and more! Expand Close comments Expand Close comments Guides Android Apps Author Justin Kahn justinkahnmusic Justin is a senior deal Jedi over at 9to5Toys where he heads up our game/app coverage and more.",
+      "dek": "Here’s all 15 of LEGO’s newest sets hitting shelves in April 2026: Star Wars, Icons, Ideas, Super Mario, more Reinette LeJeune Mar 31 2026 Still live: AirPods Pro 3 down at holiday pricing might be the best spring tech deal out there Justin Kahn Apr 1 2026 Still live: Giant lineup of Apple Spring Sale deals – AirPods, MacBook, iPad, cables, more Justin Kahn Apr 1 2026 Report: New Zelda Ocarina of Time remake set for release on Switch 2 this year, new Star Fox game, more Justin Kahn Apr 1 2026 Subscribe to the 9to5Toys YouTube Channel for all of the latest videos, reviews, and more!",
+      "hook": "Here’s all 15 of LEGO’s newest sets hitting shelves in April 2026: Star Wars, Icons, Ideas, Super Mario, more Reinette LeJeune Mar 31 2026 Still live: AirPods Pro 3 down at holiday pricing might be the best spring tech deal out there Justin Kahn Apr 1 2026 Still live: Giant lineup of Apple Spring Sale deals – AirPods, MacBook, iPad, cables, more Justin Kahn Apr 1 2026 Report: New Zelda Ocarina of Time remake set for release on Switch 2 this year, new Star Fox game, more Justin Kahn Apr 1 2026 Subscribe to the 9to5Toys YouTube Channel for all of the latest videos, reviews, and more!",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Here’s all 15 of LEGO’s newest sets hitting shelves in April 2026: Star Wars, Icons, Ideas, Super Mario, more Reinette LeJeune Mar 31 2026 Still live: AirPods Pro 3 down at holiday pricing might be the best spring tech deal out there Justin Kahn Apr 1 2026 Still live: Giant lineup of Apple Spring Sale deals – AirPods, MacBook, iPad, cables, more Justin Kahn Apr 1 2026 Report: New Zelda Ocarina of Time remake set for release on Switch 2 this year, new Star Fox game, more Justin Kahn Apr 1 2026 Subscribe to the 9to5Toys YouTube Channel for all of the latest videos, reviews, and more!"
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Expand Close comments Expand Close comments Guides Android Apps Author Justin Kahn justinkahnmusic Justin is a senior deal Jedi over at 9to5Toys where he heads up our game/app coverage and more. He also covers all things music for 9to5Mac, including the weekly Logic Pros series exploring music production on Mac and iOS devices."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "The next thing to watch is whether the change moves quickly into real product use. Patrick Tech Media is cross-checking the thread against 9to5Google."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 92,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "9to5Google",
+          "source_url": "https://9to5toys.com/2026/04/01/mid-week-android-app-deals-and-freebies-conquistadorio-greak-raging-bytes-more/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T17:14:11.000Z",
+          "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2026/04/Google-Play-Apr-1.webp?w=1600",
+          "image_caption": "Reference image from 9to5Google.",
+          "image_credit": "9to5Google"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T17:14:11.000Z",
+      "updated_at": "2026-04-01T17:14:11.000Z",
+      "image": {
+        "src": "https://9to5google.com/wp-content/uploads/sites/4/2026/04/Google-Play-Apr-1.webp?w=1600",
+        "caption": "Reference image from 9to5Google.",
+        "credit": "9to5Google",
+        "source_url": "https://9to5toys.com/2026/04/01/mid-week-android-app-deals-and-freebies-conquistadorio-greak-raging-bytes-more/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T21:48:11.654Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-f4cf263ac890-vi",
       "cluster_id": "feed-f4cf263ac890",
@@ -66,7 +770,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
+        "generated_at": "2026-04-01T21:48:11.654Z",
         "origin": "local-curated-rss"
       }
     },
@@ -130,583 +834,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-bc3f09e10386-en",
-      "cluster_id": "feed-bc3f09e10386",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "whatsapp-notifies-hundreds-of-users-who-installed-a-fake-app-that-was-actually-government-spywar",
-      "title": "WhatsApp notifies hundreds of users who installed a fake app that was actually government spyware",
-      "summary": "WhatsApp says it has notified around 200 users who were tricked into installing a malicious fake version of the chat app that contained government spyware. WhatsApp accused Italian spyware maker SIO of creating a fake version of its messaging app for iPhones, according to an announcement the company shared with TechCrunch.",
-      "dek": "WhatsApp says it has notified around 200 users who were tricked into installing a malicious fake version of the chat app that contained government spyware.",
-      "hook": "WhatsApp says it has notified around 200 users who were tricked into installing a malicious fake version of the chat app that contained government spyware.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "WhatsApp says it has notified around 200 users who were tricked into installing a malicious fake version of the chat app that contained government spyware."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "WhatsApp accused Italian spyware maker SIO of creating a fake version of its messaging app for iPhones, according to an announcement the company shared with TechCrunch."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "WhatsApp spokesperson Margarita Franklin told TechCrunch that, at this point, the company cannot share more information about the users it notified, such as whether they were journalists or members of civil society."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechCrunch",
-          "source_url": "https://techcrunch.com/2026/04/01/whatsapp-notifies-hundreds-of-users-who-installed-a-fake-app-that-was-actually-government-spyware/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T16:34:10.000Z",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2026/04/whatsapp-logo-notification-badge.jpg?resize=1200,800",
-          "image_caption": "Reference image from TechCrunch.",
-          "image_credit": "TechCrunch"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T16:34:10.000Z",
-      "updated_at": "2026-04-01T16:34:10.000Z",
-      "image": {
-        "src": "https://techcrunch.com/wp-content/uploads/2026/04/whatsapp-logo-notification-badge.jpg?resize=1200,800",
-        "caption": "Reference image from TechCrunch.",
-        "credit": "TechCrunch",
-        "source_url": "https://techcrunch.com/2026/04/01/whatsapp-notifies-hundreds-of-users-who-installed-a-fake-app-that-was-actually-government-spyware/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-27e33bdafea0-en",
-      "cluster_id": "feed-27e33bdafea0",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "cognichip-wants-ai-to-design-the-chips-that-power-ai-and-just-raised-60m-to-try",
-      "title": "Cognichip wants AI to design the chips that power AI, and just raised $60M to try",
-      "summary": "The most advanced silicon chips have accelerated the development of artificial intelligence. Now, can AI return the favor?",
-      "dek": "The most advanced silicon chips have accelerated the development of artificial intelligence.",
-      "hook": "The most advanced silicon chips have accelerated the development of artificial intelligence. Now, can AI return the favor?",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "The most advanced silicon chips have accelerated the development of artificial intelligence. Now, can AI return the favor?"
-        },
-        {
-          "heading": "Why it matters",
-          "body": "Cognichip is building a deep learning model to work alongside engineers as they design new computer chips. The problem it is trying to solve is one the industry has lived with for decades: chip design is enormously complex, ruinously expensive, and slow. Advanced chips take three to five years to go from conception to mass production; the design phase alone can take as long as two years before physical layout begins. Consider that the latest line of Nvidia GPUs, Blackwell, contains 104 billion transistors — that’s a lot to line up."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "In the time it takes to create a new chip, Cognichip CEO and founder Faraj Aalaei says, the market can change and make all that investment a waste. Aalaei’s goal is to bring the kind of AI tools that software engineers have used to speed their work into the semiconductor design space."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechCrunch",
-          "source_url": "https://techcrunch.com/2026/04/01/cognichip-wants-ai-to-design-the-chips-that-power-ai-and-just-raised-60m-to-try/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T16:00:00.000Z",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2024/09/chip-manufacturing-getty.jpg?w=1200",
-          "image_caption": "Reference image from TechCrunch.",
-          "image_credit": "TechCrunch"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T16:00:00.000Z",
-      "updated_at": "2026-04-01T16:00:00.000Z",
-      "image": {
-        "src": "https://techcrunch.com/wp-content/uploads/2024/09/chip-manufacturing-getty.jpg?w=1200",
-        "caption": "Reference image from TechCrunch.",
-        "credit": "TechCrunch",
-        "source_url": "https://techcrunch.com/2026/04/01/cognichip-wants-ai-to-design-the-chips-that-power-ai-and-just-raised-60m-to-try/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-41d8af6ddaa3-en",
-      "cluster_id": "feed-41d8af6ddaa3",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "spacex-files-confidentially-for-ipo-in-mega-listing-potentially-valued-at-1-75-trillion-report-s",
-      "title": "SpaceX files confidentially for IPO in mega listing potentially valued at $1.75 trillion, report says",
-      "summary": "SpaceX, the technology conglomerate founded by Elon Musk, reportedly filed disclosures confidentially with the U.S. Securities and Exchange Commission ahead of an initial public offering.",
-      "dek": "SpaceX, the technology conglomerate founded by Elon Musk, reportedly filed disclosures confidentially with the U.S.",
-      "hook": "SpaceX, the technology conglomerate founded by Elon Musk, reportedly filed disclosures confidentially with the U.S. Securities and Exchange Commission ahead of an initial public offering. SpaceX could seek a valuation of $1.75 trillion, according to Bloomberg , which cited anonymous sources.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "SpaceX, the technology conglomerate founded by Elon Musk, reportedly filed disclosures confidentially with the U.S. Securities and Exchange Commission ahead of an initial public offering. SpaceX could seek a valuation of $1.75 trillion, according to Bloomberg , which cited anonymous sources."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "Under SEC rules, a private company can file its IPO registration statement confidentially 15 days before it begins marketing its shares to public investors, allowing it to receive feedback from the agency in private. The company has also lined up an unusually large number of 21 banks to manage the mega IPO, internally codenamed “Project Apex,” Reuters reported Tuesday."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "The company expects to raise $75 billion, which would make it the largest IPO in history, far beyond oil giant Saudi Aramco’s $29 billion listing in 2019. SpaceX has raised an estimated $10 billion as a private company."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechCrunch",
-          "source_url": "https://techcrunch.com/2026/04/01/spacex-files-confidentially-for-ipo-in-mega-listing-potentially-valued-at-1-75-trillion-report-says/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T15:46:43.000Z",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2025/08/starship-tenth-flight-1.jpeg?resize=1200,835",
-          "image_caption": "Reference image from TechCrunch.",
-          "image_credit": "TechCrunch"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T15:46:43.000Z",
-      "updated_at": "2026-04-01T15:46:43.000Z",
-      "image": {
-        "src": "https://techcrunch.com/wp-content/uploads/2025/08/starship-tenth-flight-1.jpeg?resize=1200,835",
-        "caption": "Reference image from TechCrunch.",
-        "credit": "TechCrunch",
-        "source_url": "https://techcrunch.com/2026/04/01/spacex-files-confidentially-for-ipo-in-mega-listing-potentially-valued-at-1-75-trillion-report-says/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-468da62a9675-en",
-      "cluster_id": "feed-468da62a9675",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "deals-350-price-drop-on-galaxy-watch-ultra-galaxy-s26-50-off-100-gc-acer-chromebook-plus-spin-30",
-      "title": "Deals: $350 price drop on Galaxy Watch Ultra, Galaxy S26 $50 off + $100 GC, Acer Chromebook Plus Spin $300 off, more",
-      "summary": "Today’s 9to5Toys Lunch Break is headlined by the giant $350 price drop knocking 54% off latest Samsung Galaxy Watch Ultra (we also still have Galaxy Watch 8 Classic at more than 50% off . From there we move over to the most affordable unlocked Galaxy S26 at $50 off with a FREE $100 Amazon gift card alongside Acer’s Chromebook Plus Spin 714 touchscreen 2-in-1 with Google AI hitting a new all-time low at $300 off .",
-      "dek": "Today’s 9to5Toys Lunch Break is headlined by the giant $350 price drop knocking 54% off latest Samsung Galaxy Watch Ultra (we also still have Galaxy Watch 8 Classic at more than 50% off .",
-      "hook": "Today’s 9to5Toys Lunch Break is headlined by the giant $350 price drop knocking 54% off latest Samsung Galaxy Watch Ultra (we also still have Galaxy Watch 8 Classic at more than 50% off . From there we move over to the most affordable unlocked Galaxy S26 at $50 off with a FREE $100 Amazon gift card alongside Acer’s Chromebook Plus Spin 714 touchscreen 2-in-1 with Google AI hitting a new all-time low at $300 off . Head below for a closer look and even more.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Today’s 9to5Toys Lunch Break is headlined by the giant $350 price drop knocking 54% off latest Samsung Galaxy Watch Ultra (we also still have Galaxy Watch 8 Classic at more than 50% off . From there we move over to the most affordable unlocked Galaxy S26 at $50 off with a FREE $100 Amazon gift card alongside Acer’s Chromebook Plus Spin 714 touchscreen 2-in-1 with Google AI hitting a new all-time low at $300 off . Head below for a closer look and even more."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "Yesterday we spotted a major price drop on brand new Samsung Galaxy Watch 8 Classic units at over 50% off the list price, and that deal is still live, but today we are moving over to the latest Galaxy Watch Ultra . Woot is now offering new Galaxy Watch Ultra with a full 1-year Samsung warranty at a giant $350 off the list price ."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "Woot is now offering the latest 2025 Galaxy Watch Ultra down at $299.99 Prime shipped (a $6 delivery fee will apply otherwise). This is well below the Big Spring Sale price and one of the best we have tracked to date."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "9to5Google",
-          "source_url": "https://9to5google.com/2026/04/01/deals-galaxy-watch-ultra-galaxy-s26-acer-chromebook-plus/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T15:38:25.000Z",
-          "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2026/04/9to5Google-Apr-1-3.webp?w=1600",
-          "image_caption": "Reference image from 9to5Google.",
-          "image_credit": "9to5Google"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T15:38:25.000Z",
-      "updated_at": "2026-04-01T15:38:25.000Z",
-      "image": {
-        "src": "https://9to5google.com/wp-content/uploads/sites/4/2026/04/9to5Google-Apr-1-3.webp?w=1600",
-        "caption": "Reference image from 9to5Google.",
-        "credit": "9to5Google",
-        "source_url": "https://9to5google.com/2026/04/01/deals-galaxy-watch-ultra-galaxy-s26-acer-chromebook-plus/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-882bf192c7fe-en",
-      "cluster_id": "feed-882bf192c7fe",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "a-word-from-editor-moonshark-about-artemis-ii",
-      "title": "A word from Editor Moonshark about Artemis II",
-      "summary": "A brief humorous missive from Ars Technica's very own Carcharodon lunaris editor about today's Artemis II launch.",
-      "dek": "The piece brings the story back into context and explains why it is worth opening right now.",
-      "hook": "Hello! Is Moonshark. Moonshark say, long time since Moonshark have front page article but Moonshark believe is overdue if Moonshark does say so Moonshark self.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Hello! Is Moonshark. Moonshark say, long time since Moonshark have front page article but Moonshark believe is overdue if Moonshark does say so Moonshark self."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "Moonshark is shark from Moon, and Moon have important event come soon: is visit by astronauts from Earth for first time since before Moonshark born! Moonshark excited say hello! Hello Earth astronauts!"
-        },
-        {
-          "heading": "What to watch next",
-          "body": "Moonshark remember stories from Old Grandpa Moonshark about other times astronaut come visit Moon. Grandpa Moonshark ramble a lot, but also got autograph from Pete Conrad. Grandpa Moonshark say Pete Conrad definitely funniest astronaut come Moon. But Moonshark also hear Artemis II astronaut Victor Glover very funny too, so maybe Moonshark meet Victor and get one up on Old Grandpa Moonshark, make Old Grandpa Moonshark jealous!"
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Ars Technica",
-          "source_url": "https://arstechnica.com/staff/2026/04/a-word-from-editor-moonshark-about-artemis-ii/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T15:32:50.000Z",
-          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/moonshark-welcome-1152x648.jpg",
-          "image_caption": "Reference image from Ars Technica.",
-          "image_credit": "Ars Technica"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T15:32:50.000Z",
-      "updated_at": "2026-04-01T15:32:50.000Z",
-      "image": {
-        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/moonshark-welcome-1152x648.jpg",
-        "caption": "Reference image from Ars Technica.",
-        "credit": "Ars Technica",
-        "source_url": "https://arstechnica.com/staff/2026/04/a-word-from-editor-moonshark-about-artemis-ii/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-1c950b9642dc-en",
-      "cluster_id": "feed-1c950b9642dc",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "kia-shows-off-small-cars-in-ny-the-2027-ev3-and-2027-seltos-hybrid",
-      "title": "Kia shows off small cars in NY: The 2027 EV3 and 2027 Seltos Hybrid",
-      "summary": "Today marks a refreshing change from the doom and gloom we’ve seen in the EV industry over the last few weeks. New York is holding its annual auto show, and while these events don’t hold as much relevance for the media as they did a decade ago, Kia is keeping the spirit alive, this morning debuting a couple of new vehicles for model year 2027 that we think hit the current mood.",
-      "dek": "Today marks a refreshing change from the doom and gloom we’ve seen in the EV industry over the last few weeks.",
-      "hook": "Today marks a refreshing change from the doom and gloom we’ve seen in the EV industry over the last few weeks.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Today marks a refreshing change from the doom and gloom we’ve seen in the EV industry over the last few weeks."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "New York is holding its annual auto show, and while these events don’t hold as much relevance for the media as they did a decade ago, Kia is keeping the spirit alive, this morning debuting a couple of new vehicles for model year 2027 that we think hit the current mood. These are not ginormous three-rows. They’re not even mid-sized SUVs. People have been asking for small cars, and it seems at least Kia has heard the message with the 2027 EV3 and a new Seltos, which will now offer a hybrid option."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "We got our first look at the EV more than two years ago, together with the EV4 sedan. Despite our drive of the latter last year , the EV4’s US launch was shelved. That’s not true for the EV3, which sticks with more popular SUV styling that mimics the bigger EV9. Ars drove the EV3 briefly in 2025, too— check out Kristin Shaw’s early drive impressions to learn more about how it handled."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Ars Technica",
-          "source_url": "https://arstechnica.com/cars/2026/04/kia-shows-off-small-cars-in-ny-the-2027-ev3-and-2027-seltos-hybrid/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T15:20:06.000Z",
-          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/24508_2027_EV3-1152x648.jpg",
-          "image_caption": "Reference image from Ars Technica.",
-          "image_credit": "Ars Technica"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T15:20:06.000Z",
-      "updated_at": "2026-04-01T15:20:06.000Z",
-      "image": {
-        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/24508_2027_EV3-1152x648.jpg",
-        "caption": "Reference image from Ars Technica.",
-        "credit": "Ars Technica",
-        "source_url": "https://arstechnica.com/cars/2026/04/kia-shows-off-small-cars-in-ny-the-2027-ev3-and-2027-seltos-hybrid/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-0a948eaf29be-en",
-      "cluster_id": "feed-0a948eaf29be",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "anthropic-s-leaked-claude-code-was-an-internal-error-not-an-attack",
-      "title": "Anthropic’s leaked Claude code was an internal error, not an attack",
-      "summary": "Claude’s source code was mistakenly published by Anthropic in the middle of the night, and users have already begun recreating pieces of the internal AI interface leak for their own use. Anthropic has been on a tear, gaining user traction with helpful features like real-time graphics and remote computer control for complicated tasks.",
-      "dek": "Claude’s source code was mistakenly published by Anthropic in the middle of the night, and users have already begun recreating pieces of the internal AI interface leak for their own use.",
-      "hook": "Claude’s source code was mistakenly published by Anthropic in the middle of the night, and users have already begun recreating pieces of the internal AI interface leak for their own use.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Claude’s source code was mistakenly published by Anthropic in the middle of the night, and users have already begun recreating pieces of the internal AI interface leak for their own use."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "Anthropic has been on a tear, gaining user traction with helpful features like real-time graphics and remote computer control for complicated tasks. All of these round out the tool set users can access through Anthropic’s interface, but a recent leak may have jeopardized its proprietary nature."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "At around 4 a.m. on Tuesday morning, Anthropic pushed what was supposed to be a routine update to Claude (via VentureBeat ). Apparently, included in that update was a source map file that led right to Claude’s source code. The debugging file contained 512,000 lines of proprietary TypeScript code, which was initially spotted and posted by someone on Twitter/X ."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "9to5Google",
-          "source_url": "https://9to5google.com/2026/04/01/claude-source-code-leak-internal-error/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T15:08:55.000Z",
-          "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2024/07/anthrophic-claude-android-1.jpg?quality=82&strip=all&w=1600",
-          "image_caption": "Reference image from 9to5Google.",
-          "image_credit": "9to5Google"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T15:08:55.000Z",
-      "updated_at": "2026-04-01T15:08:55.000Z",
-      "image": {
-        "src": "https://9to5google.com/wp-content/uploads/sites/4/2024/07/anthrophic-claude-android-1.jpg?quality=82&strip=all&w=1600",
-        "caption": "Reference image from 9to5Google.",
-        "credit": "9to5Google",
-        "source_url": "https://9to5google.com/2026/04/01/claude-source-code-leak-internal-error/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-ff07faf73feb-en",
-      "cluster_id": "feed-ff07faf73feb",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "ikea-s-new-matter-lights-and-sensors-work-with-google-home-10-speaker-can-form-a-network",
-      "title": "IKEA’s new Matter lights and sensors work with Google Home, $10 speaker can form a network",
-      "summary": "IKEA is today officially launching new lights and sensors that work with Google Home, while the furniture giant is also launching a super-cheap $10 speaker that can form a network of audio throughout your home. Following an early preview at CES 2026 earlier this year, IKEA is launching a few new products in its smart home catalog today.",
-      "dek": "IKEA is today officially launching new lights and sensors that work with Google Home, while the furniture giant is also launching a super-cheap $10 speaker that can form a network of audio throughout your home.",
-      "hook": "IKEA is today officially launching new lights and sensors that work with Google Home, while the furniture giant is also launching a super-cheap $10 speaker that can form a network of audio throughout your home.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "IKEA is today officially launching new lights and sensors that work with Google Home, while the furniture giant is also launching a super-cheap $10 speaker that can form a network of audio throughout your home."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "Following an early preview at CES 2026 earlier this year, IKEA is launching a few new products in its smart home catalog today."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "This starts with the VARMBLIXT table lamp, the revival of a hugely popular lamp that IKEA says “sold once every 5 minutes in the US” since its debut a few years ago. This new variation features remote control and full color controls either through IKEA’s app or other Matter apps such as Google Home. The lamp does also come bundled with one of IKEA’s button remotes. It costs $99.99. Meanwhile, a pendant version of the lamp is also launching for $159.99 with a unique design and the same smart controls."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "9to5Google",
-          "source_url": "https://9to5google.com/2026/04/01/ikeas-new-matter-lights-and-sensors-work-with-google-home-10-speaker-can-form-a-network/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T15:05:00.000Z",
-          "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2026/01/ikea-ces-2026-2.jpg?quality=82&strip=all&w=1600",
-          "image_caption": "Reference image from 9to5Google.",
-          "image_credit": "9to5Google"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T15:05:00.000Z",
-      "updated_at": "2026-04-01T15:05:00.000Z",
-      "image": {
-        "src": "https://9to5google.com/wp-content/uploads/sites/4/2026/01/ikea-ces-2026-2.jpg?quality=82&strip=all&w=1600",
-        "caption": "Reference image from 9to5Google.",
-        "credit": "9to5Google",
-        "source_url": "https://9to5google.com/2026/04/01/ikeas-new-matter-lights-and-sensors-work-with-google-home-10-speaker-can-form-a-network/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-1885954a862d-en",
-      "cluster_id": "feed-1885954a862d",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "ligo-data-hints-at-supernovae-so-powerful-they-leave-nothing-behind",
-      "title": "LIGO data hints at supernovae so powerful they leave nothing behind",
-      "summary": "Many of the early exoplanet discoveries were exciting on their own, confirming that there really were strange new worlds out in the Universe. But over time, our focus has shifted more toward numbers, as we began using the frequency of objects like super-Earths and mini-Neptunes to learn more about how planets form.",
-      "dek": "Many of the early exoplanet discoveries were exciting on their own, confirming that there really were strange new worlds out in the Universe.",
-      "hook": "Many of the early exoplanet discoveries were exciting on their own, confirming that there really were strange new worlds out in the Universe. But over time, our focus has shifted more toward numbers, as we began using the frequency of objects like super-Earths and mini-Neptunes to learn more about how planets form. With four gravitational wave detectors now having generated years of data, we may be on the verge of seeing something similar happen with black hole mergers.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Many of the early exoplanet discoveries were exciting on their own, confirming that there really were strange new worlds out in the Universe. But over time, our focus has shifted more toward numbers, as we began using the frequency of objects like super-Earths and mini-Neptunes to learn more about how planets form. With four gravitational wave detectors now having generated years of data, we may be on the verge of seeing something similar happen with black hole mergers."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "On Wednesday, researchers released an analysis suggesting that there’s a “mass gap” in the population of black holes that we’ve detected so far. And that gap supports the idea that some stars are so massive that they die in something called a pair-instability supernova, which is so violent that it leaves nothing but debris behind."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "Black holes result from the collapse of a star’s core during a supernova. While the outer layers of a star explode outward, the innermost layers plunge inward, funneling a fraction of the star’s mass into the black hole (or neutron star if the star’s mass is too small). We’re not sure what the upper limit on a star’s mass is, so you might naively think the distribution of black hole masses tails off gently."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Ars Technica",
-          "source_url": "https://arstechnica.com/science/2026/04/black-hole-mergers-put-limits-on-star-destroying-supernovae/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T15:00:01.000Z",
-          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/image-8-1152x648.jpeg",
-          "image_caption": "Reference image from Ars Technica.",
-          "image_credit": "Ars Technica"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T15:00:01.000Z",
-      "updated_at": "2026-04-01T15:00:01.000Z",
-      "image": {
-        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/image-8-1152x648.jpeg",
-        "caption": "Reference image from Ars Technica.",
-        "credit": "Ars Technica",
-        "source_url": "https://arstechnica.com/science/2026/04/black-hole-mergers-put-limits-on-star-destroying-supernovae/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
+        "generated_at": "2026-04-01T21:48:11.654Z",
         "origin": "local-curated-rss"
       }
     },
@@ -770,199 +898,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-75ed073da136-en",
-      "cluster_id": "feed-75ed073da136",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "hasbro-says-it-was-hacked-and-may-take-several-weeks-to-recover",
-      "title": "Hasbro says it was hacked, and may take ‘several weeks’ to recover",
-      "summary": "American toy-making giant Hasbro has confirmed a cyberattack, and the company says it may take “several weeks” before the incident is resolved. The owner of properties including Transformers, Peppa Pig, and Dungeons & Dragons said in a legally required disclosure with the U.S.",
-      "dek": "American toy-making giant Hasbro has confirmed a cyberattack, and the company says it may take “several weeks” before the incident is resolved.",
-      "hook": "American toy-making giant Hasbro has confirmed a cyberattack, and the company says it may take “several weeks” before the incident is resolved.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "American toy-making giant Hasbro has confirmed a cyberattack, and the company says it may take “several weeks” before the incident is resolved."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "The owner of properties including Transformers, Peppa Pig, and Dungeons & Dragons said in a legally required disclosure with the U.S. Securities and Exchange Commission on Wednesday that it detected an intrusion on March 28, which prompted the company to take down some of its systems."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "Hasbro said it has implemented and continues to roll out business continuity plans to allow it to “take orders, ship product and conduct other key operations while it resolves this situation.”."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechCrunch",
-          "source_url": "https://techcrunch.com/2026/04/01/hasbro-hacked-may-take-several-weeks-to-recover/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T14:50:32.000Z",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2026/04/hasbro-logo-2226484802.jpg?resize=1200,805",
-          "image_caption": "Reference image from TechCrunch.",
-          "image_credit": "TechCrunch"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T14:50:32.000Z",
-      "updated_at": "2026-04-01T14:50:32.000Z",
-      "image": {
-        "src": "https://techcrunch.com/wp-content/uploads/2026/04/hasbro-logo-2226484802.jpg?resize=1200,805",
-        "caption": "Reference image from TechCrunch.",
-        "credit": "TechCrunch",
-        "source_url": "https://techcrunch.com/2026/04/01/hasbro-hacked-may-take-several-weeks-to-recover/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-5e310b358f9e-en",
-      "cluster_id": "feed-5e310b358f9e",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "less-than-a-month-strictlyvc-san-francisco-brings-leaders-from-tdk-ventures-replit-and-more-toge",
-      "title": "Less than a month: StrictlyVC San Francisco brings leaders from TDK Ventures, Replit, and more together",
-      "summary": "All good things come to those who wait. The first StrictlyVC of the year is headed to San Francisco in less than a month, on April 30, at the Sentro Filipino Cultural Center.",
-      "dek": "The piece brings the story back into context and explains why it is worth opening right now.",
-      "hook": "All good things come to those who wait. The first StrictlyVC of the year is headed to San Francisco in less than a month, on April 30, at the Sentro Filipino Cultural Center. And you won’t want to miss out on another lineup of stellar speakers to punctuate the night’s networking and mingling. AI innovators and founders in search of funding will be particularly well-served by the event’s discussions.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "All good things come to those who wait. The first StrictlyVC of the year is headed to San Francisco in less than a month, on April 30, at the Sentro Filipino Cultural Center. And you won’t want to miss out on another lineup of stellar speakers to punctuate the night’s networking and mingling. AI innovators and founders in search of funding will be particularly well-served by the event’s discussions."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "You can get a ticket right now , but for those who haven’t been to a StrictlyVC event in the past and already clicked that link, let’s dive into what’s particularly exciting about this one …."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "TDK Ventures president Nicolas Sauvage will kick things off after you get your requisite beverages and networking in, as he makes the case for corporate VCs in a conversation with TechCrunch editor-in-chief Connie Loizos. Sauvage, who leads TDK Ventures’ $500 million effort to invest in early-stage startups, will explain what makes corporate VCs operate differently and what founders should know about what catches his eye in an investment."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechCrunch",
-          "source_url": "https://techcrunch.com/2026/04/01/join-the-first-strictlyvc-of-2026-in-sf-with-leaders-from-tdk-ventures-and-replits-co-founder/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T14:00:00.000Z",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2026/03/54963244981_66492e96cc_6k.jpg?resize=1200,800",
-          "image_caption": "Reference image from TechCrunch.",
-          "image_credit": "TechCrunch"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T14:00:00.000Z",
-      "updated_at": "2026-04-01T14:00:00.000Z",
-      "image": {
-        "src": "https://techcrunch.com/wp-content/uploads/2026/03/54963244981_66492e96cc_6k.jpg?resize=1200,800",
-        "caption": "Reference image from TechCrunch.",
-        "credit": "TechCrunch",
-        "source_url": "https://techcrunch.com/2026/04/01/join-the-first-strictlyvc-of-2026-in-sf-with-leaders-from-tdk-ventures-and-replits-co-founder/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-dbe5f500f10a-en",
-      "cluster_id": "feed-dbe5f500f10a",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "sweden-goes-back-to-basics-swapping-screens-for-books-in-the-classroom",
-      "title": "Sweden goes back to basics, swapping screens for books in the classroom",
-      "summary": "In 2023, the Swedish government announced that the country’s schools would be going back to basics , emphasizing skills such as reading and writing, particularly in early grades. After mostly being sidelined, physical books are now being reintroduced into classrooms, and students are learning to write the old-fashioned way: by hand, with a pencil or pen, on sheets of paper.",
-      "dek": "In 2023, the Swedish government announced that the country’s schools would be going back to basics , emphasizing skills such as reading and writing, particularly in early grades.",
-      "hook": "In 2023, the Swedish government announced that the country’s schools would be going back to basics , emphasizing skills such as reading and writing, particularly in early grades. After mostly being sidelined, physical books are now being reintroduced into classrooms, and students are learning to write the old-fashioned way: by hand, with a pencil or pen, on sheets of paper. The Swedish government also plans to make schools cellphone-free throughout the country.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "In 2023, the Swedish government announced that the country’s schools would be going back to basics , emphasizing skills such as reading and writing, particularly in early grades. After mostly being sidelined, physical books are now being reintroduced into classrooms, and students are learning to write the old-fashioned way: by hand, with a pencil or pen, on sheets of paper. The Swedish government also plans to make schools cellphone-free throughout the country."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "Educational authorities have been investing heavily. Last year alone, the education ministry allocated $83 million to purchase textbooks and teachers’ guides. In a country with about 11 million people, the aim is for every student to have a physical textbook for each subject. The government also put $54 million towards the purchase of fiction and non-fiction books for students."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "These moves represent a dramatic pivot from previous decades, during which Sweden—and many other nations— moved away from physical books in favor of tablets and digital resources in an effort to prepare students for life in an online world. Perhaps unsurprisingly, the Nordic country’s efforts have sparked a debate on the role of digital technology in education, one that extends well beyond the country’s borders. US parents in districts that have adopted digital technology to a great extent may be wondering if educators will reverse course, too."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Ars Technica",
-          "source_url": "https://arstechnica.com/science/2026/04/sweden-goes-back-to-basics-swapping-screens-for-books-in-the-classroom/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T13:46:22.000Z",
-          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/book-laptop-school-1152x648.jpg",
-          "image_caption": "Reference image from Ars Technica.",
-          "image_credit": "Ars Technica"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T13:46:22.000Z",
-      "updated_at": "2026-04-01T13:46:22.000Z",
-      "image": {
-        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/book-laptop-school-1152x648.jpg",
-        "caption": "Reference image from Ars Technica.",
-        "credit": "Ars Technica",
-        "source_url": "https://arstechnica.com/science/2026/04/sweden-goes-back-to-basics-swapping-screens-for-books-in-the-classroom/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
+        "generated_at": "2026-04-01T21:48:11.654Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1026,7 +962,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
+        "generated_at": "2026-04-01T21:48:11.654Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1090,7 +1026,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
+        "generated_at": "2026-04-01T21:48:11.654Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1154,7 +1090,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
+        "generated_at": "2026-04-01T21:48:11.654Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1218,7 +1154,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
+        "generated_at": "2026-04-01T21:48:11.654Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1282,7 +1218,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
+        "generated_at": "2026-04-01T21:48:11.654Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1346,7 +1282,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.481Z",
+        "generated_at": "2026-04-01T21:48:11.656Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1410,7 +1346,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.482Z",
+        "generated_at": "2026-04-01T21:48:11.656Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1474,7 +1410,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.482Z",
+        "generated_at": "2026-04-01T21:48:11.656Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1538,71 +1474,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.482Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-8a04920999ba-vi",
-      "cluster_id": "feed-8a04920999ba",
-      "language": "vi",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "game-thu-crimson-desert-truyen-tay-nhau-bi-kip-focus-boost-bay-xa-ma-khong-ton-nhieu-the-luc",
-      "title": "Game thủ Crimson Desert truyền tay nhau bí kíp 'Focus-Boost': Bay xa mà không tốn nhiều thể lực",
-      "summary": "Crimson Desert vừa xuất hiện một kỹ thuật di chuyển mới mang tên Focus-Boost, được cộng đồng phát hiện và chia sẻ rộng rãi. Kỹ thuật này cho phép người chơi bay với tốc độ vượt trội mà chỉ tiêu hao rất ít thể lực, nhờ kết hợp ba kỹ năng: Aerial Roll, Focus và Focused Insight.",
-      "dek": "Crimson Desert vừa xuất hiện một kỹ thuật di chuyển mới mang tên Focus-Boost, được cộng đồng phát hiện và chia sẻ rộng rãi.",
-      "hook": "Crimson Desert vừa xuất hiện một kỹ thuật di chuyển mới mang tên Focus-Boost, được cộng đồng phát hiện và chia sẻ rộng rãi. Kỹ thuật này cho phép người chơi bay với tốc độ vượt trội mà chỉ tiêu hao rất ít thể lực, nhờ kết hợp ba kỹ năng: Aerial Roll, Focus và Focused Insight.",
-      "sections": [
-        {
-          "heading": "Điều vừa xảy ra",
-          "body": "Crimson Desert vừa xuất hiện một kỹ thuật di chuyển mới mang tên Focus-Boost, được cộng đồng phát hiện và chia sẻ rộng rãi. Kỹ thuật này cho phép người chơi bay với tốc độ vượt trội mà chỉ tiêu hao rất ít thể lực, nhờ kết hợp ba kỹ năng: Aerial Roll, Focus và Focused Insight."
-        },
-        {
-          "heading": "Vì sao đáng chú ý",
-          "body": "Để thực hiện Focus-Boost, người chơi cần học Aerial Roll trong nhánh kỹ năng đỏ (liên quan đến máu), Focus (có thể mở khá sớm trong cốt truyện) và Focused Insight (mở khi đạt cấp Focus Level 3). Hai kỹ năng Aerial Roll và Focused Insight yêu cầu sử dụng Abyss Artifact để mở khóa. Khi thực hiện đúng trình tự, người chơi sẽ nhận được cú tăng tốc mạnh mẽ khi bay, đặc biệt hiệu quả sau bản cập nhật 1.01.00 giúp giảm tiêu hao thể lực khi bay."
-        },
-        {
-          "heading": "Điều cần theo dõi tiếp",
-          "body": "Cách thực hiện Focus-Boost gồm các bước: nhảy lên không trung (bằng nhảy thường, nhảy đôi hoặc dùng Aerial Force Palm), kích hoạt chế độ bay bằng nút Square/X, sau đó nhấn đồng thời R1 L1 để bật Focus (làm chậm thời gian). Tiếp theo, nhấn Circle/B để thực hiện Aerial Roll, khi hoạt ảnh kết thúc thì nhấn R1/RB để kích hoạt Insight. Bước cuối cùng này sẽ giúp nhân vật bay nhanh hơn rất nhiều so với bay thông thường."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "GenK Apps-Games",
-          "source_url": "https://genk.vn/game-thu-crimson-desert-truyen-tay-nhau-bi-kip-focus-boost-bay-xa-ma-khong-ton-nhieu-the-luc-165263103212456479.chn",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-03-31T19:00:00.000Z",
-          "image_url": "https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/3/31/94e2be522fe34ac2b53beb5193554d43-17749663220143142-1774980050843-17749800512021282031093-0-56-410-712-crop-177498006396141957413.jpg",
-          "image_caption": "Ảnh tham khảo từ GenK Apps-Games.",
-          "image_credit": "GenK Apps-Games"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-03-31T19:00:00.000Z",
-      "updated_at": "2026-03-31T19:00:00.000Z",
-      "image": {
-        "src": "https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/3/31/94e2be522fe34ac2b53beb5193554d43-17749663220143142-1774980050843-17749800512021282031093-0-56-410-712-crop-177498006396141957413.jpg",
-        "caption": "Ảnh tham khảo từ GenK Apps-Games.",
-        "credit": "GenK Apps-Games",
-        "source_url": "https://genk.vn/game-thu-crimson-desert-truyen-tay-nhau-bi-kip-focus-boost-bay-xa-ma-khong-ton-nhieu-the-luc-165263103212456479.chn"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.482Z",
+        "generated_at": "2026-04-01T21:48:11.656Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1666,7 +1538,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.482Z",
+        "generated_at": "2026-04-01T21:48:11.656Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1730,7 +1602,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T17:08:34.482Z",
+        "generated_at": "2026-04-01T21:48:11.656Z",
         "origin": "local-curated-rss"
       }
     }

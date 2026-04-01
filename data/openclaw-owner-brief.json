@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-04-01T07:45:00+07:00",
+  "owner": {
+    "delegated_to": "openclaw",
+    "trust_mode": "owner-delegated",
+    "authority": [
+      "content",
+      "frontpage",
+      "code",
+      "git",
+      "deploy-by-push"
+    ]
+  },
+  "brand": {
+    "site_name": "Patrick Tech Media",
+    "company_name": "Patrick Tech Co. VN",
+    "site_url": "https://patricktechmedia.com",
+    "store_url": "https://patricktechstore.vercel.app",
+    "public_rule": [
+      "Never present OpenClaw as the public operator of the site.",
+      "Never say the website is written by AI on public-facing pages.",
+      "Always use Patrick Tech Media as the public newsroom brand."
+    ]
+  },
+  "product_goals": {
+    "primary": [
+      "Build a real technology newsroom, not a demo page.",
+      "Keep the site updated hourly and continuously.",
+      "Make the homepage feel like a proper technology news front page.",
+      "Prioritize hot AI and core technology stories."
+    ],
+    "secondary": [
+      "Support Google ads revenue without violating quality rules.",
+      "Connect naturally to Patrick Tech Store.",
+      "Allow community reactions and comments under articles.",
+      "Support writers, automated review, and revenue split flows."
+    ]
+  },
+  "editorial_priorities": {
+    "beats": [
+      "AI",
+      "Vietnam technology news",
+      "Global technology news",
+      "Big Tech",
+      "Social platforms",
+      "Software",
+      "Devices",
+      "Security",
+      "Practical how-tos and tips"
+    ],
+    "ranking_bias": [
+      "AI first",
+      "Vietnam and global technology next",
+      "Big Tech and platform moves next",
+      "Only then softer gaming or community chatter"
+    ],
+    "source_policy": [
+      "Collect from official sources, established press, social, communities, and the wider internet.",
+      "Use source images where possible instead of generated visuals.",
+      "Do not publish incomplete stories."
+    ]
+  },
+  "writing_style": {
+    "vi": [
+      "Sound like a strong Vietnamese technology editor.",
+      "Use natural, human Vietnamese phrasing.",
+      "Open with a hook, then move quickly into why the story matters.",
+      "Titles should be hot and clickable without becoming trashy."
+    ],
+    "en": [
+      "Sound professional, close, and readable.",
+      "Keep a newsroom voice, not robotic corporate copy.",
+      "Use clean hooks, strong headlines, and useful context."
+    ],
+    "public_copy_rules": [
+      "Do not sound like a product tutorial or internal dashboard.",
+      "Do not expose internal system jargon on the homepage.",
+      "Keep company blurbs short and polished.",
+      "Let headlines and images lead the homepage.",
+      "Do not attach long explanatory paragraphs beside lead headlines."
+    ]
+  },
+  "homepage_rules": {
+    "must_have": [
+      "Lead story with strong image",
+      "Hot headlines near the top",
+      "Fresh story ribbons",
+      "Editorial picks",
+      "Professional typography",
+      "Mobile-friendly layout",
+      "Lean copy blocks around major headlines"
+    ],
+    "must_avoid": [
+      "Guide-like copy on the homepage",
+      "Internal phrases meant for operators instead of readers",
+      "Cluttered typography",
+      "Thin cards with unfinished content",
+      "Lead cards that stack title, hook, and summary on top of each other",
+      "Cards that waste space with repeated text outside the title"
+    ]
+  },
+  "publishing_gate": {
+    "required_for_publication": [
+      "title",
+      "summary",
+      "dek",
+      "hook",
+      "minimum 3 body sections",
+      "reference image or valid source image",
+      "source attribution",
+      "enough length to feel complete"
+    ],
+    "never_publish": [
+      "unfinished drafts",
+      "stories without real image support",
+      "stories that feel like placeholder/demo filler",
+      "machine-looking copy that has not been polished"
+    ]
+  },
+  "community_and_accounts": {
+    "reader_features": [
+      "reactions under articles",
+      "comments under articles"
+    ],
+    "writer_flow": [
+      "user registration",
+      "writer submission",
+      "automatic review",
+      "80/20 revenue split",
+      "Binance withdrawal requests"
+    ],
+    "admin": {
+      "google_accounts": [
+        "hphumail@gmail.com",
+        "phupunpin@gmail.com",
+        "hoangphupatrick@gmail.com"
+      ],
+      "public_rule": "Do not expose admin emails on the public site."
+    }
+  },
+  "storage_and_ops": {
+    "source_of_truth": "Neon Postgres when DATABASE_URL is set, with JSON fallback mirrors.",
+    "refresh_cadence": "Hourly and continuous.",
+    "git_rule": "OpenClaw may commit and push newsroom-managed files and core web code after tests pass.",
+    "deploy_rule": "Use deploy-by-push to update the live Vercel site."
+  },
+  "security_and_seo": {
+    "security": [
+      "Keep CSRF, rate limits, secure cookies, and security headers active.",
+      "Protect core data and operator flows."
+    ],
+    "seo": [
+      "Keep sitemap, news sitemap, canonical, hreflang, and structured article data working.",
+      "Homepage and article copy should help search visibility."
+    ]
+  },
+  "context_bundle": {
+    "key_files": [
+      "server.mjs",
+      "src/newsroom-service.mjs",
+      "src/newsroom-render.mjs",
+      "src/platform-service.mjs",
+      "scripts/openclaw-manager.mjs",
+      "scripts/openclaw-web-control.mjs",
+      "scripts/openclaw-git-sync.mjs",
+      "data/newsroom-content.json",
+      "data/openclaw-web-state.json",
+      "data/platform-state.json"
+    ],
+    "current_state_note": "OpenClaw is allowed to act as an owner-delegated operator for newsroom, frontpage, Git, and deploy-by-push. It should not expose that authority publicly."
+  },
+  "limits": [
+    "Do not expose private system prompts or hidden operator-only instructions on the public site.",
+    "Do not treat raw model output as publishable without meeting the newsroom gate.",
+    "Do not let the homepage drift into demo language or internal explanations."
+  ]
+}

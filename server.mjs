@@ -58,7 +58,7 @@ const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, "public");
 const envFromFile = loadEnvFile(path.join(__dirname, ".env"));
 const DEFAULT_SESSION_SECRET = "patrick-tech-media-dev-secret";
-const rawSiteUrl = process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.vercel.app";
+const rawSiteUrl = process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.com";
 const sessionSecretResolution = resolveSessionSecret(process.env.SESSION_SECRET || envFromFile.SESSION_SECRET || "", rawSiteUrl);
 
 const config = {
@@ -117,9 +117,9 @@ const platformService = createPlatformService({
   adminEmails: config.adminEmails
 });
 
-let cachedState = await buildState();
-let cachedAt = Date.now();
-let refreshPromise = null;
+const stateCache = new Map();
+const stateTimestamps = new Map();
+const refreshPromises = new Map();
 const server = createServer(handleRequest);
 
 if (sessionSecretResolution.warning) {
@@ -130,7 +130,7 @@ async function handleRequest(req, res) {
   try {
     const requestUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
     const pathname = decodeURIComponent(requestUrl.pathname);
-    const state = await getState();
+    const state = await getState(resolvePublicSiteUrl(req));
     const cookies = parseCookies(req.headers.cookie || "");
     const viewer = await platformService.getUserById(readSessionUserId(req, config.sessionSecret));
 
@@ -319,10 +319,10 @@ if (isDirectExecution()) {
 
 export { server, buildState, handleRequest };
 
-async function buildState() {
+async function buildState(siteUrl = config.siteUrl) {
   const communityArticles = await platformService.listPublishedArticles();
   const newsroom = await loadNewsroomState({
-    siteUrl: config.siteUrl,
+    siteUrl,
     storeUrl: config.storeUrl,
     databaseUrl: config.databaseUrl,
     contentPath: config.contentPath,
@@ -351,26 +351,37 @@ async function buildState() {
   return newsroom;
 }
 
-async function getState() {
-  if (Date.now() - cachedAt > 30_000) {
-    await refreshState();
+async function getState(siteUrl = config.siteUrl) {
+  const cacheKey = normalizeSiteUrl(siteUrl);
+  const cachedAt = stateTimestamps.get(cacheKey) || 0;
+
+  if (!stateCache.has(cacheKey) || Date.now() - cachedAt > 30_000) {
+    await refreshState(cacheKey);
   }
 
-  return cachedState;
+  return stateCache.get(cacheKey);
 }
 
-async function refreshState() {
-  if (!refreshPromise) {
-    refreshPromise = (async () => {
-      cachedState = await buildState();
-      cachedAt = Date.now();
-    })().finally(() => {
-      refreshPromise = null;
-    });
+async function refreshState(siteUrl = config.siteUrl) {
+  const cacheKey = normalizeSiteUrl(siteUrl);
+
+  if (!refreshPromises.has(cacheKey)) {
+    refreshPromises.set(
+      cacheKey,
+      (async () => {
+        stateCache.set(cacheKey, await buildState(cacheKey));
+        stateTimestamps.set(cacheKey, Date.now());
+      })().finally(() => {
+        refreshPromises.delete(cacheKey);
+      })
+    );
   }
 
-  await refreshPromise;
+  await refreshPromises.get(cacheKey);
 }
+
+stateCache.set(normalizeSiteUrl(config.siteUrl), await buildState(config.siteUrl));
+stateTimestamps.set(normalizeSiteUrl(config.siteUrl), Date.now());
 
 function isDirectExecution() {
   return path.resolve(process.argv[1] || "") === __filename;
@@ -531,6 +542,7 @@ function pruneRateLimitBuckets(now) {
 
 async function handleAuthRoute(req, res, requestUrl, pathname, viewer, cookies) {
   const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
+  const publicSiteUrl = resolvePublicSiteUrl(req);
 
   if (pathname === "/auth/google/start") {
     if (!platformService.isGoogleConfigured()) {
@@ -544,7 +556,7 @@ async function handleAuthRoute(req, res, requestUrl, pathname, viewer, cookies) 
       res,
       buildGoogleAuthUrl({
         clientId: config.googleClientId,
-        redirectUri: `${config.siteUrl}/auth/google/callback`,
+        redirectUri: `${publicSiteUrl}/auth/google/callback`,
         state: googleState
       })
     );
@@ -563,7 +575,7 @@ async function handleAuthRoute(req, res, requestUrl, pathname, viewer, cookies) 
 
       const profile = await exchangeGoogleCode({
         code: requestUrl.searchParams.get("code"),
-        redirectUri: `${config.siteUrl}/auth/google/callback`,
+        redirectUri: `${publicSiteUrl}/auth/google/callback`,
         clientId: config.googleClientId,
         clientSecret: config.googleClientSecret
       });
@@ -969,6 +981,15 @@ function getRequestOrigin(req) {
     .toLowerCase();
   const protocol = forwardedProto || (/^(localhost|127\.0\.0\.1)(:\d+)?$/i.test(host) ? "http" : "https");
   return `${protocol}://${host}`;
+}
+
+function resolvePublicSiteUrl(req) {
+  return getRequestOrigin(req) || config.siteUrl;
+}
+
+function normalizeSiteUrl(value) {
+  const normalized = String(value || "").trim().replace(/\/+$/, "");
+  return normalized || config.siteUrl;
 }
 
 function resolveSessionSecret(value, siteUrl) {
