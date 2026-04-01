@@ -4,17 +4,17 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-owner-brief.json",
-    "startedAt": "2026-04-01T21:48:00.852Z",
-    "finishedAt": "2026-04-01T21:48:13.025Z"
+    "startedAt": "2026-04-01T22:26:51.389Z",
+    "finishedAt": "2026-04-01T22:27:03.770Z"
   },
   "newsroom": {
     "contentPath": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\newsroom-content.json",
-    "totalArticles": 85,
+    "totalArticles": 90,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 27 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\.openclaw-hidden-feed-seed-1775080081077-aab0a7.json Generated OpenClaw hidden feed with 25 article(s) at C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-hidden-feed.json",
-      "warnings": "",
+      "output": "Refreshed 31 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\.openclaw-hidden-feed-seed-1775082411809-33631d.json Generated OpenClaw hidden feed with 28 article(s) at C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-hidden-feed.json",
+      "warnings": "Skipping Reuters Technology: fetch failed",
       "path": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-hidden-feed.json",
       "url": ""
     },
@@ -22,7 +22,7 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 25 article(s) from external-feed into C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\newsroom-content.json",
+      "output": "Refreshed 28 article(s) from external-feed into C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\newsroom-content.json",
       "warnings": ""
     },
     "webControl": {
@@ -37,7 +37,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-04-01T21:48:13.021Z",
+      "reviewedAt": "2026-04-01T22:27:03.767Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,

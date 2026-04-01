@@ -817,6 +817,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
 
 function renderStoryCard(article, language) {
   const searchIndex = [article.title, article.hook || "", article.summary, article.topic_label, article.verification_state].join(" ").toLowerCase();
+  const displayTitle = getDisplayHeadline(article.title, 92);
   return `
     <article class="story-card topic-${article.topic}" data-story-card data-status="${article.verification_state}" data-topic="${article.topic}" data-search="${escapeHtml(searchIndex)}">
       ${renderStoryImage(article, "story-media")}
@@ -825,7 +826,7 @@ function renderStoryCard(article, language) {
         <span>${escapeHtml(article.topic_label)}</span>
       </div>
       ${article.editorial_label ? `<div class="story-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
-      <h3><a href="${article.href}">${escapeHtml(article.title)}</a></h3>
+      <h3><a href="${article.href}">${escapeHtml(displayTitle)}</a></h3>
       <div class="story-footer">
         <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         <a class="mini-link" href="${article.href}">${language === "vi" ? "Đọc" : "Read"}</a>
@@ -835,6 +836,7 @@ function renderStoryCard(article, language) {
 }
 
 function renderStackItem(article, language, withBadge) {
+  const displayTitle = getDisplayHeadline(article.title, 84);
   return `
     <article class="stack-item">
       <div class="stack-row">
@@ -844,7 +846,7 @@ function renderStackItem(article, language, withBadge) {
             <span>${escapeHtml(article.topic_label)}</span>
             ${withBadge && article.editorial_label ? `<span>${escapeHtml(article.editorial_label)}</span>` : ""}
           </div>
-          <a href="${article.href}">${escapeHtml(article.title)}</a>
+          <a href="${article.href}">${escapeHtml(displayTitle)}</a>
           <span class="stack-date">${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         </div>
       </div>
@@ -865,6 +867,7 @@ function renderStoryExcerpt(article) {
 }
 
 function renderLeadFeature(article, language, copy) {
+  const displayTitle = getDisplayHeadline(article.title, 88);
   return `
     <article class="lead-feature topic-${article.topic}">
       ${renderStoryImage(article, "lead-feature-media", true)}
@@ -876,7 +879,7 @@ function renderLeadFeature(article, language, copy) {
           <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         </div>
         ${article.editorial_label ? `<div class="story-flag lead-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
-        <h2><a href="${article.href}">${escapeHtml(article.title)}</a></h2>
+        <h2><a href="${article.href}">${escapeHtml(displayTitle)}</a></h2>
         <div class="lead-feature-actions">
           <a class="read-link inverted" href="${article.href}">${copy.readStory}</a>
           <span class="lead-feature-source">${escapeHtml(article.content_type_label)}</span>
@@ -887,6 +890,7 @@ function renderLeadFeature(article, language, copy) {
 }
 
 function renderLeadMini(article, language) {
+  const displayTitle = getDisplayHeadline(article.title, 72);
   return `
     <article class="lead-mini topic-${article.topic}">
       ${renderStoryImage(article, "lead-mini-media")}
@@ -895,18 +899,19 @@ function renderLeadMini(article, language) {
           <span>${escapeHtml(article.topic_label)}</span>
           <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         </div>
-        <h3><a href="${article.href}">${escapeHtml(article.title)}</a></h3>
+        <h3><a href="${article.href}">${escapeHtml(displayTitle)}</a></h3>
       </div>
     </article>
   `;
 }
 
 function renderHeadlineItem(article, language, index) {
+  const displayTitle = getDisplayHeadline(article.title, 82);
   return `
     <a class="headline-item" href="${article.href}">
       <span class="headline-index">${String(index).padStart(2, "0")}</span>
       <div>
-        <strong>${escapeHtml(article.title)}</strong>
+        <strong>${escapeHtml(displayTitle)}</strong>
         <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
       </div>
     </a>
@@ -914,10 +919,11 @@ function renderHeadlineItem(article, language, index) {
 }
 
 function renderRibbonItem(article, language) {
+  const displayTitle = getDisplayHeadline(article.title, 74);
   return `
     <a class="ribbon-item" href="${article.href}">
       <span>${escapeHtml(article.topic_label)}</span>
-      <strong>${escapeHtml(article.title)}</strong>
+      <strong>${escapeHtml(displayTitle)}</strong>
       <em>${escapeHtml(formatPublishDate(language, article.published_at))}</em>
     </a>
   `;
@@ -1556,4 +1562,23 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+function getDisplayHeadline(value, maxLength) {
+  const headline = String(value || "").replace(/\s+/g, " ").trim();
+
+  if (!headline || headline.length <= maxLength) {
+    return headline;
+  }
+
+  const candidate = headline.slice(0, maxLength + 1);
+  const boundary = Math.max(
+    candidate.lastIndexOf(" "),
+    candidate.lastIndexOf(" — "),
+    candidate.lastIndexOf(": "),
+    candidate.lastIndexOf(", ")
+  );
+  const clipped = boundary > Math.floor(maxLength * 0.55) ? candidate.slice(0, boundary) : candidate.slice(0, maxLength);
+
+  return `${clipped.trim().replace(/[,:;.!?\-'"“”‘’]+$/u, "")}…`;
 }

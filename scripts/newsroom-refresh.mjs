@@ -29,13 +29,22 @@ const fallbackFeeds = [
     limit: 5
   },
   {
+    name: "TechCrunch AI",
+    url: "https://techcrunch.com/category/artificial-intelligence/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    limit: 5
+  },
+  {
     name: "Google AI Blog",
     url: "https://blog.google/technology/ai/rss/",
     language: "en",
     region: "Global",
     sourceType: "official-site",
     trustTier: "official",
-    limit: 4
+    limit: 5
   },
   {
     name: "TechCrunch",
@@ -44,7 +53,7 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "press",
     trustTier: "established-media",
-    limit: 5
+    limit: 3
   },
   {
     name: "Ars Technica",
@@ -53,6 +62,15 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "press",
     trustTier: "established-media",
+    limit: 4
+  },
+  {
+    name: "Reuters Technology",
+    url: "https://feeds.reuters.com/reuters/technologyNews",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "wire",
     limit: 4
   },
   {

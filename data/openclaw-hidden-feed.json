@@ -1,11 +1,139 @@
 {
-  "generated_at": "2026-04-01T21:48:11.657Z",
+  "generated_at": "2026-04-01T22:27:02.816Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-7b6e59335518-en",
+      "cluster_id": "feed-7b6e59335518",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-c",
+      "title": "Anthropic took down thousands of Github repos trying to yank its leaked source code — a move the company says was an accident",
+      "summary": "Anthropic accidentally caused thousands of code repositories on Github to be taken down while trying to pull copies of its most popular product’s source code off the internet. On Tuesday, a software engineer discovered that Anthropic had, seemingly by accident, included access to the source code for the category-leading Claude Code command line application in a recent release.",
+      "dek": "Anthropic accidentally caused thousands of code repositories on Github to be taken down while trying to pull copies of its most popular product’s source code off the internet.",
+      "hook": "Anthropic accidentally caused thousands of code repositories on Github to be taken down while trying to pull copies of its most popular product’s source code off the internet.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Anthropic accidentally caused thousands of code repositories on Github to be taken down while trying to pull copies of its most popular product’s source code off the internet."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "On Tuesday, a software engineer discovered that Anthropic had, seemingly by accident, included access to the source code for the category-leading Claude Code command line application in a recent release. AI enthusiasts pored over the leaked code for clues about how Anthropic harnesses the LLM that underlies the application, sharing it on GitHub."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Anthropic issued a takedown notice under US digital copyright law asking GitHub to take down repositories containing the offending code. According to Github’s records , the notice was executed against some 8,100 repositories — including legitimate forks of Anthropic’s own publicly released Claude Code repository, according to irate social media users whose code got blocked."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch AI",
+          "source_url": "https://techcrunch.com/2026/04/01/anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-company-says-was-an-accident/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T22:12:13.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2261514463.jpg?w=1024",
+          "image_caption": "Reference image from TechCrunch AI.",
+          "image_credit": "TechCrunch AI"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T22:12:13.000Z",
+      "updated_at": "2026-04-01T22:12:13.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2261514463.jpg?w=1024",
+        "caption": "Reference image from TechCrunch AI.",
+        "credit": "TechCrunch AI",
+        "source_url": "https://techcrunch.com/2026/04/01/anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-company-says-was-an-accident/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T22:27:02.815Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-af03d02b46d8-en",
+      "cluster_id": "feed-af03d02b46d8",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-c",
+      "title": "Anthropic took down thousands of Github repos trying to yank its leaked source code — a move the company says was an accident",
+      "summary": "Anthropic accidentally caused thousands of code repositories on Github to be taken down while trying to pull copies of its most popular product’s source code off the internet. On Tuesday, a software engineer discovered that Anthropic had, seemingly by accident, included access to the source code for the category-leading Claude Code command line application in a recent release.",
+      "dek": "Anthropic accidentally caused thousands of code repositories on Github to be taken down while trying to pull copies of its most popular product’s source code off the internet.",
+      "hook": "Anthropic accidentally caused thousands of code repositories on Github to be taken down while trying to pull copies of its most popular product’s source code off the internet.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Anthropic accidentally caused thousands of code repositories on Github to be taken down while trying to pull copies of its most popular product’s source code off the internet."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "On Tuesday, a software engineer discovered that Anthropic had, seemingly by accident, included access to the source code for the category-leading Claude Code command line application in a recent release. AI enthusiasts pored over the leaked code for clues about how Anthropic harnesses the LLM that underlies the application, sharing it on GitHub."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Anthropic issued a takedown notice under US digital copyright law asking GitHub to take down repositories containing the offending code. According to Github’s records , the notice was executed against some 8,100 repositories — including legitimate forks of Anthropic’s own publicly released Claude Code repository, according to irate social media users whose code got blocked."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/04/01/anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-company-says-was-an-accident/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T22:12:13.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2261514463.jpg?w=1024",
+          "image_caption": "Reference image from TechCrunch.",
+          "image_credit": "TechCrunch"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T22:12:13.000Z",
+      "updated_at": "2026-04-01T22:12:13.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2261514463.jpg?w=1024",
+        "caption": "Reference image from TechCrunch.",
+        "credit": "TechCrunch",
+        "source_url": "https://techcrunch.com/2026/04/01/anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-company-says-was-an-accident/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T22:27:02.816Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-0d8639d7e914-en",
       "cluster_id": "feed-0d8639d7e914",
@@ -66,7 +194,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.653Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -130,7 +258,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -194,7 +322,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -258,135 +386,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-37840db09add-en",
-      "cluster_id": "feed-37840db09add",
-      "language": "en",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "slug": "a-new-dating-app-sonder-has-a-deliberately-annoying-sign-up-process-and-it-s-working",
-      "title": "A new dating app, Sonder, has a deliberately annoying sign-up process (and it’s working)",
-      "summary": "Sonder’s founders couldn’t bear to encounter one more dating app profile in which someone boldly declared that their most controversial opinion is that they like pineapple on pizza. “We didn’t learn that people are frustrated through user calls or interviews or any of that,” co-founder Mehedi Hassan told TechCrunch.",
-      "dek": "Sonder’s founders couldn’t bear to encounter one more dating app profile in which someone boldly declared that their most controversial opinion is that they like pineapple on pizza.",
-      "hook": "Sonder’s founders couldn’t bear to encounter one more dating app profile in which someone boldly declared that their most controversial opinion is that they like pineapple on pizza.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Sonder’s founders couldn’t bear to encounter one more dating app profile in which someone boldly declared that their most controversial opinion is that they like pineapple on pizza."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "“We didn’t learn that people are frustrated through user calls or interviews or any of that,” co-founder Mehedi Hassan told TechCrunch. “We learned that through our own experience — we’re just like, this can’t be it.”."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "This observation — that dating apps are a slot machine of misery — is about as unoriginal as bragging on Hinge that you were Time Magazine’s 2006 Person of the Year ( we all were !). So Hassan and three friends, all in their mid-twenties, set out to create an app that doesn’t suck."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "creator-software-stack"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechCrunch",
-          "source_url": "https://techcrunch.com/2026/04/01/a-new-dating-app-sonder-has-a-deliberately-annoying-sign-up-process-and-its-working/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T20:46:17.000Z",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2023/06/heartrope-184915606.jpg?resize=1200,792",
-          "image_caption": "Reference image from TechCrunch.",
-          "image_credit": "TechCrunch"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T20:46:17.000Z",
-      "updated_at": "2026-04-01T20:46:17.000Z",
-      "image": {
-        "src": "https://techcrunch.com/wp-content/uploads/2023/06/heartrope-184915606.jpg?resize=1200,792",
-        "caption": "Reference image from TechCrunch.",
-        "credit": "TechCrunch",
-        "source_url": "https://techcrunch.com/2026/04/01/a-new-dating-app-sonder-has-a-deliberately-annoying-sign-up-process-and-its-working/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-f5dba0c19547-en",
-      "cluster_id": "feed-f5dba0c19547",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "startup-funding-shatters-all-records-in-q1",
-      "title": "Startup funding shatters all records in Q1",
-      "summary": "Global investing in startups hit $297 billion in Q1 2026, breaking all records, according to new Crunchbase data . That’s a massive 2.5x increase over the $118 billion raised in the previous quarter.",
-      "dek": "Global investing in startups hit $297 billion in Q1 2026, breaking all records, according to new Crunchbase data .",
-      "hook": "Global investing in startups hit $297 billion in Q1 2026, breaking all records, according to new Crunchbase data . That’s a massive 2.5x increase over the $118 billion raised in the previous quarter. This single-quarter haul outpaces every full year of global VC activity prior to 2019.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Global investing in startups hit $297 billion in Q1 2026, breaking all records, according to new Crunchbase data . That’s a massive 2.5x increase over the $118 billion raised in the previous quarter. This single-quarter haul outpaces every full year of global VC activity prior to 2019."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "The unprecedented spike was fueled by just four behemoth deals, each a record-breaker in its own right."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "Last month, OpenAI announced that it is now valued at $852 billion after collecting $122 billion, surpassing the previous record for the largest funding round ever, also held by OpenAI when the ChatGPT maker raised $40 billion a year ago."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechCrunch",
-          "source_url": "https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T20:25:28.000Z",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2024/09/GettyImages-1147690054.jpg?resize=1200,800",
-          "image_caption": "Reference image from TechCrunch.",
-          "image_credit": "TechCrunch"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T20:25:28.000Z",
-      "updated_at": "2026-04-01T20:25:28.000Z",
-      "image": {
-        "src": "https://techcrunch.com/wp-content/uploads/2024/09/GettyImages-1147690054.jpg?resize=1200,800",
-        "caption": "Reference image from TechCrunch.",
-        "credit": "TechCrunch",
-        "source_url": "https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -450,71 +450,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-6ccaab00801a-en",
-      "cluster_id": "feed-6ccaab00801a",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "slug": "apple-releases-security-fix-for-older-iphones-and-ipads-to-protect-against-darksword-attacks",
-      "title": "Apple releases security fix for older iPhones and iPads to protect against DarkSword attacks",
-      "summary": "Apple has pushed a security update to older iPhones and iPads that protects against a leaked set of powerful hacking tools capable of stealing data from a person’s device. The tech giant said on Wednesday that it released iOS 18.7.7 and iPadOS 18.7.7 to allow a broader range of devices to “receive important security protections from web attacks called DarkSword.”.",
-      "dek": "Apple has pushed a security update to older iPhones and iPads that protects against a leaked set of powerful hacking tools capable of stealing data from a person’s device.",
-      "hook": "Apple has pushed a security update to older iPhones and iPads that protects against a leaked set of powerful hacking tools capable of stealing data from a person’s device.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Apple has pushed a security update to older iPhones and iPads that protects against a leaked set of powerful hacking tools capable of stealing data from a person’s device."
-        },
-        {
-          "heading": "Why it matters",
-          "body": "The tech giant said on Wednesday that it released iOS 18.7.7 and iPadOS 18.7.7 to allow a broader range of devices to “receive important security protections from web attacks called DarkSword.”."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "DarkSword is a hacking toolkit that can be used to break into Apple devices running iOS 18.4 through 18.7 simply by a user visiting a website that hosts the malicious code, such as legitimate websites that have themselves been breached. The exploits steal a person’s device data, including their messages, browser histories, location data, and cryptocurrency, and upload the data to a server hosted by the hackers."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechCrunch",
-          "source_url": "https://techcrunch.com/2026/04/01/apple-releases-security-fix-for-older-iphones-and-ipads-to-protect-against-darksword-attacks/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-04-01T19:02:18.000Z",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2024/06/wwdc24-ios18-homescreen-01.jpg?resize=1200,675",
-          "image_caption": "Reference image from TechCrunch.",
-          "image_credit": "TechCrunch"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-04-01T19:02:18.000Z",
-      "updated_at": "2026-04-01T19:02:18.000Z",
-      "image": {
-        "src": "https://techcrunch.com/wp-content/uploads/2024/06/wwdc24-ios18-homescreen-01.jpg?resize=1200,675",
-        "caption": "Reference image from TechCrunch.",
-        "credit": "TechCrunch",
-        "source_url": "https://techcrunch.com/2026/04/01/apple-releases-security-fix-for-older-iphones-and-ipads-to-protect-against-darksword-attacks/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -578,7 +514,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -642,7 +578,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -706,7 +642,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -770,7 +706,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -834,7 +770,71 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-f11660d78a7d-en",
+      "cluster_id": "feed-f11660d78a7d",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "cognichip-wants-ai-to-design-the-chips-that-power-ai-and-just-raised-60m-to-try",
+      "title": "Cognichip wants AI to design the chips that power AI, and just raised $60M to try",
+      "summary": "The most advanced silicon chips have accelerated the development of artificial intelligence. Now can AI return the favor?",
+      "dek": "The most advanced silicon chips have accelerated the development of artificial intelligence.",
+      "hook": "The most advanced silicon chips have accelerated the development of artificial intelligence. Now can AI return the favor?",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "The most advanced silicon chips have accelerated the development of artificial intelligence. Now can AI return the favor?"
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Cognichip is building a deep learning model to work alongside engineers as they design new computer chips. The problem it is trying to solve is one the industry has lived with for decades: Chip design is enormously complex, ruinously expensive, and slow. Advanced chips take three to five years to go from conception to mass production; the design phase alone can take as long as two years before physical layout begins. Consider that the latest line of Nvidia GPUs, Blackwell, contains 104 billion transistors — that’s a lot to line up."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "In the time it takes to create a new chip, Cognichip CEO and founder Faraj Aalaei says the market can change and make all that investment a waste. Aalaei’s goal is to bring the kind of AI tools that software engineers have used to speed their work into the semiconductor design space."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch AI",
+          "source_url": "https://techcrunch.com/2026/04/01/cognichip-wants-ai-to-design-the-chips-that-power-ai-and-just-raised-60m-to-try/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T16:00:00.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2024/09/chip-manufacturing-getty.jpg?w=1200",
+          "image_caption": "Reference image from TechCrunch AI.",
+          "image_credit": "TechCrunch AI"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T16:00:00.000Z",
+      "updated_at": "2026-04-01T16:00:00.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2024/09/chip-manufacturing-getty.jpg?w=1200",
+        "caption": "Reference image from TechCrunch AI.",
+        "credit": "TechCrunch AI",
+        "source_url": "https://techcrunch.com/2026/04/01/cognichip-wants-ai-to-design-the-chips-that-power-ai-and-just-raised-60m-to-try/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -898,7 +898,71 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-153ecd196cbf-en",
+      "cluster_id": "feed-153ecd196cbf",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "less-than-a-month-strictlyvc-san-francisco-brings-leaders-from-tdk-ventures-replit-and-more-toge",
+      "title": "Less than a month: StrictlyVC San Francisco brings leaders from TDK Ventures, Replit, and more together",
+      "summary": "All good things come to those who wait. The first StrictlyVC of the year is headed to San Francisco in less than a month, on April 30, at the Sentro Filipino Cultural Center.",
+      "dek": "The piece brings the story back into context and explains why it is worth opening right now.",
+      "hook": "All good things come to those who wait. The first StrictlyVC of the year is headed to San Francisco in less than a month, on April 30, at the Sentro Filipino Cultural Center. And you won’t want to miss out on another lineup of stellar speakers to punctuate the night’s networking and mingling. AI innovators and founders in search of funding will be particularly well-served by the event’s discussions.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "All good things come to those who wait. The first StrictlyVC of the year is headed to San Francisco in less than a month, on April 30, at the Sentro Filipino Cultural Center. And you won’t want to miss out on another lineup of stellar speakers to punctuate the night’s networking and mingling. AI innovators and founders in search of funding will be particularly well-served by the event’s discussions."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "You can get a ticket right now , but for those who haven’t been to a StrictlyVC event in the past and already clicked that link, let’s dive into what’s particularly exciting about this one …."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "TDK Ventures president Nicolas Sauvage will kick things off after you get your requisite beverages and networking in, as he makes the case for corporate VCs in a conversation with TechCrunch editor-in-chief Connie Loizos. Sauvage, who leads TDK Ventures’ $500 million effort to invest in early-stage startups, will explain what makes corporate VCs operate differently and what founders should know about what catches his eye in an investment."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch AI",
+          "source_url": "https://techcrunch.com/2026/04/01/join-the-first-strictlyvc-of-2026-in-sf-with-leaders-from-tdk-ventures-and-replits-co-founder/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T14:00:00.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/03/54963244981_66492e96cc_6k.jpg?resize=1200,800",
+          "image_caption": "Reference image from TechCrunch AI.",
+          "image_credit": "TechCrunch AI"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T14:00:00.000Z",
+      "updated_at": "2026-04-01T14:00:00.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2026/03/54963244981_66492e96cc_6k.jpg?resize=1200,800",
+        "caption": "Reference image from TechCrunch AI.",
+        "credit": "TechCrunch AI",
+        "source_url": "https://techcrunch.com/2026/04/01/join-the-first-strictlyvc-of-2026-in-sf-with-leaders-from-tdk-ventures-and-replits-co-founder/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -962,7 +1026,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1026,7 +1090,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1090,7 +1154,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1154,7 +1218,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1218,7 +1282,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.654Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1282,7 +1346,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.656Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1346,7 +1410,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.656Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1410,7 +1474,71 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.656Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-6eea780d3228-en",
+      "cluster_id": "feed-6eea780d3228",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "mercor-says-it-was-hit-by-cyberattack-tied-to-compromise-of-open-source-litellm-project",
+      "title": "Mercor says it was hit by cyberattack tied to compromise of open source LiteLLM project",
+      "summary": "Mercor , a popular AI recruiting startup, has confirmed a security incident linked to a supply chain attack involving the open source project LiteLLM. The AI startup told TechCrunch on Tuesday that it was “one of thousands of companies” affected by a recent compromise of LiteLLM’s project, which was linked to a hacking group called TeamPCP.",
+      "dek": "Mercor , a popular AI recruiting startup, has confirmed a security incident linked to a supply chain attack involving the open source project LiteLLM.",
+      "hook": "Mercor , a popular AI recruiting startup, has confirmed a security incident linked to a supply chain attack involving the open source project LiteLLM.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Mercor , a popular AI recruiting startup, has confirmed a security incident linked to a supply chain attack involving the open source project LiteLLM."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "The AI startup told TechCrunch on Tuesday that it was “one of thousands of companies” affected by a recent compromise of LiteLLM’s project, which was linked to a hacking group called TeamPCP. Confirmation of the incident comes as extortion hacking group Lapsus$ claimed it had targeted Mercor and gained access to its data."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "It’s not immediately clear how the Lapsus$ gang obtained the stolen data from Mercor as part of TeamPCP’s cyberattack."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechCrunch AI",
+          "source_url": "https://techcrunch.com/2026/03/31/mercor-says-it-was-hit-by-cyberattack-tied-to-compromise-of-open-source-litellm-project/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-04-01T01:42:59.000Z",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/03/mercor-website.jpg?resize=1200,800",
+          "image_caption": "Reference image from TechCrunch AI.",
+          "image_credit": "TechCrunch AI"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-04-01T01:42:59.000Z",
+      "updated_at": "2026-04-01T01:42:59.000Z",
+      "image": {
+        "src": "https://techcrunch.com/wp-content/uploads/2026/03/mercor-website.jpg?resize=1200,800",
+        "caption": "Reference image from TechCrunch AI.",
+        "credit": "TechCrunch AI",
+        "source_url": "https://techcrunch.com/2026/03/31/mercor-says-it-was-hit-by-cyberattack-tied-to-compromise-of-open-source-litellm-project/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1474,7 +1602,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.656Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1538,7 +1666,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.656Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1602,7 +1730,71 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-04-01T21:48:11.656Z",
+        "generated_at": "2026-04-01T22:27:02.816Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-c0725f455572-en",
+      "cluster_id": "feed-c0725f455572",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "transform-your-headphones-into-a-live-personal-translator-on-ios",
+      "title": "Transform your headphones into a live personal translator on iOS.",
+      "summary": "Products Developer tools Gemini app See all Infrastructure & cloud Global network Google Cloud See all Learn more: Platforms Android Google Play Wear OS See all Devices Pixel Google Nest Fitbit Chromebooks See all Learn more:.",
+      "dek": "Products Developer tools Gemini app See all Infrastructure & cloud Global network Google Cloud See all Learn more:.",
+      "hook": "Products Developer tools Gemini app See all Infrastructure & cloud Global network Google Cloud See all Learn more:.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Products Developer tools Gemini app See all Infrastructure & cloud Global network Google Cloud See all Learn more:."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Platforms Android Google Play Wear OS See all Devices Pixel Google Nest Fitbit Chromebooks See all Learn more:."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Leadership Sundar Pichai, CEO More authors See all Inside Google Around the globe Life at Google See all Feed Subscribe Global (English) Africa (English) Australia (English) Brasil (Português) Canada (English) Canada (Français) Česko (Čeština) Deutschland (Deutsch) España (Español) France (Français) India (English) Indonesia (Bahasa Indonesia) Italia (Italiano) 日本 (日本語) 대한민국 (한국어) Latinoamérica (Español) الشرق الأوسط وشمال أفريقيا (اللغة العربية) MENA (English) Nederlands (Nederland) New Zealand (English) Polska (Polski) Portugal (Português) Sverige (Svenska) ประเทศไทย (ไทย) Türkiye (Türkçe) 台灣 (中文) [\"How is Gemini changing Maps?\", \"What is \\\"vibe design?\\\"\", \"How can I learn new AI skills?\"] Subscribe The Keyword Home Innovation & AI Innovation & AI Models & Research Google DeepMind Google Research Google Labs Gemini models See all Products Developer tools Gemini app See all Infrastructure & cloud Global network Google Cloud See all Learn more:."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Google AI Blog",
+          "source_url": "https://blog.google/products-and-platforms/products/translate/live-translate-with-headphones/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-03-26T16:00:00.000Z",
+          "image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Static-InterstitialscreenJapane.max-600x600.format-webp.webp",
+          "image_caption": "Reference image from Google AI Blog.",
+          "image_credit": "Google AI Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-03-26T16:00:00.000Z",
+      "updated_at": "2026-03-26T16:00:00.000Z",
+      "image": {
+        "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Static-InterstitialscreenJapane.max-600x600.format-webp.webp",
+        "caption": "Reference image from Google AI Blog.",
+        "credit": "Google AI Blog",
+        "source_url": "https://blog.google/products-and-platforms/products/translate/live-translate-with-headphones/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-04-01T22:27:02.816Z",
         "origin": "local-curated-rss"
       }
     }

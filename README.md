@@ -238,3 +238,21 @@ The ready-to-enable GitHub Actions workflow at `.github/workflows/newsroom-refre
 - `data/openclaw-manager-state.json`
 - `data/openclaw-web-state.json`
 - `data/openclaw-owner-brief.json`
+
+## Cloud mode
+
+To let Patrick Tech Media keep updating without your machine being turned on:
+
+1. Keep the site deployed on Vercel with `SITE_URL=https://patricktechmedia.com`.
+2. Add these GitHub Actions secrets:
+   - `DATABASE_URL`
+   - `OPENCLAW_NEWSROOM_URL` and `OPENCLAW_NEWSROOM_TOKEN` if you have a private feed
+   - or `NEWSROOM_PULL_URL` and `NEWSROOM_PULL_TOKEN` if you use a generic newsroom feed
+3. Add the same `DATABASE_URL`, `SESSION_SECRET`, `GOOGLE_CLIENT_ID`, and `GOOGLE_CLIENT_SECRET` values to Vercel production env vars.
+4. Run a one-time cloud seed after setting `DATABASE_URL`:
+
+```powershell
+npm run storage:sync
+```
+
+After that, GitHub Actions can run the OpenClaw manager every hour, commit the refreshed newsroom, and Vercel can deploy the site without your local machine staying online.

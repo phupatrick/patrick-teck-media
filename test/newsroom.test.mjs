@@ -435,6 +435,49 @@ const tests = [
     }
   },
   {
+    name: "clips overlong homepage headlines so the front page stays readable",
+    run() {
+      const seedStories = state.articles.filter((entry) => entry.language === "vi").slice(0, 3);
+      const scenario = buildScenarioState([
+        {
+          ...seedStories[0],
+          id: "scenario-overlong-headline",
+          cluster_id: "scenario-overlong-headline",
+          slug: "patrick-tech-media-theo-doi-mot-cuoc-dua-ai-moi-giua-cac-ong-lon-cong-nghe",
+          href: "/vi/tin-tuc/patrick-tech-media-theo-doi-mot-cuoc-dua-ai-moi-giua-cac-ong-lon-cong-nghe",
+          title:
+            "Patrick Tech Media theo dõi một cuộc đua AI mới giữa các ông lớn công nghệ với hàng loạt thay đổi sản phẩm, giá bán, đối tác phần cứng và cả những tác động chưa thể đo ngay trên thị trường việc làm khu vực",
+          published_at: "2026-04-01T09:00:00.000Z",
+          updated_at: "2026-04-01T09:00:00.000Z"
+        },
+        {
+          ...seedStories[1],
+          id: "scenario-overlong-headline-2",
+          cluster_id: "scenario-overlong-headline-2",
+          slug: "scenario-overlong-headline-2",
+          href: "/vi/tin-tuc/scenario-overlong-headline-2",
+          published_at: "2026-04-01T08:30:00.000Z",
+          updated_at: "2026-04-01T08:30:00.000Z"
+        },
+        {
+          ...seedStories[2],
+          id: "scenario-overlong-headline-3",
+          cluster_id: "scenario-overlong-headline-3",
+          slug: "scenario-overlong-headline-3",
+          href: "/vi/tin-tuc/scenario-overlong-headline-3",
+          published_at: "2026-04-01T08:00:00.000Z",
+          updated_at: "2026-04-01T08:00:00.000Z"
+        }
+      ]);
+      const homeHtml = renderHomePage(scenario, "vi", { client: "", slots: {} });
+      const leadHeadline = /<article class="lead-feature[\s\S]*?<h2><a href="[^"]+">([^<]+)<\/a><\/h2>/.exec(homeHtml)?.[1] || "";
+
+      assert.match(leadHeadline, /Patrick Tech Media theo dõi một cuộc đua AI mới giữa các ông lớn công nghệ/);
+      assert.match(leadHeadline, /…/);
+      assert.doesNotMatch(leadHeadline, /tác động chưa thể đo ngay trên thị trường việc làm khu vực/);
+    }
+  },
+  {
     name: "versions public assets so deploys bust stale browser cache",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });

@@ -9,6 +9,7 @@
     "test": "node test/newsroom.test.mjs && node test/platform.test.mjs && node test/security.test.mjs",
     "newsroom:publish": "node scripts/newsroom-publish.mjs",
     "newsroom:refresh": "node scripts/newsroom-refresh.mjs",
+    "storage:sync": "node scripts/storage-sync.mjs",
     "openclaw:feed": "node scripts/openclaw-newsroom-feed.mjs",
     "openclaw:web": "node scripts/openclaw-web-control.mjs",
     "openclaw:git-sync": "node scripts/openclaw-git-sync.mjs",
