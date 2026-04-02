@@ -16,11 +16,27 @@ export function renderHomePage(state, language, adsConfig) {
   const leadSideStories = excludeStories(leadStories.slice(1), [leadFeature]).slice(0, 2);
   const packageLead = excludeStories(dedupeStories([...packageStories, home.briefing]), [leadFeature, ...leadSideStories])[0] || null;
   const packageItems = excludeStories(dedupeStories([...packageStories, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 3);
-  const ribbonStories = excludeStories(dedupeStories([...packageStories, ...home.latest, ...home.trending, home.briefing]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 5);
-  const latestStories = excludeStories(dedupeStories(home.latest), [leadFeature, ...leadSideStories, packageLead]).slice(0, 4);
-  const watchStories = excludeStories(dedupeStories([...packageStories, ...home.trending, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 4);
+  const ribbonStories = selectBalancedStories(
+    excludeStories(dedupeStories([...packageStories, ...home.latest, ...home.trending, home.briefing]), [leadFeature, ...leadSideStories, packageLead]),
+    5,
+    { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
+  );
+  const latestStories = selectBalancedStories(
+    excludeStories(dedupeStories(home.latest), [leadFeature, ...leadSideStories, packageLead]),
+    4,
+    { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
+  );
+  const watchStories = selectBalancedStories(
+    excludeStories(dedupeStories([...packageStories, ...home.trending, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]),
+    4,
+    { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
+  );
   const guideLead = excludeStories(dedupeStories([...tips, home.briefing]), [leadFeature, ...leadSideStories])[0] || home.briefing;
-  const guideStories = excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead, packageLead]).slice(0, 3);
+  const guideStories = selectBalancedStories(
+    excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead, packageLead]),
+    3,
+    { preferredTopic: "apps-software", preferredLimit: 2, defaultLimit: 1 }
+  );
 
   return renderLayout({
     state,
@@ -59,11 +75,6 @@ export function renderHomePage(state, language, adsConfig) {
               ${watchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
             </div>
           </article>
-          <article class="rail-card company-flash-card">
-            <p class="rail-label">${copy.ecosystemLabel}</p>
-            <h3>${copy.ecosystemTitle}</h3>
-            <a class="text-link" href="/${language}/store">${copy.visitStore}</a>
-          </article>
         </aside>
       </section>
 
@@ -79,8 +90,8 @@ export function renderHomePage(state, language, adsConfig) {
               <span>${escapeHtml(packageLead.topic_label)}</span>
               <span>${escapeHtml(formatPublishDate(language, packageLead.published_at))}</span>
             </div>
-            <h2><a href="${packageLead.href}">${escapeHtml(getDisplayHeadline(packageLead.title, 78))}</a></h2>
-            ${renderHomepageExcerpt(packageLead, "story-hook", 120)}
+            <h2><a href="${packageLead.href}">${escapeHtml(getDisplayHeadline(packageLead.title, 70))}</a></h2>
+            ${renderHomepageExcerpt(packageLead, "story-hook", 88)}
             <a class="read-link" href="${packageLead.href}">${copy.readStory}</a>
           </div>
         </article>
@@ -144,8 +155,8 @@ export function renderHomePage(state, language, adsConfig) {
               <span>${escapeHtml(guideLead.topic_label)}</span>
               <span>${escapeHtml(formatPublishDate(language, guideLead.published_at))}</span>
             </div>
-            <h2><a href="${guideLead.href}">${escapeHtml(getDisplayHeadline(guideLead.title, 78))}</a></h2>
-            ${renderHomepageExcerpt(guideLead, "story-hook", 110)}
+            <h2><a href="${guideLead.href}">${escapeHtml(getDisplayHeadline(guideLead.title, 70))}</a></h2>
+            ${renderHomepageExcerpt(guideLead, "story-hook", 82)}
             <a class="read-link" href="${guideLead.href}">${copy.readStory}</a>
           </div>
         </article>
@@ -484,7 +495,7 @@ export function renderTopicPage(state, language, topicPage, adsConfig) {
     path: `/${language}/topics/${topicPage.slug}`,
     adsConfig,
     title: `${topicPage.label} | ${state.site.name}`,
-    description: language === "vi" ? `ChuyĂªn má»¥c ${topicPage.label} cá»§a Patrick Tech Media.` : `${topicPage.label} coverage from Patrick Tech Media.`,
+    description: language === "vi" ? `Chuyên mục ${topicPage.label} của Patrick Tech Media.` : `${topicPage.label} coverage from Patrick Tech Media.`,
     content: `
       <section class="simple-hero" style="--topic-accent:${topicPage.accent}">
         <p class="eyebrow">${copy.topicLabel}</p>
@@ -637,7 +648,7 @@ export function renderPolicyPage(state, language, page, adsConfig) {
     description: page.intros[language],
     content: `
       <section class="simple-hero">
-        <p class="eyebrow">${language === "vi" ? "ChĂ­nh sĂ¡ch" : "Policy"}</p>
+        <p class="eyebrow">${language === "vi" ? "Chính sách" : "Policy"}</p>
         <h1>${escapeHtml(page.titles[language])}</h1>
         <p>${escapeHtml(page.intros[language])}</p>
       </section>
@@ -859,7 +870,7 @@ function renderStoryCard(article, language) {
       <h3><a href="${article.href}">${escapeHtml(displayTitle)}</a></h3>
       <div class="story-footer">
         <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
-        <a class="mini-link" href="${article.href}">${language === "vi" ? "Äá»c" : "Read"}</a>
+        <a class="mini-link" href="${article.href}">${language === "vi" ? "Đọc" : "Read"}</a>
       </div>
     </article>
   `;
@@ -907,7 +918,7 @@ function renderHomepageExcerpt(article, className = "story-hook", maxLength = 14
 }
 
 function renderLeadFeature(article, language, copy) {
-  const displayTitle = getDisplayHeadline(article.title, 74);
+  const displayTitle = getDisplayHeadline(article.title, 60);
   return `
     <article class="lead-feature topic-${article.topic}">
       ${renderStoryImage(article, "lead-feature-media", true)}
@@ -920,7 +931,7 @@ function renderLeadFeature(article, language, copy) {
         </div>
         ${article.editorial_label ? `<div class="story-flag lead-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
         <h2><a href="${article.href}">${escapeHtml(displayTitle)}</a></h2>
-        ${renderHomepageExcerpt(article, "lead-feature-hook", 136)}
+        ${renderHomepageExcerpt(article, "lead-feature-hook", 90)}
         <div class="lead-feature-actions">
           <a class="read-link inverted" href="${article.href}">${copy.readStory}</a>
           <span class="lead-feature-source">${escapeHtml(article.content_type_label)}</span>
@@ -931,7 +942,7 @@ function renderLeadFeature(article, language, copy) {
 }
 
 function renderLeadMini(article, language) {
-  const displayTitle = getDisplayHeadline(article.title, 64);
+  const displayTitle = getDisplayHeadline(article.title, 54);
   return `
     <article class="lead-mini topic-${article.topic}">
       ${renderStoryImage(article, "lead-mini-media")}
@@ -947,13 +958,13 @@ function renderLeadMini(article, language) {
 }
 
 function renderHeadlineItem(article, language, index) {
-  const displayTitle = getDisplayHeadline(article.title, 74);
+  const displayTitle = getDisplayHeadline(article.title, 66);
   return `
     <a class="headline-item" href="${article.href}">
       <span class="headline-index">${String(index).padStart(2, "0")}</span>
       <div>
         <strong>${escapeHtml(displayTitle)}</strong>
-        <span>${escapeHtml(article.topic_label)} Â· ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+        <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
       </div>
     </a>
   `;
@@ -991,7 +1002,7 @@ function renderHeroReaderAside(home, language, copy) {
                   <span class="reader-index">0${index + 1}</span>
                   <div>
                     <strong>${escapeHtml(article.title)}</strong>
-                    <span>${escapeHtml(article.topic_label)} Â· ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+                    <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
                   </div>
                 </a>
               `
@@ -1078,6 +1089,39 @@ function excludeStories(stories, excluded) {
   return (stories || []).filter((story) => story && !blocked.has(story.href));
 }
 
+function selectBalancedStories(stories, limit, { preferredTopic = "ai", preferredLimit = 2, defaultLimit = 1 } = {}) {
+  const counts = new Map();
+  const selected = [];
+  const backlog = [];
+
+  for (const story of stories || []) {
+    if (!story || selected.length >= limit) {
+      continue;
+    }
+
+    const current = counts.get(story.topic) || 0;
+    const topicLimit = story.topic === preferredTopic ? preferredLimit : defaultLimit;
+
+    if (current < topicLimit) {
+      counts.set(story.topic, current + 1);
+      selected.push(story);
+      continue;
+    }
+
+    backlog.push(story);
+  }
+
+  for (const story of backlog) {
+    if (selected.length >= limit) {
+      break;
+    }
+
+    selected.push(story);
+  }
+
+  return selected.slice(0, limit);
+}
+
 function shouldRenderSeparateDek(article) {
   if (!article.dek) {
     return false;
@@ -1133,7 +1177,7 @@ function renderArticleHero(article) {
 function renderImagePlaceholder(article, className) {
   const visualLabel =
     article.hero_image.label ||
-    (article.language === "vi" ? "áº¢nh nguá»“n Ä‘ang Ä‘Æ°á»£c dĂ¹ng" : "Source image in use");
+    (article.language === "vi" ? "Ảnh đang cập nhật" : "Image updating");
 
   return `
     <div class="${className}">
@@ -1157,7 +1201,7 @@ function renderLiveDesk(liveDesk, language, copy) {
       <p class="live-refresh-line">
         <strong>${copy.liveRefreshLabel}</strong>
         <span data-live-refreshed>${escapeHtml(liveDesk.cards[0].value)}</span>
-        <span class="live-separator">â€¢</span>
+        <span class="live-separator">•</span>
         <strong>${copy.liveNextLabel}</strong>
         <span data-live-next>${escapeHtml(new Date(liveDesk.nextRefreshAt).toLocaleTimeString(language === "vi" ? "vi-VN" : "en-US", { hour: "2-digit", minute: "2-digit" }))}</span>
       </p>
@@ -1304,7 +1348,7 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
     return "";
   }
 
-  const label = language === "vi" ? "Khu vá»±c quáº£ng cĂ¡o" : "Advertising slot";
+  const label = language === "vi" ? "Khu vực quảng cáo" : "Advertising slot";
   const slotId = adsConfig.slots[placement];
   const storeUrl = "https://patricktechstore.vercel.app";
 
@@ -1323,8 +1367,8 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
       <p class="ad-label">${label}</p>
       <a class="ad-slot placeholder-slot store-promo-slot" href="${storeUrl}" target="_blank" rel="noreferrer">
         <span class="store-promo-kicker">${language === "vi" ? "Patrick Tech Store" : "Patrick Tech Store"}</span>
-        <strong>${language === "vi" ? "TĂ i khoáº£n, tool vĂ  pháº§n má»m Ä‘ang bĂ¡n táº¡i store" : "Accounts, tools, and software now available in the store"}</strong>
-        <span>${language === "vi" ? "Táº¡m thá»i vá»‹ trĂ­ nĂ y Æ°u tiĂªn cho há»‡ sinh thĂ¡i Patrick Tech." : "This slot is temporarily dedicated to the Patrick Tech ecosystem."}</span>
+        <strong>${language === "vi" ? "Tài khoản, tool và phần mềm đang bán tại store" : "Accounts, tools, and software now available in the store"}</strong>
+        <span>${language === "vi" ? "Tạm thời vị trí này ưu tiên cho hệ sinh thái Patrick Tech." : "This slot is temporarily dedicated to the Patrick Tech ecosystem."}</span>
       </a>
     </section>
   `;
@@ -1447,6 +1491,187 @@ function normalizeRenderCopy(language) {
 }
 
 function getCopy(language) {
+  if (language === "vi") {
+    return {
+      ...normalizeRenderCopy("vi"),
+      badgeSignals: "Việt Nam + thế giới",
+      badgeAds: "AI, Big Tech, social",
+      badgeBilingual: "Tin mới + thủ thuật",
+      heroNotebookLabel: "Điểm đáng đọc",
+      heroNotebookTitle: "Mở vào là thấy ngay những gì đáng bấm trước.",
+      heroNotebookCta: "Xem thêm tin mới",
+      readerStartLabel: "Vừa lên",
+      readerStartTitle: "3 bài mới để bắt nhịp",
+      readerWatchLabel: "Được chú ý",
+      readerWatchTitle: "2 câu chuyện đang được bàn tán",
+      liveLabel: "Live desk",
+      briefingLabel: "Đọc nhanh",
+      policyLabel: "Nhịp biên tập",
+      policyText:
+        "Toà soạn vẫn lên bài nhanh, nhưng chỉ bật quảng cáo ở những trang đã đủ ngưỡng kiểm chứng và trình bày.",
+      radarLabel: "Newsroom radar",
+      radarTitle: "Xem newsroom radar hoạt động",
+      radarText:
+        "Bảng này gom lane trend, emerging và verified để bạn thấy rõ newsroom đang ưu tiên câu chuyện nào và vì sao.",
+      workflowLabel: "Quy trình xuất bản",
+      workflowTitle: "Mở quy trình xuất bản",
+      workflowText:
+        "Trang workflow giải thích cách bản tin gom nguồn, xếp hàng chờ biên tập, gắn trạng thái và đưa bài lên site với guardrail quảng cáo.",
+      feedLabel: "Feed",
+      feedTitle: "Xuất JSON và RSS",
+      feedText:
+        "Feed máy đọc được đã sẵn sàng cho phân phối, subscriber inbox hoặc các lớp theo dõi cập nhật về sau.",
+      filterAll: "Tất cả",
+      radarQueueLabel: "Queue newsroom",
+      radarQueueTitle: "Những story đang nổi trong pipeline",
+      radarSourceMixLabel: "Source mix",
+      radarSourceMixTitle: "Tỉ trọng nguồn đang đi vào newsroom",
+      workflowMatrixLabel: "Matrix",
+      workflowGuardrailsLabel: "Guardrails",
+      workflowGuardrailsTitle: "Những nguyên tắc bảo vệ ads và editorial",
+      workflowEndpointsLabel: "Endpoints",
+      dashboardStreamLabel: "Signal stream",
+      hotLabel: "Nóng lúc này",
+      hotTitle: "Những headline đang kéo lượt đọc",
+      editorsLabel: "Biên tập chọn",
+      editorsTitle: "Đáng đọc tiếp theo",
+      ribbonLabel: "Đường dây nóng",
+      ribbonTitle: "Các tin vừa bật lên",
+      packageLabel: "Gói AI",
+      packageTitle: "Những gói đang đáng tiền hơn"
+    };
+  }
+
+  if (language !== "vi") {
+    return {
+      ...normalizeRenderCopy("en"),
+      badgeSignals: "Vietnam + world",
+      badgeAds: "AI, Big Tech, social",
+      badgeBilingual: "News + how-tos",
+      heroNotebookLabel: "Worth opening",
+      heroNotebookTitle: "The first stories that tell you what matters right now.",
+      heroNotebookCta: "More fresh stories",
+      readerStartLabel: "Just in",
+      readerStartTitle: "3 fresh stories to start with",
+      readerWatchLabel: "Getting attention",
+      readerWatchTitle: "2 stories readers keep opening",
+      liveLabel: "Live desk",
+      briefingLabel: "Quick read",
+      policyLabel: "Editorial rhythm",
+      policyText:
+        "The desk moves quickly, but ads only appear on pages that meet the stronger verification and presentation bar.",
+      viewPolicy: "Read the editorial policy",
+      latestLabel: "Latest",
+      latestTitle: "Latest stories",
+      trendingLabel: "Under watch",
+      trendingTitle: "The stories worth watching next",
+      evergreenLabel: "How-tos and guides",
+      evergreenTitle: "Pieces readers can use right away",
+      tipsLabel: "How-tos",
+      tipsTitle: "Practical guides worth saving",
+      updateLabel: "Just in",
+      updateTitle: "3 fresh stories to catch the pace",
+      updateText: "Open these first if you want the newest turns on the site.",
+      ecosystemLabel: "Company",
+      ecosystemTitle: "Patrick Tech Co. VN",
+      ecosystemText:
+        "Patrick Tech Media sits inside the Patrick Tech Co. VN ecosystem, linking coverage, useful guides, and Patrick Tech Store without splitting the experience.",
+      visitStore: "Open Patrick Tech Store",
+      radarLabel: "Newsroom radar",
+      radarTitle: "See the newsroom radar in motion",
+      radarText:
+        "This board groups trend, emerging, and verified lanes so you can quickly see what the newsroom is prioritizing and why.",
+      workflowLabel: "Publishing workflow",
+      workflowTitle: "Open the publishing workflow",
+      workflowText:
+        "The workflow page explains how the desk gathers sources, groups story lines, assigns states, and publishes pages with ad guardrails.",
+      feedLabel: "Feed",
+      feedTitle: "Export JSON and RSS",
+      feedText:
+        "Machine-readable feeds are already available for distribution, inbox digests, or future monitoring layers.",
+      browserLabel: "Read by lane",
+      browserTitle: "Filter the stream the way you want to read it",
+      browserText:
+        "Jump straight to the stories that match the headline style, topic, or level of verification you care about most.",
+      browserPlaceholder: "Search by title, topic, or state...",
+      filterAll: "All",
+      filterVerified: "Verified",
+      filterEmerging: "Emerging",
+      filterTrend: "Trend",
+      homeSpotlightLabel: "Spotlight",
+      homeSpotlightTitle: "Start with the strongest lead today",
+      homeBriefLabel: "Briefing",
+      homeBriefTitle: "Catch the day's rhythm in one pass",
+      homeAuthorsLabel: "Editorial team",
+      homeAuthorsTitle: "Meet the people shaping the newsroom voice",
+      homeAuthorsText:
+        "Each coverage lane has a real editorial owner so headlines, hooks, and angle do not drift into the same flat tone.",
+      moreLabel: "More",
+      topicLabel: "Topic",
+      topicIntro:
+        "Every story in this section follows the same verification structure, attribution rules, and ad-eligibility logic.",
+      radarQueueLabel: "Newsroom queue",
+      radarQueueTitle: "Stories now moving through the pipeline",
+      radarSourceMixLabel: "Source mix",
+      radarSourceMixTitle: "What kinds of sources are entering the newsroom",
+      workflowMatrixLabel: "Matrix",
+      workflowGuardrailsLabel: "Guardrails",
+      workflowGuardrailsTitle: "Rules protecting ads and editorial quality",
+      workflowEndpointsLabel: "Endpoints",
+      sourcesShort: "sources",
+      sourceBoxTitle: "Source notes",
+      relatedLabel: "Related stories",
+      articleRailLabel: "Editorial and ads",
+      adsOn: "This page is eligible to show ads while keeping a clean reading layout.",
+      adsOff: "This page stays ad-free to protect the reading experience.",
+      languageSwitchLabel: "Language versions",
+      storePanelLabel: "From Patrick Tech",
+      storePanelTitle: "Contextual tools",
+      communityLabel: "Community",
+      communityTitle: "What did you think of this story?",
+      communityText: "Drop a reaction or leave a comment right below the article.",
+      commentNameLabel: "Display name",
+      commentNamePlaceholder: "Enter your name",
+      commentBodyLabel: "Comment",
+      commentBodyPlaceholder: "Share your take, feedback, or extra context...",
+      commentSubmitLabel: "Post comment",
+      commentListLabel: "Latest comments",
+      commentEmpty: "No comments yet. You can start the conversation.",
+      authorsLabel: "Authors",
+      authorsTitle: "Editorial team",
+      authorsText:
+        "Each story is tied to an editor covering the beat so the newsroom keeps a consistent lens across updates.",
+      footerBlurb: "Technology, AI, Big Tech, social platforms, and useful how-tos.",
+      sitemapLabel: "Sitemap",
+      sitemapTitle: "Site navigation map",
+      sitemapText: "This page collects the main entry points for readers and operational review.",
+      notFoundTitle: "Page not found",
+      notFoundText: "This route does not exist yet or the slug has changed.",
+      backHome: "Back to home",
+      dashboardLabel: "Dashboard",
+      dashboardTitle: "The newsroom dashboard",
+      dashboardText:
+        "This page collects publishing metrics, live signal flow, and repo-readiness checks so you can review the site as an operating system, not just a front end.",
+      dashboardStreamLabel: "Signal stream",
+      dashboardStreamTitle: "The latest items moving through the newsroom",
+      dashboardHeatLabel: "Topic heat",
+      dashboardHeatTitle: "Which topics are winning priority",
+      dashboardLaneTitle: "Stories currently sitting in this lane",
+      dashboardRepoLabel: "Repo",
+      dashboardRepoTitle: "Checklist for pushing to GitHub",
+      humanSitemapLabel: "Reader sitemap",
+      storeLabel: "Store",
+      hotLabel: "Hot now",
+      hotTitle: "Headlines pulling readers in",
+      editorsLabel: "Editors' picks",
+      editorsTitle: "What to open next",
+      ribbonLabel: "Fast line",
+      ribbonTitle: "Stories that just moved",
+      packageLabel: "AI plans",
+      packageTitle: "Where the value is moving"
+    };
+  }
+
   if (language === "vi") {
     return {
       homeTitle: "Patrick Tech Media | Tin cĂ´ng nghá»‡ Viá»‡t Nam vĂ  tháº¿ giá»›i",

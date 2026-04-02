@@ -335,14 +335,13 @@ const fallbackFeeds = [
 ];
 
 const TECHNOLOGY_STRONG_PATTERNS = [
-  /\bAI\b/,
-  /\b(artificial intelligence|trĂ­ tuá»‡ nhĂ¢n táº¡o|llm|model|agentic|chatgpt|openai|gemini|claude|copilot|deepseek|midjourney)\b/i,
-  /\b(meta|facebook|instagram|threads|tiktok|youtube|google|apple|microsoft|amazon|nvidia|tesla|bytedance|shopee|oracle|samsung|intel|amd|qualcomm)\b/i,
+  /\b(artificial intelligence|trí tuệ nhân tạo|llm|model|agentic|chatgpt|openai|gemini|claude|copilot|deepseek|midjourney|notebooklm|grok)\b/i,
+  /\b(meta|facebook|instagram|threads|tiktok|youtube|google|apple|microsoft|amazon|nvidia|tesla|bytedance|shopee|oracle|samsung|intel|amd|qualcomm|anthropic|perplexity|xai)\b/i,
   /\b(chip|gpu|cpu|npu|ram|memory|ssd|device|devices|smartphone|phone|iphone|android|pixel|macbook|ipad|pc|desktop|tablet|router|fiber|wearable|robot)\b/i,
   /\b(app|apps|software|windows|macos|linux|browser|chrome|edge|photos|workspace|productivity|cloud|startup|platform|social)\b/i,
-  /\b(hack|security|cyber|malware|phishing|ransomware|vulnerability|zero-day|breach|passkey|password|privacy|báº£o máº­t|táº¥n cĂ´ng)\b/i,
+  /\b(hack|security|cyber|malware|phishing|ransomware|vulnerability|zero-day|breach|passkey|password|privacy|bảo mật|tấn công)\b/i,
   /\b(gaming|game|steam|playstation|xbox|nintendo|switch ?2|dlss|rockstar|gta|crimson desert|everness)\b/i,
-  /\b(how to|how-to|guide|tips|máº¹o|thá»§ thuáº­t|hÆ°á»›ng dáº«n|cĂ¡ch dĂ¹ng|cĂ¡ch lĂ m|thiáº¿t láº­p)\b/i
+  /\b(how to|how-to|guide|tips|mẹo|thủ thuật|hướng dẫn|cách dùng|cách làm|thiết lập)\b/i
 ];
 
 const TECHNOLOGY_SUPPORT_PATTERNS = [
@@ -355,7 +354,7 @@ const NON_TECH_PATTERNS = [
   /\b(trump|birthright|election|senate|congress|war|ceasefire|tariff|immigration)\b/i,
   /\b(celebrity|movie|album|fashion|royal|dating|cruise|vacation|travel)\b/i,
   /\b(nba|nfl|soccer|baseball|tennis|golf|boxing)\b/i,
-  /\b(health|doctor|disease|diet|sleep|pregnancy|medical|cÆ¡ thá»ƒ ngÆ°á»i|virus há»c|triá»‡u chá»©ng|bá»‡nh nhĂ¢n)\b/i,
+  /\b(health|doctor|disease|diet|sleep|pregnancy|medical|cơ thể người|virus học|triệu chứng|bệnh nhân)\b/i,
   /\b(auto show|roadshow|powertrain|suv|hybrid variant|combustion|kia seltos|kia ev3|sedan|crossover)\b/i
 ];
 
@@ -556,7 +555,17 @@ async function mapFeedItem(feed, item, timestamp) {
   }
 
   const snapshot = await fetchSourceSnapshot(link);
-  const rawBody = cleanText(snapshot.bodyText || snapshot.description || item.content || item.description);
+  const sourceDescription = pickRelevantLeadText({
+    title,
+    values: [snapshot.description, item.description, item.content]
+  });
+  const relevantParagraphs = filterRelevantParagraphs({
+    title,
+    description: sourceDescription,
+    paragraphs: snapshot.paragraphs
+  });
+  const editorialParagraphs = relevantParagraphs.length ? relevantParagraphs : [];
+  const rawBody = cleanText([sourceDescription, ...editorialParagraphs].join(" "));
 
   if (!rawBody) {
     return null;
@@ -566,12 +575,12 @@ async function mapFeedItem(feed, item, timestamp) {
     return null;
   }
 
-  const inferenceText = cleanText([snapshot.description, ...snapshot.paragraphs.slice(0, 4), item.description, item.content].join(" "));
+  const inferenceText = cleanText([title, sourceDescription, ...editorialParagraphs.slice(0, 4)].join(" "));
   const topic = inferTopicFromSignals(feed, title, inferenceText);
   const contentType = inferContentType(feed, title, inferenceText);
-  const summary = buildSummary(snapshot.description || rawBody, feed.language, title, snapshot.paragraphs);
-  const dek = buildDek(snapshot.description || rawBody, feed.language, summary, snapshot.paragraphs);
-  const hook = buildHook(snapshot.paragraphs, summary, dek, feed.language);
+  const summary = buildSummary(sourceDescription || rawBody, feed.language, title, editorialParagraphs);
+  const dek = buildDek(sourceDescription || rawBody, feed.language, summary, editorialParagraphs);
+  const hook = buildHook(editorialParagraphs, summary, dek, feed.language);
   const sections = buildSections({
     title,
     summary,
@@ -580,7 +589,7 @@ async function mapFeedItem(feed, item, timestamp) {
     topic,
     contentType,
     sourceName: feed.name,
-    paragraphs: snapshot.paragraphs
+    paragraphs: editorialParagraphs
   });
   const publishedAt = normalizeDate(item.pubDate, timestamp);
   const articleHash = crypto.createHash("sha1").update(`${feed.name}:${link}:${feed.language}`).digest("hex").slice(0, 12);
@@ -589,7 +598,7 @@ async function mapFeedItem(feed, item, timestamp) {
   const image = imageUrl
     ? {
         src: imageUrl,
-        caption: feed.language === "vi" ? `áº¢nh tham kháº£o tá»« ${feed.name}.` : `Reference image from ${feed.name}.`,
+        caption: feed.language === "vi" ? `Ảnh tham khảo từ ${feed.name}.` : `Reference image from ${feed.name}.`,
         credit: feed.name,
         source_url: link
       }
@@ -608,7 +617,7 @@ async function mapFeedItem(feed, item, timestamp) {
     hook,
     sections,
     verification_state: feed.sourceType === "official-site" ? "verified" : "emerging",
-    quality_score: calculateQualityScore({ feed, imageUrl, paragraphs: snapshot.paragraphs, summary, dek, hook }),
+    quality_score: calculateQualityScore({ feed, imageUrl, paragraphs: editorialParagraphs, summary, dek, hook }),
     ad_eligible: true,
     show_editorial_label: false,
     indexable: true,
@@ -639,8 +648,8 @@ async function mapFeedItem(feed, item, timestamp) {
       trust_tier: feed.trustTier,
       topic_hint: feed.topicHint || "",
       content_type_hint: feed.contentTypeHint || "",
-      description: cleanText(snapshot.description || item.description),
-      paragraphs: snapshot.paragraphs.slice(0, 6),
+      description: sourceDescription,
+      paragraphs: editorialParagraphs.slice(0, 6),
       link
     }
   };
@@ -732,6 +741,100 @@ function extractParagraphs(html) {
     .filter((paragraph, index, list) => list.findIndex((entry) => entry === paragraph) === index);
 }
 
+function filterRelevantParagraphs({ title, description, paragraphs = [] }) {
+  const anchors = extractAnchorTerms(`${title} ${description}`);
+
+  if (!paragraphs.length) {
+    return [];
+  }
+
+  if (!anchors.length) {
+    return paragraphs.slice(0, 4);
+  }
+
+  const scored = paragraphs.map((paragraph) => ({
+    paragraph,
+    score: scoreParagraphRelevance(paragraph, anchors)
+  }));
+  const strong = scored.filter((entry) => entry.score >= 2).map((entry) => entry.paragraph);
+
+  if (strong.length >= 2) {
+    return strong.slice(0, 6);
+  }
+
+  const fallback = scored.filter((entry) => entry.score >= 1).map((entry) => entry.paragraph);
+  return fallback.slice(0, 4);
+}
+
+function pickRelevantLeadText({ title, values = [] }) {
+  const cleanedValues = values.map((value) => cleanText(value)).filter(Boolean);
+  const anchors = extractAnchorTerms(title);
+
+  if (!cleanedValues.length) {
+    return "";
+  }
+
+  if (!anchors.length) {
+    return cleanedValues[0];
+  }
+
+  const scored = cleanedValues
+    .map((value) => ({ value, score: scoreParagraphRelevance(value, anchors) }))
+    .sort((left, right) => right.score - left.score || right.value.length - left.value.length);
+
+  if (scored[0]?.score >= 2) {
+    return scored[0].value;
+  }
+
+  if (scored[0]?.score >= 1 && hasGenericAiSignals(title) === hasGenericAiSignals(scored[0].value)) {
+    return scored[0].value;
+  }
+
+  return "";
+}
+
+function extractAnchorTerms(value) {
+  const stopwords = new Set([
+    "the", "and", "for", "with", "that", "this", "from", "into", "over", "after", "before", "when",
+    "what", "which", "more", "than", "just", "your", "their", "have", "about", "across", "inside",
+    "nhung", "những", "dang", "đang", "vua", "vừa", "theo", "cho", "voi", "với", "mot", "một", "nhung",
+    "cua", "của", "tren", "trên", "sang", "them", "thêm", "giua", "giữa", "duoc", "được", "khong", "không",
+    "nguoi", "người", "dung", "dùng", "cau", "câu", "chuyen", "chuyện", "bai", "bài", "viet", "viết",
+    "gia", "giá", "tri", "trị", "moi", "mới", "nam", "năm", "thang", "tháng"
+  ]);
+
+  return [...new Set(
+    normalizeAnchorText(value)
+      .split(/\s+/)
+      .filter((token) => token.length >= 3 && !stopwords.has(token))
+  )].slice(0, 24);
+}
+
+function scoreParagraphRelevance(paragraph, anchors) {
+  const haystack = ` ${normalizeAnchorText(paragraph)} `;
+  let score = 0;
+
+  for (const anchor of anchors) {
+    if (!haystack.includes(` ${anchor} `)) {
+      continue;
+    }
+
+    score += anchor.length >= 6 || /\d/.test(anchor) ? 2 : 1;
+  }
+
+  return score;
+}
+
+function normalizeAnchorText(value) {
+  return cleanText(value)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function sanitizeEditorialParagraph(value) {
   return cleanText(
     String(value || "")
@@ -745,17 +848,23 @@ function sanitizeEditorialParagraph(value) {
       .replace(/sign in[^.?!]*[.?!]?/gi, " ")
       .replace(/log in[^.?!]*[.?!]?/gi, " ")
       .replace(/read more[^.?!]*[.?!]?/gi, " ")
+      .replace(/chịu trách nhiệm quản lý nội dung[\s\S]*$/i, " ")
+      .replace(/trụ sở hà nội[\s\S]*$/i, " ")
+      .replace(/vpđd tại tp\.?\s*hcm[\s\S]*$/i, " ")
+      .replace(/điện thoại:\s*[\d.\s()+-]+[\s\S]*$/i, " ")
+      .replace(/email:\s*[^\s]+@[^\s]+[\s\S]*$/i, " ")
+      .replace(/công ty cổ phần[\s\S]*$/i, " ")
   );
 }
 
 function isWeakEditorialSentence(value) {
-  return hasEncodingArtifacts(value) || /(search results|all search results|affiliate links?|best daily deals|newsletter|privacy policy|cookie policy|terms of use|all rights reserved|learn more|read more|sign up|sign in|log in|follow us|shop now|watch now|source image pending|reference image from|deviled eggs|roasted chicken|recipe|restaurant|vacation|travel tips|easter|grubhub|uber eats|headphone deals|robot vacuum deals|for more than \d+ years|we['’]ve invested in|make everyday life better|our mission is|today we are announcing|available everywhere our ai plans are available|copy link|link bài gốc|lấy link|google cloud community|google workspace admins like you)/i.test(
+  return hasEncodingArtifacts(value) || /(search results|all search results|affiliate links?|best daily deals|newsletter|privacy policy|cookie policy|terms of use|all rights reserved|learn more|read more|sign up|sign in|log in|follow us|shop now|watch now|source image pending|reference image from|deviled eggs|roasted chicken|recipe|restaurant|vacation|travel tips|easter|grubhub|uber eats|headphone deals|robot vacuum deals|for more than \d+ years|we[''â€™]ve invested in|make everyday life better|our mission is|today we are announcing|available everywhere our ai plans are available|copy link|link bài gốc|lấy link|google cloud community|google workspace admins like you|chịu trách nhiệm quản lý nội dung|trụ sở hà nội|vpđd tại tp\.?\s*hcm|tầng \d+|hapulico complex|võ văn tần|nguyễn huy tưởng|info@genk\.vn|công ty cổ phần vccorp)/i.test(
     value
   );
 }
 
 function hasEncodingArtifacts(value) {
-  return /(?:Ã|Â|Ä|Ă|Å|Æ|áº|á»|â€|â€™|â€œ|â€|Ă¢â‚¬)/.test(String(value || ""));
+  return /(?:Ã|Â|Ă|Ä|â€|â€™|â€œ|â€|�)/.test(String(value || ""));
 }
 
 function selectEditorialSentences(values, count = 2, minLength = 50) {
@@ -784,14 +893,14 @@ function selectEditorialSentences(values, count = 2, minLength = 50) {
 }
 
 function isBoilerplateParagraph(value) {
-  return /(toggle dark mode|toggle search form|search for:|home page switch site|privacy|logo|0 comments|newsletter|cookie|window\.|function\s*\(|var\s+[a-z0-9_]+|submit|forums|advertisement|all rights reserved|mobile ai tin ict internet|apps-game|Ä‘á»“ chÆ¡i sá»‘|gia dá»¥ng|trĂ  Ä‘Ă¡ cĂ´ng nghá»‡|xem - mua - luĂ´n)/i.test(
+  return /(toggle dark mode|toggle search form|search for:|home page switch site|privacy|logo|0 comments|newsletter|cookie|window\.|function\s*\(|var\s+[a-z0-9_]+|submit|forums|advertisement|all rights reserved|mobile ai tin ict internet|apps-game|đồ chơi số|gia dụng|trà đá công nghệ|xem - mua - luôn|chịu trách nhiệm quản lý nội dung|trụ sở hà nội|vpđd tại tp\.?\s*hcm|tầng \d+|hapulico complex|võ văn tần|nguyễn huy tưởng|info@genk\.vn|công ty cổ phần vccorp)/i.test(
     value
   );
 }
 function isTechnologyRelevantStory({ feed, title, body, link }) {
   const titleHaystack = cleanText(title);
   const haystack = cleanText([feed.name, title, body, link].join(" "));
-  const directTechAnchor = /\b(ai|openai|chatgpt|gemini|claude|copilot|google|microsoft|anthropic|notebooklm|workspace|chip|gpu|cpu|npu|phone|iphone|android|pixel|macbook|windows|software|app|cloud|startup|platform|privacy|security|malware|ransomware|game|gaming|youtube|instagram|facebook|threads|tiktok|router|wifi|fiber|alexa)\b/i;
+  const directTechAnchor = /\b(ai|openai|chatgpt|gemini|claude|copilot|google|microsoft|anthropic|notebooklm|workspace|chip|gpu|cpu|npu|phone|iphone|android|pixel|macbook|windows|software|app|cloud|startup|platform|privacy|security|malware|ransomware|game|gaming|youtube|instagram|facebook|threads|tiktok|router|wifi|fiber|alexa|logitech|sony|asus|intel|amd|qualcomm|nvidia|tay cầm|steam deck)\b/i;
   const hasDirectTechAnchor = directTechAnchor.test(haystack);
   const titleHasDirectTechAnchor = directTechAnchor.test(titleHaystack);
   let score = 0;
@@ -812,6 +921,10 @@ function isTechnologyRelevantStory({ feed, title, body, link }) {
 
   if (/\b(deviled eggs|roasted chicken|oven|recipe|chef secrets|food ordering|uber eats|grubhub|restaurant|vacation|travel|hotel|luggage)\b/i.test(titleHaystack)
     && !titleHasDirectTechAnchor) {
+    return false;
+  }
+
+  if (/(xem mua luon|do choi so)/i.test(feed.name) && !titleHasDirectTechAnchor) {
     return false;
   }
 
@@ -868,12 +981,50 @@ function inferTopic(feed, title, body) {
 }
 
 function inferTopicFromSignals(feed, title, body) {
+  const titleHaystack = cleanText(title);
   const rawHaystack = cleanText(`${title} ${cleanText(body).slice(0, 1400)} ${feed.name}`);
-  const haystack = rawHaystack.toLowerCase();
   const scores = new Map();
   const hasStrongAiSignal = hasStrongAiSignals(rawHaystack);
   const hasGenericAiSignal = hasGenericAiSignals(rawHaystack);
   const hasAiPackageSignal = hasAiPackageSignals(rawHaystack);
+  const titleHasStrongAiSignal = hasStrongAiSignals(titleHaystack);
+  const titleHasGenericAiSignal = hasGenericAiSignals(titleHaystack);
+  const titleHasAiPackageSignal = hasAiPackageSignals(titleHaystack);
+
+  if ((titleHasStrongAiSignal || titleHasGenericAiSignal) && titleHasAiPackageSignal) {
+    return "ai";
+  }
+
+  if (/\b(chatgpt|openai|gemini|claude|copilot|anthropic|notebooklm|deepseek|llm|grok|trí tuệ nhân tạo|mô hình ai|trợ lý ai)\b/i.test(titleHaystack)) {
+    return "ai";
+  }
+
+  if (/\b(hack|security|cyber|malware|phishing|passkey|password|data breach|ransomware|bảo mật|tấn công)\b/i.test(titleHaystack)
+    && !titleHasStrongAiSignal) {
+    return "security";
+  }
+
+  if (/\b(gaming|game|steam|playstation|xbox|nintendo|switch|handheld|dlss|rockstar|gta|tay cầm|game thủ)\b/i.test(titleHaystack)
+    && !titleHasStrongAiSignal) {
+    return "gaming";
+  }
+
+  if (/\b(giám đốc|bổ nhiệm|nhân sự|doanh nghiệp|nền tảng|mạng xã hội|startup|thị trường|người dùng|creator|agency)\b/i.test(titleHaystack)
+    && !titleHasStrongAiSignal) {
+    return "internet-business-tech";
+  }
+
+  if (/\b(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiết bị|điện thoại|logitech|sony|asus|intel|amd|qualcomm|nvidia)\b/i.test(titleHaystack)
+    && !titleHasStrongAiSignal
+    && !titleHasAiPackageSignal) {
+    return "devices";
+  }
+
+  if (/\b(app|software|windows|mac|ios|android app|ứng dụng|phần mềm|workspace|notion|slack|feature|guide|how to|how-to|tips|mẹo|thủ thuật|hướng dẫn)\b/i.test(titleHaystack)
+    && !titleHasStrongAiSignal
+    && !titleHasAiPackageSignal) {
+    return "apps-software";
+  }
 
   if ((hasStrongAiSignal || hasGenericAiSignal) && hasAiPackageSignal) {
     return "ai";
@@ -897,11 +1048,11 @@ function inferTopicFromSignals(feed, title, body) {
     scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) + 6);
   }
 
-  if (/(hack|security|cyber|malware|phishing|passkey|password|data breach|ransomware|báº£o máº­t|táº¥n cĂ´ng)/i.test(rawHaystack)) {
+  if (/(hack|security|cyber|malware|phishing|passkey|password|data breach|ransomware|bảo mật|tấn công)/i.test(rawHaystack)) {
     scores.set("security", (scores.get("security") || 0) + 22);
   }
 
-  if (/(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiáº¿t bá»‹|Ä‘iá»‡n thoáº¡i)/i.test(rawHaystack)) {
+  if (/(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiết bị|điện thoại)/i.test(rawHaystack)) {
     scores.set("devices", (scores.get("devices") || 0) + 18);
   }
 
@@ -913,7 +1064,7 @@ function inferTopicFromSignals(feed, title, body) {
     scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) + 20);
   }
 
-  if (/(app|software|windows|mac|ios|android app|á»©ng dá»¥ng|pháº§n má»m|workspace|notion|slack|feature|guide|how to|how-to|tips)/i.test(rawHaystack)) {
+  if (/(app|software|windows|mac|ios|android app|ứng dụng|phần mềm|workspace|notion|slack|feature|guide|how to|how-to|tips|mẹo|thủ thuật|hướng dẫn)/i.test(rawHaystack)) {
     scores.set("apps-software", (scores.get("apps-software") || 0) + 16);
   }
 
@@ -927,7 +1078,7 @@ function inferTopicFromSignals(feed, title, body) {
     scores.set("gaming", (scores.get("gaming") || 0) - 12);
   }
 
-  if (/\b(cÆ¡ thá»ƒ ngÆ°á»i|virus há»c|bá»‡nh nhĂ¢n|medical|pregnancy|disease|diet)\b/i.test(rawHaystack)) {
+  if (/\b(cơ thể người|virus học|bệnh nhân|medical|pregnancy|disease|diet)\b/i.test(rawHaystack)) {
     scores.set("devices", (scores.get("devices") || 0) - 16);
     scores.set("security", (scores.get("security") || 0) - 8);
   }
@@ -962,11 +1113,11 @@ function inferContentType(feed, title, body) {
 
   const haystack = `${feed.name} ${title} ${splitSentences(body)[0] || ""}`;
 
-  if (/(how to|how-to|guide|tips|thá»§ thuáº­t|máº¹o|hÆ°á»›ng dáº«n|cĂ¡ch (?:dĂ¹ng|lĂ m|triá»ƒn khai|cĂ i|táº¡o|thiáº¿t láº­p|báº£o vá»‡|kháº¯c phá»¥c|chá»n))/i.test(haystack)) {
+  if (/(how to|how-to|guide|tips|thủ thuật|mẹo|hướng dẫn|cách (?:dùng|làm|triển khai|cài|tạo|thiết lập|bảo vệ|khắc phục|chọn))/i.test(haystack)) {
     return "EvergreenGuide";
   }
 
-  if (/(vs\.?|versus|compare|comparison|so sĂ¡nh|chatgpt vs|gemini vs|claude vs)/i.test(haystack)) {
+  if (/(vs\.?|versus|compare|comparison|so sánh|chatgpt vs|gemini vs|claude vs)/i.test(haystack)) {
     return "ComparisonPage";
   }
 
@@ -981,7 +1132,7 @@ function buildSummary(body, language, fallbackTitle, paragraphs = []) {
   }
 
   return language === "vi"
-    ? finishSentence(body || `BĂ i viáº¿t bĂ¡m theo chuyá»ƒn Ä‘á»™ng má»›i liĂªn quan tá»›i ${fallbackTitle}.`)
+    ? finishSentence(body || `Bài viết bám theo chuyển động mới nhất liên quan tới ${fallbackTitle}.`)
     : finishSentence(body || `This piece follows the newest movement connected to ${fallbackTitle}.`);
 }
 
@@ -993,7 +1144,7 @@ function buildDek(body, language, summary, paragraphs = []) {
   }
 
   return language === "vi"
-    ? "BĂ i viáº¿t kĂ©o cĂ¢u chuyá»‡n vá» Ä‘Ăºng bá»‘i cáº£nh vĂ  chá»‰ ra vĂ¬ sao nĂ³ Ä‘Ă¡ng Ä‘á»ƒ má»Ÿ ngay lĂºc nĂ y."
+    ? "Bài viết kéo câu chuyện về đúng bối cảnh, chốt phần mới đáng giữ lại và chỉ ra vì sao người đọc nên mở ngay lúc này."
     : "The piece brings the story back into context and explains why it is worth opening right now.";
 }
 
@@ -1005,7 +1156,7 @@ function buildHook(paragraphs, summary, dek, language) {
   }
 
   return language === "vi"
-    ? finishSentence(`${summary} ÄĂ¢y lĂ  chi tiáº¿t khiáº¿n cĂ¢u chuyá»‡n nĂ y Ä‘Ă¡ng Ä‘á»ƒ má»Ÿ ngay.`)
+    ? finishSentence(`${summary} Chi tiết khiến câu chuyện này đáng mở nằm ở chỗ nó tác động trực tiếp tới cách người dùng làm việc, trả tiền hoặc dùng công cụ mỗi ngày.`)
     : finishSentence(`${summary} This is the detail that makes the story worth opening right now.`);
 }
 
@@ -1021,35 +1172,35 @@ function buildSections({ title, summary, dek, language, topic, contentType, sour
     return buildAiPackageSections({ title, cleanParagraphs, summary, dek, language, sourceName });
   }
 
-  const intro = language === "vi" ? "Äiá»u Ä‘ang xáº£y ra" : "What happened";
-  const details = language === "vi" ? "Chi tiáº¿t Ä‘Ă¡ng giá»¯ láº¡i" : "Details worth keeping";
-  const whyItMatters = language === "vi" ? "VĂ¬ sao cĂ¢u chuyá»‡n nĂ y Ä‘Ă¡ng má»Ÿ" : "Why this deserves a click";
-  const take = language === "vi" ? "Patrick Tech Media Ä‘Ă¡nh giĂ¡" : "Patrick Tech Media take";
-  const next = language === "vi" ? "Äiá»u cáº§n theo dĂµi tiáº¿p" : "What to watch next";
+  const intro = language === "vi" ? "Điều đang xảy ra" : "What happened";
+  const details = language === "vi" ? "Chi tiết đáng giữ lại" : "Details worth keeping";
+  const whyItMatters = language === "vi" ? "Vì sao câu chuyện này đáng mở" : "Why this deserves a click";
+  const take = language === "vi" ? "Patrick Tech Media đánh giá" : "Patrick Tech Media take";
+  const next = language === "vi" ? "Điều cần theo dõi tiếp" : "What to watch next";
 
   const angleByTopic = {
     ai: {
-      vi: "Chi tiáº¿t Ä‘Ă¡ng chĂº Ă½ lĂ  tĂ­n hiá»‡u AI Ä‘ang Ä‘i nhanh hÆ¡n vĂ o lĂºc dĂ¹ng tháº­t, thay vĂ¬ chá»‰ náº±m á»Ÿ pháº§n trĂ¬nh diá»…n.",
+      vi: "Điểm đáng nhìn là AI đang đi nhanh hơn vào phần dùng thật, thay vì chỉ nằm ở lớp trình diễn hay lời hứa marketing.",
       en: "The key angle is that AI is moving closer to everyday use instead of staying in demo mode."
     },
     "apps-software": {
-      vi: "Nhá»¯ng thay Ä‘á»•i kiá»ƒu nĂ y thÆ°á»ng Ă¢m tháº§m nhÆ°ng tĂ¡c Ä‘á»™ng khĂ¡ rĂµ vĂ o thĂ³i quen dĂ¹ng á»©ng dá»¥ng má»—i ngĂ y.",
+      vi: "Những thay đổi kiểu này thường âm thầm hơn headline, nhưng lại đụng khá rõ vào thói quen dùng ứng dụng mỗi ngày.",
       en: "Updates like this often look small at first but end up changing everyday product behavior."
     },
     devices: {
-      vi: "á» máº£ng thiáº¿t bá»‹, Ä‘iá»u Ä‘Ă¡ng nhĂ¬n lĂ  khi thĂ´ng sá»‘ báº¯t Ä‘áº§u dá»‹ch chuyá»ƒn thĂ nh khĂ¡c biá»‡t tháº­t trong tráº£i nghiá»‡m.",
+      vi: "Ở mảng thiết bị, điều đáng nhìn là khi thông số bắt đầu dịch thành khác biệt thật trong trải nghiệm cầm nắm và sử dụng.",
       en: "On the device side, the real question is when a spec shift turns into a noticeable user experience change."
     },
     security: {
-      vi: "Äiá»ƒm Ä‘Ă¡ng theo dĂµi lĂ  tĂ¡c Ä‘á»™ng cá»§a nĂ³ lĂªn an toĂ n tĂ i khoáº£n vĂ  cĂ¡ch Ä‘á»™i váº­n hĂ nh xá»­ lĂ½ rá»§i ro.",
+      vi: "Điểm cần nhìn tiếp là tác động thật của nó lên an toàn tài khoản, quyền riêng tư và chi phí vận hành của đội ngũ.",
       en: "The part worth watching is how it changes account safety and operational risk handling."
     },
     gaming: {
-      vi: "Vá»›i game, nhá»¯ng tĂ­n hiá»‡u nhÆ° váº­y thÆ°á»ng lan nhanh trong cá»™ng Ä‘á»“ng trÆ°á»›c khi trá»Ÿ thĂ nh xu hÆ°á»›ng rĂµ rĂ ng.",
+      vi: "Với game, những tín hiệu kiểu này thường lan rất nhanh trong cộng đồng trước khi kịp thành một xu hướng đủ rõ.",
       en: "In gaming, signals like this often spread through the community before they settle into a clear trend."
     },
     "internet-business-tech": {
-      vi: "Äiá»u quan trá»ng lĂ  nĂ³ cĂ³ thá»ƒ áº£nh hÆ°á»Ÿng trá»±c tiáº¿p tá»›i cĂ¡ch ngÆ°á»i dĂ¹ng tÆ°Æ¡ng tĂ¡c, chia sáº» hoáº·c chi tiá»n trĂªn ná»n táº£ng sá»‘.",
+      vi: "Điều quan trọng là nó có thể chạm trực tiếp tới cách người dùng tương tác, chia sẻ, kiếm tiền hoặc chi tiền trên nền tảng số.",
       en: "What matters is the potential effect on how people interact, share, or spend across digital platforms."
     }
   };
@@ -1061,11 +1212,11 @@ function buildSections({ title, summary, dek, language, topic, contentType, sour
       : buildEnglishForwardLook(topic, title);
   const sourceLine =
     language === "vi"
-      ? `Patrick Tech Media Ä‘ang Ä‘á»‘i chiáº¿u thĂªm vá»›i nguá»“n ${sourceName}.`
+      ? `Patrick Tech Media đang đối chiếu thêm với nguồn ${sourceName}.`
       : `Patrick Tech Media is cross-checking the thread against ${sourceName}.`;
   const takeLine =
     language === "vi"
-      ? `Äiá»ƒm Ä‘Ă¡ng giá»¯ láº¡i lĂ  cĂ¢u chuyá»‡n nĂ y cháº¡m vĂ o Ä‘Ăºng lá»›p ngÆ°á»i dĂ¹ng cĂ´ng nghá»‡ Ä‘ang cáº§n tĂ­n hiá»‡u rĂµ rĂ ng thay vĂ¬ chá»‰ thĂªm má»™t headline gĂ¢y sá»‘c.`
+      ? `Điểm đáng giữ lại là câu chuyện này chạm vào đúng lớp người dùng công nghệ đang cần tín hiệu rõ ràng, thay vì chỉ thêm một headline gây sốc.`
       : `The part worth keeping is that this lands on a real layer of technology users instead of stopping at a flashy headline.`;
 
   return [
@@ -1093,18 +1244,18 @@ function buildSections({ title, summary, dek, language, topic, contentType, sour
 }
 
 function buildGuideSections({ cleanParagraphs, summary, dek, language, topic, sourceName }) {
-  const setup = language === "vi" ? "Báº¯t Ä‘áº§u tá»« Ä‘Ă¢u" : "Where to start";
-  const shortcut = language === "vi" ? "LĂ m theo cĂ¡ch gá»n nháº¥t" : "The shortest path";
-  const mistakes = language === "vi" ? "Lá»—i dá»… gáº·p" : "Common mistakes";
-  const fit = language === "vi" ? "Ai nĂªn Ă¡p dá»¥ng" : "Who should use it";
-  const take = language === "vi" ? "Patrick Tech Media Ä‘Ă¡nh giĂ¡" : "Patrick Tech Media take";
+  const setup = language === "vi" ? "Bắt đầu từ đâu" : "Where to start";
+  const shortcut = language === "vi" ? "Làm theo cách gọn nhất" : "The shortest path";
+  const mistakes = language === "vi" ? "Lỗi dễ gặp" : "Common mistakes";
+  const fit = language === "vi" ? "Ai nên áp dụng" : "Who should use it";
+  const take = language === "vi" ? "Patrick Tech Media đánh giá" : "Patrick Tech Media take";
   const audienceLine =
     language === "vi"
-      ? `GiĂ¡ trá»‹ cá»§a kiá»ƒu bĂ i nĂ y náº±m á»Ÿ viá»‡c ngÆ°á»i Ä‘á»c cĂ³ thá»ƒ dĂ¹ng láº¡i ngay trong cĂ´ng viá»‡c hoáº·c khi xá»­ lĂ½ má»™t tĂ¡c vá»¥ cĂ´ng nghá»‡ quen thuá»™c.`
+      ? `Giá trị của kiểu bài này nằm ở chỗ người đọc có thể dùng lại ngay trong công việc hoặc khi xử lý một tác vụ công nghệ quen thuộc.`
       : `The value here is practical reuse: readers should be able to apply it immediately in a real task.`;
   const sourceLine =
     language === "vi"
-      ? `Patrick Tech Media tiáº¿p tá»¥c Ä‘á»‘i chiáº¿u thĂªm vá»›i nguá»“n ${sourceName} Ä‘á»ƒ giá»¯ pháº§n hÆ°á»›ng dáº«n khĂ´ng bá»‹ má»ng.`
+      ? `Patrick Tech Media tiếp tục đối chiếu thêm với nguồn ${sourceName} để phần hướng dẫn không bị mỏng.`
       : `Patrick Tech Media is still cross-checking the workflow against ${sourceName} so the guide stays grounded.`;
 
   return [
@@ -1120,7 +1271,7 @@ function buildGuideSections({ cleanParagraphs, summary, dek, language, topic, so
       heading: mistakes,
       body: cleanParagraphs[2] || finishSentence(
         language === "vi"
-          ? `Lá»—i dá»… gáº·p nháº¥t lĂ  nháº£y tháº³ng vĂ o máº¹o nhá» nhÆ°ng bá» qua Ä‘iá»u kiá»‡n Ä‘áº§u vĂ o, khiáº¿n thao tĂ¡c cĂ³ váº» Ä‘Ăºng mĂ  káº¿t quáº£ cuá»‘i váº«n sai.`
+          ? `Lỗi dễ gặp nhất là nhảy thẳng vào mẹo nhỏ nhưng bỏ qua điều kiện đầu vào, khiến thao tác có vẻ đúng mà kết quả cuối vẫn sai.`
           : `The easiest mistake is trying the shortcut without checking the setup conditions first, which makes the workflow look right while the result stays off.`
       )
     },
@@ -1128,7 +1279,7 @@ function buildGuideSections({ cleanParagraphs, summary, dek, language, topic, so
       heading: fit,
       body: cleanParagraphs[3] || finishSentence(
         language === "vi"
-          ? `BĂ i kiá»ƒu nĂ y há»£p vá»›i ngÆ°á»i muá»‘n rĂºt ngáº¯n thá»i gian xá»­ lĂ½ má»™t tĂ¡c vá»¥ láº·p láº¡i, Ä‘áº·c biá»‡t khi cĂ´ng cá»¥ Ä‘ang thay Ä‘á»•i quĂ¡ nhanh theo tá»«ng Ä‘á»£t cáº­p nháº­t.`
+          ? `Bài kiểu này hợp với người muốn rút ngắn thời gian xử lý một tác vụ lặp lại, nhất là khi công cụ đang đổi quá nhanh theo từng đợt cập nhật.`
           : `This kind of piece is best for readers trying to shorten a repeatable task while tools are changing quickly from release to release.`
       )
     },
@@ -1140,26 +1291,26 @@ function buildGuideSections({ cleanParagraphs, summary, dek, language, topic, so
 }
 
 function buildAiPackageSections({ title, cleanParagraphs, summary, dek, language, sourceName }) {
-  const upgrade = language === "vi" ? "Äiá»ƒm nĂ¢ng cáº¥p Ä‘Ă¡ng chĂº Ă½" : "What changed";
-  const pricing = language === "vi" ? "GiĂ¡ vĂ  quyá»n lá»£i" : "Price and bundle value";
-  const features = language === "vi" ? "Nhá»¯ng lá»›p AI kĂ©o giĂ¡ trá»‹ lĂªn" : "AI features that change the value";
-  const audience = language === "vi" ? "Ai nĂªn Ä‘á»ƒ máº¯t" : "Who should pay attention";
-  const take = language === "vi" ? "Patrick Tech Media Ä‘Ă¡nh giĂ¡" : "Patrick Tech Media take";
+  const upgrade = language === "vi" ? "Điểm nâng cấp đáng chú ý" : "What changed";
+  const pricing = language === "vi" ? "Giá và quyền lợi" : "Price and bundle value";
+  const features = language === "vi" ? "Những lớp AI kéo giá trị lên" : "AI features that change the value";
+  const audience = language === "vi" ? "Ai nên để mắt" : "Who should pay attention";
+  const take = language === "vi" ? "Patrick Tech Media đánh giá" : "Patrick Tech Media take";
   const pricingLine =
     language === "vi"
-      ? `Äiá»u ngÆ°á»i Ä‘á»c thá»±c sá»± muá»‘n biáº¿t á»Ÿ cĂ¡c gĂ³i AI khĂ´ng chá»‰ lĂ  giĂ¡, mĂ  lĂ  má»—i láº§n tÄƒng phĂ­ hoáº·c giá»¯ giĂ¡ sáº½ mang thĂªm quyá»n lá»£i nĂ o vĂ o cĂ´ng viá»‡c háº±ng ngĂ y.`
+      ? `Điều người đọc thực sự muốn biết ở các gói AI không chỉ là giá, mà là mỗi lần tăng phí hay giữ giá sẽ mang thêm quyền lợi nào vào công việc hằng ngày.`
       : `What readers actually want from AI package coverage is not just a price tag, but what each price move unlocks in real daily work.`;
   const audienceLine =
     language === "vi"
-      ? `NhĂ³m nĂªn theo dĂµi Ä‘áº§u tiĂªn lĂ  ngÆ°á»i Ä‘ang tráº£ tiá»n cho lÆ°u trá»¯, cá»™ng tĂ¡c vĂ  trá»£ lĂ½ AI trong cĂ¹ng má»™t há»‡ sinh thĂ¡i, vĂ¬ Ä‘Ă¢y lĂ  nÆ¡i sá»± khĂ¡c biá»‡t vá» giĂ¡ trá»‹ lá»™ ra nhanh nháº¥t.`
+      ? `Nhóm nên theo dõi đầu tiên là người đang trả tiền cho lưu trữ, cộng tác và trợ lý AI trong cùng một hệ sinh thái, vì đây là nơi khác biệt về giá trị lộ ra nhanh nhất.`
       : `The first audience to watch is the group already paying for storage, collaboration, and AI inside one stack, because that is where value shifts show up fastest.`;
   const takeLine =
     language === "vi"
-      ? `Patrick Tech Media nhĂ¬n cĂ¢u chuyá»‡n kiá»ƒu nĂ y nhÆ° má»™t cuá»™c Ä‘ua giĂ¡ trá»‹ sá»­ dá»¥ng tháº­t: gĂ³i nĂ o giĂºp ngÆ°á»i dĂ¹ng tiáº¿t kiá»‡m bÆ°á»›c, gom cĂ´ng cá»¥ vĂ  giáº£m chi phĂ­ phĂ¡t sinh sáº½ tháº¯ng lĂ¢u hÆ¡n má»™t Ä‘á»£t truyá»n thĂ´ng ngáº¯n.`
+      ? `Patrick Tech Media nhìn câu chuyện kiểu này như một cuộc đua giá trị sử dụng thật: gói nào giúp người dùng bớt bước, gom công cụ và hạ chi phí phát sinh sẽ thắng bền hơn một đợt truyền thông ngắn.`
       : `Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz.`;
   const sourceLine =
     language === "vi"
-      ? `Patrick Tech Media sáº½ tiáº¿p tá»¥c Ä‘á»‘i chiáº¿u thĂªm vá»›i nguá»“n ${sourceName} Ä‘á»ƒ xem thay Ä‘á»•i nĂ y cĂ³ giá»¯ Ä‘Æ°á»£c lá»£i tháº¿ khi rollout rá»™ng hÆ¡n khĂ´ng.`
+      ? `Patrick Tech Media sẽ tiếp tục đối chiếu thêm với nguồn ${sourceName} để xem thay đổi này có giữ được lợi thế khi rollout rộng hơn không.`
       : `Patrick Tech Media will keep checking ${sourceName} to see whether the value holds once the rollout broadens.`;
 
   return [
@@ -1175,7 +1326,7 @@ function buildAiPackageSections({ title, cleanParagraphs, summary, dek, language
       heading: features,
       body: cleanParagraphs[3] || finishSentence(
         language === "vi"
-          ? `Äiá»u kĂ©o bĂ i kiá»ƒu nĂ y vÆ°á»£t khá»i má»™t báº£n cáº­p nháº­t giĂ¡ náº±m á»Ÿ chá»— cĂ¡c lá»›p AI Ä‘i kĂ¨m cĂ³ tháº­t sá»± lĂ m Gmail, Docs, Meet, nghiĂªn cá»©u hay sĂ¡ng táº¡o ná»™i dung bá»›t rá»i ráº¡c hÆ¡n hay khĂ´ng.`
+          ? `Điều kéo bài kiểu này vượt khỏi một bản cập nhật giá nằm ở chỗ các lớp AI đi kèm có thật sự làm Gmail, Docs, Meet, nghiên cứu hay sáng tạo nội dung bớt rời rạc hơn hay không.`
           : `The reason this rises above a pricing note is whether the bundled AI actually makes Gmail, Docs, meetings, research, or creation feel less fragmented.`
       )
     },
@@ -1210,7 +1361,7 @@ function resolveStoryLens({ title, summary, dek, topic, contentType, sourceName,
 
 function hasAiPackageSignals(value) {
   const text = String(value || "");
-  return /\b(google ai pro|google one|workspace|business plus|gemini advanced|notebooklm|veo|lyria|chatgpt plus|chatgpt pro|claude pro|claude max|copilot pro|copilot|subscription|pricing|monthly|annual|storage|5tb|2tb|package|bundle|gĂ³i|dung lÆ°á»£ng|tráº£ phĂ­|theo thĂ¡ng|theo nÄƒm)\b/i.test(text);
+  return /\b(google ai pro|google one|workspace|business plus|gemini advanced|notebooklm|veo|lyria|chatgpt plus|chatgpt pro|chatgpt team|chatgpt business|claude pro|claude max|copilot pro|copilot|grok|perplexity pro|notion ai|canva ai|subscription|pricing|monthly|annual|storage|5tb|2tb|package|bundle|gói|dung lượng|trả phí|theo tháng|theo năm)\b/i.test(text);
 }
 
 function normalizeTopicHint(topic) {
@@ -1226,15 +1377,15 @@ function normalizeTopicHint(topic) {
 
 function buildVietnameseForwardLook(topic, title) {
   const lines = {
-    ai: "Äiá»ƒm cáº§n theo dĂµi tiáº¿p lĂ  liá»‡u thay Ä‘á»•i nĂ y cĂ³ Ä‘Æ°á»£c Ä‘Æ°a nhanh vĂ o sáº£n pháº©m vĂ  thĂ³i quen dĂ¹ng tháº­t hay khĂ´ng.",
-    "apps-software": "Äiá»u cáº§n nhĂ¬n tiáº¿p lĂ  nhá»‹p rollout, giá»›i háº¡n khu vá»±c vĂ  má»©c Ä‘á»™ áº£nh hÆ°á»Ÿng lĂªn hĂ nh vi dĂ¹ng háº±ng ngĂ y.",
-    devices: "Äiá»u cáº§n xem tiáº¿p lĂ  giĂ¡ bĂ¡n, nhá»‹p phá»• cáº­p vĂ  cáº£m nháº­n tháº­t khi thiáº¿t bá»‹ tá»›i tay ngÆ°á»i dĂ¹ng.",
-    security: "Pháº§n cáº§n theo dĂµi thĂªm lĂ  tĂ¡c Ä‘á»™ng thá»±c táº¿ lĂªn an toĂ n tĂ i khoáº£n, quy trĂ¬nh Ä‘Äƒng nháº­p vĂ  chi phĂ­ váº­n hĂ nh.",
-    gaming: `Giá»›i chÆ¡i game sáº½ sá»›m nhĂ¬n vĂ o viá»‡c ${title.toLowerCase()} chá»‰ lĂ  Ä‘iá»ƒm nĂ³ng nháº¥t thá»i hay sáº½ kĂ©o thĂªm má»™t lĂ n sĂ³ng má»›i.`,
-    "internet-business-tech": "Äiá»ƒm Ä‘Ă¡ng xem tiáº¿p lĂ  viá»‡c tĂ­n hiá»‡u nĂ y cĂ³ chuyá»ƒn thĂ nh thay Ä‘á»•i tháº­t trĂªn ngÆ°á»i dĂ¹ng vĂ  doanh nghiá»‡p hay khĂ´ng."
+    ai: "Điểm cần theo dõi tiếp là liệu thay đổi này có đi nhanh vào sản phẩm và thói quen dùng thật hay không.",
+    "apps-software": "Điều cần nhìn tiếp là nhịp rollout, giới hạn khu vực và mức độ tác động lên hành vi dùng mỗi ngày.",
+    devices: "Điều cần xem tiếp là giá bán, nhịp phổ cập và cảm nhận thật khi thiết bị tới tay người dùng.",
+    security: "Phần cần theo dõi thêm là tác động thực tế lên an toàn tài khoản, quy trình đăng nhập và chi phí vận hành.",
+    gaming: `Giới chơi game sẽ sớm nhìn vào việc ${title.toLowerCase()} chỉ là điểm nóng nhất thời hay sẽ kéo thêm một làn sóng mới.`,
+    "internet-business-tech": "Điểm đáng xem tiếp là việc tín hiệu này có chuyển thành thay đổi thật trên người dùng và doanh nghiệp hay không."
   };
 
-  return lines[topic] || "Patrick Tech Media sáº½ tiáº¿p tá»¥c theo dĂµi xem tĂ­n hiá»‡u nĂ y cĂ³ má»Ÿ rá»™ng thĂ nh chuyá»ƒn Ä‘á»™ng lá»›n hÆ¡n hay khĂ´ng.";
+  return lines[topic] || "Patrick Tech Media sẽ tiếp tục theo dõi xem tín hiệu này có mở rộng thành chuyển động lớn hơn hay không.";
 }
 
 function buildEnglishForwardLook(topic, title) {
@@ -1364,7 +1515,7 @@ function sanitizeIncomingArticle(article) {
 
 function hasStrongAiSignals(value) {
   const text = String(value || "");
-  return /\b(artificial intelligence|trĂ­ tuá»‡ nhĂ¢n táº¡o|chatgpt|openai|gemini|claude|deepmind|deepseek|copilot|llm|npu|ai agent|ai model|trá»£ lĂ½ ai|mĂ´ hĂ¬nh ai)\b/i.test(text);
+  return /\b(artificial intelligence|trí tuệ nhân tạo|chatgpt|openai|gemini|claude|anthropic|deepmind|deepseek|copilot|notebooklm|llm|npu|ai agent|ai model|trợ lý ai|mô hình ai|google ai pro|workspace ai)\b/i.test(text);
 }
 
 function hasGenericAiSignals(value) {
@@ -1399,45 +1550,45 @@ function stripCdata(value) {
 function decodeXmlEntities(value) {
   const namedEntities = {
     nbsp: " ",
-    agrave: "Ă ",
-    aacute: "Ă¡",
-    acirc: "Ă¢",
-    atilde: "Ă£",
-    egrave: "Ă¨",
-    eacute: "Ă©",
-    ecirc: "Ăª",
-    igrave: "Ă¬",
-    iacute: "Ă­",
-    ograve: "Ă²",
-    oacute: "Ă³",
-    ocirc: "Ă´",
-    otilde: "Ăµ",
-    ugrave: "Ă¹",
-    uacute: "Ăº",
-    yacute: "Ă½",
-    Agrave: "Ă€",
-    Aacute: "Ă",
-    Acirc: "Ă‚",
-    Atilde: "Ăƒ",
-    Egrave: "Ăˆ",
-    Eacute: "Ă‰",
-    Ecirc: "Ă",
-    Igrave: "ĂŒ",
-    Iacute: "Ă",
-    Ograve: "Ă’",
-    Oacute: "Ă“",
-    Ocirc: "Ă”",
-    Otilde: "Ă•",
-    Ugrave: "Ă™",
-    Uacute: "Ă",
-    Yacute: "Ă",
-    lsquo: "â€˜",
-    rsquo: "â€™",
-    ldquo: "â€œ",
-    rdquo: "â€",
-    hellip: "â€¦",
-    mdash: "â€”",
-    ndash: "â€“"
+    agrave: "à",
+    aacute: "á",
+    acirc: "â",
+    atilde: "ã",
+    egrave: "è",
+    eacute: "é",
+    ecirc: "ê",
+    igrave: "ì",
+    iacute: "í",
+    ograve: "ò",
+    oacute: "ó",
+    ocirc: "ô",
+    otilde: "õ",
+    ugrave: "ù",
+    uacute: "ú",
+    yacute: "ý",
+    Agrave: "À",
+    Aacute: "Á",
+    Acirc: "Â",
+    Atilde: "Ã",
+    Egrave: "È",
+    Eacute: "É",
+    Ecirc: "Ê",
+    Igrave: "Ì",
+    Iacute: "Í",
+    Ograve: "Ò",
+    Oacute: "Ó",
+    Ocirc: "Ô",
+    Otilde: "Õ",
+    Ugrave: "Ù",
+    Uacute: "Ú",
+    Yacute: "Ý",
+    lsquo: "‘",
+    rsquo: "’",
+    ldquo: "“",
+    rdquo: "”",
+    hellip: "…",
+    mdash: "—",
+    ndash: "–"
   };
 
   let decoded = String(value || "");
@@ -1452,9 +1603,9 @@ function decodeXmlEntities(value) {
       .replace(/&quot;/g, '"')
       .replace(/&#39;/g, "'")
       .replace(/&#x27;/gi, "'")
-      .replace(/&#8211;/g, "â€“")
-      .replace(/&#8212;/g, "â€”")
-      .replace(/&#8230;/g, "â€¦")
+      .replace(/&#8211;/g, "–")
+      .replace(/&#8212;/g, "—")
+      .replace(/&#8230;/g, "…")
       .replace(/&#(\d+);/g, (match, code) => {
         const numeric = Number.parseInt(code, 10);
         return Number.isFinite(numeric) ? String.fromCodePoint(numeric) : match;
@@ -1486,7 +1637,7 @@ function scoreEncodingQuality(value) {
     /(?:\u00e2(?:\u20ac|[\u0080-\u00bf]))/g,
     /(?:[\u00c2-\u00c6][\u0080-\u00ff])/g,
     /(?:\u00e1[\u00ba\u00bb])/g,
-    /ï¿½/g
+    /Ă¯Â¿Â½/g
   ].reduce((sum, pattern) => sum + ((String(value || "").match(pattern) || []).length * 2), 0);
 }
 
@@ -1549,3 +1700,4 @@ function decodeWindows1252Mojibake(value) {
 function escapeRegex(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
+

@@ -522,6 +522,22 @@ function computeFrontPagePriority(article, anchorDate, topicWeights = FRONT_PAGE
     score += 8;
   }
 
+  if (isAiPackageFrontpageCandidate(article)) {
+    score += 20;
+  }
+
+  if (topic === "ai" && article.content_type === "ComparisonPage") {
+    score += 12;
+  }
+
+  if (topic === "ai" && article.content_type === "EvergreenGuide") {
+    score += 10;
+  }
+
+  if (isPracticalTipsCandidate(article) && /(?:chatgpt|gemini|claude|copilot|notebooklm|workspace|google ai pro|google one)/i.test(textBlob)) {
+    score += 8;
+  }
+
   if (/\b(game|gaming|gta|nintendo|switch ?2|playstation|xbox|pubg|rockstar|the last of us|crimson desert|everness|krafton|dlss)\b/i.test(textBlob)) {
     score -= topic === "gaming" ? 2 : 18;
   }
@@ -1450,11 +1466,11 @@ function isAiPackageFrontpageCandidate(article) {
     .join(" ");
 
   const hasProviderSignal =
-    /\b(google ai pro|google one|workspace|gemini advanced|notebooklm|veo|lyria|openai|chatgpt plus|chatgpt pro|chatgpt team|anthropic|claude pro|claude max|microsoft|copilot pro|microsoft 365 copilot)\b/i.test(
+    /\b(google ai pro|google one|workspace|gemini advanced|notebooklm|veo|lyria|openai|chatgpt plus|chatgpt pro|chatgpt team|chatgpt business|anthropic|claude pro|claude max|microsoft|copilot pro|microsoft 365 copilot|xai|grok|perplexity pro|notion ai|figma ai|canva ai)\b/i.test(
       textBlob
     );
   const hasPlanSignal =
-    /\b(subscription|pricing|bundle|package|plan|5tb|2tb|storage|monthly|annual|price|gói ai|dung lượng|trả phí)\b/i.test(
+    /\b(subscription|pricing|bundle|package|plan|tier|5tb|2tb|storage|monthly|annual|price|gói ai|dung lượng|trả phí|theo tháng|theo năm)\b/i.test(
       textBlob
     );
 
@@ -2153,12 +2169,7 @@ function normalizeHookText(value) {
 
 function hasStrongAiSignals(value) {
   const text = String(value || "");
-
-  if (/\bAI\b/.test(text)) {
-    return true;
-  }
-
-  return /\b(artificial intelligence|trí tuệ nhân tạo|chatgpt|openai|gemini|claude|copilot|deepseek|llm|npu|ai agent|ai model|trợ lý ai|mô hình ai)\b/i.test(text);
+  return /\b(artificial intelligence|trí tuệ nhân tạo|chatgpt|openai|gemini|claude|anthropic|deepmind|copilot|deepseek|notebooklm|llm|npu|ai agent|ai model|trợ lý ai|mô hình ai|google ai pro|gemini advanced|workspace ai)\b/i.test(text);
 }
 
 function makeArticleKey(language, segment, slug) {

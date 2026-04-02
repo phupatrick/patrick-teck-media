@@ -553,7 +553,7 @@ const tests = [
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-media-images-"));
       const contentPath = path.join(tempDir, "newsroom-content.json");
       const article = {
-        ...state.articles.find((entry) => entry.language === "en"),
+        ...state.articles.find((entry) => entry.language === "en" && entry.content_type === "NewsArticle"),
         slug: "source-image-story",
         href: "/en/news/source-image-story",
         image: {},

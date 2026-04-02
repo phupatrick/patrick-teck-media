@@ -59,6 +59,7 @@ export function buildEditorialCompanionArticles(articles, now = new Date().toISO
 
     if (aiPackageMembers.length >= 2) {
       companions.push(buildAiPackageCompanionStory({ language, members: aiPackageMembers, now }));
+      companions.push(buildAiPlanBuyingGuide({ language, members: aiPackageMembers, now }));
     }
 
     companions.push(...buildAiProviderCompanionArticles(pool, language, now));
@@ -273,7 +274,6 @@ function buildAiPackageCompanionStory({ language, members, now }) {
       language === "vi"
         ? `${providerLabel} đang cùng kéo cuộc đua gói AI khỏi phần trình diễn đơn thuần để bước vào phần giá trị dùng thật: giá, dung lượng, model mạnh hơn và những quyền lợi có thể chạm trực tiếp vào công việc mỗi ngày.`
         : `${providerLabel} are pushing the AI plan race beyond pure launch theater into practical value: price, storage, stronger models, and bundle rights that can change daily work.`,
-      firstUsefulSentence([lead.summary, lead.dek, lead.hook]),
       buildCorroborationSentence(sources, language, verificationState),
       language === "vi"
         ? "Điều người đọc thực sự cần ở dạng bài này không phải một bảng giá khô, mà là câu trả lời rõ hơn về việc trả tiền tháng đó đổi lại được gì, có đỡ bước nào trong công việc hay không và hãng nào đang tăng giá trị thật thay vì chỉ thêm tiếng vang marketing."
@@ -301,7 +301,6 @@ function buildAiPackageCompanionStory({ language, members, now }) {
       language === "vi"
         ? `Nếu trước đây câu hỏi chỉ là “model nào mạnh hơn”, thì ở nhịp mới câu hỏi đã đổi thành “gói nào giúp mình làm được nhiều việc hơn mà không phải mua thêm quá nhiều dịch vụ phụ”.`
         : `If the old question was simply “which model is stronger,” the new one is “which plan lets me do more without stacking too many side subscriptions.”`,
-      firstUnusedSentences(pool, [summary, dek], 1)[0],
       buildHookAngle({ language, topic: "ai", contentType: "ComparisonPage", verificationState, sourceCount: sources.length })
     ],
     language === "vi"
@@ -314,7 +313,9 @@ function buildAiPackageCompanionStory({ language, members, now }) {
       heading: language === "vi" ? "Điểm mới đáng giữ lại" : "The updates worth keeping",
       body: composeParagraph(
         [
-          firstUsefulSentence([lead.summary, lead.sections?.[0]?.body]),
+          language === "vi"
+            ? `${providerLabel} không còn chỉ dùng gói AI để khoe model mạnh hơn, mà đang đẩy thêm dung lượng, lớp sáng tạo và tích hợp công việc để gói trả phí có lý do tồn tại rõ ràng hơn.`
+            : `${providerLabel} are no longer using AI plans just to showcase stronger models; they are adding storage, creative layers, and work integration so the paid bundle has a clearer reason to exist.`,
           buildCorroborationSentence(sources, language, verificationState),
           buildSourceTrailSentence(sources, language)
         ],
@@ -329,8 +330,8 @@ function buildAiPackageCompanionStory({ language, members, now }) {
           language === "vi"
             ? `${providerLabel} đang cùng đẩy cuộc chơi sang phần “gói đủ dùng thật”, nơi dung lượng, tích hợp sâu vào công cụ làm việc, và quyền truy cập model mới bắt đầu quan trọng ngang với chất lượng đầu ra.`
             : `${providerLabel} are all pushing the market toward plans that feel complete in real work, where storage, deeper productivity integration, and access to newer models matter as much as raw output quality.`,
-          firstUnusedSentences(pool, [summary], 2),
-          buildNuanceSentence({ language, topic: "ai", verificationState, sourceCount: sources.length })
+          buildNuanceSentence({ language, topic: "ai", verificationState, sourceCount: sources.length }),
+          buildCoverageSentence({ language, members: members.length, sources: sources.length })
         ],
         dek,
         180
@@ -343,7 +344,9 @@ function buildAiPackageCompanionStory({ language, members, now }) {
           language === "vi"
             ? "Với gói AI, bảng giá chỉ là lớp đầu. Thứ nên nhìn tiếp là model nào được mở khóa, dung lượng có tăng thật không, tính năng nghiên cứu hoặc tạo nội dung có bị giới hạn theo vùng không, và dữ liệu doanh nghiệp có được tách khỏi việc huấn luyện mô hình hay không."
             : "On AI plans, price is only the first layer. The next read is which model tier gets unlocked, whether storage truly expands, whether creation and research features are region-limited, and whether enterprise data is separated from model training.",
-          firstUnusedSentences(pool, [summary, dek], 1)[0]
+          language === "vi"
+            ? "Đây cũng là nơi người dùng tách được giá trị thật khỏi phần quảng bá: gói nào giúp bớt mua lẻ thêm dịch vụ, gói nào chỉ đổi tên quyền lợi cũ, và gói nào bắt đầu chạm vào việc làm mỗi ngày."
+            : "This is also where readers separate practical value from launch marketing: which plans reduce extra subscriptions, which ones mostly rename older perks, and which ones genuinely touch daily work."
         ],
         language === "vi"
           ? "Đây là phần quyết định gói nào thật sự đáng tiền, nhất là với người vừa lưu trữ dữ liệu, vừa cộng tác, vừa dùng AI trong cùng một hệ sinh thái."
@@ -549,7 +552,7 @@ function buildPracticalTipsCompanionStory({ language, members, now }) {
 }
 
 function buildAiProviderCompanionArticles(articles, language, now) {
-  const providers = ["google", "openai", "anthropic", "microsoft"];
+  const providers = ["google", "openai", "anthropic", "microsoft", "xai"];
   const companions = [];
 
   for (const providerKey of providers) {
@@ -569,6 +572,153 @@ function buildAiProviderCompanionArticles(articles, language, now) {
   }
 
   return companions;
+}
+
+function buildAiPlanBuyingGuide({ language, members, now }) {
+  const lead = [...members].sort(sortDraftsByPriority)[0];
+
+  if (!lead) {
+    return null;
+  }
+
+  const providers = detectAiPlanProviders(members);
+  const providerLabel = formatProviderList(providers, language);
+  const sources = dedupeSources(members).slice(0, 8);
+  const verificationState = resolveVerificationState(members, sources);
+  const image = selectClusterImage(members, sources, language);
+  const title =
+    language === "vi"
+      ? `Chọn gói AI thế nào cho đáng tiền trong 2026: ${providerLabel} nên soi gì trước khi trả phí`
+      : `How to choose an AI plan that feels worth paying for in 2026: what to check across ${providerLabel}`;
+  const summary = composeParagraph(
+    [
+      language === "vi"
+        ? `Điều người dùng cần ở một bài chọn gói AI không phải thêm một bảng giá khô, mà là một checklist đủ rõ để tách gói nào thật sự giúp công việc chạy nhanh hơn khỏi gói chỉ đẹp ở phần giới thiệu.`
+        : `What readers need from an AI plan guide is not another dry price table, but a checklist clear enough to separate plans that genuinely speed up work from those that mostly look good in launch copy.`,
+      buildCorroborationSentence(sources, language, verificationState),
+      language === "vi"
+        ? `${providerLabel} đang cùng đẩy cuộc đua sang phần dùng thật: model nào được mở khóa, dung lượng có thật sự rộng hơn, quyền riêng tư được hứa đến đâu, và có bớt được bao nhiêu hóa đơn phụ trong công việc hằng ngày.`
+        : `${providerLabel} are all pushing the race toward practical value: which model tier opens up, how much storage really expands, how privacy is framed, and whether the bundle removes extra subscriptions from daily work.`
+    ],
+    language === "vi"
+      ? "Bài hướng dẫn này gom những điểm cần soi kỹ nhất trước khi bạn xuống tiền cho một gói AI."
+      : "This guide gathers the checks that matter most before you pay for an AI plan.",
+    220
+  );
+  const dek = composeParagraph(
+    [
+      language === "vi"
+        ? "Bắt đầu từ việc bạn cần viết, nghiên cứu, code, họp hay lưu trữ. Sau đó mới nhìn tới model, giới hạn tính năng, dữ liệu, và phần chi phí thật sự đội lên sau một vài tháng."
+        : "Start with whether you need writing, research, coding, meetings, or storage. Only then move to model tiers, feature limits, data handling, and the real cost after a few months.",
+      buildImpactSentence("ai", language, "EvergreenGuide")
+    ],
+    language === "vi"
+      ? "Đây là bài dành cho người đang chuẩn bị nâng gói AI nhưng muốn tiêu tiền có logic hơn."
+      : "This is for readers about to upgrade an AI plan and wanting a more disciplined way to spend.",
+    160
+  );
+  const hook = composeParagraph(
+    [
+      language === "vi"
+        ? "Nhiều người mua gói AI theo cảm giác bị kéo bởi model mới, trong khi phần đáng xem hơn lại nằm ở chỗ gói đó có giúp bớt công cụ rời, bớt thao tác tay và bớt rủi ro dữ liệu hay không."
+        : "Many readers buy AI plans because a new model pulls attention, while the more important question is whether the bundle removes scattered tools, manual steps, and data anxiety.",
+      buildHookAngle({ language, topic: "ai", contentType: "EvergreenGuide", verificationState, sourceCount: sources.length })
+    ],
+    language === "vi"
+      ? "Nếu nhìn đúng các lớp này, bạn sẽ thấy gói nào nên mua ngay và gói nào vẫn nên đứng ngoài quan sát."
+      : "Once you read the right layers, it becomes easier to see which plans deserve money now and which ones still belong on the watch list.",
+    190
+  );
+
+  const sections = [
+    {
+      heading: language === "vi" ? "Bắt đầu từ việc bạn thật sự làm mỗi ngày" : "Start with the work you actually do every day",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Nếu bạn chỉ hỏi đáp nhanh, gói miễn phí vẫn có chỗ đứng. Nhưng khi công việc đã chạm vào viết dài, research, code, họp, lưu trữ file nặng hoặc chia sẻ cho nhóm, gói trả phí mới bắt đầu bộc lộ giá trị thật."
+            : "If you mostly need quick prompting, free tiers can still be enough. Paid value starts to show when the workflow touches long-form writing, research, coding, meetings, heavy files, or team sharing.",
+          buildImpactSentence("ai", language, "EvergreenGuide")
+        ],
+        summary,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Soi model, giới hạn và lớp tính năng đi kèm" : "Check the model tier, the limits, and the bundled feature layer",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Đừng chỉ nhìn vào tên model mạnh nhất trong quảng bá. Hãy xem model đó có nằm ở gói bạn định mua không, có bị giới hạn theo vùng hay số lượt hay không, và đi kèm những gì như Deep Research, video, voice, notebook, agent, hay lớp cộng tác."
+            : "Do not stop at the headline model name. Check whether that model is actually in the tier you plan to buy, whether access is region- or quota-limited, and what rides alongside it: deep research, video, voice, notebooks, agents, or collaboration layers.",
+          buildNuanceSentence({ language, topic: "ai", verificationState, sourceCount: sources.length })
+        ],
+        dek,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Dung lượng, dữ liệu và hóa đơn phụ có bớt đi không" : "Does the plan really reduce storage pain, data risk, and side bills",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Một gói AI bắt đầu đáng tiền khi nó không chỉ mở model mà còn gom thêm lưu trữ, công cụ tạo nội dung, quyền quản trị hoặc quyền riêng tư dữ liệu vào cùng một hóa đơn. Đây là chỗ các gói Google, ChatGPT, Claude hay Copilot bắt đầu khác nhau thật sự."
+            : "An AI plan becomes worth paying for when it does more than unlock a model. It should also absorb storage, creation tools, admin layers, or data protections into the same bill. This is where Google, ChatGPT, Claude, and Copilot start to diverge in meaningful ways.",
+          buildCorroborationSentence(sources, language, verificationState)
+        ],
+        hook,
+        190
+      )
+    },
+    {
+      heading: language === "vi" ? "Ai nên nâng gói ngay, ai nên chờ" : "Who should upgrade now and who should wait",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Người làm nội dung, freelancer, nhóm bán hàng, nhóm nghiên cứu và team cần cộng tác hằng ngày thường là nhóm cảm được giá trị sớm nhất. Ngược lại, người chỉ dùng AI lẻ tẻ hoặc chưa có nhu cầu lưu trữ/cộng tác nhiều thì nên chờ tới khi nhu cầu đủ dày mới nâng gói."
+            : "Content teams, freelancers, sales teams, researchers, and groups that collaborate every day usually feel paid value first. Readers with lighter usage or no real storage and collaboration needs can often wait longer before upgrading.",
+          buildCoverageSentence({ language, members: members.length, sources: sources.length })
+        ],
+        summary,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Patrick Tech Media chốt lại" : "Patrick Tech Media take",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Gói AI đáng xuống tiền không phải gói ồn nhất, mà là gói bớt được nhiều ma sát nhất trong công việc. Nếu một hãng tăng model nhưng vẫn bắt bạn mua thêm quá nhiều mảnh rời, giá trị thực sẽ mỏng hơn cảm giác ban đầu."
+            : "The AI plan worth paying for is not the loudest one, but the one that removes the most friction from work. If a vendor adds a stronger model but still forces too many side purchases, the practical value stays thinner than the launch feeling.",
+          buildForwardLook("ai", title, language)
+        ],
+        dek,
+        190
+      )
+    }
+  ];
+
+  return buildCompanionArticleShell({
+    id: `editorial-ai-plan-buying-guide-${language}`,
+    clusterId: "editorial-ai-plan-buying-guide",
+    slug: language === "vi" ? "chon-goi-ai-the-nao-cho-dang-tien" : "how-to-pick-an-ai-plan-that-feels-worth-it",
+    title,
+    summary,
+    dek,
+    hook,
+    language,
+    topic: "ai",
+    contentType: "EvergreenGuide",
+    verificationState,
+    sources,
+    sections,
+    image,
+    now,
+    publishedAt: newestTimestamp(members),
+    authorId: "mai-linh",
+    relatedStoreItems: ["ai-workspace-bundle"],
+    editorialFocus: ["ai-package", "tips", "guide", "ai"]
+  });
 }
 
 function buildAiProviderCompanionStory({ language, providerKey, members, now }) {
@@ -1287,15 +1437,23 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
   });
   const watch = buildWatchSentence({ lead, language, topic, sources });
   const nuance = buildNuanceSentence({ language, topic, verificationState, sourceCount: sources.length });
+  const opening = firstUsefulSentence([
+    lead.summary,
+    lead.dek,
+    lead.hook,
+    lead.sections?.[0]?.body,
+    lead.draft_context?.paragraphs?.[0]
+  ]);
+  const detailOne = firstUnusedSentences(pool, [opening, lead.summary, lead.dek, lead.hook], 1)[0];
+  const detailTwo = firstUnusedSentences(pool, [opening, detailOne, lead.summary, lead.dek], 1)[0];
+  const detailThree = firstUnusedSentences(pool, [opening, detailOne, detailTwo, lead.summary, lead.dek], 1)[0];
 
   return [
     {
       heading: headings[0],
       body: composeParagraph(
         [
-          lead.summary,
-          lead.sections?.[0]?.body,
-          lead.draft_context?.paragraphs?.[0],
+          opening,
           sourceTrail
         ],
         sourceTrail,
@@ -1307,8 +1465,8 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
       body: composeParagraph(
         [
           consensus,
-          lead.draft_context?.paragraphs?.[1],
-          firstUnusedSentences(pool, [lead.summary], 1)[0]
+          detailOne,
+          buildSourceTrailSentence(sources, language)
         ],
         consensus,
         150
@@ -1318,8 +1476,7 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
       heading: headings[2],
       body: composeParagraph(
         [
-          lead.sections?.[1]?.body,
-          lead.draft_context?.paragraphs?.[2],
+          detailTwo,
           impact
         ],
         impact,
@@ -1332,7 +1489,7 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
         [
           assessment,
           nuance,
-          firstUnusedSentences(pool, [lead.summary, lead.dek], 1)[0]
+          detailThree
         ],
         assessment,
         150
@@ -1946,29 +2103,52 @@ function resolveClusterContentType(members) {
 }
 
 function dedupeSources(members) {
-  const seen = new Set();
-  const entries = [];
+  const entriesByKey = new Map();
 
   for (const member of members) {
     for (const source of member.source_set || []) {
-      const key = `${normalizeCompact(source?.source_name)}:${normalizeCompact(source?.source_url)}`;
-
-      if (!key || seen.has(key)) {
-        continue;
-      }
-
-      seen.add(key);
-      entries.push({
+      const normalizedSource = {
         ...source,
         source_name: cleanText(source?.source_name),
         source_url: cleanText(source?.source_url),
         image_caption: cleanText(source?.image_caption),
         image_credit: cleanText(source?.image_credit)
-      });
+      };
+      const canonicalUrl = normalizeSourceUrl(normalizedSource.source_url);
+      const key = canonicalUrl || normalizeCompact(normalizedSource.source_name);
+
+      if (!key) {
+        continue;
+      }
+
+      const existing = entriesByKey.get(key);
+
+      if (!existing || sourceReliabilityScore(normalizedSource) > sourceReliabilityScore(existing)) {
+        entriesByKey.set(key, normalizedSource);
+      }
     }
   }
 
-  return entries.sort((left, right) => sourceReliabilityScore(right) - sourceReliabilityScore(left));
+  return [...entriesByKey.values()].sort((left, right) => sourceReliabilityScore(right) - sourceReliabilityScore(left));
+}
+
+function normalizeSourceUrl(value) {
+  const cleaned = cleanText(value);
+
+  if (!cleaned) {
+    return "";
+  }
+
+  try {
+    const url = new URL(cleaned);
+    url.hash = "";
+    if (url.pathname !== "/") {
+      url.search = "";
+    }
+    return url.toString().replace(/\/$/, "");
+  } catch {
+    return cleaned.replace(/[?#].*$/, "").replace(/\/$/, "");
+  }
 }
 
 function collectSentencePool(members) {
