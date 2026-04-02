@@ -114,7 +114,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-width: 180px;
+  min-width: 0;
 }
 
 .brand-lockup strong,
@@ -147,7 +147,7 @@ h3 {
 
 .brand-logo {
   display: block;
-  width: min(100%, 242px);
+  width: min(100%, 222px);
   height: auto;
 }
 
@@ -224,9 +224,9 @@ h3 {
 
 .frontpage-masthead-copy h1 {
   margin: 0;
-  font-size: clamp(1.95rem, 3.2vw, 2.8rem);
-  line-height: 1.05;
-  max-width: 12ch;
+  font-size: clamp(1.74rem, 2.5vw, 2.24rem);
+  line-height: 1.08;
+  max-width: 13ch;
 }
 
 .frontpage-masthead-text {
@@ -324,9 +324,9 @@ h3 {
 
 .lead-feature h2 {
   margin: 0;
-  font-size: clamp(1.82rem, 3vw, 2.86rem);
-  line-height: 1.06;
-  max-width: 10ch;
+  font-size: clamp(1.42rem, 2.1vw, 1.98rem);
+  line-height: 1.08;
+  max-width: 11ch;
 }
 
 .lead-feature h2 a,
@@ -870,14 +870,15 @@ h3 {
 }
 
 .story-card h3 {
-  font-size: 1.1rem;
-  line-height: 1.28;
+  font-size: 1.04rem;
+  line-height: 1.24;
 }
 
 .featured-media,
 .story-media,
 .stack-media,
 .article-hero-media {
+  position: relative;
   margin: 0;
   overflow: hidden;
   border-radius: calc(var(--radius-lg) - 4px);
@@ -893,6 +894,29 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.story-image-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+[data-story-image].is-broken img {
+  display: none;
+}
+
+[data-story-image].is-broken .story-image-fallback {
+  display: block;
+}
+
+.story-image-fallback .story-placeholder-card,
+.story-image-fallback .stack-placeholder-card,
+.story-image-fallback .article-placeholder-card {
+  min-height: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
 }
 
 .featured-media,
@@ -1722,6 +1746,35 @@ h3 {
   color: var(--muted);
 }
 
+.store-promo-slot {
+  justify-items: start;
+  align-content: center;
+  gap: 8px;
+  padding: 18px 20px;
+  text-align: left;
+  background: linear-gradient(135deg, rgba(15, 127, 84, 0.08), rgba(255, 138, 61, 0.1));
+}
+
+.store-promo-slot strong {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.store-promo-slot span:last-child {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.store-promo-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent-deep);
+}
+
 .article-layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(250px, 0.55fr);
   margin-top: 24px;
@@ -2051,7 +2104,7 @@ h3 {
 
   .frontpage-masthead-copy h1 {
     max-width: 12ch;
-    font-size: clamp(1.9rem, 8vw, 2.7rem);
+    font-size: clamp(1.56rem, 6.6vw, 2.06rem);
   }
 
   .topbar {
@@ -2120,7 +2173,7 @@ h3 {
 
   .lead-feature h2 {
     max-width: none;
-    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    font-size: clamp(1.34rem, 6.2vw, 1.9rem);
   }
 
   .lead-mini-copy {

@@ -88,7 +88,8 @@
       "Editorial picks",
       "Professional typography",
       "Mobile-friendly layout",
-      "Lean copy blocks around major headlines"
+      "Lean copy blocks around major headlines",
+      "Temporary Patrick Tech Store promo slots where paid ads are not live yet"
     ],
     "must_avoid": [
       "Guide-like copy on the homepage",
@@ -140,8 +141,8 @@
   },
   "storage_and_ops": {
     "source_of_truth": "Neon Postgres when DATABASE_URL is set, with JSON fallback mirrors.",
-    "refresh_cadence": "Hourly and continuous.",
-    "git_rule": "OpenClaw may commit and push newsroom-managed files and core web code after tests pass.",
+    "refresh_cadence": "Every 30 minutes and continuously.",
+    "git_rule": "OpenClaw may commit and push tracked repo files plus new files inside core web directories after tests pass.",
     "deploy_rule": "Use deploy-by-push to update the live Vercel site."
   },
   "security_and_seo": {

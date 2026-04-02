@@ -3,6 +3,7 @@ const documentLanguage = document.documentElement.lang === "en" ? "en" : "vi";
 initStoryBrowser();
 initLiveDesk();
 initAuthTabs();
+initImageFallbacks();
 
 function initStoryBrowser() {
   const browserRoot = document.querySelector("[data-story-browser]");
@@ -161,6 +162,32 @@ function initAuthTabs() {
   }
 
   sync();
+}
+
+function initImageFallbacks() {
+  const imageFrames = [...document.querySelectorAll("[data-story-image]")];
+
+  for (const frame of imageFrames) {
+    const img = frame.querySelector("img");
+
+    if (!img) {
+      continue;
+    }
+
+    const markBroken = () => frame.classList.add("is-broken");
+    const clearBroken = () => frame.classList.remove("is-broken");
+
+    img.addEventListener("error", markBroken, { once: true });
+    img.addEventListener("load", () => {
+      if (img.naturalWidth > 0) {
+        clearBroken();
+      }
+    });
+
+    if (img.complete && img.naturalWidth === 0) {
+      markBroken();
+    }
+  }
 }
 
 function escapeHtml(value) {

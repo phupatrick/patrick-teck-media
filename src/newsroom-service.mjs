@@ -217,12 +217,12 @@ const TOPIC_KEYWORD_RULES = [
   {
     topic: "ai",
     score: 20,
-    pattern: /\b(ai|artificial intelligence|chatgpt|openai|gemini|claude|copilot|llm|deepseek|midjourney|cursor|npu|ai agent|ai model|trợ lý ai)\b/i
+    pattern: /\b(artificial intelligence|chatgpt|openai|gemini|claude|copilot|llm|deepseek|midjourney|cursor|npu|ai agent|ai model|trợ lý ai)\b/i
   },
   {
     topic: "devices",
-    score: 16,
-    pattern: /\b(device|devices|phone|smartphone|android|iphone|pixel|laptop|chip|cpu|gpu|headphones|tablet|router|fiber|hardware|wearable|refurbished)\b/i
+    score: 22,
+    pattern: /\b(device|devices|phone|smartphone|android|iphone|pixel|laptop|macbook|ipad|chip|cpu|gpu|ram|memory|ssd|pc|desktop|headphones|tablet|router|fiber|hardware|wearable|refurbished)\b/i
   },
   {
     topic: "apps-software",
@@ -260,12 +260,12 @@ const SOURCE_TOPIC_HINTS = [
 ];
 
 const FRONT_PAGE_TOPIC_WEIGHTS = {
-  ai: 28,
-  security: 24,
-  "internet-business-tech": 22,
-  "apps-software": 20,
-  devices: 18,
-  gaming: 8
+  ai: 78,
+  "internet-business-tech": 50,
+  security: 42,
+  "apps-software": 30,
+  devices: 16,
+  gaming: 6
 };
 
 const FRONT_PAGE_SOURCE_WEIGHTS = {
@@ -370,7 +370,7 @@ export function getHomeData(state, language) {
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
   );
-  const latest = prioritized.slice(0, 6);
+  const latest = prioritized.slice(0, 10);
   const verifiedStories = prioritized.filter((article) => article.verification_state === "verified" && article.content_type === "NewsArticle");
   const leadStories = prioritized.filter((article) => article.content_type === "NewsArticle" && article.verification_state !== "trend");
   const featured =
@@ -394,14 +394,14 @@ export function getHomeData(state, language) {
     localized[0];
   const trending = prioritized
       .filter((article) => article.verification_state !== "verified")
-      .slice(0, 4);
+      .slice(0, 6);
   const evergreen = sortStoriesForFrontPage(
     localized.filter((article) => article.content_type === "EvergreenGuide" || article.content_type === "ComparisonPage"),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
   )
-    .slice(0, 4);
+    .slice(0, 6);
   const tips = sortStoriesForFrontPage(
     localized.filter(
       (article) =>
@@ -413,7 +413,7 @@ export function getHomeData(state, language) {
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
   )
-    .slice(0, 4);
+    .slice(0, 6);
     const topicSections = state.topics.map((topic) => ({
       ...topic,
       label: topic.labels[language],
@@ -423,7 +423,7 @@ export function getHomeData(state, language) {
         state.runtime.generatedAt,
         state.site.frontPageTopicWeights,
         state.site.frontPageSourceWeights
-      ).slice(0, 3)
+      ).slice(0, 4)
   }));
 
   return {
@@ -514,7 +514,7 @@ function computeFrontPagePriority(article, anchorDate, topicWeights = FRONT_PAGE
     score += 8;
   }
 
-  if (/\b(ai|chatgpt|gemini|claude|copilot|deepseek|llm|npu)\b/i.test(textBlob)) {
+  if (hasStrongAiSignals(textBlob)) {
     score += 8;
   }
 
@@ -1398,6 +1398,10 @@ function inferArticleTopicId(article) {
     }
   }
 
+  if (!hasStrongAiSignals(textBlob)) {
+    scores.set("ai", Math.max(0, (scores.get("ai") || 0) - 18));
+  }
+
   for (const hint of SOURCE_TOPIC_HINTS) {
     if (hint.pattern.test(sourceBlob)) {
       scores.set(hint.topic, (scores.get(hint.topic) || 0) + hint.score);
@@ -2088,6 +2092,16 @@ function normalizeHookText(value) {
   }
 
   return /[.?!]$/.test(normalized) ? normalized : `${normalized}.`;
+}
+
+function hasStrongAiSignals(value) {
+  const text = String(value || "");
+
+  if (/\bAI\b/.test(text)) {
+    return true;
+  }
+
+  return /\b(artificial intelligence|trí tuệ nhân tạo|chatgpt|openai|gemini|claude|copilot|deepseek|llm|npu|ai agent|ai model|trợ lý ai|mô hình ai)\b/i.test(text);
 }
 
 function makeArticleKey(language, segment, slug) {

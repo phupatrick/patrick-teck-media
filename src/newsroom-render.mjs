@@ -781,9 +781,6 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
       <header class="topbar">
         <a class="brand-lockup" href="${homePath}">
           <img class="brand-logo" src="${logoPath}" alt="${escapeHtml(state.site.name)}" />
-          <span class="brand-meta">
-            <span class="brand-company">Patrick Tech Co. VN</span>
-          </span>
         </a>
         <nav class="nav-strip" aria-label="Primary">
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
@@ -817,7 +814,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
 
 function renderStoryCard(article, language) {
   const searchIndex = [article.title, article.hook || "", article.summary, article.topic_label, article.verification_state].join(" ").toLowerCase();
-  const displayTitle = getDisplayHeadline(article.title, 92);
+  const displayTitle = getDisplayHeadline(article.title, 82);
   return `
     <article class="story-card topic-${article.topic}" data-story-card data-status="${article.verification_state}" data-topic="${article.topic}" data-search="${escapeHtml(searchIndex)}">
       ${renderStoryImage(article, "story-media")}
@@ -836,7 +833,7 @@ function renderStoryCard(article, language) {
 }
 
 function renderStackItem(article, language, withBadge) {
-  const displayTitle = getDisplayHeadline(article.title, 84);
+  const displayTitle = getDisplayHeadline(article.title, 76);
   return `
     <article class="stack-item">
       <div class="stack-row">
@@ -867,7 +864,7 @@ function renderStoryExcerpt(article) {
 }
 
 function renderLeadFeature(article, language, copy) {
-  const displayTitle = getDisplayHeadline(article.title, 88);
+  const displayTitle = getDisplayHeadline(article.title, 74);
   return `
     <article class="lead-feature topic-${article.topic}">
       ${renderStoryImage(article, "lead-feature-media", true)}
@@ -890,7 +887,7 @@ function renderLeadFeature(article, language, copy) {
 }
 
 function renderLeadMini(article, language) {
-  const displayTitle = getDisplayHeadline(article.title, 72);
+  const displayTitle = getDisplayHeadline(article.title, 64);
   return `
     <article class="lead-mini topic-${article.topic}">
       ${renderStoryImage(article, "lead-mini-media")}
@@ -906,7 +903,7 @@ function renderLeadMini(article, language) {
 }
 
 function renderHeadlineItem(article, language, index) {
-  const displayTitle = getDisplayHeadline(article.title, 82);
+  const displayTitle = getDisplayHeadline(article.title, 74);
   return `
     <a class="headline-item" href="${article.href}">
       <span class="headline-index">${String(index).padStart(2, "0")}</span>
@@ -919,7 +916,7 @@ function renderHeadlineItem(article, language, index) {
 }
 
 function renderRibbonItem(article, language) {
-  const displayTitle = getDisplayHeadline(article.title, 74);
+  const displayTitle = getDisplayHeadline(article.title, 68);
   return `
     <a class="ribbon-item" href="${article.href}">
       <span>${escapeHtml(article.topic_label)}</span>
@@ -1048,17 +1045,22 @@ function shouldRenderSeparateDek(article) {
 }
 
 function renderStoryImage(article, className, eager = false) {
+  const placeholderClass = className === "stack-media" ? "stack-placeholder-card" : "story-placeholder-card";
+
   if (article.hero_image.kind !== "source") {
     return `
       <figure class="${className} story-placeholder">
-        ${renderImagePlaceholder(article, className === "stack-media" ? "stack-placeholder-card" : "story-placeholder-card")}
+        ${renderImagePlaceholder(article, placeholderClass)}
       </figure>
     `;
   }
 
   return `
-    <figure class="${className}">
-      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="${eager ? "eager" : "lazy"}" referrerpolicy="no-referrer" />
+    <figure class="${className}" data-story-image>
+      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="${eager ? "eager" : "lazy"}" decoding="async" />
+      <div class="story-image-fallback" aria-hidden="true">
+        ${renderImagePlaceholder(article, placeholderClass)}
+      </div>
     </figure>
   `;
 }
@@ -1074,8 +1076,11 @@ function renderArticleHero(article) {
   }
 
   return `
-    <figure class="article-hero-media">
-      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="eager" referrerpolicy="no-referrer" />
+    <figure class="article-hero-media" data-story-image>
+      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="eager" decoding="async" />
+      <div class="story-image-fallback article-image-fallback" aria-hidden="true">
+        ${renderImagePlaceholder(article, "article-placeholder-card")}
+      </div>
       <figcaption>${escapeHtml(article.hero_image.caption)}${article.hero_image.credit ? ` <span>${escapeHtml(article.hero_image.credit)}</span>` : ""}</figcaption>
     </figure>
   `;
@@ -1253,6 +1258,7 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
 
   const label = language === "vi" ? "Khu vực quảng cáo" : "Advertising slot";
   const slotId = adsConfig.slots[placement];
+  const storeUrl = "https://patricktechstore.vercel.app";
 
   if (adsConfig.client && slotId) {
     return `
@@ -1265,9 +1271,13 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
   }
 
   return `
-    <section class="ad-shell placeholder">
+    <section class="ad-shell placeholder store-promo-shell">
       <p class="ad-label">${label}</p>
-      <div class="ad-slot placeholder-slot">${language === "vi" ? "Reserved for Google AdSense" : "Reserved for Google AdSense"}</div>
+      <a class="ad-slot placeholder-slot store-promo-slot" href="${storeUrl}" target="_blank" rel="noreferrer">
+        <span class="store-promo-kicker">${language === "vi" ? "Patrick Tech Store" : "Patrick Tech Store"}</span>
+        <strong>${language === "vi" ? "Tài khoản, tool và phần mềm đang bán tại store" : "Accounts, tools, and software now available in the store"}</strong>
+        <span>${language === "vi" ? "Tạm thời vị trí này ưu tiên cho hệ sinh thái Patrick Tech." : "This slot is temporarily dedicated to the Patrick Tech ecosystem."}</span>
+      </a>
     </section>
   `;
 }
@@ -1288,9 +1298,9 @@ function getCopy(language) {
     return {
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
-      heroTitle: "Patrick Tech Media là toà soạn công nghệ của Patrick Tech Co. VN.",
+      heroTitle: "Tin AI, Big Tech và công nghệ đáng mở đầu ngày.",
       heroText:
-        "Toà soạn theo dõi công nghệ Việt Nam và thế giới, tập trung vào AI, Big Tech, mạng xã hội, phần mềm, thiết bị và những thủ thuật đáng lưu.",
+        "Patrick Tech Media theo sát AI, nền tảng lớn, mạng xã hội, phần mềm, thiết bị và những mẹo công nghệ đáng giữ lại.",
       badgeSignals: "Việt Nam + thế giới",
       badgeAds: "AI, Big Tech, social",
       badgeBilingual: "Tin mới + thủ thuật",
@@ -1328,7 +1338,7 @@ function getCopy(language) {
       updateText: "Mở nhanh những bài mới nhất nếu bạn muốn nắm nhịp ngay từ đầu.",
       ecosystemLabel: "Công ty",
       ecosystemTitle: "Patrick Tech Co. VN",
-      ecosystemText: "Patrick Tech Media là mảng nội dung của Patrick Tech Co. VN, kết nối tin tức, thủ thuật và Patrick Tech Store trong cùng hệ sinh thái.",
+      ecosystemText: "Patrick Tech Media nằm trong hệ sinh thái Patrick Tech Co. VN, nối newsroom với Patrick Tech Store theo một mạch công nghệ thống nhất.",
       visitStore: "Đi tới Patrick Tech Store",
       radarLabel: "Newsroom radar",
       radarTitle: "Xem newsroom radar hoạt động",
@@ -1415,7 +1425,7 @@ function getCopy(language) {
       editorsTitle: "Đáng đọc tiếp theo",
       ribbonLabel: "Đường dây nóng",
       ribbonTitle: "Các tin vừa bật lên",
-      companyBrief: "Tòa soạn nội dung của Patrick Tech Co. VN, kết nối tin tức, thủ thuật và Patrick Tech Store trong cùng một hệ sinh thái công nghệ.",
+      companyBrief: "Tòa soạn công nghệ của Patrick Tech Co. VN.",
       aboutLabel: "Về Patrick Tech Media"
     };
   }
@@ -1423,9 +1433,9 @@ function getCopy(language) {
   return {
     homeTitle: "Patrick Tech Media | Technology from Vietnam and the wider web",
     eyebrow: "Bilingual newsroom",
-      heroTitle: "Patrick Tech Media is the technology newsroom of Patrick Tech Co. VN.",
+      heroTitle: "AI, Big Tech, and the technology stories worth opening first.",
       heroText:
-        "The desk tracks Vietnam and global technology with a focus on AI, Big Tech, social platforms, software, devices, and practical how-tos worth saving.",
+        "Patrick Tech Media tracks AI, major platforms, software, devices, and practical how-tos with a cleaner editorial voice.",
     badgeSignals: "Vietnam + world",
     badgeAds: "AI, Big Tech, social",
     badgeBilingual: "News + how-tos",
@@ -1463,7 +1473,7 @@ function getCopy(language) {
     updateText: "Open these first if you want the newest turns on the site.",
     ecosystemLabel: "Company",
     ecosystemTitle: "Patrick Tech Co. VN",
-      ecosystemText: "Patrick Tech Media is the editorial arm of Patrick Tech Co. VN, linking news coverage, practical guides, and Patrick Tech Store in one ecosystem.",
+    ecosystemText: "Patrick Tech Media sits inside the Patrick Tech Co. VN ecosystem, linking coverage, useful guides, and Patrick Tech Store without splitting the experience.",
     visitStore: "Open Patrick Tech Store",
       radarLabel: "Newsroom radar",
       radarTitle: "See the newsroom radar in motion",
@@ -1550,7 +1560,7 @@ function getCopy(language) {
     editorsTitle: "What to open next",
     ribbonLabel: "Fast line",
     ribbonTitle: "Stories that just moved",
-    companyBrief: "The newsroom branch of Patrick Tech Co. VN, connecting technology coverage, practical guides, and Patrick Tech Store in one ecosystem.",
+    companyBrief: "The technology desk of Patrick Tech Co. VN.",
     aboutLabel: "About Patrick Tech Media"
   };
 }

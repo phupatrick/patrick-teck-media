@@ -1,46 +1,30 @@
 import { spawnSync } from "node:child_process";
 
-const allowedPaths = [
-  "server.mjs",
-  "vercel.json",
-  "package.json",
-  "README.md",
-  ".env.example",
-  "api",
-  "public",
-  "src",
-  "scripts",
-  "test",
-  "data/newsroom-content.json",
-  "data/platform-state.json",
-  "data/openclaw-hidden-feed.json",
-  "data/openclaw-manager-state.json",
-  "data/openclaw-web-state.json",
-  "data/openclaw-owner-brief.json"
-];
-
+const coreDirectories = [".github", "api", "data", "public", "scripts", "src", "test"];
+const coreRootFiles = ["server.mjs", "vercel.json", "package.json", "README.md", ".env.example"];
 const autopush = isEnabled(process.env.OPENCLAW_GIT_AUTOPUSH);
 const runTests = !isEnabled(process.env.OPENCLAW_GIT_SKIP_TESTS);
 const commitMessage = process.env.OPENCLAW_GIT_COMMIT_MESSAGE || "OpenClaw: refresh newsroom, frontpage, and web code";
 const gitUserName = process.env.OPENCLAW_GIT_USER_NAME || "OpenClaw[bot]";
 const gitUserEmail = process.env.OPENCLAW_GIT_USER_EMAIL || "openclaw@users.noreply.github.com";
+const managedPaths = buildManagedPaths();
 
 if (runTests) {
   runCommand(process.platform === "win32" ? "npm.cmd" : "npm", ["test"], "OpenClaw test gate failed.");
 }
 
-const status = runCommand("git", ["status", "--porcelain", "--", ...allowedPaths], "Unable to inspect git status.", {
+const status = runCommand("git", ["status", "--porcelain", "--", ...managedPaths], "Unable to inspect git status.", {
   allowFailure: true
 });
 
 if ((status.stdout || "").trim().length === 0) {
-  console.log("OpenClaw git sync found no allowed changes to publish.");
+  console.log("OpenClaw git sync found no managed changes to publish.");
   process.exit(0);
 }
 
 runCommand("git", ["config", "user.name", gitUserName], "Unable to configure git user.name.");
 runCommand("git", ["config", "user.email", gitUserEmail], "Unable to configure git user.email.");
-runCommand("git", ["add", "--", ...allowedPaths], "Unable to stage OpenClaw-managed files.");
+runCommand("git", ["add", "--", ...managedPaths], "Unable to stage OpenClaw-managed files.");
 runCommand("git", ["commit", "-m", commitMessage], "Unable to commit OpenClaw-managed files.", {
   allowFailure: true
 });
@@ -50,6 +34,18 @@ if (autopush) {
 }
 
 console.log(`OpenClaw git sync completed.${autopush ? " Changes were pushed to origin." : " Changes were committed locally."}`);
+
+function buildManagedPaths() {
+  const tracked = runCommand("git", ["ls-files"], "Unable to list tracked files.", {
+    allowFailure: true
+  });
+  const trackedPaths = String(tracked.stdout || "")
+    .split(/\r?\n/)
+    .map((value) => value.trim())
+    .filter(Boolean);
+
+  return [...new Set([...coreDirectories, ...coreRootFiles, ...trackedPaths])];
+}
 
 function isEnabled(value) {
   return /^(1|true|yes|on)$/i.test(String(value || "").trim());

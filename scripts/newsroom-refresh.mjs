@@ -2,6 +2,7 @@ import fs from "node:fs";
 import crypto from "node:crypto";
 import path from "node:path";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
+import { aggregateIncomingDrafts } from "../src/newsroom-synthesis.mjs";
 
 const outputPath = process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
 const sourceUrl = process.env.NEWSROOM_PULL_URL || process.env.OPENCLAW_NEWSROOM_URL || "";
@@ -17,7 +18,48 @@ const fallbackFeeds = [
     region: "VN",
     sourceType: "press",
     trustTier: "established-media",
-    limit: 5
+    topicHint: "internet-business-tech",
+    limit: 10
+  },
+  {
+    name: "GenK Mobile",
+    url: "https://genk.vn/rss/mobile.rss",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 6
+  },
+  {
+    name: "GenK Kham Pha",
+    url: "https://genk.vn/rss/kham-pha.rss",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 4
+  },
+  {
+    name: "GenK Xem Mua Luon",
+    url: "https://genk.vn/rss/xem-mua-luon.rss",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 4
+  },
+  {
+    name: "GenK Do Choi So",
+    url: "https://genk.vn/rss/do-choi-so.rss",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 4
   },
   {
     name: "GenK Apps-Games",
@@ -26,6 +68,7 @@ const fallbackFeeds = [
     region: "VN",
     sourceType: "press",
     trustTier: "established-media",
+    topicHint: "gaming",
     limit: 5
   },
   {
@@ -35,7 +78,7 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "press",
     trustTier: "established-media",
-    limit: 5
+    limit: 10
   },
   {
     name: "Google AI Blog",
@@ -44,7 +87,26 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "official-site",
     trustTier: "official",
-    limit: 5
+    limit: 8
+  },
+  {
+    name: "OpenAI News",
+    url: "https://openai.com/news/rss.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    limit: 8
+  },
+  {
+    name: "The Verge AI",
+    url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "ai",
+    limit: 8
   },
   {
     name: "TechCrunch",
@@ -53,7 +115,18 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "press",
     trustTier: "established-media",
-    limit: 3
+    topicHint: "internet-business-tech",
+    limit: 8
+  },
+  {
+    name: "The Verge",
+    url: "https://www.theverge.com/rss/index.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "internet-business-tech",
+    limit: 6
   },
   {
     name: "Ars Technica",
@@ -62,16 +135,7 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "press",
     trustTier: "established-media",
-    limit: 4
-  },
-  {
-    name: "Reuters Technology",
-    url: "https://feeds.reuters.com/reuters/technologyNews",
-    language: "en",
-    region: "Global",
-    sourceType: "press",
-    trustTier: "wire",
-    limit: 4
+    limit: 5
   },
   {
     name: "9to5Google",
@@ -80,8 +144,155 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "press",
     trustTier: "established-media",
-    limit: 4
+    topicHint: "devices",
+    limit: 6
+  },
+  {
+    name: "Engadget",
+    url: "https://www.engadget.com/rss.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 6
+  },
+  {
+    name: "Android Authority",
+    url: "https://www.androidauthority.com/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 6
+  },
+  {
+    name: "Digital Trends",
+    url: "https://www.digitaltrends.com/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 6
+  },
+  {
+    name: "Tom's Hardware",
+    url: "https://www.tomshardware.com/feeds/all",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "specialist",
+    topicHint: "devices",
+    limit: 6
+  },
+  {
+    name: "The Hacker News",
+    url: "https://feeds.feedburner.com/TheHackersNews",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "specialist",
+    topicHint: "security",
+    limit: 6
+  },
+  {
+    name: "ZDNet AI",
+    url: "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "ai",
+    limit: 8
+  },
+  {
+    name: "ZDNet Security",
+    url: "https://www.zdnet.com/topic/security/rss.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "security",
+    limit: 6
+  },
+  {
+    name: "ZDNet Mobile",
+    url: "https://www.zdnet.com/topic/mobile/rss.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 5
+  },
+  {
+    name: "ZDNet Productivity",
+    url: "https://www.zdnet.com/topic/productivity/rss.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "apps-software",
+    contentTypeHint: "EvergreenGuide",
+    limit: 5
+  },
+  {
+    name: "CNET News",
+    url: "https://www.cnet.com/rss/news/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "internet-business-tech",
+    limit: 6
+  },
+  {
+    name: "CNET How To",
+    url: "https://www.cnet.com/rss/how-to/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "apps-software",
+    contentTypeHint: "EvergreenGuide",
+    limit: 6
+  },
+  {
+    name: "MacRumors",
+    url: "https://www.macrumors.com/macrumors.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 5
   }
+];
+
+const TECHNOLOGY_STRONG_PATTERNS = [
+  /\bAI\b/,
+  /\b(artificial intelligence|trí tuệ nhân tạo|llm|model|agentic|chatgpt|openai|gemini|claude|copilot|deepseek|midjourney)\b/i,
+  /\b(meta|facebook|instagram|threads|tiktok|youtube|google|apple|microsoft|amazon|nvidia|tesla|bytedance|shopee|oracle|samsung|intel|amd|qualcomm)\b/i,
+  /\b(chip|gpu|cpu|npu|ram|memory|ssd|device|devices|smartphone|phone|iphone|android|pixel|macbook|ipad|pc|desktop|tablet|router|fiber|wearable|robot)\b/i,
+  /\b(app|apps|software|windows|macos|linux|browser|chrome|edge|photos|workspace|productivity|cloud|startup|platform|social)\b/i,
+  /\b(hack|security|cyber|malware|phishing|ransomware|vulnerability|zero-day|breach|passkey|password|privacy|bảo mật|tấn công)\b/i,
+  /\b(gaming|game|steam|playstation|xbox|nintendo|switch ?2|dlss|rockstar|gta|crimson desert|everness)\b/i,
+  /\b(how to|how-to|guide|tips|mẹo|thủ thuật|hướng dẫn|cách dùng|cách làm|thiết lập)\b/i
+];
+
+const TECHNOLOGY_SUPPORT_PATTERNS = [
+  /\b(update|rollout|launch|beta|feature|subscription|creator|social network|messaging|camera|battery|firmware|broadband|5g|wifi|data center)\b/i,
+  /\b(viettel|vnpt|fpt|telecom|cloudflare|anthropic|hugging face|semiconductor|startup)\b/i
+];
+
+const NON_TECH_PATTERNS = [
+  /\b(recipe|easter|deviled eggs|kitchen|cooking|chef|food|restaurant)\b/i,
+  /\b(trump|birthright|election|senate|congress|war|ceasefire|tariff|immigration)\b/i,
+  /\b(celebrity|movie|album|fashion|royal|dating|cruise|vacation|travel)\b/i,
+  /\b(nba|nfl|soccer|baseball|tennis|golf|boxing)\b/i,
+  /\b(health|doctor|disease|diet|sleep|pregnancy)\b/i
 ];
 
 const headers = {
@@ -136,6 +347,7 @@ if (incomingArticles.length === 0) {
 const result = await publishArticles({
   incomingArticles,
   outputPath,
+  replaceMode: true,
   now,
   databaseUrl: process.env.DATABASE_URL || ""
 });
@@ -164,7 +376,7 @@ async function fetchFallbackArticles(timestamp) {
       }
 
       const xml = await response.text();
-      const items = parseRssItems(xml).slice(0, feed.limit);
+      const items = parseFeedItems(xml).slice(0, feed.limit);
 
       for (const item of items) {
         const mapped = await mapFeedItem(feed, item, timestamp);
@@ -178,21 +390,42 @@ async function fetchFallbackArticles(timestamp) {
     }
   }
 
-  return allArticles;
+  return aggregateIncomingDrafts(allArticles, timestamp);
 }
 
-function parseRssItems(xml) {
-  const items = [...xml.matchAll(/<item\b[\s\S]*?<\/item>/gi)].map((match) => match[0]);
+function parseFeedItems(xml) {
+  const rssItems = [...xml.matchAll(/<item\b[\s\S]*?<\/item>/gi)].map((match) => match[0]);
 
-  return items.map((itemXml) => ({
-    title: readTag(itemXml, "title"),
-    link: readTag(itemXml, "link"),
-    guid: readTag(itemXml, "guid"),
-    description: readTag(itemXml, "description"),
-    content: readTag(itemXml, "content:encoded"),
-    pubDate: readTag(itemXml, "pubDate"),
-    imageUrl: readImageUrl(itemXml)
+  if (rssItems.length) {
+    return rssItems.map((itemXml) => ({
+      title: readTag(itemXml, "title"),
+      link: readTag(itemXml, "link"),
+      guid: readTag(itemXml, "guid"),
+      description: readTag(itemXml, "description"),
+      content: readTag(itemXml, "content:encoded"),
+      pubDate: readTag(itemXml, "pubDate"),
+      imageUrl: readImageUrl(itemXml)
+    }));
+  }
+
+  const atomEntries = [...xml.matchAll(/<entry\b[\s\S]*?<\/entry>/gi)].map((match) => match[0]);
+
+  return atomEntries.map((entryXml) => ({
+    title: readTag(entryXml, "title"),
+    link: readAtomLink(entryXml),
+    guid: readTag(entryXml, "id"),
+    description: readTag(entryXml, "summary"),
+    content: readTag(entryXml, "content"),
+    pubDate: readTag(entryXml, "updated") || readTag(entryXml, "published"),
+    imageUrl: readImageUrl(entryXml)
   }));
+}
+
+function readAtomLink(xml) {
+  const match =
+    xml.match(/<link\b[^>]*rel=["']alternate["'][^>]*href=["']([^"']+)["']/i) ||
+    xml.match(/<link\b[^>]*href=["']([^"']+)["'][^>]*\/?>/i);
+  return decodeXmlEntities(match?.[1] || "");
 }
 
 function readTag(xml, tagName) {
@@ -229,14 +462,19 @@ async function mapFeedItem(feed, item, timestamp) {
   }
 
   const snapshot = await fetchSourceSnapshot(link);
-  const rawBody = cleanText(snapshot.bodyText || item.content || item.description);
+  const rawBody = cleanText(snapshot.bodyText || snapshot.description || item.content || item.description);
 
   if (!rawBody) {
     return null;
   }
 
-  const topic = inferTopic(feed, title, rawBody);
-  const contentType = inferContentType(feed, title, rawBody);
+  if (!isTechnologyRelevantStory({ feed, title, body: rawBody, link })) {
+    return null;
+  }
+
+  const inferenceText = cleanText([snapshot.description, ...snapshot.paragraphs.slice(0, 4), item.description, item.content].join(" "));
+  const topic = inferTopicFromSignals(feed, title, inferenceText);
+  const contentType = inferContentType(feed, title, inferenceText);
   const summary = buildSummary(snapshot.description || rawBody, feed.language, title, snapshot.paragraphs);
   const dek = buildDek(snapshot.description || rawBody, feed.language, summary, snapshot.paragraphs);
   const hook = buildHook(snapshot.paragraphs, summary, dek, feed.language);
@@ -299,7 +537,18 @@ async function mapFeedItem(feed, item, timestamp) {
     author_id: resolveAuthorId(topic),
     published_at: publishedAt,
     updated_at: publishedAt,
-    image
+    image,
+    draft_context: {
+      source_title: title,
+      source_name: feed.name,
+      source_type: feed.sourceType,
+      trust_tier: feed.trustTier,
+      topic_hint: feed.topicHint || "",
+      content_type_hint: feed.contentTypeHint || "",
+      description: cleanText(snapshot.description || item.description),
+      paragraphs: snapshot.paragraphs.slice(0, 6),
+      link
+    }
   };
 }
 
@@ -395,10 +644,49 @@ function isBoilerplateParagraph(value) {
   );
 }
 
-function inferTopic(feed, title, body) {
-  const haystack = `${feed.name} ${title} ${body}`.toLowerCase();
+function isTechnologyRelevantStory({ feed, title, body, link }) {
+  const haystack = cleanText([feed.name, title, body, link].join(" "));
+  let score = 0;
 
-  if (/(ai|artificial intelligence|chatgpt|openai|gemini|claude|deepmind|deepseek|copilot|llm|agent)/i.test(haystack)) {
+  for (const pattern of TECHNOLOGY_STRONG_PATTERNS) {
+    if (pattern.test(haystack)) {
+      score += 4;
+    }
+  }
+
+  for (const pattern of TECHNOLOGY_SUPPORT_PATTERNS) {
+    if (pattern.test(haystack)) {
+      score += 2;
+    }
+  }
+
+  if (feed.sourceType === "official-site") {
+    score += 2;
+  }
+
+  if (feed.contentTypeHint === "EvergreenGuide") {
+    score += 1;
+  }
+
+  if (/(genk|techcrunch|the verge|ars technica|9to5google|engadget|android authority|digital trends|tom's hardware|hacker news|zdnet|cnet|macrumors|google ai|openai)/i.test(`${feed.name} ${link}`)) {
+    score += 2;
+  }
+
+  if (NON_TECH_PATTERNS.some((pattern) => pattern.test(haystack)) && score < 8) {
+    score -= 10;
+  }
+
+  return score >= 6;
+}
+
+function inferTopic(feed, title, body) {
+  if (feed.topicHint) {
+    return cleanText(feed.topicHint);
+  }
+
+  const haystack = `${title} ${cleanText(body).slice(0, 1200)} ${feed.name}`.toLowerCase();
+
+  if (hasStrongAiSignals(haystack)) {
     return "ai";
   }
 
@@ -406,7 +694,7 @@ function inferTopic(feed, title, body) {
     return "security";
   }
 
-  if (/(iphone|android|pixel|galaxy|laptop|chip|gpu|cpu|npu|device|tablet|camera|robot|hardware|thiết bị|điện thoại)/i.test(haystack)) {
+  if (/(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiết bị|điện thoại)/i.test(haystack)) {
     return "devices";
   }
 
@@ -422,10 +710,59 @@ function inferTopic(feed, title, body) {
     return "apps-software";
   }
 
-  return feed.language === "vi" ? "internet-business-tech" : "apps-software";
+  return feed.language === "vi" ? "internet-business-tech" : "devices";
+}
+
+function inferTopicFromSignals(feed, title, body) {
+  const haystack = `${title} ${cleanText(body).slice(0, 1200)} ${feed.name}`.toLowerCase();
+  const scores = new Map();
+
+  if (feed.topicHint) {
+    scores.set(feed.topicHint, 8);
+  }
+
+  if (hasStrongAiSignals(haystack)) {
+    scores.set("ai", (scores.get("ai") || 0) + 24);
+  }
+
+  if (/(hack|security|cyber|malware|phishing|passkey|password|data breach|ransomware|báº£o máº­t|táº¥n cĂ´ng)/i.test(haystack)) {
+    scores.set("security", (scores.get("security") || 0) + 22);
+  }
+
+  if (/(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiáº¿t bá»‹|Ä‘iá»‡n thoáº¡i)/i.test(haystack)) {
+    scores.set("devices", (scores.get("devices") || 0) + 18);
+  }
+
+  if (/(gaming|game|steam|playstation|xbox|nintendo|switch|handheld|dlss|rockstar|gta)/i.test(haystack)) {
+    scores.set("gaming", (scores.get("gaming") || 0) + 18);
+  }
+
+  if (/(facebook|meta|instagram|threads|tiktok|youtube|twitter|x\.com|whatsapp|social|oracle|shopee|lazada|agency|creator)/i.test(haystack)) {
+    scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) + 20);
+  }
+
+  if (/(app|software|windows|mac|ios|android app|á»©ng dá»¥ng|pháº§n má»m|workspace|notion|slack|feature|guide|how to|how-to|tips)/i.test(haystack)) {
+    scores.set("apps-software", (scores.get("apps-software") || 0) + 16);
+  }
+
+  let bestTopic = feed.language === "vi" ? "internet-business-tech" : "devices";
+  let bestScore = scores.get(bestTopic) || Number.NEGATIVE_INFINITY;
+
+  for (const [topic, score] of scores.entries()) {
+    if (score > bestScore) {
+      bestTopic = topic;
+      bestScore = score;
+    }
+  }
+
+  return bestTopic;
 }
 
 function inferContentType(feed, title, body) {
+  if (feed.contentTypeHint) {
+    return feed.contentTypeHint;
+  }
+
   const haystack = `${feed.name} ${title} ${splitSentences(body)[0] || ""}`.toLowerCase();
 
   if (/(how to|how-to|guide|tips|thủ thuật|mẹo|hướng dẫn|cách (?:dùng|làm|triển khai|cài|tạo|thiết lập|bảo vệ|khắc phục|chọn))/i.test(haystack)) {
@@ -648,35 +985,47 @@ function sanitizeIncomingArticle(article) {
     return article;
   }
 
+  const { draft_context, ...rest } = article;
+
   return {
-    ...article,
-    title: cleanText(article.title),
-    summary: cleanText(article.summary),
-    dek: cleanText(article.dek),
-    hook: cleanText(article.hook),
-    sections: Array.isArray(article.sections)
-      ? article.sections.map((section) => ({
+    ...rest,
+    title: cleanText(rest.title),
+    summary: cleanText(rest.summary),
+    dek: cleanText(rest.dek),
+    hook: cleanText(rest.hook),
+    sections: Array.isArray(rest.sections)
+      ? rest.sections.map((section) => ({
           ...section,
           heading: cleanText(section?.heading),
           body: cleanText(section?.body)
         }))
-      : article.sections,
-    image: article.image && typeof article.image === "object"
+      : rest.sections,
+    image: rest.image && typeof rest.image === "object"
       ? {
-          ...article.image,
-          caption: cleanText(article.image.caption),
-          credit: cleanText(article.image.credit)
+          ...rest.image,
+          caption: cleanText(rest.image.caption),
+          credit: cleanText(rest.image.credit)
         }
-      : article.image,
-    source_set: Array.isArray(article.source_set)
-      ? article.source_set.map((source) => ({
+      : rest.image,
+    source_set: Array.isArray(rest.source_set)
+      ? rest.source_set.map((source) => ({
           ...source,
           source_name: cleanText(source?.source_name),
           image_caption: cleanText(source?.image_caption),
           image_credit: cleanText(source?.image_credit)
         }))
-      : article.source_set
+      : rest.source_set
   };
+}
+
+function hasStrongAiSignals(value) {
+  const text = String(value || "");
+
+  if (/\bAI\b/.test(text)) {
+    return true;
+  }
+
+  return /\b(artificial intelligence|trí tuệ nhân tạo|chatgpt|openai|gemini|claude|deepmind|deepseek|copilot|llm|npu|ai agent|ai model|trợ lý ai|mô hình ai)\b/i.test(text);
 }
 
 function cleanUrl(value) {

@@ -445,10 +445,6 @@ function renderPlatformLayout({ state, language, title, description, path, conte
       <header class="topbar">
         <a class="brand-lockup" href="/${language}/">
           <img class="brand-logo" src="${logoPath}" alt="${escapeHtml(state.site.name)}" />
-          <span class="brand-meta">
-            <span class="brand-company">Patrick Tech Co. VN</span>
-            <span class="brand-note">${language === "vi" ? "Toà soạn công nghệ và hệ sinh thái số" : "Technology newsroom and digital ecosystem"}</span>
-          </span>
         </a>
         <nav class="nav-strip" aria-label="Primary">
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}

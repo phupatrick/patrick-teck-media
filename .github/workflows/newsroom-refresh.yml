@@ -3,7 +3,7 @@ name: OpenClaw Manager Cycle
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7 * * * *"
+    - cron: "*/15 * * * *"
 
 permissions:
   contents: write

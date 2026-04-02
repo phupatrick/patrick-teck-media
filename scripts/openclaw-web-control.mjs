@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createOpenClawWebStore } from "../src/openclaw-web-store.mjs";
-import { getArticlesForLanguage, loadNewsroomState } from "../src/newsroom-service.mjs";
+import { loadNewsroomState } from "../src/newsroom-service.mjs";
 
 const rootDir = process.cwd();
 const config = {
@@ -82,40 +82,41 @@ function buildWebControlState(state) {
 }
 
 function rankTopics(articles) {
-  const scores = new Map([
-    ["ai", 34],
-    ["security", 24],
-    ["internet-business-tech", 22],
-    ["apps-software", 20],
-    ["devices", 18],
-    ["gaming", 8]
-  ]);
+  const editorialOrder = ["ai", "internet-business-tech", "security", "apps-software", "devices", "gaming"];
+  const scores = new Map(editorialOrder.map((topic, index) => [topic, 220 - index * 28]));
 
   for (const article of articles) {
     const topic = normalizeTopic(article.topic);
     const freshness = computeFreshnessScore(article.updated_at || article.published_at);
     const verification =
-      article.verification_state === "verified" ? 8 : article.verification_state === "emerging" ? 4 : 1;
-    const withImage = article.hero_image?.kind === "source" ? 2 : 0;
+      article.verification_state === "verified" ? 14 : article.verification_state === "emerging" ? 7 : 2;
+    const withImage = article.hero_image?.kind === "source" ? 4 : 0;
+    const aiBias = topic === "ai" ? 22 : topic === "internet-business-tech" ? 10 : topic === "security" ? 8 : 0;
     const current = scores.get(topic) || 0;
-    scores.set(topic, current + freshness + verification + withImage);
+    scores.set(topic, current + freshness + verification + withImage + aiBias);
   }
 
   return [...scores.entries()]
-    .sort((left, right) => right[1] - left[1])
+    .sort((left, right) => {
+      const scoreGap = right[1] - left[1];
+      if (Math.abs(scoreGap) <= 64) {
+        return editorialOrder.indexOf(left[0]) - editorialOrder.indexOf(right[0]);
+      }
+      return scoreGap;
+    })
     .map(([topic]) => topic);
 }
 
 function buildTopicWeights(priorityTopics) {
   const base = {
-    ai: 34,
-    security: 24,
-    "internet-business-tech": 22,
-    "apps-software": 20,
-    devices: 18,
-    gaming: 8
+    ai: 78,
+    "internet-business-tech": 50,
+    security: 42,
+    "apps-software": 30,
+    devices: 16,
+    gaming: 6
   };
-  const bonuses = [12, 8, 5, 3, 2, 0];
+  const bonuses = [18, 11, 7, 4, 2, 0];
 
   return priorityTopics.reduce((weights, topic, index) => {
     weights[topic] = (weights[topic] || 0) + (bonuses[index] || 0);
@@ -131,52 +132,52 @@ function buildFrontpageCopy(state, language, priorityTopics) {
 
   if (language === "vi") {
     return {
-      heroTitle: "Tin AI, Big Tech và công nghệ cần mở đầu tiên.",
+      heroTitle: "Tin AI, Big Tech và những chuyển động công nghệ đáng mở đầu ngày.",
       heroText: "",
       badgeSignals: topTopicLabels[0] || "AI",
       badgeAds: topTopicLabels[1] || "Big Tech",
       badgeBilingual: topTopicLabels[2] || "Công nghệ",
-      hotTitle: "Tin nóng lúc này",
+      hotTitle: "Nóng lúc này",
       editorsTitle: "Biên tập chọn",
-      ribbonTitle: "Tin mới lên theo giờ",
+      ribbonTitle: "Mới trên trang",
       companyBrief: "Patrick Tech Co. VN",
-      readerStartTitle: "3 bài mới để bắt nhịp",
-      readerWatchTitle: "2 câu chuyện đang được mở nhiều",
-      updateTitle: "3 tin mới để bắt nhịp",
-      hotLabel: "Nóng lúc này",
+      readerStartTitle: "Nên đọc trước",
+      readerWatchTitle: "Đang được chú ý",
+      updateTitle: "Tin vừa lên",
+      hotLabel: "Nóng",
       editorsLabel: "Biên tập chọn",
-      ribbonLabel: "Tin vừa lên",
+      ribbonLabel: "Vừa lên",
       latestTitle: "Tin mới nhất",
-      tipsTitle: "Thủ thuật đáng lưu",
+      tipsTitle: "Thủ thuật & mẹo hay",
       ecosystemTitle: "Patrick Tech Co. VN",
-      browserTitle: "Đang được quan tâm",
       ecosystemText: "",
-      homeSpotlightTitle: "Mở bài nổi bật hôm nay"
+      browserTitle: "Đọc nhiều nhất",
+      homeSpotlightTitle: "Tâm điểm"
     };
   }
 
   return {
-    heroTitle: "AI, Big Tech, and the stories worth opening first.",
+    heroTitle: "AI, Big Tech, and the technology shifts worth your first click.",
     heroText: "",
     badgeSignals: topTopicLabels[0] || "AI",
     badgeAds: topTopicLabels[1] || "Big Tech",
     badgeBilingual: topTopicLabels[2] || "Technology",
     hotTitle: "Hot right now",
     editorsTitle: "Editors' picks",
-    ribbonTitle: "Just moved",
+    ribbonTitle: "Fresh on the page",
     companyBrief: "Patrick Tech Co. VN",
-    readerStartTitle: "3 fresh stories to start with",
-    readerWatchTitle: "2 stories readers keep opening",
-    updateTitle: "3 fresh stories to catch the pace",
-    hotLabel: "Hot now",
+    readerStartTitle: "Read first",
+    readerWatchTitle: "Getting attention",
+    updateTitle: "Just in",
+    hotLabel: "Hot",
     editorsLabel: "Editors' picks",
-    ribbonLabel: "Just moved",
+    ribbonLabel: "Just in",
     latestTitle: "Latest stories",
-    tipsTitle: "Practical guides worth saving",
+    tipsTitle: "Tips worth saving",
     ecosystemTitle: "Patrick Tech Co. VN",
     ecosystemText: "",
-    browserTitle: "Rising now",
-    homeSpotlightTitle: "Start with the strongest lead today"
+    browserTitle: "Most read",
+    homeSpotlightTitle: "Spotlight"
   };
 }
 
@@ -223,22 +224,6 @@ function computeFreshnessScore(dateString) {
   }
 
   return 1;
-}
-
-function joinLabels(labels, language) {
-  if (!labels.length) {
-    return language === "vi" ? "AI, Big Tech và mạng xã hội" : "AI, Big Tech, and platform shifts";
-  }
-
-  if (labels.length === 1) {
-    return labels[0];
-  }
-
-  if (labels.length === 2) {
-    return `${labels[0]} ${language === "vi" ? "và" : "and"} ${labels[1]}`;
-  }
-
-  return `${labels.slice(0, -1).join(", ")} ${language === "vi" ? "và" : "and"} ${labels[labels.length - 1]}`;
 }
 
 function readJson(targetPath) {

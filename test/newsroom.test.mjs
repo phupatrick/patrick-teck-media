@@ -89,7 +89,7 @@ const tests = [
     }
   },
   {
-    name: "renders ad placeholders for verified stories when AdSense is not configured",
+    name: "renders Patrick Tech Store promo slots for verified stories when AdSense is not configured",
     run() {
       const scenario = buildScenarioState([
         makeScenarioArticle({
@@ -148,7 +148,8 @@ const tests = [
       assert.equal(article.verification_state, "verified");
       assert.equal(article.ad_eligible, true);
       assert.equal(article.hero_image.kind, "source");
-      assert.match(html, /Reserved for Google AdSense/);
+      assert.match(html, /Patrick Tech Store/);
+      assert.match(html, /patricktechstore\.vercel\.app/);
       assert.match(html, /https:\/\/images\.example\.com\/verified-edge-ai\.jpg/);
     }
   },
