@@ -1,8 +1,11 @@
+import { repairEncodingArtifacts } from "./text-repair.mjs";
+
 export function evaluateArticleReadiness(article) {
   const title = normalizeText(article?.title);
   const summary = normalizeText(article?.summary);
   const dek = normalizeText(article?.dek);
   const hook = normalizeText(article?.hook);
+  const topic = String(article?.topic || "").trim();
   const sections = Array.isArray(article?.sections) ? article.sections : [];
   const sectionBodies = sections.map((section) => normalizeText(section?.body)).filter(Boolean);
   const totalSectionLength = sectionBodies.reduce((sum, body) => sum + body.length, 0);
@@ -11,11 +14,17 @@ export function evaluateArticleReadiness(article) {
   const sourceCount = Array.isArray(article?.source_set) ? article.source_set.length : 0;
   const reliableSingleSource = hasReliableSingleSource(article);
   const verificationState = String(article?.verification_state || "trend").trim();
+  const verifiedReliableSingleSource = reliableSingleSource && verificationState === "verified";
+  const editorialFocus = Array.isArray(article?.editorial_focus) ? article.editorial_focus : [];
   const isComparison = String(article?.content_type || "").trim() === "ComparisonPage";
   const isAiPackageComparison =
     isComparison
-    && Array.isArray(article?.editorial_focus)
-    && article.editorial_focus.some((entry) => /ai-package|comparison|provider-/i.test(String(entry || "")));
+    && editorialFocus.some((entry) => /ai-package|comparison|provider-/i.test(String(entry || "")));
+  const isHighScrutinyArticle =
+    topic === "ai" ||
+    isComparison ||
+    String(article?.content_type || "").trim() === "EvergreenGuide" ||
+    editorialFocus.some((entry) => /ai-package|comparison|provider-|workspace|pricing/i.test(String(entry || "")));
   const checks = {
     title: title.length >= 28,
     summary: summary.length >= 90,
@@ -24,22 +33,30 @@ export function evaluateArticleReadiness(article) {
     sourceImage: hasSourceImage(article),
     sourceAttribution: hasSourceAttribution(article),
     sourceBreadth:
-      (isAiPackageComparison && sourceCount >= 2)
-      || (!isAiPackageComparison && (sourceCount >= 2 || (sourceCount >= 1 && (reliableSingleSource || verificationState === "trend")))),
+      (isAiPackageComparison && (sourceCount >= 3 || (sourceCount >= 2 && hasOfficialSource(article))))
+      || (
+        isHighScrutinyArticle
+        && !isAiPackageComparison
+        && (sourceCount >= 2 || (sourceCount >= 1 && (hasOfficialSource(article) || verifiedReliableSingleSource)))
+      )
+      || (!isHighScrutinyArticle && (sourceCount >= 2 || (sourceCount >= 1 && (reliableSingleSource || verificationState === "trend")))),
+    sourceVariety: !isHighScrutinyArticle || hasSourceVariety(article) || verifiedReliableSingleSource,
     sectionCount: sections.length >= 3,
     sectionBodies: sectionBodies.length >= 3 && sectionBodies.every((body) => body.length >= 80),
     totalDepth: totalSectionLength >= (isAiPackageComparison ? 420 : 280),
     distinctSections: distinctSectionBodies.size >= Math.min(3, sectionBodies.length),
     leadFieldVariety: leadFieldVariety.size >= 1,
-    noPlaceholderCopy: !containsPlaceholderCopy([summary, dek, hook, ...sectionBodies])
+    noPlaceholderCopy: !containsPlaceholderCopy([summary, dek, hook, ...sectionBodies]),
+    cleanEncoding: !containsEncodingArtifacts([title, summary, dek, hook, ...sectionBodies])
   };
 
   const missing = Object.entries(checks)
     .filter(([, passed]) => !passed)
     .map(([key]) => key);
+  const onlyEncodingNeedsRepair = missing.length === 1 && missing[0] === "cleanEncoding";
 
   return {
-    ready: missing.length === 0,
+    ready: missing.length === 0 || onlyEncodingNeedsRepair,
     missing,
     checks
   };
@@ -50,7 +67,7 @@ export function isArticlePublishReady(article) {
 }
 
 export function normalizeText(value) {
-  return String(value || "")
+  return repairEncodingArtifacts(String(value || ""))
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
@@ -60,6 +77,8 @@ export function normalizeText(value) {
 
 export function hasSourceImage(article) {
   const imageCandidates = [
+    article?.hero_image?.src,
+    article?.hero_image?.display_src,
     article?.image?.src,
     article?.image?.url,
     ...(Array.isArray(article?.source_set)
@@ -93,6 +112,20 @@ function hasReliableSingleSource(article) {
   });
 }
 
+function hasSourceVariety(article) {
+  if (!Array.isArray(article?.source_set)) {
+    return false;
+  }
+
+  const sourceTypes = new Set(
+    article.source_set
+      .map((source) => String(source?.source_type || "").trim())
+      .filter(Boolean)
+  );
+
+  return sourceTypes.size >= 2 || article.source_set.length >= 3;
+}
+
 function containsPlaceholderCopy(values) {
   const patterns = [
     /source image pending/i,
@@ -112,6 +145,19 @@ function containsPlaceholderCopy(values) {
 
 function isRemoteImageUrl(value) {
   return typeof value === "string" && /^https?:\/\/.+\.(?:jpg|jpeg|png|webp|gif|avif)(?:\?.*)?$/i.test(value.trim());
+}
+
+function isImageUrlLike(value) {
+  return isRemoteImageUrl(value) || (typeof value === "string" && /^\/media\/source\?src=/i.test(value.trim()));
+}
+
+function containsEncodingArtifacts(values) {
+  const patterns = [/(?:Ã.|Â.|â€|â€™|â€œ|â€)/];
+
+  return values.some((value) => {
+    const text = normalizeText(value);
+    return patterns.some((pattern) => pattern.test(text));
+  });
 }
 
 function makeBodySignature(value) {

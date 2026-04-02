@@ -3,6 +3,7 @@ import path from "node:path";
 import { evaluateArticleReadiness, isArticlePublishReady } from "./newsroom-quality.mjs";
 import { createNewsroomStore, normalizeNewsroomPayload } from "./newsroom-store.mjs";
 import { createOpenClawWebStore, normalizeOpenClawWebState } from "./openclaw-web-store.mjs";
+import { repairEncodingArtifacts } from "./text-repair.mjs";
 import {
   buildArticles,
   getAuthors,
@@ -370,19 +371,20 @@ export function getHomeData(state, language) {
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
   );
-  const latest = prioritized.slice(0, 10);
-  const packageWatch = sortStoriesForFrontPage(
+  const readyPrioritized = prioritizeFrontPageStories(prioritized);
+  const latest = readyPrioritized.slice(0, 10);
+  const packageWatch = prioritizeFrontPageStories(sortStoriesForFrontPage(
     localized.filter((article) => isAiPackageFrontpageCandidate(article)),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  ).slice(0, 5);
-  const verifiedStories = prioritized.filter(
+  )).slice(0, 5);
+  const verifiedStories = prioritizeFrontPageStories(prioritized.filter(
     (article) => article.verification_state === "verified" && article.content_type === "NewsArticle"
-  );
-  const leadStories = prioritized.filter(
+  ));
+  const leadStories = prioritizeFrontPageStories(prioritized.filter(
     (article) => article.content_type === "NewsArticle" && article.verification_state !== "trend"
-  );
+  ));
   const packageLeadStories = packageWatch.filter((article) => article.content_type !== "EvergreenGuide");
   const featured =
     packageLeadStories.find((article) => article.hero_image?.kind === "source") ||
@@ -395,38 +397,38 @@ export function getHomeData(state, language) {
     prioritized[0] ||
     localized[0];
   const briefing =
-    prioritized.find(
+    readyPrioritized.find(
       (article) =>
         article.content_type === "Roundup" &&
         isStoryFreshRelativeToAnchor(article, latest[0]?.updated_at || latest[0]?.published_at, 5)
     ) ||
     latest.find((article) => article.href !== featured?.href) ||
-    prioritized.find((article) => article.href !== featured?.href) ||
-    prioritized[0] ||
+    readyPrioritized.find((article) => article.href !== featured?.href) ||
+    readyPrioritized[0] ||
     localized[0];
-  const trending = prioritized.filter((article) => article.verification_state !== "verified").slice(0, 6);
-  const evergreen = sortStoriesForFrontPage(
+  const trending = prioritizeFrontPageStories(prioritized.filter((article) => article.verification_state !== "verified")).slice(0, 6);
+  const evergreen = prioritizeFrontPageStories(sortStoriesForFrontPage(
     localized.filter((article) => article.content_type === "EvergreenGuide" || article.content_type === "ComparisonPage"),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  ).slice(0, 6);
-  const tips = sortStoriesForFrontPage(
+  )).slice(0, 6);
+  const tips = prioritizeFrontPageStories(sortStoriesForFrontPage(
     localized.filter((article) => isPracticalTipsCandidate(article)),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  ).slice(0, 6);
+  )).slice(0, 6);
   const topicSections = state.topics.map((topic) => ({
     ...topic,
     label: topic.labels[language],
     slug: topic.slugs[language],
-    stories: sortStoriesForFrontPage(
+    stories: prioritizeFrontPageStories(sortStoriesForFrontPage(
       localized.filter((article) => article.topic === topic.id),
       state.runtime.generatedAt,
       state.site.frontPageTopicWeights,
       state.site.frontPageSourceWeights
-    ).slice(0, 4)
+    )).slice(0, 4)
   }));
 
   return {
@@ -438,7 +440,7 @@ export function getHomeData(state, language) {
     tips,
     latest,
     liveDesk: getLiveDeskData(state, language),
-    browserStories: prioritized.slice(0, 10),
+    browserStories: readyPrioritized.slice(0, 10),
     topicSections,
     metrics: getNewsroomMetrics(state, language)
   };
@@ -482,6 +484,16 @@ function sortStoriesForFrontPage(stories, anchorDate, topicWeights = FRONT_PAGE_
 
     return sortByDateDesc(left.updated_at || left.published_at, right.updated_at || right.published_at);
   });
+}
+
+function prioritizeFrontPageStories(stories) {
+  const ready = stories.filter(isFrontPageReady);
+
+  if (!ready.length) {
+    return [...stories];
+  }
+
+  return dedupeStoriesByHref([...ready, ...stories]);
 }
 
 function computeFrontPagePriority(article, anchorDate, topicWeights = FRONT_PAGE_TOPIC_WEIGHTS, sourceWeights = FRONT_PAGE_SOURCE_WEIGHTS) {
@@ -547,6 +559,34 @@ function computeFrontPagePriority(article, anchorDate, topicWeights = FRONT_PAGE
   }
 
   return score;
+}
+
+function isFrontPageReady(article) {
+  const heroAlt = String(article?.hero_image?.alt || "").trim();
+  const heroCaption = String(article?.hero_image?.caption || "").trim();
+
+  return Boolean(
+    article &&
+    article.hero_image?.kind === "source" &&
+    heroAlt.length >= 20 &&
+    heroCaption.length >= 20 &&
+    article.readiness?.checks?.sourceAttribution !== false
+  );
+}
+
+function dedupeStoriesByHref(stories) {
+  const seen = new Set();
+
+  return stories.filter((article) => {
+    const href = article?.href;
+
+    if (!href || seen.has(href)) {
+      return false;
+    }
+
+    seen.add(href);
+    return true;
+  });
 }
 
 function computeFreshnessPriority(article, anchorDate) {
@@ -1351,7 +1391,7 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     sections
   });
 
-  return {
+  const normalizedArticle = {
     id: article.id || `${article.cluster_id || article.slug}-${language}`,
     cluster_id: article.cluster_id || article.slug,
     language,
@@ -1384,9 +1424,11 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     author_id: article.author_id || "mai-linh",
     published_at: article.published_at || new Date().toISOString(),
     updated_at: article.updated_at || article.published_at || new Date().toISOString(),
-    href: article.href || `/${language}/${typeMeta.segments[language]}/${article.slug}`,
-    readiness: evaluateArticleReadiness(article)
+    href: article.href || `/${language}/${typeMeta.segments[language]}/${article.slug}`
   };
+
+  normalizedArticle.readiness = evaluateArticleReadiness(normalizedArticle);
+  return normalizedArticle;
 }
 
 function inferArticleTopicId(article) {
@@ -2103,7 +2145,7 @@ function escapeXml(value) {
 }
 
 function safeEditorialTrim(value) {
-  return String(value || "").trim();
+  return repairEncodingArtifacts(String(value || "")).trim();
 }
 
 function stripEditorialTrailingPunctuation(value) {

@@ -320,6 +320,16 @@ const tests = [
     }
   },
   {
+    name: "keeps the front page focused on stories and supports pull-to-refresh on touch devices",
+    run() {
+      const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
+
+      assert.match(homeHtml, /data-pull-refresh/);
+      assert.doesNotMatch(homeHtml, /frontpage-masthead/);
+      assert.match(homeHtml, /frontpage-kickerbar/);
+    }
+  },
+  {
     name: "lets OpenClaw tune the front page through web control state",
     run() {
       const gamingArticle = makeScenarioArticle({

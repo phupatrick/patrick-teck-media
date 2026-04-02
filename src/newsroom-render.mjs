@@ -11,8 +11,17 @@ export function renderHomePage(state, language, adsConfig) {
   const path = `/${language}/`;
   const tips = home.tips?.length ? home.tips : home.evergreen;
   const packageStories = dedupeStories(home.packageWatch?.length ? home.packageWatch : []);
-  const leadStories = dedupeStories([...packageStories, home.featured, ...home.latest, ...home.trending, home.briefing, ...tips]);
-  const leadFeature = leadStories[0];
+  const fallbackStory =
+    home.featured ||
+    home.briefing ||
+    home.latest?.[0] ||
+    home.trending?.[0] ||
+    packageStories[0] ||
+    tips?.[0] ||
+    home.evergreen?.[0] ||
+    null;
+  const leadStories = dedupeStories([...packageStories, home.featured, ...(home.latest || []), ...(home.trending || []), home.briefing, ...(tips || [])]);
+  const leadFeature = leadStories[0] || fallbackStory;
   const leadSideStories = excludeStories(leadStories.slice(1), [leadFeature]).slice(0, 2);
   const packageLead = excludeStories(dedupeStories([...packageStories, home.briefing]), [leadFeature, ...leadSideStories])[0] || null;
   const packageItems = excludeStories(dedupeStories([...packageStories, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 3);
@@ -26,17 +35,27 @@ export function renderHomePage(state, language, adsConfig) {
     4,
     { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
   );
+  const safeLatestStories = latestStories.length
+    ? latestStories
+    : excludeStories(dedupeStories([...(home.latest || []), ...(home.trending || []), fallbackStory]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 4);
   const watchStories = selectBalancedStories(
     excludeStories(dedupeStories([...packageStories, ...home.trending, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]),
     4,
     { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
   );
-  const guideLead = excludeStories(dedupeStories([...tips, home.briefing]), [leadFeature, ...leadSideStories])[0] || home.briefing;
+  const safeWatchStories = watchStories.length
+    ? watchStories
+    : excludeStories(dedupeStories([home.briefing, ...(home.latest || []), ...(home.trending || []), fallbackStory]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 4);
+  const guideLead = excludeStories(dedupeStories([...(tips || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories])[0] || home.briefing || fallbackStory;
   const guideStories = selectBalancedStories(
     excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead, packageLead]),
     3,
     { preferredTopic: "apps-software", preferredLimit: 2, defaultLimit: 1 }
   );
+  const safeGuideStories = guideStories.length
+    ? guideStories
+    : excludeStories(dedupeStories([...(tips || []), ...(home.latest || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories, guideLead, packageLead]).slice(0, 3);
+  const briefingStory = home.briefing || guideLead || packageLead || safeLatestStories[0] || fallbackStory;
 
   return renderLayout({
     state,
@@ -46,10 +65,10 @@ export function renderHomePage(state, language, adsConfig) {
     title: copy.homeTitle,
     description: state.site.description[language],
     content: `
-      <section class="frontpage-masthead">
-        <div class="frontpage-masthead-copy">
+      <section class="frontpage-kickerbar">
+        <div class="frontpage-kickerbar-copy">
           <p class="eyebrow">${copy.eyebrow}</p>
-          <h1>${escapeHtml(copy.heroTitle)}</h1>
+          <h1 class="sr-only">${escapeHtml(copy.heroTitle)}</h1>
         </div>
         <div class="hero-badges">
           <span>${copy.badgeSignals}</span>
@@ -72,7 +91,7 @@ export function renderHomePage(state, language, adsConfig) {
               </div>
             </div>
             <div class="headline-list">
-              ${watchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
+              ${safeWatchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
             </div>
           </article>
         </aside>
@@ -127,7 +146,7 @@ export function renderHomePage(state, language, adsConfig) {
             <h2>${copy.latestTitle}</h2>
           </div>
           <div class="story-grid">
-            ${latestStories.map((article) => renderStoryCard(article, language)).join("")}
+            ${safeLatestStories.map((article) => renderStoryCard(article, language)).join("")}
           </div>
         </div>
         <aside class="section-block editors-block">
@@ -136,17 +155,23 @@ export function renderHomePage(state, language, adsConfig) {
             <h2>${copy.editorsTitle}</h2>
           </div>
           <div class="stack-list">
-            ${watchStories.map((article) => renderStackItem(article, language, true)).join("")}
+            ${safeWatchStories.map((article) => renderStackItem(article, language, true)).join("")}
           </div>
-          <div class="newsroom-brief">
+          ${
+            briefingStory
+              ? `<div class="newsroom-brief">
             <p class="rail-label">${copy.briefingLabel}</p>
-            <h3><a href="${home.briefing.href}">${escapeHtml(home.briefing.title)}</a></h3>
-            <a class="text-link" href="${home.briefing.href}">${copy.readStory}</a>
-          </div>
+            <h3><a href="${briefingStory.href}">${escapeHtml(briefingStory.title)}</a></h3>
+            <a class="text-link" href="${briefingStory.href}">${copy.readStory}</a>
+          </div>`
+              : ""
+          }
         </aside>
       </section>
 
-      <section class="guide-showcase" id="tips">
+      ${
+        guideLead
+          ? `<section class="guide-showcase" id="tips">
         <article class="guide-showcase-lead topic-${guideLead.topic}">
           ${renderStoryImage(guideLead, "guide-showcase-media")}
           <div class="guide-showcase-copy">
@@ -166,10 +191,12 @@ export function renderHomePage(state, language, adsConfig) {
             <h2>${copy.tipsTitle}</h2>
           </div>
           <div class="stack-list">
-            ${guideStories.map((article) => renderStackItem(article, language, false)).join("")}
+            ${safeGuideStories.map((article) => renderStackItem(article, language, false)).join("")}
           </div>
         </aside>
-      </section>
+      </section>`
+          : ""
+      }
 
       <section class="topic-band">
         ${home.topicSections
@@ -819,7 +846,11 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
   <head>
     ${headTags.join("\n    ")}
   </head>
-  <body>
+  <body data-language="${language}">
+    <div class="pull-refresh-indicator" data-pull-refresh>
+      <span class="pull-refresh-hint" data-pull-refresh-hint>↓</span>
+      <strong class="pull-refresh-status" data-pull-refresh-status>${language === "vi" ? "Kéo xuống để làm mới tin" : "Pull down to refresh stories"}</strong>
+    </div>
     <div class="backdrop"></div>
     <div class="site-shell">
       <header class="topbar">
@@ -918,6 +949,19 @@ function renderHomepageExcerpt(article, className = "story-hook", maxLength = 14
 }
 
 function renderLeadFeature(article, language, copy) {
+  if (!article) {
+    return `
+      <article class="lead-feature lead-feature-empty">
+        <div class="lead-feature-copy">
+          <div class="lead-feature-topline">
+            <span class="pill hot-pill">${copy.hotLabel}</span>
+          </div>
+          <h2>${language === "vi" ? "Bàn tin đang làm mới loạt bài tiếp theo." : "The desk is preparing the next wave of stories."}</h2>
+        </div>
+      </article>
+    `;
+  }
+
   const displayTitle = getDisplayHeadline(article.title, 60);
   return `
     <article class="lead-feature topic-${article.topic}">
@@ -1379,11 +1423,43 @@ function renderCsrfInput(token) {
 }
 
 function getRenderCopy(state, language) {
-  return {
+  return sanitizeRenderCopy({
     ...getCopy(language),
     ...normalizeRenderCopy(language),
     ...(state?.site?.frontpageCopy?.[language] || {})
-  };
+  });
+}
+
+function sanitizeRenderCopy(copy) {
+  return Object.fromEntries(
+    Object.entries(copy || {}).map(([key, value]) => [
+      key,
+      typeof value === "string" ? repairMojibakeText(value) : value
+    ])
+  );
+}
+
+function repairMojibakeText(value) {
+  const text = String(value || "").trim();
+
+  if (!text || !looksLikeMojibake(text)) {
+    return text;
+  }
+
+  try {
+    const repaired = Buffer.from(text, "latin1").toString("utf8").trim();
+    return suspiciousSequenceCount(repaired) < suspiciousSequenceCount(text) ? repaired : text;
+  } catch {
+    return text;
+  }
+}
+
+function looksLikeMojibake(value) {
+  return suspiciousSequenceCount(value) > 0;
+}
+
+function suspiciousSequenceCount(value) {
+  return (String(value || "").match(/(?:Ã|Â|Ä|Å|Æ|Ð|Ñ|â€|â€™|â€œ|â€|áº|á»|Ä‘)/g) || []).length;
 }
 
 function normalizeRenderCopy(language) {

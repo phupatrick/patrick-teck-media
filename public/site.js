@@ -4,6 +4,7 @@ initStoryBrowser();
 initLiveDesk();
 initAuthTabs();
 initImageFallbacks();
+initPullToRefresh();
 
 function initStoryBrowser() {
   const browserRoot = document.querySelector("[data-story-browser]");
@@ -18,6 +19,7 @@ function initStoryBrowser() {
   const counter = browserRoot.querySelector("[data-story-count]");
   const countLabel = documentLanguage === "vi" ? "bài" : "stories";
   let activeStatus = "all";
+  const localizedCountLabel = documentLanguage === "vi" ? "bài" : "stories";
 
   const applyFilters = () => {
     const query = (input?.value || "").trim().toLowerCase();
@@ -37,7 +39,7 @@ function initStoryBrowser() {
     }
 
     if (counter) {
-      counter.textContent = `${visible}/${cards.length} ${countLabel}`;
+      counter.textContent = `${visible}/${cards.length} ${localizedCountLabel}`;
     }
   };
 
@@ -188,6 +190,156 @@ function initImageFallbacks() {
       markBroken();
     }
   }
+}
+
+function initPullToRefresh() {
+  if (!("ontouchstart" in window) || !window.matchMedia("(pointer: coarse)").matches) {
+    return;
+  }
+
+  const path = window.location.pathname || "/";
+  const supportsRefresh =
+    /^\/(vi|en)\/?$/.test(path) ||
+    /^\/(vi|en)\/topics\//.test(path) ||
+    /^\/(vi|en)\/(tin-tuc|news|huong-dan|guides|so-sanh|compare)\//.test(path);
+
+  if (!supportsRefresh) {
+    return;
+  }
+
+  const refreshRoot = document.querySelector("[data-pull-refresh]");
+
+  if (!refreshRoot) {
+    return;
+  }
+
+  const statusNode = refreshRoot.querySelector("[data-pull-refresh-status]");
+  const hintNode = refreshRoot.querySelector("[data-pull-refresh-hint]");
+  const threshold = 86;
+  let startY = 0;
+  let active = false;
+  let armed = false;
+  let refreshing = false;
+
+  const copy =
+    documentLanguage === "vi"
+      ? {
+          pull: "Kéo xuống để làm mới tin",
+          ready: "Thả tay để làm mới",
+          refreshing: "Đang làm mới bài viết..."
+        }
+      : {
+          pull: "Pull down to refresh stories",
+          ready: "Release to refresh",
+          refreshing: "Refreshing stories..."
+        };
+
+  const updateIndicator = (distance) => {
+    const cappedDistance = Math.max(0, Math.min(distance, 112));
+    const progress = Math.min(cappedDistance / threshold, 1);
+    armed = cappedDistance >= threshold;
+    refreshRoot.classList.add("is-active");
+    refreshRoot.classList.toggle("is-armed", armed);
+    refreshRoot.style.setProperty("--pull-refresh-distance", `${cappedDistance}px`);
+    refreshRoot.style.setProperty("--pull-refresh-progress", progress.toFixed(3));
+
+    if (statusNode) {
+      statusNode.textContent = armed ? copy.ready : copy.pull;
+    }
+
+    if (hintNode) {
+      hintNode.textContent = armed ? "↻" : "↓";
+    }
+  };
+
+  const resetIndicator = () => {
+    active = false;
+    armed = false;
+    refreshRoot.classList.remove("is-active", "is-armed", "is-refreshing");
+    refreshRoot.style.setProperty("--pull-refresh-distance", "0px");
+    refreshRoot.style.setProperty("--pull-refresh-progress", "0");
+
+    if (statusNode) {
+      statusNode.textContent = copy.pull;
+    }
+
+    if (hintNode) {
+      hintNode.textContent = "↓";
+    }
+  };
+
+  window.addEventListener(
+    "touchstart",
+    (event) => {
+      if (refreshing || window.scrollY > 0 || event.touches.length !== 1) {
+        return;
+      }
+
+      const targetTag = event.target?.tagName || "";
+      if (/^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/i.test(targetTag)) {
+        return;
+      }
+
+      startY = event.touches[0].clientY;
+      active = true;
+    },
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "touchmove",
+    (event) => {
+      if (!active || refreshing || window.scrollY > 0 || event.touches.length !== 1) {
+        return;
+      }
+
+      const delta = event.touches[0].clientY - startY;
+
+      if (delta <= 0) {
+        resetIndicator();
+        return;
+      }
+
+      updateIndicator(delta * 0.56);
+      event.preventDefault();
+    },
+    { passive: false }
+  );
+
+  window.addEventListener(
+    "touchend",
+    () => {
+      if (!active) {
+        return;
+      }
+
+      active = false;
+
+      if (!armed || refreshing) {
+        resetIndicator();
+        return;
+      }
+
+      refreshing = true;
+      refreshRoot.classList.add("is-refreshing");
+      refreshRoot.style.setProperty("--pull-refresh-distance", "72px");
+
+      if (statusNode) {
+        statusNode.textContent = copy.refreshing;
+      }
+
+      if (hintNode) {
+        hintNode.textContent = "↻";
+      }
+
+      window.setTimeout(() => {
+        window.location.reload();
+      }, 140);
+    },
+    { passive: true }
+  );
+
+  window.addEventListener("touchcancel", resetIndicator, { passive: true });
 }
 
 function escapeHtml(value) {
