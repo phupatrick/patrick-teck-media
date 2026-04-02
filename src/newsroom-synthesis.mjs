@@ -1,4 +1,4 @@
-import crypto from "node:crypto";
+﻿import crypto from "node:crypto";
 
 const SOURCE_TYPE_PRIORITY = {
   "official-site": 30,
@@ -49,6 +49,28 @@ export function aggregateIncomingDrafts(drafts, now = new Date().toISOString()) 
   return clusters.map((cluster) => buildClusterArticle(cluster, now)).filter(Boolean);
 }
 
+export function buildEditorialCompanionArticles(articles, now = new Date().toISOString()) {
+  const pool = (Array.isArray(articles) ? articles : []).filter(Boolean);
+  const companions = [];
+
+  for (const language of ["vi", "en"]) {
+    const aiPackageMembers = selectCompanionMembers(pool, language, isAiPackageStory, 10);
+    const tipMembers = selectCompanionMembers(pool, language, isPracticalTechStory, 10);
+
+    if (aiPackageMembers.length >= 2) {
+      companions.push(buildAiPackageCompanionStory({ language, members: aiPackageMembers, now }));
+    }
+
+    companions.push(...buildAiProviderCompanionArticles(pool, language, now));
+
+    if (tipMembers.length >= 3) {
+      companions.push(buildPracticalTipsCompanionStory({ language, members: tipMembers, now }));
+    }
+  }
+
+  return companions.filter(Boolean);
+}
+
 function buildClusterArticle(cluster, now) {
   const members = [...cluster.members].sort(sortDraftsByPriority);
   const lead = members[0];
@@ -64,10 +86,11 @@ function buildClusterArticle(cluster, now) {
   const pool = collectSentencePool(members);
   const image = selectClusterImage(members, sources, language);
   const verificationState = resolveVerificationState(members, sources);
+  const lens = resolveEditorialLens({ lead, members, sources, topic, contentType });
   const title = buildClusterTitle({ lead, language, contentType });
-  const summary = buildClusterSummary({ members, lead, sources, pool, language, topic, contentType, verificationState });
-  const dek = buildClusterDek({ lead, sources, pool, language, topic, contentType, verificationState });
-  const hook = buildClusterHook({ lead, sources, pool, language, topic, contentType, verificationState });
+  const summary = buildClusterSummary({ members, lead, sources, pool, language, topic, contentType, verificationState, lens });
+  const dek = buildClusterDek({ lead, sources, pool, language, topic, contentType, verificationState, lens });
+  const hook = buildClusterHook({ lead, sources, pool, language, topic, contentType, verificationState, lens });
   const sections = buildClusterSections({
     members,
     lead,
@@ -76,7 +99,8 @@ function buildClusterArticle(cluster, now) {
     language,
     topic,
     contentType,
-    verificationState
+    verificationState,
+    lens
   });
   const clusterHash = buildClusterHash({ language, contentType, title, sources, lead });
   const publishedAt = newestTimestamp(members);
@@ -100,6 +124,7 @@ function buildClusterArticle(cluster, now) {
     ad_eligible: verificationState !== "trend",
     show_editorial_label: verificationState !== "verified",
     indexable: true,
+    editorial_focus: resolveEditorialFocus({ topic, contentType, lens }),
     store_link_mode: resolveStoreLinkMode(topic, contentType),
     related_store_items: resolveStoreItems(topic),
     source_set: sources,
@@ -160,6 +185,829 @@ function areDraftsRelated(left, right) {
   return sameTopic && similarity.sharedLong >= 3 && similarity.overlap >= 0.58;
 }
 
+function selectCompanionMembers(articles, language, predicate, limit) {
+  const localFirst = articles
+    .filter((article) => article.language === language && predicate(article))
+    .sort(sortDraftsByPriority);
+  const crossLanguage = articles
+    .filter((article) => article.language !== language && predicate(article))
+    .sort(sortDraftsByPriority);
+
+  return dedupeCompanionMembers([...localFirst, ...crossLanguage], limit);
+}
+
+function dedupeCompanionMembers(articles, limit) {
+  const seen = new Set();
+  const picked = [];
+
+  for (const article of articles) {
+    const key = article.cluster_id || getPrimarySourceUrl(article) || article.id || article.slug;
+
+    if (!key || seen.has(key)) {
+      continue;
+    }
+
+    seen.add(key);
+    picked.push(article);
+
+    if (picked.length >= limit) {
+      break;
+    }
+  }
+
+  return picked;
+}
+
+function isAiPackageStory(article) {
+  const text = [
+    article.title,
+    article.summary,
+    article.dek,
+    article.hook,
+    ...(article.sections || []).flatMap((section) => [section.heading, section.body])
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return hasAiPackageSignals(text);
+}
+
+function isPracticalTechStory(article) {
+  const text = [
+    article.title,
+    article.summary,
+    article.dek,
+    article.hook,
+    ...(article.sections || []).flatMap((section) => [section.heading, section.body])
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  if (/\b(recipe|cooking|chicken|oven|kitchen|restaurant|travel|vacation|fashion|diet)\b/i.test(text)) {
+    return false;
+  }
+
+  return article.content_type === "EvergreenGuide"
+    || /\b(how to|how-to|guide|tips?|mẹo|thủ thuật|hướng dẫn|cách dùng|cách làm)\b/i.test(text);
+}
+
+function buildAiPackageCompanionStory({ language, members, now }) {
+  const lead = [...members].sort(sortDraftsByPriority)[0];
+
+  if (!lead) {
+    return null;
+  }
+
+  const sources = dedupeSources(members).slice(0, 8);
+  const pool = collectSentencePool(members);
+  const providers = detectAiPlanProviders(members);
+  const providerLabel = formatProviderList(providers, language);
+  const verificationState = resolveVerificationState(members, sources);
+  const image = selectClusterImage(members, sources, language);
+  const title =
+    language === "vi"
+      ? `Gói AI nào đang đáng tiền hơn lúc này: ${providerLabel} vừa thêm gì vào cuộc đua?`
+      : `Which AI plan feels more useful right now: what ${providerLabel} just added to the race`;
+  const summary = composeParagraph(
+    [
+      language === "vi"
+        ? `${providerLabel} đang cùng kéo cuộc đua gói AI khỏi phần trình diễn đơn thuần để bước vào phần giá trị dùng thật: giá, dung lượng, model mạnh hơn và những quyền lợi có thể chạm trực tiếp vào công việc mỗi ngày.`
+        : `${providerLabel} are pushing the AI plan race beyond pure launch theater into practical value: price, storage, stronger models, and bundle rights that can change daily work.`,
+      firstUsefulSentence([lead.summary, lead.dek, lead.hook]),
+      buildCorroborationSentence(sources, language, verificationState),
+      language === "vi"
+        ? "Điều người đọc thực sự cần ở dạng bài này không phải một bảng giá khô, mà là câu trả lời rõ hơn về việc trả tiền tháng đó đổi lại được gì, có đỡ bước nào trong công việc hay không và hãng nào đang tăng giá trị thật thay vì chỉ thêm tiếng vang marketing."
+        : "What readers actually need here is not a dry price table, but a clearer answer on what the monthly spend unlocks, which steps it removes from work, and which companies are increasing real utility instead of just adding launch noise."
+    ],
+    language === "vi"
+      ? "Bài tổng hợp này gom các thay đổi mới nhất của nhóm gói AI đang được chú ý nhất để người đọc nhìn giá, quyền lợi và độ hữu ích trên cùng một mặt bàn."
+      : "This editorial digest pulls the latest AI plan changes onto one table so readers can compare price, rights, and usefulness in one pass.",
+    220
+  );
+  const dek = composeParagraph(
+    [
+      language === "vi"
+        ? `${providerLabel} đang không chỉ bán model mạnh hơn, mà còn bán thêm dung lượng, quyền truy cập công cụ sáng tạo, lớp cộng tác cho Workspace và cảm giác “đỡ phải mua lẻ” nhiều dịch vụ khác nhau.`
+        : `${providerLabel} are no longer just selling stronger models; they are bundling storage, creation tools, workspace layers, and a feeling that fewer separate subscriptions are needed.`,
+      buildImpactSentence("ai", language, "ComparisonPage")
+    ],
+    language === "vi"
+      ? "Đây là bài dành cho người đang trả tiền cho AI và muốn biết gói nào đang tăng giá trị thật, gói nào mới chỉ đẹp ở phần giới thiệu."
+      : "This is for readers already paying for AI and trying to see which plans are adding real value and which ones still look better in the pitch than in everyday use.",
+    150
+  );
+  const hook = composeParagraph(
+    [
+      language === "vi"
+        ? `Nếu trước đây câu hỏi chỉ là “model nào mạnh hơn”, thì ở nhịp mới câu hỏi đã đổi thành “gói nào giúp mình làm được nhiều việc hơn mà không phải mua thêm quá nhiều dịch vụ phụ”.`
+        : `If the old question was simply “which model is stronger,” the new one is “which plan lets me do more without stacking too many side subscriptions.”`,
+      firstUnusedSentences(pool, [summary, dek], 1)[0],
+      buildHookAngle({ language, topic: "ai", contentType: "ComparisonPage", verificationState, sourceCount: sources.length })
+    ],
+    language === "vi"
+      ? "Đó là lý do những thay đổi ở Google AI Pro, Workspace, ChatGPT, Claude hay Copilot đang đáng đọc hơn một headline nâng giá hay tăng dung lượng đơn lẻ."
+      : "That is why changes across Google AI Pro, Workspace, ChatGPT, Claude, or Copilot now deserve more than a one-line headline about a price move or a storage bump.",
+    180
+  );
+  const sections = [
+    {
+      heading: language === "vi" ? "Điểm mới đáng giữ lại" : "The updates worth keeping",
+      body: composeParagraph(
+        [
+          firstUsefulSentence([lead.summary, lead.sections?.[0]?.body]),
+          buildCorroborationSentence(sources, language, verificationState),
+          buildSourceTrailSentence(sources, language)
+        ],
+        summary,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Google, ChatGPT, Claude và Copilot đang chơi bài gì" : "What Google, ChatGPT, Claude, and Copilot are really doing",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? `${providerLabel} đang cùng đẩy cuộc chơi sang phần “gói đủ dùng thật”, nơi dung lượng, tích hợp sâu vào công cụ làm việc, và quyền truy cập model mới bắt đầu quan trọng ngang với chất lượng đầu ra.`
+            : `${providerLabel} are all pushing the market toward plans that feel complete in real work, where storage, deeper productivity integration, and access to newer models matter as much as raw output quality.`,
+          firstUnusedSentences(pool, [summary], 2),
+          buildNuanceSentence({ language, topic: "ai", verificationState, sourceCount: sources.length })
+        ],
+        dek,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Giá, dung lượng và quyền lợi nên nhìn vào đâu" : "Where to look at price, storage, and bundle rights",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Với gói AI, bảng giá chỉ là lớp đầu. Thứ nên nhìn tiếp là model nào được mở khóa, dung lượng có tăng thật không, tính năng nghiên cứu hoặc tạo nội dung có bị giới hạn theo vùng không, và dữ liệu doanh nghiệp có được tách khỏi việc huấn luyện mô hình hay không."
+            : "On AI plans, price is only the first layer. The next read is which model tier gets unlocked, whether storage truly expands, whether creation and research features are region-limited, and whether enterprise data is separated from model training.",
+          firstUnusedSentences(pool, [summary, dek], 1)[0]
+        ],
+        language === "vi"
+          ? "Đây là phần quyết định gói nào thật sự đáng tiền, nhất là với người vừa lưu trữ dữ liệu, vừa cộng tác, vừa dùng AI trong cùng một hệ sinh thái."
+          : "This is the layer that decides whether a plan is genuinely worth paying for, especially for readers who store, collaborate, and use AI inside the same ecosystem.",
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Ai nên mở ví, ai nên đứng ngoài" : "Who should pay now and who should wait",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Người nên theo dõi sát nhất là nhóm đang trả tiền cho lưu trữ, email, tài liệu, họp trực tuyến và AI cùng lúc. Nếu gói mới gom được nhiều lớp đó vào một chỗ, giá trị sẽ lộ ra rất nhanh. Ngược lại, người chỉ cần hỏi đáp lẻ hoặc dùng AI thỉnh thoảng vẫn nên cân nhắc bản miễn phí trước khi nâng gói."
+            : "The readers who should pay closest attention are those already spending on storage, mail, documents, meetings, and AI at the same time. If a new plan bundles those layers well, the value shows up fast. Readers who only need occasional prompting may still be better served by free tiers first.",
+          buildImpactSentence("ai", language, "ComparisonPage")
+        ],
+        hook,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Patrick Tech Media đánh giá" : "Patrick Tech Media take",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Điểm đáng nhìn nhất của nhịp này là các hãng lớn đã thôi bán AI như một món phụ, mà đang biến nó thành lõi của gói trả phí. Ai gom được model tốt, lưu trữ rộng, công cụ sáng tạo và quyền riêng tư đủ yên tâm vào cùng một hóa đơn sẽ có lợi thế lớn hơn nhiều so với một lời hứa demo đẹp."
+            : "The clearest shift in this cycle is that major vendors are no longer selling AI as an add-on. They are turning it into the center of the paid package. The vendor that bundles stronger models, larger storage, creative tooling, and believable privacy into one bill will gain a longer edge than any flashy demo promise.",
+          buildCoverageSentence({ language, members: members.length, sources: sources.length })
+        ],
+        summary,
+        190
+      )
+    }
+  ];
+
+  return buildCompanionArticleShell({
+    id: `editorial-ai-package-watch-${language}`,
+    clusterId: "editorial-ai-package-watch",
+    slug: language === "vi" ? "goi-ai-nao-dang-dang-tien-hon-luc-nay" : "which-ai-plan-feels-more-useful-right-now",
+    title,
+    summary,
+    dek,
+    hook,
+    language,
+    topic: "ai",
+    contentType: "ComparisonPage",
+    verificationState,
+    sources,
+    sections,
+    image,
+    now,
+    publishedAt: newestTimestamp(members),
+    authorId: "mai-linh",
+    relatedStoreItems: ["ai-workspace-bundle"],
+    editorialFocus: ["ai-package", "comparison", "ai"]
+  });
+}
+
+function buildPracticalTipsCompanionStory({ language, members, now }) {
+  const lead = [...members].sort(sortDraftsByPriority)[0];
+
+  if (!lead) {
+    return null;
+  }
+
+  const sources = dedupeSources(members).slice(0, 8);
+  const verificationState = resolveVerificationState(members, sources);
+  const image = selectClusterImage(members, sources, language);
+  const title =
+    language === "vi"
+      ? "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật"
+      : "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help";
+  const summary = composeParagraph(
+    [
+      language === "vi"
+        ? "Không phải bài thủ thuật nào cũng đáng lưu. Dạng đáng giữ lại là những mẹo có thể giúp người đọc làm nhanh hơn, đỡ lỗi hơn hoặc bớt mua nhầm công cụ trong bối cảnh AI và app đang đổi rất nhanh theo từng đợt cập nhật."
+        : "Not every how-to is worth saving. The ones that matter are the tips that make work faster, reduce mistakes, or prevent readers from choosing the wrong tool while AI and apps keep changing release by release.",
+      buildCorroborationSentence(sources, language, verificationState),
+      buildSourceTrailSentence(sources, language)
+    ],
+    language === "vi"
+      ? "Bài tổng hợp này gom những mẹo và hướng dẫn công nghệ nên giữ lại nếu bạn đang dùng AI, Workspace và các app năng suất mỗi ngày."
+      : "This editorial guide groups the tips worth keeping if you rely on AI, Workspace, and productivity apps every day.",
+    210
+  );
+  const dek = composeParagraph(
+    [
+      language === "vi"
+        ? "Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc."
+        : "What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves.",
+      buildImpactSentence("apps-software", language, "EvergreenGuide"),
+      buildAssessmentSentence({ language, topic: "apps-software", contentType: "EvergreenGuide", verificationState, sourceCount: sources.length })
+    ],
+    language === "vi"
+      ? "Đây là lớp bài dành cho người muốn dùng AI và app theo hướng gọn, hiệu quả và bớt phải học lại từ đầu sau mỗi đợt cập nhật."
+      : "This is the kind of coverage for readers who want AI and apps to feel cleaner, more efficient, and less like relearning the workflow every few weeks.",
+    150
+  );
+  const hook = composeParagraph(
+    [
+      language === "vi"
+        ? "Nếu tin nóng giữ nhịp cho newsroom, thì các bài thủ thuật tốt mới là thứ giữ người đọc quay lại: chúng giúp biến thay đổi của sản phẩm thành thao tác dùng được ngay thay vì chỉ thêm một headline đẹp."
+        : "If breaking news sets the pace of a newsroom, strong how-to pieces are what keep readers returning: they turn product changes into actions people can use instead of another attractive headline.",
+      buildHookAngle({ language, topic: "apps-software", contentType: "EvergreenGuide", verificationState, sourceCount: sources.length }),
+      language === "vi"
+        ? "Điều đáng giữ lại ở dạng bài này là nó giúp người đọc làm nhanh hơn ngay trong ngày, chứ không đẩy thêm một lớp hướng dẫn khó áp dụng vào thực tế."
+        : "The real win in this kind of piece is helping readers move faster the same day instead of piling on another guide that looks smart and stays unused."
+    ],
+    summary,
+    180
+  );
+  const sections = [
+    {
+      heading: language === "vi" ? "Ba hướng dẫn đáng lưu trước" : "The first guides worth saving",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Điểm chung của nhóm bài này là chúng đều chạm vào việc thật: lưu trữ, cộng tác, ghi chú, tìm kiếm thông tin hoặc dùng AI để rút ngắn một bước đang lặp lại hằng ngày."
+            : "The common thread across these pieces is practical work: storage, collaboration, note-taking, information retrieval, or using AI to shorten a step that repeats every day.",
+          buildCorroborationSentence(sources, language, verificationState),
+          buildSourceTrailSentence(sources, language)
+        ],
+        summary,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Mẹo nào dùng được ngay" : "Which tips are usable right away",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Mẹo đáng giữ lại thường là mẹo không cần đổi quá nhiều thói quen hoặc cài thêm ba bốn lớp phụ trợ. Càng ít bước, giá trị càng dễ lộ ra ngay."
+            : "The tips worth keeping usually do not require people to rewire their whole habit stack or add three extra setup layers. The fewer moving parts, the faster the value shows.",
+          buildImpactSentence("apps-software", language, "EvergreenGuide"),
+          dek
+        ],
+        dek,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Những lỗi dễ gặp nhất" : "The easiest mistakes to make",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Sai lầm phổ biến nhất là thấy mẹo hay rồi áp dụng ngay nhưng bỏ qua điều kiện đầu vào: quyền truy cập, khu vực mở tính năng, cấu hình tài khoản hay giới hạn của gói đang dùng. Đó là lúc mẹo trông đúng nhưng kết quả cuối vẫn hẫng."
+            : "The most common mistake is seeing a clever tip and applying it immediately while ignoring the setup layer: access rights, regional rollout, account configuration, or plan limits. That is where a good trick looks correct and still disappoints in the result.",
+          buildNuanceSentence({ language, topic: "apps-software", verificationState, sourceCount: sources.length })
+        ],
+        hook,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Nên áp dụng vào việc gì" : "Where this really helps in work",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Nhóm người đọc hợp nhất với dạng bài này là người đang xử lý tài liệu, họp, nhắn tin nội bộ, tìm lại thông tin và làm việc với nhiều ứng dụng cùng lúc. Nếu một mẹo giúp cắt bớt một bước lặp, nó sẽ có giá trị cao hơn nhiều so với một tính năng chỉ đẹp trong bản giới thiệu."
+            : "This style of guide is most useful for readers juggling documents, meetings, internal messaging, search, and multiple apps at once. If a tip removes one repeated step, it usually matters more than a feature that only looks good in the announcement.",
+          buildImpactSentence("apps-software", language, "EvergreenGuide")
+        ],
+        summary,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Patrick Tech Media chốt lại" : "Patrick Tech Media takeaway",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Mẹo công nghệ đáng giữ lại không phải là mẹo gây ngạc nhiên nhất, mà là mẹo đỡ mất thời gian nhất. Đó cũng là lý do Patrick Tech Media sẽ tiếp tục đẩy mạnh lớp bài hướng dẫn, mẹo AI và mẹo app thay vì chỉ để chúng nằm ở rìa newsroom."
+            : "The tips worth saving are not always the most surprising ones; they are the ones that save the most time. That is why Patrick Tech Media is pushing deeper into practical AI and app guidance instead of leaving it at the edge of the newsroom.",
+          buildCoverageSentence({ language, members: members.length, sources: sources.length })
+        ],
+        dek,
+        190
+      )
+    }
+  ];
+
+  return buildCompanionArticleShell({
+    id: `editorial-practical-tech-tips-${language}`,
+    clusterId: "editorial-practical-tech-tips",
+    slug: language === "vi" ? "nhung-meo-cong-nghe-dang-luu-luc-nay" : "the-practical-tech-tips-worth-saving-right-now",
+    title,
+    summary,
+    dek,
+    hook,
+    language,
+    topic: "apps-software",
+    contentType: "EvergreenGuide",
+    verificationState,
+    sources,
+    sections,
+    image,
+    now,
+    publishedAt: newestTimestamp(members),
+    authorId: "mai-linh",
+    relatedStoreItems: ["creator-software-stack"],
+    editorialFocus: ["tips", "guide", "apps-software"]
+  });
+}
+
+function buildAiProviderCompanionArticles(articles, language, now) {
+  const providers = ["google", "openai", "anthropic", "microsoft"];
+  const companions = [];
+
+  for (const providerKey of providers) {
+    const members = selectCompanionMembers(
+      articles,
+      language,
+      (article) => isAiPackageStory(article) && articleMatchesAiProvider(article, providerKey),
+      8
+    );
+    const sources = dedupeSources(members);
+
+    if (members.length < 2 || sources.length < 2) {
+      continue;
+    }
+
+    companions.push(buildAiProviderCompanionStory({ language, providerKey, members, now }));
+  }
+
+  return companions;
+}
+
+function buildAiProviderCompanionStory({ language, providerKey, members, now }) {
+  const lead = [...members].sort(sortDraftsByPriority)[0];
+
+  if (!lead) {
+    return null;
+  }
+
+  const meta = getAiProviderMeta(providerKey, language);
+  const sources = dedupeSources(members).slice(0, 8);
+  const verificationState = resolveVerificationState(members, sources);
+  const image = selectClusterImage(members, sources, language);
+  const summary = composeParagraph(
+    [
+      meta.summaryLead,
+      buildCorroborationSentence(sources, language, verificationState),
+      meta.summaryClose
+    ],
+    meta.summaryFallback,
+    220
+  );
+  const dek = composeParagraph(
+    [
+      meta.dekLead,
+      buildImpactSentence("ai", language, "ComparisonPage"),
+      meta.dekClose
+    ],
+    meta.dekFallback,
+    150
+  );
+  const hook = composeParagraph(
+    [
+      meta.hookLead,
+      buildHookAngle({ language, topic: "ai", contentType: "NewsArticle", verificationState, sourceCount: sources.length }),
+      language === "vi"
+        ? "Điểm đáng đọc ở bài kiểu này là nó giúp người xem nhìn rõ phần giá trị dùng thật thay vì đứng ngoài nghe một đợt nâng cấp được kể bằng ngôn ngữ marketing."
+        : "The useful part of this story is that it shows the real utility layer instead of leaving readers outside another upgrade framed in launch language."
+    ],
+    meta.hookFallback,
+    180
+  );
+  const sections = [
+    {
+      heading: language === "vi" ? `${meta.label} vừa thay gì trong gói AI` : `What ${meta.label} just changed in its AI plans`,
+      body: composeParagraph(
+        [
+          meta.summaryLead,
+          buildCorroborationSentence(sources, language, verificationState),
+          buildSourceTrailSentence(sources, language)
+        ],
+        summary,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Giá trị tăng ở đâu" : "Where the value actually increased",
+      body: composeParagraph(
+        [
+          meta.valueLead,
+          buildImpactSentence("ai", language, "ComparisonPage"),
+          buildAssessmentSentence({ language, topic: "ai", contentType: "ComparisonPage", verificationState, sourceCount: sources.length })
+        ],
+        dek,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Điểm nên soi kỹ trước khi xuống tiền" : "The part worth checking before paying",
+      body: composeParagraph(
+        [
+          meta.cautionLead,
+          buildNuanceSentence({ language, topic: "ai", verificationState, sourceCount: sources.length }),
+          language === "vi"
+            ? "Đây thường là nơi quyết định gói nào thật sự đáng tiền, nhất là với người vừa lưu trữ dữ liệu, vừa cộng tác, vừa dùng AI trong cùng một hệ sinh thái."
+            : "This is usually the layer that decides whether a plan is genuinely worth paying for, especially for readers who store, collaborate, and use AI inside the same ecosystem."
+        ],
+        hook,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? `${meta.label} đang đứng ở đâu so với phần còn lại` : `Where ${meta.label} sits against the rest of the field`,
+      body: composeParagraph(
+        [
+          meta.marketLead,
+          buildCorroborationSentence(sources, language, verificationState),
+          buildCoverageSentence({ language, members: members.length, sources: sources.length })
+        ],
+        meta.marketFallback,
+        190
+      )
+    },
+    {
+      heading: language === "vi" ? "Patrick Tech Media đánh giá" : "Patrick Tech Media take",
+      body: composeParagraph(
+        [
+          meta.takeLead,
+          meta.takeClose,
+          buildForwardLook("ai", lead.title, language)
+        ],
+        summary,
+        200
+      )
+    }
+  ];
+
+  return buildCompanionArticleShell({
+    id: `editorial-${providerKey}-ai-plan-watch-${language}`,
+    clusterId: `editorial-${providerKey}-ai-plan-watch`,
+    slug: meta.slug,
+    title: meta.title,
+    summary,
+    dek,
+    hook,
+    language,
+    topic: "ai",
+    contentType: "ComparisonPage",
+    verificationState,
+    sources,
+    sections,
+    image,
+    now,
+    publishedAt: newestTimestamp(members),
+    authorId: "mai-linh",
+    relatedStoreItems: ["ai-workspace-bundle"],
+    editorialFocus: ["ai-package", "comparison", "ai", `provider-${providerKey}`]
+  });
+}
+
+const AI_PROVIDER_PATTERNS = {
+  google: /\b(google|gemini|google one|google ai pro|google ai ultra|workspace|google workspace|notebooklm|veo|lyria|deep research)\b/i,
+  openai: /\b(openai|chatgpt|chatgpt plus|chatgpt pro|chatgpt team|chatgpt enterprise|sora)\b/i,
+  anthropic: /\b(anthropic|claude|claude pro|claude max|claude code)\b/i,
+  microsoft: /\b(microsoft|copilot|copilot pro|microsoft 365 copilot|copilot studio)\b/i,
+  xai: /\b(xai|grok)\b/i
+};
+
+const AI_PROVIDER_LABELS = {
+  google: "Google",
+  openai: "OpenAI",
+  anthropic: "Anthropic",
+  microsoft: "Microsoft",
+  xai: "xAI"
+};
+
+function articleMatchesAiProvider(article, providerKey) {
+  const pattern = AI_PROVIDER_PATTERNS[providerKey];
+
+  if (!pattern) {
+    return false;
+  }
+
+  const haystack = cleanText(
+    [
+      typeof article === "string" ? article : article?.title,
+      typeof article === "string" ? "" : article?.summary,
+      typeof article === "string" ? "" : article?.dek,
+      typeof article === "string" ? "" : article?.hook,
+      ...(typeof article === "string" ? [] : (article?.sections || []).flatMap((section) => [section?.heading, section?.body])),
+      ...(typeof article === "string" ? [] : (article?.source_set || []).map((source) => source?.source_name))
+    ].join(" ")
+  );
+
+  return pattern.test(haystack);
+}
+
+function getAiProviderMeta(providerKey, language) {
+  const label = AI_PROVIDER_LABELS[providerKey] || providerKey.toUpperCase();
+
+  const vi = {
+    google: {
+      title: "Google vừa đổi gì trong các gói AI: 5TB, Workspace và NotebookLM đang kéo giá trị đi đâu",
+      slug: "google-vua-doi-gi-trong-cac-goi-ai",
+      summaryLead: "Google đang kéo cuộc đua gói AI sang một mặt bằng mới: dung lượng tăng, Workspace ăn Gemini sâu hơn, còn NotebookLM được đẩy lên vai trò trợ lý nghiên cứu thật sự.",
+      summaryClose: "Điều đáng đọc ở câu chuyện này không nằm ở con số 5TB đơn lẻ, mà ở cách Google đang gom lưu trữ, mô hình và công cụ làm việc vào một gói dễ bán hơn.",
+      summaryFallback: "Bài này gom những thay đổi đáng chú ý nhất trong gói Google AI Pro, Workspace và NotebookLM để nhìn rõ giá trị thật đang tăng ở đâu.",
+      dekLead: "Người dùng cá nhân nhìn vào giá và dung lượng, còn doanh nghiệp sẽ nhìn sâu hơn vào Gemini tích hợp, quyền riêng tư dữ liệu và khả năng biến AI thành một phần mặc định của luồng việc.",
+      dekClose: "Khi ba lớp đó cùng dịch chuyển, Google không còn bán một model riêng lẻ mà đang bán cả một hệ sinh thái AI dùng được hàng ngày.",
+      dekFallback: "Đây là bài cho người đang cân nhắc giữa việc mua thêm từng dịch vụ AI riêng lẻ hay đi thẳng vào hệ sinh thái của Google.",
+      hookLead: "Nếu trước đây Google mạnh ở chỗ có nhiều mảnh ghép, thì nhịp mới cho thấy hãng đang cố làm các mảnh đó dính vào nhau đủ chặt để thành một gói đáng trả tiền.",
+      hookFallback: "Nhịp thay đổi mới của Google đáng đọc vì nó không chỉ nâng thông số, mà đang đổi luôn cảm giác dùng AI trong cả hệ sinh thái.",
+      valueLead: "Giá trị tăng rõ nhất nằm ở việc người dùng không còn phải tách riêng lưu trữ, Gemini, NotebookLM và các lớp hỗ trợ sáng tạo thành quá nhiều hóa đơn nhỏ.",
+      cautionLead: "Thứ nên soi kỹ là giới hạn vùng, model nào thực sự được mở khóa, và liệu các lời hứa về quyền riêng tư doanh nghiệp có đi xuyên suốt từ Docs, Gmail tới Meet hay không.",
+      marketLead: "So với phần còn lại của thị trường, Google đang lợi ở lớp tích hợp sâu vào công cụ làm việc, nhưng cũng bị soi kỹ hơn ở chỗ mọi thay đổi phải chứng minh được giá trị thật chứ không chỉ đẹp trên slide.",
+      marketFallback: "Google đang đứng ở điểm giao giữa lưu trữ, AI và năng suất làm việc, nên mọi nâng cấp của hãng đều chạm trực tiếp vào người dùng trả tiền hàng tháng.",
+      takeLead: "Patrick Tech Media nhìn câu chuyện này như một bước chuyển từ bán AI theo cảm hứng sang bán AI theo bài toán công việc thật.",
+      takeClose: "Nếu Google giữ được giá, tăng được dung lượng và làm NotebookLM hay Workspace bớt rời rạc, đây sẽ là một trong những gói dễ hút người dùng trả phí nhất năm."
+    },
+    openai: {
+      title: "ChatGPT đang bán giá trị gì trong năm 2026: Plus, Pro, Team và lớp tiện ích mới có đáng tiền không",
+      slug: "chatgpt-dang-ban-gia-tri-gi-trong-nam-2026",
+      summaryLead: "OpenAI vẫn là cái tên kéo phần đông người dùng vào AI trả phí, nhưng điều thị trường đang soi không còn chỉ là model mới mà là tổng giá trị của cả gói ChatGPT.",
+      summaryClose: "Khi Sora, Deep Research, Agent và những lớp cộng tác xuất hiện dày hơn, câu hỏi chuyển từ mạnh hay không sang đáng tiền đến đâu.",
+      summaryFallback: "Bài này gom các thay đổi đáng chú ý nhất quanh các gói ChatGPT để nhìn rõ OpenAI đang bán giá trị nào ngoài model mạnh.",
+      dekLead: "Người dùng trả phí bây giờ không chỉ mua một cửa sổ chat, mà mua tốc độ, giới hạn cao hơn, quyền chạm vào tool mới và khả năng gom nghiên cứu lẫn tạo nội dung vào cùng một chỗ.",
+      dekClose: "Đó là lý do OpenAI phải được đọc như một nhà bán gói giá trị, không còn chỉ là hãng tung model gây sốc.",
+      dekFallback: "Đây là bài cho người đang trả tiền hoặc cân nhắc trả tiền cho ChatGPT nhưng muốn biết khoản chi đó có đang sinh lợi rõ ràng hơn không.",
+      hookLead: "ChatGPT vẫn dễ hút người dùng nhất, nhưng càng nhiều lớp quyền lợi mới xuất hiện thì càng cần đọc kỹ xem phần nào là giá trị thật, phần nào chỉ là lực hút thương hiệu.",
+      hookFallback: "Điểm đáng mở ở OpenAI lúc này là cách hãng đang biến thói quen chat thành một gói làm việc đủ nặng để giữ chân người dùng trả phí.",
+      valueLead: "Giá trị tăng mạnh nhất của ChatGPT nằm ở việc người dùng có thể làm nhiều việc hơn trong cùng một tab: hỏi đáp, nghiên cứu, viết, code, tạo media và cộng tác.",
+      cautionLead: "Phần cần soi kỹ là giới hạn sử dụng thực tế, sự khác biệt giữa từng tier và việc những tính năng nghe rất mạnh có thật sự giải được việc thường ngày hay không.",
+      marketLead: "OpenAI đang mạnh ở thói quen sử dụng và lực kéo sản phẩm, nhưng cũng bị so sánh trực diện hơn về giá trên từng tính năng khi Google, Anthropic và Microsoft đồng loạt dồn lực vào gói AI.",
+      marketFallback: "OpenAI đang dẫn về mức độ hiện diện trong đời sống người dùng, nhưng áp lực giữ giá trị gói cũng lớn hơn bất kỳ đối thủ nào.",
+      takeLead: "Patrick Tech Media cho rằng OpenAI đang thắng ở chỗ biến AI thành điểm bắt đầu mặc định cho rất nhiều tác vụ, chứ không chỉ ở benchmark.",
+      takeClose: "Nhưng lợi thế này chỉ bền nếu mỗi đợt nâng gói thực sự giúp người dùng làm được nhiều việc hơn thay vì chỉ thêm một lớp hype mới."
+    },
+    anthropic: {
+      title: "Claude đang leo lên phân khúc nào: giá trị của các gói Anthropic giờ nằm ở code, dự án hay độ tin cậy",
+      slug: "claude-dang-leo-len-phan-khuc-nao",
+      summaryLead: "Anthropic không ồn ào như nhiều đối thủ, nhưng các gói Claude đang được soi kỹ vì ảnh hưởng trực tiếp tới giới làm việc với code, tài liệu dài và những dự án cần độ ổn định.",
+      summaryClose: "Điểm đáng đọc là Anthropic đang cố biến sự điềm tĩnh của sản phẩm thành một lý do trả phí thuyết phục hơn.",
+      summaryFallback: "Bài này gom các thay đổi đáng chú ý quanh Claude để nhìn rõ Anthropic đang tăng giá trị cho người dùng trả tiền ở lớp nào.",
+      dekLead: "Nếu OpenAI hút ở độ phổ biến và Google hút ở hệ sinh thái, Anthropic lại cố giữ chỗ đứng bằng chất lượng viết, xử lý ngữ cảnh dài và cảm giác đáng tin với người dùng chuyên môn hơn.",
+      dekClose: "Câu hỏi cần trả lời là liệu các gói mới có biến lợi thế đó thành giá trị dễ cảm hơn trong công việc hàng ngày hay chưa.",
+      dekFallback: "Đây là bài cho người đang dùng Claude để viết, đọc tài liệu dài hoặc code và muốn biết gói trả phí có thực sự đang dày lên.",
+      hookLead: "Claude không cần thắng bằng tiếng ồn, nhưng muốn giữ người dùng trả phí thì Anthropic buộc phải chứng minh từng đợt cập nhật đang đem lại ích lợi rõ ràng hơn.",
+      hookFallback: "Điểm đáng mở ở Claude lúc này là cách Anthropic đang biến một sản phẩm được khen là ổn định thành một gói có lý do để người dùng tiếp tục chi tiền.",
+      valueLead: "Giá trị tăng ở Claude thường lộ ra trong các việc cần ngữ cảnh dài, giọng viết gọn, khả năng đọc tài liệu sạch và môi trường làm việc yên ổn cho nhóm làm nội dung hoặc code.",
+      cautionLead: "Điều nên soi kỹ là giới hạn thực tế theo gói, độ khác biệt giữa bản miễn phí và bản trả phí, cùng tốc độ Anthropic mở rộng tính năng mới so với các hãng đang tung sản phẩm dồn dập hơn.",
+      marketLead: "Anthropic đang chơi ở phần thị trường cần độ tin cậy và chất lượng phản hồi cao, nhưng áp lực là phải làm người dùng cảm được giá trị gói rõ hơn thay vì chỉ được khen bằng lời.",
+      marketFallback: "Claude có thể không ồn nhất, nhưng lại thường được đặt vào các bài toán cần sự đều tay và an tâm hơn về đầu ra.",
+      takeLead: "Patrick Tech Media nhìn Claude như một gói AI mạnh ở sự dùng được lâu, không quá rực rỡ nhưng dễ ăn vào quy trình công việc thật.",
+      takeClose: "Nếu Anthropic tiếp tục mở rộng đúng hướng cho code và project context, đây sẽ là lựa chọn rất khó bỏ với nhóm người dùng chuyên sâu."
+    },
+    microsoft: {
+      title: "Microsoft đang đẩy Copilot vào gói nào: từ cá nhân tới doanh nghiệp, giá trị mới nằm ở tích hợp hay quản trị",
+      slug: "microsoft-dang-day-copilot-vao-goi-nao",
+      summaryLead: "Microsoft đang làm điều rất khác so với phần còn lại: hãng không chỉ bán Copilot như một AI riêng lẻ mà tìm cách gài nó thẳng vào M365, Windows và hạ tầng doanh nghiệp.",
+      summaryClose: "Vì vậy, mọi thay đổi trong gói Copilot cần được đọc như thay đổi của một bộ công cụ làm việc lớn, không phải một app đơn lẻ.",
+      summaryFallback: "Bài này gom các thay đổi đáng chú ý nhất quanh Copilot để nhìn rõ Microsoft đang tăng giá trị ở lớp cá nhân hay doanh nghiệp.",
+      dekLead: "Người dùng cá nhân sẽ để ý xem Copilot có đủ mạnh để thay thói quen cũ không, còn doanh nghiệp sẽ nhìn vào quản trị, dữ liệu, bảo mật và độ ăn khớp với Microsoft 365.",
+      dekClose: "Đó là thế mạnh riêng của Microsoft nhưng cũng là áp lực lớn: càng tích hợp sâu, kỳ vọng giá trị thực càng cao.",
+      dekFallback: "Đây là bài cho người đang cân nhắc Copilot trong hệ sinh thái Microsoft và muốn biết khoản chi có đang đổi lại nhiều hơn trước không.",
+      hookLead: "Microsoft có lợi thế sân nhà trong môi trường doanh nghiệp, nhưng để gói Copilot thật sự hút, hãng phải chứng minh AI đang rút ngắn việc chứ không chỉ thêm một nút mới.",
+      hookFallback: "Điểm đáng đọc ở Copilot lúc này là cách Microsoft biến AI thành lớp mặc định trong công cụ mà doanh nghiệp vốn đã trả tiền từ trước.",
+      valueLead: "Giá trị tăng rõ nhất của Copilot nằm ở độ ăn vào Windows, Outlook, Word, Excel, Teams và những lớp quản trị quen thuộc của doanh nghiệp.",
+      cautionLead: "Phần nên soi kỹ là chi phí trên từng ghế, quyền hạn theo gói, và việc tính năng AI có thật sự được mở rộng đủ sâu cho người dùng cuối hay chủ yếu mạnh ở phần trình diễn quản trị.",
+      marketLead: "So với các đối thủ, Microsoft đang lợi ở độ bám vào môi trường công ty và dữ liệu công việc sẵn có, nhưng cũng bị đòi hỏi khắt khe hơn về hiệu quả trên từng đồng chi ra.",
+      marketFallback: "Copilot đang đứng ở giao điểm giữa AI và bộ công cụ văn phòng, nên bất kỳ thay đổi nào cũng có thể chạm tới một lượng người dùng rất lớn.",
+      takeLead: "Patrick Tech Media đánh giá Microsoft mạnh ở khả năng biến AI thành một lớp hạ tầng mặc định thay vì sản phẩm đứng riêng.",
+      takeClose: "Nếu hãng tiếp tục làm tốt bài toán tích hợp sâu nhưng giữ được chi phí hợp lý, Copilot sẽ còn là một trong những gói khó tránh nhất của khối doanh nghiệp."
+    },
+    xai: {
+      title: "xAI đang cố bán Grok theo kiểu nào: sức hút mới nằm ở tính năng, tốc độ hay hệ sinh thái",
+      slug: "xai-dang-co-ban-grok-theo-kieu-nao",
+      summaryLead: "xAI đang cố đẩy Grok thành một gói đáng trả tiền hơn thay vì chỉ là sản phẩm ăn theo độ nóng của mạng xã hội.",
+      summaryClose: "Điểm cần soi là giá trị thực tế đang tăng ở đâu và có đủ bền để giữ người dùng hay không.",
+      summaryFallback: "Bài này gom những thay đổi mới nhất quanh các gói Grok để nhìn rõ xAI đang bán giá trị nào.",
+      dekLead: "Grok có lợi thế về tốc độ và nhịp cập nhật, nhưng muốn đi xa hơn thì gói trả phí phải chứng minh được chiều sâu sử dụng.",
+      dekClose: "Chính vì vậy, thị trường đang nhìn vào việc xAI thêm quyền lợi gì chứ không chỉ nhìn vào độ ồn ào.",
+      dekFallback: "Đây là bài cho người đang tò mò Grok có đang trở thành một gói đáng trả tiền hay chưa.",
+      hookLead: "xAI có thể tạo nhiều sự chú ý rất nhanh, nhưng giá trị của gói AI chỉ lộ ra khi nó giải quyết được việc thật.",
+      hookFallback: "Điểm đáng đọc ở Grok là xem sự mới mẻ có đang được đổi thành ích lợi bền hơn cho người dùng hay chưa.",
+      valueLead: "Giá trị tăng, nếu có, phải đến từ tính năng dùng thường xuyên, tốc độ tốt và cảm giác đỡ phải bật thêm công cụ khác.",
+      cautionLead: "Phần nên soi là độ ổn định, chiều sâu của gói và việc quyền lợi mới có mang tính lâu dài hay chỉ là hiệu ứng ngắn hạn.",
+      marketLead: "xAI đang đứng ở phần thị trường nơi sự tò mò rất lớn, nhưng muốn ở lại thì gói trả phí phải bền hơn phần ồn ào ban đầu.",
+      marketFallback: "Grok có thể hút nhanh, nhưng thị trường sẽ giữ lại hay không còn phụ thuộc vào giá trị dùng thật.",
+      takeLead: "Patrick Tech Media xem Grok là một biến số thú vị, nhưng cần thêm thời gian để chứng minh độ bền của cả gói.",
+      takeClose: "Nếu xAI biến được nhịp ra mắt nhanh thành lợi ích rõ ràng cho người dùng, cuộc đua gói AI sẽ còn chật hơn nữa."
+    }
+  };
+
+  const en = {
+    google: {
+      title: "What Google just changed in AI plans: 5 TB, Workspace, and NotebookLM are now part of the same value fight",
+      slug: "what-google-just-changed-in-ai-plans",
+      summaryLead: "Google is shifting the AI plan battle onto more practical ground: larger storage, deeper Gemini inside Workspace, and a NotebookLM stack that feels closer to a real research assistant.",
+      summaryClose: "The real story is not the 5 TB number by itself, but the way Google is bundling storage, models, and workflow tools into a more persuasive package.",
+      summaryFallback: "This piece pulls together the latest changes across Google AI Pro, Workspace, and NotebookLM to show where the real value is growing.",
+      dekLead: "Individual users will read the price and storage first, while business buyers will go straight to integrated Gemini, privacy promises, and how much AI now feels native inside everyday work.",
+      dekClose: "Taken together, those layers show Google selling a usable AI ecosystem rather than a single model access tier.",
+      dekFallback: "This is for readers comparing one-off AI subscriptions with a fuller Google ecosystem bet.",
+      hookLead: "Google used to look like a collection of separate AI pieces. The current move is about making those pieces feel like one package people can justify paying for.",
+      hookFallback: "The reason this update matters is that Google is changing the feel of paying for AI across the whole stack, not just changing one spec line.",
+      valueLead: "The most visible gain is in reducing how many separate bills users need for storage, Gemini, NotebookLM, and creative tooling.",
+      cautionLead: "The part worth checking closely is regional availability, which model tiers are truly unlocked, and whether privacy promises stay consistent from Docs and Gmail through Meet.",
+      marketLead: "Google is strongest where AI meets storage and productivity, but that also means every change is tested against real daily usefulness, not launch-page energy.",
+      marketFallback: "Google now sits at the intersection of storage, AI, and productivity, so every package change lands directly on paying users.",
+      takeLead: "Patrick Tech Media sees this as a shift from selling AI as a feature line to selling it as a workflow system.",
+      takeClose: "If Google can hold price discipline while making Workspace and NotebookLM feel more coherent, this will be one of the easiest premium AI bundles to justify this year."
+    },
+    openai: {
+      title: "What ChatGPT is really selling in 2026: do Plus, Pro, Team, and the newer utility layers justify the spend",
+      slug: "what-chatgpt-is-really-selling-in-2026",
+      summaryLead: "OpenAI still pulls the largest mainstream audience into paid AI, but the market is no longer only measuring model launches. It is measuring the value density of the whole ChatGPT package.",
+      summaryClose: "As Sora, Deep Research, agent layers, and collaboration features expand, the question becomes less about raw strength and more about what the subscription meaningfully unlocks.",
+      summaryFallback: "This piece gathers the latest changes around ChatGPT plans to show what OpenAI is selling beyond model prestige.",
+      dekLead: "Paid users are no longer buying only a chat box. They are buying speed, higher limits, earlier access to new tools, and a tighter place for research, writing, coding, and media generation.",
+      dekClose: "That is why OpenAI now has to be read as a subscription-value company, not just a model-launch machine.",
+      dekFallback: "This is for readers already paying for ChatGPT, or close to it, who want a clearer picture of what the spend now buys.",
+      hookLead: "ChatGPT still has the easiest pull, but the more bundle layers OpenAI adds, the more readers need to separate durable value from brand gravity.",
+      hookFallback: "The real story in OpenAI's current move is how it keeps turning a chat habit into a heavier paid workflow.",
+      valueLead: "ChatGPT gains value when it lets users research, write, code, organize, and create without jumping across too many tabs or separate products.",
+      cautionLead: "The critical check is usage limits, the practical differences between tiers, and whether the headline features solve everyday work or mostly sell the idea of future value.",
+      marketLead: "OpenAI remains strongest in user habit and product pull, but that also makes it easier to compare its pricing feature by feature against Google, Anthropic, and Microsoft.",
+      marketFallback: "OpenAI still has the broadest default footprint in day-to-day AI use, which makes each plan change more visible than most rivals.",
+      takeLead: "Patrick Tech Media thinks OpenAI is strongest when it turns AI into a default starting point for many tasks, not only when it wins a benchmark cycle.",
+      takeClose: "That edge stays meaningful only if each plan update increases real usefulness instead of stacking more hype on top of an already sticky product."
+    },
+    anthropic: {
+      title: "Where Claude is moving upmarket: does Anthropic now win on code, project depth, or day-to-day trust",
+      slug: "where-claude-is-moving-upmarket",
+      summaryLead: "Anthropic is quieter than most of the field, but Claude plans now matter more because they touch coding, long-context reading, and project work where stability counts.",
+      summaryClose: "The interesting part is how Anthropic is trying to turn that calmer product reputation into a stronger paid-plan argument.",
+      summaryFallback: "This piece gathers the latest Claude plan shifts to show where Anthropic is increasing paid value.",
+      dekLead: "If OpenAI wins on ubiquity and Google wins on ecosystem gravity, Anthropic is trying to hold space through writing quality, long-context work, and a more trustworthy feel for specialist users.",
+      dekClose: "The market question is whether those strengths now feel concrete enough in the paid tiers.",
+      dekFallback: "This is for readers using Claude for writing, long documents, or code and trying to judge whether the paid layers are actually becoming denser.",
+      hookLead: "Claude does not need to win by noise, but Anthropic still has to show that each paid update adds value people can feel without reading a benchmark thread first.",
+      hookFallback: "The reason to open Claude coverage now is to see how Anthropic is turning a respected product into a more persuasive subscription.",
+      valueLead: "Claude tends to show its value in long-context reading, cleaner writing tone, coding support, and calmer project work rather than flashier feature spikes.",
+      cautionLead: "The part worth checking is the real gap between free and paid tiers, plus how fast Anthropic expands new capabilities compared with louder rivals.",
+      marketLead: "Anthropic is strongest in the slice of the market that values steadiness and output quality, but that also means the company must make paid value easier to feel, not just easier to praise.",
+      marketFallback: "Claude may be quieter, but it keeps getting pulled into workflows where consistent output matters more than launch drama.",
+      takeLead: "Patrick Tech Media reads Claude as a plan built for long-term use rather than short-term spectacle.",
+      takeClose: "If Anthropic keeps expanding the right layers for coding and project context, Claude will stay hard to replace for serious users."
+    },
+    microsoft: {
+      title: "What Microsoft is really doing with Copilot plans: is the new value in integration, management, or both",
+      slug: "what-microsoft-is-really-doing-with-copilot-plans",
+      summaryLead: "Microsoft is playing a different game from most rivals. It is not only selling Copilot as a standalone AI product, but embedding it across Microsoft 365, Windows, and enterprise workflows.",
+      summaryClose: "That means every Copilot plan change has to be read as a change to a working stack, not just to a separate AI app.",
+      summaryFallback: "This piece brings together the latest Copilot plan changes to show where Microsoft is increasing value for individual and business buyers.",
+      dekLead: "Consumers will look at whether Copilot is useful enough to replace older habits, while business teams will focus on management, security, data handling, and how deeply AI is woven into Microsoft 365.",
+      dekClose: "That is Microsoft's clearest advantage, but it also raises the bar on proving real value.",
+      dekFallback: "This is for readers considering Copilot inside the Microsoft stack and trying to see whether the spend is now easier to justify.",
+      hookLead: "Microsoft has home-field advantage in enterprise software, but for Copilot plans to feel compelling the company still has to prove that AI is saving work instead of adding another interface layer.",
+      hookFallback: "The reason to watch Copilot now is how Microsoft keeps turning AI into a default layer inside tools people already pay for.",
+      valueLead: "The strongest Copilot value usually appears in how well it plugs into Windows, Outlook, Word, Excel, Teams, and the management layer businesses already trust.",
+      cautionLead: "The part worth checking is seat-based pricing, which capabilities land in which tier, and whether the user-facing AI experience is deep enough to match the strength of the admin story.",
+      marketLead: "Compared with rivals, Microsoft is strongest where AI meets enterprise habits and existing work data, but that also makes every dollar spent easier to scrutinize.",
+      marketFallback: "Copilot sits at the intersection of AI and office software, so even small plan changes can touch a very large paying audience.",
+      takeLead: "Patrick Tech Media sees Microsoft at its best when AI becomes infrastructure rather than a separate product tab.",
+      takeClose: "If the company keeps deepening integration without overloading the price, Copilot will remain one of the hardest enterprise AI bundles to avoid."
+    },
+    xai: {
+      title: "How xAI is trying to sell Grok as a package: is the draw now speed, features, or ecosystem reach",
+      slug: "how-xai-is-trying-to-sell-grok-as-a-package",
+      summaryLead: "xAI is trying to make Grok look like a stronger paid package instead of a product that only rides social velocity and novelty.",
+      summaryClose: "The real question is where the practical value is thickening and whether it is durable enough to hold paying users.",
+      summaryFallback: "This piece gathers the latest Grok package shifts to show what xAI is really trying to sell.",
+      dekLead: "Grok has energy and speed on its side, but a paid plan only becomes sticky when the day-to-day value deepens.",
+      dekClose: "That is why the market is watching the package, not just the noise around it.",
+      dekFallback: "This is for readers wondering whether Grok is becoming a paid AI plan with lasting value.",
+      hookLead: "xAI can generate attention quickly, but AI package value only becomes real when it consistently removes work.",
+      hookFallback: "The reason to watch Grok now is to see whether novelty is turning into lasting usefulness.",
+      valueLead: "If Grok is becoming more valuable, the change has to show up in repeated use, fast output, and fewer reasons to open extra tools.",
+      cautionLead: "The part worth checking is plan stability, feature depth, and whether the package gains feel durable rather than promotional.",
+      marketLead: "xAI is operating where curiosity is high, but long-term retention will still depend on whether the package is more than a loud first impression.",
+      marketFallback: "Grok can attract attention fast, but the market will decide its staying power through paid usefulness.",
+      takeLead: "Patrick Tech Media sees Grok as an interesting variable, but one that still needs more proof at the package level.",
+      takeClose: "If xAI turns launch speed into steady user value, the AI plan race gets tighter for everyone else."
+    }
+  };
+
+  const languageMap = language === "vi" ? vi : en;
+  const meta = languageMap[providerKey] || languageMap.google;
+
+  return {
+    label,
+    ...meta
+  };
+}
+
+function buildCompanionArticleShell({
+  id,
+  clusterId,
+  slug,
+  title,
+  summary,
+  dek,
+  hook,
+  language,
+  topic,
+  contentType,
+  verificationState,
+  sources,
+  sections,
+  image,
+  now,
+  publishedAt,
+  authorId,
+  relatedStoreItems,
+  editorialFocus
+}) {
+  return {
+    id,
+    cluster_id: clusterId,
+    language,
+    topic,
+    content_type: contentType,
+    slug,
+    title,
+    summary,
+    dek,
+    hook,
+    sections,
+    verification_state: verificationState,
+    quality_score: Math.min(98, 90 + Math.min(6, sources.length)),
+    ad_eligible: verificationState !== "trend",
+    show_editorial_label: false,
+    indexable: true,
+    editorial_focus: editorialFocus,
+    store_link_mode: contentType === "ComparisonPage" || contentType === "EvergreenGuide" ? "full" : resolveStoreLinkMode(topic, contentType),
+    related_store_items: relatedStoreItems,
+    source_set: sources,
+    author_id: authorId,
+    published_at: publishedAt,
+    updated_at: now || publishedAt,
+    image
+  };
+}
+
+function detectAiPlanProviders(members) {
+  return Object.entries(AI_PROVIDER_LABELS)
+    .filter(([providerKey]) => members.some((article) => articleMatchesAiProvider(article, providerKey)))
+    .map(([, label]) => label);
+}
+
+function formatProviderList(providers, language) {
+  const items = [...providers].slice(0, 4);
+
+  if (!items.length) {
+    return language === "vi" ? "các hãng AI lớn" : "major AI vendors";
+  }
+
+  if (items.length === 1) {
+    return items[0];
+  }
+
+  if (items.length === 2) {
+    return `${items[0]} ${language === "vi" ? "và" : "and"} ${items[1]}`;
+  }
+
+  const tail = items.pop();
+  return `${items.join(", ")} ${language === "vi" ? "và" : "and"} ${tail}`;
+}
+
 function computeTokenSimilarity(leftTokens, rightTokens) {
   const leftSet = new Set(leftTokens);
   const rightSet = new Set(rightTokens);
@@ -192,7 +1040,11 @@ function buildClusterTitle({ lead, language, contentType }) {
   return language === "vi" ? "Tin công nghệ đáng theo dõi ngay lúc này" : "A technology story worth following right now";
 }
 
-function buildClusterSummary({ members, lead, sources, pool, language, topic, contentType, verificationState }) {
+function buildClusterSummary({ members, lead, sources, pool, language, topic, contentType, verificationState, lens }) {
+  if (lens === "ai-package") {
+    return buildAiPackageClusterSummary({ lead, sources, pool, language, verificationState });
+  }
+
   const opening = firstUsefulSentence([
     lead.summary,
     lead.dek,
@@ -216,7 +1068,11 @@ function buildClusterSummary({ members, lead, sources, pool, language, topic, co
   );
 }
 
-function buildClusterDek({ lead, sources, pool, language, topic, contentType, verificationState }) {
+function buildClusterDek({ lead, sources, pool, language, topic, contentType, verificationState, lens }) {
+  if (lens === "ai-package") {
+    return buildAiPackageClusterDek({ lead, sources, pool, language, verificationState });
+  }
+
   const opening = firstUsefulSentence([
     lead.dek,
     lead.summary,
@@ -232,7 +1088,11 @@ function buildClusterDek({ lead, sources, pool, language, topic, contentType, ve
   );
 }
 
-function buildClusterHook({ lead, sources, pool, language, topic, contentType, verificationState }) {
+function buildClusterHook({ lead, sources, pool, language, topic, contentType, verificationState, lens }) {
+  if (lens === "ai-package") {
+    return buildAiPackageClusterHook({ lead, sources, pool, language, verificationState });
+  }
+
   const opening = firstUsefulSentence([
     lead.hook,
     lead.summary,
@@ -249,7 +1109,7 @@ function buildClusterHook({ lead, sources, pool, language, topic, contentType, v
   );
 }
 
-function buildClusterSections({ members, lead, sources, pool, language, topic, contentType, verificationState }) {
+function buildClusterSections({ members, lead, sources, pool, language, topic, contentType, verificationState, lens }) {
   if (contentType === "EvergreenGuide") {
     return buildGuideSections({ lead, sources, pool, language, topic, verificationState });
   }
@@ -258,7 +1118,144 @@ function buildClusterSections({ members, lead, sources, pool, language, topic, c
     return buildComparisonSections({ lead, sources, pool, language, topic, verificationState });
   }
 
+  if (lens === "ai-package") {
+    return buildAiPackageClusterSections({ lead, sources, pool, language, verificationState });
+  }
+
   return buildNewsSections({ members, lead, sources, pool, language, topic, verificationState });
+}
+
+function buildAiPackageClusterSummary({ lead, sources, pool, language, verificationState }) {
+  const providers = formatProviderList(detectAiPlanProviders([lead]), language);
+  return composeParagraph(
+    [
+      firstUsefulSentence([lead.summary, lead.dek, lead.hook]),
+      language === "vi"
+        ? `${providers} đang kéo cuộc đua gói AI sang phần dùng thật: giá, dung lượng, model mạnh hơn và quyền lợi tích hợp vào công việc hằng ngày.`
+        : `${providers} are pulling the AI plan race into practical use: price, storage, stronger models, and bundle rights that land in everyday work.`,
+      buildCorroborationSentence(sources, language, verificationState),
+      firstUnusedSentences(pool, [lead.summary], 1)[0]
+    ],
+    language === "vi"
+      ? "Đây không còn là câu chuyện thêm một dòng quyền lợi vào bảng giá, mà là cuộc đua xem hãng nào đang tăng giá trị thật cho người dùng trả tiền."
+      : "This is no longer just a pricing-table footnote, but a race to see which vendor is increasing real value for paying users.",
+    190
+  );
+}
+
+function buildAiPackageClusterDek({ lead, sources, pool, language, verificationState }) {
+  return composeParagraph(
+    [
+      firstUsefulSentence([lead.dek, lead.summary, lead.sections?.[1]?.body]),
+      language === "vi"
+        ? "Điểm nên nhìn tiếp không chỉ là con số giá hay dung lượng, mà là model nào được mở, công cụ nào được gói kèm, dữ liệu được bảo vệ đến đâu và liệu gói đó có thực sự bớt cho người dùng vài bước mua thêm dịch vụ lẻ."
+        : "The useful read is not just the monthly price or storage number, but which model tier gets unlocked, which tools are bundled, how the data is protected, and whether the plan actually removes the need for extra side subscriptions.",
+      buildNuanceSentence({ language, topic: "ai", verificationState, sourceCount: sources.length }),
+      firstUnusedSentences(pool, [lead.summary, lead.dek], 1)[0]
+    ],
+    language === "vi"
+      ? "Kiểu bài này đáng đọc khi bạn đang trả tiền cho AI, lưu trữ hoặc Workspace và muốn biết khoản chi đó đang đổi lại được gì rõ ràng hơn."
+      : "This kind of piece matters when you are already paying for AI, storage, or a workspace stack and want a clearer answer on what that spend now buys.",
+    160
+  );
+}
+
+function buildAiPackageClusterHook({ lead, sources, pool, language, verificationState }) {
+  return composeParagraph(
+    [
+      language === "vi"
+        ? "Cuộc đua gói AI đang rời khỏi phần trình diễn để bước vào phần dùng thật. Khi một hãng tăng dung lượng, mở thêm model, nhét nghiên cứu hay tạo nội dung vào cùng một gói mà không đội giá quá mạnh, người đọc có lý do để xem lại toàn bộ quyết định trả tiền của mình."
+        : "The AI subscription race is moving out of demo mode and into practical use. When a vendor adds more storage, unlocks stronger models, or folds research and creation into the same plan without blowing up the price, readers have a reason to rethink what they are paying for.",
+      buildHookAngle({ language, topic: "ai", contentType: "NewsArticle", verificationState, sourceCount: sources.length }),
+      firstUnusedSentences(pool, [lead.summary, lead.dek], 1)[0]
+    ],
+    firstUsefulSentence([lead.hook, lead.summary]),
+    180
+  );
+}
+
+function buildAiPackageClusterSections({ lead, sources, pool, language, verificationState }) {
+  const headings = language === "vi"
+    ? [
+        "Điểm nâng cấp đáng chú ý",
+        "Giá và quyền lợi nên nhìn vào đâu",
+        "Lớp AI nào đang kéo giá trị lên",
+        "Ai nên để mắt",
+        "Patrick Tech Media đánh giá"
+      ]
+    : [
+        "The upgrade worth noting",
+        "Where to look at price and bundle value",
+        "Which AI layers are lifting the plan",
+        "Who should pay attention",
+        "Patrick Tech Media take"
+      ];
+
+  return [
+    {
+      heading: headings[0],
+      body: composeParagraph(
+        [
+          lead.summary,
+          lead.sections?.[0]?.body,
+          buildCorroborationSentence(sources, language, verificationState)
+        ],
+        lead.summary,
+        170
+      )
+    },
+    {
+      heading: headings[1],
+      body: composeParagraph(
+        [
+          lead.dek,
+          language === "vi"
+            ? "Ở gói AI, phần quan trọng không nằm ở việc tăng thêm bao nhiêu TB trên giấy, mà là giá có giữ được không, model nào được dùng thật, giới hạn vùng có còn chặt không và quyền riêng tư dữ liệu được cam kết tới đâu."
+            : "On AI plans, the critical read is not just the extra terabytes on paper, but whether pricing stays stable, which model tier is actually unlocked, how tight the regional limits remain, and how clearly data privacy is promised."
+        ],
+        buildSourceTrailSentence(sources, language),
+        170
+      )
+    },
+    {
+      heading: headings[2],
+      body: composeParagraph(
+        [
+          firstUnusedSentences(pool, [lead.summary, lead.dek], 2),
+          language === "vi"
+            ? "Điều làm câu chuyện này đáng đọc là lớp AI đi kèm đang chạm vào công cụ dùng thật như email, tài liệu, nghiên cứu, tạo hình ảnh, video hoặc ghi chú, thay vì chỉ dừng ở một demo riêng lẻ."
+            : "What makes this worth opening is that the bundled AI touches real tools like mail, docs, research, image generation, video, or note-taking instead of sitting as a standalone demo."
+        ],
+        buildImpactSentence("ai", language, "NewsArticle"),
+        170
+      )
+    },
+    {
+      heading: headings[3],
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Người nên theo dõi kỹ nhất là nhóm đang cùng lúc trả tiền cho lưu trữ, tài liệu, họp, sáng tạo nội dung và AI. Nếu một gói gom được nhiều lớp đó vào cùng một hóa đơn, giá trị thực sẽ lộ ra rất nhanh. Còn người chỉ dùng AI để hỏi đáp lẻ, bản miễn phí hoặc gói thấp hơn có thể vẫn đủ."
+            : "The readers who should watch most closely are the ones already paying for storage, docs, meetings, content creation, and AI at the same time. If one plan truly bundles those layers, the value will surface quickly. Readers using AI only for occasional prompts may still be fine on lighter or free tiers."
+        ],
+        buildAssessmentSentence({ language, topic: "ai", contentType: "NewsArticle", verificationState, sourceCount: sources.length }),
+        170
+      )
+    },
+    {
+      heading: headings[4],
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Patrick Tech Media nhìn các thay đổi kiểu này như một cuộc đua giá trị dùng thật. Gói nào giúp người dùng bớt phải mua thêm dịch vụ rời, bớt nhảy giữa nhiều công cụ và giữ được chất lượng AI ổn định sẽ là gói có lợi thế lâu hơn nhiều so với phần truyền thông ban đầu."
+            : "Patrick Tech Media reads moves like this as a race for practical value. The plan that removes the need for extra side services, reduces switching between tools, and keeps AI quality stable will hold an advantage longer than the launch buzz.",
+          buildCoverageSentence({ language, members: 1, sources: sources.length })
+        ],
+        buildForwardLook("ai", lead.title, language),
+        180
+      )
+    }
+  ];
 }
 
 function buildNewsSections({ members, lead, sources, pool, language, topic, verificationState }) {
@@ -725,6 +1722,62 @@ function buildCoverageSentence({ language, members, sources }) {
     : `In this pass, the story was distilled from ${members} signals into ${sources} source references that are genuinely useful to readers.`;
 }
 
+function resolveEditorialLens({ lead, members, sources, topic, contentType }) {
+  if (contentType === "EvergreenGuide") {
+    return "guide";
+  }
+
+  if (contentType === "ComparisonPage") {
+    return "comparison";
+  }
+
+  const haystack = [
+    lead?.title,
+    lead?.summary,
+    lead?.dek,
+    lead?.hook,
+    ...(lead?.sections || []).flatMap((section) => [section.heading, section.body]),
+    ...(members || []).flatMap((member) => [member.title, member.summary, member.dek]),
+    ...(sources || []).flatMap((source) => [source.source_name, source.source_url])
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  if (hasAiPackageSignals(haystack) && ["ai", "apps-software", "internet-business-tech"].includes(normalizeTopic(topic))) {
+    return "ai-package";
+  }
+
+  return "news";
+}
+
+function resolveEditorialFocus({ topic, contentType, lens }) {
+  const focus = new Set();
+
+  if (topic) {
+    focus.add(normalizeTopic(topic));
+  }
+
+  if (lens === "ai-package") {
+    focus.add("ai-package");
+  }
+
+  if (contentType === "ComparisonPage") {
+    focus.add("comparison");
+  }
+
+  if (contentType === "EvergreenGuide") {
+    focus.add("tips");
+    focus.add("guide");
+  }
+
+  return [...focus];
+}
+
+function hasAiPackageSignals(value) {
+  const text = cleanText(value);
+  return /\b(google ai pro|google ai ultra|google ai plus|google one|workspace|gemini advanced|notebooklm|veo|lyria|chatgpt plus|chatgpt pro|chatgpt team|claude pro|claude max|copilot pro|microsoft 365 copilot|subscription|pricing|bundle|package|plan|storage|5tb|2tb|monthly|annual|trả phí|gói ai|dung lượng)\b/i.test(text);
+}
+
 function buildFallbackSummary({ language, topic, contentType, sources, members }) {
   if (contentType === "EvergreenGuide") {
     return language === "vi"
@@ -932,10 +1985,10 @@ function collectSentencePool(members) {
     ];
 
     for (const sentence of texts.flatMap(splitSentences)) {
-      const normalized = cleanText(sentence);
+      const normalized = normalizeEditorialSentence(sentence);
       const signature = normalizeCompact(normalized);
 
-      if (!normalized || normalized.length < 50 || seen.has(signature)) {
+      if (!normalized || seen.has(signature)) {
         continue;
       }
 
@@ -949,7 +2002,9 @@ function collectSentencePool(members) {
 
 function firstUsefulSentence(values) {
   for (const value of values.flat().filter(Boolean)) {
-    const sentence = splitSentences(value).find((entry) => entry.length >= 60);
+    const sentence = splitSentences(value)
+      .map((entry) => normalizeEditorialSentence(entry, 60))
+      .find(Boolean);
 
     if (sentence) {
       return finishSentence(sentence);
@@ -964,14 +2019,15 @@ function firstUnusedSentences(pool, usedValues, count) {
   const picked = [];
 
   for (const value of pool) {
-    const signature = normalizeCompact(value);
+    const normalized = normalizeEditorialSentence(value);
+    const signature = normalizeCompact(normalized);
 
-    if (used.has(signature)) {
+    if (!normalized || used.has(signature)) {
       continue;
     }
 
     used.add(signature);
-    picked.push(finishSentence(value));
+    picked.push(finishSentence(normalized));
 
     if (picked.length >= count) {
       break;
@@ -981,13 +2037,33 @@ function firstUnusedSentences(pool, usedValues, count) {
   return picked;
 }
 
+function normalizeEditorialSentence(value, minLength = 50) {
+  const normalized = cleanText(value);
+
+  if (!normalized || normalized.length < minLength || hasEncodingArtifacts(normalized) || isWeakEditorialSentence(normalized)) {
+    return "";
+  }
+
+  return normalized;
+}
+
+function isWeakEditorialSentence(value) {
+  return /(search results|all search results|affiliate links?|best daily deals|newsletter|toggle dark mode|toggle search form|privacy policy|cookie policy|terms of use|all rights reserved|copyright|learn more|read more|sign up|sign in|log in|login|follow us|watch now|shop now|source image pending|reference image from|add .* on google|android authority on google|headphone deals|robot vacuum deals|deviled eggs|roasted chicken|recipe|restaurant|vacation|travel tips|easter|grubhub|uber eats|for more than \d+ years|we['’]ve invested in|make everyday life better|our mission is|today we are announcing|available everywhere our ai plans are available|copy link|link bài gốc|lấy link|google cloud community|google workspace admins like you)/i.test(
+    value
+  );
+}
+
+function hasEncodingArtifacts(value) {
+  return /(?:Ã|Â|Ä|Ă|Å|Æ|áº|á»|â€|â€™|â€œ|â€|Ă¢â‚¬)/.test(String(value || ""));
+}
+
 function composeParagraph(values, fallback, minLength = 140) {
   const parts = [];
   const seen = new Set();
 
   for (const value of values.flat().filter(Boolean)) {
     for (const sentence of splitSentences(value)) {
-      const normalized = cleanText(sentence);
+      const normalized = normalizeEditorialSentence(sentence, 38);
       const signature = normalizeCompact(normalized);
 
       if (!normalized || seen.has(signature)) {
@@ -1196,13 +2272,24 @@ function normalizeTopic(topic) {
     return "internet-business-tech";
   }
 
-  return cleanText(topic) || "ai";
+  return cleanText(topic) || "internet-business-tech";
 }
 
 function formatSourceNames(sources, language, limit = 3) {
+  const seen = new Set();
   const names = sources
     .map((source) => cleanText(source?.source_name))
     .filter(Boolean)
+    .filter((name) => {
+      const key = normalizeCompact(name);
+
+      if (!key || seen.has(key)) {
+        return false;
+      }
+
+      seen.add(key);
+      return true;
+    })
     .slice(0, limit);
 
   if (!names.length) {
@@ -1257,3 +2344,4 @@ function normalizeCompact(value) {
 function slugify(value) {
   return normalizeCompact(value) || `story-${crypto.randomUUID().slice(0, 8)}`;
 }
+

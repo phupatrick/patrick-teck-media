@@ -75,15 +75,15 @@ function buildWebControlState(state) {
       sourceTypeWeights
     },
     frontpageCopy: {
-      vi: buildFrontpageCopy(state, "vi", priorityTopics),
-      en: buildFrontpageCopy(state, "en", priorityTopics)
+      vi: normalizeFrontpageCopy(buildFrontpageCopy(state, "vi", priorityTopics), "vi"),
+      en: normalizeFrontpageCopy(buildFrontpageCopy(state, "en", priorityTopics), "en")
     }
   };
 }
 
 function rankTopics(articles) {
-  const editorialOrder = ["ai", "internet-business-tech", "security", "apps-software", "devices", "gaming"];
-  const scores = new Map(editorialOrder.map((topic, index) => [topic, 220 - index * 28]));
+  const editorialOrder = ["ai", "apps-software", "internet-business-tech", "security", "devices", "gaming"];
+  const scores = new Map(editorialOrder.map((topic, index) => [topic, 260 - index * 32]));
 
   for (const article of articles) {
     const topic = normalizeTopic(article.topic);
@@ -91,7 +91,16 @@ function rankTopics(articles) {
     const verification =
       article.verification_state === "verified" ? 14 : article.verification_state === "emerging" ? 7 : 2;
     const withImage = article.hero_image?.kind === "source" ? 4 : 0;
-    const aiBias = topic === "ai" ? 22 : topic === "internet-business-tech" ? 10 : topic === "security" ? 8 : 0;
+    const aiBias =
+      topic === "ai"
+        ? 36
+        : topic === "apps-software"
+          ? 14
+          : topic === "internet-business-tech"
+            ? 10
+            : topic === "security"
+              ? 8
+              : 0;
     const current = scores.get(topic) || 0;
     scores.set(topic, current + freshness + verification + withImage + aiBias);
   }
@@ -99,7 +108,7 @@ function rankTopics(articles) {
   return [...scores.entries()]
     .sort((left, right) => {
       const scoreGap = right[1] - left[1];
-      if (Math.abs(scoreGap) <= 64) {
+      if (Math.abs(scoreGap) <= 180) {
         return editorialOrder.indexOf(left[0]) - editorialOrder.indexOf(right[0]);
       }
       return scoreGap;
@@ -109,10 +118,10 @@ function rankTopics(articles) {
 
 function buildTopicWeights(priorityTopics) {
   const base = {
-    ai: 78,
-    "internet-business-tech": 50,
-    security: 42,
-    "apps-software": 30,
+    ai: 92,
+    "apps-software": 54,
+    "internet-business-tech": 46,
+    security: 34,
     devices: 16,
     gaming: 6
   };
@@ -132,14 +141,14 @@ function buildFrontpageCopy(state, language, priorityTopics) {
 
   if (language === "vi") {
     return {
-      heroTitle: "Tin AI, Big Tech và những chuyển động công nghệ đáng mở đầu ngày.",
+      heroTitle: "Gói AI nào vừa đáng tiền hơn, và hãng nào đang tăng giá trị thật?",
       heroText: "",
       badgeSignals: topTopicLabels[0] || "AI",
       badgeAds: topTopicLabels[1] || "Big Tech",
-      badgeBilingual: topTopicLabels[2] || "Công nghệ",
-      hotTitle: "Nóng lúc này",
-      editorsTitle: "Biên tập chọn",
-      ribbonTitle: "Mới trên trang",
+      badgeBilingual: topTopicLabels[2] || "Mẹo hay",
+      hotTitle: "Tiêu điểm đang kéo lượt đọc",
+      editorsTitle: "Nên mở tiếp bài nào",
+      ribbonTitle: "Mới cập nhật",
       companyBrief: "Patrick Tech Co. VN",
       readerStartTitle: "Nên đọc trước",
       readerWatchTitle: "Đang được chú ý",
@@ -148,23 +157,25 @@ function buildFrontpageCopy(state, language, priorityTopics) {
       editorsLabel: "Biên tập chọn",
       ribbonLabel: "Vừa lên",
       latestTitle: "Tin mới nhất",
-      tipsTitle: "Thủ thuật & mẹo hay",
-      ecosystemTitle: "Patrick Tech Co. VN",
+      tipsTitle: "Mẹo, hướng dẫn, nhận xét",
+      packageLabel: "Gói AI",
+      packageTitle: "Các gói AI có gì mới?",
+      ecosystemTitle: "Patrick Tech Store",
       ecosystemText: "",
-      browserTitle: "Đọc nhiều nhất",
-      homeSpotlightTitle: "Tâm điểm"
+      browserTitle: "Đọc nhiều",
+      homeSpotlightTitle: "Tiêu điểm"
     };
   }
 
   return {
-    heroTitle: "AI, Big Tech, and the technology shifts worth your first click.",
+    heroTitle: "Which AI plans just became more useful, and who is adding real value?",
     heroText: "",
     badgeSignals: topTopicLabels[0] || "AI",
     badgeAds: topTopicLabels[1] || "Big Tech",
-    badgeBilingual: topTopicLabels[2] || "Technology",
-    hotTitle: "Hot right now",
-    editorsTitle: "Editors' picks",
-    ribbonTitle: "Fresh on the page",
+    badgeBilingual: topTopicLabels[2] || "Practical reads",
+    hotTitle: "The stories pulling readers in",
+    editorsTitle: "What to open next",
+    ribbonTitle: "Fresh updates",
     companyBrief: "Patrick Tech Co. VN",
     readerStartTitle: "Read first",
     readerWatchTitle: "Getting attention",
@@ -173,18 +184,61 @@ function buildFrontpageCopy(state, language, priorityTopics) {
     editorsLabel: "Editors' picks",
     ribbonLabel: "Just in",
     latestTitle: "Latest stories",
-    tipsTitle: "Tips worth saving",
-    ecosystemTitle: "Patrick Tech Co. VN",
+    tipsTitle: "Guides, tips, and takes",
+    packageLabel: "AI plans",
+    packageTitle: "What changed in AI plans",
+    ecosystemTitle: "Patrick Tech Store",
     ecosystemText: "",
     browserTitle: "Most read",
     homeSpotlightTitle: "Spotlight"
   };
 }
 
+function normalizeFrontpageCopy(copy, language) {
+  const base = { ...(copy || {}) };
+
+  if (language === "vi") {
+    return {
+      ...base,
+      heroTitle: base.heroTitle || "Gói AI nào vừa đáng tiền hơn, và hãng nào đang tăng giá trị thật?",
+      badgeBilingual: base.badgeBilingual || "Mẹo hay",
+      hotTitle: base.hotTitle || "Những headline đang kéo lượt đọc",
+      editorsTitle: base.editorsTitle || "Đáng mở tiếp theo",
+      ribbonTitle: base.ribbonTitle || "Tin vừa bật lên",
+      readerStartTitle: base.readerStartTitle || "Nên đọc trước",
+      readerWatchTitle: base.readerWatchTitle || "Đang được chú ý",
+      updateTitle: base.updateTitle || "Tin vừa lên",
+      hotLabel: base.hotLabel || "Nóng",
+      editorsLabel: base.editorsLabel || "Biên tập chọn",
+      ribbonLabel: base.ribbonLabel || "Vừa lên",
+      latestTitle: base.latestTitle || "Tin mới đáng mở",
+      tipsTitle: base.tipsTitle || "Thủ thuật, nhận xét và bài dùng được ngay",
+      packageLabel: base.packageLabel || "Gói AI",
+      packageTitle: base.packageTitle || "Các gói AI vừa đổi gì?",
+      browserTitle: base.browserTitle || "Đọc nhiều",
+      homeSpotlightTitle: base.homeSpotlightTitle || "Tiêu điểm",
+      companyBrief: base.companyBrief || "Patrick Tech Co. VN"
+    };
+  }
+
+  return {
+    ...base,
+    heroTitle: base.heroTitle || "Which AI plans just became more useful, and who is adding real value?",
+    hotTitle: base.hotTitle || "The headlines pulling readers in",
+    editorsTitle: base.editorsTitle || "Worth opening next",
+    ribbonTitle: base.ribbonTitle || "Stories that just moved",
+    latestTitle: base.latestTitle || "Fresh stories worth opening",
+    tipsTitle: base.tipsTitle || "Practical guides, takes, and how-tos",
+    packageTitle: base.packageTitle || "What just changed in AI plans",
+    browserTitle: base.browserTitle || "Most read",
+    homeSpotlightTitle: base.homeSpotlightTitle || "Spotlight",
+    companyBrief: base.companyBrief || "Patrick Tech Co. VN"
+  };
+}
 function normalizeTopic(topic) {
   const value = String(topic || "").trim();
   if (!value) {
-    return "ai";
+    return "internet-business-tech";
   }
 
   if (value === "software") {

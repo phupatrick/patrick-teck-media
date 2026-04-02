@@ -1,4 +1,4 @@
-import {
+﻿import {
   formatPublishDate,
   getFooterLinks,
   getPrimaryNav,
@@ -10,14 +10,17 @@ export function renderHomePage(state, language, adsConfig) {
   const copy = getRenderCopy(state, language);
   const path = `/${language}/`;
   const tips = home.tips?.length ? home.tips : home.evergreen;
-  const leadStories = dedupeStories([home.featured, ...home.latest, ...home.trending, home.briefing, ...tips]);
+  const packageStories = dedupeStories(home.packageWatch?.length ? home.packageWatch : []);
+  const leadStories = dedupeStories([...packageStories, home.featured, ...home.latest, ...home.trending, home.briefing, ...tips]);
   const leadFeature = leadStories[0];
   const leadSideStories = excludeStories(leadStories.slice(1), [leadFeature]).slice(0, 2);
-  const ribbonStories = excludeStories(dedupeStories([...home.latest, ...home.trending, home.briefing]), [leadFeature, ...leadSideStories]).slice(0, 5);
-  const latestStories = excludeStories(dedupeStories(home.latest), [leadFeature, ...leadSideStories]).slice(0, 4);
-  const watchStories = excludeStories(dedupeStories([...home.trending, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories]).slice(0, 4);
+  const packageLead = excludeStories(dedupeStories([...packageStories, home.briefing]), [leadFeature, ...leadSideStories])[0] || null;
+  const packageItems = excludeStories(dedupeStories([...packageStories, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 3);
+  const ribbonStories = excludeStories(dedupeStories([...packageStories, ...home.latest, ...home.trending, home.briefing]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 5);
+  const latestStories = excludeStories(dedupeStories(home.latest), [leadFeature, ...leadSideStories, packageLead]).slice(0, 4);
+  const watchStories = excludeStories(dedupeStories([...packageStories, ...home.trending, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 4);
   const guideLead = excludeStories(dedupeStories([...tips, home.briefing]), [leadFeature, ...leadSideStories])[0] || home.briefing;
-  const guideStories = excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead]).slice(0, 3);
+  const guideStories = excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead, packageLead]).slice(0, 3);
 
   return renderLayout({
     state,
@@ -59,13 +62,40 @@ export function renderHomePage(state, language, adsConfig) {
           <article class="rail-card company-flash-card">
             <p class="rail-label">${copy.ecosystemLabel}</p>
             <h3>${copy.ecosystemTitle}</h3>
-            <div class="company-links">
-              <a class="text-link" href="/${language}/store">${copy.visitStore}</a>
-              <a class="text-link" href="/${language}/about">${copy.aboutLabel}</a>
-            </div>
+            <a class="text-link" href="/${language}/store">${copy.visitStore}</a>
           </article>
         </aside>
       </section>
+
+      ${
+        packageLead
+          ? `
+      <section class="guide-showcase package-showcase" id="ai-packages">
+        <article class="guide-showcase-lead topic-${packageLead.topic}">
+          ${renderStoryImage(packageLead, "guide-showcase-media")}
+          <div class="guide-showcase-copy">
+            <div class="story-meta-line">
+              <span class="pill">${escapeHtml(packageLead.content_type_label)}</span>
+              <span>${escapeHtml(packageLead.topic_label)}</span>
+              <span>${escapeHtml(formatPublishDate(language, packageLead.published_at))}</span>
+            </div>
+            <h2><a href="${packageLead.href}">${escapeHtml(getDisplayHeadline(packageLead.title, 78))}</a></h2>
+            ${renderHomepageExcerpt(packageLead, "story-hook", 120)}
+            <a class="read-link" href="${packageLead.href}">${copy.readStory}</a>
+          </div>
+        </article>
+        <aside class="section-block guide-showcase-side">
+          <div class="section-head">
+            <p class="eyebrow">${copy.packageLabel || copy.latestLabel}</p>
+            <h2>${copy.packageTitle || copy.latestTitle}</h2>
+          </div>
+          <div class="stack-list">
+            ${packageItems.map((article) => renderStackItem(article, language, false)).join("")}
+          </div>
+        </aside>
+      </section>`
+          : ""
+      }
 
       <section class="headline-ribbon" id="latest">
         <div class="headline-ribbon-head">
@@ -114,7 +144,8 @@ export function renderHomePage(state, language, adsConfig) {
               <span>${escapeHtml(guideLead.topic_label)}</span>
               <span>${escapeHtml(formatPublishDate(language, guideLead.published_at))}</span>
             </div>
-            <h2><a href="${guideLead.href}">${escapeHtml(guideLead.title)}</a></h2>
+            <h2><a href="${guideLead.href}">${escapeHtml(getDisplayHeadline(guideLead.title, 78))}</a></h2>
+            ${renderHomepageExcerpt(guideLead, "story-hook", 110)}
             <a class="read-link" href="${guideLead.href}">${copy.readStory}</a>
           </div>
         </article>
@@ -453,7 +484,7 @@ export function renderTopicPage(state, language, topicPage, adsConfig) {
     path: `/${language}/topics/${topicPage.slug}`,
     adsConfig,
     title: `${topicPage.label} | ${state.site.name}`,
-    description: language === "vi" ? `Chuyên mục ${topicPage.label} của Patrick Tech Media.` : `${topicPage.label} coverage from Patrick Tech Media.`,
+    description: language === "vi" ? `ChuyĂªn má»¥c ${topicPage.label} cá»§a Patrick Tech Media.` : `${topicPage.label} coverage from Patrick Tech Media.`,
     content: `
       <section class="simple-hero" style="--topic-accent:${topicPage.accent}">
         <p class="eyebrow">${copy.topicLabel}</p>
@@ -606,7 +637,7 @@ export function renderPolicyPage(state, language, page, adsConfig) {
     description: page.intros[language],
     content: `
       <section class="simple-hero">
-        <p class="eyebrow">${language === "vi" ? "Chính sách" : "Policy"}</p>
+        <p class="eyebrow">${language === "vi" ? "ChĂ­nh sĂ¡ch" : "Policy"}</p>
         <h1>${escapeHtml(page.titles[language])}</h1>
         <p>${escapeHtml(page.intros[language])}</p>
       </section>
@@ -828,7 +859,7 @@ function renderStoryCard(article, language) {
       <h3><a href="${article.href}">${escapeHtml(displayTitle)}</a></h3>
       <div class="story-footer">
         <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
-        <a class="mini-link" href="${article.href}">${language === "vi" ? "Đọc" : "Read"}</a>
+        <a class="mini-link" href="${article.href}">${language === "vi" ? "Äá»c" : "Read"}</a>
       </div>
     </article>
   `;
@@ -865,6 +896,16 @@ function renderStoryExcerpt(article) {
   return article.summary || article.dek || "";
 }
 
+function renderHomepageExcerpt(article, className = "story-hook", maxLength = 140) {
+  const excerpt = getDisplayExcerpt(renderStoryExcerpt(article), maxLength);
+
+  if (!excerpt) {
+    return "";
+  }
+
+  return `<p class="${className}">${escapeHtml(excerpt)}</p>`;
+}
+
 function renderLeadFeature(article, language, copy) {
   const displayTitle = getDisplayHeadline(article.title, 74);
   return `
@@ -879,6 +920,7 @@ function renderLeadFeature(article, language, copy) {
         </div>
         ${article.editorial_label ? `<div class="story-flag lead-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
         <h2><a href="${article.href}">${escapeHtml(displayTitle)}</a></h2>
+        ${renderHomepageExcerpt(article, "lead-feature-hook", 136)}
         <div class="lead-feature-actions">
           <a class="read-link inverted" href="${article.href}">${copy.readStory}</a>
           <span class="lead-feature-source">${escapeHtml(article.content_type_label)}</span>
@@ -911,7 +953,7 @@ function renderHeadlineItem(article, language, index) {
       <span class="headline-index">${String(index).padStart(2, "0")}</span>
       <div>
         <strong>${escapeHtml(displayTitle)}</strong>
-        <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+        <span>${escapeHtml(article.topic_label)} Â· ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
       </div>
     </a>
   `;
@@ -949,7 +991,7 @@ function renderHeroReaderAside(home, language, copy) {
                   <span class="reader-index">0${index + 1}</span>
                   <div>
                     <strong>${escapeHtml(article.title)}</strong>
-                    <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+                    <span>${escapeHtml(article.topic_label)} Â· ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
                   </div>
                 </a>
               `
@@ -1091,7 +1133,7 @@ function renderArticleHero(article) {
 function renderImagePlaceholder(article, className) {
   const visualLabel =
     article.hero_image.label ||
-    (article.language === "vi" ? "Ảnh nguồn đang được dùng" : "Source image in use");
+    (article.language === "vi" ? "áº¢nh nguá»“n Ä‘ang Ä‘Æ°á»£c dĂ¹ng" : "Source image in use");
 
   return `
     <div class="${className}">
@@ -1115,7 +1157,7 @@ function renderLiveDesk(liveDesk, language, copy) {
       <p class="live-refresh-line">
         <strong>${copy.liveRefreshLabel}</strong>
         <span data-live-refreshed>${escapeHtml(liveDesk.cards[0].value)}</span>
-        <span class="live-separator">•</span>
+        <span class="live-separator">â€¢</span>
         <strong>${copy.liveNextLabel}</strong>
         <span data-live-next>${escapeHtml(new Date(liveDesk.nextRefreshAt).toLocaleTimeString(language === "vi" ? "vi-VN" : "en-US", { hour: "2-digit", minute: "2-digit" }))}</span>
       </p>
@@ -1262,7 +1304,7 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
     return "";
   }
 
-  const label = language === "vi" ? "Khu vực quảng cáo" : "Advertising slot";
+  const label = language === "vi" ? "Khu vá»±c quáº£ng cĂ¡o" : "Advertising slot";
   const slotId = adsConfig.slots[placement];
   const storeUrl = "https://patricktechstore.vercel.app";
 
@@ -1281,8 +1323,8 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
       <p class="ad-label">${label}</p>
       <a class="ad-slot placeholder-slot store-promo-slot" href="${storeUrl}" target="_blank" rel="noreferrer">
         <span class="store-promo-kicker">${language === "vi" ? "Patrick Tech Store" : "Patrick Tech Store"}</span>
-        <strong>${language === "vi" ? "Tài khoản, tool và phần mềm đang bán tại store" : "Accounts, tools, and software now available in the store"}</strong>
-        <span>${language === "vi" ? "Tạm thời vị trí này ưu tiên cho hệ sinh thái Patrick Tech." : "This slot is temporarily dedicated to the Patrick Tech ecosystem."}</span>
+        <strong>${language === "vi" ? "TĂ i khoáº£n, tool vĂ  pháº§n má»m Ä‘ang bĂ¡n táº¡i store" : "Accounts, tools, and software now available in the store"}</strong>
+        <span>${language === "vi" ? "Táº¡m thá»i vá»‹ trĂ­ nĂ y Æ°u tiĂªn cho há»‡ sinh thĂ¡i Patrick Tech." : "This slot is temporarily dedicated to the Patrick Tech ecosystem."}</span>
       </a>
     </section>
   `;
@@ -1295,21 +1337,18 @@ function renderCsrfInput(token) {
 function getRenderCopy(state, language) {
   return {
     ...getCopy(language),
+    ...normalizeRenderCopy(language),
     ...(state?.site?.frontpageCopy?.[language] || {})
   };
 }
 
-function getCopy(language) {
+function normalizeRenderCopy(language) {
   if (language === "vi") {
     return {
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
-      heroTitle: "Tin AI, Big Tech và công nghệ đáng mở đầu ngày.",
-      heroText:
-        "Patrick Tech Media theo sát AI, nền tảng lớn, mạng xã hội, phần mềm, thiết bị và những mẹo công nghệ đáng giữ lại.",
-      badgeSignals: "Việt Nam + thế giới",
-      badgeAds: "AI, Big Tech, social",
-      badgeBilingual: "Tin mới + thủ thuật",
+      heroTitle: "AI, Big Tech và những chuyển động công nghệ đáng mở đầu tiên.",
+      heroText: "Patrick Tech Media theo sát AI, nền tảng lớn, mạng xã hội, phần mềm, thiết bị và những thủ thuật công nghệ đáng lưu.",
       heroNotebookLabel: "Điểm đáng đọc",
       heroNotebookTitle: "Mở vào là thấy ngay những gì đáng bấm trước.",
       heroNotebookCta: "Xem thêm tin mới",
@@ -1317,7 +1356,6 @@ function getCopy(language) {
       readerStartTitle: "3 bài mới để bắt nhịp",
       readerWatchLabel: "Được chú ý",
       readerWatchTitle: "2 câu chuyện đang được bàn tán",
-      liveLabel: "Live desk",
       liveTitle: "Nhịp cập nhật newsroom",
       liveRefreshLabel: "Làm mới",
       liveNextLabel: "Tiếp theo",
@@ -1327,18 +1365,15 @@ function getCopy(language) {
       emergingStories: "bài emerging",
       trendStories: "bài trend",
       readStory: "Đọc bài nổi bật",
-      briefingLabel: "Đọc nhanh",
-      policyLabel: "Nhịp biên tập",
-      policyText: "Tòa soạn vẫn lên bài nhanh, nhưng chỉ bật quảng cáo ở những trang đã đủ ngưỡng kiểm chứng và trình bày.",
       viewPolicy: "Xem chính sách biên tập",
       latestLabel: "Mới nhất",
-      latestTitle: "Tin mới nhất",
+      latestTitle: "Tin mới đáng mở",
       trendingLabel: "Đang theo dõi",
       trendingTitle: "Những câu chuyện cần để mắt",
       evergreenLabel: "Thủ thuật & hướng dẫn",
       evergreenTitle: "Bài đọc xong dùng được ngay",
       tipsLabel: "Thủ thuật",
-      tipsTitle: "Hướng dẫn và mẹo đáng lưu",
+      tipsTitle: "Thủ thuật, nhận xét và bài dùng được ngay",
       updateLabel: "Vừa lên",
       updateTitle: "3 tin mới để bắt nhịp",
       updateText: "Mở nhanh những bài mới nhất nếu bạn muốn nắm nhịp ngay từ đầu.",
@@ -1346,23 +1381,10 @@ function getCopy(language) {
       ecosystemTitle: "Patrick Tech Co. VN",
       ecosystemText: "Patrick Tech Media nằm trong hệ sinh thái Patrick Tech Co. VN, nối newsroom với Patrick Tech Store theo một mạch công nghệ thống nhất.",
       visitStore: "Đi tới Patrick Tech Store",
-      radarLabel: "Newsroom radar",
-      radarTitle: "Xem newsroom radar hoạt động",
-      radarText: "Bảng này gom lane trend, emerging và verified để bạn thấy rõ newsroom đang ưu tiên câu chuyện nào và vì sao.",
-      workflowLabel: "Quy trình xuất bản",
-      workflowTitle: "Mở quy trình xuất bản",
-      workflowText: "Trang workflow giải thích cách bàn tin gom nguồn, xếp hàng chờ biên tập, gắn trạng thái và đưa bài lên site với guardrail quảng cáo.",
-      feedLabel: "Feed",
-      feedTitle: "Xuất JSON và RSS",
-      feedText: "Feed máy đọc được đã sẵn sàng cho phân phối, subscriber inbox hoặc các lớp theo dõi cập nhật về sau.",
-      browserLabel: "Lọc theo nhịp đọc",
+      browserLabel: "Đọc theo nhịp",
       browserTitle: "Chọn đúng tuyến bài bạn muốn đọc",
-      browserText: "Lọc nhanh theo headline, chủ đề hoặc mức độ kiểm chứng để đi thẳng tới nhóm bài phù hợp với mối quan tâm của bạn.",
+      browserText: "Lọc nhanh theo headline, chủ đề hoặc mức độ kiểm chứng để đi thẳng tới nhóm bài phù hợp.",
       browserPlaceholder: "Tìm theo tiêu đề, topic hoặc trạng thái...",
-      filterAll: "Tất cả",
-      filterVerified: "Verified",
-      filterEmerging: "Emerging",
-      filterTrend: "Trend",
       homeSpotlightLabel: "Tiêu điểm",
       homeSpotlightTitle: "Mở bài nổi bật hôm nay",
       homeBriefLabel: "Bản tổng hợp",
@@ -1372,24 +1394,16 @@ function getCopy(language) {
       homeAuthorsText: "Mỗi tuyến bài đều có người theo dõi riêng để headline, hook và góc nhìn không bị loãng.",
       moreLabel: "Xem thêm",
       topicLabel: "Chuyên mục",
-      topicIntro: "Toàn bộ stories trong chuyên mục này được giữ cùng một cấu trúc xác minh, attribution và tiêu chí bật quảng cáo.",
-      radarQueueLabel: "Queue newsroom",
-      radarQueueTitle: "Những story đang nổi trong pipeline",
-      radarSourceMixLabel: "Source mix",
-      radarSourceMixTitle: "Tỉ trọng nguồn đang đi vào newsroom",
-      workflowMatrixLabel: "Matrix",
-      workflowGuardrailsLabel: "Guardrails",
-      workflowGuardrailsTitle: "Những nguyên tắc bảo vệ ads và editorial",
-      workflowEndpointsLabel: "Endpoints",
+      topicIntro: "Toàn bộ bài trong chuyên mục này đều đi qua cùng một nhịp xác minh, attribution và tiêu chí bật quảng cáo.",
       sourcesShort: "nguồn",
       sourceBoxTitle: "Nguồn tham khảo",
       relatedLabel: "Bài liên quan",
       articleRailLabel: "Biên tập & quảng cáo",
-      adsOn: "Trang này đủ điều kiện hiển thị quảng cáo mà vẫn giữ bố cục đọc.",
+      adsOn: "Trang này đủ điều kiện hiển thị quảng cáo mà vẫn giữ bố cục đọc sạch.",
       adsOff: "Trang này ưu tiên trải nghiệm đọc và không hiển thị quảng cáo.",
       languageSwitchLabel: "Phiên bản ngôn ngữ",
-      storePanelLabel: "Từ hệ Patrick Tech",
-      storePanelTitle: "Công cụ liên quan theo ngữ cảnh",
+      storePanelLabel: "Từ Patrick Tech",
+      storePanelTitle: "Công cụ liên quan",
       communityLabel: "Cộng đồng",
       communityTitle: "Bạn thấy bài này thế nào?",
       communityText: "Thả cảm xúc hoặc để lại bình luận ngay dưới bài viết.",
@@ -1402,17 +1416,17 @@ function getCopy(language) {
       commentEmpty: "Chưa có bình luận nào. Bạn có thể là người mở đầu cuộc trò chuyện.",
       authorsLabel: "Tác giả",
       authorsTitle: "Đội biên tập",
-      authorsText: "Mỗi bài đều gắn một biên tập viên phụ trách mảng để giữ góc nhìn nhất quán giữa các đợt cập nhật.",
+      authorsText: "Mỗi bài đều gắn với một biên tập viên phụ trách mảng để góc nhìn được giữ nhất quán.",
       footerBlurb: "Tin công nghệ, AI, Big Tech, mạng xã hội và thủ thuật đáng lưu.",
       sitemapLabel: "Sitemap",
       sitemapTitle: "Sơ đồ điều hướng site",
       sitemapText: "Trang này gom các điểm vào chính của site dành cho người đọc và kiểm tra vận hành.",
       notFoundTitle: "Không tìm thấy trang",
-      notFoundText: "Route này chưa có nội dung hoặc đã đổi slug.",
+      notFoundText: "Route này chưa có nội dung hoặc slug đã đổi.",
       backHome: "Quay về trang chủ",
       dashboardLabel: "Dashboard",
       dashboardTitle: "Bảng điều khiển newsroom",
-      dashboardText: "Trang này gom các chỉ số xuất bản, dòng tín hiệu và checklist repo để bạn nhìn site theo góc độ vận hành thay vì chỉ bề mặt public.",
+      dashboardText: "Trang này gom các chỉ số xuất bản, dòng tín hiệu và checklist repo để bạn nhìn site theo góc độ vận hành.",
       dashboardStreamLabel: "Signal stream",
       dashboardStreamTitle: "Dòng tín hiệu mới nhất đang đi qua newsroom",
       dashboardHeatLabel: "Topic heat",
@@ -1422,17 +1436,150 @@ function getCopy(language) {
       dashboardRepoTitle: "Checklist để đẩy lên GitHub",
       humanSitemapLabel: "Sitemap người đọc",
       storeLabel: "Store",
-      heroTitle: "Tin công nghệ mới nhất từ Việt Nam và thế giới.",
-      heroText:
-        "Patrick Tech Media bám sát AI, Big Tech, mạng xã hội, phần mềm, thiết bị và những thủ thuật đáng lưu, với ưu tiên rõ cho ảnh đẹp và headline đủ lực kéo người đọc vào ngay từ cái nhìn đầu tiên.",
-      hotLabel: "Nóng lúc này",
-      hotTitle: "Những headline đang kéo lượt đọc",
-      editorsLabel: "Biên tập chọn",
-      editorsTitle: "Đáng đọc tiếp theo",
-      ribbonLabel: "Đường dây nóng",
-      ribbonTitle: "Các tin vừa bật lên",
-      companyBrief: "Tòa soạn công nghệ của Patrick Tech Co. VN.",
+      companyBrief: "Toà soạn công nghệ của Patrick Tech Co. VN.",
       aboutLabel: "Về Patrick Tech Media"
+    };
+  }
+
+  return {
+    homeBriefTitle: "Catch the day's rhythm in one pass"
+  };
+}
+
+function getCopy(language) {
+  if (language === "vi") {
+    return {
+      homeTitle: "Patrick Tech Media | Tin cĂ´ng nghá»‡ Viá»‡t Nam vĂ  tháº¿ giá»›i",
+      eyebrow: "ToĂ  soáº¡n song ngá»¯",
+      heroTitle: "Tin AI, Big Tech vĂ  cĂ´ng nghá»‡ Ä‘Ă¡ng má»Ÿ Ä‘áº§u ngĂ y.",
+      heroText:
+        "Patrick Tech Media theo sĂ¡t AI, ná»n táº£ng lá»›n, máº¡ng xĂ£ há»™i, pháº§n má»m, thiáº¿t bá»‹ vĂ  nhá»¯ng máº¹o cĂ´ng nghá»‡ Ä‘Ă¡ng giá»¯ láº¡i.",
+      badgeSignals: "Viá»‡t Nam + tháº¿ giá»›i",
+      badgeAds: "AI, Big Tech, social",
+      badgeBilingual: "Tin má»›i + thá»§ thuáº­t",
+      heroNotebookLabel: "Äiá»ƒm Ä‘Ă¡ng Ä‘á»c",
+      heroNotebookTitle: "Má»Ÿ vĂ o lĂ  tháº¥y ngay nhá»¯ng gĂ¬ Ä‘Ă¡ng báº¥m trÆ°á»›c.",
+      heroNotebookCta: "Xem thĂªm tin má»›i",
+      readerStartLabel: "Vá»«a lĂªn",
+      readerStartTitle: "3 bĂ i má»›i Ä‘á»ƒ báº¯t nhá»‹p",
+      readerWatchLabel: "ÄÆ°á»£c chĂº Ă½",
+      readerWatchTitle: "2 cĂ¢u chuyá»‡n Ä‘ang Ä‘Æ°á»£c bĂ n tĂ¡n",
+      liveLabel: "Live desk",
+      liveTitle: "Nhá»‹p cáº­p nháº­t newsroom",
+      liveRefreshLabel: "LĂ m má»›i",
+      liveNextLabel: "Tiáº¿p theo",
+      clusters: "cá»¥m chá»§ Ä‘á» Ä‘ang hoáº¡t Ä‘á»™ng",
+      sourceFamilies: "nhĂ³m nguá»“n",
+      verifiedStories: "bĂ i verified",
+      emergingStories: "bĂ i emerging",
+      trendStories: "bĂ i trend",
+      readStory: "Äá»c bĂ i ná»•i báº­t",
+      briefingLabel: "Äá»c nhanh",
+      policyLabel: "Nhá»‹p biĂªn táº­p",
+      policyText: "TĂ²a soáº¡n váº«n lĂªn bĂ i nhanh, nhÆ°ng chá»‰ báº­t quáº£ng cĂ¡o á»Ÿ nhá»¯ng trang Ä‘Ă£ Ä‘á»§ ngÆ°á»¡ng kiá»ƒm chá»©ng vĂ  trĂ¬nh bĂ y.",
+      viewPolicy: "Xem chĂ­nh sĂ¡ch biĂªn táº­p",
+      latestLabel: "Má»›i nháº¥t",
+      latestTitle: "Tin má»›i nháº¥t",
+      trendingLabel: "Äang theo dĂµi",
+      trendingTitle: "Nhá»¯ng cĂ¢u chuyá»‡n cáº§n Ä‘á»ƒ máº¯t",
+      evergreenLabel: "Thá»§ thuáº­t & hÆ°á»›ng dáº«n",
+      evergreenTitle: "BĂ i Ä‘á»c xong dĂ¹ng Ä‘Æ°á»£c ngay",
+      tipsLabel: "Thá»§ thuáº­t",
+      tipsTitle: "HÆ°á»›ng dáº«n vĂ  máº¹o Ä‘Ă¡ng lÆ°u",
+      updateLabel: "Vá»«a lĂªn",
+      updateTitle: "3 tin má»›i Ä‘á»ƒ báº¯t nhá»‹p",
+      updateText: "Má»Ÿ nhanh nhá»¯ng bĂ i má»›i nháº¥t náº¿u báº¡n muá»‘n náº¯m nhá»‹p ngay tá»« Ä‘áº§u.",
+      ecosystemLabel: "CĂ´ng ty",
+      ecosystemTitle: "Patrick Tech Co. VN",
+      ecosystemText: "Patrick Tech Media náº±m trong há»‡ sinh thĂ¡i Patrick Tech Co. VN, ná»‘i newsroom vá»›i Patrick Tech Store theo má»™t máº¡ch cĂ´ng nghá»‡ thá»‘ng nháº¥t.",
+      visitStore: "Äi tá»›i Patrick Tech Store",
+      radarLabel: "Newsroom radar",
+      radarTitle: "Xem newsroom radar hoáº¡t Ä‘á»™ng",
+      radarText: "Báº£ng nĂ y gom lane trend, emerging vĂ  verified Ä‘á»ƒ báº¡n tháº¥y rĂµ newsroom Ä‘ang Æ°u tiĂªn cĂ¢u chuyá»‡n nĂ o vĂ  vĂ¬ sao.",
+      workflowLabel: "Quy trĂ¬nh xuáº¥t báº£n",
+      workflowTitle: "Má»Ÿ quy trĂ¬nh xuáº¥t báº£n",
+      workflowText: "Trang workflow giáº£i thĂ­ch cĂ¡ch bĂ n tin gom nguá»“n, xáº¿p hĂ ng chá» biĂªn táº­p, gáº¯n tráº¡ng thĂ¡i vĂ  Ä‘Æ°a bĂ i lĂªn site vá»›i guardrail quáº£ng cĂ¡o.",
+      feedLabel: "Feed",
+      feedTitle: "Xuáº¥t JSON vĂ  RSS",
+      feedText: "Feed mĂ¡y Ä‘á»c Ä‘Æ°á»£c Ä‘Ă£ sáºµn sĂ ng cho phĂ¢n phá»‘i, subscriber inbox hoáº·c cĂ¡c lá»›p theo dĂµi cáº­p nháº­t vá» sau.",
+      browserLabel: "Lá»c theo nhá»‹p Ä‘á»c",
+      browserTitle: "Chá»n Ä‘Ăºng tuyáº¿n bĂ i báº¡n muá»‘n Ä‘á»c",
+      browserText: "Lá»c nhanh theo headline, chá»§ Ä‘á» hoáº·c má»©c Ä‘á»™ kiá»ƒm chá»©ng Ä‘á»ƒ Ä‘i tháº³ng tá»›i nhĂ³m bĂ i phĂ¹ há»£p vá»›i má»‘i quan tĂ¢m cá»§a báº¡n.",
+      browserPlaceholder: "TĂ¬m theo tiĂªu Ä‘á», topic hoáº·c tráº¡ng thĂ¡i...",
+      filterAll: "Táº¥t cáº£",
+      filterVerified: "Verified",
+      filterEmerging: "Emerging",
+      filterTrend: "Trend",
+      homeSpotlightLabel: "TiĂªu Ä‘iá»ƒm",
+      homeSpotlightTitle: "Má»Ÿ bĂ i ná»•i báº­t hĂ´m nay",
+      homeBriefLabel: "Báº£n tá»•ng há»£p",
+      homeBriefTitle: "Äá»c nhanh Ä‘á»ƒ náº¯m cáº£ nhá»‹p ngĂ y",
+      homeAuthorsLabel: "Äá»™i biĂªn táº­p",
+      homeAuthorsTitle: "Gáº·p nhá»¯ng ngÆ°á»i Ä‘ang giá»¯ giá»ng Ä‘iá»‡u cá»§a newsroom",
+      homeAuthorsText: "Má»—i tuyáº¿n bĂ i Ä‘á»u cĂ³ ngÆ°á»i theo dĂµi riĂªng Ä‘á»ƒ headline, hook vĂ  gĂ³c nhĂ¬n khĂ´ng bá»‹ loĂ£ng.",
+      moreLabel: "Xem thĂªm",
+      topicLabel: "ChuyĂªn má»¥c",
+      topicIntro: "ToĂ n bá»™ stories trong chuyĂªn má»¥c nĂ y Ä‘Æ°á»£c giá»¯ cĂ¹ng má»™t cáº¥u trĂºc xĂ¡c minh, attribution vĂ  tiĂªu chĂ­ báº­t quáº£ng cĂ¡o.",
+      radarQueueLabel: "Queue newsroom",
+      radarQueueTitle: "Nhá»¯ng story Ä‘ang ná»•i trong pipeline",
+      radarSourceMixLabel: "Source mix",
+      radarSourceMixTitle: "Tá»‰ trá»ng nguá»“n Ä‘ang Ä‘i vĂ o newsroom",
+      workflowMatrixLabel: "Matrix",
+      workflowGuardrailsLabel: "Guardrails",
+      workflowGuardrailsTitle: "Nhá»¯ng nguyĂªn táº¯c báº£o vá»‡ ads vĂ  editorial",
+      workflowEndpointsLabel: "Endpoints",
+      sourcesShort: "nguá»“n",
+      sourceBoxTitle: "Nguá»“n tham kháº£o",
+      relatedLabel: "BĂ i liĂªn quan",
+      articleRailLabel: "BiĂªn táº­p & quáº£ng cĂ¡o",
+      adsOn: "Trang nĂ y Ä‘á»§ Ä‘iá»u kiá»‡n hiá»ƒn thá»‹ quáº£ng cĂ¡o mĂ  váº«n giá»¯ bá»‘ cá»¥c Ä‘á»c.",
+      adsOff: "Trang nĂ y Æ°u tiĂªn tráº£i nghiá»‡m Ä‘á»c vĂ  khĂ´ng hiá»ƒn thá»‹ quáº£ng cĂ¡o.",
+      languageSwitchLabel: "PhiĂªn báº£n ngĂ´n ngá»¯",
+      storePanelLabel: "Tá»« há»‡ Patrick Tech",
+      storePanelTitle: "CĂ´ng cá»¥ liĂªn quan theo ngá»¯ cáº£nh",
+      communityLabel: "Cá»™ng Ä‘á»“ng",
+      communityTitle: "Báº¡n tháº¥y bĂ i nĂ y tháº¿ nĂ o?",
+      communityText: "Tháº£ cáº£m xĂºc hoáº·c Ä‘á»ƒ láº¡i bĂ¬nh luáº­n ngay dÆ°á»›i bĂ i viáº¿t.",
+      commentNameLabel: "TĂªn hiá»ƒn thá»‹",
+      commentNamePlaceholder: "Nháº­p tĂªn cá»§a báº¡n",
+      commentBodyLabel: "BĂ¬nh luáº­n",
+      commentBodyPlaceholder: "Viáº¿t cáº£m nháº­n, gĂ³p Ă½ hoáº·c bá»• sung thĂ´ng tin...",
+      commentSubmitLabel: "Gá»­i bĂ¬nh luáº­n",
+      commentListLabel: "BĂ¬nh luáº­n má»›i",
+      commentEmpty: "ChÆ°a cĂ³ bĂ¬nh luáº­n nĂ o. Báº¡n cĂ³ thá»ƒ lĂ  ngÆ°á»i má»Ÿ Ä‘áº§u cuá»™c trĂ² chuyá»‡n.",
+      authorsLabel: "TĂ¡c giáº£",
+      authorsTitle: "Äá»™i biĂªn táº­p",
+      authorsText: "Má»—i bĂ i Ä‘á»u gáº¯n má»™t biĂªn táº­p viĂªn phá»¥ trĂ¡ch máº£ng Ä‘á»ƒ giá»¯ gĂ³c nhĂ¬n nháº¥t quĂ¡n giá»¯a cĂ¡c Ä‘á»£t cáº­p nháº­t.",
+      footerBlurb: "Tin cĂ´ng nghá»‡, AI, Big Tech, máº¡ng xĂ£ há»™i vĂ  thá»§ thuáº­t Ä‘Ă¡ng lÆ°u.",
+      sitemapLabel: "Sitemap",
+      sitemapTitle: "SÆ¡ Ä‘á»“ Ä‘iá»u hÆ°á»›ng site",
+      sitemapText: "Trang nĂ y gom cĂ¡c Ä‘iá»ƒm vĂ o chĂ­nh cá»§a site dĂ nh cho ngÆ°á»i Ä‘á»c vĂ  kiá»ƒm tra váº­n hĂ nh.",
+      notFoundTitle: "KhĂ´ng tĂ¬m tháº¥y trang",
+      notFoundText: "Route nĂ y chÆ°a cĂ³ ná»™i dung hoáº·c Ä‘Ă£ Ä‘á»•i slug.",
+      backHome: "Quay vá» trang chá»§",
+      dashboardLabel: "Dashboard",
+      dashboardTitle: "Báº£ng Ä‘iá»u khiá»ƒn newsroom",
+      dashboardText: "Trang nĂ y gom cĂ¡c chá»‰ sá»‘ xuáº¥t báº£n, dĂ²ng tĂ­n hiá»‡u vĂ  checklist repo Ä‘á»ƒ báº¡n nhĂ¬n site theo gĂ³c Ä‘á»™ váº­n hĂ nh thay vĂ¬ chá»‰ bá» máº·t public.",
+      dashboardStreamLabel: "Signal stream",
+      dashboardStreamTitle: "DĂ²ng tĂ­n hiá»‡u má»›i nháº¥t Ä‘ang Ä‘i qua newsroom",
+      dashboardHeatLabel: "Topic heat",
+      dashboardHeatTitle: "Chá»§ Ä‘á» nĂ o Ä‘ang chiáº¿m Æ°u tiĂªn",
+      dashboardLaneTitle: "CĂ¡c story Ä‘ang náº±m trong lane nĂ y",
+      dashboardRepoLabel: "Repo",
+      dashboardRepoTitle: "Checklist Ä‘á»ƒ Ä‘áº©y lĂªn GitHub",
+      humanSitemapLabel: "Sitemap ngÆ°á»i Ä‘á»c",
+      storeLabel: "Store",
+      heroTitle: "Tin cĂ´ng nghá»‡ má»›i nháº¥t tá»« Viá»‡t Nam vĂ  tháº¿ giá»›i.",
+      heroText:
+        "Patrick Tech Media bĂ¡m sĂ¡t AI, Big Tech, máº¡ng xĂ£ há»™i, pháº§n má»m, thiáº¿t bá»‹ vĂ  nhá»¯ng thá»§ thuáº­t Ä‘Ă¡ng lÆ°u, vá»›i Æ°u tiĂªn rĂµ cho áº£nh Ä‘áº¹p vĂ  headline Ä‘á»§ lá»±c kĂ©o ngÆ°á»i Ä‘á»c vĂ o ngay tá»« cĂ¡i nhĂ¬n Ä‘áº§u tiĂªn.",
+      hotLabel: "NĂ³ng lĂºc nĂ y",
+      hotTitle: "Nhá»¯ng headline Ä‘ang kĂ©o lÆ°á»£t Ä‘á»c",
+      editorsLabel: "BiĂªn táº­p chá»n",
+      editorsTitle: "ÄĂ¡ng Ä‘á»c tiáº¿p theo",
+      ribbonLabel: "ÄÆ°á»ng dĂ¢y nĂ³ng",
+      ribbonTitle: "CĂ¡c tin vá»«a báº­t lĂªn",
+      companyBrief: "TĂ²a soáº¡n cĂ´ng nghá»‡ cá»§a Patrick Tech Co. VN.",
+      aboutLabel: "Vá» Patrick Tech Media"
     };
   }
 
@@ -1501,7 +1648,7 @@ function getCopy(language) {
       homeSpotlightLabel: "Spotlight",
       homeSpotlightTitle: "Start with the strongest lead today",
       homeBriefLabel: "Briefing",
-      homeBriefTitle: "Catch the day’s rhythm in one pass",
+      homeBriefTitle: "Catch the dayâ€™s rhythm in one pass",
       homeAuthorsLabel: "Editorial team",
       homeAuthorsTitle: "Meet the people shaping the newsroom voice",
       homeAuthorsText: "Each coverage lane has a real editorial owner so headlines, hooks, and angle do not drift into the same flat tone.",
@@ -1588,13 +1735,24 @@ function getDisplayHeadline(value, maxLength) {
   }
 
   const candidate = headline.slice(0, maxLength + 1);
-  const boundary = Math.max(
-    candidate.lastIndexOf(" "),
-    candidate.lastIndexOf(" — "),
-    candidate.lastIndexOf(": "),
-    candidate.lastIndexOf(", ")
-  );
+  const boundary = Math.max(candidate.lastIndexOf(" "), candidate.lastIndexOf(" — "), candidate.lastIndexOf(": "), candidate.lastIndexOf(", "));
   const clipped = boundary > Math.floor(maxLength * 0.55) ? candidate.slice(0, boundary) : candidate.slice(0, maxLength);
 
-  return `${clipped.trim().replace(/[,:;.!?\-'"“”‘’]+$/u, "")}…`;
+  return `${clipped.trim().replace(/[,:;.!?\-'"“”‘’]+$/u, "")}...`;
 }
+
+function getDisplayExcerpt(value, maxLength) {
+  const excerpt = String(value || "").replace(/\s+/g, " ").trim();
+
+  if (!excerpt || excerpt.length <= maxLength) {
+    return excerpt;
+  }
+
+  const candidate = excerpt.slice(0, maxLength + 1);
+  const boundary = Math.max(candidate.lastIndexOf(". "), candidate.lastIndexOf("; "), candidate.lastIndexOf(", "), candidate.lastIndexOf(" "));
+  const clipped = boundary > Math.floor(maxLength * 0.55) ? candidate.slice(0, boundary) : candidate.slice(0, maxLength);
+
+  return `${clipped.trim().replace(/[,:;.!?\-'"“”‘’]+$/u, "")}...`;
+}
+
+

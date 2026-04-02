@@ -11,6 +11,11 @@ export function evaluateArticleReadiness(article) {
   const sourceCount = Array.isArray(article?.source_set) ? article.source_set.length : 0;
   const reliableSingleSource = hasReliableSingleSource(article);
   const verificationState = String(article?.verification_state || "trend").trim();
+  const isComparison = String(article?.content_type || "").trim() === "ComparisonPage";
+  const isAiPackageComparison =
+    isComparison
+    && Array.isArray(article?.editorial_focus)
+    && article.editorial_focus.some((entry) => /ai-package|comparison|provider-/i.test(String(entry || "")));
   const checks = {
     title: title.length >= 28,
     summary: summary.length >= 90,
@@ -18,10 +23,12 @@ export function evaluateArticleReadiness(article) {
     hook: hook.length >= 80,
     sourceImage: hasSourceImage(article),
     sourceAttribution: hasSourceAttribution(article),
-    sourceBreadth: sourceCount >= 2 || (sourceCount >= 1 && (reliableSingleSource || verificationState === "trend")),
+    sourceBreadth:
+      (isAiPackageComparison && sourceCount >= 2)
+      || (!isAiPackageComparison && (sourceCount >= 2 || (sourceCount >= 1 && (reliableSingleSource || verificationState === "trend")))),
     sectionCount: sections.length >= 3,
     sectionBodies: sectionBodies.length >= 3 && sectionBodies.every((body) => body.length >= 80),
-    totalDepth: totalSectionLength >= 280,
+    totalDepth: totalSectionLength >= (isAiPackageComparison ? 420 : 280),
     distinctSections: distinctSectionBodies.size >= Math.min(3, sectionBodies.length),
     leadFieldVariety: leadFieldVariety.size >= 1,
     noPlaceholderCopy: !containsPlaceholderCopy([summary, dek, hook, ...sectionBodies])

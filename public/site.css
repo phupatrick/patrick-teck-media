@@ -224,9 +224,9 @@ h3 {
 
 .frontpage-masthead-copy h1 {
   margin: 0;
-  font-size: clamp(1.74rem, 2.5vw, 2.24rem);
-  line-height: 1.08;
-  max-width: 13ch;
+  font-size: clamp(1.52rem, 2.2vw, 1.96rem);
+  line-height: 1.06;
+  max-width: 18ch;
 }
 
 .frontpage-masthead-text {
@@ -324,9 +324,9 @@ h3 {
 
 .lead-feature h2 {
   margin: 0;
-  font-size: clamp(1.42rem, 2.1vw, 1.98rem);
-  line-height: 1.08;
-  max-width: 11ch;
+  font-size: clamp(1.28rem, 1.8vw, 1.72rem);
+  line-height: 1.1;
+  max-width: 15ch;
 }
 
 .lead-feature h2 a,
@@ -524,7 +524,7 @@ h3 {
 
 .guide-showcase-copy h2 {
   margin: 0;
-  font-size: clamp(1.42rem, 2.2vw, 1.86rem);
+  font-size: clamp(1.26rem, 1.9vw, 1.64rem);
   line-height: 1.16;
 }
 
@@ -936,10 +936,7 @@ h3 {
 }
 
 .frontpage-masthead-text,
-.lead-feature-hook,
-.story-card .story-hook,
 .stack-copy .story-hook,
-.guide-showcase-copy .story-hook,
 .hero-notebook-item p,
 .brand-note {
   display: none;
@@ -1373,6 +1370,12 @@ h3 {
 .stack-copy .story-hook {
   font-size: 0.94rem;
   max-width: none;
+}
+
+.story-card .story-hook,
+.guide-showcase-copy .story-hook,
+.lead-feature-hook {
+  display: block;
 }
 
 .read-link,

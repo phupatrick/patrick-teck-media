@@ -279,7 +279,7 @@ const FRONT_PAGE_SOURCE_WEIGHTS = {
 };
 
 export function buildNewsroomState(options = {}) {
-  const siteUrl = normalizeSiteUrl(options.siteUrl || "https://patricktech.media");
+  const siteUrl = normalizeSiteUrl(options.siteUrl || "https://patricktechmedia.com");
   const storeUrl = normalizeSiteUrl(options.storeUrl || "https://patricktechstore.vercel.app");
   const now = new Date(options.now || new Date().toISOString());
   const topics = getTopics();
@@ -371,15 +371,27 @@ export function getHomeData(state, language) {
     state.site.frontPageSourceWeights
   );
   const latest = prioritized.slice(0, 10);
-  const verifiedStories = prioritized.filter((article) => article.verification_state === "verified" && article.content_type === "NewsArticle");
-  const leadStories = prioritized.filter((article) => article.content_type === "NewsArticle" && article.verification_state !== "trend");
+  const packageWatch = sortStoriesForFrontPage(
+    localized.filter((article) => isAiPackageFrontpageCandidate(article)),
+    state.runtime.generatedAt,
+    state.site.frontPageTopicWeights,
+    state.site.frontPageSourceWeights
+  ).slice(0, 5);
+  const verifiedStories = prioritized.filter(
+    (article) => article.verification_state === "verified" && article.content_type === "NewsArticle"
+  );
+  const leadStories = prioritized.filter(
+    (article) => article.content_type === "NewsArticle" && article.verification_state !== "trend"
+  );
+  const packageLeadStories = packageWatch.filter((article) => article.content_type !== "EvergreenGuide");
   const featured =
+    packageLeadStories.find((article) => article.hero_image?.kind === "source") ||
+    packageLeadStories[0] ||
+    leadStories.find((article) => article.topic === "ai" && article.hero_image?.kind === "source") ||
     leadStories[0] ||
-    verifiedStories[0] ||
     leadStories.find((article) => article.hero_image?.kind === "source") ||
     verifiedStories.find((article) => article.hero_image?.kind === "source") ||
     verifiedStories[0] ||
-    leadStories[0] ||
     prioritized[0] ||
     localized[0];
   const briefing =
@@ -392,38 +404,29 @@ export function getHomeData(state, language) {
     prioritized.find((article) => article.href !== featured?.href) ||
     prioritized[0] ||
     localized[0];
-  const trending = prioritized
-      .filter((article) => article.verification_state !== "verified")
-      .slice(0, 6);
+  const trending = prioritized.filter((article) => article.verification_state !== "verified").slice(0, 6);
   const evergreen = sortStoriesForFrontPage(
     localized.filter((article) => article.content_type === "EvergreenGuide" || article.content_type === "ComparisonPage"),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  )
-    .slice(0, 6);
+  ).slice(0, 6);
   const tips = sortStoriesForFrontPage(
-    localized.filter(
-      (article) =>
-        article.content_type === "EvergreenGuide" ||
-        article.content_type === "ComparisonPage" ||
-        /mẹo|thủ thuật|hướng dẫn|cách |how to|how-to|guide/i.test(`${article.title} ${article.summary} ${article.dek}`)
-    ),
+    localized.filter((article) => isPracticalTipsCandidate(article)),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  )
-    .slice(0, 6);
-    const topicSections = state.topics.map((topic) => ({
-      ...topic,
-      label: topic.labels[language],
-      slug: topic.slugs[language],
-      stories: sortStoriesForFrontPage(
-        localized.filter((article) => article.topic === topic.id),
-        state.runtime.generatedAt,
-        state.site.frontPageTopicWeights,
-        state.site.frontPageSourceWeights
-      ).slice(0, 4)
+  ).slice(0, 6);
+  const topicSections = state.topics.map((topic) => ({
+    ...topic,
+    label: topic.labels[language],
+    slug: topic.slugs[language],
+    stories: sortStoriesForFrontPage(
+      localized.filter((article) => article.topic === topic.id),
+      state.runtime.generatedAt,
+      state.site.frontPageTopicWeights,
+      state.site.frontPageSourceWeights
+    ).slice(0, 4)
   }));
 
   return {
@@ -431,6 +434,7 @@ export function getHomeData(state, language) {
     briefing,
     trending,
     evergreen,
+    packageWatch,
     tips,
     latest,
     liveDesk: getLiveDeskData(state, language),
@@ -1359,6 +1363,7 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     indexable: article.indexable !== false,
     store_link_mode: article.store_link_mode || "off",
     related_store_items: Array.isArray(article.related_store_items) ? article.related_store_items : [],
+    editorial_focus: Array.isArray(article.editorial_focus) ? article.editorial_focus : [],
     source_set: Array.isArray(article.source_set) ? article.source_set : [],
     author_id: article.author_id || "mai-linh",
     published_at: article.published_at || new Date().toISOString(),
@@ -1425,6 +1430,48 @@ function inferArticleTopicId(article) {
 
 function normalizeTopicId(value) {
   return TOPIC_ALIASES[String(value || "").trim().toLowerCase()] || null;
+}
+
+function isAiPackageFrontpageCandidate(article) {
+  const focus = Array.isArray(article.editorial_focus) ? article.editorial_focus : [];
+
+  if (focus.includes("ai-package")) {
+    return true;
+  }
+
+  const textBlob = [
+    article.title,
+    article.summary,
+    article.dek,
+    article.hook,
+    ...(Array.isArray(article.sections) ? article.sections.flatMap((section) => [section.heading, section.body]) : [])
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const hasProviderSignal =
+    /\b(google ai pro|google one|workspace|gemini advanced|notebooklm|veo|lyria|openai|chatgpt plus|chatgpt pro|chatgpt team|anthropic|claude pro|claude max|microsoft|copilot pro|microsoft 365 copilot)\b/i.test(
+      textBlob
+    );
+  const hasPlanSignal =
+    /\b(subscription|pricing|bundle|package|plan|5tb|2tb|storage|monthly|annual|price|gói ai|dung lượng|trả phí)\b/i.test(
+      textBlob
+    );
+
+  return hasProviderSignal && hasPlanSignal;
+}
+
+function isPracticalTipsCandidate(article) {
+  const focus = Array.isArray(article.editorial_focus) ? article.editorial_focus : [];
+
+  if (focus.includes("tips") || focus.includes("guide")) {
+    return true;
+  }
+
+  const textBlob = `${article.title} ${article.summary} ${article.dek} ${article.hook}`;
+  return article.content_type === "EvergreenGuide"
+    || article.content_type === "ComparisonPage"
+    || /\b(mẹo|thủ thuật|hướng dẫn|cách |how to|how-to|guide|tips|workspace|notebooklm|copilot|chatgpt|gemini|claude)\b/i.test(textBlob);
 }
 
 function strengthenEditorialTitle(title, { language, topic, verificationState, contentType, summary, dek, sections }) {

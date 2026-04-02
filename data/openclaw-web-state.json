@@ -1,15 +1,18 @@
 {
-  "generated_at": "2026-04-02T14:46:31.848Z",
+  "generated_at": "2026-04-02T15:56:48.291Z",
   "manager": {
     "id": "openclaw",
     "autonomy": "owner-delegated-full"
   },
   "brief": {
-    "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
+    "path": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-owner-brief.json",
     "trust_mode": "owner-delegated",
     "brand_name": "Patrick Tech Media",
     "priority_beats": [
       "AI",
+      "AI package and pricing changes",
+      "Workspace and productivity stack updates",
+      "AI comparisons and app reviews",
       "Vietnam technology news",
       "Global technology news",
       "Big Tech",
@@ -30,17 +33,17 @@
   "priorityTopics": [
     "ai",
     "devices",
-    "internet-business-tech",
     "security",
     "apps-software",
+    "internet-business-tech",
     "gaming"
   ],
   "ranking": {
     "topicWeights": {
-      "ai": 96,
-      "internet-business-tech": 57,
-      "security": 46,
-      "apps-software": 32,
+      "ai": 110,
+      "apps-software": 58,
+      "internet-business-tech": 48,
+      "security": 41,
       "devices": 27,
       "gaming": 6
     },
@@ -56,13 +59,13 @@
   },
   "frontpageCopy": {
     "vi": {
-      "heroTitle": "Tin AI, Big Tech và những chuyển động công nghệ đáng mở đầu ngày.",
+      "heroTitle": "Gói AI nào vừa đáng tiền hơn, và hãng nào đang tăng giá trị thật?",
       "badgeSignals": "AI",
       "badgeAds": "Thiết bị",
-      "badgeBilingual": "Internet & Doanh nghiệp số",
-      "hotTitle": "Nóng lúc này",
-      "editorsTitle": "Biên tập chọn",
-      "ribbonTitle": "Mới trên trang",
+      "badgeBilingual": "Bảo mật",
+      "hotTitle": "Tiêu điểm đang kéo lượt đọc",
+      "editorsTitle": "Nên mở tiếp bài nào",
+      "ribbonTitle": "Mới cập nhật",
       "companyBrief": "Patrick Tech Co. VN",
       "readerStartTitle": "Nên đọc trước",
       "readerWatchTitle": "Đang được chú ý",
@@ -71,19 +74,21 @@
       "editorsLabel": "Biên tập chọn",
       "ribbonLabel": "Vừa lên",
       "latestTitle": "Tin mới nhất",
-      "tipsTitle": "Thủ thuật & mẹo hay",
-      "ecosystemTitle": "Patrick Tech Co. VN",
-      "browserTitle": "Đọc nhiều nhất",
-      "homeSpotlightTitle": "Tâm điểm"
+      "tipsTitle": "Mẹo, hướng dẫn, nhận xét",
+      "packageLabel": "Gói AI",
+      "packageTitle": "Các gói AI có gì mới?",
+      "ecosystemTitle": "Patrick Tech Store",
+      "browserTitle": "Đọc nhiều",
+      "homeSpotlightTitle": "Tiêu điểm"
     },
     "en": {
-      "heroTitle": "AI, Big Tech, and the technology shifts worth your first click.",
+      "heroTitle": "Which AI plans just became more useful, and who is adding real value?",
       "badgeSignals": "AI",
       "badgeAds": "Devices",
-      "badgeBilingual": "Internet & Business Tech",
-      "hotTitle": "Hot right now",
-      "editorsTitle": "Editors' picks",
-      "ribbonTitle": "Fresh on the page",
+      "badgeBilingual": "Security",
+      "hotTitle": "The stories pulling readers in",
+      "editorsTitle": "What to open next",
+      "ribbonTitle": "Fresh updates",
       "companyBrief": "Patrick Tech Co. VN",
       "readerStartTitle": "Read first",
       "readerWatchTitle": "Getting attention",
@@ -92,8 +97,10 @@
       "editorsLabel": "Editors' picks",
       "ribbonLabel": "Just in",
       "latestTitle": "Latest stories",
-      "tipsTitle": "Tips worth saving",
-      "ecosystemTitle": "Patrick Tech Co. VN",
+      "tipsTitle": "Guides, tips, and takes",
+      "packageLabel": "AI plans",
+      "packageTitle": "What changed in AI plans",
+      "ecosystemTitle": "Patrick Tech Store",
       "browserTitle": "Most read",
       "homeSpotlightTitle": "Spotlight"
     }

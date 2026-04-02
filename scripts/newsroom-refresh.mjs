@@ -2,7 +2,7 @@ import fs from "node:fs";
 import crypto from "node:crypto";
 import path from "node:path";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
-import { aggregateIncomingDrafts } from "../src/newsroom-synthesis.mjs";
+import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 
 const outputPath = process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
 const sourceUrl = process.env.NEWSROOM_PULL_URL || process.env.OPENCLAW_NEWSROOM_URL || "";
@@ -19,6 +19,16 @@ const fallbackFeeds = [
     sourceType: "press",
     trustTier: "established-media",
     topicHint: "internet-business-tech",
+    limit: 12
+  },
+  {
+    name: "GenK AI",
+    url: "https://genk.vn/rss/ai.rss",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "ai",
     limit: 10
   },
   {
@@ -78,7 +88,8 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "press",
     trustTier: "established-media",
-    limit: 10
+    topicHint: "ai",
+    limit: 12
   },
   {
     name: "Google AI Blog",
@@ -87,7 +98,48 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "official-site",
     trustTier: "official",
-    limit: 8
+    topicHint: "ai",
+    limit: 10
+  },
+  {
+    name: "Google One Blog",
+    url: "https://blog.google/products/google-one/rss/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "ai",
+    limit: 10
+  },
+  {
+    name: "Google Workspace Blog",
+    url: "https://blog.google/products/workspace/rss/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "apps-software",
+    limit: 10
+  },
+  {
+    name: "Google Gemini Blog",
+    url: "https://blog.google/products/gemini/rss/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "ai",
+    limit: 10
+  },
+  {
+    name: "Google Workspace Updates",
+    url: "https://workspaceupdates.googleblog.com/feeds/posts/default?alt=rss",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "apps-software",
+    limit: 10
   },
   {
     name: "OpenAI News",
@@ -96,6 +148,17 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "official-site",
     trustTier: "official",
+    topicHint: "ai",
+    limit: 10
+  },
+  {
+    name: "Microsoft Copilot Blog",
+    url: "https://blogs.microsoft.com/blog/tag/copilot/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "ai",
     limit: 8
   },
   {
@@ -106,7 +169,7 @@ const fallbackFeeds = [
     sourceType: "press",
     trustTier: "established-media",
     topicHint: "ai",
-    limit: 8
+    limit: 10
   },
   {
     name: "TechCrunch",
@@ -126,7 +189,7 @@ const fallbackFeeds = [
     sourceType: "press",
     trustTier: "established-media",
     topicHint: "internet-business-tech",
-    limit: 6
+    limit: 8
   },
   {
     name: "Ars Technica",
@@ -145,7 +208,7 @@ const fallbackFeeds = [
     sourceType: "press",
     trustTier: "established-media",
     topicHint: "devices",
-    limit: 6
+    limit: 8
   },
   {
     name: "Engadget",
@@ -273,18 +336,18 @@ const fallbackFeeds = [
 
 const TECHNOLOGY_STRONG_PATTERNS = [
   /\bAI\b/,
-  /\b(artificial intelligence|trí tuệ nhân tạo|llm|model|agentic|chatgpt|openai|gemini|claude|copilot|deepseek|midjourney)\b/i,
+  /\b(artificial intelligence|trĂ­ tuá»‡ nhĂ¢n táº¡o|llm|model|agentic|chatgpt|openai|gemini|claude|copilot|deepseek|midjourney)\b/i,
   /\b(meta|facebook|instagram|threads|tiktok|youtube|google|apple|microsoft|amazon|nvidia|tesla|bytedance|shopee|oracle|samsung|intel|amd|qualcomm)\b/i,
   /\b(chip|gpu|cpu|npu|ram|memory|ssd|device|devices|smartphone|phone|iphone|android|pixel|macbook|ipad|pc|desktop|tablet|router|fiber|wearable|robot)\b/i,
   /\b(app|apps|software|windows|macos|linux|browser|chrome|edge|photos|workspace|productivity|cloud|startup|platform|social)\b/i,
-  /\b(hack|security|cyber|malware|phishing|ransomware|vulnerability|zero-day|breach|passkey|password|privacy|bảo mật|tấn công)\b/i,
+  /\b(hack|security|cyber|malware|phishing|ransomware|vulnerability|zero-day|breach|passkey|password|privacy|báº£o máº­t|táº¥n cĂ´ng)\b/i,
   /\b(gaming|game|steam|playstation|xbox|nintendo|switch ?2|dlss|rockstar|gta|crimson desert|everness)\b/i,
-  /\b(how to|how-to|guide|tips|mẹo|thủ thuật|hướng dẫn|cách dùng|cách làm|thiết lập)\b/i
+  /\b(how to|how-to|guide|tips|máº¹o|thá»§ thuáº­t|hÆ°á»›ng dáº«n|cĂ¡ch dĂ¹ng|cĂ¡ch lĂ m|thiáº¿t láº­p)\b/i
 ];
 
 const TECHNOLOGY_SUPPORT_PATTERNS = [
   /\b(update|rollout|launch|beta|feature|subscription|creator|social network|messaging|camera|battery|firmware|broadband|5g|wifi|data center)\b/i,
-  /\b(viettel|vnpt|fpt|telecom|cloudflare|anthropic|hugging face|semiconductor|startup)\b/i
+  /\b(viettel|vnpt|fpt|telecom|cloudflare|anthropic|hugging face|semiconductor|startup|workspace|google one|copilot|notebooklm|gemini advanced)\b/i
 ];
 
 const NON_TECH_PATTERNS = [
@@ -292,7 +355,36 @@ const NON_TECH_PATTERNS = [
   /\b(trump|birthright|election|senate|congress|war|ceasefire|tariff|immigration)\b/i,
   /\b(celebrity|movie|album|fashion|royal|dating|cruise|vacation|travel)\b/i,
   /\b(nba|nfl|soccer|baseball|tennis|golf|boxing)\b/i,
-  /\b(health|doctor|disease|diet|sleep|pregnancy)\b/i
+  /\b(health|doctor|disease|diet|sleep|pregnancy|medical|cÆ¡ thá»ƒ ngÆ°á»i|virus há»c|triá»‡u chá»©ng|bá»‡nh nhĂ¢n)\b/i,
+  /\b(auto show|roadshow|powertrain|suv|hybrid variant|combustion|kia seltos|kia ev3|sedan|crossover)\b/i
+];
+
+const SOURCE_TOPIC_HINTS = [
+  {
+    topic: "gaming",
+    score: 18,
+    pattern: /\b(apps-games|gamek|ign|gamesradar|pc gamer|kotaku|polygon)\b/i
+  },
+  {
+    topic: "devices",
+    score: 8,
+    pattern: /\b(9to5google|android authority|tom's hardware|anandtech|engadget|macrumors)\b/i
+  },
+  {
+    topic: "internet-business-tech",
+    score: 8,
+    pattern: /\b(techcrunch|the verge|social media today|the information|reuters|bloomberg)\b/i
+  },
+  {
+    topic: "security",
+    score: 8,
+    pattern: /\b(ars technica|bleepingcomputer|the hacker news)\b/i
+  },
+  {
+    topic: "ai",
+    score: 12,
+    pattern: /\b(openai|google ai blog|microsoft copilot|workspace updates|anthropic|deepmind)\b/i
+  }
 ];
 
 const headers = {
@@ -390,7 +482,9 @@ async function fetchFallbackArticles(timestamp) {
     }
   }
 
-  return aggregateIncomingDrafts(allArticles, timestamp);
+  const aggregated = aggregateIncomingDrafts(allArticles, timestamp);
+  const companions = buildEditorialCompanionArticles(aggregated, timestamp);
+  return [...aggregated, ...companions];
 }
 
 function parseFeedItems(xml) {
@@ -495,7 +589,7 @@ async function mapFeedItem(feed, item, timestamp) {
   const image = imageUrl
     ? {
         src: imageUrl,
-        caption: feed.language === "vi" ? `Ảnh tham khảo từ ${feed.name}.` : `Reference image from ${feed.name}.`,
+        caption: feed.language === "vi" ? `áº¢nh tham kháº£o tá»« ${feed.name}.` : `Reference image from ${feed.name}.`,
         credit: feed.name,
         source_url: link
       }
@@ -631,22 +725,108 @@ function extractBestArticleChunk(html) {
 
 function extractParagraphs(html) {
   return [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
-    .map((match) => cleanText(match[1]))
+    .map((match) => sanitizeEditorialParagraph(match[1]))
     .filter(Boolean)
-    .filter((paragraph) => paragraph.length >= 80)
-    .filter((paragraph) => !isBoilerplateParagraph(paragraph))
+    .filter((paragraph) => paragraph.length >= 90)
+    .filter((paragraph) => !isBoilerplateParagraph(paragraph) && !isWeakEditorialSentence(paragraph))
     .filter((paragraph, index, list) => list.findIndex((entry) => entry === paragraph) === index);
 }
 
-function isBoilerplateParagraph(value) {
-  return /(toggle dark mode|toggle search form|search for:|home page switch site|privacy|logo|0 comments|newsletter|cookie|window\.|function\s*\(|var\s+[a-z0-9_]+|submit|forums|advertisement|all rights reserved|mobile ai tin ict internet|apps-game|đồ chơi số|gia dụng|trà đá công nghệ|xem - mua - luôn)/i.test(
+function sanitizeEditorialParagraph(value) {
+  return cleanText(
+    String(value || "")
+      .replace(/search results for[^.?!]*[.?!]?/gi, " ")
+      .replace(/all search results[^.?!]*[.?!]?/gi, " ")
+      .replace(/affiliate links?[^.?!]*[.?!]?/gi, " ")
+      .replace(/best daily deals[^.?!]*[.?!]?/gi, " ")
+      .replace(/learn more[^.?!]*[.?!]?/gi, " ")
+      .replace(/follow us[^.?!]*[.?!]?/gi, " ")
+      .replace(/sign up[^.?!]*[.?!]?/gi, " ")
+      .replace(/sign in[^.?!]*[.?!]?/gi, " ")
+      .replace(/log in[^.?!]*[.?!]?/gi, " ")
+      .replace(/read more[^.?!]*[.?!]?/gi, " ")
+  );
+}
+
+function isWeakEditorialSentence(value) {
+  return hasEncodingArtifacts(value) || /(search results|all search results|affiliate links?|best daily deals|newsletter|privacy policy|cookie policy|terms of use|all rights reserved|learn more|read more|sign up|sign in|log in|follow us|shop now|watch now|source image pending|reference image from|deviled eggs|roasted chicken|recipe|restaurant|vacation|travel tips|easter|grubhub|uber eats|headphone deals|robot vacuum deals|for more than \d+ years|we['’]ve invested in|make everyday life better|our mission is|today we are announcing|available everywhere our ai plans are available|copy link|link bài gốc|lấy link|google cloud community|google workspace admins like you)/i.test(
     value
   );
 }
 
+function hasEncodingArtifacts(value) {
+  return /(?:Ã|Â|Ä|Ă|Å|Æ|áº|á»|â€|â€™|â€œ|â€|Ă¢â‚¬)/.test(String(value || ""));
+}
+
+function selectEditorialSentences(values, count = 2, minLength = 50) {
+  const picked = [];
+  const seen = new Set();
+
+  for (const value of values.flat().filter(Boolean)) {
+    for (const sentence of splitSentences(value)) {
+      const normalized = sanitizeEditorialParagraph(sentence);
+      const signature = normalized.toLowerCase();
+
+      if (!normalized || normalized.length < minLength || hasEncodingArtifacts(normalized) || isWeakEditorialSentence(normalized) || seen.has(signature)) {
+        continue;
+      }
+
+      seen.add(signature);
+      picked.push(finishSentence(normalized));
+
+      if (picked.length >= count) {
+        return picked;
+      }
+    }
+  }
+
+  return picked;
+}
+
+function isBoilerplateParagraph(value) {
+  return /(toggle dark mode|toggle search form|search for:|home page switch site|privacy|logo|0 comments|newsletter|cookie|window\.|function\s*\(|var\s+[a-z0-9_]+|submit|forums|advertisement|all rights reserved|mobile ai tin ict internet|apps-game|Ä‘á»“ chÆ¡i sá»‘|gia dá»¥ng|trĂ  Ä‘Ă¡ cĂ´ng nghá»‡|xem - mua - luĂ´n)/i.test(
+    value
+  );
+}
 function isTechnologyRelevantStory({ feed, title, body, link }) {
+  const titleHaystack = cleanText(title);
   const haystack = cleanText([feed.name, title, body, link].join(" "));
+  const directTechAnchor = /\b(ai|openai|chatgpt|gemini|claude|copilot|google|microsoft|anthropic|notebooklm|workspace|chip|gpu|cpu|npu|phone|iphone|android|pixel|macbook|windows|software|app|cloud|startup|platform|privacy|security|malware|ransomware|game|gaming|youtube|instagram|facebook|threads|tiktok|router|wifi|fiber|alexa)\b/i;
+  const hasDirectTechAnchor = directTechAnchor.test(haystack);
+  const titleHasDirectTechAnchor = directTechAnchor.test(titleHaystack);
   let score = 0;
+
+  if (/\/roadshow\//i.test(link)) {
+    return false;
+  }
+
+  if (/\b(auto show|roadshow|powertrain|hybrid variant|combustion|kia seltos|kia ev3|sedan|crossover)\b/i.test(haystack)
+    && !/\b(android auto|carplay|robotaxi|self-driving|autonomous vehicle|in-car software)\b/i.test(haystack)) {
+    return false;
+  }
+
+  if (/\b(cơ thể người|virus học|bệnh nhân|triệu chứng|medical|pregnancy|disease|diet|sleep health)\b/i.test(haystack)
+    && !/\b(cyber|malware|security|bảo mật|app|software|device|ai|chip|robot)\b/i.test(haystack)) {
+    return false;
+  }
+
+  if (/\b(deviled eggs|roasted chicken|oven|recipe|chef secrets|food ordering|uber eats|grubhub|restaurant|vacation|travel|hotel|luggage)\b/i.test(titleHaystack)
+    && !titleHasDirectTechAnchor) {
+    return false;
+  }
+
+  if (/\b(amazon .*sale|spring sale|prime day|deal(?:s)?|discount)\b/i.test(titleHaystack)
+    && !/\b(ai|openai|chatgpt|gemini|claude|copilot|google|microsoft|anthropic|notebooklm|workspace|iphone|android|pixel|macbook|laptop|pc|tablet|gpu|cpu|ssd|router|wifi|fiber|monitor|keyboard|mouse|earbuds|headphones?|security)\b/i.test(titleHaystack)) {
+    return false;
+  }
+
+  if (NON_TECH_PATTERNS.some((pattern) => pattern.test(titleHaystack)) && !titleHasDirectTechAnchor) {
+    return false;
+  }
+
+  if (NON_TECH_PATTERNS.some((pattern) => pattern.test(haystack)) && !hasDirectTechAnchor) {
+    return false;
+  }
 
   for (const pattern of TECHNOLOGY_STRONG_PATTERNS) {
     if (pattern.test(haystack)) {
@@ -676,73 +856,90 @@ function isTechnologyRelevantStory({ feed, title, body, link }) {
     score -= 10;
   }
 
+  if (!titleHasDirectTechAnchor && score < 8) {
+    return false;
+  }
+
   return score >= 6;
 }
 
 function inferTopic(feed, title, body) {
-  if (feed.topicHint) {
-    return cleanText(feed.topicHint);
-  }
-
-  const haystack = `${title} ${cleanText(body).slice(0, 1200)} ${feed.name}`.toLowerCase();
-
-  if (hasStrongAiSignals(haystack)) {
-    return "ai";
-  }
-
-  if (/(hack|security|cyber|malware|phishing|passkey|password|data breach|ransomware|bảo mật|tấn công)/i.test(haystack)) {
-    return "security";
-  }
-
-  if (/(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiết bị|điện thoại)/i.test(haystack)) {
-    return "devices";
-  }
-
-  if (/(gaming|game|steam|playstation|xbox|nintendo|switch|handheld)/i.test(haystack)) {
-    return "gaming";
-  }
-
-  if (/(facebook|meta|instagram|threads|tiktok|youtube|twitter|x\.com|whatsapp|social)/i.test(haystack)) {
-    return "internet-business-tech";
-  }
-
-  if (/(app|software|windows|mac|ios|android app|ứng dụng|phần mềm)/i.test(haystack)) {
-    return "apps-software";
-  }
-
-  return feed.language === "vi" ? "internet-business-tech" : "devices";
+  return inferTopicFromSignals(feed, title, body);
 }
 
 function inferTopicFromSignals(feed, title, body) {
-  const haystack = `${title} ${cleanText(body).slice(0, 1200)} ${feed.name}`.toLowerCase();
+  const rawHaystack = cleanText(`${title} ${cleanText(body).slice(0, 1400)} ${feed.name}`);
+  const haystack = rawHaystack.toLowerCase();
   const scores = new Map();
+  const hasStrongAiSignal = hasStrongAiSignals(rawHaystack);
+  const hasGenericAiSignal = hasGenericAiSignals(rawHaystack);
+  const hasAiPackageSignal = hasAiPackageSignals(rawHaystack);
 
-  if (feed.topicHint) {
-    scores.set(feed.topicHint, 8);
+  if ((hasStrongAiSignal || hasGenericAiSignal) && hasAiPackageSignal) {
+    return "ai";
   }
 
-  if (hasStrongAiSignals(haystack)) {
+  if (feed.topicHint) {
+    scores.set(feed.topicHint, 6);
+  }
+
+  if (hasStrongAiSignal) {
     scores.set("ai", (scores.get("ai") || 0) + 24);
   }
 
-  if (/(hack|security|cyber|malware|phishing|passkey|password|data breach|ransomware|báº£o máº­t|táº¥n cĂ´ng)/i.test(haystack)) {
+  if (!hasStrongAiSignal && hasGenericAiSignal) {
+    scores.set("ai", (scores.get("ai") || 0) + 8);
+  }
+
+  if (hasAiPackageSignal) {
+    scores.set("ai", (scores.get("ai") || 0) + 28);
+    scores.set("apps-software", (scores.get("apps-software") || 0) + 10);
+    scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) + 6);
+  }
+
+  if (/(hack|security|cyber|malware|phishing|passkey|password|data breach|ransomware|báº£o máº­t|táº¥n cĂ´ng)/i.test(rawHaystack)) {
     scores.set("security", (scores.get("security") || 0) + 22);
   }
 
-  if (/(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiáº¿t bá»‹|Ä‘iá»‡n thoáº¡i)/i.test(haystack)) {
+  if (/(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiáº¿t bá»‹|Ä‘iá»‡n thoáº¡i)/i.test(rawHaystack)) {
     scores.set("devices", (scores.get("devices") || 0) + 18);
   }
 
-  if (/(gaming|game|steam|playstation|xbox|nintendo|switch|handheld|dlss|rockstar|gta)/i.test(haystack)) {
+  if (/(gaming|game|steam|playstation|xbox|nintendo|switch|handheld|dlss|rockstar|gta)/i.test(rawHaystack)) {
     scores.set("gaming", (scores.get("gaming") || 0) + 18);
   }
 
-  if (/(facebook|meta|instagram|threads|tiktok|youtube|twitter|x\.com|whatsapp|social|oracle|shopee|lazada|agency|creator)/i.test(haystack)) {
+  if (/(facebook|meta|instagram|threads|tiktok|youtube|twitter|x\.com|whatsapp|social|oracle|shopee|lazada|agency|creator)/i.test(rawHaystack)) {
     scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) + 20);
   }
 
-  if (/(app|software|windows|mac|ios|android app|á»©ng dá»¥ng|pháº§n má»m|workspace|notion|slack|feature|guide|how to|how-to|tips)/i.test(haystack)) {
+  if (/(app|software|windows|mac|ios|android app|á»©ng dá»¥ng|pháº§n má»m|workspace|notion|slack|feature|guide|how to|how-to|tips)/i.test(rawHaystack)) {
     scores.set("apps-software", (scores.get("apps-software") || 0) + 16);
+  }
+
+  for (const rule of SOURCE_TOPIC_HINTS) {
+    if (rule.pattern.test(`${feed.name} ${feed.url || ""}`)) {
+      scores.set(rule.topic, (scores.get(rule.topic) || 0) + rule.score);
+    }
+  }
+
+  if (/\b(game|gaming|gta|nintendo|switch|playstation|xbox|dlss|rockstar)\b/i.test(rawHaystack) && hasAiPackageSignals(rawHaystack)) {
+    scores.set("gaming", (scores.get("gaming") || 0) - 12);
+  }
+
+  if (/\b(cÆ¡ thá»ƒ ngÆ°á»i|virus há»c|bá»‡nh nhĂ¢n|medical|pregnancy|disease|diet)\b/i.test(rawHaystack)) {
+    scores.set("devices", (scores.get("devices") || 0) - 16);
+    scores.set("security", (scores.get("security") || 0) - 8);
+  }
+
+  if (/\b(auto show|roadshow|powertrain|kia seltos|kia ev3|hybrid variant|combustion)\b/i.test(rawHaystack)) {
+    scores.set("devices", (scores.get("devices") || 0) - 20);
+    scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) - 12);
+    scores.set("security", (scores.get("security") || 0) - 12);
+  }
+
+  if (!hasAiPackageSignal && !hasStrongAiSignal && (scores.get("devices") || 0) >= (scores.get("ai") || 0) + 6) {
+    return "devices";
   }
 
   let bestTopic = feed.language === "vi" ? "internet-business-tech" : "devices";
@@ -763,13 +960,13 @@ function inferContentType(feed, title, body) {
     return feed.contentTypeHint;
   }
 
-  const haystack = `${feed.name} ${title} ${splitSentences(body)[0] || ""}`.toLowerCase();
+  const haystack = `${feed.name} ${title} ${splitSentences(body)[0] || ""}`;
 
-  if (/(how to|how-to|guide|tips|thủ thuật|mẹo|hướng dẫn|cách (?:dùng|làm|triển khai|cài|tạo|thiết lập|bảo vệ|khắc phục|chọn))/i.test(haystack)) {
+  if (/(how to|how-to|guide|tips|thá»§ thuáº­t|máº¹o|hÆ°á»›ng dáº«n|cĂ¡ch (?:dĂ¹ng|lĂ m|triá»ƒn khai|cĂ i|táº¡o|thiáº¿t láº­p|báº£o vá»‡|kháº¯c phá»¥c|chá»n))/i.test(haystack)) {
     return "EvergreenGuide";
   }
 
-  if (/(vs\.?|versus|compare|comparison|so sánh)/i.test(haystack)) {
+  if (/(vs\.?|versus|compare|comparison|so sĂ¡nh|chatgpt vs|gemini vs|claude vs)/i.test(haystack)) {
     return "ComparisonPage";
   }
 
@@ -777,79 +974,82 @@ function inferContentType(feed, title, body) {
 }
 
 function buildSummary(body, language, fallbackTitle, paragraphs = []) {
-  const paragraphLead = cleanText((paragraphs || []).slice(0, 2).join(" "));
-  const sentences = splitSentences(paragraphLead || body);
-  const summary = [sentences[0], sentences[1]].filter(Boolean).join(" ");
+  const summary = selectEditorialSentences([paragraphs.slice(0, 3), body], 2, 55).join(" ");
 
   if (summary.length >= 90) {
     return finishSentence(summary);
   }
 
   return language === "vi"
-    ? finishSentence(body || `Bài viết bám theo chuyển động mới liên quan tới ${fallbackTitle}.`)
+    ? finishSentence(body || `BĂ i viáº¿t bĂ¡m theo chuyá»ƒn Ä‘á»™ng má»›i liĂªn quan tá»›i ${fallbackTitle}.`)
     : finishSentence(body || `This piece follows the newest movement connected to ${fallbackTitle}.`);
 }
 
 function buildDek(body, language, summary, paragraphs = []) {
-  const sentences = splitSentences(cleanText(paragraphs[0] || body));
-  const dek = sentences[0] || summary;
+  const dek = selectEditorialSentences([paragraphs[0], paragraphs[1], body, summary], 1, 60)[0] || summary;
 
   if (dek && dek.length >= 60) {
     return finishSentence(dek);
   }
 
   return language === "vi"
-    ? "Bài viết kéo câu chuyện về đúng bối cảnh và chỉ ra vì sao nó đáng để mở ngay lúc này."
+    ? "BĂ i viáº¿t kĂ©o cĂ¢u chuyá»‡n vá» Ä‘Ăºng bá»‘i cáº£nh vĂ  chá»‰ ra vĂ¬ sao nĂ³ Ä‘Ă¡ng Ä‘á»ƒ má»Ÿ ngay lĂºc nĂ y."
     : "The piece brings the story back into context and explains why it is worth opening right now.";
 }
 
 function buildHook(paragraphs, summary, dek, language) {
-  const candidate = cleanText(paragraphs?.[0] || paragraphs?.[1] || summary || dek);
+  const candidate = selectEditorialSentences([paragraphs?.[0], paragraphs?.[1], summary, dek], 1, 80)[0] || "";
 
   if (candidate.length >= 80) {
     return finishSentence(candidate);
   }
 
   return language === "vi"
-    ? finishSentence(`${summary} Đây là chi tiết khiến câu chuyện này đáng để mở ngay.`)
+    ? finishSentence(`${summary} ÄĂ¢y lĂ  chi tiáº¿t khiáº¿n cĂ¢u chuyá»‡n nĂ y Ä‘Ă¡ng Ä‘á»ƒ má»Ÿ ngay.`)
     : finishSentence(`${summary} This is the detail that makes the story worth opening right now.`);
 }
 
 function buildSections({ title, summary, dek, language, topic, contentType, sourceName, paragraphs = [] }) {
   const cleanParagraphs = (paragraphs || []).map((entry) => finishSentence(entry)).filter(Boolean);
-  const intro = language === "vi" ? "Điều vừa xảy ra" : "What happened";
-  const whyItMatters = language === "vi" ? "Vì sao đáng chú ý" : "Why it matters";
-  const next = contentType === "EvergreenGuide"
-    ? language === "vi"
-      ? "Đọc xong dùng được gì"
-      : "What readers can use right away"
-    : language === "vi"
-      ? "Điều cần theo dõi tiếp"
-      : "What to watch next";
+  const lens = resolveStoryLens({ title, summary, dek, topic, contentType, sourceName, paragraphs, language });
+
+  if (contentType === "EvergreenGuide") {
+    return buildGuideSections({ cleanParagraphs, summary, dek, language, topic, sourceName });
+  }
+
+  if (lens === "ai-package") {
+    return buildAiPackageSections({ title, cleanParagraphs, summary, dek, language, sourceName });
+  }
+
+  const intro = language === "vi" ? "Äiá»u Ä‘ang xáº£y ra" : "What happened";
+  const details = language === "vi" ? "Chi tiáº¿t Ä‘Ă¡ng giá»¯ láº¡i" : "Details worth keeping";
+  const whyItMatters = language === "vi" ? "VĂ¬ sao cĂ¢u chuyá»‡n nĂ y Ä‘Ă¡ng má»Ÿ" : "Why this deserves a click";
+  const take = language === "vi" ? "Patrick Tech Media Ä‘Ă¡nh giĂ¡" : "Patrick Tech Media take";
+  const next = language === "vi" ? "Äiá»u cáº§n theo dĂµi tiáº¿p" : "What to watch next";
 
   const angleByTopic = {
     ai: {
-      vi: "Chi tiết đáng chú ý là tín hiệu AI đang đi nhanh hơn vào lúc dùng thật, thay vì chỉ nằm ở phần trình diễn.",
+      vi: "Chi tiáº¿t Ä‘Ă¡ng chĂº Ă½ lĂ  tĂ­n hiá»‡u AI Ä‘ang Ä‘i nhanh hÆ¡n vĂ o lĂºc dĂ¹ng tháº­t, thay vĂ¬ chá»‰ náº±m á»Ÿ pháº§n trĂ¬nh diá»…n.",
       en: "The key angle is that AI is moving closer to everyday use instead of staying in demo mode."
     },
     "apps-software": {
-      vi: "Những thay đổi kiểu này thường âm thầm nhưng tác động khá rõ vào thói quen dùng ứng dụng mỗi ngày.",
+      vi: "Nhá»¯ng thay Ä‘á»•i kiá»ƒu nĂ y thÆ°á»ng Ă¢m tháº§m nhÆ°ng tĂ¡c Ä‘á»™ng khĂ¡ rĂµ vĂ o thĂ³i quen dĂ¹ng á»©ng dá»¥ng má»—i ngĂ y.",
       en: "Updates like this often look small at first but end up changing everyday product behavior."
     },
     devices: {
-      vi: "Ở mảng thiết bị, điều đáng nhìn là khi thông số bắt đầu dịch chuyển thành khác biệt thật trong trải nghiệm.",
+      vi: "á» máº£ng thiáº¿t bá»‹, Ä‘iá»u Ä‘Ă¡ng nhĂ¬n lĂ  khi thĂ´ng sá»‘ báº¯t Ä‘áº§u dá»‹ch chuyá»ƒn thĂ nh khĂ¡c biá»‡t tháº­t trong tráº£i nghiá»‡m.",
       en: "On the device side, the real question is when a spec shift turns into a noticeable user experience change."
     },
     security: {
-      vi: "Điểm đáng theo dõi là tác động của nó lên an toàn tài khoản và cách đội vận hành xử lý rủi ro.",
+      vi: "Äiá»ƒm Ä‘Ă¡ng theo dĂµi lĂ  tĂ¡c Ä‘á»™ng cá»§a nĂ³ lĂªn an toĂ n tĂ i khoáº£n vĂ  cĂ¡ch Ä‘á»™i váº­n hĂ nh xá»­ lĂ½ rá»§i ro.",
       en: "The part worth watching is how it changes account safety and operational risk handling."
     },
     gaming: {
-      vi: "Với game, những tín hiệu như vậy thường lan nhanh trong cộng đồng trước khi trở thành xu hướng rõ ràng.",
+      vi: "Vá»›i game, nhá»¯ng tĂ­n hiá»‡u nhÆ° váº­y thÆ°á»ng lan nhanh trong cá»™ng Ä‘á»“ng trÆ°á»›c khi trá»Ÿ thĂ nh xu hÆ°á»›ng rĂµ rĂ ng.",
       en: "In gaming, signals like this often spread through the community before they settle into a clear trend."
     },
     "internet-business-tech": {
-      vi: "Điều quan trọng là nó có thể ảnh hưởng trực tiếp tới cách người dùng tương tác, chia sẻ hoặc chi tiền trên nền tảng số.",
+      vi: "Äiá»u quan trá»ng lĂ  nĂ³ cĂ³ thá»ƒ áº£nh hÆ°á»Ÿng trá»±c tiáº¿p tá»›i cĂ¡ch ngÆ°á»i dĂ¹ng tÆ°Æ¡ng tĂ¡c, chia sáº» hoáº·c chi tiá»n trĂªn ná»n táº£ng sá»‘.",
       en: "What matters is the potential effect on how people interact, share, or spend across digital platforms."
     }
   };
@@ -861,8 +1061,12 @@ function buildSections({ title, summary, dek, language, topic, contentType, sour
       : buildEnglishForwardLook(topic, title);
   const sourceLine =
     language === "vi"
-      ? `Patrick Tech Media đang đối chiếu thêm với nguồn ${sourceName}.`
+      ? `Patrick Tech Media Ä‘ang Ä‘á»‘i chiáº¿u thĂªm vá»›i nguá»“n ${sourceName}.`
       : `Patrick Tech Media is cross-checking the thread against ${sourceName}.`;
+  const takeLine =
+    language === "vi"
+      ? `Äiá»ƒm Ä‘Ă¡ng giá»¯ láº¡i lĂ  cĂ¢u chuyá»‡n nĂ y cháº¡m vĂ o Ä‘Ăºng lá»›p ngÆ°á»i dĂ¹ng cĂ´ng nghá»‡ Ä‘ang cáº§n tĂ­n hiá»‡u rĂµ rĂ ng thay vĂ¬ chá»‰ thĂªm má»™t headline gĂ¢y sá»‘c.`
+      : `The part worth keeping is that this lands on a real layer of technology users instead of stopping at a flashy headline.`;
 
   return [
     {
@@ -870,27 +1074,167 @@ function buildSections({ title, summary, dek, language, topic, contentType, sour
       body: cleanParagraphs[0] || finishSentence(summary)
     },
     {
+      heading: details,
+      body: cleanParagraphs[1] || finishSentence(dek)
+    },
+    {
       heading: whyItMatters,
-      body: cleanParagraphs[1] || finishSentence(`${dek} ${angle}`)
+      body: cleanParagraphs[2] || finishSentence(`${dek} ${angle}`)
+    },
+    {
+      heading: take,
+      body: cleanParagraphs[3] || finishSentence(`${takeLine} ${sourceLine}`)
     },
     {
       heading: next,
-      body: cleanParagraphs[2] || finishSentence(`${nextLook} ${sourceLine}`)
+      body: cleanParagraphs[4] || cleanParagraphs[3] || finishSentence(`${nextLook} ${sourceLine}`)
     }
   ];
 }
 
+function buildGuideSections({ cleanParagraphs, summary, dek, language, topic, sourceName }) {
+  const setup = language === "vi" ? "Báº¯t Ä‘áº§u tá»« Ä‘Ă¢u" : "Where to start";
+  const shortcut = language === "vi" ? "LĂ m theo cĂ¡ch gá»n nháº¥t" : "The shortest path";
+  const mistakes = language === "vi" ? "Lá»—i dá»… gáº·p" : "Common mistakes";
+  const fit = language === "vi" ? "Ai nĂªn Ă¡p dá»¥ng" : "Who should use it";
+  const take = language === "vi" ? "Patrick Tech Media Ä‘Ă¡nh giĂ¡" : "Patrick Tech Media take";
+  const audienceLine =
+    language === "vi"
+      ? `GiĂ¡ trá»‹ cá»§a kiá»ƒu bĂ i nĂ y náº±m á»Ÿ viá»‡c ngÆ°á»i Ä‘á»c cĂ³ thá»ƒ dĂ¹ng láº¡i ngay trong cĂ´ng viá»‡c hoáº·c khi xá»­ lĂ½ má»™t tĂ¡c vá»¥ cĂ´ng nghá»‡ quen thuá»™c.`
+      : `The value here is practical reuse: readers should be able to apply it immediately in a real task.`;
+  const sourceLine =
+    language === "vi"
+      ? `Patrick Tech Media tiáº¿p tá»¥c Ä‘á»‘i chiáº¿u thĂªm vá»›i nguá»“n ${sourceName} Ä‘á»ƒ giá»¯ pháº§n hÆ°á»›ng dáº«n khĂ´ng bá»‹ má»ng.`
+      : `Patrick Tech Media is still cross-checking the workflow against ${sourceName} so the guide stays grounded.`;
+
+  return [
+    {
+      heading: setup,
+      body: cleanParagraphs[0] || finishSentence(summary)
+    },
+    {
+      heading: shortcut,
+      body: cleanParagraphs[1] || finishSentence(dek)
+    },
+    {
+      heading: mistakes,
+      body: cleanParagraphs[2] || finishSentence(
+        language === "vi"
+          ? `Lá»—i dá»… gáº·p nháº¥t lĂ  nháº£y tháº³ng vĂ o máº¹o nhá» nhÆ°ng bá» qua Ä‘iá»u kiá»‡n Ä‘áº§u vĂ o, khiáº¿n thao tĂ¡c cĂ³ váº» Ä‘Ăºng mĂ  káº¿t quáº£ cuá»‘i váº«n sai.`
+          : `The easiest mistake is trying the shortcut without checking the setup conditions first, which makes the workflow look right while the result stays off.`
+      )
+    },
+    {
+      heading: fit,
+      body: cleanParagraphs[3] || finishSentence(
+        language === "vi"
+          ? `BĂ i kiá»ƒu nĂ y há»£p vá»›i ngÆ°á»i muá»‘n rĂºt ngáº¯n thá»i gian xá»­ lĂ½ má»™t tĂ¡c vá»¥ láº·p láº¡i, Ä‘áº·c biá»‡t khi cĂ´ng cá»¥ Ä‘ang thay Ä‘á»•i quĂ¡ nhanh theo tá»«ng Ä‘á»£t cáº­p nháº­t.`
+          : `This kind of piece is best for readers trying to shorten a repeatable task while tools are changing quickly from release to release.`
+      )
+    },
+    {
+      heading: take,
+      body: cleanParagraphs[4] || finishSentence(`${audienceLine} ${sourceLine}`)
+    }
+  ];
+}
+
+function buildAiPackageSections({ title, cleanParagraphs, summary, dek, language, sourceName }) {
+  const upgrade = language === "vi" ? "Äiá»ƒm nĂ¢ng cáº¥p Ä‘Ă¡ng chĂº Ă½" : "What changed";
+  const pricing = language === "vi" ? "GiĂ¡ vĂ  quyá»n lá»£i" : "Price and bundle value";
+  const features = language === "vi" ? "Nhá»¯ng lá»›p AI kĂ©o giĂ¡ trá»‹ lĂªn" : "AI features that change the value";
+  const audience = language === "vi" ? "Ai nĂªn Ä‘á»ƒ máº¯t" : "Who should pay attention";
+  const take = language === "vi" ? "Patrick Tech Media Ä‘Ă¡nh giĂ¡" : "Patrick Tech Media take";
+  const pricingLine =
+    language === "vi"
+      ? `Äiá»u ngÆ°á»i Ä‘á»c thá»±c sá»± muá»‘n biáº¿t á»Ÿ cĂ¡c gĂ³i AI khĂ´ng chá»‰ lĂ  giĂ¡, mĂ  lĂ  má»—i láº§n tÄƒng phĂ­ hoáº·c giá»¯ giĂ¡ sáº½ mang thĂªm quyá»n lá»£i nĂ o vĂ o cĂ´ng viá»‡c háº±ng ngĂ y.`
+      : `What readers actually want from AI package coverage is not just a price tag, but what each price move unlocks in real daily work.`;
+  const audienceLine =
+    language === "vi"
+      ? `NhĂ³m nĂªn theo dĂµi Ä‘áº§u tiĂªn lĂ  ngÆ°á»i Ä‘ang tráº£ tiá»n cho lÆ°u trá»¯, cá»™ng tĂ¡c vĂ  trá»£ lĂ½ AI trong cĂ¹ng má»™t há»‡ sinh thĂ¡i, vĂ¬ Ä‘Ă¢y lĂ  nÆ¡i sá»± khĂ¡c biá»‡t vá» giĂ¡ trá»‹ lá»™ ra nhanh nháº¥t.`
+      : `The first audience to watch is the group already paying for storage, collaboration, and AI inside one stack, because that is where value shifts show up fastest.`;
+  const takeLine =
+    language === "vi"
+      ? `Patrick Tech Media nhĂ¬n cĂ¢u chuyá»‡n kiá»ƒu nĂ y nhÆ° má»™t cuá»™c Ä‘ua giĂ¡ trá»‹ sá»­ dá»¥ng tháº­t: gĂ³i nĂ o giĂºp ngÆ°á»i dĂ¹ng tiáº¿t kiá»‡m bÆ°á»›c, gom cĂ´ng cá»¥ vĂ  giáº£m chi phĂ­ phĂ¡t sinh sáº½ tháº¯ng lĂ¢u hÆ¡n má»™t Ä‘á»£t truyá»n thĂ´ng ngáº¯n.`
+      : `Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz.`;
+  const sourceLine =
+    language === "vi"
+      ? `Patrick Tech Media sáº½ tiáº¿p tá»¥c Ä‘á»‘i chiáº¿u thĂªm vá»›i nguá»“n ${sourceName} Ä‘á»ƒ xem thay Ä‘á»•i nĂ y cĂ³ giá»¯ Ä‘Æ°á»£c lá»£i tháº¿ khi rollout rá»™ng hÆ¡n khĂ´ng.`
+      : `Patrick Tech Media will keep checking ${sourceName} to see whether the value holds once the rollout broadens.`;
+
+  return [
+    {
+      heading: upgrade,
+      body: cleanParagraphs[0] || finishSentence(summary)
+    },
+    {
+      heading: pricing,
+      body: cleanParagraphs[1] || finishSentence(`${cleanParagraphs[2] || dek} ${pricingLine}`)
+    },
+    {
+      heading: features,
+      body: cleanParagraphs[3] || finishSentence(
+        language === "vi"
+          ? `Äiá»u kĂ©o bĂ i kiá»ƒu nĂ y vÆ°á»£t khá»i má»™t báº£n cáº­p nháº­t giĂ¡ náº±m á»Ÿ chá»— cĂ¡c lá»›p AI Ä‘i kĂ¨m cĂ³ tháº­t sá»± lĂ m Gmail, Docs, Meet, nghiĂªn cá»©u hay sĂ¡ng táº¡o ná»™i dung bá»›t rá»i ráº¡c hÆ¡n hay khĂ´ng.`
+          : `The reason this rises above a pricing note is whether the bundled AI actually makes Gmail, Docs, meetings, research, or creation feel less fragmented.`
+      )
+    },
+    {
+      heading: audience,
+      body: cleanParagraphs[4] || finishSentence(audienceLine)
+    },
+    {
+      heading: take,
+      body: cleanParagraphs[5] || finishSentence(`${takeLine} ${sourceLine}`)
+    }
+  ];
+}
+
+function resolveStoryLens({ title, summary, dek, topic, contentType, sourceName, paragraphs, language }) {
+  const rawHaystack = cleanText([title, summary, dek, sourceName, ...(paragraphs || [])].join(" "));
+
+  if (contentType === "EvergreenGuide") {
+    return "guide";
+  }
+
+  if (hasAiPackageSignals(rawHaystack) && normalizeTopicHint(topic) === "ai") {
+    return "ai-package";
+  }
+
+  if (hasAiPackageSignals(rawHaystack) && /(workspace|google one|copilot|notebooklm|chatgpt|claude|gemini)/i.test(rawHaystack)) {
+    return "ai-package";
+  }
+
+  return language === "vi" ? "news" : "news";
+}
+
+function hasAiPackageSignals(value) {
+  const text = String(value || "");
+  return /\b(google ai pro|google one|workspace|business plus|gemini advanced|notebooklm|veo|lyria|chatgpt plus|chatgpt pro|claude pro|claude max|copilot pro|copilot|subscription|pricing|monthly|annual|storage|5tb|2tb|package|bundle|gĂ³i|dung lÆ°á»£ng|tráº£ phĂ­|theo thĂ¡ng|theo nÄƒm)\b/i.test(text);
+}
+
+function normalizeTopicHint(topic) {
+  const value = cleanText(topic);
+  if (value === "software") {
+    return "apps-software";
+  }
+  if (value === "internet-business") {
+    return "internet-business-tech";
+  }
+  return value;
+}
+
 function buildVietnameseForwardLook(topic, title) {
   const lines = {
-    ai: "Điểm cần theo dõi tiếp là liệu thay đổi này có được đưa nhanh vào sản phẩm và thói quen dùng thật hay không.",
-    "apps-software": "Điều cần nhìn tiếp là nhịp rollout, giới hạn khu vực và mức độ ảnh hưởng lên hành vi dùng hằng ngày.",
-    devices: "Điều cần xem tiếp là giá bán, nhịp phổ cập và cảm nhận thật khi thiết bị tới tay người dùng.",
-    security: "Phần cần theo dõi thêm là tác động thực tế lên an toàn tài khoản, quy trình đăng nhập và chi phí vận hành.",
-    gaming: `Giới chơi game sẽ sớm nhìn vào việc ${title.toLowerCase()} chỉ là điểm nóng nhất thời hay sẽ kéo thêm một làn sóng mới.`,
-    "internet-business-tech": "Điểm đáng xem tiếp là việc tín hiệu này có chuyển thành thay đổi thật trên người dùng và doanh nghiệp hay không."
+    ai: "Äiá»ƒm cáº§n theo dĂµi tiáº¿p lĂ  liá»‡u thay Ä‘á»•i nĂ y cĂ³ Ä‘Æ°á»£c Ä‘Æ°a nhanh vĂ o sáº£n pháº©m vĂ  thĂ³i quen dĂ¹ng tháº­t hay khĂ´ng.",
+    "apps-software": "Äiá»u cáº§n nhĂ¬n tiáº¿p lĂ  nhá»‹p rollout, giá»›i háº¡n khu vá»±c vĂ  má»©c Ä‘á»™ áº£nh hÆ°á»Ÿng lĂªn hĂ nh vi dĂ¹ng háº±ng ngĂ y.",
+    devices: "Äiá»u cáº§n xem tiáº¿p lĂ  giĂ¡ bĂ¡n, nhá»‹p phá»• cáº­p vĂ  cáº£m nháº­n tháº­t khi thiáº¿t bá»‹ tá»›i tay ngÆ°á»i dĂ¹ng.",
+    security: "Pháº§n cáº§n theo dĂµi thĂªm lĂ  tĂ¡c Ä‘á»™ng thá»±c táº¿ lĂªn an toĂ n tĂ i khoáº£n, quy trĂ¬nh Ä‘Äƒng nháº­p vĂ  chi phĂ­ váº­n hĂ nh.",
+    gaming: `Giá»›i chÆ¡i game sáº½ sá»›m nhĂ¬n vĂ o viá»‡c ${title.toLowerCase()} chá»‰ lĂ  Ä‘iá»ƒm nĂ³ng nháº¥t thá»i hay sáº½ kĂ©o thĂªm má»™t lĂ n sĂ³ng má»›i.`,
+    "internet-business-tech": "Äiá»ƒm Ä‘Ă¡ng xem tiáº¿p lĂ  viá»‡c tĂ­n hiá»‡u nĂ y cĂ³ chuyá»ƒn thĂ nh thay Ä‘á»•i tháº­t trĂªn ngÆ°á»i dĂ¹ng vĂ  doanh nghiá»‡p hay khĂ´ng."
   };
 
-  return lines[topic] || "Patrick Tech Media sẽ tiếp tục theo dõi xem tín hiệu này có mở rộng thành chuyển động lớn hơn hay không.";
+  return lines[topic] || "Patrick Tech Media sáº½ tiáº¿p tá»¥c theo dĂµi xem tĂ­n hiá»‡u nĂ y cĂ³ má»Ÿ rá»™ng thĂ nh chuyá»ƒn Ä‘á»™ng lá»›n hÆ¡n hay khĂ´ng.";
 }
 
 function buildEnglishForwardLook(topic, title) {
@@ -1020,12 +1364,13 @@ function sanitizeIncomingArticle(article) {
 
 function hasStrongAiSignals(value) {
   const text = String(value || "");
+  return /\b(artificial intelligence|trĂ­ tuá»‡ nhĂ¢n táº¡o|chatgpt|openai|gemini|claude|deepmind|deepseek|copilot|llm|npu|ai agent|ai model|trá»£ lĂ½ ai|mĂ´ hĂ¬nh ai)\b/i.test(text);
+}
 
-  if (/\bAI\b/.test(text)) {
-    return true;
-  }
-
-  return /\b(artificial intelligence|trí tuệ nhân tạo|chatgpt|openai|gemini|claude|deepmind|deepseek|copilot|llm|npu|ai agent|ai model|trợ lý ai|mô hình ai)\b/i.test(text);
+function hasGenericAiSignals(value) {
+  const text = String(value || "");
+  return /\bAI\b/.test(text)
+    || /\bai\s+(?:pro|plus|ultra|business|workspace|studio|assistant|agent|plan|package|bundle|model)\b/i.test(text);
 }
 
 function cleanUrl(value) {
@@ -1054,45 +1399,45 @@ function stripCdata(value) {
 function decodeXmlEntities(value) {
   const namedEntities = {
     nbsp: " ",
-    agrave: "à",
-    aacute: "á",
-    acirc: "â",
-    atilde: "ã",
-    egrave: "è",
-    eacute: "é",
-    ecirc: "ê",
-    igrave: "ì",
-    iacute: "í",
-    ograve: "ò",
-    oacute: "ó",
-    ocirc: "ô",
-    otilde: "õ",
-    ugrave: "ù",
-    uacute: "ú",
-    yacute: "ý",
-    Agrave: "À",
-    Aacute: "Á",
-    Acirc: "Â",
-    Atilde: "Ã",
-    Egrave: "È",
-    Eacute: "É",
-    Ecirc: "Ê",
-    Igrave: "Ì",
-    Iacute: "Í",
-    Ograve: "Ò",
-    Oacute: "Ó",
-    Ocirc: "Ô",
-    Otilde: "Õ",
-    Ugrave: "Ù",
-    Uacute: "Ú",
-    Yacute: "Ý",
-    lsquo: "‘",
-    rsquo: "’",
-    ldquo: "“",
-    rdquo: "”",
-    hellip: "…",
-    mdash: "—",
-    ndash: "–"
+    agrave: "Ă ",
+    aacute: "Ă¡",
+    acirc: "Ă¢",
+    atilde: "Ă£",
+    egrave: "Ă¨",
+    eacute: "Ă©",
+    ecirc: "Ăª",
+    igrave: "Ă¬",
+    iacute: "Ă­",
+    ograve: "Ă²",
+    oacute: "Ă³",
+    ocirc: "Ă´",
+    otilde: "Ăµ",
+    ugrave: "Ă¹",
+    uacute: "Ăº",
+    yacute: "Ă½",
+    Agrave: "Ă€",
+    Aacute: "Ă",
+    Acirc: "Ă‚",
+    Atilde: "Ăƒ",
+    Egrave: "Ăˆ",
+    Eacute: "Ă‰",
+    Ecirc: "Ă",
+    Igrave: "ĂŒ",
+    Iacute: "Ă",
+    Ograve: "Ă’",
+    Oacute: "Ă“",
+    Ocirc: "Ă”",
+    Otilde: "Ă•",
+    Ugrave: "Ă™",
+    Uacute: "Ă",
+    Yacute: "Ă",
+    lsquo: "â€˜",
+    rsquo: "â€™",
+    ldquo: "â€œ",
+    rdquo: "â€",
+    hellip: "â€¦",
+    mdash: "â€”",
+    ndash: "â€“"
   };
 
   let decoded = String(value || "");
@@ -1107,9 +1452,9 @@ function decodeXmlEntities(value) {
       .replace(/&quot;/g, '"')
       .replace(/&#39;/g, "'")
       .replace(/&#x27;/gi, "'")
-      .replace(/&#8211;/g, "–")
-      .replace(/&#8212;/g, "—")
-      .replace(/&#8230;/g, "…")
+      .replace(/&#8211;/g, "â€“")
+      .replace(/&#8212;/g, "â€”")
+      .replace(/&#8230;/g, "â€¦")
       .replace(/&#(\d+);/g, (match, code) => {
         const numeric = Number.parseInt(code, 10);
         return Number.isFinite(numeric) ? String.fromCodePoint(numeric) : match;
@@ -1141,7 +1486,7 @@ function scoreEncodingQuality(value) {
     /(?:\u00e2(?:\u20ac|[\u0080-\u00bf]))/g,
     /(?:[\u00c2-\u00c6][\u0080-\u00ff])/g,
     /(?:\u00e1[\u00ba\u00bb])/g,
-    /�/g
+    /ï¿½/g
   ].reduce((sum, pattern) => sum + ((String(value || "").match(pattern) || []).length * 2), 0);
 }
 
