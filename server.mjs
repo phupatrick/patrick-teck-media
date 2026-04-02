@@ -102,6 +102,9 @@ const mimeTypes = {
   ".txt": "text/plain; charset=utf-8",
   ".xml": "application/xml; charset=utf-8"
 };
+const REMOTE_IMAGE_TIMEOUT_MS = 9000;
+const REMOTE_IMAGE_MAX_BYTES = 8 * 1024 * 1024;
+const REMOTE_IMAGE_CACHE_CONTROL = "public, max-age=900, stale-while-revalidate=86400";
 
 const adsConfig = {
   client: config.adsenseClient,
@@ -150,6 +153,10 @@ async function handleRequest(req, res) {
       const clusterId = pathname.slice("/media/story/".length, -".svg".length);
       const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
       return sendText(res, 200, buildStoryArtSvg(state, clusterId, language), "image/svg+xml; charset=utf-8");
+    }
+
+    if (pathname === "/media/source") {
+      return handleRemoteStoryImage(requestUrl, res, state);
     }
 
     if (pathname === "/") {
@@ -841,6 +848,94 @@ function redirect(res, location) {
     })
   );
   res.end();
+}
+
+async function handleRemoteStoryImage(requestUrl, res, state) {
+  const targetUrl = normalizeRemoteImageUrl(requestUrl.searchParams.get("src") || "");
+
+  if (!targetUrl || !isAllowedRemoteImageUrl(state, targetUrl)) {
+    return sendText(res, 404, "Image not available.", "text/plain; charset=utf-8");
+  }
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), REMOTE_IMAGE_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(targetUrl, {
+      redirect: "follow",
+      signal: controller.signal,
+      headers: {
+        Accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "User-Agent": "PatrickTechMediaImageProxy/1.0"
+      }
+    });
+
+    if (!response.ok) {
+      return sendText(res, 404, "Image not available.", "text/plain; charset=utf-8");
+    }
+
+    const contentType = String(response.headers.get("content-type") || "").trim();
+    if (!/^image\//i.test(contentType)) {
+      return sendText(res, 415, "Unsupported image type.", "text/plain; charset=utf-8");
+    }
+
+    const imageBytes = Buffer.from(await response.arrayBuffer());
+    if (imageBytes.byteLength > REMOTE_IMAGE_MAX_BYTES) {
+      return sendText(res, 413, "Image is too large.", "text/plain; charset=utf-8");
+    }
+
+    res.writeHead(
+      200,
+      createResponseHeaders({
+        cacheControl: REMOTE_IMAGE_CACHE_CONTROL,
+        contentType
+      })
+    );
+    res.end(imageBytes);
+  } catch {
+    return sendText(res, 404, "Image not available.", "text/plain; charset=utf-8");
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function normalizeRemoteImageUrl(value) {
+  try {
+    const target = new URL(String(value || "").trim());
+    if (!/^https?:$/i.test(target.protocol)) {
+      return "";
+    }
+    target.hash = "";
+    return target.toString();
+  } catch {
+    return "";
+  }
+}
+
+function isAllowedRemoteImageUrl(state, targetUrl) {
+  const normalizedTarget = normalizeRemoteImageUrl(targetUrl);
+  if (!normalizedTarget) {
+    return false;
+  }
+
+  for (const article of state.articles || []) {
+    const candidates = [
+      article?.hero_image?.raw_src,
+      article?.hero_image?.src,
+      article?.image?.src,
+      ...(Array.isArray(article?.source_set)
+        ? article.source_set.flatMap((source) => [source?.image_url, source?.image, source?.src])
+        : [])
+    ];
+
+    for (const candidate of candidates) {
+      if (normalizeRemoteImageUrl(candidate) === normalizedTarget) {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
 function shouldUseSecureCookies(req) {

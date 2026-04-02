@@ -1891,7 +1891,9 @@ function normalizeSourceImage(candidate, article, siteUrl, source = null) {
   return {
     kind: "source",
     src: rawSrc,
-    url: toAbsoluteAssetUrl(rawSrc, siteUrl),
+    raw_src: rawSrc,
+    display_src: toRenderableImageUrl(rawSrc, siteUrl),
+    url: toRenderableImageUrl(rawSrc, siteUrl),
     alt:
       candidate?.alt ||
       candidate?.image_alt ||
@@ -1937,6 +1939,14 @@ function toAbsoluteAssetUrl(value, siteUrl) {
   }
 
   return `${normalizeSiteUrl(siteUrl)}${value.startsWith("/") ? value : `/${value}`}`;
+}
+
+function toRenderableImageUrl(value, siteUrl) {
+  if (/^https?:\/\//i.test(value)) {
+    return `${normalizeSiteUrl(siteUrl)}/media/source?src=${encodeURIComponent(value)}`;
+  }
+
+  return toAbsoluteAssetUrl(value, siteUrl);
 }
 
 function wrapText(value, maxLength, maxLines) {

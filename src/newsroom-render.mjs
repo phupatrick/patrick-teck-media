@@ -547,8 +547,10 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
                     (source) => `
                       <li>
                         <a href="${source.source_url}">${escapeHtml(source.source_name)}</a>
-                        <span>${escapeHtml(source.source_type)}</span>
-                        <span>${escapeHtml(source.region)}</span>
+                        ${[source.source_type, source.region]
+                          .filter(Boolean)
+                          .map((value) => `<span>${escapeHtml(value)}</span>`)
+                          .join("")}
                       </li>
                     `
                   )
@@ -1057,7 +1059,7 @@ function renderStoryImage(article, className, eager = false) {
 
   return `
     <figure class="${className}" data-story-image>
-      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="${eager ? "eager" : "lazy"}" decoding="async" />
+      <img src="${article.hero_image.display_src || article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="${eager ? "eager" : "lazy"}" decoding="async" />
       <div class="story-image-fallback" aria-hidden="true">
         ${renderImagePlaceholder(article, placeholderClass)}
       </div>
@@ -1077,7 +1079,7 @@ function renderArticleHero(article) {
 
   return `
     <figure class="article-hero-media" data-story-image>
-      <img src="${article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="eager" decoding="async" />
+      <img src="${article.hero_image.display_src || article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="eager" decoding="async" />
       <div class="story-image-fallback article-image-fallback" aria-hidden="true">
         ${renderImagePlaceholder(article, "article-placeholder-card")}
       </div>
@@ -1087,10 +1089,14 @@ function renderArticleHero(article) {
 }
 
 function renderImagePlaceholder(article, className) {
+  const visualLabel =
+    article.hero_image.label ||
+    (article.language === "vi" ? "Ảnh nguồn đang được dùng" : "Source image in use");
+
   return `
     <div class="${className}">
       <span>${escapeHtml(article.topic_label)}</span>
-      <strong>${escapeHtml(article.hero_image.label)}</strong>
+      <strong>${escapeHtml(visualLabel)}</strong>
       <p>${escapeHtml(article.hero_image.caption)}</p>
     </div>
   `;

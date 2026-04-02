@@ -150,7 +150,7 @@ const tests = [
       assert.equal(article.hero_image.kind, "source");
       assert.match(html, /Patrick Tech Store/);
       assert.match(html, /patricktechstore\.vercel\.app/);
-      assert.match(html, /https:\/\/images\.example\.com\/verified-edge-ai\.jpg/);
+      assert.match(html, /\/media\/source\?src=https%3A%2F%2Fimages\.example\.com%2Fverified-edge-ai\.jpg/);
     }
   },
   {
@@ -561,8 +561,9 @@ const tests = [
 
       assert.equal(fileState.articles[0].hero_image.kind, "source");
       assert.equal(fileState.articles[0].hero_image.src, "https://images.example.com/story.jpg");
-      assert.match(html, /https:\/\/images\.example\.com\/story\.jpg/);
+      assert.match(html, /\/media\/source\?src=https%3A%2F%2Fimages\.example\.com%2Fstory\.jpg/);
       assert.match(html, /Tech Press/);
+      assert.doesNotMatch(html, />undefined</);
     }
   },
   {
