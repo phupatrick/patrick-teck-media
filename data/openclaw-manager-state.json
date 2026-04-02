@@ -4,17 +4,17 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-04-02T05:46:25.175Z",
-    "finishedAt": "2026-04-02T05:46:37.861Z"
+    "startedAt": "2026-04-02T09:32:47.546Z",
+    "finishedAt": "2026-04-02T09:33:19.368Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 96,
+    "totalArticles": 120,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 31 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775108785204-53d78c.json Generated OpenClaw hidden feed with 29 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Reuters Technology: fetch failed",
+      "output": "Refreshed 133 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775122367572-343623.json Generated OpenClaw hidden feed with 120 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -22,13 +22,13 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 29 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "output": "Refreshed 120 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     },
     "webControl": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, internet-business-tech, gaming, devices, security, apps-software.",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, devices, internet-business-tech, security, apps-software, gaming.",
       "warnings": ""
     }
   },
@@ -37,7 +37,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-04-02T05:46:37.860Z",
+      "reviewedAt": "2026-04-02T09:33:19.368Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,

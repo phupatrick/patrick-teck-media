@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02T05:46:37.853Z",
+  "generated_at": "2026-04-02T09:33:19.361Z",
   "manager": {
     "id": "openclaw",
     "autonomy": "owner-delegated-full"
@@ -29,20 +29,20 @@
   },
   "priorityTopics": [
     "ai",
-    "internet-business-tech",
-    "gaming",
     "devices",
+    "internet-business-tech",
     "security",
-    "apps-software"
+    "apps-software",
+    "gaming"
   ],
   "ranking": {
     "topicWeights": {
-      "ai": 46,
-      "security": 26,
-      "internet-business-tech": 30,
-      "apps-software": 20,
-      "devices": 21,
-      "gaming": 13
+      "ai": 96,
+      "internet-business-tech": 57,
+      "security": 46,
+      "apps-software": 32,
+      "devices": 27,
+      "gaming": 6
     },
     "sourceTypeWeights": {
       "official-site": 20,
@@ -56,46 +56,46 @@
   },
   "frontpageCopy": {
     "vi": {
-      "heroTitle": "Tin AI, Big Tech và công nghệ cần mở đầu tiên.",
+      "heroTitle": "Tin AI, Big Tech và những chuyển động công nghệ đáng mở đầu ngày.",
       "badgeSignals": "AI",
-      "badgeAds": "Internet & Doanh nghiệp số",
-      "badgeBilingual": "Gaming",
-      "hotTitle": "Tin nóng lúc này",
+      "badgeAds": "Thiết bị",
+      "badgeBilingual": "Internet & Doanh nghiệp số",
+      "hotTitle": "Nóng lúc này",
       "editorsTitle": "Biên tập chọn",
-      "ribbonTitle": "Tin mới lên theo giờ",
+      "ribbonTitle": "Mới trên trang",
       "companyBrief": "Patrick Tech Co. VN",
-      "readerStartTitle": "3 bài mới để bắt nhịp",
-      "readerWatchTitle": "2 câu chuyện đang được mở nhiều",
-      "updateTitle": "3 tin mới để bắt nhịp",
-      "hotLabel": "Nóng lúc này",
+      "readerStartTitle": "Nên đọc trước",
+      "readerWatchTitle": "Đang được chú ý",
+      "updateTitle": "Tin vừa lên",
+      "hotLabel": "Nóng",
       "editorsLabel": "Biên tập chọn",
-      "ribbonLabel": "Tin vừa lên",
+      "ribbonLabel": "Vừa lên",
       "latestTitle": "Tin mới nhất",
-      "tipsTitle": "Thủ thuật đáng lưu",
+      "tipsTitle": "Thủ thuật & mẹo hay",
       "ecosystemTitle": "Patrick Tech Co. VN",
-      "browserTitle": "Đang được quan tâm",
-      "homeSpotlightTitle": "Mở bài nổi bật hôm nay"
+      "browserTitle": "Đọc nhiều nhất",
+      "homeSpotlightTitle": "Tâm điểm"
     },
     "en": {
-      "heroTitle": "AI, Big Tech, and the stories worth opening first.",
+      "heroTitle": "AI, Big Tech, and the technology shifts worth your first click.",
       "badgeSignals": "AI",
-      "badgeAds": "Internet & Business Tech",
-      "badgeBilingual": "Gaming",
+      "badgeAds": "Devices",
+      "badgeBilingual": "Internet & Business Tech",
       "hotTitle": "Hot right now",
       "editorsTitle": "Editors' picks",
-      "ribbonTitle": "Just moved",
+      "ribbonTitle": "Fresh on the page",
       "companyBrief": "Patrick Tech Co. VN",
-      "readerStartTitle": "3 fresh stories to start with",
-      "readerWatchTitle": "2 stories readers keep opening",
-      "updateTitle": "3 fresh stories to catch the pace",
-      "hotLabel": "Hot now",
+      "readerStartTitle": "Read first",
+      "readerWatchTitle": "Getting attention",
+      "updateTitle": "Just in",
+      "hotLabel": "Hot",
       "editorsLabel": "Editors' picks",
-      "ribbonLabel": "Just moved",
+      "ribbonLabel": "Just in",
       "latestTitle": "Latest stories",
-      "tipsTitle": "Practical guides worth saving",
+      "tipsTitle": "Tips worth saving",
       "ecosystemTitle": "Patrick Tech Co. VN",
-      "browserTitle": "Rising now",
-      "homeSpotlightTitle": "Start with the strongest lead today"
+      "browserTitle": "Most read",
+      "homeSpotlightTitle": "Spotlight"
     }
   }
 }
