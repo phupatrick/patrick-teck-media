@@ -20,11 +20,11 @@ export function renderHomePage(state, language, adsConfig) {
     tips?.[0] ||
     home.evergreen?.[0] ||
     null;
-  const leadStories = dedupeStories([...packageStories, home.featured, ...(home.latest || []), ...(home.trending || []), home.briefing, ...(tips || [])]);
+  const leadStories = prioritizeIllustratedStories(dedupeStories([...packageStories, home.featured, ...(home.latest || []), ...(home.trending || []), home.briefing, ...(tips || [])]));
   const leadFeature = leadStories[0] || fallbackStory;
-  const leadSideStories = excludeStories(leadStories.slice(1), [leadFeature]).slice(0, 2);
-  const packageLead = excludeStories(dedupeStories([...packageStories, home.briefing]), [leadFeature, ...leadSideStories])[0] || null;
-  const packageItems = excludeStories(dedupeStories([...packageStories, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 3);
+  const leadSideStories = prioritizeIllustratedStories(excludeStories(leadStories.slice(1), [leadFeature])).slice(0, 2);
+  const packageLead = prioritizeIllustratedStories(excludeStories(dedupeStories([...packageStories, home.briefing]), [leadFeature, ...leadSideStories]))[0] || null;
+  const packageItems = prioritizeIllustratedStories(excludeStories(dedupeStories([...packageStories, ...home.latest]), [leadFeature, ...leadSideStories, packageLead])).slice(0, 3);
   const ribbonStories = selectBalancedStories(
     excludeStories(dedupeStories([...packageStories, ...home.latest, ...home.trending, home.briefing]), [leadFeature, ...leadSideStories, packageLead]),
     5,
@@ -35,26 +35,32 @@ export function renderHomePage(state, language, adsConfig) {
     4,
     { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
   );
-  const safeLatestStories = latestStories.length
-    ? latestStories
-    : excludeStories(dedupeStories([...(home.latest || []), ...(home.trending || []), fallbackStory]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 4);
+  const safeLatestStories = prioritizeIllustratedStories(
+    latestStories.length
+      ? latestStories
+      : excludeStories(dedupeStories([...(home.latest || []), ...(home.trending || []), fallbackStory]), [leadFeature, ...leadSideStories, packageLead])
+  ).slice(0, 4);
   const watchStories = selectBalancedStories(
     excludeStories(dedupeStories([...packageStories, ...home.trending, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]),
     4,
     { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
   );
-  const safeWatchStories = watchStories.length
-    ? watchStories
-    : excludeStories(dedupeStories([home.briefing, ...(home.latest || []), ...(home.trending || []), fallbackStory]), [leadFeature, ...leadSideStories, packageLead]).slice(0, 4);
-  const guideLead = excludeStories(dedupeStories([...(tips || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories])[0] || home.briefing || fallbackStory;
+  const safeWatchStories = prioritizeIllustratedStories(
+    watchStories.length
+      ? watchStories
+      : excludeStories(dedupeStories([home.briefing, ...(home.latest || []), ...(home.trending || []), fallbackStory]), [leadFeature, ...leadSideStories, packageLead])
+  ).slice(0, 4);
+  const guideLead = prioritizeIllustratedStories(excludeStories(dedupeStories([...(tips || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories]))[0] || home.briefing || fallbackStory;
   const guideStories = selectBalancedStories(
     excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead, packageLead]),
     3,
     { preferredTopic: "apps-software", preferredLimit: 2, defaultLimit: 1 }
   );
-  const safeGuideStories = guideStories.length
-    ? guideStories
-    : excludeStories(dedupeStories([...(tips || []), ...(home.latest || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories, guideLead, packageLead]).slice(0, 3);
+  const safeGuideStories = prioritizeIllustratedStories(
+    guideStories.length
+      ? guideStories
+      : excludeStories(dedupeStories([...(tips || []), ...(home.latest || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories, guideLead, packageLead])
+  ).slice(0, 3);
   const briefingStory = home.briefing || guideLead || packageLead || safeLatestStories[0] || fallbackStory;
 
   return renderLayout({
@@ -65,16 +71,24 @@ export function renderHomePage(state, language, adsConfig) {
     title: copy.homeTitle,
     description: state.site.description[language],
     content: `
-      <section class="frontpage-kickerbar">
-        <div class="frontpage-kickerbar-copy">
+      <section class="frontpage-masthead">
+        <div class="frontpage-masthead-copy">
           <p class="eyebrow">${copy.eyebrow}</p>
-          <h1 class="sr-only">${escapeHtml(copy.heroTitle)}</h1>
+          <h1>${escapeHtml(copy.heroTitle)}</h1>
+          <p class="frontpage-masthead-text">${escapeHtml(copy.heroText)}</p>
+          <div class="hero-badges">
+            <span>${copy.badgeSignals}</span>
+            <span>${copy.badgeAds}</span>
+            <span>${copy.badgeBilingual}</span>
+          </div>
         </div>
-        <div class="hero-badges">
-          <span>${copy.badgeSignals}</span>
-          <span>${copy.badgeAds}</span>
-          <span>${copy.badgeBilingual}</span>
-        </div>
+        <aside class="masthead-brief">
+          <p class="eyebrow">${copy.updateLabel}</p>
+          <h2>${copy.updateTitle}</h2>
+          <div class="masthead-brief-list">
+            ${safeLatestStories.slice(0, 3).map((article) => renderMastheadItem(article, language)).join("")}
+          </div>
+        </aside>
       </section>
 
       <section class="frontpage-hero">
@@ -899,6 +913,7 @@ function renderStoryCard(article, language) {
       </div>
       ${article.editorial_label ? `<div class="story-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
       <h3><a href="${article.href}">${escapeHtml(displayTitle)}</a></h3>
+      ${renderHomepageExcerpt(article, "story-hook", 118)}
       <div class="story-footer">
         <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         <a class="mini-link" href="${article.href}">${language === "vi" ? "Đọc" : "Read"}</a>
@@ -962,7 +977,7 @@ function renderLeadFeature(article, language, copy) {
     `;
   }
 
-  const displayTitle = getDisplayHeadline(article.title, 60);
+  const displayTitle = getDisplayHeadline(article.title, 54);
   return `
     <article class="lead-feature topic-${article.topic}">
       ${renderStoryImage(article, "lead-feature-media", true)}
@@ -975,38 +990,39 @@ function renderLeadFeature(article, language, copy) {
         </div>
         ${article.editorial_label ? `<div class="story-flag lead-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
         <h2><a href="${article.href}">${escapeHtml(displayTitle)}</a></h2>
-        ${renderHomepageExcerpt(article, "lead-feature-hook", 90)}
-        <div class="lead-feature-actions">
-          <a class="read-link inverted" href="${article.href}">${copy.readStory}</a>
-          <span class="lead-feature-source">${escapeHtml(article.content_type_label)}</span>
+          ${renderHomepageExcerpt(article, "lead-feature-hook", 116)}
+          <div class="lead-feature-actions">
+            <a class="read-link inverted" href="${article.href}">${copy.readStory}</a>
+            <span class="lead-feature-source">${escapeHtml(article.content_type_label)}</span>
+          </div>
         </div>
-      </div>
     </article>
   `;
 }
 
 function renderLeadMini(article, language) {
-  const displayTitle = getDisplayHeadline(article.title, 54);
+  const displayTitle = getDisplayHeadline(article.title, 60);
   return `
-    <article class="lead-mini topic-${article.topic}">
-      ${renderStoryImage(article, "lead-mini-media")}
-      <div class="lead-mini-copy">
-        <div class="stack-topline">
-          <span>${escapeHtml(article.topic_label)}</span>
-          <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+      <article class="lead-mini topic-${article.topic}">
+        ${renderStoryImage(article, "lead-mini-media")}
+        <div class="lead-mini-copy">
+          <div class="stack-topline">
+            <span>${escapeHtml(article.topic_label)}</span>
+            <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+          </div>
+          <h3><a href="${article.href}">${escapeHtml(displayTitle)}</a></h3>
+          ${renderHomepageExcerpt(article, "lead-mini-excerpt", 92)}
         </div>
-        <h3><a href="${article.href}">${escapeHtml(displayTitle)}</a></h3>
-      </div>
-    </article>
-  `;
+      </article>
+    `;
 }
 
 function renderHeadlineItem(article, language, index) {
-  const displayTitle = getDisplayHeadline(article.title, 66);
+  const displayTitle = getDisplayHeadline(article.title, 60);
   return `
-    <a class="headline-item" href="${article.href}">
-      <span class="headline-index">${String(index).padStart(2, "0")}</span>
-      <div>
+      <a class="headline-item" href="${article.href}">
+        <span class="headline-index">${String(index).padStart(2, "0")}</span>
+        <div>
         <strong>${escapeHtml(displayTitle)}</strong>
         <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
       </div>
@@ -1017,10 +1033,21 @@ function renderHeadlineItem(article, language, index) {
 function renderRibbonItem(article, language) {
   const displayTitle = getDisplayHeadline(article.title, 68);
   return `
-    <a class="ribbon-item" href="${article.href}">
-      <span>${escapeHtml(article.topic_label)}</span>
+      <a class="ribbon-item" href="${article.href}">
+        <span>${escapeHtml(article.topic_label)}</span>
       <strong>${escapeHtml(displayTitle)}</strong>
       <em>${escapeHtml(formatPublishDate(language, article.published_at))}</em>
+      </a>
+    `;
+}
+
+function renderMastheadItem(article, language) {
+  const displayTitle = getDisplayHeadline(article.title, 64);
+
+  return `
+    <a class="masthead-brief-item" href="${article.href}">
+      <strong>${escapeHtml(displayTitle)}</strong>
+      <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
     </a>
   `;
 }
@@ -1164,6 +1191,26 @@ function selectBalancedStories(stories, limit, { preferredTopic = "ai", preferre
   }
 
   return selected.slice(0, limit);
+}
+
+function prioritizeIllustratedStories(stories) {
+  const visual = [];
+  const fallback = [];
+
+  for (const story of stories || []) {
+    if (!story) {
+      continue;
+    }
+
+    if (story.hero_image?.kind === "source") {
+      visual.push(story);
+      continue;
+    }
+
+    fallback.push(story);
+  }
+
+  return [...visual, ...fallback];
 }
 
 function shouldRenderSeparateDek(article) {
@@ -1467,8 +1514,8 @@ function normalizeRenderCopy(language) {
     return {
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
-      heroTitle: "AI, Big Tech và những chuyển động công nghệ đáng mở đầu tiên.",
-      heroText: "Patrick Tech Media theo sát AI, nền tảng lớn, mạng xã hội, phần mềm, thiết bị và những thủ thuật công nghệ đáng lưu.",
+        heroTitle: "AI, Big Tech và những chuyển động công nghệ đáng mở đầu ngày mới.",
+        heroText: "Patrick Tech Media bám sát các gói AI đang đổi giá trị sử dụng, những nước đi mới của Big Tech, mạng xã hội, thiết bị và cả các thủ thuật công nghệ thật sự dùng được.",
       heroNotebookLabel: "Điểm đáng đọc",
       heroNotebookTitle: "Mở vào là thấy ngay những gì đáng bấm trước.",
       heroNotebookCta: "Xem thêm tin mới",
@@ -1487,7 +1534,7 @@ function normalizeRenderCopy(language) {
       readStory: "Đọc bài nổi bật",
       viewPolicy: "Xem chính sách biên tập",
       latestLabel: "Mới nhất",
-      latestTitle: "Tin mới đáng mở",
+        latestTitle: "Tin mới vừa lên",
       trendingLabel: "Đang theo dõi",
       trendingTitle: "Những câu chuyện cần để mắt",
       evergreenLabel: "Thủ thuật & hướng dẫn",
@@ -1608,13 +1655,13 @@ function getCopy(language) {
       workflowEndpointsLabel: "Endpoints",
       dashboardStreamLabel: "Signal stream",
       hotLabel: "Nóng lúc này",
-      hotTitle: "Những headline đang kéo lượt đọc",
+      hotTitle: "Những câu chuyện đang kéo người đọc",
       editorsLabel: "Biên tập chọn",
       editorsTitle: "Đáng đọc tiếp theo",
       ribbonLabel: "Đường dây nóng",
-      ribbonTitle: "Các tin vừa bật lên",
+      ribbonTitle: "Bản tin chạy nhanh",
       packageLabel: "Gói AI",
-      packageTitle: "Những gói đang đáng tiền hơn"
+      packageTitle: "Những gói AI đang đáng tiền hơn"
     };
   }
 
@@ -1638,7 +1685,7 @@ function getCopy(language) {
         "The desk moves quickly, but ads only appear on pages that meet the stronger verification and presentation bar.",
       viewPolicy: "Read the editorial policy",
       latestLabel: "Latest",
-      latestTitle: "Latest stories",
+      latestTitle: "Fresh stories",
       trendingLabel: "Under watch",
       trendingTitle: "The stories worth watching next",
       evergreenLabel: "How-tos and guides",
@@ -1738,13 +1785,13 @@ function getCopy(language) {
       humanSitemapLabel: "Reader sitemap",
       storeLabel: "Store",
       hotLabel: "Hot now",
-      hotTitle: "Headlines pulling readers in",
+      hotTitle: "The stories pulling readers in",
       editorsLabel: "Editors' picks",
       editorsTitle: "What to open next",
       ribbonLabel: "Fast line",
-      ribbonTitle: "Stories that just moved",
+      ribbonTitle: "The moving line",
       packageLabel: "AI plans",
-      packageTitle: "Where the value is moving"
+      packageTitle: "Where AI plans are becoming better value"
     };
   }
 

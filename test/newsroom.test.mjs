@@ -325,8 +325,8 @@ const tests = [
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
 
       assert.match(homeHtml, /data-pull-refresh/);
-      assert.doesNotMatch(homeHtml, /frontpage-masthead/);
-      assert.match(homeHtml, /frontpage-kickerbar/);
+      assert.match(homeHtml, /frontpage-masthead/);
+      assert.doesNotMatch(homeHtml, /frontpage-kickerbar/);
     }
   },
   {
@@ -450,9 +450,11 @@ const tests = [
         error: ""
       });
 
+      assert.match(homeHtml, /frontpage-masthead/);
       assert.match(homeHtml, /frontpage-hero/);
       assert.match(homeHtml, /headline-ribbon/);
       assert.match(homeHtml, /Patrick Tech Store/);
+      assert.doesNotMatch(homeHtml, /frontpage-kickerbar/);
       assert.doesNotMatch(homeHtml, /3 bÄ‚Â i giĂ¡Â»Â¯ nhĂ¡Â»â€¹p hÄ‚Â´m nay/);
       assert.doesNotMatch(homeHtml, /NhĂ¡Â»Â¯ng chĂ¡Â»Â§ Ă„â€˜Ă¡Â»Â kÄ‚Â©o Ă„â€˜Ă¡Â»â„¢c giĂ¡ÂºÂ£ vÄ‚Â o Ă„â€˜Ă¡Â»Âc/);
       assert.doesNotMatch(homeHtml, /DÄ‚Â²ng tin mĂ¡Â»â€ºi Ă„â€˜ang chĂ¡ÂºÂ¡y trÄ‚Âªn trang chĂ¡Â»Â§/);
