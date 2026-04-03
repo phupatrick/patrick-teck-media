@@ -4,17 +4,17 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-04-03T19:56:46.717Z",
-    "finishedAt": "2026-04-03T19:57:34.184Z"
+    "startedAt": "2026-04-03T20:28:43.828Z",
+    "finishedAt": "2026-04-03T20:29:55.454Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 136,
+    "totalArticles": 132,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 183 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775246206745-c13c81.json Generated OpenClaw hidden feed with 136 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "",
+      "output": "Refreshed 176 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775248123862-96d00f.json Generated OpenClaw hidden feed with 132 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping TechCrunch AI: Feed TechCrunch AI returned 403",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -22,7 +22,7 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 136 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "output": "Refreshed 132 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     },
     "webControl": {
@@ -37,7 +37,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-04-03T19:57:34.183Z",
+      "reviewedAt": "2026-04-03T20:29:55.453Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
