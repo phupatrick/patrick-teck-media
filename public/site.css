@@ -91,6 +91,10 @@ a {
 .topbar > *,
 .frontpage-masthead > *,
 .hero-panel > *,
+.frontpage-hero > *,
+.guide-showcase > *,
+.guide-showcase-lead > *,
+.frontpage-grid > *,
 .featured-split > *,
 .section-grid > *,
 .article-layout > * {
@@ -576,14 +580,18 @@ h3 {
 
 .guide-showcase-lead {
   display: grid;
-  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
-  gap: 20px;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 22px;
   border-radius: var(--radius-xl);
   padding: 20px;
+  align-items: start;
+  container-type: inline-size;
+  overflow: hidden;
 }
 
 .guide-showcase-media {
   margin: 0;
+  width: 100%;
   height: 100%;
   min-height: 250px;
   overflow: hidden;
@@ -594,12 +602,30 @@ h3 {
   display: grid;
   gap: 10px;
   align-content: start;
+  min-width: 0;
 }
 
 .guide-showcase-copy h2 {
   margin: 0;
   font-size: clamp(1.26rem, 1.9vw, 1.64rem);
   line-height: 1.16;
+  max-width: 18ch;
+}
+
+@container (max-width: 760px) {
+  .guide-showcase-lead {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .guide-showcase-media {
+    min-height: 220px;
+    max-height: 300px;
+  }
+
+  .guide-showcase-copy h2 {
+    max-width: none;
+  }
 }
 
 .hero-panel {
