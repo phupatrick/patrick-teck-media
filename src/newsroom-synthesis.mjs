@@ -58,10 +58,19 @@ export function buildEditorialCompanionArticles(articles, now = new Date().toISO
   for (const language of ["vi", "en"]) {
     const aiPackageMembers = selectCompanionMembers(pool, language, isAiPackageStory, 10);
     const tipMembers = selectCompanionMembers(pool, language, isPracticalTechStory, 10);
+    const workflowMembers = dedupeCompanionMembers([...aiPackageMembers, ...tipMembers], 12);
 
     if (aiPackageMembers.length >= 2) {
       companions.push(buildAiPackageCompanionStory({ language, members: aiPackageMembers, now }));
       companions.push(buildAiPlanBuyingGuide({ language, members: aiPackageMembers, now }));
+
+      if (aiPackageMembers.length >= 3) {
+        companions.push(buildAiPackageUpdateRoundup({ language, members: aiPackageMembers, now }));
+      }
+    }
+
+    if (workflowMembers.length >= 4) {
+      companions.push(buildAiWorkflowPlaybookGuide({ language, members: workflowMembers, now }));
     }
 
     companions.push(...buildAiProviderCompanionArticles(pool, language, now));
@@ -728,6 +737,291 @@ function buildAiPlanBuyingGuide({ language, members, now }) {
     authorId: "mai-linh",
     relatedStoreItems: ["ai-workspace-bundle"],
     editorialFocus: ["ai-package", "tips", "guide", "ai"]
+  });
+}
+
+function buildAiPackageUpdateRoundup({ language, members, now }) {
+  const lead = [...members].sort(sortDraftsByPriority)[0];
+
+  if (!lead) {
+    return null;
+  }
+
+  const providerKeys = detectAiProviderKeysFromMembers(members);
+  const providers = providerKeys.map((providerKey) => AI_PROVIDER_LABELS[providerKey]).filter(Boolean);
+  const providerLabel = formatProviderList(providers, language);
+  const sources = dedupeSources(members).slice(0, 8);
+  const verificationState = resolveVerificationState(members, sources);
+  const image = selectClusterImage(members, sources, language, {
+    preferredProviders: providerKeys.slice(0, 3)
+  });
+  const title =
+    language === "vi"
+      ? `Tin mới nhất về các gói AI: ${providerLabel} đang tăng giá trị ở đâu`
+      : `The latest AI plan shifts: where ${providerLabel} are adding practical value`;
+  const summary = composeParagraph(
+    [
+      language === "vi"
+        ? `${providerLabel} đang thay đổi nhịp gói AI theo hướng dễ đo hơn bằng giá, dung lượng, model mở khóa và lớp công cụ đi kèm chứ không chỉ bằng một headline nâng cấp đơn lẻ.`
+        : `${providerLabel} are changing the AI plan rhythm in a way readers can actually measure through price, storage, unlocked models, and bundled tools instead of one-off upgrade headlines.`,
+      buildCorroborationSentence(sources, language, verificationState),
+      language === "vi"
+        ? "Dạng roundup này hữu ích khi người đọc chỉ cần một bàn cập nhật nhanh để biết hãng nào đang dày giá trị thật, hãng nào mới chỉ đẩy thêm tín hiệu marketing."
+        : "A roundup like this matters when readers want one fast desk update on which vendors are thickening real value and which ones are still leaning on launch framing."
+    ],
+    language === "vi"
+      ? "Bài tổng hợp này gom những thay đổi mới nhất của các gói AI đang được soi kỹ nhất để người đọc bắt nhịp nhanh mà không phải mở quá nhiều tab."
+      : "This roundup pulls the newest AI plan moves into one place so readers can catch the pace without opening a dozen tabs.",
+    220
+  );
+  const dek = composeParagraph(
+    [
+      language === "vi"
+        ? "Điểm đáng xem nhất lúc này không phải hãng nào nói to hơn, mà là hãng nào đang gói được nhiều việc thật hơn vào cùng một hóa đơn."
+        : "The most useful thing to watch right now is not which vendor sounds louder, but which one is packing more real work into the same bill.",
+      buildImpactSentence("ai", language, "Roundup")
+    ],
+    language === "vi"
+      ? "Bài này dành cho người muốn nắm nhanh nhịp cập nhật của các gói AI trước khi mở sâu từng hãng."
+      : "This is for readers who want the AI package pulse before opening each vendor story in depth.",
+    150
+  );
+  const hook = composeParagraph(
+    [
+      language === "vi"
+        ? "Các gói AI đang chuyển từ chỗ bán lời hứa model sang chỗ bán ít ma sát hơn trong công việc. Vì vậy, bản cập nhật tốt phải chỉ ra quyền lợi nào đã chuyển thành thao tác dùng được ngay."
+        : "AI plans are moving from selling model promise to selling less friction in work. A useful update therefore has to show which new rights turned into something immediately usable.",
+      buildHookAngle({ language, topic: "ai", contentType: "Roundup", verificationState, sourceCount: sources.length })
+    ],
+    language === "vi"
+      ? "Đây là lớp bài để người đọc bám nhịp thay đổi nhanh, rồi mới quyết định mở sâu bài Google, ChatGPT, Claude hay Copilot."
+      : "This is the layer readers use to catch the pace first, then decide whether to open Google, ChatGPT, Claude, or Copilot in depth.",
+    180
+  );
+  const sections = [
+    {
+      heading: language === "vi" ? "Nhịp thay đổi mới nhất ở bàn gói AI" : "The newest tempo on the AI plan desk",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? `${providerLabel} đang cùng kéo câu chuyện sang chỗ dễ đo hơn: trả bao nhiêu, nhận thêm gì, cắt được khoản chi phụ nào và có bớt thao tác tay trong ngày hay không.`
+            : `${providerLabel} are dragging the story toward what is easier to measure: what you pay, what gets added, which side costs disappear, and whether the plan removes manual work in a normal day.`,
+          buildSourceTrailSentence(sources, language)
+        ],
+        summary,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Hãng nào đang thêm giá trị thật" : "Which vendors are adding real value now",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Tín hiệu tốt thường nằm ở chỗ model, dung lượng, công cụ sáng tạo, nghiên cứu hay lớp cộng tác bắt đầu nằm cùng một gói thay vì rải ra nhiều hóa đơn."
+            : "The best signal usually appears when model access, storage, creative tools, research, and collaboration begin to live inside one plan instead of being scattered across several bills.",
+          buildCorroborationSentence(sources, language, verificationState)
+        ],
+        dek,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Những dấu hiệu nên soi tiếp trong tuần" : "The signals worth watching through the week",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Đừng chỉ nhìn trang pricing. Hãy soi thêm rollout theo vùng, giới hạn model, quyền truy cập tool mới, chính sách dữ liệu và việc gói đó có thực sự giảm nhu cầu mua thêm app khác hay không."
+            : "Do not stop at the pricing page. Watch regional rollout, model limits, access to new tools, data policy, and whether the plan actually reduces the need for extra apps.",
+          buildNuanceSentence({ language, topic: "ai", verificationState, sourceCount: sources.length })
+        ],
+        hook,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Patrick Tech Media chốt nhịp hôm nay" : "Patrick Tech Media takeaway for today",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Trong giai đoạn này, gói AI đáng chú ý nhất là gói khiến hóa đơn gọn hơn và công việc ít vỡ vụn hơn. Hãng nào chỉ thêm tiếng vang mà chưa gom được giá trị vào một luồng dùng thật sẽ khó giữ được lợi thế lâu."
+            : "At this stage, the AI plan worth watching is the one that makes the bill simpler and the workflow less fragmented. Vendors that add attention without consolidating real utility will struggle to keep the edge.",
+          buildCoverageSentence({ language, members: members.length, sources: sources.length })
+        ],
+        summary,
+        190
+      )
+    }
+  ];
+
+  return buildCompanionArticleShell({
+    id: `editorial-ai-package-roundup-${language}`,
+    clusterId: "editorial-ai-package-roundup",
+    slug: language === "vi" ? "tin-moi-nhat-ve-cac-goi-ai" : "latest-ai-plan-shifts",
+    title,
+    summary,
+    dek,
+    hook,
+    language,
+    topic: "ai",
+    contentType: "Roundup",
+    verificationState,
+    sources,
+    sections,
+    image,
+    now,
+    publishedAt: newestTimestamp(members),
+    authorId: "mai-linh",
+    relatedStoreItems: ["ai-workspace-bundle"],
+    editorialFocus: ["ai-package", "roundup", "ai"]
+  });
+}
+
+function buildAiWorkflowPlaybookGuide({ language, members, now }) {
+  const lead = [...members].sort(sortDraftsByPriority)[0];
+
+  if (!lead) {
+    return null;
+  }
+
+  const providerKeys = detectAiProviderKeysFromMembers(members);
+  const providers = providerKeys.map((providerKey) => AI_PROVIDER_LABELS[providerKey]).filter(Boolean);
+  const providerLabel = formatProviderList(providers, language);
+  const sources = dedupeSources(members).slice(0, 8);
+  const verificationState = resolveVerificationState(members, sources);
+  const image = selectClusterImage(members, sources, language, {
+    preferredProviders: providerKeys.slice(0, 3)
+  });
+  const title =
+    language === "vi"
+      ? `Dùng gói AI sao cho đỡ mua trùng app: ${providerLabel} nên chia việc ra sao`
+      : `How to use AI plans without stacking duplicate apps: how to split work across ${providerLabel}`;
+  const summary = composeParagraph(
+    [
+      language === "vi"
+        ? "Không phải team nào cũng cần mua mọi gói AI. Cách tiết kiệm nhất thường là chia rõ việc viết, nghiên cứu, code, họp, lưu trữ và dựng nội dung cho đúng gói thay vì chồng nhiều app có phần quyền lợi giống nhau."
+        : "Not every team needs to buy every AI plan. The cheapest path is usually splitting writing, research, coding, meetings, storage, and content creation across the right bundle instead of stacking apps with overlapping perks.",
+      buildCorroborationSentence(sources, language, verificationState),
+      language === "vi"
+        ? `${providerLabel} đang cùng lấn sang nhiều phần việc hơn, nên người đọc càng cần một guide thực chiến để biết giữ gì, bỏ gì và ghép workflow ra sao.`
+        : `${providerLabel} are all expanding into more parts of work, so readers increasingly need a practical guide on what to keep, what to skip, and how to assemble the workflow.`
+    ],
+    language === "vi"
+      ? "Bài hướng dẫn này gom cách chia việc giữa các gói AI để bớt mua trùng, bớt đổi công cụ liên tục và giữ được luồng làm việc gọn hơn."
+      : "This guide lays out how to split work across AI plans so readers can avoid duplicate spend, reduce tool switching, and keep a cleaner workflow.",
+    220
+  );
+  const dek = composeParagraph(
+    [
+      language === "vi"
+        ? "Mục tiêu của bài này không phải chọn một gói thắng tuyệt đối, mà là chỉ ra gói nào nên ôm phần việc nào để giá trị cộng dồn lên thay vì chồng chéo."
+        : "The goal here is not to crown one plan as the winner, but to show which plan should carry which type of work so value adds up instead of overlapping.",
+      buildImpactSentence("apps-software", language, "EvergreenGuide")
+    ],
+    language === "vi"
+      ? "Đây là guide dành cho người đang trả tiền cho nhiều tool AI và muốn cắt bớt phần bị trùng."
+      : "This guide is for readers paying for multiple AI tools and wanting to cut overlapping spend.",
+    160
+  );
+  const hook = composeParagraph(
+    [
+      language === "vi"
+        ? "Sai lầm dễ gặp nhất là thấy mỗi gói có một tính năng hay rồi mua dồn, trong khi phần thông minh hơn là giữ đúng một gói mạnh cho từng loại việc lặp lại mỗi ngày."
+        : "The easiest mistake is buying every plan because each one has a clever feature. The smarter move is keeping one strong plan for each type of recurring work.",
+      buildHookAngle({ language, topic: "apps-software", contentType: "EvergreenGuide", verificationState, sourceCount: sources.length })
+    ],
+    language === "vi"
+      ? "Nếu chia việc đúng, cùng một team có thể giảm app phụ, giảm tab mở song song và giảm luôn cả hóa đơn AI cuối tháng."
+      : "When the split is right, the same team can reduce side apps, reduce parallel tabs, and lower the final AI bill at the same time.",
+    180
+  );
+  const sections = [
+    {
+      heading: language === "vi" ? "Chia việc trước khi chia ngân sách" : "Split the work before you split the budget",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Hãy bắt đầu từ những việc lặp lại thật sự: viết nháp, research, đọc tài liệu dài, họp, xử lý bảng, lưu trữ file, hoặc tạo hình và video. Khi nhìn theo luồng việc, bạn sẽ thấy gói nào đang mạnh ở đâu."
+            : "Start with the recurring jobs that actually happen: drafting, research, long-document reading, meetings, spreadsheets, file storage, or image and video creation. Once the workflow is visible, it becomes easier to see which plan is strongest where.",
+          buildSourceTrailSentence(sources, language)
+        ],
+        summary,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Nơi dễ mua trùng nhất" : "Where duplicate buying happens fastest",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Phần trùng thường nằm ở research, ghi chú, viết lại nội dung, tạo slide hoặc lưu trữ. Khi Google, ChatGPT, Claude và Copilot đều mở rộng sang cùng khu vực, người dùng rất dễ trả tiền hai lần cho cùng một nhu cầu."
+            : "Duplication usually shows up around research, notes, rewrites, slide creation, or storage. As Google, ChatGPT, Claude, and Copilot expand into the same zones, readers can easily pay twice for one need.",
+          buildCorroborationSentence(sources, language, verificationState)
+        ],
+        dek,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Một cách chia việc gọn hơn" : "A cleaner way to split the workflow",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Giữ một gói mạnh cho nơi bạn làm việc nhiều nhất, sau đó chỉ thêm gói thứ hai nếu nó thay được một lớp công cụ phụ rõ ràng. Nếu một gói mới chỉ cho thêm cảm giác “an tâm” mà chưa cắt được bước nào, hãy để nó ở watchlist trước."
+            : "Keep one strong plan for the place where most of the work already happens, and only add a second plan if it clearly replaces a layer of side tooling. If a new plan mostly adds reassurance without removing a step, keep it on the watch list first.",
+          buildNuanceSentence({ language, topic: "apps-software", verificationState, sourceCount: sources.length })
+        ],
+        hook,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Checklist trước khi gia hạn gói" : "The checklist before you renew a plan",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Kiểm tra xem team đang dùng tính năng nào hằng tuần, model nào thật sự mở khóa, file có đang nằm trong cùng hệ sinh thái không, và mỗi gói có làm giảm app phụ hay chỉ tăng cảm giác đủ đầy."
+            : "Check which features the team actually uses each week, which model tier is really unlocked, whether files already live in the same ecosystem, and whether each plan reduces side apps or only increases the sense of completeness.",
+          buildImpactSentence("apps-software", language, "EvergreenGuide")
+        ],
+        summary,
+        180
+      )
+    },
+    {
+      heading: language === "vi" ? "Patrick Tech Media kết luận" : "Patrick Tech Media takeaway",
+      body: composeParagraph(
+        [
+          language === "vi"
+            ? "Thủ thuật đáng tiền nhất ở giai đoạn này không phải là mẹo prompt mới, mà là cách ghép gói AI để một lớp việc thật sự được ôm trọn. Khi workflow gọn lại, bạn sẽ cảm được giá trị trước cả khi nhìn vào benchmark."
+            : "The most valuable trick right now is not a new prompt formula, but a cleaner way to combine AI plans so one layer of real work is fully covered. Once the workflow tightens up, readers feel the value before they ever look at a benchmark.",
+          buildCoverageSentence({ language, members: members.length, sources: sources.length })
+        ],
+        dek,
+        190
+      )
+    }
+  ];
+
+  return buildCompanionArticleShell({
+    id: `editorial-ai-workflow-playbook-${language}`,
+    clusterId: "editorial-ai-workflow-playbook",
+    slug: language === "vi" ? "dung-goi-ai-sao-cho-do-mua-trung-app" : "how-to-use-ai-plans-without-duplicate-app-spend",
+    title,
+    summary,
+    dek,
+    hook,
+    language,
+    topic: "apps-software",
+    contentType: "EvergreenGuide",
+    verificationState,
+    sources,
+    sections,
+    image,
+    now,
+    publishedAt: newestTimestamp(members),
+    authorId: "mai-linh",
+    relatedStoreItems: ["ai-workspace-bundle", "creator-software-stack"],
+    editorialFocus: ["ai-package", "tips", "guide", "apps-software"]
   });
 }
 

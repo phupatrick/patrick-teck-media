@@ -24,7 +24,7 @@ export function renderHomePage(state, language, adsConfig) {
   const leadFeature = leadStories[0] || fallbackStory;
   const leadSideStories = prioritizeIllustratedStories(excludeStories(leadStories.slice(1), [leadFeature])).slice(0, 1);
   const packageLead = prioritizeIllustratedStories(excludeStories(dedupeStories([...packageStories, home.briefing]), [leadFeature, ...leadSideStories]))[0] || null;
-  const packageItems = prioritizeIllustratedStories(excludeStories(dedupeStories([...packageStories, ...home.latest]), [leadFeature, ...leadSideStories, packageLead])).slice(0, 3);
+  const packageItems = prioritizeIllustratedStories(excludeStories(dedupeStories([...packageStories, ...home.latest]), [leadFeature, ...leadSideStories, packageLead])).slice(0, 4);
   const ribbonStories = selectBalancedStories(
     excludeStories(dedupeStories([...packageStories, ...home.latest, ...home.trending, home.briefing]), [leadFeature, ...leadSideStories, packageLead]),
     5,
@@ -54,14 +54,14 @@ export function renderHomePage(state, language, adsConfig) {
   const guideLead = prioritizeIllustratedStories(excludeStories(dedupeStories([...(tips || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories]))[0] || home.briefing || fallbackStory;
   const guideStories = selectBalancedStories(
     excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead, packageLead]),
-    3,
+    4,
     { preferredTopic: "apps-software", preferredLimit: 2, defaultLimit: 1 }
   );
   const safeGuideStories = prioritizeIllustratedStories(
     guideStories.length
       ? guideStories
       : excludeStories(dedupeStories([...(tips || []), ...(home.latest || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories, guideLead, packageLead])
-  ).slice(0, 3);
+  ).slice(0, 4);
   const briefingStory = home.briefing || guideLead || packageLead || safeLatestStories[0] || fallbackStory;
 
   return renderLayout({
@@ -819,6 +819,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
   const stylesheetPath = `/site.css?v=${assetVersion}`;
   const scriptPath = `/site.js?v=${assetVersion}`;
   const ogImageUrl = `${state.site.siteUrl}${logoPath}`;
+  const siteSchemas = buildSiteSchemas({ state, language, path, canonicalUrl, logoUrl: ogImageUrl, description });
   const headTags = [
     `<meta charset="utf-8" />`,
     `<meta name="viewport" content="width=device-width, initial-scale=1" />`,
@@ -854,6 +855,10 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
 
   if (schema) {
     headTags.push(`<script type="application/ld+json">${JSON.stringify(schema)}</script>`);
+  }
+
+  for (const siteSchema of siteSchemas) {
+    headTags.push(`<script type="application/ld+json">${JSON.stringify(siteSchema)}</script>`);
   }
 
   return `<!doctype html>
@@ -900,6 +905,44 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     </div>
   </body>
 </html>`;
+}
+
+function buildSiteSchemas({ state, language, path, canonicalUrl, logoUrl, description }) {
+  const organizationId = `${state.site.siteUrl}#organization`;
+  const websiteId = `${state.site.siteUrl}#website`;
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": organizationId,
+    name: state.site.name,
+    alternateName: ["patricktechmedia", "Patrick Tech Media"],
+    url: state.site.siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: logoUrl
+    },
+    description: state.site.description[language]
+  };
+
+  const schemas = [organizationSchema];
+
+  if (path === "/vi/" || path === "/en/") {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: canonicalUrl,
+      name: state.site.name,
+      alternateName: ["patricktechmedia", "Patrick Tech Media"],
+      inLanguage: language,
+      description,
+      publisher: {
+        "@id": organizationId
+      }
+    });
+  }
+
+  return schemas;
 }
 
 function renderStoryCard(article, language) {

@@ -45,6 +45,20 @@ const tests = [
     }
   },
   {
+    name: "keeps the tips lane guide-led and expands Vietnamese AI package coverage",
+    run() {
+      const home = getHomeData(state, "vi");
+      const viAiPackageStories = state.articles.filter(
+        (article) => article.language === "vi" && (article.editorial_focus || []).includes("ai-package")
+      );
+
+      assert.ok(home.tips.length >= 3);
+      assert.ok(home.tips.every((article) => article.content_type === "EvergreenGuide" || (article.editorial_focus || []).includes("guide")));
+      assert.ok(viAiPackageStories.length >= 6);
+      assert.ok(viAiPackageStories.some((article) => article.content_type === "Roundup"));
+    }
+  },
+  {
     name: "keeps provider-specific AI companion images aligned with the provider being covered",
     run() {
       const articles = [
@@ -714,6 +728,17 @@ const tests = [
       assert.match(homeHtml, /\/patrick-tech-media-mark\.svg\?v=/);
       assert.equal(typeof state.site.assetVersion, "string");
       assert.ok(state.site.assetVersion.length > 0);
+    }
+  },
+  {
+    name: "emits brand schema on the homepage so search engines can recognize Patrick Tech Media",
+    run() {
+      const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
+
+      assert.match(homeHtml, /application\/ld\+json/);
+      assert.match(homeHtml, /"@type":"Organization"/);
+      assert.match(homeHtml, /"@type":"WebSite"/);
+      assert.match(homeHtml, /patricktechmedia/);
     }
   },
   {

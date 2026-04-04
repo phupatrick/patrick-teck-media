@@ -378,7 +378,7 @@ export function getHomeData(state, language) {
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  )).slice(0, 5);
+  )).slice(0, 8);
   const verifiedStories = prioritizeFrontPageStories(prioritized.filter(
     (article) => article.verification_state === "verified" && article.content_type === "NewsArticle"
   ));
@@ -412,13 +412,13 @@ export function getHomeData(state, language) {
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  )).slice(0, 6);
+  )).slice(0, 8);
   const tips = prioritizeFrontPageStories(sortStoriesForFrontPage(
-    localized.filter((article) => isPracticalTipsCandidate(article)),
+    localized.filter((article) => isPracticalTipsCandidate(article) && isGuideLedTipsCandidate(article)),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  )).slice(0, 6);
+  )).slice(0, 8);
   const topicSections = state.topics
     .map((topic) => {
       const stories = buildHomeTopicSectionStories(
@@ -1422,6 +1422,12 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     dek,
     sections
   });
+  const sourceSet = sanitizePublicSourceSet(article.source_set);
+  const image = sanitizePublicImage(normalizeExternalImage(article.image));
+
+  if (containsBlockedPublicBranding([title, summary, dek, hook, ...sections.flatMap((section) => [section.heading, section.body])].join(" "))) {
+    return null;
+  }
 
   const normalizedArticle = {
     id: article.id || `${article.cluster_id || article.slug}-${language}`,
@@ -1443,7 +1449,7 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     summary,
     dek,
     sections,
-    image: normalizeExternalImage(article.image),
+    image,
     verification_state: verificationState,
     quality_score: Number.isFinite(article.quality_score) ? article.quality_score : 80,
     ad_eligible: Boolean(article.ad_eligible),
@@ -1452,7 +1458,7 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     store_link_mode: article.store_link_mode || "off",
     related_store_items: Array.isArray(article.related_store_items) ? article.related_store_items : [],
     editorial_focus: Array.isArray(article.editorial_focus) ? article.editorial_focus : [],
-    source_set: Array.isArray(article.source_set) ? article.source_set : [],
+    source_set: sourceSet,
     author_id: article.author_id || "mai-linh",
     published_at: article.published_at || new Date().toISOString(),
     updated_at: article.updated_at || article.published_at || new Date().toISOString(),
@@ -1559,9 +1565,34 @@ function isPracticalTipsCandidate(article) {
   }
 
   const textBlob = `${article.title} ${article.summary} ${article.dek} ${article.hook}`;
+  if (article.content_type !== "EvergreenGuide" && !/\b(mẹo|thủ thuật|hướng dẫn|cách |how to|how-to|guide|tips)\b/i.test(textBlob)) {
+    return false;
+  }
   return article.content_type === "EvergreenGuide"
-    || article.content_type === "ComparisonPage"
     || /\b(mẹo|thủ thuật|hướng dẫn|cách |how to|how-to|guide|tips|workspace|notebooklm|copilot|chatgpt|gemini|claude)\b/i.test(textBlob);
+}
+
+function isGuideLedTipsCandidate(article) {
+  const focus = Array.isArray(article.editorial_focus) ? article.editorial_focus : [];
+
+  if (focus.includes("tips") || focus.includes("guide")) {
+    return true;
+  }
+
+  if (article.content_type === "EvergreenGuide") {
+    return true;
+  }
+
+  const titleText = `${article.title || ""} ${article.dek || ""}`.toLowerCase();
+  return [
+    "m\u1eb9o",
+    "th\u1ee7 thu\u1eadt",
+    "h\u01b0\u1edbng d\u1eabn",
+    "how to",
+    "how-to",
+    "guide",
+    "tips"
+  ].some((keyword) => titleText.includes(keyword));
 }
 
 function strengthenEditorialTitle(title, { language, topic, verificationState, contentType, summary, dek, sections }) {
@@ -2015,6 +2046,33 @@ function normalizeExternalImage(image) {
   };
 }
 
+function containsBlockedPublicBranding(value) {
+  return /\bopenclaw\b/i.test(String(value || ""));
+}
+
+function sanitizePublicImage(image) {
+  if (!image) {
+    return null;
+  }
+
+  const textBlob = [image.src, image.alt, image.caption, image.credit, image.source_url].join(" ");
+  return containsBlockedPublicBranding(textBlob) ? null : image;
+}
+
+function sanitizePublicSourceSet(sourceSet) {
+  if (!Array.isArray(sourceSet)) {
+    return [];
+  }
+
+  return sourceSet.filter((source) => !containsBlockedPublicBranding([
+    source?.source_name,
+    source?.source_url,
+    source?.image_url,
+    source?.image_caption,
+    source?.image_credit
+  ].join(" ")));
+}
+
 function normalizeSourceImage(candidate, article, siteUrl, source = null) {
   const rawSrc =
     typeof candidate === "string"
@@ -2022,6 +2080,21 @@ function normalizeSourceImage(candidate, article, siteUrl, source = null) {
       : candidate?.src || candidate?.url || candidate?.image_url || candidate?.image || "";
 
   if (!isValidImageSource(rawSrc) || rawSrc.includes("/media/story/")) {
+    return null;
+  }
+
+  if (containsBlockedPublicBranding([
+    rawSrc,
+    candidate?.alt,
+    candidate?.image_alt,
+    candidate?.caption,
+    candidate?.image_caption,
+    candidate?.credit,
+    candidate?.image_credit,
+    candidate?.source_url,
+    source?.source_name,
+    source?.source_url
+  ].join(" "))) {
     return null;
   }
 
