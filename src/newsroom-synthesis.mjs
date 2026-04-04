@@ -1,5 +1,7 @@
 ﻿import crypto from "node:crypto";
 
+import { repairEncodingArtifacts } from "./text-repair.mjs";
+
 const SOURCE_TYPE_PRIORITY = {
   "official-site": 30,
   press: 22,
@@ -85,7 +87,9 @@ function buildClusterArticle(cluster, now) {
   const contentType = resolveClusterContentType(members);
   const sources = dedupeSources(members);
   const pool = collectSentencePool(members);
-  const image = selectClusterImage(members, sources, language);
+  const image = selectClusterImage(members, sources, language, {
+    preferredProviders: topic === "ai" ? detectAiProviderKeys(lead).slice(0, 2) : []
+  });
   const verificationState = resolveVerificationState(members, sources);
   const lens = resolveEditorialLens({ lead, members, sources, topic, contentType });
   const title = buildClusterTitle({ lead, language, contentType });
@@ -261,10 +265,13 @@ function buildAiPackageCompanionStory({ language, members, now }) {
 
   const sources = dedupeSources(members).slice(0, 8);
   const pool = collectSentencePool(members);
-  const providers = detectAiPlanProviders(members);
+  const providerKeys = detectAiProviderKeysFromMembers(members);
+  const providers = providerKeys.map((providerKey) => AI_PROVIDER_LABELS[providerKey]).filter(Boolean);
   const providerLabel = formatProviderList(providers, language);
   const verificationState = resolveVerificationState(members, sources);
-  const image = selectClusterImage(members, sources, language);
+  const image = selectClusterImage(members, sources, language, {
+    preferredProviders: providerKeys.slice(0, 3)
+  });
   const title =
     language === "vi"
       ? `Gói AI nào đang đáng tiền hơn lúc này: ${providerLabel} vừa thêm gì vào cuộc đua?`
@@ -559,7 +566,7 @@ function buildAiProviderCompanionArticles(articles, language, now) {
     const members = selectCompanionMembers(
       articles,
       language,
-      (article) => isAiPackageStory(article) && articleMatchesAiProvider(article, providerKey),
+      (article) => isAiPackageStory(article) && articleHasFocusedAiProvider(article, providerKey),
       8
     );
     const sources = dedupeSources(members);
@@ -581,11 +588,14 @@ function buildAiPlanBuyingGuide({ language, members, now }) {
     return null;
   }
 
-  const providers = detectAiPlanProviders(members);
+  const providerKeys = detectAiProviderKeysFromMembers(members);
+  const providers = providerKeys.map((providerKey) => AI_PROVIDER_LABELS[providerKey]).filter(Boolean);
   const providerLabel = formatProviderList(providers, language);
   const sources = dedupeSources(members).slice(0, 8);
   const verificationState = resolveVerificationState(members, sources);
-  const image = selectClusterImage(members, sources, language);
+  const image = selectClusterImage(members, sources, language, {
+    preferredProviders: providerKeys.slice(0, 3)
+  });
   const title =
     language === "vi"
       ? `Chọn gói AI thế nào cho đáng tiền trong 2026: ${providerLabel} nên soi gì trước khi trả phí`
@@ -731,7 +741,10 @@ function buildAiProviderCompanionStory({ language, providerKey, members, now }) 
   const meta = getAiProviderMeta(providerKey, language);
   const sources = dedupeSources(members).slice(0, 8);
   const verificationState = resolveVerificationState(members, sources);
-  const image = selectClusterImage(members, sources, language);
+  const image = selectClusterImage(members, sources, language, {
+    preferredProviders: [providerKey],
+    strictProviderMatch: true
+  });
   const summary = composeParagraph(
     [
       meta.summaryLead,
@@ -866,24 +879,104 @@ const AI_PROVIDER_LABELS = {
 };
 
 function articleMatchesAiProvider(article, providerKey) {
-  const pattern = AI_PROVIDER_PATTERNS[providerKey];
+  return detectAiProviderKeys(article).includes(providerKey);
+}
 
-  if (!pattern) {
-    return false;
+function articleHasFocusedAiProvider(article, providerKey) {
+  const ranked = sortAiProviderScores(getAiProviderMentionScores(article), 10);
+  const titleProviders = detectAiProviderKeys(typeof article === "string" ? article : article?.title);
+  const topKey = ranked[0]?.[0] || "";
+  const topScore = ranked[0]?.[1] || 0;
+  const nextScore = ranked[1]?.[1] || 0;
+
+  if (titleProviders[0] === providerKey && titleProviders.length === 1) {
+    return true;
   }
 
-  const haystack = cleanText(
-    [
-      typeof article === "string" ? article : article?.title,
-      typeof article === "string" ? "" : article?.summary,
-      typeof article === "string" ? "" : article?.dek,
-      typeof article === "string" ? "" : article?.hook,
-      ...(typeof article === "string" ? [] : (article?.sections || []).flatMap((section) => [section?.heading, section?.body])),
-      ...(typeof article === "string" ? [] : (article?.source_set || []).map((source) => source?.source_name))
-    ].join(" ")
-  );
+  return topKey === providerKey && topScore >= Math.max(14, nextScore + 4);
+}
 
-  return pattern.test(haystack);
+function detectAiProviderKeys(article) {
+  return sortAiProviderScores(getAiProviderMentionScores(article), 1).map(([providerKey]) => providerKey);
+}
+
+function detectAiProviderKeysFromMembers(members) {
+  const combinedScores = new Map(Object.keys(AI_PROVIDER_LABELS).map((providerKey) => [providerKey, 0]));
+
+  for (const [index, article] of (Array.isArray(members) ? members : []).entries()) {
+    const articleScores = getAiProviderMentionScores(article);
+    const articleWeight = Math.max(1, 4 - index);
+
+    for (const [providerKey, score] of articleScores.entries()) {
+      combinedScores.set(providerKey, (combinedScores.get(providerKey) || 0) + score * articleWeight);
+    }
+  }
+
+  return sortAiProviderScores(combinedScores, 12).map(([providerKey]) => providerKey);
+}
+
+function getAiProviderMentionScores(article) {
+  const item = typeof article === "string" ? null : article;
+  const blocks = {
+    title: cleanText(typeof article === "string" ? article : item?.title),
+    summary: cleanText(item?.summary),
+    dek: cleanText(item?.dek),
+    hook: cleanText(item?.hook),
+    sections: cleanText((item?.sections || []).flatMap((section) => [section?.heading, section?.body]).join(" ")),
+    sources: cleanText((item?.source_set || []).flatMap((source) => [source?.source_name, source?.source_url, source?.image_caption, source?.image_credit]).join(" ")),
+    image: cleanText([item?.image?.caption, item?.image?.credit, item?.image?.source_url].filter(Boolean).join(" "))
+  };
+  const scores = new Map(Object.keys(AI_PROVIDER_LABELS).map((providerKey) => [providerKey, 0]));
+
+  for (const [providerKey, pattern] of Object.entries(AI_PROVIDER_PATTERNS)) {
+    let score = 0;
+
+    if (pattern.test(blocks.title)) {
+      score += 20;
+    }
+
+    if (pattern.test(blocks.summary)) {
+      score += 8;
+    }
+
+    if (pattern.test(blocks.dek)) {
+      score += 10;
+    }
+
+    if (pattern.test(blocks.hook)) {
+      score += 6;
+    }
+
+    if (pattern.test(blocks.sections)) {
+      score += 5;
+    }
+
+    if (pattern.test(blocks.sources)) {
+      score += 6;
+    }
+
+    if (pattern.test(blocks.image)) {
+      score += 4;
+    }
+
+    scores.set(providerKey, score);
+  }
+
+  return scores;
+}
+
+function sortAiProviderScores(scores, minScore = 1) {
+  return [...scores.entries()]
+    .filter(([, score]) => score >= minScore)
+    .sort((left, right) => {
+      const scoreGap = right[1] - left[1];
+
+      if (scoreGap !== 0) {
+        return scoreGap;
+      }
+
+      return left[0].localeCompare(right[0]);
+    });
 }
 
 function getAiProviderMeta(providerKey, language) {
@@ -1134,9 +1227,7 @@ function buildCompanionArticleShell({
 }
 
 function detectAiPlanProviders(members) {
-  return Object.entries(AI_PROVIDER_LABELS)
-    .filter(([providerKey]) => members.some((article) => articleMatchesAiProvider(article, providerKey)))
-    .map(([, label]) => label);
+  return detectAiProviderKeysFromMembers(members).map((providerKey) => AI_PROVIDER_LABELS[providerKey]);
 }
 
 function formatProviderList(providers, language) {
@@ -1869,14 +1960,14 @@ function buildGuideFitSentence(topic, language) {
 function buildSourceTrailSentence(sources, language) {
   const names = formatSourceNames(sources, language, 3);
   return language === "vi"
-    ? `Nguồn tham chiếu chính của bài gồm ${names}.`
-    : `The main references behind this piece include ${names}.`;
+    ? `${names} là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.`
+    : `${names} form the main source layer behind the core facts in this piece.`;
 }
 
 function buildCoverageSentence({ language, members, sources }) {
   return language === "vi"
-    ? `Ở vòng tổng hợp này, bài viết được kéo từ ${members} tín hiệu và chốt lại còn ${sources} nguồn tham chiếu thật sự hữu ích cho người đọc.`
-    : `In this pass, the story was distilled from ${members} signals into ${sources} source references that are genuinely useful to readers.`;
+    ? `Từ ${members} tín hiệu ban đầu, bài giữ lại ${sources} nguồn thật sự hữu ích để khóa phần chi tiết chính.`
+    : `From ${members} early signals, the piece keeps ${sources} references that are useful for locking the main details in place.`;
 }
 
 function resolveEditorialLens({ lead, members, sources, topic, contentType }) {
@@ -1993,34 +2084,80 @@ function buildForwardLook(topic, title, language) {
   return language === "vi" ? viMap[normalized] || viMap.ai : enMap[normalized] || enMap.ai;
 }
 
-function selectClusterImage(members, sources, language) {
-  const candidates = [];
+function selectClusterImage(members, sources, language, options = {}) {
+  const lead = [...members].sort(sortDraftsByPriority)[0];
+  const preferredProviders = Array.isArray(options.preferredProviders)
+    ? options.preferredProviders
+        .map((providerKey) => String(providerKey || "").trim())
+        .filter((providerKey) => providerKey in AI_PROVIDER_LABELS)
+    : [];
+  const strictProviderMatch = options.strictProviderMatch === true;
+  const focusTerms = getStoryTokens(
+    members
+      .flatMap((member) => [
+        member?.title,
+        member?.summary,
+        member?.dek,
+        member?.hook,
+        ...(member?.sections || []).map((section) => section?.body),
+        ...(member?.source_set || []).flatMap((source) => [source?.source_name, source?.source_url])
+      ])
+      .filter(Boolean)
+      .join(" "),
+    members[0]?.language || language
+  );
+  const bestBySrc = new Map();
 
   for (const member of members) {
+    const memberContext = [member?.title, member?.summary, member?.dek, member?.hook].filter(Boolean).join(" ");
+    const leadAligned = member?.id && member?.id === lead?.id;
+
     if (isRemoteImageUrl(member?.image?.src)) {
-      candidates.push({
+      const candidate = {
         src: member.image.src,
         caption: cleanText(member.image.caption),
         credit: cleanText(member.image.credit) || cleanText(member.source_set?.[0]?.source_name),
         source_url: cleanText(member.image.source_url) || cleanText(member.source_set?.[0]?.source_url),
-        score: scoreImageCandidate(member.image.src, member.source_set?.[0])
-      });
+        score: scoreImageCandidate({
+          url: member.image.src,
+          source: member.source_set?.[0],
+          focusTerms,
+          contextText: memberContext,
+          preferred: true,
+          preferredProviders,
+          strictProviderMatch,
+          leadAligned
+        })
+      };
+      keepBestImageCandidate(bestBySrc, candidate);
     }
 
     for (const source of member.source_set || []) {
-      if (isRemoteImageUrl(source?.image_url)) {
-        candidates.push({
-          src: source.image_url,
-          caption: cleanText(source.image_caption),
-          credit: cleanText(source.image_credit) || cleanText(source.source_name),
-          source_url: cleanText(source.source_url),
-          score: scoreImageCandidate(source.image_url, source)
-        });
+      if (!isRemoteImageUrl(source?.image_url)) {
+        continue;
       }
+
+      const candidate = {
+        src: source.image_url,
+        caption: cleanText(source.image_caption),
+        credit: cleanText(source.image_credit) || cleanText(source.source_name),
+        source_url: cleanText(source.source_url),
+        score: scoreImageCandidate({
+          url: source.image_url,
+          source,
+          focusTerms,
+          contextText: `${memberContext} ${source?.source_name || ""}`,
+          preferred: false,
+          preferredProviders,
+          strictProviderMatch,
+          leadAligned
+        })
+      };
+      keepBestImageCandidate(bestBySrc, candidate);
     }
   }
 
-  const best = candidates.sort((left, right) => right.score - left.score)[0];
+  const best = [...bestBySrc.values()].sort((left, right) => right.score - left.score)[0];
 
   if (!best) {
     return {};
@@ -2040,16 +2177,94 @@ function selectClusterImage(members, sources, language) {
   };
 }
 
-function scoreImageCandidate(url, source) {
+function keepBestImageCandidate(bestBySrc, candidate) {
+  const key = cleanText(candidate?.src);
+
+  if (!key) {
+    return;
+  }
+
+  const existing = bestBySrc.get(key);
+
+  if (!existing || candidate.score > existing.score) {
+    bestBySrc.set(key, candidate);
+  }
+}
+
+function scoreImageCandidate({
+  url,
+  source,
+  focusTerms = [],
+  contextText = "",
+  preferred = false,
+  preferredProviders = [],
+  strictProviderMatch = false,
+  leadAligned = false
+}) {
   const src = String(url || "").toLowerCase();
+  const normalizedSrc = normalizeCompact(src);
+  const contextTerms = getStoryTokens(contextText, source?.language || "vi");
+  const sourceProviderKeys = detectAiProviderKeys(
+    [source?.source_name, source?.source_url, source?.image_caption, source?.image_credit, url].filter(Boolean).join(" ")
+  );
+  const contextProviderKeys = detectAiProviderKeys(contextText);
   let score = (SOURCE_TYPE_PRIORITY[source?.source_type] || 0) + (TRUST_PRIORITY[source?.trust_tier] || 0);
 
-  if (/\b(hero|cover|featured|wp-content|uploads)\b/.test(src)) {
+  if (preferred) {
     score += 4;
   }
 
-  if (/\b(logo|avatar|icon|sprite)\b/.test(src)) {
-    score -= 10;
+  if (leadAligned) {
+    score += 3;
+  }
+
+  if (/\b(hero|cover|featured|wp-content|uploads|max-\d+)\b/.test(src)) {
+    score += 5;
+  }
+
+  if (/\b(logo|avatar|icon|sprite|placeholder|default|social-share|opengraph)\b/.test(src)) {
+    score -= 12;
+  }
+
+  if (/\b(thumb|thumbnail|small|square|cropped|crop)\b/.test(src)) {
+    score -= 5;
+  }
+
+  if (preferredProviders.length) {
+    const sourceMatchesPreferred = sourceProviderKeys.some((providerKey) => preferredProviders.includes(providerKey));
+    const contextMatchesPreferred = contextProviderKeys.some((providerKey) => preferredProviders.includes(providerKey));
+
+    if (sourceMatchesPreferred) {
+      score += strictProviderMatch ? 22 : 14;
+    } else if (sourceProviderKeys.length) {
+      score -= strictProviderMatch ? 28 : 12;
+    } else if (contextMatchesPreferred) {
+      score += strictProviderMatch ? 10 : 6;
+    } else if (contextProviderKeys.length) {
+      score -= strictProviderMatch ? 10 : 4;
+    }
+  }
+
+  for (const term of [...focusTerms, ...contextTerms].slice(0, 24)) {
+    if (term && normalizedSrc.includes(term)) {
+      score += term.length >= 6 ? 3 : 1;
+    }
+  }
+
+  const sourceNameToken = normalizeCompact(source?.source_name || "");
+  if (sourceNameToken && normalizedSrc.includes(sourceNameToken)) {
+    score += 2;
+  }
+
+  try {
+    const sourceHost = new URL(source?.source_url || "").hostname.replace(/^www\./i, "");
+    const imageHost = new URL(url).hostname.replace(/^www\./i, "");
+
+    if (sourceHost && imageHost && sourceHost === imageHost) {
+      score += 4;
+    }
+  } catch {
+    // Ignore malformed source or image URLs.
   }
 
   return score;
@@ -2080,14 +2295,65 @@ function resolveVerificationState(members, sources) {
 }
 
 function resolveClusterTopic(members) {
-  const scores = new Map();
+  const fallbackTopic = normalizeTopic(members[0]?.topic);
+  const scores = new Map([
+    ["ai", 0],
+    ["apps-software", 0],
+    ["internet-business-tech", 0],
+    ["security", 0],
+    ["devices", 0],
+    ["gaming", 0]
+  ]);
+  const textBlob = members
+    .flatMap((member) => [
+      member?.title,
+      member?.summary,
+      member?.dek,
+      member?.hook,
+      ...(member?.sections || []).flatMap((section) => [section?.heading, section?.body]),
+      ...(member?.source_set || []).flatMap((source) => [source?.source_name, source?.source_url])
+    ])
+    .filter(Boolean)
+    .join(" ");
+  const normalizedBlob = cleanText(textBlob);
 
   for (const member of members) {
     const topic = normalizeTopic(member.topic);
     scores.set(topic, (scores.get(topic) || 0) + draftPriority(member));
   }
 
-  return [...scores.entries()].sort((left, right) => right[1] - left[1])[0]?.[0] || normalizeTopic(members[0]?.topic);
+  if (hasAiPackageSignals(normalizedBlob)) {
+    scores.set("ai", (scores.get("ai") || 0) + 26);
+    scores.set("apps-software", (scores.get("apps-software") || 0) + 10);
+  }
+
+  if (/\b(chatgpt|openai|gemini|claude|copilot|anthropic|notebooklm|deepseek|grok|trí tuệ nhân tạo|mô hình ai|trợ lý ai)\b/i.test(normalizedBlob)) {
+    scores.set("ai", (scores.get("ai") || 0) + 24);
+  }
+
+  if (/\b(workspace|gmail|docs|sheets|slides|meet|drive|notion|slack|zoom|browser|messenger web|trình duyệt web|ứng dụng|phần mềm|mẹo|thủ thuật|hướng dẫn|workflow|productivity)\b/i.test(normalizedBlob)) {
+    scores.set("apps-software", (scores.get("apps-software") || 0) + 22);
+    scores.set("gaming", (scores.get("gaming") || 0) - 18);
+  }
+
+  if (/\b(facebook|messenger|meta|instagram|threads|whatsapp|oracle|doanh nghiệp|nền tảng|mạng xã hội|creator|agency|seller|bán hàng)\b/i.test(normalizedBlob)) {
+    scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) + 24);
+    scores.set("gaming", (scores.get("gaming") || 0) - 14);
+  }
+
+  if (/\b(hack|security|cyber|malware|phishing|passkey|password|data breach|ransomware|bảo mật|tấn công)\b/i.test(normalizedBlob)) {
+    scores.set("security", (scores.get("security") || 0) + 22);
+  }
+
+  if (/\b(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiết bị|điện thoại|intel|amd|qualcomm|nvidia)\b/i.test(normalizedBlob)) {
+    scores.set("devices", (scores.get("devices") || 0) + 18);
+  }
+
+  if (/\b(gaming|game|steam|playstation|xbox|nintendo|switch|handheld|dlss|rockstar|gta|game thủ)\b/i.test(normalizedBlob)) {
+    scores.set("gaming", (scores.get("gaming") || 0) + 18);
+  }
+
+  return [...scores.entries()].sort((left, right) => right[1] - left[1])[0]?.[0] || fallbackTopic;
 }
 
 function resolveClusterContentType(members) {
@@ -2228,7 +2494,7 @@ function normalizeEditorialSentence(value, minLength = 50) {
 }
 
 function isWeakEditorialSentence(value) {
-  return /(search results|all search results|affiliate links?|best daily deals|newsletter|toggle dark mode|toggle search form|privacy policy|cookie policy|terms of use|all rights reserved|copyright|learn more|read more|sign up|sign in|log in|login|follow us|watch now|shop now|source image pending|reference image from|add .* on google|android authority on google|headphone deals|robot vacuum deals|deviled eggs|roasted chicken|recipe|restaurant|vacation|travel tips|easter|grubhub|uber eats|for more than \d+ years|we['’]ve invested in|make everyday life better|our mission is|today we are announcing|available everywhere our ai plans are available|copy link|link bài gốc|lấy link|google cloud community|google workspace admins like you)/i.test(
+  return /(search results|all search results|affiliate links?|best daily deals|newsletter|toggle dark mode|toggle search form|privacy policy|cookie policy|terms of use|all rights reserved|copyright|learn more|read more|sign up|sign in|log in|login|follow us|watch now|shop now|source image pending|reference image from|add .* on google|android authority on google|headphone deals|robot vacuum deals|deviled eggs|roasted chicken|recipe|restaurant|vacation|travel tips|easter|grubhub|uber eats|for more than \d+ years|we['’]ve invested in|make everyday life better|our mission is|today we are announcing|available everywhere our ai plans are available|copy link|link bài gốc|lấy link|google cloud community|google workspace admins like you|nguồn tham chiếu chính của bài|ở vòng tổng hợp này|bài này được biên tập|câu chuyện này được chắt lại|patrick tech media sẽ tiếp tục|patrick tech media đang đối chiếu|điểm đáng giữ lại là câu chuyện này|bài viết kéo câu chuyện về đúng bối cảnh)/i.test(
     value
   );
 }
@@ -2504,12 +2770,14 @@ function finishSentence(value) {
 }
 
 function cleanText(value) {
-  return String(value || "")
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  return repairEncodingArtifacts(
+    String(value || "")
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+  );
 }
 
 function normalizeCompact(value) {

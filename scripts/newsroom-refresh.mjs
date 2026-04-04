@@ -78,7 +78,7 @@ const fallbackFeeds = [
     region: "VN",
     sourceType: "press",
     trustTier: "established-media",
-    topicHint: "gaming",
+    topicHint: "apps-software",
     limit: 5
   },
   {
@@ -579,8 +579,8 @@ async function mapFeedItem(feed, item, timestamp) {
   const topic = inferTopicFromSignals(feed, title, inferenceText);
   const contentType = inferContentType(feed, title, inferenceText);
   const summary = buildSummary(sourceDescription || rawBody, feed.language, title, editorialParagraphs);
-  const dek = buildDek(sourceDescription || rawBody, feed.language, summary, editorialParagraphs);
-  const hook = buildHook(editorialParagraphs, summary, dek, feed.language);
+  const dek = buildDek(sourceDescription || rawBody, feed.language, summary, editorialParagraphs, title);
+  const hook = buildHook(editorialParagraphs, summary, dek, feed.language, title);
   const sections = buildSections({
     title,
     summary,
@@ -594,7 +594,14 @@ async function mapFeedItem(feed, item, timestamp) {
   const publishedAt = normalizeDate(item.pubDate, timestamp);
   const articleHash = crypto.createHash("sha1").update(`${feed.name}:${link}:${feed.language}`).digest("hex").slice(0, 12);
   const slug = slugify(title).slice(0, 96);
-  const imageUrl = cleanUrl(item.imageUrl || snapshot.imageUrl);
+  const imageUrl = chooseStoryImage({
+    itemImageUrl: item.imageUrl,
+    snapshotImageUrl: snapshot.imageUrl,
+    title,
+    body: inferenceText,
+    sourceName: feed.name,
+    link
+  });
   const image = imageUrl
     ? {
         src: imageUrl,
@@ -688,6 +695,91 @@ async function fetchSourceSnapshot(url) {
   } catch {
     return { description: "", imageUrl: "", paragraphs: [], bodyText: "" };
   }
+}
+
+function chooseStoryImage({ itemImageUrl, snapshotImageUrl, title, body, sourceName, link }) {
+  const focusTerms = extractImageFocusTerms([title, body, sourceName].filter(Boolean).join(" "));
+  const candidates = [
+    { src: cleanUrl(snapshotImageUrl), preferred: true },
+    { src: cleanUrl(itemImageUrl), preferred: false }
+  ]
+    .filter((entry) => entry.src)
+    .map((entry) => ({
+      ...entry,
+      score: scoreStoryImageCandidate({
+        url: entry.src,
+        preferred: entry.preferred,
+        focusTerms,
+        sourceName,
+        link
+      })
+    }))
+    .sort((left, right) => right.score - left.score);
+
+  return candidates[0]?.src || "";
+}
+
+function scoreStoryImageCandidate({ url, preferred, focusTerms, sourceName, link }) {
+  const cleanedUrl = cleanUrl(url);
+
+  if (!cleanedUrl) {
+    return Number.NEGATIVE_INFINITY;
+  }
+
+  const normalized = normalizeAnchorText(cleanedUrl);
+  let score = preferred ? 10 : 6;
+
+  if (/\b(hero|cover|featured|uploads|wp-content|max-\d+)\b/i.test(cleanedUrl)) {
+    score += 5;
+  }
+
+  if (/\b(logo|avatar|icon|sprite|placeholder|default|blank|social-share|opengraph)\b/i.test(cleanedUrl)) {
+    score -= 12;
+  }
+
+  if (/\b(thumb|thumbnail|small|square|cropped|crop)\b/i.test(cleanedUrl)) {
+    score -= 5;
+  }
+
+  for (const term of focusTerms) {
+    if (normalized.includes(term)) {
+      score += term.length >= 6 ? 3 : 1;
+    }
+  }
+
+  for (const term of extractImageFocusTerms(sourceName)) {
+    if (normalized.includes(term)) {
+      score += 1;
+    }
+  }
+
+  try {
+    const linkHost = new URL(link).hostname.replace(/^www\./i, "");
+    const imageHost = new URL(cleanedUrl).hostname.replace(/^www\./i, "");
+
+    if (linkHost === imageHost) {
+      score += 4;
+    }
+  } catch {
+    // Ignore malformed URLs here.
+  }
+
+  return score;
+}
+
+function extractImageFocusTerms(value) {
+  const explicitTerms = [
+    "chatgpt", "openai", "gemini", "workspace", "notebooklm", "copilot", "claude", "deepseek", "grok",
+    "facebook", "messenger", "instagram", "threads", "whatsapp", "oracle", "google", "microsoft",
+    "apple", "macbook", "iphone", "intel", "nvidia", "ram", "gaming", "steam", "xbox", "playstation"
+  ];
+  const anchors = extractAnchorTerms(value).filter((entry) => entry.length >= 4);
+  const normalized = normalizeAnchorText(value);
+
+  return [...new Set([
+    ...anchors,
+    ...explicitTerms.filter((entry) => normalized.includes(entry))
+  ])].slice(0, 18);
 }
 
 function readMetaContent(html, attribute, value) {
@@ -990,6 +1082,9 @@ function inferTopicFromSignals(feed, title, body) {
   const titleHasStrongAiSignal = hasStrongAiSignals(titleHaystack);
   const titleHasGenericAiSignal = hasGenericAiSignals(titleHaystack);
   const titleHasAiPackageSignal = hasAiPackageSignals(titleHaystack);
+  const titleHasGamingSignal = hasGamingSignals(titleHaystack);
+  const titleHasWorkspaceSignal = hasWorkspaceUtilitySignals(titleHaystack);
+  const titleHasBusinessSignal = hasBusinessPlatformSignals(titleHaystack);
 
   if ((titleHasStrongAiSignal || titleHasGenericAiSignal) && titleHasAiPackageSignal) {
     return "ai";
@@ -1002,6 +1097,14 @@ function inferTopicFromSignals(feed, title, body) {
   if (/\b(hack|security|cyber|malware|phishing|passkey|password|data breach|ransomware|bảo mật|tấn công)\b/i.test(titleHaystack)
     && !titleHasStrongAiSignal) {
     return "security";
+  }
+
+  if (titleHasBusinessSignal && !titleHasGamingSignal && !titleHasStrongAiSignal) {
+    return "internet-business-tech";
+  }
+
+  if (titleHasWorkspaceSignal && !titleHasGamingSignal && !titleHasAiPackageSignal) {
+    return "apps-software";
   }
 
   if (/\b(gaming|game|steam|playstation|xbox|nintendo|switch|handheld|dlss|rockstar|gta|tay cầm|game thủ)\b/i.test(titleHaystack)
@@ -1056,8 +1159,18 @@ function inferTopicFromSignals(feed, title, body) {
     scores.set("devices", (scores.get("devices") || 0) + 18);
   }
 
-  if (/(gaming|game|steam|playstation|xbox|nintendo|switch|handheld|dlss|rockstar|gta)/i.test(rawHaystack)) {
+  if (hasGamingSignals(rawHaystack)) {
     scores.set("gaming", (scores.get("gaming") || 0) + 18);
+  }
+
+  if (hasWorkspaceUtilitySignals(rawHaystack)) {
+    scores.set("apps-software", (scores.get("apps-software") || 0) + 22);
+    scores.set("gaming", (scores.get("gaming") || 0) - 18);
+  }
+
+  if (hasBusinessPlatformSignals(rawHaystack)) {
+    scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) + 24);
+    scores.set("gaming", (scores.get("gaming") || 0) - 14);
   }
 
   if (/(facebook|meta|instagram|threads|tiktok|youtube|twitter|x\.com|whatsapp|social|oracle|shopee|lazada|agency|creator)/i.test(rawHaystack)) {
@@ -1132,11 +1245,11 @@ function buildSummary(body, language, fallbackTitle, paragraphs = []) {
   }
 
   return language === "vi"
-    ? finishSentence(body || `Bài viết bám theo chuyển động mới nhất liên quan tới ${fallbackTitle}.`)
+    ? finishSentence(body || `${fallbackTitle} đang có thêm chi tiết mới đáng chú ý với người theo dõi mảng công nghệ này.`)
     : finishSentence(body || `This piece follows the newest movement connected to ${fallbackTitle}.`);
 }
 
-function buildDek(body, language, summary, paragraphs = []) {
+function buildDek(body, language, summary, paragraphs = [], fallbackTitle = "") {
   const dek = selectEditorialSentences([paragraphs[0], paragraphs[1], body, summary], 1, 60)[0] || summary;
 
   if (dek && dek.length >= 60) {
@@ -1144,11 +1257,15 @@ function buildDek(body, language, summary, paragraphs = []) {
   }
 
   return language === "vi"
-    ? "Bài viết kéo câu chuyện về đúng bối cảnh, chốt phần mới đáng giữ lại và chỉ ra vì sao người đọc nên mở ngay lúc này."
+    ? finishSentence(
+      fallbackTitle
+        ? `${fallbackTitle} đáng mở ở chỗ phần thay đổi không chỉ nằm trên thông báo, mà còn chạm vào cách người dùng dùng dịch vụ, thiết bị hoặc tài khoản mỗi ngày`
+        : "Điểm đáng chú ý không nằm ở lời giới thiệu, mà ở chi tiết cho thấy sản phẩm và cách sử dụng đang đổi ra sao"
+    )
     : "The piece brings the story back into context and explains why it is worth opening right now.";
 }
 
-function buildHook(paragraphs, summary, dek, language) {
+function buildHook(paragraphs, summary, dek, language, fallbackTitle = "") {
   const candidate = selectEditorialSentences([paragraphs?.[0], paragraphs?.[1], summary, dek], 1, 80)[0] || "";
 
   if (candidate.length >= 80) {
@@ -1156,7 +1273,7 @@ function buildHook(paragraphs, summary, dek, language) {
   }
 
   return language === "vi"
-    ? finishSentence(`${summary} Chi tiết khiến câu chuyện này đáng mở nằm ở chỗ nó tác động trực tiếp tới cách người dùng làm việc, trả tiền hoặc dùng công cụ mỗi ngày.`)
+    ? finishSentence(`${summary} Phần nên đọc kỹ nhất là chi tiết cho thấy ${fallbackTitle || "thay đổi này"} tác động thế nào tới cách dùng công cụ, tài khoản hoặc chi phí hằng ngày.`)
     : finishSentence(`${summary} This is the detail that makes the story worth opening right now.`);
 }
 
@@ -1210,14 +1327,10 @@ function buildSections({ title, summary, dek, language, topic, contentType, sour
     language === "vi"
       ? buildVietnameseForwardLook(topic, title)
       : buildEnglishForwardLook(topic, title);
-  const sourceLine =
-    language === "vi"
-      ? `Patrick Tech Media đang đối chiếu thêm với nguồn ${sourceName}.`
-      : `Patrick Tech Media is cross-checking the thread against ${sourceName}.`;
   const takeLine =
     language === "vi"
-      ? `Điểm đáng giữ lại là câu chuyện này chạm vào đúng lớp người dùng công nghệ đang cần tín hiệu rõ ràng, thay vì chỉ thêm một headline gây sốc.`
-      : `The part worth keeping is that this lands on a real layer of technology users instead of stopping at a flashy headline.`;
+      ? resolveNewsTakeLine(topic)
+      : `The important part is whether this change carries beyond the headline and becomes tangible in real product use.`;
 
   return [
     {
@@ -1234,11 +1347,11 @@ function buildSections({ title, summary, dek, language, topic, contentType, sour
     },
     {
       heading: take,
-      body: cleanParagraphs[3] || finishSentence(`${takeLine} ${sourceLine}`)
+      body: cleanParagraphs[3] || finishSentence(`${takeLine} ${angle}`)
     },
     {
       heading: next,
-      body: cleanParagraphs[4] || cleanParagraphs[3] || finishSentence(`${nextLook} ${sourceLine}`)
+      body: cleanParagraphs[4] || cleanParagraphs[3] || finishSentence(nextLook)
     }
   ];
 }
@@ -1251,12 +1364,8 @@ function buildGuideSections({ cleanParagraphs, summary, dek, language, topic, so
   const take = language === "vi" ? "Patrick Tech Media đánh giá" : "Patrick Tech Media take";
   const audienceLine =
     language === "vi"
-      ? `Giá trị của kiểu bài này nằm ở chỗ người đọc có thể dùng lại ngay trong công việc hoặc khi xử lý một tác vụ công nghệ quen thuộc.`
+      ? "Giá trị của bài kiểu này nằm ở chỗ đọc xong có thể áp dụng ngay vào một thao tác quen thuộc, thay vì chỉ lưu lại để đó."
       : `The value here is practical reuse: readers should be able to apply it immediately in a real task.`;
-  const sourceLine =
-    language === "vi"
-      ? `Patrick Tech Media tiếp tục đối chiếu thêm với nguồn ${sourceName} để phần hướng dẫn không bị mỏng.`
-      : `Patrick Tech Media is still cross-checking the workflow against ${sourceName} so the guide stays grounded.`;
 
   return [
     {
@@ -1285,7 +1394,7 @@ function buildGuideSections({ cleanParagraphs, summary, dek, language, topic, so
     },
     {
       heading: take,
-      body: cleanParagraphs[4] || finishSentence(`${audienceLine} ${sourceLine}`)
+      body: cleanParagraphs[4] || finishSentence(`${audienceLine} ${resolveGuideTakeLine(topic, sourceName, language)}`)
     }
   ];
 }
@@ -1306,11 +1415,11 @@ function buildAiPackageSections({ title, cleanParagraphs, summary, dek, language
       : `The first audience to watch is the group already paying for storage, collaboration, and AI inside one stack, because that is where value shifts show up fastest.`;
   const takeLine =
     language === "vi"
-      ? `Patrick Tech Media nhìn câu chuyện kiểu này như một cuộc đua giá trị sử dụng thật: gói nào giúp người dùng bớt bước, gom công cụ và hạ chi phí phát sinh sẽ thắng bền hơn một đợt truyền thông ngắn.`
+      ? "Điểm đáng nhìn lâu hơn headline là gói nào thực sự gom được model, dung lượng và công cụ vào một giá trị dùng được mỗi ngày."
       : `Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz.`;
   const sourceLine =
     language === "vi"
-      ? `Patrick Tech Media sẽ tiếp tục đối chiếu thêm với nguồn ${sourceName} để xem thay đổi này có giữ được lợi thế khi rollout rộng hơn không.`
+      ? `Phần cần theo dõi tiếp là rollout, giới hạn khu vực và việc ${sourceName} có giữ nguyên lợi thế này khi mở rộng hơn không.`
       : `Patrick Tech Media will keep checking ${sourceName} to see whether the value holds once the rollout broadens.`;
 
   return [
@@ -1399,6 +1508,31 @@ function buildEnglishForwardLook(topic, title) {
   };
 
   return lines[topic] || "Patrick Tech Media will keep tracking whether this signal turns into something materially bigger.";
+}
+
+function resolveNewsTakeLine(topic) {
+  const lines = {
+    ai: "Điểm đáng nói là AI chỉ thực sự có giá trị khi thay đổi này đi được vào công việc và thói quen dùng thật.",
+    "apps-software": "Một cập nhật chỉ đáng nhớ khi nó làm luồng làm việc gọn hơn, nhanh hơn hoặc bớt lỗi hơn.",
+    devices: "Phần đáng giữ lại luôn nằm ở tác động thật lên trải nghiệm dùng máy, không chỉ ở thông số.",
+    security: "Điều nên nhìn kỹ là thay đổi này có giúp an toàn tài khoản và giảm rủi ro vận hành hay không.",
+    gaming: "Với game, chi tiết đáng đọc là thứ có thể đổi cách cộng đồng chơi, chờ đợi hoặc chi tiền.",
+    "internet-business-tech": "Điểm đáng đọc là nó có thể chạm vào hành vi người dùng, doanh nghiệp hoặc nền tảng nhanh đến đâu."
+  };
+
+  return lines[topic] || lines.ai;
+}
+
+function resolveGuideTakeLine(topic, sourceName, language) {
+  if (language !== "vi") {
+    return `The step worth keeping is the one that still holds up when readers try it against ${sourceName}.`;
+  }
+
+  if (topic === "ai") {
+    return `Phần đáng giữ lại là mẹo nào vẫn đứng vững khi đối chiếu với ${sourceName} và đưa vào công việc thật.`;
+  }
+
+  return `Phần đáng giữ lại là cách làm nào vẫn đứng vững khi đối chiếu với ${sourceName} và áp dụng vào thao tác hằng ngày.`;
 }
 
 function calculateQualityScore({ feed, imageUrl, paragraphs, summary, dek, hook }) {
@@ -1522,6 +1656,21 @@ function hasGenericAiSignals(value) {
   const text = String(value || "");
   return /\bAI\b/.test(text)
     || /\bai\s+(?:pro|plus|ultra|business|workspace|studio|assistant|agent|plan|package|bundle|model)\b/i.test(text);
+}
+
+function hasGamingSignals(value) {
+  const text = String(value || "");
+  return /\b(gaming|game|steam|playstation|xbox|nintendo|switch|rockstar|gta|dlss|esports|game thủ)\b/i.test(text);
+}
+
+function hasWorkspaceUtilitySignals(value) {
+  const text = String(value || "");
+  return /\b(workspace|gmail|docs|sheets|slides|meet|drive|notion|slack|zoom|messenger web|trình duyệt web|browser|ứng dụng|phần mềm|mẹo|thủ thuật|hướng dẫn|cách dùng|feature|workflow|productivity|web app)\b/i.test(text);
+}
+
+function hasBusinessPlatformSignals(value) {
+  const text = String(value || "");
+  return /\b(facebook|messenger|meta|instagram|threads|whatsapp|oracle|startup|doanh nghiệp|nền tảng|mạng xã hội|social platform|creator|agency|seller|bán hàng)\b/i.test(text);
 }
 
 function cleanUrl(value) {

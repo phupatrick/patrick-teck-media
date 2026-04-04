@@ -874,14 +874,18 @@ async function handleRemoteStoryImage(requestUrl, res, state) {
       return sendText(res, 404, "Image not available.", "text/plain; charset=utf-8");
     }
 
-    const contentType = String(response.headers.get("content-type") || "").trim();
-    if (!/^image\//i.test(contentType)) {
-      return sendText(res, 415, "Unsupported image type.", "text/plain; charset=utf-8");
-    }
-
     const imageBytes = Buffer.from(await response.arrayBuffer());
     if (imageBytes.byteLength > REMOTE_IMAGE_MAX_BYTES) {
       return sendText(res, 413, "Image is too large.", "text/plain; charset=utf-8");
+    }
+    const contentType = resolveRemoteImageContentType(
+      String(response.headers.get("content-type") || "").trim(),
+      targetUrl,
+      imageBytes
+    );
+
+    if (!contentType) {
+      return sendText(res, 415, "Unsupported image type.", "text/plain; charset=utf-8");
     }
 
     res.writeHead(
@@ -897,6 +901,75 @@ async function handleRemoteStoryImage(requestUrl, res, state) {
   } finally {
     clearTimeout(timeout);
   }
+}
+
+function resolveRemoteImageContentType(headerValue, targetUrl, imageBytes) {
+  const normalizedHeader = String(headerValue || "").split(";")[0].trim().toLowerCase();
+
+  if (/^image\//i.test(normalizedHeader)) {
+    return normalizedHeader;
+  }
+
+  const extensionType = inferImageTypeFromUrl(targetUrl);
+  if (extensionType) {
+    return extensionType;
+  }
+
+  if (Buffer.isBuffer(imageBytes)) {
+    if (imageBytes.length >= 12 && imageBytes.toString("ascii", 0, 4) === "RIFF" && imageBytes.toString("ascii", 8, 12) === "WEBP") {
+      return "image/webp";
+    }
+
+    if (imageBytes.length >= 8
+      && imageBytes[0] === 0x89
+      && imageBytes[1] === 0x50
+      && imageBytes[2] === 0x4e
+      && imageBytes[3] === 0x47) {
+      return "image/png";
+    }
+
+    if (imageBytes.length >= 3 && imageBytes[0] === 0xff && imageBytes[1] === 0xd8 && imageBytes[2] === 0xff) {
+      return "image/jpeg";
+    }
+
+    if (imageBytes.length >= 6) {
+      const signature = imageBytes.toString("ascii", 0, 6);
+      if (signature === "GIF87a" || signature === "GIF89a") {
+        return "image/gif";
+      }
+    }
+  }
+
+  return "";
+}
+
+function inferImageTypeFromUrl(targetUrl) {
+  try {
+    const pathname = new URL(targetUrl).pathname.toLowerCase();
+
+    if (pathname.endsWith(".avif")) {
+      return "image/avif";
+    }
+    if (pathname.endsWith(".webp")) {
+      return "image/webp";
+    }
+    if (pathname.endsWith(".png")) {
+      return "image/png";
+    }
+    if (pathname.endsWith(".gif")) {
+      return "image/gif";
+    }
+    if (pathname.endsWith(".svg")) {
+      return "image/svg+xml";
+    }
+    if (pathname.endsWith(".jpg") || pathname.endsWith(".jpeg")) {
+      return "image/jpeg";
+    }
+  } catch {
+    return "";
+  }
+
+  return "";
 }
 
 function normalizeRemoteImageUrl(value) {

@@ -22,7 +22,7 @@ export function renderHomePage(state, language, adsConfig) {
     null;
   const leadStories = prioritizeIllustratedStories(dedupeStories([...packageStories, home.featured, ...(home.latest || []), ...(home.trending || []), home.briefing, ...(tips || [])]));
   const leadFeature = leadStories[0] || fallbackStory;
-  const leadSideStories = prioritizeIllustratedStories(excludeStories(leadStories.slice(1), [leadFeature])).slice(0, 2);
+  const leadSideStories = prioritizeIllustratedStories(excludeStories(leadStories.slice(1), [leadFeature])).slice(0, 1);
   const packageLead = prioritizeIllustratedStories(excludeStories(dedupeStories([...packageStories, home.briefing]), [leadFeature, ...leadSideStories]))[0] || null;
   const packageItems = prioritizeIllustratedStories(excludeStories(dedupeStories([...packageStories, ...home.latest]), [leadFeature, ...leadSideStories, packageLead])).slice(0, 3);
   const ribbonStories = selectBalancedStories(
@@ -50,6 +50,7 @@ export function renderHomePage(state, language, adsConfig) {
       ? watchStories
       : excludeStories(dedupeStories([home.briefing, ...(home.latest || []), ...(home.trending || []), fallbackStory]), [leadFeature, ...leadSideStories, packageLead])
   ).slice(0, 4);
+  const heroWatchStories = safeWatchStories.slice(0, 3);
   const guideLead = prioritizeIllustratedStories(excludeStories(dedupeStories([...(tips || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories]))[0] || home.briefing || fallbackStory;
   const guideStories = selectBalancedStories(
     excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead, packageLead]),
@@ -105,7 +106,7 @@ export function renderHomePage(state, language, adsConfig) {
               </div>
             </div>
             <div class="headline-list">
-              ${safeWatchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
+              ${heroWatchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
             </div>
           </article>
         </aside>

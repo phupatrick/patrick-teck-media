@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-01T07:45:00+07:00",
+  "generated_at": "2026-04-04T10:30:00+07:00",
   "owner": {
     "delegated_to": "openclaw",
     "trust_mode": "owner-delegated",
@@ -87,6 +87,33 @@
       "Do not attach long explanatory paragraphs beside lead headlines."
     ]
   },
+  "editorial_workflow": {
+    "story_update_protocol": [
+      "Classify the story by real reader intent: AI plan and model stories stay in AI, workflow and app updates stay in Apps & Software, platform and business moves stay in Internet & Business Tech, and gaming only stays gaming when the story is truly about games or gaming hardware.",
+      "Treat provider-specific AI package stories as provider-specific from title to image. A ChatGPT or OpenAI story must not lead with Microsoft, Google, or Anthropic visuals unless the headline is explicitly about a multi-provider comparison.",
+      "For multi-provider AI comparisons, use a neutral comparison-friendly image or the lead provider image that best matches the headline. Do not let one vendor visual misrepresent the whole article.",
+      "If a topic block cannot show at least two complete illustrated stories, do not render that block on the homepage.",
+      "Reject any story that still feels like a placeholder: repeated copy, thin sections, rough Vietnamese phrasing, or source image pending visuals in priority homepage slots."
+    ],
+    "copy_polish_rules": [
+      "Vietnamese copy must sound like a human technology editor, not an operator log.",
+      "Do not use internal phrases such as 'Patrick Tech Media đang đối chiếu', 'bài này được biên tập', or 'nguồn tham chiếu chính'.",
+      "Do not repeat the same idea across title, dek, hook, and nearby homepage summaries.",
+      "Prefer shorter supporting copy near headlines so the layout breathes without looking empty."
+    ],
+    "image_selection_rules": [
+      "Prefer real source images tied to the same article, provider, product, or event named in the headline.",
+      "Penalize logos, placeholders, thumbnails, and promo art that clearly belongs to another company or story.",
+      "If no trustworthy relevant image exists, keep the story out of priority homepage modules until one exists."
+    ],
+    "pre_publish_checklist": [
+      "Does the image match the company, product, or event named in the title?",
+      "Does the topic label match what the reader is really opening the story for?",
+      "Does the dek explain why the update matters instead of echoing the headline?",
+      "Do the body sections move from what changed to why it matters to what to watch next?",
+      "Would a human Vietnamese editor publish this copy without obvious rewrites?"
+    ]
+  },
   "homepage_rules": {
     "must_have": [
       "Lead story with strong image",
@@ -104,7 +131,9 @@
       "Cluttered typography",
       "Thin cards with unfinished content",
       "Lead cards that stack title, hook, and summary on top of each other",
-      "Cards that waste space with repeated text outside the title"
+      "Cards that waste space with repeated text outside the title",
+      "Topic columns that stay mostly empty because there are not enough complete stories",
+      "Large blank areas caused by stretched rails or uneven story stacks"
     ]
   },
   "publishing_gate": {
@@ -121,6 +150,7 @@
     "never_publish": [
       "unfinished drafts",
       "stories without real image support",
+      "stories whose lead image clearly belongs to a different company, product, or event than the headline",
       "stories that feel like placeholder/demo filler",
       "machine-looking copy that has not been polished"
     ]

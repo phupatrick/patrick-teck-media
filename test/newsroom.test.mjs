@@ -13,6 +13,7 @@ import {
   getRadarData,
   getTopicPage
 } from "../src/newsroom-service.mjs";
+import { buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { renderArticlePage, renderHomePage } from "../src/newsroom-render.mjs";
 
 const state = createState();
@@ -41,6 +42,199 @@ const tests = [
       const contentTypes = new Set(state.articles.map((article) => article.content_type));
       assert.ok(contentTypes.has("EvergreenGuide"));
       assert.ok(contentTypes.has("ComparisonPage") || contentTypes.has("NewsArticle"));
+    }
+  },
+  {
+    name: "keeps provider-specific AI companion images aligned with the provider being covered",
+    run() {
+      const articles = [
+        makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          slug: "chatgpt-plus-pro-team-gia-tri-moi",
+          title: "ChatGPT Plus, Pro và Team vừa đổi gì trong gói AI",
+          summary: "OpenAI đang thêm giá trị cho ChatGPT Plus, Pro và Team bằng research, giới hạn cao hơn và lớp cộng tác rõ hơn.",
+          dek: "Người dùng đang soi xem ChatGPT có tăng giá trị thật hay chỉ dày thêm danh sách quyền lợi.",
+          hook: "Bài toán ở đây là OpenAI có giúp người dùng làm được nhiều việc hơn trong cùng một gói hay không.",
+          sections: [
+            {
+              heading: "Điểm mới",
+              body: "ChatGPT Plus, Pro và Team đang được đọc như một gói làm việc nặng hơn, nơi research, viết, code và tạo nội dung bắt đầu đứng chung trên một mặt bàn."
+            },
+            {
+              heading: "Giá trị",
+              body: "Người dùng trả phí quan tâm tới việc OpenAI gom thêm quyền lợi nào vào cùng hóa đơn thay vì chỉ nâng một thông số marketing."
+            },
+            {
+              heading: "Điều cần soi",
+              body: "Khác biệt thật nằm ở giới hạn dùng, công cụ mở khóa và việc các lớp tiện ích mới có đi vào công việc hàng ngày hay không."
+            }
+          ],
+          image: {
+            src: "https://images.example.com/openai-chatgpt-plan.jpg",
+            caption: "Reference image from the source story.",
+            credit: "OpenAI News",
+            source_url: "https://openai.com/news/chatgpt-plan-update"
+          },
+          source_set: [
+            {
+              source_type: "official-site",
+              source_name: "OpenAI News",
+              source_url: "https://openai.com/news/chatgpt-plan-update",
+              region: "Global",
+              language: "en",
+              trust_tier: "official",
+              image_url: "https://images.example.com/openai-chatgpt-plan.jpg",
+              image_caption: "Reference image from the source story.",
+              image_credit: "OpenAI News"
+            }
+          ]
+        }),
+        makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          slug: "openai-chatgpt-deep-research-goi-tra-phi",
+          title: "OpenAI đang đẩy Deep Research vào gói ChatGPT trả phí ra sao",
+          summary: "Nhiều thay đổi của OpenAI đang được đọc dưới góc nhìn gói thuê bao, không còn chỉ là câu chuyện model nào mạnh hơn.",
+          dek: "Người dùng muốn biết gói ChatGPT mới giúp nghiên cứu, tổng hợp và làm việc nhóm tốt hơn ở lớp nào.",
+          hook: "Điểm đáng đọc là OpenAI có đang biến thói quen chat thành một gói làm việc thật sự nặng hay không.",
+          sections: [
+            {
+              heading: "Lớp nghiên cứu",
+              body: "Deep Research chỉ đáng tiền khi nó giảm được thời gian gom nguồn, tóm tắt và trả kết quả trong bối cảnh người dùng đang trả phí cho ChatGPT."
+            },
+            {
+              heading: "Khác biệt của gói",
+              body: "OpenAI bị soi kỹ ở phần model, giới hạn và quyền truy cập công cụ vì đây là nơi giá trị gói lộ ra rõ nhất."
+            },
+            {
+              heading: "Điểm theo dõi tiếp",
+              body: "Nếu các quyền lợi mới chỉ nằm trên slide, gói trả phí sẽ khó giữ được sức hút trước Google hay Microsoft."
+            }
+          ],
+          image: {
+            src: "https://images.example.com/chatgpt-deep-research.jpg",
+            caption: "Reference image from the source story.",
+            credit: "The Verge AI",
+            source_url: "https://www.theverge.com/2026/04/03/chatgpt-deep-research-plan"
+          },
+          source_set: [
+            {
+              source_type: "press",
+              source_name: "The Verge AI",
+              source_url: "https://www.theverge.com/2026/04/03/chatgpt-deep-research-plan",
+              region: "Global",
+              language: "en",
+              trust_tier: "established-media",
+              image_url: "https://images.example.com/chatgpt-deep-research.jpg",
+              image_caption: "Reference image from the source story.",
+              image_credit: "The Verge AI"
+            }
+          ]
+        }),
+        makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          slug: "microsoft-copilot-goi-doanh-nghiep",
+          title: "Microsoft đang đẩy Copilot vào gói doanh nghiệp thế nào",
+          summary: "Copilot được kéo sâu vào Microsoft 365 và lớp quản trị doanh nghiệp, khiến gói AI của Microsoft phải được đọc như một stack làm việc.",
+          dek: "Đây là bài cho người đang soi giá trị của Copilot giữa tích hợp, bảo mật và quản trị.",
+          hook: "Microsoft chỉ thắng khi Copilot bớt là nút AI trình diễn và trở thành lớp hạ tầng dùng được mỗi ngày.",
+          sections: [
+            {
+              heading: "Tích hợp",
+              body: "Giá trị của Copilot nằm ở chỗ nó ăn vào Outlook, Word, Excel và Teams sâu hơn phần còn lại của thị trường."
+            },
+            {
+              heading: "Ghế trả phí",
+              body: "Doanh nghiệp soi Microsoft nhiều nhất ở chi phí theo ghế và quyền hạn quản trị đi kèm."
+            },
+            {
+              heading: "Điều cần theo dõi",
+              body: "Nếu Microsoft giữ được nhịp tích hợp sâu mà không làm chi phí đội quá mạnh, Copilot sẽ còn hút khối doanh nghiệp."
+            }
+          ],
+          image: {
+            src: "https://images.example.com/microsoft-copilot-plan.jpg",
+            caption: "Reference image from the source story.",
+            credit: "Microsoft Copilot Blog",
+            source_url: "https://blogs.microsoft.com/copilot-enterprise-plan"
+          },
+          source_set: [
+            {
+              source_type: "official-site",
+              source_name: "Microsoft Copilot Blog",
+              source_url: "https://blogs.microsoft.com/copilot-enterprise-plan",
+              region: "Global",
+              language: "en",
+              trust_tier: "official",
+              image_url: "https://images.example.com/microsoft-copilot-plan.jpg",
+              image_caption: "Reference image from the source story.",
+              image_credit: "Microsoft Copilot Blog"
+            }
+          ]
+        }),
+        makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          slug: "copilot-m365-gia-tri-moi",
+          title: "Copilot Pro và Microsoft 365 đang tăng giá trị ở lớp nào",
+          summary: "Microsoft đang ép cuộc đua gói AI sang phần tích hợp sâu vào công việc và dữ liệu doanh nghiệp.",
+          dek: "Đây là bài theo dõi việc Copilot tăng giá trị trong môi trường Microsoft 365.",
+          hook: "Điểm cần soi là Copilot có giúp doanh nghiệp bớt thao tác tay và dễ quản trị hơn hay không.",
+          sections: [
+            {
+              heading: "Điểm mạnh",
+              body: "Copilot thường mạnh khi nó bám vào dữ liệu công việc và bớt khiến người dùng phải mở thêm công cụ ngoài."
+            },
+            {
+              heading: "Giá trị gói",
+              body: "Người đọc nhìn vào quyền lợi thực tế theo ghế nhiều hơn là headline về AI."
+            },
+            {
+              heading: "Điều nên xem tiếp",
+              body: "Nếu phần tích hợp sâu giữ được nhịp, Microsoft sẽ còn là đối thủ khó tránh trong nhóm khách hàng doanh nghiệp."
+            }
+          ],
+          image: {
+            src: "https://images.example.com/microsoft-copilot-m365.jpg",
+            caption: "Reference image from the source story.",
+            credit: "Microsoft Copilot Blog",
+            source_url: "https://blogs.microsoft.com/copilot-m365-value"
+          },
+          source_set: [
+            {
+              source_type: "official-site",
+              source_name: "Microsoft Copilot Blog",
+              source_url: "https://blogs.microsoft.com/copilot-m365-value",
+              region: "Global",
+              language: "en",
+              trust_tier: "official",
+              image_url: "https://images.example.com/microsoft-copilot-m365.jpg",
+              image_caption: "Reference image from the source story.",
+              image_credit: "Microsoft Copilot Blog"
+            }
+          ]
+        })
+      ];
+
+      const companions = buildEditorialCompanionArticles(articles, "2026-04-04T00:00:00.000Z");
+      const openAiCompanion = companions.find((article) => /ChatGPT|OpenAI/i.test(article.title));
+
+      assert.ok(openAiCompanion);
+      assert.ok([
+        "https://images.example.com/openai-chatgpt-plan.jpg",
+        "https://images.example.com/chatgpt-deep-research.jpg"
+      ].includes(openAiCompanion.image?.src));
+      assert.doesNotMatch(openAiCompanion.image?.credit || "", /Microsoft/i);
     }
   },
   {

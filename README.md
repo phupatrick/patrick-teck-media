@@ -219,6 +219,14 @@ This manager cycle:
 - writes a private machine state snapshot to `OPENCLAW_MANAGER_STATE_PATH`
 - can run in `OPENCLAW_TRUST_MODE=owner`, which records OpenClaw as an owner-delegated actor for direct newsroom writes and code-managed updates
 
+OpenClaw should follow this editorial playbook on every refresh:
+
+- keep topic classification tied to reader intent, not only feed labels
+- keep provider-specific AI stories aligned all the way through title, copy, and image choice
+- avoid rendering thin topic bands or unfinished cards on the homepage
+- treat rough, repeated, or machine-looking Vietnamese copy as not publish-ready
+- keep a story out of priority homepage slots if the image is missing or clearly belongs to another company or product
+
 Generate or refresh only the web-control layer:
 
 ```powershell

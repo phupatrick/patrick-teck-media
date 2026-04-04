@@ -320,6 +320,10 @@ h3 {
   gap: 16px;
 }
 
+.frontpage-rail {
+  align-content: start;
+}
+
 .lead-feature,
 .lead-mini,
 .headline-ribbon,
@@ -1838,10 +1842,12 @@ h3 {
 
 .topic-band {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
 }
 
 .topic-column {
   border-top: 4px solid var(--topic-accent, var(--accent));
+  align-self: start;
 }
 
 .story-flag {

@@ -388,10 +388,10 @@ export function getHomeData(state, language) {
   const packageLeadStories = packageWatch.filter((article) => article.content_type !== "EvergreenGuide");
   const featured =
     packageLeadStories.find((article) => article.hero_image?.kind === "source") ||
-    packageLeadStories[0] ||
     leadStories.find((article) => article.topic === "ai" && article.hero_image?.kind === "source") ||
-    leadStories[0] ||
     leadStories.find((article) => article.hero_image?.kind === "source") ||
+    packageLeadStories[0] ||
+    leadStories[0] ||
     verifiedStories.find((article) => article.hero_image?.kind === "source") ||
     verifiedStories[0] ||
     prioritized[0] ||
@@ -419,17 +419,27 @@ export function getHomeData(state, language) {
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
   )).slice(0, 6);
-  const topicSections = state.topics.map((topic) => ({
-    ...topic,
-    label: topic.labels[language],
-    slug: topic.slugs[language],
-    stories: prioritizeFrontPageStories(sortStoriesForFrontPage(
-      localized.filter((article) => article.topic === topic.id),
-      state.runtime.generatedAt,
-      state.site.frontPageTopicWeights,
-      state.site.frontPageSourceWeights
-    )).slice(0, 4)
-  }));
+  const topicSections = state.topics
+    .map((topic) => {
+      const stories = buildHomeTopicSectionStories(
+        localized.filter((article) => article.topic === topic.id),
+        state.runtime.generatedAt,
+        state.site.frontPageTopicWeights,
+        state.site.frontPageSourceWeights
+      );
+
+      if (!stories.length) {
+        return null;
+      }
+
+      return {
+        ...topic,
+        label: topic.labels[language],
+        slug: topic.slugs[language],
+        stories
+      };
+    })
+    .filter(Boolean);
 
   return {
     featured,
@@ -567,11 +577,33 @@ function isFrontPageReady(article) {
 
   return Boolean(
     article &&
+    article.readiness?.ready !== false &&
     article.hero_image?.kind === "source" &&
     heroAlt.length >= 20 &&
     heroCaption.length >= 20 &&
     article.readiness?.checks?.sourceAttribution !== false
   );
+}
+
+function buildHomeTopicSectionStories(stories, anchorDate, topicWeights, sourceWeights) {
+  const sorted = prioritizeFrontPageStories(sortStoriesForFrontPage(
+    stories,
+    anchorDate,
+    topicWeights,
+    sourceWeights
+  ));
+  const ready = sorted.filter(isFrontPageReady);
+  const illustrated = sorted.filter((article) => article?.hero_image?.kind === "source");
+
+  if (ready.length >= 2) {
+    return ready.slice(0, 4);
+  }
+
+  if (illustrated.length >= 2) {
+    return dedupeStoriesByHref([...ready, ...illustrated, ...sorted]).slice(0, 3);
+  }
+
+  return [];
 }
 
 function dedupeStoriesByHref(stories) {
