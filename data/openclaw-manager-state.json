@@ -4,16 +4,16 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-04-04T19:50:12.607Z",
-    "finishedAt": "2026-04-04T19:50:58.433Z"
+    "startedAt": "2026-04-04T20:18:05.974Z",
+    "finishedAt": "2026-04-04T20:18:49.246Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 134,
+    "totalArticles": 135,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 185 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775332212640-1ec1a3.json Generated OpenClaw hidden feed with 134 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 181 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775333886007-3fc019.json Generated OpenClaw hidden feed with 135 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -22,13 +22,13 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 134 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "output": "Refreshed 135 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     },
     "webControl": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, apps-software, internet-business-tech, security, devices, gaming.",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, devices, apps-software, internet-business-tech, security, gaming.",
       "warnings": ""
     }
   },
@@ -37,7 +37,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-04-04T19:50:58.433Z",
+      "reviewedAt": "2026-04-04T20:18:49.245Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
