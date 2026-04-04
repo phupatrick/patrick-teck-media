@@ -252,6 +252,21 @@ const tests = [
     }
   },
   {
+    name: "spreads AI package companion images when multiple source visuals are available",
+    run() {
+      const generalAiPackageStories = state.articles.filter((article) => article.language === "vi" && [
+        "editorial-ai-package-watch",
+        "editorial-ai-plan-buying-guide",
+        "editorial-ai-package-roundup",
+        "editorial-ai-workflow-playbook"
+      ].includes(article.cluster_id));
+      const uniqueImageCount = new Set(generalAiPackageStories.map((article) => article.image?.src).filter(Boolean)).size;
+
+      assert.ok(generalAiPackageStories.length >= 3);
+      assert.ok(uniqueImageCount >= 3);
+    }
+  },
+  {
     name: "keeps trend stories indexable but ad-free",
     run() {
       const scenario = buildScenarioState([

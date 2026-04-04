@@ -56,31 +56,112 @@ export function buildEditorialCompanionArticles(articles, now = new Date().toISO
   const companions = [];
 
   for (const language of ["vi", "en"]) {
+    const localizedCompanions = [];
     const aiPackageMembers = selectCompanionMembers(pool, language, isAiPackageStory, 10);
     const tipMembers = selectCompanionMembers(pool, language, isPracticalTechStory, 10);
     const workflowMembers = dedupeCompanionMembers([...aiPackageMembers, ...tipMembers], 12);
 
     if (aiPackageMembers.length >= 2) {
-      companions.push(buildAiPackageCompanionStory({ language, members: aiPackageMembers, now }));
-      companions.push(buildAiPlanBuyingGuide({ language, members: aiPackageMembers, now }));
+      localizedCompanions.push(buildAiPackageCompanionStory({ language, members: aiPackageMembers, now }));
+      localizedCompanions.push(buildAiPlanBuyingGuide({ language, members: aiPackageMembers, now }));
 
       if (aiPackageMembers.length >= 3) {
-        companions.push(buildAiPackageUpdateRoundup({ language, members: aiPackageMembers, now }));
+        localizedCompanions.push(buildAiPackageUpdateRoundup({ language, members: aiPackageMembers, now }));
       }
     }
 
     if (workflowMembers.length >= 4) {
-      companions.push(buildAiWorkflowPlaybookGuide({ language, members: workflowMembers, now }));
+      localizedCompanions.push(buildAiWorkflowPlaybookGuide({ language, members: workflowMembers, now }));
     }
 
-    companions.push(...buildAiProviderCompanionArticles(pool, language, now));
+    localizedCompanions.push(...buildAiProviderCompanionArticles(pool, language, now));
 
     if (tipMembers.length >= 3) {
-      companions.push(buildPracticalTipsCompanionStory({ language, members: tipMembers, now }));
+      localizedCompanions.push(buildPracticalTipsCompanionStory({ language, members: tipMembers, now }));
     }
+
+    companions.push(...rebalanceCompanionImages(localizedCompanions));
   }
 
   return companions.filter(Boolean);
+}
+
+function rebalanceCompanionImages(articles) {
+  const usedSrcs = new Set();
+
+  return articles
+    .filter(Boolean)
+    .map((article) => {
+      const replacement = pickDistinctCompanionImage(article, usedSrcs);
+
+      if (!replacement) {
+        return article;
+      }
+
+      usedSrcs.add(replacement.src);
+      return {
+        ...article,
+        image: replacement
+      };
+    });
+}
+
+function pickDistinctCompanionImage(article, usedSrcs) {
+  const candidates = collectCompanionImageCandidates(article);
+
+  if (!candidates.length) {
+    return null;
+  }
+
+  const preferred = candidates.find((candidate) => !usedSrcs.has(candidate.src)) || candidates[0];
+  return {
+    src: preferred.src,
+    alt: cleanText(preferred.alt),
+    caption: cleanText(preferred.caption),
+    credit: cleanText(preferred.credit),
+    source_url: cleanText(preferred.source_url)
+  };
+}
+
+function collectCompanionImageCandidates(article) {
+  const candidates = [];
+  const seen = new Set();
+  let order = 0;
+
+  const pushCandidate = (candidate, priority) => {
+    const src = cleanText(candidate?.src || candidate?.image_url || "");
+
+    if (!isRemoteImageUrl(src) || seen.has(src)) {
+      return;
+    }
+
+    seen.add(src);
+    candidates.push({
+      src,
+      alt: cleanText(candidate?.alt) || cleanText(article?.title),
+      caption: cleanText(candidate?.caption || candidate?.image_caption),
+      credit: cleanText(candidate?.credit || candidate?.image_credit || candidate?.source_name),
+      source_url: cleanText(candidate?.source_url),
+      priority,
+      order: order++
+    });
+  };
+
+  pushCandidate(article?.image, 3);
+
+  for (const source of article?.source_set || []) {
+    pushCandidate(
+      {
+        src: source?.image_url,
+        caption: source?.image_caption,
+        credit: source?.image_credit || source?.source_name,
+        source_url: source?.source_url
+      },
+      2
+    );
+  }
+
+  return candidates.sort((left, right) => right.priority - left.priority || left.order - right.order);
 }
 
 function buildClusterArticle(cluster, now) {
