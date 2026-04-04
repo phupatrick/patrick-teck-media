@@ -9,60 +9,19 @@ export function renderHomePage(state, language, adsConfig) {
   const home = state.home[language];
   const copy = getRenderCopy(state, language);
   const path = `/${language}/`;
-  const tips = home.tips?.length ? home.tips : home.evergreen;
-  const packageStories = dedupeStories(home.packageWatch?.length ? home.packageWatch : []);
-  const fallbackStory =
-    home.featured ||
-    home.briefing ||
-    home.latest?.[0] ||
-    home.trending?.[0] ||
-    packageStories[0] ||
-    tips?.[0] ||
-    home.evergreen?.[0] ||
-    null;
-  const leadStories = prioritizeIllustratedStories(dedupeStories([...packageStories, home.featured, ...(home.latest || []), ...(home.trending || []), home.briefing, ...(tips || [])]));
-  const leadFeature = leadStories[0] || fallbackStory;
-  const leadSideStories = prioritizeIllustratedStories(excludeStories(leadStories.slice(1), [leadFeature])).slice(0, 1);
-  const packageLead = prioritizeIllustratedStories(excludeStories(dedupeStories([...packageStories, home.briefing]), [leadFeature, ...leadSideStories]))[0] || null;
-  const packageItems = prioritizeIllustratedStories(excludeStories(dedupeStories([...packageStories, ...home.latest]), [leadFeature, ...leadSideStories, packageLead])).slice(0, 4);
-  const ribbonStories = selectBalancedStories(
-    excludeStories(dedupeStories([...packageStories, ...home.latest, ...home.trending, home.briefing]), [leadFeature, ...leadSideStories, packageLead]),
-    5,
-    { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
-  );
-  const latestStories = selectBalancedStories(
-    excludeStories(dedupeStories(home.latest), [leadFeature, ...leadSideStories, packageLead]),
-    4,
-    { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
-  );
-  const safeLatestStories = prioritizeIllustratedStories(
-    latestStories.length
-      ? latestStories
-      : excludeStories(dedupeStories([...(home.latest || []), ...(home.trending || []), fallbackStory]), [leadFeature, ...leadSideStories, packageLead])
-  ).slice(0, 4);
-  const watchStories = selectBalancedStories(
-    excludeStories(dedupeStories([...packageStories, ...home.trending, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, packageLead]),
-    4,
-    { preferredTopic: "ai", preferredLimit: 2, defaultLimit: 1 }
-  );
-  const safeWatchStories = prioritizeIllustratedStories(
-    watchStories.length
-      ? watchStories
-      : excludeStories(dedupeStories([home.briefing, ...(home.latest || []), ...(home.trending || []), fallbackStory]), [leadFeature, ...leadSideStories, packageLead])
-  ).slice(0, 4);
-  const heroWatchStories = safeWatchStories.slice(0, 3);
-  const guideLead = prioritizeIllustratedStories(excludeStories(dedupeStories([...(tips || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories]))[0] || home.briefing || fallbackStory;
-  const guideStories = selectBalancedStories(
-    excludeStories(dedupeStories([...tips, home.briefing, ...home.latest]), [leadFeature, ...leadSideStories, guideLead, packageLead]),
-    4,
-    { preferredTopic: "apps-software", preferredLimit: 2, defaultLimit: 1 }
-  );
-  const safeGuideStories = prioritizeIllustratedStories(
-    guideStories.length
-      ? guideStories
-      : excludeStories(dedupeStories([...(tips || []), ...(home.latest || []), home.briefing, fallbackStory]), [leadFeature, ...leadSideStories, guideLead, packageLead])
-  ).slice(0, 4);
-  const briefingStory = home.briefing || guideLead || packageLead || safeLatestStories[0] || fallbackStory;
+  const {
+    leadFeature,
+    leadSideStories,
+    packageLead,
+    packageItems,
+    ribbonStories,
+    safeLatestStories,
+    safeWatchStories,
+    heroWatchStories,
+    guideLead,
+    safeGuideStories,
+    briefingStory
+  } = buildHomePageStoryGroups(home);
 
   return renderLayout({
     state,
@@ -112,35 +71,17 @@ export function renderHomePage(state, language, adsConfig) {
         </aside>
       </section>
 
-      ${
-        packageLead
-          ? `
-      <section class="guide-showcase package-showcase" id="ai-packages">
-        <article class="guide-showcase-lead topic-${packageLead.topic}">
-          ${renderStoryImage(packageLead, "guide-showcase-media")}
-          <div class="guide-showcase-copy">
-            <div class="story-meta-line">
-              <span class="pill">${escapeHtml(packageLead.content_type_label)}</span>
-              <span>${escapeHtml(packageLead.topic_label)}</span>
-              <span>${escapeHtml(formatPublishDate(language, packageLead.published_at))}</span>
-            </div>
-            <h2><a href="${packageLead.href}">${escapeHtml(getDisplayHeadline(packageLead.title, 70))}</a></h2>
-            ${renderHomepageExcerpt(packageLead, "story-hook", 88)}
-            <a class="read-link" href="${packageLead.href}">${copy.readStory}</a>
-          </div>
-        </article>
-        <aside class="section-block guide-showcase-side">
-          <div class="section-head">
-            <p class="eyebrow">${copy.packageLabel || copy.latestLabel}</p>
-            <h2>${copy.packageTitle || copy.latestTitle}</h2>
-          </div>
-          <div class="stack-list">
-            ${packageItems.map((article) => renderStackItem(article, language, false)).join("")}
-          </div>
-        </aside>
-      </section>`
-          : ""
-      }
+      ${renderShowcaseSection({
+        id: "ai-packages",
+        className: "guide-showcase package-showcase",
+        lead: packageLead,
+        items: packageItems,
+        language,
+        eyebrow: copy.packageLabel || copy.latestLabel,
+        title: copy.packageTitle || copy.latestTitle,
+        readLabel: copy.readStory,
+        excerptLength: 88
+      })}
 
       <section class="headline-ribbon" id="latest">
         <div class="headline-ribbon-head">
@@ -184,34 +125,17 @@ export function renderHomePage(state, language, adsConfig) {
         </aside>
       </section>
 
-      ${
-        guideLead
-          ? `<section class="guide-showcase" id="tips">
-        <article class="guide-showcase-lead topic-${guideLead.topic}">
-          ${renderStoryImage(guideLead, "guide-showcase-media")}
-          <div class="guide-showcase-copy">
-            <div class="story-meta-line">
-              <span class="pill">${escapeHtml(guideLead.content_type_label)}</span>
-              <span>${escapeHtml(guideLead.topic_label)}</span>
-              <span>${escapeHtml(formatPublishDate(language, guideLead.published_at))}</span>
-            </div>
-            <h2><a href="${guideLead.href}">${escapeHtml(getDisplayHeadline(guideLead.title, 70))}</a></h2>
-            ${renderHomepageExcerpt(guideLead, "story-hook", 82)}
-            <a class="read-link" href="${guideLead.href}">${copy.readStory}</a>
-          </div>
-        </article>
-        <aside class="section-block guide-showcase-side">
-          <div class="section-head">
-            <p class="eyebrow">${copy.tipsLabel}</p>
-            <h2>${copy.tipsTitle}</h2>
-          </div>
-          <div class="stack-list">
-            ${safeGuideStories.map((article) => renderStackItem(article, language, false)).join("")}
-          </div>
-        </aside>
-      </section>`
-          : ""
-      }
+      ${renderShowcaseSection({
+        id: "tips",
+        className: "guide-showcase",
+        lead: guideLead,
+        items: safeGuideStories,
+        language,
+        eyebrow: copy.tipsLabel,
+        title: copy.tipsTitle,
+        readLabel: copy.readStory,
+        excerptLength: 82
+      })}
 
       <section class="topic-band">
         ${home.topicSections
@@ -232,6 +156,175 @@ export function renderHomePage(state, language, adsConfig) {
       </section>
     `
   });
+}
+
+const AI_BALANCE_OPTIONS = Object.freeze({
+  preferredTopic: "ai",
+  preferredLimit: 2,
+  defaultLimit: 1
+});
+
+const APPS_BALANCE_OPTIONS = Object.freeze({
+  preferredTopic: "apps-software",
+  preferredLimit: 2,
+  defaultLimit: 1
+});
+
+function buildHomePageStoryGroups(home) {
+  const tips = home.tips?.length ? home.tips : home.evergreen || [];
+  const packageStories = buildStoryPool(home.packageWatch?.length ? home.packageWatch : []);
+  const fallbackStory = resolveHomeFallbackStory(home, packageStories, tips);
+  const leadStories = selectIllustratedStories([
+    packageStories,
+    home.featured,
+    home.latest,
+    home.trending,
+    home.briefing,
+    tips
+  ]);
+  const leadFeature = leadStories[0] || fallbackStory;
+  const leadSideStories = selectIllustratedStories([leadStories.slice(1)], [leadFeature], 1);
+  const packageLead = selectIllustratedStories([packageStories, home.briefing], [leadFeature, ...leadSideStories], 1)[0] || null;
+  const packageItems = selectIllustratedStories([packageStories, home.latest], [leadFeature, ...leadSideStories, packageLead], 4);
+  const ribbonStories = buildBalancedLane(
+    [packageStories, home.latest, home.trending, home.briefing],
+    [leadFeature, ...leadSideStories, packageLead],
+    5,
+    AI_BALANCE_OPTIONS
+  );
+  const safeLatestStories = buildBalancedLane(
+    [home.latest],
+    [leadFeature, ...leadSideStories, packageLead],
+    4,
+    AI_BALANCE_OPTIONS,
+    [home.latest, home.trending, fallbackStory]
+  );
+  const safeWatchStories = buildBalancedLane(
+    [packageStories, home.trending, home.briefing, home.latest],
+    [leadFeature, ...leadSideStories, packageLead],
+    4,
+    AI_BALANCE_OPTIONS,
+    [home.briefing, home.latest, home.trending, fallbackStory]
+  );
+  const heroWatchStories = safeWatchStories.slice(0, 3);
+  const guideLead =
+    selectIllustratedStories([tips, home.briefing, fallbackStory], [leadFeature, ...leadSideStories], 1)[0]
+    || home.briefing
+    || fallbackStory;
+  const safeGuideStories = buildBalancedLane(
+    [tips, home.briefing, home.latest],
+    [leadFeature, ...leadSideStories, guideLead, packageLead],
+    4,
+    APPS_BALANCE_OPTIONS,
+    [tips, home.latest, home.briefing, fallbackStory]
+  );
+  const briefingStory = home.briefing || guideLead || packageLead || safeLatestStories[0] || fallbackStory;
+
+  return {
+    leadFeature,
+    leadSideStories,
+    packageLead,
+    packageItems,
+    ribbonStories,
+    safeLatestStories,
+    safeWatchStories,
+    heroWatchStories,
+    guideLead,
+    safeGuideStories,
+    briefingStory
+  };
+}
+
+function resolveHomeFallbackStory(home, packageStories, tips) {
+  return (
+    home.featured ||
+    home.briefing ||
+    home.latest?.[0] ||
+    home.trending?.[0] ||
+    packageStories[0] ||
+    tips?.[0] ||
+    home.evergreen?.[0] ||
+    null
+  );
+}
+
+function buildStoryPool(...groups) {
+  const stories = [];
+
+  for (const group of groups) {
+    if (!group) {
+      continue;
+    }
+
+    if (Array.isArray(group)) {
+      stories.push(...group);
+      continue;
+    }
+
+    stories.push(group);
+  }
+
+  return dedupeStories(stories);
+}
+
+function selectIllustratedStories(groups, excluded = [], limit = Number.POSITIVE_INFINITY) {
+  return prioritizeIllustratedStories(excludeStories(buildStoryPool(...groups), excluded)).slice(0, limit);
+}
+
+function buildBalancedLane(primaryGroups, excluded, limit, balanceOptions, fallbackGroups = primaryGroups) {
+  const balanced = selectBalancedStories(
+    excludeStories(buildStoryPool(...primaryGroups), excluded),
+    limit,
+    balanceOptions
+  );
+  const fallbackStories = balanced.length
+    ? balanced
+    : excludeStories(buildStoryPool(...fallbackGroups), excluded);
+
+  return prioritizeIllustratedStories(fallbackStories).slice(0, limit);
+}
+
+function renderShowcaseSection({
+  id = "",
+  className = "guide-showcase",
+  lead,
+  items = [],
+  language,
+  eyebrow,
+  title,
+  readLabel,
+  excerptLength = 88
+}) {
+  if (!lead) {
+    return "";
+  }
+
+  return `
+    <section class="${className}"${id ? ` id="${id}"` : ""}>
+      <article class="guide-showcase-lead topic-${lead.topic}">
+        ${renderStoryImage(lead, "guide-showcase-media")}
+        <div class="guide-showcase-copy">
+          <div class="story-meta-line">
+            <span class="pill">${escapeHtml(lead.content_type_label)}</span>
+            <span>${escapeHtml(lead.topic_label)}</span>
+            <span>${escapeHtml(formatPublishDate(language, lead.published_at))}</span>
+          </div>
+          <h2><a href="${lead.href}">${escapeHtml(getDisplayHeadline(lead.title, 70))}</a></h2>
+          ${renderHomepageExcerpt(lead, "story-hook", excerptLength)}
+          <a class="read-link" href="${lead.href}">${readLabel}</a>
+        </div>
+      </article>
+      <aside class="section-block guide-showcase-side">
+        <div class="section-head">
+          <p class="eyebrow">${eyebrow}</p>
+          <h2>${title}</h2>
+        </div>
+        <div class="stack-list">
+          ${items.map((article) => renderStackItem(article, language, false)).join("")}
+        </div>
+      </aside>
+    </section>
+  `;
 }
 
 export function renderRadarPage(state, language, radar, adsConfig) {
