@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-04-05T16:24:33.227Z",
-    "finishedAt": "2026-04-05T16:25:16.859Z"
+    "startedAt": "2026-04-05T16:59:43.048Z",
+    "finishedAt": "2026-04-05T17:00:31.654Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
@@ -13,7 +13,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 178 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775406273258-ba1ce9.json Generated OpenClaw hidden feed with 133 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 177 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775408383082-aebb66.json Generated OpenClaw hidden feed with 133 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -28,7 +28,7 @@
     "webControl": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, devices, apps-software, internet-business-tech, security, gaming.",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, apps-software, internet-business-tech, security, devices, gaming.",
       "warnings": ""
     }
   },
@@ -37,7 +37,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-04-05T16:25:16.859Z",
+      "reviewedAt": "2026-04-05T17:00:31.653Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
