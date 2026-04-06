@@ -4,16 +4,16 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-04-06T15:29:37.769Z",
-    "finishedAt": "2026-04-06T15:30:24.079Z"
+    "startedAt": "2026-04-06T16:09:09.287Z",
+    "finishedAt": "2026-04-06T16:10:14.897Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 130,
+    "totalArticles": 134,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 174 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775489377802-63aaa4.json Generated OpenClaw hidden feed with 130 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 177 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1775491749318-7df550.json Generated OpenClaw hidden feed with 134 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -22,7 +22,7 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 130 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "output": "Refreshed 134 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     },
     "webControl": {
@@ -37,7 +37,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-04-06T15:30:24.079Z",
+      "reviewedAt": "2026-04-06T16:10:14.896Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
