@@ -1815,6 +1815,13 @@ function normalizeRenderCopy(language) {
   }
 
   return {
+    homeTitle: "Patrick Tech Media | Technology, AI, and the digital shift",
+    eyebrow: "Bilingual newsroom",
+    heroTitle: "Patrick Tech Media: the technology newsroom by Patrick Tech Co.",
+    heroText:
+      "Patrick Tech Media is a Patrick Tech Co. (2020) initiative founded by Nguyen Hoang Phu (Patrick), focused on technology, AI, and new digital shifts. Patrick Tech Co. also supports customers with premium plans for websites, software, and digital platforms.",
+    founderName: "Nguyen Hoang Phu (Patrick)",
+    founderRole: "Founder · Patrick Tech Co. (2020)",
     homeBriefTitle: "Catch the day's rhythm in one pass"
   };
 }
