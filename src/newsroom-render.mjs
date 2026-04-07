@@ -93,7 +93,7 @@ export function renderHomePage(state, language, adsConfig) {
         </div>
       </section>
 
-      ${renderSlot(adsConfig, { language, pageAllowsAds: true, placement: "hero" })}
+      ${renderSlot(adsConfig, { language, pageAllowsAds: true, placement: "hero", promoHref: getStoreLandingHref(language) })}
 
       <section class="frontpage-grid">
         <div class="section-block">
@@ -637,7 +637,7 @@ export function renderTopicPage(state, language, topicPage, adsConfig) {
         <h1>${escapeHtml(topicPage.label)}</h1>
         <p>${copy.topicIntro}</p>
       </section>
-      ${renderSlot(adsConfig, { language, pageAllowsAds: true, placement: "inline" })}
+      ${renderSlot(adsConfig, { language, pageAllowsAds: true, placement: "inline", promoHref: getStoreLandingHref(language) })}
       <section class="story-grid">
         ${topicPage.stories.map((article) => renderStoryCard(article, language)).join("")}
       </section>
@@ -704,7 +704,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
         <div class="article-layout">
           <div class="article-content">
             <p class="article-summary">${escapeHtml(article.summary)}</p>
-            ${renderSlot(adsConfig, { language, pageAllowsAds: article.ad_eligible, placement: "inline" })}
+            ${renderSlot(adsConfig, { language, pageAllowsAds: article.ad_eligible, placement: "inline", promoHref: getStoreLandingHref(language) })}
             ${article.sections
               .map(
                 (section, index) => `
@@ -712,7 +712,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
                     <h2>${escapeHtml(section.heading)}</h2>
                     <p>${escapeHtml(section.body)}</p>
                   </section>
-                  ${index === 1 ? renderSlot(adsConfig, { language, pageAllowsAds: article.ad_eligible, placement: "mid" }) : ""}
+                  ${index === 1 ? renderSlot(adsConfig, { language, pageAllowsAds: article.ad_eligible, placement: "mid", promoHref: getStoreLandingHref(language) }) : ""}
                 `
               )
               .join("")}
@@ -830,6 +830,62 @@ export function renderAuthorsPage(state, language, authors, adsConfig) {
             `
           )
           .join("")}
+      </section>
+    `
+  });
+}
+
+export function renderStorePage(state, language, adsConfig) {
+  const isVietnamese = language === "vi";
+  const title = isVietnamese ? "Patrick Tech Store" : "Patrick Tech Store";
+  const intro = isVietnamese
+    ? "Điểm vào ổn định cho các gói tài khoản, tool và phần mềm Patrick Tech đang giới thiệu. Khi hệ thống quảng cáo chưa chạy đủ, các block promo trên newsroom sẽ dẫn về đây thay vì nhảy thẳng sang domain ngoài."
+    : "A stable landing page for Patrick Tech accounts, tools, and software collections. When ad inventory is not live yet, newsroom promo slots land here instead of jumping straight to an external domain.";
+  const externalLabel = isVietnamese ? "Mở trang ngoài" : "Open external page";
+  const picksLabel = isVietnamese ? "Gợi ý từ newsroom" : "Newsroom picks";
+  const picksTitle = isVietnamese ? "Bài đang kéo nhu cầu thật" : "Stories driving real demand";
+  const relatedStories = state.articles
+    .filter((article) => article.language === language && article.store_link_mode !== "off")
+    .slice(0, 4);
+
+  return renderLayout({
+    state,
+    language,
+    path: `/${language}/store`,
+    adsConfig,
+    title: `${title} | ${state.site.name}`,
+    description: intro,
+    content: `
+      <section class="simple-hero">
+        <p class="eyebrow">${title}</p>
+        <h1>${isVietnamese ? "Một điểm vào gọn, ổn định cho các promo trên Patrick Tech Media" : "A stable landing point for Patrick Tech Media promos"}</h1>
+        <p>${escapeHtml(intro)}</p>
+      </section>
+
+      <section class="story-grid compact-grid">
+        ${state.storeItems
+          .map(
+            (item) => `
+              <article class="story-card store-card">
+                <h2>${escapeHtml(item.title[language])}</h2>
+                <p>${escapeHtml(item.description[language])}</p>
+                <a class="read-link" href="${item.url}" target="_blank" rel="noreferrer">${externalLabel}</a>
+              </article>
+            `
+          )
+          .join("")}
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">${picksLabel}</p>
+            <h2>${picksTitle}</h2>
+          </div>
+        </div>
+        <div class="stack-list">
+          ${relatedStories.map((article) => renderStackItem(article, language, true)).join("")}
+        </div>
       </section>
     `
   });
@@ -1571,14 +1627,13 @@ function renderStorePanel(state, article, language) {
   `;
 }
 
-function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
+function renderSlot(adsConfig, { language, pageAllowsAds, placement, promoHref = getStoreLandingHref(language) }) {
   if (!pageAllowsAds) {
     return "";
   }
 
   const label = language === "vi" ? "Khu vực quảng cáo" : "Advertising slot";
   const slotId = adsConfig.slots[placement];
-  const storeUrl = "https://patricktechstore.vercel.app";
 
   if (adsConfig.client && slotId) {
     return `
@@ -1593,13 +1648,17 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement }) {
   return `
     <section class="ad-shell placeholder store-promo-shell">
       <p class="ad-label">${label}</p>
-      <a class="ad-slot placeholder-slot store-promo-slot" href="${storeUrl}" target="_blank" rel="noreferrer">
+      <a class="ad-slot placeholder-slot store-promo-slot" href="${promoHref}">
         <span class="store-promo-kicker">${language === "vi" ? "Patrick Tech Store" : "Patrick Tech Store"}</span>
         <strong>${language === "vi" ? "Tài khoản, tool và phần mềm đang bán tại store" : "Accounts, tools, and software now available in the store"}</strong>
         <span>${language === "vi" ? "Tạm thời vị trí này ưu tiên cho hệ sinh thái Patrick Tech." : "This slot is temporarily dedicated to the Patrick Tech ecosystem."}</span>
       </a>
     </section>
   `;
+}
+
+function getStoreLandingHref(language) {
+  return `/${language === "en" ? "en" : "vi"}/store`;
 }
 
 function renderCsrfInput(token) {
@@ -1651,8 +1710,8 @@ function normalizeRenderCopy(language) {
     return {
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
-        heroTitle: "AI, Big Tech và những chuyển động công nghệ đáng mở đầu ngày mới.",
-        heroText: "Patrick Tech Media bám sát các gói AI đang đổi giá trị sử dụng, những nước đi mới của Big Tech, mạng xã hội, thiết bị và cả các thủ thuật công nghệ thật sự dùng được.",
+      heroTitle: "Patrick Tech Media: dự án truyền thông công nghệ của Patrick Tech Co.",
+        heroText: "Patrick Tech Media là dự án của Patrick Tech Co. (2020) do Nguyễn Hoàng Phú (Patrick) sáng lập, chuyên chia sẻ tin công nghệ, AI và xu hướng mới. Bên cạnh toà soạn, Patrick Tech Co. còn cung cấp dịch vụ hỗ trợ các gói trả phí cho website, phần mềm và nền tảng số.",
       heroNotebookLabel: "Điểm đáng đọc",
       heroNotebookTitle: "Mở vào là thấy ngay những gì đáng bấm trước.",
       heroNotebookCta: "Xem thêm tin mới",
