@@ -973,7 +973,6 @@ export function getAuthorCollection(state, language) {
 }
 
 export function getFooterLinks(language) {
-  const feedEnabled = process.env.PUBLIC_FEED_ENABLED === "true" && Boolean(process.env.PUBLIC_FEED_TOKEN);
   const links = [
     { href: `/${language}/about`, label: language === "vi" ? "Về chúng tôi" : "About" },
     { href: `/${language}/contact`, label: language === "vi" ? "Liên hệ" : "Contact" },
@@ -992,14 +991,8 @@ export function getFooterLinks(language) {
       label: language === "vi" ? "Đính chính" : "Corrections"
     },
     { href: `/${language}/authors`, label: language === "vi" ? "Tác giả" : "Authors" },
-    { href: `/${language}/feed.json`, label: "JSON Feed" },
-    { href: `/${language}/feed.xml`, label: "RSS Feed" },
-    { href: "/sitemap.xml", label: "Sitemap XML" }
+    
   ];
-
-  if (!feedEnabled) {
-    return links.filter((link) => !link.href.endsWith("/feed.json") && !link.href.endsWith("/feed.xml"));
-  }
 
   return links;
 }

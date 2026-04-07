@@ -71,12 +71,6 @@ export function renderHomePage(state, language, adsConfig) {
             ${leadSideStories.map((article) => renderLeadMini(article, language)).join("")}
           </div>
           <article class="rail-card hot-card">
-            <div class="section-head compact-head">
-              <div>
-                <p class="eyebrow">${copy.hotLabel}</p>
-                <h2>${copy.hotTitle}</h2>
-              </div>
-            </div>
             <div class="headline-list">
               ${heroWatchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
             </div>
@@ -97,10 +91,6 @@ export function renderHomePage(state, language, adsConfig) {
       })}
 
       <section class="headline-ribbon" id="latest">
-        <div class="headline-ribbon-head">
-          <p class="eyebrow">${copy.ribbonLabel}</p>
-          <h2>${copy.ribbonTitle}</h2>
-        </div>
         <div class="headline-ribbon-track">
           ${ribbonStories.map((article) => renderRibbonItem(article, language)).join("")}
         </div>
@@ -119,17 +109,12 @@ export function renderHomePage(state, language, adsConfig) {
           </div>
         </div>
         <aside class="section-block editors-block">
-          <div class="section-head">
-            <p class="eyebrow">${copy.editorsLabel}</p>
-            <h2>${copy.editorsTitle}</h2>
-          </div>
           <div class="stack-list">
             ${safeWatchStories.map((article) => renderStackItem(article, language, true)).join("")}
           </div>
           ${
             briefingStory
               ? `<div class="newsroom-brief">
-            <p class="rail-label">${copy.briefingLabel}</p>
             <h3><a href="${briefingStory.href}">${escapeHtml(briefingStory.title)}</a></h3>
             <a class="text-link" href="${briefingStory.href}">${copy.readStory}</a>
           </div>`
@@ -1065,7 +1050,6 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
         </div>
         <div class="footer-links">
           ${footerLinks.map((link) => `<a href="${link.href}">${escapeHtml(link.label)}</a>`).join("")}
-          <a href="/${language}/sitemap">${copy.humanSitemapLabel}</a>
         </div>
       </footer>
     </div>
