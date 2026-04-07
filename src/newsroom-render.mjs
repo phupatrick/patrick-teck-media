@@ -966,10 +966,13 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
   const assetVersion = encodeURIComponent(state.site.assetVersion || "patrick-tech-media");
   const logoPath = `/patrick-tech-media-mark.svg?v=${assetVersion}`;
   const iconPath = `/patrick-tech-media-icon.svg?v=${assetVersion}`;
+  const defaultOgImagePath = `/founder.jpg?v=${assetVersion}`;
   const stylesheetPath = `/site.css?v=${assetVersion}`;
   const scriptPath = `/site.js?v=${assetVersion}`;
-  const ogImageUrl = `${state.site.siteUrl}${logoPath}`;
-  const siteSchemas = buildSiteSchemas({ state, language, path, canonicalUrl, logoUrl: ogImageUrl, description });
+  const pageOgImage = resolvePageOgImage(path, state);
+  const ogImageUrl = pageOgImage?.url || `${state.site.siteUrl}${defaultOgImagePath}`;
+  const ogImageAlt = pageOgImage?.alt || state.site.name;
+  const siteSchemas = buildSiteSchemas({ state, language, path, canonicalUrl, logoUrl: `${state.site.siteUrl}${logoPath}`, description });
   const headTags = [
     `<meta charset="utf-8" />`,
     `<meta name="viewport" content="width=device-width, initial-scale=1" />`,
@@ -978,7 +981,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     `<meta name="robots" content="index,follow,max-image-preview:large" />`,
     `<link rel="preconnect" href="https://fonts.googleapis.com" />`,
     `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`,
-    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" />`,
+    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" />`,
     `<link rel="icon" href="${iconPath}" type="image/svg+xml" />`,
     `<link rel="apple-touch-icon" href="${iconPath}" />`,
     `<link rel="canonical" href="${canonicalUrl}" />`,
@@ -989,11 +992,14 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     `<meta property="og:description" content="${escapeHtml(description)}" />`,
     `<meta property="og:url" content="${canonicalUrl}" />`,
     `<meta property="og:image" content="${ogImageUrl}" />`,
+    `<meta property="og:image:secure_url" content="${ogImageUrl}" />`,
+    `<meta property="og:image:alt" content="${escapeHtml(ogImageAlt)}" />`,
     `<meta property="og:type" content="${schema?.["@type"] === "NewsArticle" ? "article" : "website"}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
     `<meta name="twitter:image" content="${ogImageUrl}" />`,
+    `<meta name="twitter:image:alt" content="${escapeHtml(ogImageAlt)}" />`,
     `<link rel="stylesheet" href="${stylesheetPath}" />`,
     `<script defer src="${scriptPath}"></script>`
   ];
@@ -1055,6 +1061,22 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     </div>
   </body>
 </html>`;
+}
+
+function resolvePageOgImage(path, state) {
+  const article = state.articlesByHref?.get(path);
+
+  if (article?.hero_image?.url) {
+    return {
+      url: article.hero_image.url,
+      alt: article.hero_image.alt || article.title || state.site.name
+    };
+  }
+
+  return {
+    url: `${state.site.siteUrl}/founder.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}`,
+    alt: state.site.name
+  };
 }
 
 function buildSiteSchemas({ state, language, path, canonicalUrl, logoUrl, description }) {

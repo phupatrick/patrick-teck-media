@@ -408,9 +408,10 @@ function renderPlatformLayout({ state, language, title, description, path, conte
   const assetVersion = encodeURIComponent(state.site.assetVersion || "patrick-tech-media");
   const logoPath = `/patrick-tech-media-mark.svg?v=${assetVersion}`;
   const iconPath = `/patrick-tech-media-icon.svg?v=${assetVersion}`;
+  const defaultOgImagePath = `/founder.jpg?v=${assetVersion}`;
   const stylesheetPath = `/site.css?v=${assetVersion}`;
   const scriptPath = `/site.js?v=${assetVersion}`;
-  const ogImageUrl = `${state.site.siteUrl}${logoPath}`;
+  const ogImageUrl = `${state.site.siteUrl}${defaultOgImagePath}`;
 
   return `<!doctype html>
 <html lang="${language}">
@@ -432,11 +433,14 @@ function renderPlatformLayout({ state, language, title, description, path, conte
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:image" content="${ogImageUrl}" />
+    <meta property="og:image:secure_url" content="${ogImageUrl}" />
+    <meta property="og:image:alt" content="${escapeHtml(state.site.name)}" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${ogImageUrl}" />
+    <meta name="twitter:image:alt" content="${escapeHtml(state.site.name)}" />
     <link rel="stylesheet" href="${stylesheetPath}" />
     <script defer src="${scriptPath}"></script>
   </head>

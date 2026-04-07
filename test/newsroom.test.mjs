@@ -1083,6 +1083,21 @@ const tests = [
     }
   },
   {
+    name: "uses a raster preview image for article open graph cards instead of the svg site mark",
+    run() {
+      const article = state.articles.find((entry) => entry.language === "vi" && entry.hero_image?.url);
+      const articleHtml = renderArticlePage(state, "vi", article, [], { client: "", slots: {} });
+      const ogImage = articleHtml.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+      const twitterImage = articleHtml.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1];
+
+      assert.ok(article);
+      assert.equal(ogImage, article.hero_image.url);
+      assert.equal(twitterImage, article.hero_image.url);
+      assert.doesNotMatch(ogImage, /\.svg(\?|$)/i);
+      assert.match(articleHtml, /og:image:alt/);
+    }
+  },
+  {
     name: "builds a machine-readable JSON feed for the newsroom",
     run() {
       const feed = buildJsonFeed(state, "vi");

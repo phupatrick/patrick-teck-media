@@ -85,8 +85,19 @@ const tests = [
       const payload = await response.json();
 
       assert.equal(response.status, 405);
-      assert.equal(response.headers.get("allow"), "GET, POST, OPTIONS");
+      assert.equal(response.headers.get("allow"), "GET, HEAD, POST, OPTIONS");
       assert.match(payload.error || "", /method not allowed/i);
+    }
+  },
+  {
+    name: "serves HEAD requests for crawlers without blocking article previews",
+    async run(baseUrl) {
+      const response = await fetch(`${baseUrl}/vi/`, {
+        method: "HEAD"
+      });
+
+      assert.equal(response.status, 200);
+      assert.match(response.headers.get("content-type") || "", /text\/html/i);
     }
   },
   {

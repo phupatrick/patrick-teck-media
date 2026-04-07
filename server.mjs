@@ -97,7 +97,7 @@ const RATE_LIMIT_RULES = {
 
 const trafficGuardBuckets = new Map();
 const KNOWN_FORM_ROUTES = new Set(Object.keys(RATE_LIMIT_RULES));
-const ALLOWED_REQUEST_METHODS = new Set(["GET", "POST", "OPTIONS"]);
+const ALLOWED_REQUEST_METHODS = new Set(["GET", "HEAD", "POST", "OPTIONS"]);
 const MAX_REQUEST_URL_LENGTH = 4096;
 const MAX_QUERY_STRING_LENGTH = 2048;
 const MAX_QUERY_PARAMETER_COUNT = 32;
@@ -221,17 +221,18 @@ async function handleRequest(req, res) {
     const requestUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
     const pathname = decodeURIComponent(requestUrl.pathname);
     const method = normalizeMethod(req.method);
+    res.__headRequest = method === "HEAD";
 
     if (method === "OPTIONS") {
       return sendEmpty(res, 204, {
-        Allow: "GET, POST, OPTIONS",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        Allow: "GET, HEAD, POST, OPTIONS",
+        "Access-Control-Allow-Methods": "GET, HEAD, POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, X-Requested-With"
       });
     }
 
     if (!ALLOWED_REQUEST_METHODS.has(method)) {
-      return sendMethodNotAllowed(res, "GET, POST, OPTIONS");
+      return sendMethodNotAllowed(res, "GET, HEAD, POST, OPTIONS");
     }
 
     const invalidRequest = validateIncomingRequest(req, requestUrl);
@@ -712,7 +713,7 @@ async function tryStatic(pathname, requestUrl, res) {
         contentType: mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream"
       })
     );
-    res.end(file);
+    res.end(res.__headRequest ? undefined : file);
     return true;
   } catch (error) {
     if (error.code === "ENOENT" || error.code === "EISDIR") {
@@ -1187,7 +1188,7 @@ async function handleRemoteStoryImage(requestUrl, res, state) {
         contentType
       })
     );
-    res.end(imageBytes);
+    res.end(res.__headRequest ? undefined : imageBytes);
   } catch {
     return sendText(res, 404, "Image not available.", "text/plain; charset=utf-8");
   } finally {
@@ -1323,7 +1324,7 @@ function sendHtml(res, statusCode, html, options = {}) {
       extraHeaders: options.extraHeaders || {}
     })
   );
-  res.end(html);
+  res.end(res.__headRequest ? undefined : html);
 }
 
 function sendText(res, statusCode, content, contentType, options = {}) {
@@ -1335,19 +1336,23 @@ function sendText(res, statusCode, content, contentType, options = {}) {
       extraHeaders: options.extraHeaders || {}
     })
   );
-  res.end(content);
+  res.end(res.__headRequest ? undefined : content);
 }
 
 function sendJson(res, statusCode, payload, options = {}) {
+  const body = JSON.stringify(payload);
   res.writeHead(
     statusCode,
     createResponseHeaders({
       cacheControl: options.cacheControl || "no-store",
       contentType: "application/json; charset=utf-8",
-      extraHeaders: options.extraHeaders || {}
+      extraHeaders: {
+        ...(options.extraHeaders || {}),
+        "Content-Length": String(Buffer.byteLength(body))
+      }
     })
   );
-  res.end(JSON.stringify(payload));
+  res.end(res.__headRequest ? undefined : body);
 }
 
 function createResponseHeaders({ cacheControl = "no-store", contentType = "", location = "", extraHeaders = {} } = {}) {
