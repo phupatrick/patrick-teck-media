@@ -250,11 +250,20 @@ async function handleRequest(req, res) {
       return sendHtml(res, 200, renderDashboardPage(state, language, state.dashboard[language], adsConfig));
     }
 
-    if (segments[1] === "feed.json") {
-      return sendJson(res, 200, buildJsonFeed(state, language));
-    }
+    if (segments[1] === "feed.json" || segments[1] === "feed.xml") {
+      const feedEnabled = process.env.PUBLIC_FEED_ENABLED === "true";
+      const feedToken = process.env.PUBLIC_FEED_TOKEN || "";
+      const suppliedToken = requestUrl.searchParams.get("token") || "";
+      const isAllowed = feedEnabled && (!feedToken || suppliedToken === feedToken);
 
-    if (segments[1] === "feed.xml") {
+      if (!isAllowed) {
+        return sendHtml(res, 404, renderNotFoundPage(state, language, adsConfig));
+      }
+
+      if (segments[1] === "feed.json") {
+        return sendJson(res, 200, buildJsonFeed(state, language));
+      }
+
       return sendText(res, 200, buildRssXml(state, language), "application/xml; charset=utf-8");
     }
 

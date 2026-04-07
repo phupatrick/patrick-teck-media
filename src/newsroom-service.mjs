@@ -785,8 +785,9 @@ export function getWorkflowData(state, language) {
     contentMatrix,
     endpointsLabel: copy.endpointsLabel,
     endpoints: [
-      `/${language}/feed.json`,
-      `/${language}/feed.xml`,
+      ...(process.env.PUBLIC_FEED_ENABLED === "true"
+        ? [`/${language}/feed.json`, `/${language}/feed.xml`]
+        : []),
       `/api/newsroom/overview?lang=${language}`,
       `/api/newsroom/radar?lang=${language}`,
       `/api/newsroom/live?lang=${language}`
@@ -972,7 +973,8 @@ export function getAuthorCollection(state, language) {
 }
 
 export function getFooterLinks(language) {
-  return [
+  const feedEnabled = process.env.PUBLIC_FEED_ENABLED === "true";
+  const links = [
     { href: `/${language}/about`, label: language === "vi" ? "Về chúng tôi" : "About" },
     { href: `/${language}/contact`, label: language === "vi" ? "Liên hệ" : "Contact" },
     { href: `/${language}/privacy`, label: language === "vi" ? "Quyền riêng tư" : "Privacy" },
@@ -994,6 +996,12 @@ export function getFooterLinks(language) {
     { href: `/${language}/feed.xml`, label: "RSS Feed" },
     { href: "/sitemap.xml", label: "Sitemap XML" }
   ];
+
+  if (!feedEnabled) {
+    return links.filter((link) => !link.href.endsWith("/feed.json") && !link.href.endsWith("/feed.xml"));
+  }
+
+  return links;
 }
 
 export function getPrimaryNav(state, language) {
@@ -1026,8 +1034,10 @@ export function getSitemapEntries(state) {
     entries.push({ href: `/${language}/dashboard`, updated_at: latestLanguageTimestamp(state, language) });
     entries.push({ href: `/${language}/radar`, updated_at: latestLanguageTimestamp(state, language) });
     entries.push({ href: `/${language}/workflow`, updated_at: latestLanguageTimestamp(state, language) });
-    entries.push({ href: `/${language}/feed.json`, updated_at: latestLanguageTimestamp(state, language) });
-    entries.push({ href: `/${language}/feed.xml`, updated_at: latestLanguageTimestamp(state, language) });
+    if (process.env.PUBLIC_FEED_ENABLED === "true") {
+      entries.push({ href: `/${language}/feed.json`, updated_at: latestLanguageTimestamp(state, language) });
+      entries.push({ href: `/${language}/feed.xml`, updated_at: latestLanguageTimestamp(state, language) });
+    }
 
     for (const topic of state.topics) {
       entries.push({
@@ -1104,11 +1114,12 @@ export function buildRobotsTxt(state) {
 
 export function buildJsonFeed(state, language) {
   const items = getArticlesForLanguage(state, language);
+  const feedEnabled = process.env.PUBLIC_FEED_ENABLED === "true";
   return {
     version: "https://jsonfeed.org/version/1.1",
     title: `${state.site.name} (${language.toUpperCase()})`,
     home_page_url: `${state.site.siteUrl}/${language}/`,
-    feed_url: `${state.site.siteUrl}/${language}/feed.json`,
+    ...(feedEnabled ? { feed_url: `${state.site.siteUrl}/${language}/feed.json` } : {}),
     description: state.site.description[language],
     items: items.map((article) => ({
       id: article.id,

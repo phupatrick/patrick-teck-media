@@ -1719,9 +1719,9 @@ function normalizeRenderCopy(language) {
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
       heroTitle: "Patrick Tech Media: dự án truyền thông công nghệ của Patrick Tech Co.",
-        heroText: "Patrick Tech Media là dự án của Patrick Tech Co. (2020) do Nguyễn Hoàng Phú (Patrick) sáng lập, chuyên chia sẻ tin công nghệ, AI và xu hướng mới. Bên cạnh toà soạn, Patrick Tech Co. còn cung cấp dịch vụ hỗ trợ các gói trả phí cho website, phần mềm và nền tảng số.",
+      heroText: "Patrick Tech Media là dự án của Patrick Tech Co. (2020) do Nguyễn Hoàng Phú (Patrick) sáng lập, chuyên chia sẻ tin công nghệ, AI và xu hướng mới. Bên cạnh toà soạn, Patrick Tech Co. còn cung cấp dịch vụ hỗ trợ các gói trả phí cho website, phần mềm và nền tảng số.",
       founderName: "Nguyễn Hoàng Phú (Patrick)",
-      founderRole: "Founder · Patrick Tech Co. (2020)"
+      founderRole: "Founder · Patrick Tech Co. (2020)",
       heroNotebookLabel: "Điểm đáng đọc",
       heroNotebookTitle: "Mở vào là thấy ngay những gì đáng bấm trước.",
       heroNotebookCta: "Xem thêm tin mới",
