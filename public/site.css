@@ -270,6 +270,33 @@ h3 {
   background: rgba(255, 255, 255, 0.72);
 }
 
+.masthead-founder {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.masthead-founder img {
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 1px solid rgba(15, 127, 84, 0.2);
+}
+
+.masthead-founder strong {
+  display: block;
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+
+.masthead-founder span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
 .masthead-brief h2 {
   margin: 0;
   font-size: 1.42rem;
@@ -2329,6 +2356,16 @@ h3 {
 
   .masthead-brief {
     padding: 16px;
+  }
+
+  .masthead-founder {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+
+  .masthead-founder img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
   }
 
   .masthead-brief h2 {

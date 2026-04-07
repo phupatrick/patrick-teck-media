@@ -13,7 +13,12 @@
     "openclaw:feed": "node scripts/openclaw-newsroom-feed.mjs",
     "openclaw:web": "node scripts/openclaw-web-control.mjs",
     "openclaw:git-sync": "node scripts/openclaw-git-sync.mjs",
-    "openclaw:manage": "node scripts/openclaw-manager.mjs"
+    "openclaw:manage": "node scripts/openclaw-manager.mjs",
+    "openclaw:social": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\openclaw-social-copilot.ps1",
+    "openclaw:social:ui": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\openclaw-social-dashboard.ps1",
+    "openclaw:social:auto-topic": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\openclaw-social-copilot.ps1 -Mode auto-topic",
+    "openclaw:social:autopilot": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\openclaw-social-copilot.ps1 -Mode autopilot",
+    "openclaw:social:autopilot:install": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\openclaw-social-autopilot-install.ps1 -AllPages"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2"

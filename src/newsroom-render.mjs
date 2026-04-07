@@ -43,6 +43,13 @@ export function renderHomePage(state, language, adsConfig) {
           </div>
         </div>
         <aside class="masthead-brief">
+          <div class="masthead-founder">
+            <img src="/founder.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" alt="${escapeHtml(copy.founderName || "Founder")}" loading="lazy" decoding="async" />
+            <div>
+              <strong>${escapeHtml(copy.founderName || "")}</strong>
+              <span>${escapeHtml(copy.founderRole || "")}</span>
+            </div>
+          </div>
           <p class="eyebrow">${copy.updateLabel}</p>
           <h2>${copy.updateTitle}</h2>
           <div class="masthead-brief-list">
@@ -1712,6 +1719,8 @@ function normalizeRenderCopy(language) {
       eyebrow: "Toà soạn song ngữ",
       heroTitle: "Patrick Tech Media: dự án truyền thông công nghệ của Patrick Tech Co.",
         heroText: "Patrick Tech Media là dự án của Patrick Tech Co. (2020) do Nguyễn Hoàng Phú (Patrick) sáng lập, chuyên chia sẻ tin công nghệ, AI và xu hướng mới. Bên cạnh toà soạn, Patrick Tech Co. còn cung cấp dịch vụ hỗ trợ các gói trả phí cho website, phần mềm và nền tảng số.",
+      founderName: "Nguyễn Hoàng Phú (Patrick)",
+      founderRole: "Founder · Patrick Tech Co. (2020)"
       heroNotebookLabel: "Điểm đáng đọc",
       heroNotebookTitle: "Mở vào là thấy ngay những gì đáng bấm trước.",
       heroNotebookCta: "Xem thêm tin mới",

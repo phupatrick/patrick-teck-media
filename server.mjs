@@ -43,6 +43,7 @@ import { createPlatformService } from "./src/platform-service.mjs";
 import {
   renderArticlePage,
   renderAuthorsPage,
+  renderStorePage,
   renderHomePage,
   renderHumanSitemapPage,
   renderNotFoundPage,
@@ -164,7 +165,7 @@ async function handleRequest(req, res) {
     }
 
     if (pathname === "/store") {
-      return redirect(res, config.storeUrl);
+      return redirect(res, "/vi/store");
     }
 
     if (pathname === "/robots.txt") {
@@ -258,7 +259,7 @@ async function handleRequest(req, res) {
     }
 
     if (segments[1] === "store") {
-      return redirect(res, config.storeUrl);
+      return sendHtml(res, 200, renderStorePage(state, language, adsConfig));
     }
 
     if (segments[1] === "topics" && segments[2]) {

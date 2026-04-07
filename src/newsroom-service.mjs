@@ -1382,7 +1382,7 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
   }
 
   const language = article.language === "en" ? "en" : "vi";
-  const topic = topics.find((entry) => entry.id === inferArticleTopicId(article));
+  const topic = resolveExternalArticleTopic(article, topics);
   const typeMeta = contentTypeMeta[article.content_type];
 
   if (!topic || !typeMeta || !article.slug || !article.title) {
@@ -1467,6 +1467,12 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
 
   normalizedArticle.readiness = evaluateArticleReadiness(normalizedArticle);
   return normalizedArticle;
+}
+
+function resolveExternalArticleTopic(article, topics) {
+  const explicitTopicId = normalizeTopicId(article.topic);
+  const topicId = explicitTopicId || inferArticleTopicId(article);
+  return topics.find((entry) => entry.id === topicId) || null;
 }
 
 function inferArticleTopicId(article) {

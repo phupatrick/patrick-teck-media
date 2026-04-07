@@ -14,7 +14,7 @@ import {
   getTopicPage
 } from "../src/newsroom-service.mjs";
 import { buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
-import { renderArticlePage, renderHomePage } from "../src/newsroom-render.mjs";
+import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
 
 const state = createState();
 const tests = [
@@ -269,6 +269,65 @@ const tests = [
   {
     name: "keeps trend stories indexable but ad-free",
     run() {
+      const trendScenario = buildScenarioState([
+        makeScenarioArticle({
+          language: "vi",
+          topic: "internet-doanh-nghiep-so",
+          content_type: "NewsArticle",
+          verification_state: "trend",
+          title: "Cong dong dang theo sat mot ban cap nhat lon cua nen tang nhan tin",
+          slug: "cong-dong-dang-theo-sat-mot-ban-cap-nhat-lon-cua-nen-tang-nhan-tin",
+          summary: "Tin hieu dang lan nhanh trong cong dong, du chua du muc xac minh de dat vao nhom verified.",
+          dek: "Case trend van duoc index de newsroom khong bo lo song doc, nhung bai khong duoc mo vi tri quang cao.",
+          hook: "Bai trend can hien tren web sach se, co nhan canh bao ro rang va khong keo block ads.",
+          sections: [
+            {
+              heading: "Vi sao bai nay dang hot",
+              body: "Nhieu tai khoan lon dang nhac toi ban cap nhat va chia se anh chup man hinh ve thay doi moi."
+            },
+            {
+              heading: "Dieu gi can than trong luc nay",
+              body: "Newsroom can giu bai indexable de bot thay duoc tin, nhung van danh dau day la trend va tat ad."
+            },
+            {
+              heading: "Bieu hien mong muon tren web",
+              body: "Trang bai viet phai hien nhan Trend Watch, khong render Google AdSense va khong chen promo slot."
+            }
+          ],
+          image: {
+            src: "https://images.example.com/trend-social-update.jpg",
+            caption: "Reference image for a fast-moving platform update.",
+            credit: "Community Watch",
+            source_url: "https://example.com/trend-social-update"
+          },
+          source_set: [
+            {
+              source_type: "community",
+              source_name: "Community Watch",
+              source_url: "https://example.com/trend-social-update",
+              region: "VN",
+              language: "vi",
+              trust_tier: "community",
+              published_at: "2026-03-31T11:00:00.000Z",
+              image_url: "https://images.example.com/trend-social-update.jpg",
+              image_caption: "Reference image for a fast-moving platform update.",
+              image_credit: "Community Watch"
+            }
+          ]
+        })
+      ]);
+      const trendArticle = trendScenario.articles[0];
+      const trendHtml = renderArticlePage(trendScenario, "vi", trendArticle, [], { client: "", slots: {} });
+
+      assert.ok(trendArticle);
+      assert.equal(trendArticle.verification_state, "trend");
+      assert.equal(trendArticle.ad_eligible, false);
+      assert.equal(trendArticle.indexable, true);
+      assert.match(trendHtml, /Trend Watch/);
+      assert.doesNotMatch(trendHtml, /Reserved for Google AdSense/);
+      assert.doesNotMatch(trendHtml, /adsbygoogle/);
+      return;
+
       const scenario = buildScenarioState([
         makeScenarioArticle({
           language: "vi",
@@ -396,6 +455,17 @@ const tests = [
     }
   },
   {
+    name: "keeps fallback promo slots on internal store landing pages instead of hardcoded external links",
+    run() {
+      const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
+      const storeHtml = renderStorePage(state, "vi", { client: "", slots: {} });
+
+      assert.match(homeHtml, /store-promo-slot\" href=\"\/vi\/store\"/);
+      assert.match(storeHtml, /Patrick Tech Store/);
+      assert.match(storeHtml, /patricktechstore\.vercel\.app\/collections\//);
+    }
+  },
+  {
     name: "keeps topic pages language-specific",
     run() {
       const page = getTopicPage(state, "vi", "ai");
@@ -445,6 +515,112 @@ const tests = [
   {
     name: "front page prioritizes AI and core technology stories over softer gaming chatter",
     run() {
+      const cleanScenario = buildScenarioState([
+        makeScenarioArticle({
+          language: "vi",
+          topic: "gaming",
+          content_type: "NewsArticle",
+          verification_state: "emerging",
+          title: "Rockstar xac nhan them mot dot he lo moi cho GTA 6",
+          slug: "rockstar-xac-nhan-them-mot-dot-he-lo-moi-cho-gta-6",
+          summary: "Bai nay co suc hut cao voi game thu, nhung van la tin mem hon so voi nhom AI va ha tang cong nghe.",
+          dek: "Front page can biet bai nao la nhu cau cot loi cua doc gia cong nghe, bai nao la chatter de day xuong sau.",
+          hook: "GTA 6 co the rat hot, nhung homepage van nen uu tien AI va cong nghe cot loi.",
+          published_at: "2026-03-31T11:30:00.000Z",
+          updated_at: "2026-03-31T11:30:00.000Z",
+          sections: [
+            {
+              heading: "Vi sao bai game nay hut view",
+              body: "Bat ky dot he lo moi nao ve GTA 6 cung keo luot doc nhanh, nhat la khi co them chi tiet ve gameplay."
+            },
+            {
+              heading: "Vi sao khong nen len dau",
+              body: "Diem can bang cua homepage la uu tien AI, phan mem, thiet bi va bao mat truoc nhung bai game mang tinh giai tri."
+            },
+            {
+              heading: "Vai tro hop ly",
+              body: "Bai game van nen co cho xuat hien trong lane hoac card phu, nhung khong danh featured."
+            }
+          ],
+          image: {
+            src: "https://images.example.com/gta6-tease.jpg",
+            caption: "Reference image for a GTA 6 teaser update.",
+            credit: "Rockstar",
+            source_url: "https://example.com/gta6-tease"
+          },
+          source_set: [
+            {
+              source_type: "press",
+              source_name: "IGN",
+              source_url: "https://example.com/gta6-tease",
+              region: "Global",
+              language: "vi",
+              trust_tier: "established-media",
+              published_at: "2026-03-31T11:30:00.000Z",
+              image_url: "https://images.example.com/gta6-tease.jpg",
+              image_caption: "Reference image for a GTA 6 teaser update.",
+              image_credit: "Rockstar"
+            }
+          ]
+        }),
+        makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          title: "OpenAI thu nghiem tro ly AI cho nhom cham soc khach hang tai Dong Nam A",
+          slug: "openai-thu-nghiem-tro-ly-ai-cho-nhom-cham-soc-khach-hang-tai-dong-nam-a",
+          summary: "Case AI nay dien ra sat voi nhu cau doanh nghiep, co gia tri khai thac lon hon va xung dang len featured.",
+          dek: "Homepage can day cac bai AI va cong nghe cot loi len truoc cac bai chatter game.",
+          hook: "Neu co bai AI verified phuc vu dong doc gia rong hon, bai do phai an diem uu tien cao hon.",
+          published_at: "2026-03-31T11:00:00.000Z",
+          updated_at: "2026-03-31T11:00:00.000Z",
+          sections: [
+            {
+              heading: "Diem moi cua thu nghiem",
+              body: "OpenAI dang thu nghiem tro ly AI cho cac nhom cham soc khach hang, tap trung vao toc do va ty le giai quyet."
+            },
+            {
+              heading: "Vi sao bai nay quan trong hon",
+              body: "Tac dong cua no lien quan truc tiep toi doanh nghiep, chi phi van hanh va goc nhin AI ung dung thuc te."
+            },
+            {
+              heading: "Ky vong tren homepage",
+              body: "Bai AI verified can dan dau, con bai gaming chi nen giu o vi tri phu de can bang newsroom."
+            }
+          ],
+          image: {
+            src: "https://images.example.com/openai-support.jpg",
+            caption: "Reference image for an OpenAI support workflow test.",
+            credit: "OpenAI",
+            source_url: "https://example.com/openai-support"
+          },
+          source_set: [
+            {
+              source_type: "official-site",
+              source_name: "OpenAI",
+              source_url: "https://example.com/openai-support",
+              region: "Global",
+              language: "vi",
+              trust_tier: "official",
+              published_at: "2026-03-31T11:00:00.000Z",
+              image_url: "https://images.example.com/openai-support.jpg",
+              image_caption: "Reference image for an OpenAI support workflow test.",
+              image_credit: "OpenAI"
+            }
+          ]
+        })
+      ]);
+      const cleanHome = getHomeData(cleanScenario, "vi");
+      const softGamingStory = cleanScenario.articles.find(
+        (article) => article.slug === "rockstar-xac-nhan-them-mot-dot-he-lo-moi-cho-gta-6"
+      );
+
+      assert.equal(cleanHome.featured.slug, "openai-thu-nghiem-tro-ly-ai-cho-nhom-cham-soc-khach-hang-tai-dong-nam-a");
+      assert.ok(softGamingStory);
+      assert.equal(softGamingStory.topic, "gaming");
+      return;
+
       const scenario = buildScenarioState([
         makeScenarioArticle({
           language: "vi",
@@ -791,6 +967,73 @@ const tests = [
       assert.equal(fileState.articles.length, 1);
       assert.equal(fileState.contentPath, contentPath);
       assert.equal(fileState.articles[0].title, state.articles[0].title);
+    }
+  },
+  {
+    name: "keeps explicit manual topic assignments when article text mentions other beats",
+    run() {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-manual-topic-"));
+      const contentPath = path.join(tempDir, "newsroom-content.json");
+      const article = makeScenarioArticle({
+        language: "vi",
+        topic: "ai",
+        content_type: "NewsArticle",
+        verification_state: "verified",
+        slug: "grok-heavy-van-phai-o-muc-ai",
+        title: "Grok Heavy len gia cao, nguoi dung Apple van nen xem nhu bai toan AI",
+        summary:
+          "Bai viet nay nhac toi MacBook, Apple va RAM de mo ta ngu canh dung may, nhung chu de chinh van la goi AI cua Grok va cach xAI phan tang truy cap.",
+        dek:
+          "Neu newsroom da gan chu de AI thu cong, he thong khong duoc tu doi sang Thiet bi chi vi trong bai co nhac toi laptop, RAM hay Apple.",
+        hook:
+          "Case nay bao ve bai Grok khoi bi keo sai sang muc khac khi newsroom da co y dinh bien tap ro rang.",
+        sections: [
+          {
+            heading: "Vi sao de sai topic",
+            body: "Nhieu bai ve Grok Heavy co the nhac toi MacBook, RAM, Apple hoac thiet bi vi doc gia thuong so sanh moi truong dung may."
+          },
+          {
+            heading: "Topic dung van la AI",
+            body: "Trong tinh huong nay, gia goi, quyen truy cap va cach phan tang model moi la trong tam, nen bai phai nam o muc AI."
+          },
+          {
+            heading: "Dieu can giu on dinh",
+            body: "Khi bien tap vien da gan topic thu cong, pipeline can ton trong quyet dinh do thay vi suy luan lai tu keyword."
+          }
+        ],
+        image: {
+          src: "https://images.example.com/grok-heavy-topic-lock.jpg",
+          caption: "Reference image from the source story.",
+          credit: "Patrick Tech Media",
+          source_url: "https://example.com/grok-heavy-topic-lock"
+        },
+        source_set: [
+          {
+            source_type: "official-site",
+            source_name: "xAI",
+            source_url: "https://x.ai/news/grok-4",
+            region: "Global",
+            language: "en",
+            trust_tier: "official",
+            image_url: "https://images.example.com/grok-heavy-topic-lock.jpg",
+            image_caption: "Reference image from the source story.",
+            image_credit: "Patrick Tech Media"
+          }
+        ]
+      });
+
+      fs.writeFileSync(contentPath, JSON.stringify({ articles: [article] }, null, 2), "utf8");
+
+      const fileState = buildNewsroomState({
+        siteUrl: "https://patricktechmedia.com",
+        storeUrl: "https://patricktechstore.vercel.app",
+        contentPath,
+        webControl: {}
+      });
+
+      assert.equal(fileState.articles.length, 1);
+      assert.equal(fileState.articles[0].topic, "ai");
+      assert.equal(fileState.articles[0].topic_label, "AI");
     }
   },
   {
