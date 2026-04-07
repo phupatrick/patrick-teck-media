@@ -15,7 +15,9 @@ function initBackdropMotion() {
   }
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
   let rafId = 0;
+  let ambientTimer = 0;
 
   const updatePointer = (clientX, clientY, strength = 0.2) => {
     const width = Math.max(window.innerWidth || 1, 1);
@@ -76,14 +78,42 @@ function initBackdropMotion() {
   const ambientRipple = () => {
     const x = Math.round(window.innerWidth * (0.18 + Math.random() * 0.64));
     const y = Math.round(window.innerHeight * (0.16 + Math.random() * 0.52));
-    queuePointerUpdate(x, y, 0.24);
+    queuePointerUpdate(x, y, coarsePointer ? 0.2 : 0.24);
     spawnRipple(x, y);
     window.setTimeout(() => {
       document.documentElement.style.setProperty("--pointer-strength", "0.2");
     }, 220);
   };
 
-  window.setInterval(ambientRipple, 5600);
+  const startAmbient = () => {
+    if (ambientTimer || document.hidden) {
+      return;
+    }
+
+    const intervalMs = coarsePointer ? 8200 : 5600;
+    ambientTimer = window.setInterval(ambientRipple, intervalMs);
+  };
+
+  const stopAmbient = () => {
+    if (!ambientTimer) {
+      return;
+    }
+
+    window.clearInterval(ambientTimer);
+    ambientTimer = 0;
+  };
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopAmbient();
+      return;
+    }
+
+    startAmbient();
+  });
+
+  window.addEventListener("pagehide", stopAmbient);
+  startAmbient();
 }
 
 function initStoryBrowser() {

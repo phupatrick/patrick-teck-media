@@ -304,6 +304,7 @@ a {
   max-width: 100%;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   animation: rise-in 700ms ease both;
 }
 
@@ -383,6 +384,16 @@ a {
 .topic-column,
 .guide-showcase-lead {
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+@media (hover: hover) {
+  .story-card,
+  .lead-mini,
+  .rail-card,
+  .topic-column,
+  .guide-showcase-lead {
+    will-change: transform, box-shadow;
+  }
 }
 
 .story-card:hover,
@@ -2615,6 +2626,25 @@ h3 {
 }
 
 @media (max-width: 760px) {
+  body::before {
+    opacity: 0.76;
+    animation-duration: 24s;
+  }
+
+  body::after {
+    opacity: 0.24;
+    background-size: 82px 82px, 82px 82px, 220px 220px;
+  }
+
+  .backdrop::before {
+    filter: blur(10px);
+  }
+
+  .backdrop::after {
+    opacity: 0.34;
+    animation-duration: 38s;
+  }
+
   .site-shell {
     padding: 14px 12px 36px;
   }
