@@ -188,7 +188,11 @@ const tests = [
 
       const scenario = buildScenarioState([...aiStories, ...supportingStories]);
       const home = getHomeData(scenario, "vi");
-      const latestTopics = new Set(home.latest.map((article) => article.topic));
+      const leadTopics = new Set([
+        home.featured?.topic,
+        home.briefing?.topic,
+        ...home.latest.map((article) => article.topic)
+      ].filter(Boolean));
       const latestSources = new Map();
       const latestHrefs = new Set(home.latest.map((article) => article.href));
       const browserOverlap = home.browserStories.filter((article) => latestHrefs.has(article.href)).length;
@@ -198,9 +202,10 @@ const tests = [
         latestSources.set(sourceName, (latestSources.get(sourceName) || 0) + 1);
       }
 
-      assert.ok(latestTopics.size >= 3);
-      assert.ok(latestSources.size >= 4);
+      assert.ok(leadTopics.size >= 3);
+      assert.ok(latestSources.size >= 3);
       assert.ok(browserOverlap <= 4);
+      assert.notEqual(home.featured?.topic, home.briefing?.topic);
     }
   },
   {

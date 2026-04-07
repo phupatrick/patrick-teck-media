@@ -400,6 +400,13 @@ export function getHomeData(state, language) {
     readyPrioritized.find(
       (article) =>
         article.content_type === "Roundup" &&
+        isContrastingLeadStory(article, featured) &&
+        isStoryFreshRelativeToAnchor(article, freshnessAnchor, 5)
+    ) ||
+    readyPrioritized.find((article) => isContrastingLeadStory(article, featured)) ||
+    readyPrioritized.find(
+      (article) =>
+        article.content_type === "Roundup" &&
         !isSameStoryFamily(article, featured) &&
         isStoryFreshRelativeToAnchor(article, freshnessAnchor, 5)
     ) ||
@@ -408,7 +415,7 @@ export function getHomeData(state, language) {
     localized[0];
   const latest = selectDiverseFrontPageStories(readyPrioritized, 10, {
     excludeStories: [featured, briefing],
-    maxPerTopic: { ai: 3, devices: 3, default: 2 },
+    maxPerTopic: { ai: 2, devices: 3, default: 2 },
     maxPerSource: 2
   });
   const packageWatch = selectDiverseFrontPageStories(packageCandidates, 8, {
@@ -446,7 +453,7 @@ export function getHomeData(state, language) {
   });
   const browserStories = selectDiverseFrontPageStories(readyPrioritized, 10, {
     excludeStories: [featured, briefing, ...latest, ...packageWatch],
-    maxPerTopic: { ai: 3, devices: 3, default: 2 },
+    maxPerTopic: { ai: 2, devices: 3, default: 2 },
     maxPerSource: 2
   });
   const topicSectionSeeds = [featured, briefing, ...latest, ...browserStories];
@@ -725,11 +732,30 @@ function buildHomeTopicSectionStories(stories, anchorDate, topicWeights, sourceW
   const illustrated = sorted.filter((article) => article?.hero_image?.kind === "source");
 
   if (ready.length >= 2) {
-    return selectDiverseFrontPageStories(ready, 4, options);
+    const primary = selectDiverseFrontPageStories(ready, 4, options);
+
+    if (primary.length >= 3) {
+      return primary;
+    }
+
+    return selectDiverseFrontPageStories(ready, 4, {
+      ...options,
+      excludeStories: []
+    });
   }
 
   if (illustrated.length >= 2) {
-    return selectDiverseFrontPageStories([...ready, ...illustrated, ...sorted], 3, options);
+    const candidates = [...ready, ...illustrated, ...sorted];
+    const primary = selectDiverseFrontPageStories(candidates, 3, options);
+
+    if (primary.length >= 2) {
+      return primary;
+    }
+
+    return selectDiverseFrontPageStories(candidates, 3, {
+      ...options,
+      excludeStories: []
+    });
   }
 
   return [];
@@ -770,6 +796,23 @@ function isSameStoryFamily(left, right) {
   const rightTitle = getStoryTitleFingerprint(right);
 
   return Boolean(leftTitle && rightTitle && leftTitle === rightTitle);
+}
+
+function isContrastingLeadStory(candidate, featured) {
+  if (!candidate || !featured || isSameStoryFamily(candidate, featured)) {
+    return false;
+  }
+
+  const candidateTopic = getStoryTopicKey(candidate);
+  const featuredTopic = getStoryTopicKey(featured);
+  const candidateSource = getStorySourceKey(candidate);
+  const featuredSource = getStorySourceKey(featured);
+
+  if (candidateTopic !== featuredTopic && candidateSource && featuredSource && candidateSource !== featuredSource) {
+    return true;
+  }
+
+  return candidateTopic !== featuredTopic;
 }
 
 function getStoryTopicKey(article) {
