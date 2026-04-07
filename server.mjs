@@ -690,6 +690,9 @@ function resolvePublicPageCacheControl(requestUrl) {
 
 async function tryStatic(pathname, requestUrl, res) {
   const staticPath = pathname.replace(/^\/+/, "");
+  if (!staticPath) {
+    return false;
+  }
   const filePath = path.normalize(path.join(publicDir, staticPath));
 
   if (!filePath.startsWith(publicDir)) {
@@ -711,7 +714,7 @@ async function tryStatic(pathname, requestUrl, res) {
     res.end(file);
     return true;
   } catch (error) {
-    if (error.code === "ENOENT") {
+    if (error.code === "ENOENT" || error.code === "EISDIR") {
       return false;
     }
 
