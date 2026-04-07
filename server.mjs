@@ -341,6 +341,7 @@ async function handleRequest(req, res) {
         renderAuthPage(state, language, {
           notice: requestUrl.searchParams.get("notice") || requestUrl.searchParams.get("error") || "",
           activeTab: requestUrl.searchParams.get("tab") === "register" ? "register" : "login",
+          googleConfigured: platformService.isGoogleConfigured(),
           csrf: buildCsrfTokens()
         })
       );

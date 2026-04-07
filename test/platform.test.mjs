@@ -279,9 +279,27 @@ const tests = [
       assert.doesNotMatch(html, /hphumail@gmail\.com/);
       assert.doesNotMatch(html, /phupunpin@gmail\.com/);
       assert.doesNotMatch(html, /hoangphupatrick@gmail\.com/);
-      assert.doesNotMatch(html, /Đăng nhập admin bằng Google/);
+      assert.doesNotMatch(html, /\/auth\/google\/start\?lang=vi/);
       assert.match(html, /\/site\.css\?v=/);
       assert.match(html, /\/site\.js\?v=/);
+    }
+  },
+  {
+    name: "renders a Google sign-in action when Google auth is enabled",
+    run() {
+      const newsroom = buildNewsroomState({
+        siteUrl: "https://patricktechmedia.vercel.app",
+        storeUrl: "https://patricktechstore.vercel.app",
+        webControl: {}
+      });
+      const html = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login", googleConfigured: true });
+
+      assert.match(html, /auth-provider-card/);
+      assert.match(html, /google-auth-button/);
+      assert.match(html, /\/auth\/google\/start\?lang=vi/);
+      assert.doesNotMatch(html, /hphumail@gmail\.com/);
+      assert.doesNotMatch(html, /phupunpin@gmail\.com/);
+      assert.doesNotMatch(html, /hoangphupatrick@gmail\.com/);
     }
   }
 ];

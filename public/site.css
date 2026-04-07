@@ -1613,6 +1613,78 @@ h3 {
   width: 100%;
 }
 
+.auth-provider-card {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.auth-provider-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.auth-provider-copy h3,
+.auth-provider-copy p,
+.auth-provider-muted {
+  margin: 0;
+}
+
+.auth-provider-copy p,
+.auth-provider-muted {
+  color: var(--muted);
+  font-family: var(--font-body);
+}
+
+.google-auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(240, 248, 255, 0.88)),
+    rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 16px 36px rgba(20, 38, 74, 0.12);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.google-auth-button:hover,
+.google-auth-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(23, 115, 255, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    0 18px 42px rgba(23, 115, 255, 0.18);
+}
+
+.google-auth-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4285f4, #34a853 52%, #fbbc05 76%, #ea4335);
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .auth-terms {
   margin: 0;
   color: var(--muted);
