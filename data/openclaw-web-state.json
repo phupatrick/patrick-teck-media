@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-04-06T07:10:44.033Z",
+  "generated_at": "2026-04-07T08:19:51.197Z",
   "manager": {
     "id": "openclaw",
     "autonomy": "owner-delegated-full"
   },
   "brief": {
-    "path": "C:\\Users\\phupu\\OneDrive\\Documents\\Playground\\data\\openclaw-owner-brief.json",
+    "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
     "trust_mode": "owner-delegated",
     "brand_name": "Patrick Tech Media",
     "priority_beats": [
@@ -32,8 +32,8 @@
   },
   "priorityTopics": [
     "ai",
-    "devices",
     "apps-software",
+    "devices",
     "internet-business-tech",
     "security",
     "gaming"
@@ -41,10 +41,10 @@
   "ranking": {
     "topicWeights": {
       "ai": 110,
-      "apps-software": 61,
+      "apps-software": 65,
       "internet-business-tech": 50,
       "security": 36,
-      "devices": 27,
+      "devices": 23,
       "gaming": 6
     },
     "sourceTypeWeights": {
@@ -61,8 +61,8 @@
     "vi": {
       "heroTitle": "Gói AI nào vừa đáng tiền hơn, và hãng nào đang tăng giá trị thật?",
       "badgeSignals": "AI",
-      "badgeAds": "Thiết bị",
-      "badgeBilingual": "Ứng dụng & Phần mềm",
+      "badgeAds": "Ứng dụng & Phần mềm",
+      "badgeBilingual": "Thiết bị",
       "hotTitle": "Tiêu điểm đang kéo lượt đọc",
       "editorsTitle": "Nên mở tiếp bài nào",
       "ribbonTitle": "Mới cập nhật",
@@ -84,8 +84,8 @@
     "en": {
       "heroTitle": "Which AI plans just became more useful, and who is adding real value?",
       "badgeSignals": "AI",
-      "badgeAds": "Devices",
-      "badgeBilingual": "Apps & Software",
+      "badgeAds": "Apps & Software",
+      "badgeBilingual": "Devices",
       "hotTitle": "The stories pulling readers in",
       "editorsTitle": "What to open next",
       "ribbonTitle": "Fresh updates",
