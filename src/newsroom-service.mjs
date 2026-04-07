@@ -785,7 +785,7 @@ export function getWorkflowData(state, language) {
     contentMatrix,
     endpointsLabel: copy.endpointsLabel,
     endpoints: [
-      ...(process.env.PUBLIC_FEED_ENABLED === "true"
+      ...(process.env.PUBLIC_FEED_ENABLED === "true" && process.env.PUBLIC_FEED_TOKEN
         ? [`/${language}/feed.json`, `/${language}/feed.xml`]
         : []),
       `/api/newsroom/overview?lang=${language}`,
@@ -973,7 +973,7 @@ export function getAuthorCollection(state, language) {
 }
 
 export function getFooterLinks(language) {
-  const feedEnabled = process.env.PUBLIC_FEED_ENABLED === "true";
+  const feedEnabled = process.env.PUBLIC_FEED_ENABLED === "true" && Boolean(process.env.PUBLIC_FEED_TOKEN);
   const links = [
     { href: `/${language}/about`, label: language === "vi" ? "Về chúng tôi" : "About" },
     { href: `/${language}/contact`, label: language === "vi" ? "Liên hệ" : "Contact" },
@@ -1034,7 +1034,7 @@ export function getSitemapEntries(state) {
     entries.push({ href: `/${language}/dashboard`, updated_at: latestLanguageTimestamp(state, language) });
     entries.push({ href: `/${language}/radar`, updated_at: latestLanguageTimestamp(state, language) });
     entries.push({ href: `/${language}/workflow`, updated_at: latestLanguageTimestamp(state, language) });
-    if (process.env.PUBLIC_FEED_ENABLED === "true") {
+    if (process.env.PUBLIC_FEED_ENABLED === "true" && process.env.PUBLIC_FEED_TOKEN) {
       entries.push({ href: `/${language}/feed.json`, updated_at: latestLanguageTimestamp(state, language) });
       entries.push({ href: `/${language}/feed.xml`, updated_at: latestLanguageTimestamp(state, language) });
     }
@@ -1114,7 +1114,7 @@ export function buildRobotsTxt(state) {
 
 export function buildJsonFeed(state, language) {
   const items = getArticlesForLanguage(state, language);
-  const feedEnabled = process.env.PUBLIC_FEED_ENABLED === "true";
+  const feedEnabled = process.env.PUBLIC_FEED_ENABLED === "true" && Boolean(process.env.PUBLIC_FEED_TOKEN);
   return {
     version: "https://jsonfeed.org/version/1.1",
     title: `${state.site.name} (${language.toUpperCase()})`,

@@ -254,7 +254,7 @@ async function handleRequest(req, res) {
       const feedEnabled = process.env.PUBLIC_FEED_ENABLED === "true";
       const feedToken = process.env.PUBLIC_FEED_TOKEN || "";
       const suppliedToken = requestUrl.searchParams.get("token") || "";
-      const isAllowed = feedEnabled && (!feedToken || suppliedToken === feedToken);
+      const isAllowed = feedEnabled && feedToken && suppliedToken === feedToken;
 
       if (!isAllowed) {
         return sendHtml(res, 404, renderNotFoundPage(state, language, adsConfig));
