@@ -42,6 +42,24 @@ body {
     linear-gradient(180deg, var(--bg), var(--bg-2));
 }
 
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 .backdrop {
   position: fixed;
   inset: 0;
@@ -86,6 +104,51 @@ a {
   box-shadow: var(--shadow);
   width: 100%;
   max-width: 100%;
+  animation: rise-in 700ms ease both;
+}
+
+.frontpage-masthead {
+  --motion-delay: 0ms;
+  animation-delay: var(--motion-delay);
+}
+
+.frontpage-hero {
+  --motion-delay: 80ms;
+  animation-delay: var(--motion-delay);
+}
+
+.headline-ribbon {
+  --motion-delay: 140ms;
+  animation-delay: var(--motion-delay);
+}
+
+.frontpage-grid {
+  --motion-delay: 200ms;
+  animation-delay: var(--motion-delay);
+}
+
+.guide-showcase,
+.topic-band,
+.site-footer {
+  --motion-delay: 240ms;
+  animation-delay: var(--motion-delay);
+}
+
+.story-card,
+.lead-mini,
+.rail-card,
+.topic-column,
+.guide-showcase-lead {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.story-card:hover,
+.lead-mini:hover,
+.rail-card:hover,
+.topic-column:hover,
+.guide-showcase-lead:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 80px rgba(57, 44, 20, 0.16);
 }
 
 .topbar > *,
