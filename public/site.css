@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap");
 
 :root {
   --bg: #04101e;
@@ -21,7 +21,7 @@
   --radius-lg: 22px;
   --radius-md: 16px;
   --font-ui: "Be Vietnam Pro", "Segoe UI", sans-serif;
-  --font-head: "Sora", "Be Vietnam Pro", "Segoe UI", sans-serif;
+  --font-head: "Plus Jakarta Sans", "Be Vietnam Pro", "Segoe UI", sans-serif;
   --font-body: "Be Vietnam Pro", "Segoe UI", sans-serif;
   --pointer-x: 50%;
   --pointer-y: 24%;
@@ -42,6 +42,9 @@ body {
 body {
   color: var(--ink);
   font-family: var(--font-ui);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background:
     radial-gradient(circle at 12% -10%, rgba(53, 213, 255, 0.24), transparent 32%),
     radial-gradient(circle at 88% 10%, rgba(78, 125, 255, 0.22), transparent 30%),
@@ -451,8 +454,8 @@ h1,
 h2,
 h3 {
   font-family: var(--font-head);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: -0.026em;
   text-wrap: balance;
 }
 
@@ -592,9 +595,9 @@ h3 {
 
 .frontpage-masthead-copy h1 {
   margin: 0;
-  font-size: clamp(1.95rem, 3.5vw, 3.15rem);
-  line-height: 1.08;
-  max-width: 13ch;
+  font-size: clamp(1.88rem, 3.2vw, 2.88rem);
+  line-height: 1.06;
+  max-width: 14ch;
 }
 
 .frontpage-masthead-text {
@@ -1026,23 +1029,23 @@ h3 {
 .simple-hero h1,
 .article-header h1 {
   margin: 0;
-  font-size: clamp(2rem, 4.6vw, 3.85rem);
-  line-height: 1.08;
+  font-size: clamp(1.96rem, 4vw, 3.45rem);
+  line-height: 1.04;
 }
 
 .hero-copy h1 {
-  max-width: 13ch;
+  max-width: 14ch;
 }
 
 .simple-hero h1 {
-  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
-  line-height: 1.1;
+  font-size: clamp(1.86rem, 3.5vw, 2.95rem);
+  line-height: 1.06;
 }
 
 .article-header h1 {
-  max-width: 15ch;
-  font-size: clamp(2.4rem, 4.8vw, 4.15rem);
-  line-height: 1.07;
+  max-width: 16ch;
+  font-size: clamp(2.2rem, 4.4vw, 3.7rem);
+  line-height: 1.04;
 }
 
 .hero-text,
@@ -1355,8 +1358,8 @@ h3 {
 }
 
 .story-card h3 {
-  font-size: 1.08rem;
-  line-height: 1.32;
+  font-size: 1.02rem;
+  line-height: 1.34;
 }
 
 .featured-media,
