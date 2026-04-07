@@ -95,6 +95,88 @@ const RATE_LIMIT_RULES = {
   "/admin/withdrawals": { windowMs: 10 * 60 * 1000, max: 60, messages: { vi: "Bạn đang cập nhật trạng thái rút tiền quá nhanh. Vui lòng thử lại sau.", en: "Withdrawal status changes are happening too quickly. Please try again later." } }
 };
 
+const trafficGuardBuckets = new Map();
+const KNOWN_FORM_ROUTES = new Set(Object.keys(RATE_LIMIT_RULES));
+const ALLOWED_REQUEST_METHODS = new Set(["GET", "POST", "OPTIONS"]);
+const MAX_REQUEST_URL_LENGTH = 4096;
+const MAX_QUERY_STRING_LENGTH = 2048;
+const MAX_QUERY_PARAMETER_COUNT = 32;
+const PUBLIC_PAGE_CACHE_CONTROL = "public, max-age=0, s-maxage=120, stale-while-revalidate=600";
+const PUBLIC_API_CACHE_CONTROL = "public, max-age=15, s-maxage=30, stale-while-revalidate=120";
+const LIVE_API_CACHE_CONTROL = "public, max-age=10, s-maxage=15, stale-while-revalidate=45";
+const STATIC_ASSET_CACHE_CONTROL = "public, max-age=31536000, immutable";
+const STATIC_ASSET_FALLBACK_CACHE_CONTROL = "public, max-age=3600, stale-while-revalidate=86400";
+const SITE_MAP_CACHE_CONTROL = "public, max-age=300, s-maxage=1800, stale-while-revalidate=86400";
+const STORY_ART_CACHE_CONTROL = "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800";
+const TRAFFIC_GUARD_RULES = [
+  {
+    id: "auth-edge",
+    matches: (pathname) => pathname === "/auth/google/start" || pathname === "/auth/google/callback",
+    windowMs: 60 * 1000,
+    max: 18,
+    messages: {
+      vi: "Luu luong dang nhap dang tang qua nhanh. He thong tam chan de bao ve phien truy cap.",
+      en: "Sign-in traffic is arriving too quickly. Access is temporarily limited to protect the session flow."
+    }
+  },
+  {
+    id: "live-api",
+    matches: (pathname) => pathname === "/api/newsroom/live",
+    windowMs: 60 * 1000,
+    max: 60,
+    messages: {
+      vi: "Nguon live update dang bi goi qua day. Vui long thu lai sau it giay.",
+      en: "The live update feed is being requested too aggressively. Please retry in a few seconds."
+    }
+  },
+  {
+    id: "newsroom-api",
+    matches: (pathname) => pathname.startsWith("/api/newsroom/"),
+    windowMs: 60 * 1000,
+    max: 90,
+    messages: {
+      vi: "API newsroom dang nhan qua nhieu yeu cau. He thong dang ha tai tam thoi.",
+      en: "The newsroom API is receiving too many requests. The service is shedding load temporarily."
+    }
+  },
+  {
+    id: "remote-image",
+    matches: (pathname) => pathname === "/media/source",
+    windowMs: 60 * 1000,
+    max: 24,
+    messages: {
+      vi: "Proxy anh dang bi goi qua nhanh. Vui long thu lai sau.",
+      en: "The image proxy is being requested too quickly. Please try again later."
+    }
+  },
+  {
+    id: "story-art",
+    matches: (pathname) => pathname.startsWith("/media/story/") && pathname.endsWith(".svg"),
+    windowMs: 60 * 1000,
+    max: 90,
+    messages: {
+      vi: "Tai nguyen minh hoa dang bi goi qua day. Vui long cho mot chut.",
+      en: "Illustration assets are being requested too aggressively. Please wait a moment."
+    }
+  },
+  {
+    id: "public-page",
+    matches: (pathname) =>
+      pathname === "/"
+      || pathname === "/store"
+      || pathname === "/robots.txt"
+      || pathname === "/sitemap.xml"
+      || pathname === "/sitemap-news.xml"
+      || /^\/(vi|en)(?:\/.*)?$/.test(pathname),
+    windowMs: 60 * 1000,
+    max: 180,
+    messages: {
+      vi: "Luu luong truy cap dang tang dot bien. He thong tam gioi han nhip tai trang de giu site on dinh.",
+      en: "Traffic is spiking unusually fast. The site is temporarily throttling page loads to stay stable."
+    }
+  }
+];
+
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".js": "application/javascript; charset=utf-8",
@@ -125,6 +207,10 @@ const stateCache = new Map();
 const stateTimestamps = new Map();
 const refreshPromises = new Map();
 const server = createServer(handleRequest);
+server.requestTimeout = 15_000;
+server.headersTimeout = 10_000;
+server.keepAliveTimeout = 5_000;
+server.maxHeadersCount = 64;
 
 if (sessionSecretResolution.warning) {
   console.warn(sessionSecretResolution.warning);
@@ -134,30 +220,36 @@ async function handleRequest(req, res) {
   try {
     const requestUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
     const pathname = decodeURIComponent(requestUrl.pathname);
-    const state = await getState(resolvePublicSiteUrl(req));
-    const cookies = parseCookies(req.headers.cookie || "");
-    const viewer = await platformService.getUserById(readSessionUserId(req, config.sessionSecret));
+    const method = normalizeMethod(req.method);
 
-    if (req.method === "POST") {
-      return handleFormRoute(req, res, requestUrl, pathname, viewer);
+    if (method === "OPTIONS") {
+      return sendEmpty(res, 204, {
+        Allow: "GET, POST, OPTIONS",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, X-Requested-With"
+      });
     }
 
-    if (pathname.startsWith("/auth/")) {
-      return handleAuthRoute(req, res, requestUrl, pathname, viewer, cookies);
+    if (!ALLOWED_REQUEST_METHODS.has(method)) {
+      return sendMethodNotAllowed(res, "GET, POST, OPTIONS");
     }
 
-    if (pathname.startsWith("/api/")) {
-      return handleApi(pathname, requestUrl, res, state);
+    const invalidRequest = validateIncomingRequest(req, requestUrl);
+    if (invalidRequest) {
+      return sendJson(res, invalidRequest.statusCode, { error: invalidRequest.message });
     }
 
-    if (pathname.startsWith("/media/story/") && pathname.endsWith(".svg")) {
-      const clusterId = pathname.slice("/media/story/".length, -".svg".length);
-      const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
-      return sendText(res, 200, buildStoryArtSvg(state, clusterId, language), "image/svg+xml; charset=utf-8");
+    if (await tryStatic(pathname, requestUrl, res)) {
+      return;
     }
 
-    if (pathname === "/media/source") {
-      return handleRemoteStoryImage(requestUrl, res, state);
+    if (method === "POST" && !KNOWN_FORM_ROUTES.has(pathname)) {
+      return sendJson(res, 404, { error: "Not found." });
+    }
+
+    const trafficGuardDecision = enforceTrafficGuard(req, pathname, requestUrl);
+    if (trafficGuardDecision) {
+      return sendRateLimitResponse(res, pathname, trafficGuardDecision);
     }
 
     if (pathname === "/") {
@@ -168,31 +260,78 @@ async function handleRequest(req, res) {
       return redirect(res, "/vi/store");
     }
 
+    if (pathname === "/auth/google/start" || pathname === "/auth/google/callback") {
+      const cookies = parseCookies(req.headers.cookie || "");
+      return handleAuthRoute(req, res, requestUrl, pathname, null, cookies);
+    }
+
+    if (method === "POST") {
+      const viewer = await platformService.getUserById(readSessionUserId(req, config.sessionSecret));
+      return handleFormRoute(req, res, requestUrl, pathname, viewer);
+    }
+
+    const publicSiteUrl = resolvePublicSiteUrl(req);
+
+    if (pathname.startsWith("/api/")) {
+      const state = await getState(publicSiteUrl);
+      return handleApi(pathname, requestUrl, res, state);
+    }
+
+    if (pathname.startsWith("/media/story/") && pathname.endsWith(".svg")) {
+      const state = await getState(publicSiteUrl);
+      const clusterId = pathname.slice("/media/story/".length, -".svg".length);
+      const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
+      return sendText(
+        res,
+        200,
+        buildStoryArtSvg(state, clusterId, language),
+        "image/svg+xml; charset=utf-8",
+        { cacheControl: STORY_ART_CACHE_CONTROL }
+      );
+    }
+
+    if (pathname === "/media/source") {
+      const state = await getState(publicSiteUrl);
+      return handleRemoteStoryImage(requestUrl, res, state);
+    }
+
     if (pathname === "/robots.txt") {
-      return sendText(res, 200, buildRobotsTxt(state), "text/plain; charset=utf-8");
+      const state = await getState(publicSiteUrl);
+      return sendText(res, 200, buildRobotsTxt(state), "text/plain; charset=utf-8", { cacheControl: SITE_MAP_CACHE_CONTROL });
     }
 
     if (pathname === "/sitemap.xml") {
-      return sendText(res, 200, buildSitemapXml(state), "application/xml; charset=utf-8");
+      const state = await getState(publicSiteUrl);
+      return sendText(res, 200, buildSitemapXml(state), "application/xml; charset=utf-8", { cacheControl: SITE_MAP_CACHE_CONTROL });
     }
 
     if (pathname === "/sitemap-news.xml") {
-      return sendText(res, 200, buildNewsSitemapXml(state), "application/xml; charset=utf-8");
+      const state = await getState(publicSiteUrl);
+      return sendText(res, 200, buildNewsSitemapXml(state), "application/xml; charset=utf-8", { cacheControl: SITE_MAP_CACHE_CONTROL });
     }
 
-    if (await tryStatic(pathname, res)) {
-      return;
-    }
+    const state = await getState(publicSiteUrl);
 
     const segments = pathname.split("/").filter(Boolean);
     const language = segments[0];
+    let viewerPromise = null;
+    const loadViewer = async () => {
+      if (!viewerPromise) {
+        viewerPromise = platformService.getUserById(readSessionUserId(req, config.sessionSecret));
+      }
+
+      return viewerPromise;
+    };
+    const publicPageOptions = {
+      cacheControl: resolvePublicPageCacheControl(requestUrl)
+    };
 
     if (!["vi", "en"].includes(language)) {
       return sendHtml(res, 404, renderNotFoundPage(state, "vi", adsConfig));
     }
 
     if (segments.length === 1) {
-      return sendHtml(res, 200, renderHomePage(state, language, adsConfig));
+      return sendHtml(res, 200, renderHomePage(state, language, adsConfig), publicPageOptions);
     }
 
     if (segments[1] === "login") {
@@ -208,6 +347,8 @@ async function handleRequest(req, res) {
     }
 
     if (segments[1] === "portal") {
+      const viewer = await loadViewer();
+
       if (!viewer) {
         return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Vui lòng đăng nhập để mở writer portal." : "Please sign in to open the writer portal.")}`);
       }
@@ -224,6 +365,8 @@ async function handleRequest(req, res) {
     }
 
     if (segments[1] === "admin") {
+      const viewer = await loadViewer();
+
       if (!viewer || viewer.role !== "admin") {
         return redirect(res, `/${language}/login?notice=${encodeURIComponent(language === "vi" ? "Chỉ admin mới truy cập được bàn duyệt." : "Only admins can access the review desk.")}`);
       }
@@ -239,15 +382,15 @@ async function handleRequest(req, res) {
     }
 
     if (segments[1] === "radar") {
-      return sendHtml(res, 200, renderRadarPage(state, language, state.radar[language], adsConfig));
+      return sendHtml(res, 200, renderRadarPage(state, language, state.radar[language], adsConfig), publicPageOptions);
     }
 
     if (segments[1] === "workflow") {
-      return sendHtml(res, 200, renderWorkflowPage(state, language, state.workflow[language], adsConfig));
+      return sendHtml(res, 200, renderWorkflowPage(state, language, state.workflow[language], adsConfig), publicPageOptions);
     }
 
     if (segments[1] === "dashboard") {
-      return sendHtml(res, 200, renderDashboardPage(state, language, state.dashboard[language], adsConfig));
+      return sendHtml(res, 200, renderDashboardPage(state, language, state.dashboard[language], adsConfig), publicPageOptions);
     }
 
     if (segments[1] === "feed.json" || segments[1] === "feed.xml") {
@@ -268,7 +411,7 @@ async function handleRequest(req, res) {
     }
 
     if (segments[1] === "store") {
-      return sendHtml(res, 200, renderStorePage(state, language, adsConfig));
+      return sendHtml(res, 200, renderStorePage(state, language, adsConfig), publicPageOptions);
     }
 
     if (segments[1] === "topics" && segments[2]) {
@@ -276,21 +419,22 @@ async function handleRequest(req, res) {
       return sendHtml(
         res,
         topicPage ? 200 : 404,
-        topicPage ? renderTopicPage(state, language, topicPage, adsConfig) : renderNotFoundPage(state, language, adsConfig)
+        topicPage ? renderTopicPage(state, language, topicPage, adsConfig) : renderNotFoundPage(state, language, adsConfig),
+        topicPage ? publicPageOptions : undefined
       );
     }
 
     if (segments[1] === "authors") {
-      return sendHtml(res, 200, renderAuthorsPage(state, language, getAuthorCollection(state, language), adsConfig));
+      return sendHtml(res, 200, renderAuthorsPage(state, language, getAuthorCollection(state, language), adsConfig), publicPageOptions);
     }
 
     if (segments[1] === "sitemap") {
-      return sendHtml(res, 200, renderHumanSitemapPage(state, language, buildHumanSitemap(state, language), adsConfig));
+      return sendHtml(res, 200, renderHumanSitemapPage(state, language, buildHumanSitemap(state, language), adsConfig), publicPageOptions);
     }
 
     const policyPage = getPolicyPage(state, segments[1]);
     if (policyPage && segments.length === 2) {
-      return sendHtml(res, 200, renderPolicyPage(state, language, policyPage, adsConfig));
+      return sendHtml(res, 200, renderPolicyPage(state, language, policyPage, adsConfig), publicPageOptions);
     }
 
     if (segments.length === 3) {
@@ -308,6 +452,7 @@ async function handleRequest(req, res) {
         href: article.href,
         language
       });
+      const viewer = await loadViewer();
 
       return sendHtml(
         res,
@@ -421,7 +566,129 @@ function buildCsrfTokens(viewer = null) {
   };
 }
 
-async function tryStatic(pathname, res) {
+function normalizeMethod(value) {
+  return String(value || "GET").trim().toUpperCase();
+}
+
+function validateIncomingRequest(req, requestUrl) {
+  const rawUrl = String(req.url || "");
+
+  if (rawUrl.length > MAX_REQUEST_URL_LENGTH) {
+    return { statusCode: 414, message: "Request URL is too long." };
+  }
+
+  if (requestUrl.search.length > MAX_QUERY_STRING_LENGTH) {
+    return { statusCode: 414, message: "Query string is too long." };
+  }
+
+  let queryParameterCount = 0;
+  for (const _entry of requestUrl.searchParams) {
+    queryParameterCount += 1;
+    if (queryParameterCount > MAX_QUERY_PARAMETER_COUNT) {
+      return { statusCode: 400, message: "Too many query parameters." };
+    }
+  }
+
+  return null;
+}
+
+function enforceTrafficGuard(req, pathname, requestUrl) {
+  const rule = TRAFFIC_GUARD_RULES.find((entry) => entry.matches(pathname, requestUrl));
+
+  if (!rule) {
+    return null;
+  }
+
+  const now = Date.now();
+  const actor = `ip:${getClientAddress(req)}`;
+  const key = `${rule.id}:${actor}`;
+  const existing = trafficGuardBuckets.get(key);
+  const entry =
+    existing && existing.resetAt > now
+      ? existing
+      : {
+          count: 0,
+          resetAt: now + rule.windowMs
+        };
+
+  entry.count += 1;
+  trafficGuardBuckets.set(key, entry);
+  pruneTrafficGuardBuckets(now);
+
+  if (entry.count <= rule.max) {
+    return null;
+  }
+
+  const language = resolveTrafficGuardLanguage(pathname, requestUrl);
+  return {
+    statusCode: 429,
+    message: rule.messages[language] || rule.messages.vi || rule.messages.en,
+    retryAfterSeconds: Math.max(1, Math.ceil((entry.resetAt - now) / 1000)),
+    limit: rule.max,
+    resetAt: entry.resetAt
+  };
+}
+
+function resolveTrafficGuardLanguage(pathname, requestUrl) {
+  if (pathname.startsWith("/en")) {
+    return "en";
+  }
+
+  if (requestUrl.searchParams.get("lang") === "en") {
+    return "en";
+  }
+
+  return "vi";
+}
+
+function pruneTrafficGuardBuckets(now) {
+  if (trafficGuardBuckets.size < 500) {
+    return;
+  }
+
+  for (const [key, value] of trafficGuardBuckets.entries()) {
+    if (value.resetAt <= now) {
+      trafficGuardBuckets.delete(key);
+    }
+  }
+}
+
+function sendRateLimitResponse(res, pathname, details) {
+  const extraHeaders = {
+    "Retry-After": String(details.retryAfterSeconds),
+    "X-RateLimit-Limit": String(details.limit),
+    "X-RateLimit-Remaining": "0",
+    "X-RateLimit-Reset": String(Math.ceil(details.resetAt / 1000)),
+    Connection: "close"
+  };
+
+  if (pathname.startsWith("/api/")) {
+    return sendJson(res, details.statusCode, { error: details.message }, { extraHeaders });
+  }
+
+  return sendText(res, details.statusCode, details.message, "text/plain; charset=utf-8", { extraHeaders });
+}
+
+function sendMethodNotAllowed(res, allow) {
+  return sendJson(res, 405, { error: "Method not allowed." }, { extraHeaders: { Allow: allow } });
+}
+
+function sendEmpty(res, statusCode, extraHeaders = {}) {
+  res.writeHead(
+    statusCode,
+    createResponseHeaders({
+      cacheControl: "no-store",
+      extraHeaders
+    })
+  );
+  res.end();
+}
+
+function resolvePublicPageCacheControl(requestUrl) {
+  return requestUrl.search ? "no-store" : PUBLIC_PAGE_CACHE_CONTROL;
+}
+
+async function tryStatic(pathname, requestUrl, res) {
   const staticPath = pathname.replace(/^\/+/, "");
   const filePath = path.normalize(path.join(publicDir, staticPath));
 
@@ -431,10 +698,13 @@ async function tryStatic(pathname, res) {
 
   try {
     const file = await readFile(filePath);
+    const cacheControl = requestUrl.searchParams.has("v")
+      ? STATIC_ASSET_CACHE_CONTROL
+      : STATIC_ASSET_FALLBACK_CACHE_CONTROL;
     res.writeHead(
       200,
       createResponseHeaders({
-        cacheControl: "public, max-age=300",
+        cacheControl,
         contentType: mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream"
       })
     );
@@ -450,16 +720,23 @@ async function tryStatic(pathname, res) {
 }
 
 function handleApi(pathname, requestUrl, res, state) {
+  const cacheControl = pathname === "/api/newsroom/live" ? LIVE_API_CACHE_CONTROL : PUBLIC_API_CACHE_CONTROL;
+
   if (pathname === "/api/newsroom/overview") {
     const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
     const home = state.home[language];
-    return sendJson(res, 200, {
-      site: state.site,
-      metrics: home.metrics,
-      featured: compactArticle(home.featured),
-      latest: home.latest.map(compactArticle),
-      trending: home.trending.map(compactArticle)
-    });
+    return sendJson(
+      res,
+      200,
+      {
+        site: state.site,
+        metrics: home.metrics,
+        featured: compactArticle(home.featured),
+        latest: home.latest.map(compactArticle),
+        trending: home.trending.map(compactArticle)
+      },
+      { cacheControl }
+    );
   }
 
   if (pathname === "/api/newsroom/articles") {
@@ -475,23 +752,24 @@ function handleApi(pathname, requestUrl, res, state) {
         ad_eligible: article.ad_eligible,
         topic: article.topic,
         cluster_id: article.cluster_id
-      }))
+      })),
+      { cacheControl }
     );
   }
 
   if (pathname === "/api/newsroom/radar") {
     const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
-    return sendJson(res, 200, state.radar[language]);
+    return sendJson(res, 200, state.radar[language], { cacheControl });
   }
 
   if (pathname === "/api/newsroom/dashboard") {
     const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
-    return sendJson(res, 200, state.dashboard[language]);
+    return sendJson(res, 200, state.dashboard[language], { cacheControl });
   }
 
   if (pathname === "/api/newsroom/live") {
     const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
-    return sendJson(res, 200, state.home[language].liveDesk);
+    return sendJson(res, 200, state.home[language].liveDesk, { cacheControl });
   }
 
   return sendJson(res, 404, { error: "Not found." });
@@ -1032,40 +1310,43 @@ function shouldUseSecureCookies(req) {
   return /^https:\/\//i.test(config.siteUrl) && !/^(localhost|127\.0\.0\.1)(:\d+)?$/i.test(host);
 }
 
-function sendHtml(res, statusCode, html) {
+function sendHtml(res, statusCode, html, options = {}) {
   res.writeHead(
     statusCode,
     createResponseHeaders({
-      cacheControl: "no-store",
-      contentType: "text/html; charset=utf-8"
+      cacheControl: options.cacheControl || "no-store",
+      contentType: "text/html; charset=utf-8",
+      extraHeaders: options.extraHeaders || {}
     })
   );
   res.end(html);
 }
 
-function sendText(res, statusCode, content, contentType) {
+function sendText(res, statusCode, content, contentType, options = {}) {
   res.writeHead(
     statusCode,
     createResponseHeaders({
-      cacheControl: "no-store",
-      contentType
+      cacheControl: options.cacheControl || "no-store",
+      contentType,
+      extraHeaders: options.extraHeaders || {}
     })
   );
   res.end(content);
 }
 
-function sendJson(res, statusCode, payload) {
+function sendJson(res, statusCode, payload, options = {}) {
   res.writeHead(
     statusCode,
     createResponseHeaders({
-      cacheControl: "no-store",
-      contentType: "application/json; charset=utf-8"
+      cacheControl: options.cacheControl || "no-store",
+      contentType: "application/json; charset=utf-8",
+      extraHeaders: options.extraHeaders || {}
     })
   );
   res.end(JSON.stringify(payload));
 }
 
-function createResponseHeaders({ cacheControl = "no-store", contentType = "", location = "" } = {}) {
+function createResponseHeaders({ cacheControl = "no-store", contentType = "", location = "", extraHeaders = {} } = {}) {
   const headers = {
     "Cache-Control": cacheControl,
     "Referrer-Policy": "strict-origin-when-cross-origin",
@@ -1073,7 +1354,10 @@ function createResponseHeaders({ cacheControl = "no-store", contentType = "", lo
     "X-Frame-Options": "DENY",
     "Permissions-Policy": "accelerometer=(), autoplay=(), browsing-topics=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), microphone=(), payment=(), usb=()",
     "Cross-Origin-Opener-Policy": "same-origin",
-    "Content-Security-Policy": buildContentSecurityPolicy()
+    "Cross-Origin-Resource-Policy": "same-site",
+    "X-DNS-Prefetch-Control": "off",
+    "Content-Security-Policy": buildContentSecurityPolicy(),
+    ...extraHeaders
   };
 
   if (/^https:\/\//i.test(config.siteUrl)) {

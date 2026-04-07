@@ -72,6 +72,55 @@ const tests = [
       assert.match(location, /\/vi\/login/);
       assert.match(location, /nguồn gửi biểu mẫu|form origin/i);
     }
+  },
+  {
+    name: "rejects unsupported HTTP methods before page rendering",
+    async run(baseUrl) {
+      const response = await fetch(`${baseUrl}/vi/`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const payload = await response.json();
+
+      assert.equal(response.status, 405);
+      assert.equal(response.headers.get("allow"), "GET, POST, OPTIONS");
+      assert.match(payload.error || "", /method not allowed/i);
+    }
+  },
+  {
+    name: "rejects abusive query strings early",
+    async run(baseUrl) {
+      const oversizedQuery = "q=".concat("a".repeat(2500));
+      const response = await fetch(`${baseUrl}/vi/?${oversizedQuery}`);
+      const payload = await response.json();
+
+      assert.equal(response.status, 414);
+      assert.match(payload.error || "", /query string is too long/i);
+    }
+  },
+  {
+    name: "throttles burst traffic on the live newsroom api",
+    async run(baseUrl) {
+      let limitedResponse = null;
+
+      for (let attempt = 0; attempt < 65; attempt += 1) {
+        const response = await fetch(`${baseUrl}/api/newsroom/live?lang=vi`);
+        if (response.status === 429) {
+          limitedResponse = response;
+          break;
+        }
+      }
+
+      assert.ok(limitedResponse, "Expected the live API to eventually return 429.");
+      const payload = await limitedResponse.json();
+
+      assert.equal(limitedResponse.status, 429);
+      assert.ok(Number(limitedResponse.headers.get("retry-after")) >= 1);
+      assert.ok(Number(limitedResponse.headers.get("x-ratelimit-limit")) >= 1);
+      assert.match(payload.error || "", /live update feed|nguon live update/i);
+    }
   }
 ];
 
