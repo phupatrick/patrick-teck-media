@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap");
 
 :root {
   --bg: #04101e;
@@ -21,7 +21,7 @@
   --radius-lg: 22px;
   --radius-md: 16px;
   --font-ui: "Be Vietnam Pro", "Segoe UI", sans-serif;
-  --font-head: "Plus Jakarta Sans", "Be Vietnam Pro", "Segoe UI", sans-serif;
+  --font-head: "Be Vietnam Pro", "Segoe UI", sans-serif;
   --font-body: "Be Vietnam Pro", "Segoe UI", sans-serif;
   --pointer-x: 50%;
   --pointer-y: 24%;
