@@ -1,10 +1,78 @@
 const documentLanguage = document.documentElement.lang === "en" ? "en" : "vi";
 
+initBackdropMotion();
 initStoryBrowser();
 initLiveDesk();
 initAuthTabs();
 initImageFallbacks();
 initPullToRefresh();
+
+function initBackdropMotion() {
+  const backdrop = document.querySelector(".backdrop");
+
+  if (!backdrop) {
+    return;
+  }
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let rafId = 0;
+
+  const updatePointer = (clientX, clientY, strength = 0.18) => {
+    const width = Math.max(window.innerWidth || 1, 1);
+    const height = Math.max(window.innerHeight || 1, 1);
+    const x = ((clientX / width) * 100).toFixed(2);
+    const y = ((clientY / height) * 100).toFixed(2);
+
+    document.documentElement.style.setProperty("--pointer-x", `${x}%`);
+    document.documentElement.style.setProperty("--pointer-y", `${y}%`);
+    document.documentElement.style.setProperty("--pointer-strength", String(strength));
+  };
+
+  const queuePointerUpdate = (clientX, clientY, strength) => {
+    if (rafId) {
+      window.cancelAnimationFrame(rafId);
+    }
+
+    rafId = window.requestAnimationFrame(() => {
+      updatePointer(clientX, clientY, strength);
+    });
+  };
+
+  const spawnRipple = (clientX, clientY) => {
+    const ripple = document.createElement("span");
+    ripple.className = "backdrop-ripple";
+    ripple.style.left = `${clientX}px`;
+    ripple.style.top = `${clientY}px`;
+    backdrop.appendChild(ripple);
+    window.setTimeout(() => ripple.remove(), 920);
+  };
+
+  updatePointer(window.innerWidth * 0.52, window.innerHeight * 0.18, 0.16);
+
+  if (reducedMotion) {
+    return;
+  }
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      queuePointerUpdate(event.clientX, event.clientY, event.pointerType === "mouse" ? 0.22 : 0.18);
+    },
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "pointerdown",
+    (event) => {
+      queuePointerUpdate(event.clientX, event.clientY, 0.28);
+      spawnRipple(event.clientX, event.clientY);
+      window.setTimeout(() => {
+        document.documentElement.style.setProperty("--pointer-strength", "0.18");
+      }, 260);
+    },
+    { passive: true }
+  );
+}
 
 function initStoryBrowser() {
   const browserRoot = document.querySelector("[data-story-browser]");
