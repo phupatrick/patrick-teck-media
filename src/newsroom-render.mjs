@@ -8,6 +8,12 @@
 export function renderHomePage(state, language, adsConfig) {
   const home = state.home[language];
   const copy = getRenderCopy(state, language);
+  const fallbackCopy = normalizeRenderCopy(language);
+  const heroEyebrow = copy.eyebrow || fallbackCopy.eyebrow || "";
+  const heroTitle = copy.heroTitle || fallbackCopy.heroTitle || "";
+  const heroText = copy.heroText || fallbackCopy.heroText || "";
+  const founderName = copy.founderName || fallbackCopy.founderName || "";
+  const founderRole = copy.founderRole || fallbackCopy.founderRole || "";
   const path = `/${language}/`;
   const {
     leadFeature,
@@ -33,9 +39,9 @@ export function renderHomePage(state, language, adsConfig) {
     content: `
       <section class="frontpage-masthead">
         <div class="frontpage-masthead-copy">
-          <p class="eyebrow">${copy.eyebrow}</p>
-          <h1>${escapeHtml(copy.heroTitle)}</h1>
-          <p class="frontpage-masthead-text">${escapeHtml(copy.heroText)}</p>
+          <p class="eyebrow">${escapeHtml(heroEyebrow)}</p>
+          <h1>${escapeHtml(heroTitle)}</h1>
+          <p class="frontpage-masthead-text">${escapeHtml(heroText)}</p>
           <div class="hero-badges">
             <span>${copy.badgeSignals}</span>
             <span>${copy.badgeAds}</span>
@@ -44,10 +50,10 @@ export function renderHomePage(state, language, adsConfig) {
         </div>
         <aside class="masthead-brief">
           <div class="masthead-founder">
-            <img src="/founder.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" alt="${escapeHtml(copy.founderName || "Founder")}" loading="lazy" decoding="async" />
+            <img src="/founder.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" alt="${escapeHtml(founderName || "Founder")}" loading="lazy" decoding="async" />
             <div>
-              <strong>${escapeHtml(copy.founderName || "")}</strong>
-              <span>${escapeHtml(copy.founderRole || "")}</span>
+              <strong>${escapeHtml(founderName)}</strong>
+              <span>${escapeHtml(founderRole)}</span>
             </div>
           </div>
           <p class="eyebrow">${copy.updateLabel}</p>
@@ -1819,7 +1825,7 @@ function normalizeRenderCopy(language) {
     eyebrow: "Bilingual newsroom",
     heroTitle: "Patrick Tech Media: the technology newsroom by Patrick Tech Co.",
     heroText:
-      "Patrick Tech Media is a Patrick Tech Co. (2020) initiative founded by Nguyen Hoang Phu (Patrick), focused on technology, AI, and new digital shifts. Patrick Tech Co. also supports customers with premium plans for websites, software, and digital platforms.",
+      "Patrick Tech Media is a Patrick Tech Co. (2020) project founded by Nguyen Hoang Phu (Patrick), created to share technology, AI, and emerging digital shifts. Patrick Tech Co. also supports customers with premium plans for websites, software, and digital platforms.",
     founderName: "Nguyen Hoang Phu (Patrick)",
     founderRole: "Founder · Patrick Tech Co. (2020)",
     homeBriefTitle: "Catch the day's rhythm in one pass"
