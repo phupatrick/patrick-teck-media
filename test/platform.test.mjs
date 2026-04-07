@@ -263,43 +263,31 @@ const tests = [
     }
   },
   {
-    name: "keeps the public login page focused on writer auth only",
+    name: "renders the public login safely with optional Google admin sign-in",
     run() {
       const newsroom = buildNewsroomState({
         siteUrl: "https://patricktechmedia.vercel.app",
         storeUrl: "https://patricktechstore.vercel.app",
         webControl: {}
       });
-      const html = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login" });
+      const defaultHtml = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login" });
+      const googleHtml = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login", googleConfigured: true });
 
-      assert.match(html, /data-auth-shell/);
-      assert.match(html, /Đăng nhập/);
-      assert.match(html, /Đăng ký/);
-      assert.match(html, /password_confirm/);
-      assert.doesNotMatch(html, /hphumail@gmail\.com/);
-      assert.doesNotMatch(html, /phupunpin@gmail\.com/);
-      assert.doesNotMatch(html, /hoangphupatrick@gmail\.com/);
-      assert.doesNotMatch(html, /\/auth\/google\/start\?lang=vi/);
-      assert.match(html, /\/site\.css\?v=/);
-      assert.match(html, /\/site\.js\?v=/);
-    }
-  },
-  {
-    name: "renders a Google sign-in action when Google auth is enabled",
-    run() {
-      const newsroom = buildNewsroomState({
-        siteUrl: "https://patricktechmedia.vercel.app",
-        storeUrl: "https://patricktechstore.vercel.app",
-        webControl: {}
-      });
-      const html = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login", googleConfigured: true });
-
-      assert.match(html, /auth-provider-card/);
-      assert.match(html, /google-auth-button/);
-      assert.match(html, /\/auth\/google\/start\?lang=vi/);
-      assert.doesNotMatch(html, /hphumail@gmail\.com/);
-      assert.doesNotMatch(html, /phupunpin@gmail\.com/);
-      assert.doesNotMatch(html, /hoangphupatrick@gmail\.com/);
+      assert.match(defaultHtml, /data-auth-shell/);
+      assert.match(defaultHtml, /Đăng nhập/);
+      assert.match(defaultHtml, /Đăng ký/);
+      assert.match(defaultHtml, /password_confirm/);
+      assert.doesNotMatch(defaultHtml, /hphumail@gmail\.com/);
+      assert.doesNotMatch(defaultHtml, /phupunpin@gmail\.com/);
+      assert.doesNotMatch(defaultHtml, /hoangphupatrick@gmail\.com/);
+      assert.doesNotMatch(defaultHtml, /\/auth\/google\/start\?lang=vi/);
+      assert.match(defaultHtml, /\/site\.css\?v=/);
+      assert.match(defaultHtml, /\/site\.js\?v=/);
+      assert.match(googleHtml, /google-auth-button/);
+      assert.match(googleHtml, /\/auth\/google\/start\?lang=vi/);
+      assert.doesNotMatch(googleHtml, /hphumail@gmail\.com/);
+      assert.doesNotMatch(googleHtml, /phupunpin@gmail\.com/);
+      assert.doesNotMatch(googleHtml, /hoangphupatrick@gmail\.com/);
     }
   }
 ];

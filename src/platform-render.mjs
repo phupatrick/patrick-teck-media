@@ -2,7 +2,6 @@ import { getFooterLinks, getPrimaryNav } from "./newsroom-service.mjs";
 
 export function renderAuthPage(state, language, { notice = "", activeTab = "login", csrf = {}, googleConfigured = false }) {
   const copy = language === "vi" ? getVietnameseCopy() : getEnglishCopy();
-  const googleLoginHref = `/auth/google/start?lang=${language}`;
   const ui =
     language === "vi"
       ? {
@@ -85,18 +84,7 @@ export function renderAuthPage(state, language, { notice = "", activeTab = "logi
               ${renderInput("password", copy.passwordLabel, "password", true, `placeholder="${escapeHtml(ui.passwordPlaceholder)}" autocomplete="current-password"`)}
               <button class="action-button auth-submit" type="submit">${copy.signInLabel}</button>
             </form>
-            <div class="auth-provider-card">
-              <div class="auth-provider-copy">
-                <p class="eyebrow">${copy.adminLabel}</p>
-                <h3>${copy.adminTitle}</h3>
-                <p>${copy.adminText}</p>
-              </div>
-              ${
-                googleConfigured
-                  ? `<a class="google-auth-button" href="${googleLoginHref}"><span class="google-auth-mark" aria-hidden="true">G</span><span>${copy.googleLoginLabel}</span></a>`
-                  : `<p class="auth-provider-muted">${copy.googleMissingText}</p>`
-              }
-            </div>
+            ${renderGoogleAuthCard(copy, language, googleConfigured)}
           </article>
 
           <article class="account-card auth-panel ${activeTab === "register" ? "is-active" : ""}" data-auth-panel="register">
@@ -516,6 +504,25 @@ function renderSelect(name, label, options) {
         ${options.map((option) => `<option value="${option.value}">${escapeHtml(option.label)}</option>`).join("")}
       </select>
     </label>
+  `;
+}
+
+function renderGoogleAuthCard(copy, language, googleConfigured) {
+  const loginHref = `/auth/google/start?lang=${language}`;
+
+  return `
+    <div class="auth-provider-card">
+      <div class="auth-provider-copy">
+        <p class="eyebrow">${copy.adminLabel}</p>
+        <h3>${copy.adminTitle}</h3>
+        <p>${copy.adminText}</p>
+      </div>
+      ${
+        googleConfigured
+          ? `<a class="google-auth-button" href="${loginHref}"><span class="google-auth-mark" aria-hidden="true">G</span><span>${copy.googleLoginLabel}</span></a>`
+          : `<p class="auth-provider-muted">${copy.googleMissingText}</p>`
+      }
+    </div>
   `;
 }
 
