@@ -17,7 +17,7 @@ function initBackdropMotion() {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let rafId = 0;
 
-  const updatePointer = (clientX, clientY, strength = 0.18) => {
+  const updatePointer = (clientX, clientY, strength = 0.2) => {
     const width = Math.max(window.innerWidth || 1, 1);
     const height = Math.max(window.innerHeight || 1, 1);
     const x = ((clientX / width) * 100).toFixed(2);
@@ -47,7 +47,7 @@ function initBackdropMotion() {
     window.setTimeout(() => ripple.remove(), 920);
   };
 
-  updatePointer(window.innerWidth * 0.52, window.innerHeight * 0.18, 0.16);
+  updatePointer(window.innerWidth * 0.52, window.innerHeight * 0.18, 0.2);
 
   if (reducedMotion) {
     return;
@@ -56,7 +56,7 @@ function initBackdropMotion() {
   window.addEventListener(
     "pointermove",
     (event) => {
-      queuePointerUpdate(event.clientX, event.clientY, event.pointerType === "mouse" ? 0.22 : 0.18);
+      queuePointerUpdate(event.clientX, event.clientY, event.pointerType === "mouse" ? 0.28 : 0.22);
     },
     { passive: true }
   );
@@ -64,14 +64,26 @@ function initBackdropMotion() {
   window.addEventListener(
     "pointerdown",
     (event) => {
-      queuePointerUpdate(event.clientX, event.clientY, 0.28);
+      queuePointerUpdate(event.clientX, event.clientY, 0.34);
       spawnRipple(event.clientX, event.clientY);
       window.setTimeout(() => {
-        document.documentElement.style.setProperty("--pointer-strength", "0.18");
+        document.documentElement.style.setProperty("--pointer-strength", "0.2");
       }, 260);
     },
     { passive: true }
   );
+
+  const ambientRipple = () => {
+    const x = Math.round(window.innerWidth * (0.18 + Math.random() * 0.64));
+    const y = Math.round(window.innerHeight * (0.16 + Math.random() * 0.52));
+    queuePointerUpdate(x, y, 0.24);
+    spawnRipple(x, y);
+    window.setTimeout(() => {
+      document.documentElement.style.setProperty("--pointer-strength", "0.2");
+    }, 220);
+  };
+
+  window.setInterval(ambientRipple, 5600);
 }
 
 function initStoryBrowser() {
