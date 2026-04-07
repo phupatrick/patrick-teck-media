@@ -59,6 +59,151 @@ const tests = [
     }
   },
   {
+    name: "diversifies homepage lanes when one topic and source dominate the queue",
+    run() {
+      function buildSourceSet(sourceName, slug) {
+        return [
+          {
+            source_type: "press",
+            source_name: sourceName,
+            source_url: `https://example.com/${slug}`,
+            region: "Global",
+            language: "vi",
+            trust_tier: "established-media",
+            published_at: "2026-04-07T10:00:00.000Z"
+          }
+        ];
+      }
+
+      function buildImage(sourceName, slug) {
+        return {
+          src: `https://images.example.com/${slug}.jpg`,
+          caption: `Reference image from ${sourceName} for ${slug}.`,
+          credit: sourceName,
+          source_url: `https://example.com/${slug}`,
+          alt: `Reference image for ${slug} collected from ${sourceName}.`
+        };
+      }
+
+      const aiStories = Array.from({ length: 8 }, (_, index) => {
+        const slug = `ai-package-${index + 1}`;
+        const sourceName = index < 4 ? "Google AI Blog" : "Google Workspace Updates";
+
+        return makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: index % 2 === 0 ? "EvergreenGuide" : "NewsArticle",
+          verification_state: "verified",
+          slug,
+          title: `Gói AI ${index + 1} đang đổi giá trị như thế nào`,
+          summary: "Một lớp cập nhật mới về gói AI, quyền lợi và cách sử dụng trong công việc hằng ngày.",
+          dek: "Người đọc cần phân biệt đâu là thay đổi thật sự hữu ích thay vì chỉ là lời quảng bá.",
+          hook: "Bài này gom các thay đổi mới nhất quanh giá, dung lượng và quyền lợi đi kèm trong nhóm gói AI trả phí.",
+          sections: [
+            { heading: "Điều mới", body: "Tác động nằm ở cách gói AI này thay đổi quy trình làm việc thật chứ không chỉ tăng danh sách tính năng." },
+            { heading: "Điều cần soi", body: "Người dùng cần nhìn vào giới hạn, quyền riêng tư và mức độ tích hợp trước khi quyết định xuống tiền." },
+            { heading: "Vì sao đáng chú ý", body: "Nếu cùng một loại bài phủ kín trang chủ, người đọc sẽ mất cảm giác mới mẻ dù tin tức vẫn đang tăng." }
+          ],
+          source_set: buildSourceSet(sourceName, slug),
+          image: buildImage(sourceName, slug),
+          published_at: `2026-04-07T${String(15 - index).padStart(2, "0")}:00:00.000Z`,
+          updated_at: `2026-04-07T${String(15 - index).padStart(2, "0")}:00:00.000Z`
+        });
+      });
+
+      const supportingStories = [
+        makeScenarioArticle({
+          language: "vi",
+          topic: "devices",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          slug: "npu-laptop-moi",
+          title: "Laptop NPU mới đang thay đổi cách dân văn phòng nâng máy",
+          summary: "Nhiều hãng đẩy NPU lên laptop tầm trung và đây là thứ người dùng cảm được ngay.",
+          dek: "Bài thiết bị cần xuất hiện để trang chủ không bị kéo hết về một loại headline.",
+          hook: "Đổi máy hay chưa giờ không còn chỉ là chuyện chip mạnh hơn, mà là trải nghiệm AI có dùng thật hay không.",
+          sections: [
+            { heading: "Điểm mới", body: "Laptop mới bắt đầu đưa AI xuống những tác vụ người dùng chạm mỗi ngày như họp, ghi chú và chỉnh sửa ảnh." },
+            { heading: "Điểm mua", body: "Khi giá không tăng quá mạnh, nhóm máy này trở thành lựa chọn dễ bàn hơn với người dùng phổ thông." },
+            { heading: "Điều cần theo dõi", body: "Hiệu năng pin, nhiệt độ và phần mềm đi kèm mới là ba thứ quyết định máy có đáng tiền thật hay không." }
+          ],
+          source_set: buildSourceSet("Hardware Desk", "npu-laptop-moi"),
+          image: buildImage("Hardware Desk", "npu-laptop-moi")
+        }),
+        makeScenarioArticle({
+          language: "vi",
+          topic: "apps-software",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          slug: "workspace-meo-moi",
+          title: "Ba mẹo app mới giúp team viết, họp và giữ việc gọn hơn",
+          summary: "Một lớp bài practical giúp homepage bớt lặp headline kiểu so gói AI.",
+          dek: "Các mẹo app thực tế luôn là nhóm bài kéo độc giả ở lại lâu hơn vì dùng được ngay.",
+          hook: "Không phải người đọc nào cũng mở báo để xem thêm một cuộc so giá AI nữa.",
+          sections: [
+            { heading: "Mẹo nhanh", body: "App tốt là app giúp cắt thao tác vụn trong ngày thay vì thêm một cửa sổ phải học lại từ đầu." },
+            { heading: "Điểm dùng thật", body: "Bài app nên nói rõ ai dùng hợp, ai không cần và kịch bản nào tạo ra khác biệt rõ nhất." },
+            { heading: "Điểm đáng giữ", body: "Những mẹo nhỏ nhưng dùng được ngay thường tạo cảm giác hữu ích rõ hơn cả một headline rất to." }
+          ],
+          source_set: buildSourceSet("Workspace Blog", "workspace-meo-moi"),
+          image: buildImage("Workspace Blog", "workspace-meo-moi")
+        }),
+        makeScenarioArticle({
+          language: "vi",
+          topic: "internet-business-tech",
+          content_type: "NewsArticle",
+          verification_state: "emerging",
+          slug: "mang-xa-hoi-doi-luat-cho-shop",
+          title: "Mạng xã hội đổi luật mới khiến nhiều shop phải sửa cách vận hành",
+          summary: "Một tín hiệu business-tech giúp mặt trước có thêm nhịp khác ngoài AI thuần.",
+          dek: "Tin internet và kinh doanh số là nhóm bài rất cần để bề mặt newsroom không bị đơn điệu.",
+          hook: "Mỗi thay đổi nhỏ ở nền tảng bán hàng đều có thể chạm thẳng vào chi phí vận hành và doanh thu.",
+          sections: [
+            { heading: "Điều đang diễn ra", body: "Một thay đổi nền tảng dù nhỏ vẫn đủ để kéo theo loạt quyết định mới từ shop nhỏ tới đội vận hành nội dung." },
+            { heading: "Tác động", body: "Nếu luật mới siết cách hiển thị hoặc đo lường, chi phí sẽ đội lên trước khi người bán kịp phản ứng." },
+            { heading: "Điều cần làm", body: "Độc giả cần một bài gọn, rõ và thực tế thay vì thêm một headline khuếch đại cảm giác khẩn cấp." }
+          ],
+          source_set: buildSourceSet("Platform Watch", "mang-xa-hoi-doi-luat-cho-shop"),
+          image: buildImage("Platform Watch", "mang-xa-hoi-doi-luat-cho-shop")
+        }),
+        makeScenarioArticle({
+          language: "vi",
+          topic: "gaming",
+          content_type: "NewsArticle",
+          verification_state: "emerging",
+          slug: "tay-cam-moi-cho-handheld",
+          title: "Một phụ kiện handheld mới khiến game thủ quay lại nhóm máy mini",
+          summary: "Một nốt gaming nhỏ nhưng đủ để homepage thở đều hơn.",
+          dek: "Gaming không nên nuốt hết mặt trước, nhưng cũng không nên biến mất khỏi newsroom.",
+          hook: "Chỉ một phụ kiện đúng điểm đau cũng đủ kéo lại sự chú ý cho cả một nhánh thiết bị đang chững nhịp.",
+          sections: [
+            { heading: "Điểm hút", body: "Game thủ chỉ phản ứng mạnh khi phụ kiện mới đụng vào trải nghiệm thật như nhiệt, độ trễ và cảm giác cầm nắm." },
+            { heading: "Điểm mua", body: "Nếu giá hợp lý, nhóm handheld sẽ lại có cớ quay về với các bản mod và phụ kiện kiểu này." },
+            { heading: "Điểm cần soi", body: "Tin gaming vẫn cần được viết theo hướng trải nghiệm dùng thật thay vì chỉ bơm không khí." }
+          ],
+          source_set: buildSourceSet("Gaming Desk", "tay-cam-moi-cho-handheld"),
+          image: buildImage("Gaming Desk", "tay-cam-moi-cho-handheld")
+        })
+      ];
+
+      const scenario = buildScenarioState([...aiStories, ...supportingStories]);
+      const home = getHomeData(scenario, "vi");
+      const latestTopics = new Set(home.latest.map((article) => article.topic));
+      const latestSources = new Map();
+      const latestHrefs = new Set(home.latest.map((article) => article.href));
+      const browserOverlap = home.browserStories.filter((article) => latestHrefs.has(article.href)).length;
+
+      for (const article of home.latest) {
+        const sourceName = article.source_set?.[0]?.source_name || article.source_name || "unknown";
+        latestSources.set(sourceName, (latestSources.get(sourceName) || 0) + 1);
+      }
+
+      assert.ok(latestTopics.size >= 3);
+      assert.ok(latestSources.size >= 4);
+      assert.ok(browserOverlap <= 4);
+    }
+  },
+  {
     name: "keeps provider-specific AI companion images aligned with the provider being covered",
     run() {
       const articles = [

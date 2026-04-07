@@ -372,20 +372,19 @@ export function getHomeData(state, language) {
     state.site.frontPageSourceWeights
   );
   const readyPrioritized = prioritizeFrontPageStories(prioritized);
-  const latest = readyPrioritized.slice(0, 10);
-  const packageWatch = prioritizeFrontPageStories(sortStoriesForFrontPage(
+  const packageCandidates = prioritizeFrontPageStories(sortStoriesForFrontPage(
     localized.filter((article) => isAiPackageFrontpageCandidate(article)),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  )).slice(0, 8);
+  ));
   const verifiedStories = prioritizeFrontPageStories(prioritized.filter(
     (article) => article.verification_state === "verified" && article.content_type === "NewsArticle"
   ));
   const leadStories = prioritizeFrontPageStories(prioritized.filter(
     (article) => article.content_type === "NewsArticle" && article.verification_state !== "trend"
   ));
-  const packageLeadStories = packageWatch.filter((article) => article.content_type !== "EvergreenGuide");
+  const packageLeadStories = packageCandidates.filter((article) => article.content_type !== "EvergreenGuide");
   const featured =
     packageLeadStories.find((article) => article.hero_image?.kind === "source") ||
     leadStories.find((article) => article.topic === "ai" && article.hero_image?.kind === "source") ||
@@ -396,36 +395,72 @@ export function getHomeData(state, language) {
     verifiedStories[0] ||
     prioritized[0] ||
     localized[0];
+  const freshnessAnchor = featured?.updated_at || featured?.published_at || readyPrioritized[0]?.updated_at || readyPrioritized[0]?.published_at;
   const briefing =
     readyPrioritized.find(
       (article) =>
         article.content_type === "Roundup" &&
-        isStoryFreshRelativeToAnchor(article, latest[0]?.updated_at || latest[0]?.published_at, 5)
+        !isSameStoryFamily(article, featured) &&
+        isStoryFreshRelativeToAnchor(article, freshnessAnchor, 5)
     ) ||
-    latest.find((article) => article.href !== featured?.href) ||
-    readyPrioritized.find((article) => article.href !== featured?.href) ||
+    readyPrioritized.find((article) => !isSameStoryFamily(article, featured)) ||
     readyPrioritized[0] ||
     localized[0];
-  const trending = prioritizeFrontPageStories(prioritized.filter((article) => article.verification_state !== "verified")).slice(0, 6);
-  const evergreen = prioritizeFrontPageStories(sortStoriesForFrontPage(
+  const latest = selectDiverseFrontPageStories(readyPrioritized, 10, {
+    excludeStories: [featured, briefing],
+    maxPerTopic: { ai: 3, devices: 3, default: 2 },
+    maxPerSource: 2
+  });
+  const packageWatch = selectDiverseFrontPageStories(packageCandidates, 8, {
+    excludeStories: [featured, briefing],
+    maxPerSource: 2
+  });
+  const trending = selectDiverseFrontPageStories(
+    prioritizeFrontPageStories(prioritized.filter((article) => article.verification_state !== "verified")),
+    6,
+    {
+      excludeStories: [featured, briefing],
+      maxPerTopic: { ai: 2, devices: 2, default: 2 },
+      maxPerSource: 2
+    }
+  );
+  const evergreen = selectDiverseFrontPageStories(prioritizeFrontPageStories(sortStoriesForFrontPage(
     localized.filter((article) => article.content_type === "EvergreenGuide" || article.content_type === "ComparisonPage"),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  )).slice(0, 8);
-  const tips = prioritizeFrontPageStories(sortStoriesForFrontPage(
+  )), 8, {
+    excludeStories: [featured, briefing, ...packageWatch],
+    maxPerTopic: { ai: 2, devices: 2, default: 2 },
+    maxPerSource: 2
+  });
+  const tips = selectDiverseFrontPageStories(prioritizeFrontPageStories(sortStoriesForFrontPage(
     localized.filter((article) => isPracticalTipsCandidate(article) && isGuideLedTipsCandidate(article)),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
-  )).slice(0, 8);
+  )), 8, {
+    excludeStories: [featured, briefing, ...packageWatch, ...evergreen],
+    maxPerTopic: { ai: 2, "apps-software": 3, default: 2 },
+    maxPerSource: 1
+  });
+  const browserStories = selectDiverseFrontPageStories(readyPrioritized, 10, {
+    excludeStories: [featured, briefing, ...latest, ...packageWatch],
+    maxPerTopic: { ai: 3, devices: 3, default: 2 },
+    maxPerSource: 2
+  });
+  const topicSectionSeeds = [featured, briefing, ...latest, ...browserStories];
   const topicSections = state.topics
     .map((topic) => {
       const stories = buildHomeTopicSectionStories(
         localized.filter((article) => article.topic === topic.id),
         state.runtime.generatedAt,
         state.site.frontPageTopicWeights,
-        state.site.frontPageSourceWeights
+        state.site.frontPageSourceWeights,
+        {
+          excludeStories: topicSectionSeeds,
+          maxPerSource: 2
+        }
       );
 
       if (!stories.length) {
@@ -450,7 +485,7 @@ export function getHomeData(state, language) {
     tips,
     latest,
     liveDesk: getLiveDeskData(state, language),
-    browserStories: readyPrioritized.slice(0, 10),
+    browserStories,
     topicSections,
     metrics: getNewsroomMetrics(state, language)
   };
@@ -504,6 +539,100 @@ function prioritizeFrontPageStories(stories) {
   }
 
   return dedupeStoriesByHref([...ready, ...stories]);
+}
+
+function selectDiverseFrontPageStories(stories, limit, options = {}) {
+  const selected = [];
+  const overflow = [];
+  const seenHrefs = new Set();
+  const seenClusters = new Set();
+  const seenTitles = new Set();
+  const topicCounts = new Map();
+  const sourceCounts = new Map();
+  const normalizedStories = dedupeStoriesByHref(stories);
+  const excludeStories = Array.isArray(options.excludeStories) ? options.excludeStories : [];
+
+  for (const article of excludeStories) {
+    const href = article?.href;
+    const clusterKey = getStoryClusterKey(article);
+    const titleKey = getStoryTitleFingerprint(article);
+
+    if (href) {
+      seenHrefs.add(href);
+    }
+
+    if (clusterKey) {
+      seenClusters.add(clusterKey);
+    }
+
+    if (titleKey) {
+      seenTitles.add(titleKey);
+    }
+  }
+
+  const trySelect = (article, enforceCaps) => {
+    if (!article || selected.length >= limit) {
+      return true;
+    }
+
+    const href = article.href;
+    const clusterKey = getStoryClusterKey(article);
+    const titleKey = getStoryTitleFingerprint(article);
+    const topicKey = getStoryTopicKey(article);
+    const sourceKey = getStorySourceKey(article);
+
+    if (!href || seenHrefs.has(href) || (clusterKey && seenClusters.has(clusterKey)) || (titleKey && seenTitles.has(titleKey))) {
+      return false;
+    }
+
+    if (enforceCaps) {
+      const topicLimit = resolveDiversityLimit(options.maxPerTopic, topicKey);
+      const sourceLimit = resolveDiversityLimit(options.maxPerSource, sourceKey);
+
+      if (
+        ((topicLimit < Number.POSITIVE_INFINITY) && (topicCounts.get(topicKey) || 0) >= topicLimit) ||
+        ((sourceLimit < Number.POSITIVE_INFINITY) && sourceKey && (sourceCounts.get(sourceKey) || 0) >= sourceLimit)
+      ) {
+        overflow.push(article);
+        return false;
+      }
+    }
+
+    selected.push(article);
+    seenHrefs.add(href);
+
+    if (clusterKey) {
+      seenClusters.add(clusterKey);
+    }
+
+    if (titleKey) {
+      seenTitles.add(titleKey);
+    }
+
+    topicCounts.set(topicKey, (topicCounts.get(topicKey) || 0) + 1);
+
+    if (sourceKey) {
+      sourceCounts.set(sourceKey, (sourceCounts.get(sourceKey) || 0) + 1);
+    }
+
+    return selected.length >= limit;
+  };
+
+  for (const article of normalizedStories) {
+    if (trySelect(article, true)) {
+      break;
+    }
+  }
+
+  if (selected.length < limit) {
+    for (const article of overflow) {
+      if (trySelect(article, false)) {
+        break;
+      }
+    }
+  }
+
+  return selected;
 }
 
 function computeFrontPagePriority(article, anchorDate, topicWeights = FRONT_PAGE_TOPIC_WEIGHTS, sourceWeights = FRONT_PAGE_SOURCE_WEIGHTS) {
@@ -585,7 +714,7 @@ function isFrontPageReady(article) {
   );
 }
 
-function buildHomeTopicSectionStories(stories, anchorDate, topicWeights, sourceWeights) {
+function buildHomeTopicSectionStories(stories, anchorDate, topicWeights, sourceWeights, options = {}) {
   const sorted = prioritizeFrontPageStories(sortStoriesForFrontPage(
     stories,
     anchorDate,
@@ -596,11 +725,11 @@ function buildHomeTopicSectionStories(stories, anchorDate, topicWeights, sourceW
   const illustrated = sorted.filter((article) => article?.hero_image?.kind === "source");
 
   if (ready.length >= 2) {
-    return ready.slice(0, 4);
+    return selectDiverseFrontPageStories(ready, 4, options);
   }
 
   if (illustrated.length >= 2) {
-    return dedupeStoriesByHref([...ready, ...illustrated, ...sorted]).slice(0, 3);
+    return selectDiverseFrontPageStories([...ready, ...illustrated, ...sorted], 3, options);
   }
 
   return [];
@@ -619,6 +748,85 @@ function dedupeStoriesByHref(stories) {
     seen.add(href);
     return true;
   });
+}
+
+function isSameStoryFamily(left, right) {
+  if (!left || !right) {
+    return false;
+  }
+
+  if (left.href && right.href && left.href === right.href) {
+    return true;
+  }
+
+  const leftCluster = getStoryClusterKey(left);
+  const rightCluster = getStoryClusterKey(right);
+
+  if (leftCluster && rightCluster && leftCluster === rightCluster) {
+    return true;
+  }
+
+  const leftTitle = getStoryTitleFingerprint(left);
+  const rightTitle = getStoryTitleFingerprint(right);
+
+  return Boolean(leftTitle && rightTitle && leftTitle === rightTitle);
+}
+
+function getStoryTopicKey(article) {
+  return normalizeTopicId(article?.topic) || String(article?.topic || "misc");
+}
+
+function getStorySourceKey(article) {
+  return normalizeStoryKey(
+    article?.source_name ||
+      article?.source_set?.[0]?.source_name ||
+      article?.source_set?.map((source) => source?.source_name).find(Boolean) ||
+      ""
+  );
+}
+
+function getStoryClusterKey(article) {
+  return normalizeStoryKey(article?.cluster_id || "");
+}
+
+function getStoryTitleFingerprint(article) {
+  return normalizeStoryKey(
+    String(article?.title || article?.slug || "")
+      .replace(/\|\s*c(?:a|ậ|ậ)p nh(?:a|ậ|ậ)t nhanh.*$/i, " ")
+      .replace(/\bcap nhat nhanh\b.*$/i, " ")
+      .replace(/\bpatrick tech media\b/gi, " ")
+  );
+}
+
+function normalizeStoryKey(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\b(va|voi|cho|the|and|for|news|story|update|live|editorial|patrick|tech|media)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function resolveDiversityLimit(limitConfig, key) {
+  if (typeof limitConfig === "number" && Number.isFinite(limitConfig)) {
+    return limitConfig;
+  }
+
+  if (!limitConfig || typeof limitConfig !== "object") {
+    return Number.POSITIVE_INFINITY;
+  }
+
+  if (key && Object.hasOwn(limitConfig, key) && Number.isFinite(limitConfig[key])) {
+    return limitConfig[key];
+  }
+
+  if (Object.hasOwn(limitConfig, "default") && Number.isFinite(limitConfig.default)) {
+    return limitConfig.default;
+  }
+
+  return Number.POSITIVE_INFINITY;
 }
 
 function computeFreshnessPriority(article, anchorDate) {
