@@ -852,10 +852,13 @@ export function renderStorePage(state, language, adsConfig) {
   const isVietnamese = language === "vi";
   const title = isVietnamese ? "Patrick Tech Store" : "Patrick Tech Store";
   const intro = isVietnamese
-    ? "Điểm vào ổn định cho các gói tài khoản, tool và phần mềm Patrick Tech đang giới thiệu. Khi hệ thống quảng cáo chưa chạy đủ, các block promo trên newsroom sẽ dẫn về đây thay vì nhảy thẳng sang domain ngoài."
-    : "A stable landing page for Patrick Tech accounts, tools, and software collections. When ad inventory is not live yet, newsroom promo slots land here instead of jumping straight to an external domain.";
-  const externalLabel = isVietnamese ? "Mở trang ngoài" : "Open external page";
-  const picksLabel = isVietnamese ? "Gợi ý từ newsroom" : "Newsroom picks";
+    ? "Patrick Tech Store là nơi gom các gói AI, phần mềm, tài khoản số và stack làm việc mà Patrick Tech Co. đang ưu tiên cho người dùng cần vào nhanh, chọn gọn và dùng ổn định."
+    : "Patrick Tech Store is where Patrick Tech Co. gathers the AI plans, software stacks, and digital accounts it is prioritizing right now.";
+  const heroTitle = isVietnamese
+    ? "Các gói AI, phần mềm và tài khoản số đang được Patrick Tech Co. đẩy mạnh"
+    : "The AI plans, software stacks, and digital accounts Patrick Tech Co. is pushing now";
+  const externalLabel = isVietnamese ? "Vào store" : "Visit store";
+  const picksLabel = isVietnamese ? "Từ newsroom" : "From the newsroom";
   const picksTitle = isVietnamese ? "Bài đang kéo nhu cầu thật" : "Stories driving real demand";
   const relatedStories = state.articles
     .filter((article) => article.language === language && article.store_link_mode !== "off")
@@ -871,7 +874,7 @@ export function renderStorePage(state, language, adsConfig) {
     content: `
       <section class="simple-hero">
         <p class="eyebrow">${title}</p>
-        <h1>${isVietnamese ? "Một điểm vào gọn, ổn định cho các promo trên Patrick Tech Media" : "A stable landing point for Patrick Tech Media promos"}</h1>
+        <h1>${heroTitle}</h1>
         <p>${escapeHtml(intro)}</p>
       </section>
 
@@ -990,7 +993,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     `<meta name="robots" content="index,follow,max-image-preview:large" />`,
     `<link rel="preconnect" href="https://fonts.googleapis.com" />`,
     `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`,
-    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" />`,
+    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" />`,
     `<link rel="icon" href="${iconPath}" type="image/svg+xml" />`,
     `<link rel="apple-touch-icon" href="${iconPath}" />`,
     `<link rel="canonical" href="${canonicalUrl}" />`,
@@ -1629,9 +1632,9 @@ function renderStorePanel(state, article, language) {
           .map(
             (item) => `
               <article class="story-card store-card">
-                <h3><a href="${item.url}">${escapeHtml(item.title[language])}</a></h3>
+                <h3><a href="${item.url}" target="_blank" rel="noreferrer">${escapeHtml(item.title[language])}</a></h3>
                 <p>${escapeHtml(item.description[language])}</p>
-                <a class="mini-link" href="${item.url}">${copy.visitStore}</a>
+                <a class="mini-link" href="${item.url}" target="_blank" rel="noreferrer">${copy.visitStore}</a>
               </article>
             `
           )
@@ -1646,26 +1649,27 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement, promoHref =
     return "";
   }
 
-  const label = language === "vi" ? "Khu vực quảng cáo" : "Advertising slot";
+  const adLabel = language === "vi" ? "Khu vực quảng cáo" : "Advertising slot";
   const slotId = adsConfig.slots[placement];
 
   if (adsConfig.client && slotId) {
     return `
       <section class="ad-shell">
-        <p class="ad-label">${label}</p>
+        <p class="ad-label">${adLabel}</p>
         <ins class="adsbygoogle ad-slot" style="display:block" data-ad-client="${adsConfig.client}" data-ad-slot="${slotId}" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </section>
     `;
   }
 
+  const promoLabel = language === "vi" ? "Ưu đãi nổi bật" : "Featured offer";
   return `
     <section class="ad-shell placeholder store-promo-shell">
-      <p class="ad-label">${label}</p>
+      <p class="ad-label">${promoLabel}</p>
       <a class="ad-slot placeholder-slot store-promo-slot" href="${promoHref}">
         <span class="store-promo-kicker">${language === "vi" ? "Patrick Tech Store" : "Patrick Tech Store"}</span>
-        <strong>${language === "vi" ? "Tài khoản, tool và phần mềm đang bán tại store" : "Accounts, tools, and software now available in the store"}</strong>
-        <span>${language === "vi" ? "Tạm thời vị trí này ưu tiên cho hệ sinh thái Patrick Tech." : "This slot is temporarily dedicated to the Patrick Tech ecosystem."}</span>
+        <strong>${language === "vi" ? "Mở nhanh các gói AI, tool và phần mềm đang lên ưu đãi" : "Open the AI plans, tools, and software currently getting the push"}</strong>
+        <span>${language === "vi" ? "Vào thẳng store để xem những gói Patrick Tech đang đẩy mạnh lúc này." : "Jump straight into the store to see what Patrick Tech is pushing right now."}</span>
       </a>
     </section>
   `;

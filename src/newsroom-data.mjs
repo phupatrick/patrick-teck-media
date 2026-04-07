@@ -1,37 +1,37 @@
 const TOPICS = [
   {
     id: "ai",
-    accent: "#ff8a3d",
+    accent: "#56e7ff",
     labels: { vi: "AI", en: "AI" },
     slugs: { vi: "ai", en: "ai" }
   },
   {
     id: "apps-software",
-    accent: "#2f8f83",
+    accent: "#17c9ff",
     labels: { vi: "Ứng dụng & Phần mềm", en: "Apps & Software" },
     slugs: { vi: "ung-dung-phan-mem", en: "apps-software" }
   },
   {
     id: "devices",
-    accent: "#2463eb",
+    accent: "#4e7dff",
     labels: { vi: "Thiết bị", en: "Devices" },
     slugs: { vi: "thiet-bi", en: "devices" }
   },
   {
     id: "security",
-    accent: "#9b4dca",
+    accent: "#1de59c",
     labels: { vi: "Bảo mật", en: "Security" },
     slugs: { vi: "bao-mat", en: "security" }
   },
   {
     id: "gaming",
-    accent: "#e6527d",
+    accent: "#ff7a29",
     labels: { vi: "Gaming", en: "Gaming" },
     slugs: { vi: "gaming", en: "gaming" }
   },
   {
     id: "internet-business-tech",
-    accent: "#0f7f54",
+    accent: "#9bff45",
     labels: { vi: "Internet & Doanh nghiệp số", en: "Internet & Business Tech" },
     slugs: { vi: "internet-doanh-nghiep-so", en: "internet-business-tech" }
   }
@@ -78,7 +78,7 @@ const STORE_ITEMS = [
       vi: "Nhóm công cụ phục vụ viết, dịch, tổng hợp và tăng tốc quy trình nội bộ.",
       en: "A curated stack for writing, translation, summarization, and internal workflow speed."
     },
-    path: "/collections/ai-workspace-bundle"
+    path: "/?ref=patricktechmedia&entry=ai-workspace-bundle"
   },
   {
     id: "creator-software-stack",
@@ -90,7 +90,7 @@ const STORE_ITEMS = [
       vi: "Bộ công cụ ưu tiên cho video, thiết kế và vận hành nội dung nhiều kênh.",
       en: "A practical set of tools for video, design, and multi-channel content operations."
     },
-    path: "/collections/creator-software-stack"
+    path: "/?ref=patricktechmedia&entry=creator-software-stack"
   },
   {
     id: "secure-access-kit",
@@ -102,7 +102,7 @@ const STORE_ITEMS = [
       vi: "Gợi ý stack dành cho đăng nhập an toàn, quản trị tài khoản và bàn giao quyền truy cập.",
       en: "Suggested tools for safe sign-in, account governance, and access handoff."
     },
-    path: "/collections/secure-access-kit"
+    path: "/?ref=patricktechmedia&entry=secure-access-kit"
   },
   {
     id: "gaming-cloud-pass",
@@ -114,7 +114,7 @@ const STORE_ITEMS = [
       vi: "Bộ tài nguyên nhẹ dành cho game streaming, cloud save và giải trí số.",
       en: "A lightweight stack for cloud gaming, saves, and digital entertainment."
     },
-    path: "/collections/gaming-cloud-pass"
+    path: "/?ref=patricktechmedia&entry=gaming-cloud-pass"
   }
 ];
 

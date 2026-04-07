@@ -462,7 +462,7 @@ const tests = [
 
       assert.match(homeHtml, /store-promo-slot\" href=\"\/vi\/store\"/);
       assert.match(storeHtml, /Patrick Tech Store/);
-      assert.match(storeHtml, /patricktechstore\.vercel\.app\/collections\//);
+      assert.match(storeHtml, /patricktechstore\.vercel\.app\/\?ref=patricktechmedia&entry=/);
     }
   },
   {
