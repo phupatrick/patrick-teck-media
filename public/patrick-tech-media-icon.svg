@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
   <title>Patrick Tech Media icon</title>
-  <desc>Blue Patrick Tech mark with circuit nodes on a clean white background.</desc>
-  <rect width="256" height="256" rx="48" fill="#f8fbff"/>
+  <desc>Blue Patrick Tech mark with circuit nodes on a transparent background.</desc>
   <defs>
     <linearGradient id="ptmBlue" x1="0%" x2="100%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#0f74d8"/>
-      <stop offset="100%" stop-color="#0b57c2"/>
+      <stop offset="0%" stop-color="#2493ff"/>
+      <stop offset="55%" stop-color="#1975ff"/>
+      <stop offset="100%" stop-color="#0d5ad9"/>
     </linearGradient>
   </defs>
   <path d="M72 48h68c34.242 0 62 27.758 62 62s-27.758 62-62 62h-28v40H72V48z" fill="url(#ptmBlue)"/>

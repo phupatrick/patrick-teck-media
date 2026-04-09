@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --bg: #04101e;
-  --bg-2: #07192c;
+  --bg: #020915;
+  --bg-2: #081523;
   --ink: #eaf6ff;
-  --muted: #98aec9;
-  --surface: rgba(7, 19, 36, 0.82);
-  --surface-strong: rgba(8, 22, 41, 0.94);
-  --line: rgba(98, 165, 255, 0.16);
-  --line-strong: rgba(96, 231, 255, 0.34);
-  --accent: #35d5ff;
-  --accent-deep: #8cecff;
-  --signal: #93ff54;
+  --muted: #93a9c4;
+  --surface: rgba(6, 14, 27, 0.84);
+  --surface-strong: rgba(7, 18, 32, 0.96);
+  --line: rgba(76, 131, 215, 0.2);
+  --line-strong: rgba(74, 181, 255, 0.34);
+  --accent: #2898ff;
+  --accent-deep: #9fd6ff;
+  --signal: #56e1b7;
   --trend: #ff8a3d;
   --shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
-  --glow-cyan: rgba(53, 213, 255, 0.34);
-  --glow-blue: rgba(78, 125, 255, 0.28);
-  --glow-violet: rgba(53, 213, 255, 0.16);
+  --glow-cyan: rgba(40, 152, 255, 0.28);
+  --glow-blue: rgba(67, 112, 255, 0.22);
+  --glow-violet: rgba(26, 141, 255, 0.12);
   --radius-xl: 30px;
   --radius-lg: 22px;
   --radius-md: 16px;
@@ -46,9 +46,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:
-    radial-gradient(circle at 12% -10%, rgba(53, 213, 255, 0.24), transparent 32%),
-    radial-gradient(circle at 88% 10%, rgba(78, 125, 255, 0.22), transparent 30%),
-    radial-gradient(circle at 54% 92%, rgba(147, 255, 84, 0.08), transparent 36%),
+    radial-gradient(circle at 12% -10%, rgba(40, 152, 255, 0.22), transparent 32%),
+    radial-gradient(circle at 88% 10%, rgba(67, 112, 255, 0.2), transparent 30%),
+    radial-gradient(circle at 54% 92%, rgba(86, 225, 183, 0.08), transparent 36%),
     linear-gradient(180deg, var(--bg), var(--bg-2));
   position: relative;
 }
@@ -64,17 +64,17 @@ body::after {
 
 body::before {
   background:
-    radial-gradient(circle at 18% 22%, rgba(53, 213, 255, 0.22), transparent 28%),
-    radial-gradient(circle at 82% 18%, rgba(78, 125, 255, 0.18), transparent 30%),
-    radial-gradient(circle at 70% 78%, rgba(147, 255, 84, 0.08), transparent 30%);
+    radial-gradient(circle at 18% 22%, rgba(40, 152, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(67, 112, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 70% 78%, rgba(86, 225, 183, 0.07), transparent 30%);
   animation: background-drift 18s ease-in-out infinite;
   opacity: 0.92;
 }
 
 body::after {
   background-image:
-    linear-gradient(rgba(70, 140, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(70, 140, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(48, 111, 195, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(48, 111, 195, 0.07) 1px, transparent 1px),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
   background-size: 62px 62px, 62px 62px, 220px 220px;
   mix-blend-mode: screen;
@@ -300,7 +300,7 @@ a {
 .ad-shell {
   border: 1px solid var(--line);
   background:
-    linear-gradient(145deg, rgba(8, 20, 38, 0.94), rgba(7, 18, 34, 0.86));
+    linear-gradient(145deg, rgba(8, 15, 27, 0.96), rgba(9, 21, 38, 0.88));
   backdrop-filter: blur(16px);
   box-shadow: var(--shadow);
   width: 100%;
@@ -331,7 +331,7 @@ a {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(118deg, transparent 18%, rgba(53, 213, 255, 0.16) 42%, rgba(78, 125, 255, 0.14) 54%, transparent 78%);
+    linear-gradient(118deg, transparent 18%, rgba(40, 152, 255, 0.14) 42%, rgba(67, 112, 255, 0.12) 54%, transparent 78%);
   transform: translateX(-120%);
   opacity: 0;
 }
@@ -436,10 +436,11 @@ a {
   padding: 14px 16px;
   border-radius: 999px;
   margin-bottom: 22px;
-  border-color: rgba(83, 190, 255, 0.26);
+  border-color: rgba(67, 136, 231, 0.3);
   box-shadow:
     0 28px 72px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(125, 232, 255, 0.14);
+    inset 0 1px 0 rgba(118, 176, 255, 0.12),
+    0 0 0 1px rgba(35, 87, 165, 0.12);
 }
 
 .brand-lockup {
@@ -447,6 +448,14 @@ a {
   align-items: center;
   gap: 12px;
   min-width: 0;
+  padding: 10px 14px;
+  border-radius: 24px;
+  border: 1px solid rgba(74, 138, 231, 0.18);
+  background:
+    linear-gradient(145deg, rgba(9, 20, 35, 0.82), rgba(10, 24, 44, 0.62));
+  box-shadow:
+    inset 0 1px 0 rgba(141, 194, 255, 0.08),
+    0 14px 28px rgba(0, 0, 0, 0.18);
 }
 
 .brand-lockup strong,
@@ -481,6 +490,9 @@ h3 {
   display: block;
   width: min(100%, 208px);
   height: auto;
+  filter:
+    drop-shadow(0 6px 16px rgba(0, 0, 0, 0.24))
+    drop-shadow(0 0 16px rgba(40, 152, 255, 0.12));
 }
 
 .brand-meta {
@@ -516,10 +528,10 @@ h3 {
 .pill {
   padding: 9px 13px;
   border-radius: 999px;
-  border: 1px solid rgba(83, 190, 255, 0.24);
+  border: 1px solid rgba(72, 135, 226, 0.22);
   background:
-    linear-gradient(160deg, rgba(8, 24, 45, 0.9), rgba(12, 31, 56, 0.76));
-  box-shadow: inset 0 1px 0 rgba(125, 232, 255, 0.12);
+    linear-gradient(160deg, rgba(9, 21, 38, 0.92), rgba(11, 28, 48, 0.8));
+  box-shadow: inset 0 1px 0 rgba(123, 175, 255, 0.08);
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
 }
 
@@ -533,9 +545,9 @@ h3 {
 .hero-badges span:hover,
 .pill:hover {
   transform: translateY(-2px);
-  border-color: rgba(53, 213, 255, 0.42);
+  border-color: rgba(40, 152, 255, 0.38);
   box-shadow:
-    0 0 0 1px rgba(53, 213, 255, 0.18),
+    0 0 0 1px rgba(40, 152, 255, 0.16),
     0 14px 28px rgba(0, 0, 0, 0.24);
   color: var(--accent-deep);
 }
@@ -551,8 +563,11 @@ h3 {
 }
 
 .lang-pill.subtle {
-  background: linear-gradient(140deg, rgba(53, 213, 255, 0.18), rgba(78, 125, 255, 0.14));
-  border-color: rgba(53, 213, 255, 0.34);
+  background: linear-gradient(140deg, rgba(20, 79, 158, 0.58), rgba(39, 148, 255, 0.2));
+  border-color: rgba(64, 146, 255, 0.44);
+  box-shadow:
+    inset 0 1px 0 rgba(168, 213, 255, 0.12),
+    0 0 22px rgba(28, 125, 255, 0.12);
 }
 
 .page-body {
@@ -616,9 +631,9 @@ h3 {
   border: 1px solid var(--line);
   border-radius: calc(var(--radius-lg) - 2px);
   background:
-    linear-gradient(145deg, rgba(10, 27, 49, 0.92), rgba(8, 21, 40, 0.84));
+    linear-gradient(145deg, rgba(9, 18, 32, 0.92), rgba(8, 23, 41, 0.86));
   box-shadow:
-    inset 0 1px 0 rgba(125, 232, 255, 0.12),
+    inset 0 1px 0 rgba(123, 175, 255, 0.1),
     0 16px 42px rgba(0, 0, 0, 0.24);
 }
 
