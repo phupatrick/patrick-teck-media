@@ -406,7 +406,6 @@ function renderPlatformLayout({ state, language, title, description, path, conte
   const alternatePath = path.replace(/^\/(vi|en)\//, (_, current) => `/${current === "vi" ? "en" : "vi"}/`);
   const canonicalUrl = `${state.site.siteUrl}${path}`;
   const assetVersion = encodeURIComponent(state.site.assetVersion || "patrick-tech-media");
-  const logoPath = `/patrick-tech-media-mark.svg?v=${assetVersion}`;
   const iconPath = `/patrick-tech-media-icon.svg?v=${assetVersion}`;
   const defaultOgImagePath = `/founder.jpg?v=${assetVersion}`;
   const stylesheetPath = `/site.css?v=${assetVersion}`;
@@ -448,8 +447,12 @@ function renderPlatformLayout({ state, language, title, description, path, conte
     <div class="backdrop"></div>
     <div class="site-shell">
       <header class="topbar">
-        <a class="brand-lockup" href="/${language}/">
-          <img class="brand-logo" src="${logoPath}" alt="${escapeHtml(state.site.name)}" />
+        <a class="brand-lockup" href="/${language}/" aria-label="${escapeHtml(state.site.name)}">
+          <img class="brand-icon" src="${iconPath}" alt="" aria-hidden="true" />
+          <span class="brand-wordmark" aria-hidden="true">
+            <strong>Patrick</strong>
+            <strong>Tech Media</strong>
+          </span>
         </a>
         <nav class="nav-strip" aria-label="Primary">
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
