@@ -102,6 +102,7 @@ const MAX_REQUEST_URL_LENGTH = 4096;
 const MAX_QUERY_STRING_LENGTH = 2048;
 const MAX_QUERY_PARAMETER_COUNT = 32;
 const PUBLIC_PAGE_CACHE_CONTROL = "public, max-age=0, s-maxage=120, stale-while-revalidate=600";
+const PUBLIC_HOME_CACHE_CONTROL = "public, max-age=0, s-maxage=15, stale-while-revalidate=45";
 const PUBLIC_API_CACHE_CONTROL = "public, max-age=15, s-maxage=30, stale-while-revalidate=120";
 const LIVE_API_CACHE_CONTROL = "public, max-age=10, s-maxage=15, stale-while-revalidate=45";
 const STATIC_ASSET_CACHE_CONTROL = "public, max-age=31536000, immutable";
@@ -687,7 +688,16 @@ function sendEmpty(res, statusCode, extraHeaders = {}) {
 }
 
 function resolvePublicPageCacheControl(requestUrl) {
-  return requestUrl.search ? "no-store" : PUBLIC_PAGE_CACHE_CONTROL;
+  if (requestUrl.search) {
+    return "no-store";
+  }
+
+  const pathname = requestUrl.pathname || "/";
+  if (pathname === "/" || pathname === "/vi" || pathname === "/vi/" || pathname === "/en" || pathname === "/en/") {
+    return PUBLIC_HOME_CACHE_CONTROL;
+  }
+
+  return PUBLIC_PAGE_CACHE_CONTROL;
 }
 
 async function tryStatic(pathname, requestUrl, res) {
