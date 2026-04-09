@@ -869,6 +869,134 @@ const tests = [
     }
   },
   {
+    name: "homepage prioritizes same-day stories ahead of older evergreen AI package coverage",
+    run() {
+      const scenario = buildScenarioState(
+        [
+          makeScenarioArticle({
+            language: "vi",
+            topic: "ai",
+            content_type: "EvergreenGuide",
+            verification_state: "verified",
+            slug: "goi-ai-dang-dang-tien-hon-luc-nay",
+            title: "Goi AI nao dang dang tien hon luc nay",
+            summary: "Bai package nay van huu ich nhung la lop noi dung nen lui lai khi co tin moi trong ngay.",
+            dek: "Homepage khong nen giu mai mot bai package cu tren cung khi da co lop tin moi vua len.",
+            hook: "Bai package cu nen tro thanh lop doc sau, khong phai thu an choan het vi tri dau trang moi ngay.",
+            published_at: "2026-04-08T03:00:00.000Z",
+            updated_at: "2026-04-08T03:00:00.000Z",
+            sections: [
+              { heading: "Gia tri", body: "Bai package co gia tri boi canh, nhung neu len dau qua lau se lam mat cam giac newsroom dang cap nhat hang ngay." },
+              { heading: "Vai tro", body: "No hop ly hon khi nam o lane doc sau hoac section package watch thay vi an ngay hero moi." },
+              { heading: "Can bang", body: "Trang chu can thay duoc bai moi trong ngay truoc, roi moi toi lop tong hop va huong dan." }
+            ],
+            image: {
+              src: "https://images.example.com/ai-package-evergreen.jpg",
+              caption: "Reference image from an older AI package guide.",
+              credit: "Google Workspace Updates",
+              source_url: "https://example.com/ai-package-evergreen"
+            },
+            source_set: [
+              {
+                source_type: "official-site",
+                source_name: "Google Workspace Updates",
+                source_url: "https://example.com/ai-package-evergreen",
+                region: "Global",
+                language: "vi",
+                trust_tier: "official",
+                published_at: "2026-04-08T03:00:00.000Z",
+                image_url: "https://images.example.com/ai-package-evergreen.jpg",
+                image_caption: "Reference image from an older AI package guide.",
+                image_credit: "Google Workspace Updates"
+              }
+            ],
+            editorial_focus: ["ai-package", "guide"]
+          }),
+          makeScenarioArticle({
+            language: "vi",
+            topic: "ai",
+            content_type: "NewsArticle",
+            verification_state: "verified",
+            slug: "google-cap-nhat-goi-ai-trong-ngay",
+            title: "Google vua doi goi AI trong ngay va day moi la diem nguoi dung quan tam",
+            summary: "Day la bai moi trong ngay va can duoc keo len phan dau trang chu truoc lop huong dan cu.",
+            dek: "Khi newsroom co bai moi cung ngay, giao dien dau trang phai phan anh nhip cap nhat do.",
+            hook: "Nguoi doc mo bao de xem hom nay co gi moi, khong phai de gap lai bai package hom qua o ngay dau tien.",
+            published_at: "2026-04-09T11:30:00.000Z",
+            updated_at: "2026-04-09T11:30:00.000Z",
+            sections: [
+              { heading: "Cap nhat", body: "Google vua thay doi goi AI theo huong de nguoi dung de so gia tri su dung hon trong cong viec hang ngay." },
+              { heading: "Ly do can len dau", body: "Tin moi trong ngay tao nhip newsroom ro hon, dong thoi giup nguoi doc thay ngay co dieu gi dang xay ra." },
+              { heading: "Diem can giu", body: "Lop bai tong hop van can, nhung no phai lui xuong sau de nhuong cho tin moi va co gia tri thoi diem." }
+            ],
+            image: {
+              src: "https://images.example.com/google-ai-daily-update.jpg",
+              caption: "Reference image from a same-day Google AI update.",
+              credit: "Google AI Blog",
+              source_url: "https://example.com/google-ai-daily-update"
+            },
+            source_set: [
+              {
+                source_type: "official-site",
+                source_name: "Google AI Blog",
+                source_url: "https://example.com/google-ai-daily-update",
+                region: "Global",
+                language: "vi",
+                trust_tier: "official",
+                published_at: "2026-04-09T11:30:00.000Z",
+                image_url: "https://images.example.com/google-ai-daily-update.jpg",
+                image_caption: "Reference image from a same-day Google AI update.",
+                image_credit: "Google AI Blog"
+              }
+            ]
+          }),
+          makeScenarioArticle({
+            language: "vi",
+            topic: "apps-software",
+            content_type: "NewsArticle",
+            verification_state: "verified",
+            slug: "workspace-meo-hom-nay",
+            title: "Workspace hom nay them meo moi cho team van hanh",
+            summary: "Them mot bai moi cung ngay de lane latest co nhieu nhan hon va bot cai cam giac bai cu lap lai.",
+            dek: "Trang chu can co nhieu diem moi trong ngay, khong chi mot bai featured roi phan con lai la bai cu.",
+            hook: "Ngay ca cac meo nho cung nen vao lane latest neu vua len trong ngay va co the giup nguoi doc dung ngay.",
+            published_at: "2026-04-09T09:00:00.000Z",
+            updated_at: "2026-04-09T09:00:00.000Z",
+            sections: [
+              { heading: "Dieu moi", body: "Nhung thay doi nho trong app van co gia tri khi no giup team bot thao tac va it loi hon." },
+              { heading: "Ly do can co tren dau", body: "Neu lane latest khong co bai cung ngay, nguoi doc se co cam giac trang chu dang dung yen." },
+              { heading: "Ket qua", body: "Them bai moi cung ngay giup phan dau homepage song hon va hop voi ky vong doc bao cong nghe." }
+            ],
+            image: {
+              src: "https://images.example.com/workspace-meo-hom-nay.jpg",
+              caption: "Reference image from a same-day Workspace productivity update.",
+              credit: "Workspace Blog",
+              source_url: "https://example.com/workspace-meo-hom-nay"
+            },
+            source_set: [
+              {
+                source_type: "press",
+                source_name: "Workspace Blog",
+                source_url: "https://example.com/workspace-meo-hom-nay",
+                region: "Global",
+                language: "vi",
+                trust_tier: "established-media",
+                published_at: "2026-04-09T09:00:00.000Z",
+                image_url: "https://images.example.com/workspace-meo-hom-nay.jpg",
+                image_caption: "Reference image from a same-day Workspace productivity update.",
+                image_credit: "Workspace Blog"
+              }
+            ]
+          })
+        ],
+        { now: "2026-04-09T12:00:00.000Z" }
+      );
+      const home = getHomeData(scenario, "vi");
+
+      assert.equal(home.featured.slug, "google-cap-nhat-goi-ai-trong-ngay");
+    }
+  },
+  {
     name: "keeps the front page focused on stories and supports pull-to-refresh on touch devices",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
@@ -1438,7 +1566,7 @@ function createState() {
   return newsroom;
 }
 
-function buildScenarioState(injectedArticles) {
+function buildScenarioState(injectedArticles, options = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-scenario-"));
   const contentPath = path.join(tempDir, "newsroom-content.json");
   fs.writeFileSync(contentPath, JSON.stringify({ articles: [] }, null, 2), "utf8");
@@ -1448,6 +1576,7 @@ function buildScenarioState(injectedArticles) {
     storeUrl: "https://patricktechstore.vercel.app",
     contentPath,
     injectedArticles,
+    now: options.now,
     webControl: {}
   });
 

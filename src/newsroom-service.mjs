@@ -385,7 +385,15 @@ export function getHomeData(state, language) {
     (article) => article.content_type === "NewsArticle" && article.verification_state !== "trend"
   ));
   const packageLeadStories = packageCandidates.filter((article) => article.content_type !== "EvergreenGuide");
+  const sameDayLeadStories = leadStories.filter((article) => isStoryPublishedOnAnchorDay(article, state.runtime.generatedAt));
+  const sameDayVerifiedStories = verifiedStories.filter((article) => isStoryPublishedOnAnchorDay(article, state.runtime.generatedAt));
+  const sameDayReadyStories = prioritizeFrontPageStories(
+    readyPrioritized.filter((article) => isStoryPublishedOnAnchorDay(article, state.runtime.generatedAt))
+  );
   const featured =
+    sameDayLeadStories.find((article) => isFrontPageReady(article)) ||
+    sameDayLeadStories.find((article) => article.hero_image?.kind === "source") ||
+    sameDayVerifiedStories.find((article) => isFrontPageReady(article)) ||
     packageLeadStories.find((article) => article.hero_image?.kind === "source") ||
     leadStories.find((article) => article.topic === "ai" && article.hero_image?.kind === "source") ||
     leadStories.find((article) => article.hero_image?.kind === "source") ||
@@ -396,7 +404,18 @@ export function getHomeData(state, language) {
     prioritized[0] ||
     localized[0];
   const freshnessAnchor = featured?.updated_at || featured?.published_at || readyPrioritized[0]?.updated_at || readyPrioritized[0]?.published_at;
+  const sameDayBriefingStories = readyPrioritized.filter(
+    (article) =>
+      article?.href !== featured?.href &&
+      !isSameStoryFamily(article, featured) &&
+      isStoryPublishedOnAnchorDay(article, freshnessAnchor)
+  );
   const briefing =
+    sameDayBriefingStories.find(
+      (article) => article.content_type === "Roundup" && isContrastingLeadStory(article, featured)
+    ) ||
+    sameDayBriefingStories.find((article) => isContrastingLeadStory(article, featured)) ||
+    sameDayBriefingStories.find((article) => getStoryTopicKey(article) !== getStoryTopicKey(featured)) ||
     readyPrioritized.find(
       (article) =>
         article.content_type === "Roundup" &&
@@ -413,7 +432,7 @@ export function getHomeData(state, language) {
     readyPrioritized.find((article) => !isSameStoryFamily(article, featured)) ||
     readyPrioritized[0] ||
     localized[0];
-  const latest = selectDiverseFrontPageStories(readyPrioritized, 10, {
+  const latest = selectDiverseFrontPageStories([...sameDayReadyStories, ...readyPrioritized], 10, {
     excludeStories: [featured, briefing],
     maxPerTopic: { ai: 2, devices: 3, default: 2 },
     maxPerSource: 2
@@ -1629,6 +1648,35 @@ function isStoryFreshRelativeToAnchor(article, anchorDateString, maxAgeInDays) {
   }
 
   return Math.abs(anchorTimestamp - articleTimestamp) <= maxAgeInDays * 24 * 60 * 60 * 1000;
+}
+
+function isStoryPublishedOnAnchorDay(article, anchorDateString) {
+  const articleDate = article?.updated_at || article?.published_at;
+
+  if (!articleDate || !anchorDateString) {
+    return false;
+  }
+
+  return buildSaigonDateKey(articleDate) === buildSaigonDateKey(anchorDateString);
+}
+
+function buildSaigonDateKey(dateString) {
+  const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) {
+    return "";
+  }
+
+  const parts = DATE_FORMATTERS.en.formatToParts(date);
+  const day = parts.find((part) => part.type === "day")?.value;
+  const month = parts.find((part) => part.type === "month")?.value;
+  const year = parts.find((part) => part.type === "year")?.value;
+
+  if (!day || !month || !year) {
+    return "";
+  }
+
+  return `${year}-${month}-${day}`;
 }
 
 function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
