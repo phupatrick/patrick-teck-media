@@ -1244,6 +1244,65 @@ const tests = [
     }
   },
   {
+    name: "expands thin external stories into fuller article bodies before public render",
+    run() {
+      const scenario = buildScenarioState([
+        makeScenarioArticle({
+          language: "vi",
+          topic: "ai",
+          content_type: "NewsArticle",
+          verification_state: "verified",
+          slug: "thin-article-depth-check",
+          title: "Google vua doi goi AI cho nguoi dung tra phi",
+          summary: "Google dang doi lai gia tri su dung cua cac goi AI theo cach de nguoi dung nhin ro hon phan dung luong, model va workflow.",
+          dek: "Phan can doc ky khong nam o bang gia, ma nam o viec goi nao thuc su cat duoc buoc viec trong ngay.",
+          hook: "Neu mot bai goi AI chi dung lai o muc thong bao, nguoi doc se khong co du ly do de dung lai lau hon.",
+          sections: [
+            { heading: "Dieu moi", body: "Google vua doi lai cach xep gia tri trong goi AI." },
+            { heading: "Vi sao dang doc", body: "Nguoi dung muon biet goi nao dang tien hon." },
+            { heading: "Dieu can theo doi", body: "Cac quyen loi moi co the se con doi tiep." }
+          ],
+          image: {
+            src: "https://images.example.com/thin-article-depth.jpg",
+            caption: "Reference image from a same-day AI pricing story with enough detail.",
+            credit: "Google AI Blog",
+            source_url: "https://example.com/thin-article-depth"
+          },
+          source_set: [
+            {
+              source_type: "official-site",
+              source_name: "Google AI Blog",
+              source_url: "https://example.com/thin-article-depth",
+              region: "Global",
+              language: "vi",
+              trust_tier: "official",
+              published_at: "2026-04-09T08:00:00.000Z",
+              image_url: "https://images.example.com/thin-article-depth.jpg",
+              image_caption: "Reference image from a same-day AI pricing story with enough detail.",
+              image_credit: "Google AI Blog"
+            },
+            {
+              source_type: "press",
+              source_name: "TechCrunch",
+              source_url: "https://example.com/thin-article-depth-press",
+              region: "Global",
+              language: "en",
+              trust_tier: "established-media",
+              published_at: "2026-04-09T08:30:00.000Z"
+            }
+          ]
+        })
+      ]);
+      const article = scenario.articles.find((entry) => entry.slug === "thin-article-depth-check");
+      const totalDepth = article.sections.reduce((sum, section) => sum + section.body.length, 0);
+      const articleHtml = renderArticlePage(scenario, "vi", article, [], { client: "", slots: {} });
+
+      assert.ok(article.sections.length >= 5);
+      assert.ok(totalDepth >= 900);
+      assert.match(articleHtml, /Bối cảnh cần giữ|Tác động thực tế|Ai nên để ý|Điều cần theo dõi tiếp/);
+    }
+  },
+  {
     name: "loads live newsroom content from an external JSON file",
     run() {
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-media-"));

@@ -1726,9 +1726,21 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     sections
   });
   const sourceSet = sanitizePublicSourceSet(article.source_set);
+  const expandedSections = buildEditorialSections({
+    language,
+    topic: topic.id,
+    verificationState,
+    contentType: article.content_type,
+    title,
+    summary,
+    dek,
+    hook,
+    sections,
+    sourceSet
+  });
   const image = sanitizePublicImage(normalizeExternalImage(article.image));
 
-  if (containsBlockedPublicBranding([title, summary, dek, hook, ...sections.flatMap((section) => [section.heading, section.body])].join(" "))) {
+  if (containsBlockedPublicBranding([title, summary, dek, hook, ...expandedSections.flatMap((section) => [section.heading, section.body])].join(" "))) {
     return null;
   }
 
@@ -1751,7 +1763,7 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     author_role_en: article.author_role_en || "",
     summary,
     dek,
-    sections,
+    sections: expandedSections,
     image,
     verification_state: verificationState,
     quality_score: Number.isFinite(article.quality_score) ? article.quality_score : 80,
@@ -2115,6 +2127,380 @@ function buildEditorialAngle({ language, topic, verificationState, contentType }
     statusMap[verificationState]?.[language] ||
     statusMap.verified.ai[language]
   );
+}
+
+function buildEditorialSections({ language, topic, verificationState, contentType, title, summary, dek, hook, sections, sourceSet }) {
+  const context = { language, topic, verificationState, contentType, title, summary, dek, hook, sourceSet };
+  const normalizedProvided = (Array.isArray(sections) ? sections : [])
+    .map((section, index) => normalizeEditorialSection(section, index, context))
+    .filter(Boolean);
+  const generated = buildGeneratedEditorialSections(context);
+  const merged = [];
+  const seen = new Set();
+
+  for (const section of [...normalizedProvided, ...generated]) {
+    if (!section) {
+      continue;
+    }
+
+    const signature = `${makeEditorialSignature(section.heading)}::${makeEditorialSignature(section.body)}`;
+
+    if (!section.heading || !section.body || seen.has(signature)) {
+      continue;
+    }
+
+    seen.add(signature);
+    merged.push(section);
+
+    if (merged.length >= 6 && totalEditorialSectionLength(merged) >= 780) {
+      break;
+    }
+  }
+
+  return merged;
+}
+
+function normalizeEditorialSection(section, index, context) {
+  const heading = safeEditorialTrim(section?.heading || "");
+  const baseBody = safeEditorialTrim(section?.body || "");
+
+  if (!heading || !baseBody) {
+    return null;
+  }
+
+  return {
+    heading,
+    body: expandEditorialSectionBody(baseBody, index, context)
+  };
+}
+
+function expandEditorialSectionBody(body, index, context) {
+  const supportMap = [
+    buildSourceConfidenceSentence(context),
+    buildTopicImpactSentence(context),
+    buildAudienceSentence(context),
+    buildVerificationWatchSentence(context),
+    buildReaderActionSentence(context)
+  ];
+  const base = joinEditorialSentences(body);
+  const additions = [supportMap[index], supportMap[index + 1]].filter(Boolean);
+
+  if (base.length >= 260) {
+    return base;
+  }
+
+  const enriched = joinEditorialSentences(base, ...additions);
+  return enriched.length >= 220 ? enriched : joinEditorialSentences(enriched, buildContextSentence(context));
+}
+
+function buildGeneratedEditorialSections(context) {
+  const copy = getGeneratedSectionCopy(context.language);
+
+  return [
+    {
+      heading: copy.contextHeading,
+      body: joinEditorialSentences(context.summary, buildContextSentence(context), buildSourceConfidenceSentence(context))
+    },
+    {
+      heading: copy.impactHeading,
+      body: joinEditorialSentences(context.dek || context.summary, buildTopicImpactSentence(context), buildReaderActionSentence(context))
+    },
+    {
+      heading: copy.audienceHeading,
+      body: joinEditorialSentences(buildAudienceSentence(context), buildTopicWorkflowSentence(context), buildReaderActionSentence(context))
+    },
+    {
+      heading: copy.watchHeading,
+      body: joinEditorialSentences(context.hook || context.dek, buildVerificationWatchSentence(context), buildSourceFollowUpSentence(context))
+    }
+  ];
+}
+
+function getGeneratedSectionCopy(language) {
+  if (language === "en") {
+    return {
+      contextHeading: "Context Worth Keeping",
+      impactHeading: "What Changes In Practice",
+      audienceHeading: "Who Should Pay Attention",
+      watchHeading: "What To Watch Next"
+    };
+  }
+
+  return {
+    contextHeading: "Bối cảnh cần giữ",
+    impactHeading: "Tác động thực tế",
+    audienceHeading: "Ai nên để ý",
+    watchHeading: "Điều cần theo dõi tiếp"
+  };
+}
+
+function buildContextSentence({ language, summary, topic }) {
+  const topicKey = getEditorialTopicKey(topic);
+  const topicMap = {
+    ai: {
+      vi: "Điểm đáng giữ ở câu chuyện này là cuộc đua AI giờ không còn dừng ở model mạnh hơn, mà đã đi thẳng vào giá trị dùng thật trong công việc mỗi ngày.",
+      en: "The important thing to keep in view is that the AI race is no longer only about model bragging rights; it is about practical value in daily work."
+    },
+    software: {
+      vi: "Phần đáng đọc nằm ở chỗ một thay đổi trong app có thể kéo theo cách làm việc, chia sẻ và theo dõi việc của cả một nhóm nhỏ.",
+      en: "The part worth holding onto is how a product change can ripple through the way a small team works, shares, and follows up."
+    },
+    devices: {
+      vi: "Với thiết bị, khác biệt thật thường không nằm ở thông số đẹp trên bảng, mà ở cảm giác dùng máy mỗi ngày có bớt khó chịu hay không.",
+      en: "With devices, the real difference rarely lives on the spec sheet; it lives in whether daily use becomes better or more annoying."
+    },
+    security: {
+      vi: "Ở nhóm bảo mật, điều đáng đọc không chỉ là lỗi hay bản vá, mà là chi phí vận hành và mức an toàn đổi ra được sau mỗi thay đổi.",
+      en: "In security coverage, the meaningful part is not just the flaw or the patch itself, but the operational risk and protection it changes."
+    },
+    gaming: {
+      vi: "Ngay cả với gaming, phần có giá trị vẫn là xem thay đổi đó chạm tới trải nghiệm chơi thật, cộng đồng và quyết định xuống tiền ra sao.",
+      en: "Even in gaming, the useful angle is how the change touches actual play, community sentiment, and spending decisions."
+    },
+    "internet-business": {
+      vi: "Ở tuyến Internet và doanh nghiệp số, câu chuyện đáng đọc thường nằm ở chỗ hành vi người dùng, doanh thu hoặc vận hành bị kéo lệch theo hướng nào.",
+      en: "On the internet and business tech beat, the story usually matters because it shifts user behavior, revenue, or operations in a real way."
+    }
+  };
+
+  return topicMap[topicKey]?.[language] || topicMap.ai[language];
+}
+
+function buildSourceConfidenceSentence({ language, sourceSet, verificationState }) {
+  const sources = Array.isArray(sourceSet) ? sourceSet : [];
+  const sourceCount = sources.length;
+  const sourceNames = sources.map((source) => safeEditorialTrim(source?.source_name || "")).filter(Boolean);
+  const hasOfficial = sources.some((source) => String(source?.source_type || "").trim() === "official-site");
+
+  if (language === "en") {
+    if (sourceCount >= 2) {
+      return `The signal holds up better here because ${sourceNames.slice(0, 2).join(" and ")} are pushing the story in the same direction.`;
+    }
+
+    if (hasOfficial) {
+      return "The floor is firmer here because the story is anchored by an official source, not only by second-hand reaction.";
+    }
+
+    return verificationState === "verified"
+      ? "What keeps this readable is that the current source trail is strong enough to support a clear conclusion, not just a loose rumor."
+      : "This is still a developing thread, so the useful part is knowing which source signals are hardening and which ones still need caution.";
+  }
+
+  if (sourceCount >= 2) {
+    return `Độ chắc của bài tăng lên vì ${sourceNames.slice(0, 2).join(" và ")} đang đẩy câu chuyện về cùng một hướng, thay vì mỗi nơi nói một kiểu.`;
+  }
+
+  if (hasOfficial) {
+    return "Phần nền của bài chắc hơn vì câu chuyện đang được neo bởi nguồn chính thức, chứ không chỉ trôi bằng phản ứng vòng ngoài.";
+  }
+
+  return verificationState === "verified"
+    ? "Điều giúp bài đứng được là lớp nguồn hiện tại đủ chắc để chốt ý rõ ràng, thay vì chỉ dừng ở mức nghe nói rồi suy đoán."
+    : "Với dạng tín hiệu còn đang dày lên, điều quan trọng là biết phần nào đã có nền và phần nào vẫn cần chờ xác nhận thêm.";
+}
+
+function buildTopicImpactSentence({ language, topic }) {
+  const topicKey = getEditorialTopicKey(topic);
+  const impactMap = {
+    ai: {
+      vi: "Với người đang trả tiền cho công cụ AI, khác biệt chỉ thật sự có giá trị khi nó rút bớt bước viết, nghiên cứu, họp, code hoặc vận hành thay vì chỉ thêm tên tính năng mới.",
+      en: "For people paying for AI tools, the difference only matters when it removes real steps from writing, research, meetings, coding, or operations rather than adding another feature label."
+    },
+    software: {
+      vi: "Ở nhóm phần mềm, một cập nhật đáng tiền là cập nhật khiến quy trình gọn hơn, ít nhầm hơn và bớt phải mở thêm công cụ ngoài.",
+      en: "In software, the upgrades worth caring about are the ones that make workflows cleaner, reduce mistakes, and remove the need for extra tools."
+    },
+    devices: {
+      vi: "Với thiết bị, tác động thực tế thường đi thẳng vào pin, nhiệt, độ ổn định và cảm giác sử dụng lâu dài hơn là vài con số đẹp lúc mới nhìn.",
+      en: "With devices, practical impact usually shows up in battery life, heat, stability, and long-term usability rather than in a few flashy headline numbers."
+    },
+    security: {
+      vi: "Ở lớp bảo mật, giá trị thật nằm ở việc đội vận hành có đỡ rủi ro hơn hay không, chứ không nằm ở việc thêm một màn hình cài đặt mới.",
+      en: "In security, the real value is whether the team becomes measurably safer, not whether another settings screen has been added."
+    },
+    gaming: {
+      vi: "Với game, tác động đáng kể là khi thay đổi đó chạm đến fps, độ trễ, tiến độ phát hành hoặc thứ cộng đồng thật sự sẽ bàn tán trong nhiều ngày.",
+      en: "In gaming, the meaningful changes are the ones that touch frame rate, latency, release timing, or the things players will keep talking about for days."
+    },
+    "internet-business": {
+      vi: "Ở nhịp Internet và doanh nghiệp số, điều đáng soi là thay đổi này kéo theo hành vi người dùng, chi phí vận hành hoặc áp lực cạnh tranh mạnh đến đâu.",
+      en: "On the internet and business side, the useful question is how much this change shifts user behavior, operating cost, or competitive pressure."
+    }
+  };
+
+  return impactMap[topicKey]?.[language] || impactMap.ai[language];
+}
+
+function buildAudienceSentence({ language, topic }) {
+  const topicKey = getEditorialTopicKey(topic);
+  const audienceMap = {
+    ai: {
+      vi: "Nhóm nên đọc kỹ nhất thường là freelancer, team nội dung, nhóm sản phẩm và các doanh nghiệp nhỏ đang cân nhắc xem nên trả tiền cho gói nào để đổi lấy hiệu suất thật.",
+      en: "The readers who should look most closely are usually freelancers, content teams, product teams, and smaller businesses deciding which paid AI layer is actually worth it."
+    },
+    software: {
+      vi: "Người thấy giá trị sớm nhất thường là team vận hành, editor, creator và các nhóm đang ghép nhiều app lại thành một workflow hằng ngày.",
+      en: "The people who feel the value first are often operators, editors, creators, and teams stitching multiple apps into one daily workflow."
+    },
+    devices: {
+      vi: "Người nên để ý nhất là nhóm đang cân nhắc đổi máy, mua phụ kiện hoặc nâng cấp dàn làm việc trong vài tháng tới.",
+      en: "The readers who should care most are the ones planning to replace a device, buy an accessory, or upgrade a work setup in the next few months."
+    },
+    security: {
+      vi: "Nhóm cần đọc kỹ thường là admin hệ thống, chủ shop, đội nội dung và bất kỳ ai đang giữ dữ liệu khách hàng hoặc tài khoản vận hành quan trọng.",
+      en: "The people who should read carefully are system admins, shop owners, content teams, and anyone holding customer data or operational accounts."
+    },
+    gaming: {
+      vi: "Với gaming, người sẽ phản ứng đầu tiên thường là nhóm chơi thường xuyên, người theo dõi leak và những ai đang chờ quyết định mua máy hoặc game.",
+      en: "In gaming, the first readers to react are usually regular players, leak-watchers, and anyone waiting to decide on a console or a game purchase."
+    },
+    "internet-business": {
+      vi: "Nhóm nên theo sát nhất là người làm kênh số, bán hàng online, marketing, vận hành cộng đồng và các team đang sống bằng traffic hoặc chuyển đổi.",
+      en: "The people who should stay closest to this beat are digital channel managers, online sellers, marketers, community operators, and teams living on traffic or conversion."
+    }
+  };
+
+  return audienceMap[topicKey]?.[language] || audienceMap.ai[language];
+}
+
+function buildTopicWorkflowSentence({ language, topic }) {
+  const topicKey = getEditorialTopicKey(topic);
+  const workflowMap = {
+    ai: {
+      vi: "Khi nhìn ở góc công việc, điều cần hỏi luôn là nó cắt được bước nào, rút ngắn được khâu nào và có giữ được độ ổn định khi dùng mỗi ngày hay không.",
+      en: "From a workflow angle, the right question is always which step it cuts, which stage it shortens, and whether that advantage survives everyday use."
+    },
+    software: {
+      vi: "Một thay đổi phần mềm chỉ đáng nhớ khi nó đi vào thao tác thật: soạn thảo, duyệt file, chia sẻ, họp hoặc theo dõi việc mà không kéo thêm ma sát.",
+      en: "A software change only stays useful when it lands in real actions: drafting, reviewing files, sharing, meeting, or follow-up without adding friction."
+    },
+    devices: {
+      vi: "Bài toán ở đây không chỉ là máy mạnh hơn, mà là người dùng có thấy workflow trơn hơn khi học, làm việc, dựng nội dung hay di chuyển hay không.",
+      en: "The question here is not only whether the hardware is stronger, but whether study, work, creative, or mobile workflows actually feel smoother."
+    },
+    security: {
+      vi: "Nếu phải thêm nhiều thao tác mới để an toàn hơn, đội vận hành thường sẽ bỏ dở giữa chừng, nên tính khả dụng luôn quan trọng như chính lớp bảo vệ.",
+      en: "If safety requires too many extra steps, teams usually drop it halfway through, which makes usability almost as important as protection itself."
+    },
+    gaming: {
+      vi: "Người đọc loại bài này thường không chỉ cần biết có gì mới, mà cần biết thay đổi đó có đáng để quay lại chơi hoặc xuống tiền ngay không.",
+      en: "Readers of this kind of story rarely want novelty alone; they want to know whether the change is enough to return, keep playing, or spend now."
+    },
+    "internet-business": {
+      vi: "Một thay đổi ở nền tảng số chỉ thật sự đáng sợ hoặc đáng mừng khi nó chạm tới cách kéo traffic, giữ người dùng và chuyển đổi ra tiền.",
+      en: "A platform change only becomes genuinely important when it touches acquisition, retention, and conversion in a measurable way."
+    }
+  };
+
+  return workflowMap[topicKey]?.[language] || workflowMap.ai[language];
+}
+
+function buildVerificationWatchSentence({ language, verificationState, topic }) {
+  const topicKey = getEditorialTopicKey(topic);
+
+  if (verificationState === "trend") {
+    return language === "vi"
+      ? "Phần cần theo dõi tiếp là liệu tiếng bàn tán này có được đẩy lên bằng thêm nguồn mạnh, thêm bằng chứng và một timeline rõ hơn hay không."
+      : "The next thing to watch is whether the chatter picks up stronger sourcing, harder evidence, and a clearer timeline.";
+  }
+
+  if (verificationState === "emerging") {
+    return language === "vi"
+      ? "Bước kế tiếp là xem các tín hiệu hiện tại có khóa lại thành thay đổi ổn định hay chỉ là một nhịp thử nghiệm rồi hạ nhiệt nhanh."
+      : "The next step is to see whether the current signals harden into a durable change or fade as a short-lived experiment.";
+  }
+
+  const verifiedMap = {
+    ai: {
+      vi: "Ngay cả khi câu chuyện đã được xác nhận, điều đáng xem tiếp vẫn là hãng nào giữ được giá trị dùng thật lâu hơn sau lớp thông báo đầu tiên.",
+      en: "Even once the story is verified, the useful follow-up is which company keeps practical value alive after the launch-day noise fades."
+    },
+    software: {
+      vi: "Sau lớp update đầu tiên, người đọc nên nhìn tiếp tốc độ rollout, mức ổn định và việc tính năng mới có bị khóa ở tầng trả phí hay không.",
+      en: "After the first update lands, the follow-up worth watching is rollout speed, stability, and whether the useful parts stay locked behind paid tiers."
+    },
+    devices: {
+      vi: "Với thiết bị, bài toán tiếp theo luôn là hàng thực tế, độ ổn định lâu dài và chênh lệch giữa hứa hẹn trên sân khấu với trải nghiệm ngoài đời.",
+      en: "For devices, the next question is always real hardware, long-term stability, and the gap between stage promises and daily use."
+    },
+    security: {
+      vi: "Ở lớp bảo mật, điều cần nhìn tiếp là tốc độ vá, mức độ áp dụng thật và việc đội vận hành có duy trì được thói quen an toàn mới hay không.",
+      en: "In security, the next follow-up is patch speed, real adoption, and whether teams actually keep the safer behavior in place."
+    },
+    gaming: {
+      vi: "Với gaming, điều cần theo dõi tiếp là phản ứng cộng đồng sau vài ngày, vì đó mới là lúc hype tách khỏi trải nghiệm thật.",
+      en: "In gaming, the next thing to watch is community reaction after a few days, because that is when hype finally separates from real experience."
+    },
+    "internet-business": {
+      vi: "Ở tuyến Internet và doanh nghiệp số, dấu hiệu quan trọng tiếp theo thường là nền tảng có đổi chính sách sâu hơn hay các bên còn lại bắt đầu phản ứng dây chuyền.",
+      en: "On the internet and business beat, the next meaningful signal is whether policy changes deepen or the rest of the market starts reacting in sequence."
+    }
+  };
+
+  return verifiedMap[topicKey]?.[language] || verifiedMap.ai[language];
+}
+
+function buildReaderActionSentence({ language, topic }) {
+  if (language === "en") {
+    return "That is why the useful reading move is not to stop at the headline, but to compare the promise, the workflow change, and the likely cost before deciding anything.";
+  }
+
+  return "Vì vậy phần đáng đọc của bài không nằm ở headline, mà ở việc đặt lời hứa, thay đổi workflow và chi phí vào cùng một mặt bàn trước khi kết luận.";
+}
+
+function buildSourceFollowUpSentence({ language, sourceSet }) {
+  const sources = Array.isArray(sourceSet) ? sourceSet : [];
+  const names = sources.map((source) => safeEditorialTrim(source?.source_name || "")).filter(Boolean);
+
+  if (language === "en") {
+    return names.length >= 2
+      ? `A sensible follow-up is to keep tracking whether ${names.slice(0, 2).join(" and ")} stay aligned as more details land.`
+      : "A sensible follow-up is to keep watching whether the current source line stays consistent as more details land.";
+  }
+
+  return names.length >= 2
+    ? `Một điểm nên theo dõi tiếp là ${names.slice(0, 2).join(" và ")} có còn giữ cùng một hướng đọc khi thêm chi tiết mới hay không.`
+    : "Điểm nên theo dõi tiếp là lớp nguồn hiện tại có giữ được cùng một hướng đọc khi chi tiết mới xuất hiện hay không.";
+}
+
+function joinEditorialSentences(...values) {
+  const seen = new Set();
+  const sentences = [];
+
+  for (const value of values.flat()) {
+    const normalized = safeEditorialTrim(value);
+
+    if (!normalized) {
+      continue;
+    }
+
+    const parts = normalized.match(/[^.?!]+[.?!]?/g) || [normalized];
+
+    for (const part of parts) {
+      const sentence = finalizeEditorialSentence(part);
+      const signature = makeEditorialSignature(sentence);
+
+      if (!signature || seen.has(signature)) {
+        continue;
+      }
+
+      seen.add(signature);
+      sentences.push(sentence);
+    }
+  }
+
+  return sentences.join(" ").trim();
+}
+
+function totalEditorialSectionLength(sections) {
+  return sections.reduce((sum, section) => sum + safeEditorialTrim(section?.body || "").length, 0);
+}
+
+function makeEditorialSignature(value) {
+  return safeEditorialTrim(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/gi, " ")
+    .trim();
 }
 
 function getEditorialTopicKey(topic) {
