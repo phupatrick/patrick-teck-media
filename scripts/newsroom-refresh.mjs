@@ -1,14 +1,137 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 
-const outputPath = process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
-const sourceUrl = process.env.NEWSROOM_PULL_URL || process.env.OPENCLAW_NEWSROOM_URL || "";
-const sourceFile = process.env.NEWSROOM_PULL_FILE || process.env.OPENCLAW_NEWSROOM_FILE || "";
-const sourceToken = process.env.NEWSROOM_PULL_TOKEN || process.env.OPENCLAW_NEWSROOM_TOKEN || "";
-const now = new Date().toISOString();
+// These patterns are referenced by helper functions outside `runNewsroomRefresh`.
+// Keep them at module scope so refresh works in all execution modes (CLI, tests, in-process).
+const TECHNOLOGY_STRONG_PATTERNS = [
+  /\b(artificial intelligence|trí tuệ nhân tạo|llm|model|agentic|chatgpt|openai|gemini|claude|copilot|deepseek|midjourney|notebooklm|grok)\b/i,
+  /\b(meta|facebook|instagram|threads|tiktok|youtube|google|apple|microsoft|amazon|nvidia|tesla|bytedance|shopee|oracle|samsung|intel|amd|qualcomm|anthropic|perplexity|xai)\b/i,
+  /\b(chip|gpu|cpu|npu|ram|memory|ssd|device|devices|smartphone|phone|iphone|android|pixel|macbook|ipad|pc|desktop|tablet|router|fiber|wearable|robot)\b/i,
+  /\b(app|apps|software|windows|macos|linux|browser|chrome|edge|photos|workspace|productivity|cloud|startup|platform|social)\b/i,
+  /\b(hack|security|cyber|malware|phishing|ransomware|vulnerability|zero-day|breach|passkey|password|privacy|bảo mật|tấn công)\b/i,
+  /\b(gaming|game|steam|playstation|xbox|nintendo|switch ?2|dlss|rockstar|gta|crimson desert|everness)\b/i,
+  /\b(how to|how-to|guide|tips|mẹo|thủ thuật|hướng dẫn|cách dùng|cách làm|thiết lập)\b/i
+];
+
+const TECHNOLOGY_SUPPORT_PATTERNS = [
+  /\b(update|rollout|launch|beta|feature|subscription|creator|social network|messaging|camera|battery|firmware|broadband|5g|wifi|data center)\b/i,
+  /\b(viettel|vnpt|fpt|telecom|cloudflare|anthropic|hugging face|semiconductor|startup|workspace|google one|copilot|notebooklm|gemini advanced)\b/i
+];
+
+const NON_TECH_PATTERNS = [
+  /\b(recipe|easter|deviled eggs|kitchen|cooking|chef|food|restaurant)\b/i,
+  /\b(trump|birthright|election|senate|congress|war|ceasefire|tariff|immigration)\b/i,
+  /\b(celebrity|movie|album|fashion|royal|dating|cruise|vacation|travel)\b/i,
+  /\b(nba|nfl|soccer|baseball|tennis|golf|boxing)\b/i,
+  /\b(health|doctor|disease|diet|sleep|pregnancy|medical|cơ thể người|virus học|triệu chứng|bệnh nhân)\b/i,
+  /\b(auto show|roadshow|powertrain|suv|hybrid variant|combustion|kia seltos|kia ev3|sedan|crossover)\b/i
+];
+
+const SOURCE_TOPIC_HINTS = [
+  {
+    topic: "gaming",
+    score: 18,
+    pattern: /\b(apps-games|gamek|ign|gamesradar|pc gamer|kotaku|polygon)\b/i
+  },
+  {
+    topic: "devices",
+    score: 8,
+    pattern: /\b(9to5google|android authority|tom's hardware|anandtech|engadget|macrumors)\b/i
+  },
+  {
+    topic: "internet-business-tech",
+    score: 8,
+    pattern: /\b(techcrunch|the verge|social media today|the information|reuters|bloomberg)\b/i
+  },
+  {
+    topic: "security",
+    score: 8,
+    pattern: /\b(ars technica|bleepingcomputer|the hacker news)\b/i
+  },
+  {
+    topic: "ai",
+    score: 12,
+    pattern: /\b(openai|google ai blog|microsoft copilot|workspace updates|anthropic|deepmind)\b/i
+  },
+  {
+    topic: "devices",
+    score: 10,
+    pattern: /\b(9to5mac|apple newsroom|android central|windows central|techradar|macworld|samsung newsroom|vnexpress|thanhnien|tuoitre|vietnamnet|tinhte|sforum)\b/i
+  },
+  {
+    topic: "ai",
+    score: 10,
+    pattern: /\b(hugging face|nvidia blog|aws news blog|aws ml blog|azure blog|cloudflare blog|github blog|jetbrains blog)\b/i
+  }
+];
+
+function normalizeFallbackFeeds(feeds, env) {
+  return (Array.isArray(feeds) ? feeds : []).map((feed) => ({
+    ...feed,
+    limit: resolveFeedLimit(feed.limit, env)
+  }));
+}
+
+function resolveFeedLimit(baseLimit, env) {
+  const defaultLimit = Number.isFinite(Number(baseLimit)) && Number(baseLimit) > 0 ? Number(baseLimit) : 10;
+  const explicitLimit = parsePositiveInteger(env?.NEWSROOM_FEED_ITEM_LIMIT);
+  const multiplier = parsePositiveNumber(env?.NEWSROOM_FEED_LIMIT_MULTIPLIER, 1);
+  const candidate = explicitLimit > 0 ? explicitLimit : Math.ceil(defaultLimit * multiplier);
+  return Math.max(1, Math.min(120, candidate));
+}
+
+function parsePositiveInteger(value, fallback = 0) {
+  const parsed = Number.parseInt(String(value ?? ""), 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function parsePositiveNumber(value, fallback = 1) {
+  const parsed = Number.parseFloat(String(value ?? ""));
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function clampInteger(value, min, max, fallback) {
+  const parsed = Number.parseInt(String(value ?? ""), 10);
+  if (!Number.isFinite(parsed)) {
+    return fallback;
+  }
+  return Math.max(min, Math.min(max, parsed));
+}
+
+async function mapWithConcurrency(items, concurrency, mapper) {
+  const results = new Array(items.length);
+  let index = 0;
+  const workers = Array.from({ length: Math.max(1, Math.min(concurrency, items.length)) }, async () => {
+    while (true) {
+      const currentIndex = index;
+      index += 1;
+
+      if (currentIndex >= items.length) {
+        return;
+      }
+
+      try {
+        results[currentIndex] = await mapper(items[currentIndex], currentIndex);
+      } catch {
+        results[currentIndex] = null;
+      }
+    }
+  });
+
+  await Promise.all(workers);
+  return results.filter(Boolean);
+}
+
+export async function runNewsroomRefresh(env = process.env) {
+  const outputPath = env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
+  const sourceUrl = env.NEWSROOM_PULL_URL || env.OPENCLAW_NEWSROOM_URL || "";
+  const sourceFile = env.NEWSROOM_PULL_FILE || env.OPENCLAW_NEWSROOM_FILE || "";
+  const sourceToken = env.NEWSROOM_PULL_TOKEN || env.OPENCLAW_NEWSROOM_TOKEN || "";
+  const now = new Date().toISOString();
 
 const fallbackFeeds = [
   {
@@ -331,6 +454,306 @@ const fallbackFeeds = [
     trustTier: "established-media",
     topicHint: "devices",
     limit: 5
+  },
+  {
+    name: "Hugging Face Blog",
+    url: "https://huggingface.co/blog/feed.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "ai",
+    limit: 12
+  },
+  {
+    name: "Apple Newsroom",
+    url: "https://www.apple.com/newsroom/rss-feed.rss",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "devices",
+    limit: 10
+  },
+  {
+    name: "Samsung Newsroom",
+    url: "https://news.samsung.com/global/feed",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "devices",
+    limit: 10
+  },
+  {
+    name: "Cloudflare Blog",
+    url: "https://blog.cloudflare.com/rss/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "security",
+    limit: 10
+  },
+  {
+    name: "GitHub Blog",
+    url: "https://github.blog/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "apps-software",
+    limit: 10
+  },
+  {
+    name: "Microsoft 365 Blog",
+    url: "https://www.microsoft.com/en-us/microsoft-365/blog/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "apps-software",
+    limit: 10
+  },
+  {
+    name: "Microsoft AI Blog",
+    url: "https://blogs.microsoft.com/ai/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "ai",
+    limit: 10
+  },
+  {
+    name: "Windows Blog",
+    url: "https://blogs.windows.com/windowsexperience/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "apps-software",
+    limit: 10
+  },
+  {
+    name: "Windows Developer Blog",
+    url: "https://blogs.windows.com/windowsdeveloper/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "apps-software",
+    limit: 10
+  },
+  {
+    name: "Microsoft Edge Blog",
+    url: "https://blogs.windows.com/msedgedev/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "apps-software",
+    limit: 10
+  },
+  {
+    name: "AWS News Blog",
+    url: "https://aws.amazon.com/blogs/aws/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "internet-business-tech",
+    limit: 10
+  },
+  {
+    name: "AWS ML Blog",
+    url: "https://aws.amazon.com/blogs/machine-learning/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "ai",
+    limit: 10
+  },
+  {
+    name: "Azure Blog",
+    url: "https://azure.microsoft.com/en-us/blog/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "ai",
+    limit: 10
+  },
+  {
+    name: "Google Android Blog",
+    url: "https://blog.google/products/android/rss/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "devices",
+    limit: 10
+  },
+  {
+    name: "Google Chrome Blog",
+    url: "https://blog.google/products/chrome/rss/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "apps-software",
+    limit: 10
+  },
+  {
+    name: "Google Photos Blog",
+    url: "https://blog.google/products/photos/rss/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "apps-software",
+    limit: 10
+  },
+  {
+    name: "Google Search Blog",
+    url: "https://blog.google/products/search/rss/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "internet-business-tech",
+    limit: 10
+  },
+  {
+    name: "Google Safety Blog",
+    url: "https://blog.google/technology/safety-security/rss/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "security",
+    limit: 10
+  },
+  {
+    name: "9to5Mac",
+    url: "https://9to5mac.com/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "Android Central",
+    url: "https://www.androidcentral.com/rss.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "Windows Central",
+    url: "https://www.windowscentral.com/rss.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "TechRadar",
+    url: "https://www.techradar.com/rss",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "Macworld",
+    url: "https://www.macworld.com/feed",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "VnExpress So Hoa",
+    url: "https://vnexpress.net/rss/so-hoa.rss",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "Thanh Nien Cong Nghe",
+    url: "https://thanhnien.vn/rss/cong-nghe.rss",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "Tuoi Tre Nhip Song So",
+    url: "https://tuoitre.vn/rss/nhip-song-so.rss",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "internet-business-tech",
+    limit: 12
+  },
+  {
+    name: "VietnamNet Cong Nghe",
+    url: "https://vietnamnet.vn/cong-nghe.rss",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "Tinhte",
+    url: "https://tinhte.vn/rss/",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "specialist",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "Sforum",
+    url: "https://cellphones.com.vn/sforum/feed",
+    language: "vi",
+    region: "VN",
+    sourceType: "press",
+    trustTier: "specialist",
+    topicHint: "devices",
+    limit: 12
+  },
+  {
+    name: "SiliconANGLE",
+    url: "https://siliconangle.com/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "specialist",
+    topicHint: "internet-business-tech",
+    limit: 12
   }
 ];
 
@@ -386,74 +809,97 @@ const SOURCE_TOPIC_HINTS = [
   }
 ];
 
-const headers = {
-  Accept: "application/json",
-  "User-Agent": "patrick-tech-media-refresh/1.0"
-};
+  const headers = {
+    Accept: "application/json",
+    "User-Agent": "patrick-tech-media-refresh/1.0"
+  };
 
-if (sourceToken) {
-  headers.Authorization = `Bearer ${sourceToken}`;
-}
+  if (sourceToken) {
+    headers.Authorization = `Bearer ${sourceToken}`;
+  }
 
-let incomingArticles = [];
-let sourceLabel = "";
+  let incomingArticles = [];
+  let sourceLabel = "";
 
-if (sourceUrl) {
-  try {
-    const response = await fetch(sourceUrl, { headers });
+  if (sourceUrl) {
+    try {
+      const response = await fetch(sourceUrl, { headers });
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch newsroom source (${response.status} ${response.statusText})`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch newsroom source (${response.status} ${response.statusText})`);
+      }
+
+      const payload = await response.json();
+      incomingArticles = sanitizeIncomingArticles(normalizeArticles(payload));
+      sourceLabel = "external-feed";
+    } catch (error) {
+      console.warn(`${error.message || error}. Falling back to curated RSS feeds.`);
     }
-
-    const payload = await response.json();
-    incomingArticles = sanitizeIncomingArticles(normalizeArticles(payload));
-    sourceLabel = "external-feed";
-  } catch (error) {
-    console.warn(`${error.message || error}. Falling back to curated RSS feeds.`);
   }
-}
 
-if (!incomingArticles.length && sourceFile) {
-  try {
-    const sourcePath = path.resolve(process.cwd(), sourceFile);
-    const payload = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
-    incomingArticles = sanitizeIncomingArticles(normalizeArticles(payload));
-    sourceLabel = "external-feed";
-  } catch (error) {
-    console.warn(`${error.message || error}. Falling back to curated RSS feeds.`);
+  if (!incomingArticles.length && sourceFile) {
+    try {
+      const sourcePath = path.resolve(process.cwd(), sourceFile);
+      const payload = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
+      incomingArticles = sanitizeIncomingArticles(normalizeArticles(payload));
+      sourceLabel = "external-feed";
+    } catch (error) {
+      console.warn(`${error.message || error}. Falling back to curated RSS feeds.`);
+    }
   }
+
+  if (!incomingArticles.length) {
+    const effectiveFallbackFeeds = normalizeFallbackFeeds(fallbackFeeds, env);
+    incomingArticles = await fetchFallbackArticles(now, effectiveFallbackFeeds, env);
+    sourceLabel = "curated-rss";
+  }
+
+  if (incomingArticles.length === 0) {
+    return {
+      changed: false,
+      publishedCount: 0,
+      outputPath,
+      sourceLabel
+    };
+  }
+
+  const result = await publishArticles({
+    incomingArticles,
+    outputPath,
+    replaceMode: true,
+    now,
+    databaseUrl: env.DATABASE_URL || ""
+  });
+
+  if (!result.changed) {
+    return { ...result, sourceLabel };
+  }
+
+  return { ...result, sourceLabel };
 }
 
-if (!incomingArticles.length) {
-  incomingArticles = await fetchFallbackArticles(now);
-  sourceLabel = "curated-rss";
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  runNewsroomRefresh()
+    .then((result) => {
+      if (!result.changed) {
+        console.log(
+          `Newsroom already up to date from ${result.sourceLabel} at ${path.resolve(process.cwd(), result.outputPath)}`
+        );
+        process.exit(0);
+      }
+      console.log(`Refreshed ${result.publishedCount} article(s) from ${result.sourceLabel} into ${result.outputPath}`);
+    })
+    .catch((error) => {
+      console.error(error?.stack || error?.message || error);
+      process.exit(1);
+    });
 }
 
-if (incomingArticles.length === 0) {
-  console.log("No newsroom articles were collected. Nothing to publish.");
-  process.exit(0);
-}
-
-const result = await publishArticles({
-  incomingArticles,
-  outputPath,
-  replaceMode: true,
-  now,
-  databaseUrl: process.env.DATABASE_URL || ""
-});
-
-if (!result.changed) {
-  console.log(`Newsroom already up to date from ${sourceLabel} at ${path.resolve(process.cwd(), outputPath)}`);
-  process.exit(0);
-}
-
-console.log(`Refreshed ${result.publishedCount} article(s) from ${sourceLabel} into ${result.outputPath}`);
-
-async function fetchFallbackArticles(timestamp) {
+async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
   const allArticles = [];
+  const fetchConcurrency = clampInteger(env?.NEWSROOM_FETCH_CONCURRENCY, 1, 8, 4);
 
-  for (const feed of fallbackFeeds) {
+  for (const feed of feeds) {
     try {
       const response = await fetch(feed.url, {
         headers: {
@@ -468,14 +914,8 @@ async function fetchFallbackArticles(timestamp) {
 
       const xml = await response.text();
       const items = parseFeedItems(xml).slice(0, feed.limit);
-
-      for (const item of items) {
-        const mapped = await mapFeedItem(feed, item, timestamp);
-
-        if (mapped) {
-          allArticles.push(mapped);
-        }
-      }
+      const mappedItems = await mapWithConcurrency(items, fetchConcurrency, async (item) => mapFeedItem(feed, item, timestamp));
+      allArticles.push(...mappedItems.filter(Boolean));
     } catch (error) {
       console.warn(`Skipping ${feed.name}: ${error.message || error}`);
     }
