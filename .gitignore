@@ -7,13 +7,26 @@ node_modules/
 
 facebook-group-watch/
 facebook-page-outbox/
+.playwright-mcp/
 
 tmp-ollama-proxy/
 tmp-openclaw-skillcheck/
 tmp-openclaw-smoke/
 tmp-openclaw-smoke-final/
 tmp-openclaw-smoke-min/
+data/tmp-refresh-*.json
+data/tmp-refresh-*.ndjson
+data/manual-*-batch*.json
+data/openclaw-batch-*.json
 
 gateway-debug.err.log
 gateway-debug.out.log
 facebook-prospect-scan.last.json
+*.docx
+*.docx.sample.txt
+bao-cao-thuc-tap-*.sample.txt
+zalo_*.html
+zalo_*.js
+zalo_products_full.json
+patricktechmedia-home-*.png
+openclaw-worker-pack.zip

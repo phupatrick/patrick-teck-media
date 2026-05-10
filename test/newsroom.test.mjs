@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { spawnSync } from "node:child_process";
+import { runNewsroomRefresh } from "../scripts/newsroom-refresh.mjs";
 import {
   buildJsonFeed,
   buildNewsSitemapXml,
@@ -1439,7 +1439,7 @@ const tests = [
   },
   {
     name: "refresh accepts a local hidden feed file as an external newsroom source",
-    run() {
+    async run() {
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-refresh-file-"));
       const sourcePath = path.join(tempDir, "hidden-feed.json");
       const outputPath = path.join(tempDir, "newsroom-content.json");
@@ -1489,21 +1489,19 @@ const tests = [
 
       fs.writeFileSync(sourcePath, JSON.stringify({ articles: [article] }, null, 2), "utf8");
 
-      const result = spawnSync(process.execPath, ["scripts/newsroom-refresh.mjs"], {
-        cwd: path.resolve(process.cwd()),
-        env: {
-          ...process.env,
+      const result = await withTempEnv(
+        {
           NEWSROOM_PULL_URL: "",
           OPENCLAW_NEWSROOM_URL: "",
           NEWSROOM_PULL_FILE: sourcePath,
           OPENCLAW_NEWSROOM_FILE: "",
           NEWSROOM_CONTENT_PATH: outputPath
         },
-        encoding: "utf8"
-      });
+        () => runNewsroomRefresh(process.env)
+      );
 
-      assert.equal(result.status, 0, result.stderr || result.stdout);
-      assert.match(result.stdout, /external-feed/);
+      assert.equal(result.changed, true);
+      assert.equal(result.sourceLabel, "external-feed");
 
       const output = JSON.parse(fs.readFileSync(outputPath, "utf8"));
       assert.equal(output.articles.length, 1);
@@ -1512,7 +1510,7 @@ const tests = [
   },
   {
     name: "refresh repairs common mojibake from mixed RSS and HTML encodings",
-    run() {
+    async run() {
       const brokenOpen = "\u00e2\u20ac\u02dc";
       const brokenClose = "\u00e2\u20ac\u2122";
       const brokenDash = "\u00e2\u20ac\u201d";
@@ -1567,20 +1565,18 @@ const tests = [
 
       fs.writeFileSync(sourcePath, JSON.stringify({ articles: [article] }, null, 2), "utf8");
 
-      const result = spawnSync(process.execPath, ["scripts/newsroom-refresh.mjs"], {
-        cwd: path.resolve(process.cwd()),
-        env: {
-          ...process.env,
+      const result = await withTempEnv(
+        {
           NEWSROOM_PULL_URL: "",
           OPENCLAW_NEWSROOM_URL: "",
           NEWSROOM_PULL_FILE: sourcePath,
           OPENCLAW_NEWSROOM_FILE: "",
           NEWSROOM_CONTENT_PATH: outputPath
         },
-        encoding: "utf8"
-      });
+        () => runNewsroomRefresh(process.env)
+      );
 
-      assert.equal(result.status, 0, result.stderr || result.stdout);
+      assert.equal(result.changed, true);
 
       const output = JSON.parse(fs.readFileSync(outputPath, "utf8"));
       const published = output.articles[0];
@@ -1593,11 +1589,35 @@ const tests = [
   }
 ];
 
+async function withTempEnv(overrides, fn) {
+  const previous = {};
+  for (const [key, value] of Object.entries(overrides)) {
+    previous[key] = Object.prototype.hasOwnProperty.call(process.env, key) ? process.env[key] : undefined;
+    if (value === null || value === undefined) {
+      delete process.env[key];
+    } else {
+      process.env[key] = String(value);
+    }
+  }
+
+  try {
+    return await fn();
+  } finally {
+    for (const [key, value] of Object.entries(previous)) {
+      if (value === undefined) {
+        delete process.env[key];
+      } else {
+        process.env[key] = value;
+      }
+    }
+  }
+}
+
 let failed = 0;
 
 for (const entry of tests) {
   try {
-    entry.run();
+    await entry.run();
     console.log(`PASS ${entry.name}`);
   } catch (error) {
     failed += 1;

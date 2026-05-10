@@ -544,17 +544,21 @@ export async function loadNewsroomState(options = {}) {
 }
 
 function sortStoriesForFrontPage(stories, anchorDate, topicWeights = FRONT_PAGE_TOPIC_WEIGHTS, sourceWeights = FRONT_PAGE_SOURCE_WEIGHTS) {
-  return [...stories].sort((left, right) => {
-    const scoreGap =
-      computeFrontPagePriority(right, anchorDate, topicWeights, sourceWeights) -
-      computeFrontPagePriority(left, anchorDate, topicWeights, sourceWeights);
+  return stories
+    .map((article) => ({
+      article,
+      score: computeFrontPagePriority(article, anchorDate, topicWeights, sourceWeights)
+    }))
+    .sort((left, right) => {
+      const scoreGap = right.score - left.score;
 
-    if (scoreGap !== 0) {
-      return scoreGap;
-    }
+      if (scoreGap !== 0) {
+        return scoreGap;
+      }
 
-    return sortByDateDesc(left.updated_at || left.published_at, right.updated_at || right.published_at);
-  });
+      return sortByDateDesc(left.article.updated_at || left.article.published_at, right.article.updated_at || right.article.published_at);
+    })
+    .map(({ article }) => article);
 }
 
 function prioritizeFrontPageStories(stories) {
@@ -1904,16 +1908,9 @@ function isGuideLedTipsCandidate(article) {
     return true;
   }
 
-  const titleText = `${article.title || ""} ${article.dek || ""}`.toLowerCase();
-  return [
-    "m\u1eb9o",
-    "th\u1ee7 thu\u1eadt",
-    "h\u01b0\u1edbng d\u1eabn",
-    "how to",
-    "how-to",
-    "guide",
-    "tips"
-  ].some((keyword) => titleText.includes(keyword));
+  // Keep the public tips lane guide-led:
+  // either EvergreenGuide, or explicitly tagged via editorial_focus.
+  return false;
 }
 
 function strengthenEditorialTitle(title, { language, topic, verificationState, contentType, summary, dek, sections }) {

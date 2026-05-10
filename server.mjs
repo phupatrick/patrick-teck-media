@@ -53,6 +53,10 @@ import {
   renderTopicPage,
   renderWorkflowPage
 } from "./src/newsroom-render.mjs";
+import { createSellerService } from "./src/seller-service.mjs";
+import { createSellerTranslator } from "./src/seller-translation.mjs";
+import { createTelegramSellerBot } from "./src/telegram-seller-bot.mjs";
+import { createOpenClawControlPlane } from "./src/openclaw-control-plane.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -79,7 +83,24 @@ const config = {
     hero: process.env.GOOGLE_ADSENSE_SLOT_HERO || envFromFile.GOOGLE_ADSENSE_SLOT_HERO || "",
     inline: process.env.GOOGLE_ADSENSE_SLOT_INLINE || envFromFile.GOOGLE_ADSENSE_SLOT_INLINE || "",
     mid: process.env.GOOGLE_ADSENSE_SLOT_MID || envFromFile.GOOGLE_ADSENSE_SLOT_MID || ""
-  }
+  },
+  sellerCatalogPath: process.env.SELLER_CATALOG_PATH || envFromFile.SELLER_CATALOG_PATH || "data/seller-catalog.json",
+  sellerTimezone: process.env.SELLER_TIMEZONE || envFromFile.SELLER_TIMEZONE || "Asia/Saigon",
+  sellerTimezoneOffset: process.env.SELLER_TIMEZONE_OFFSET || envFromFile.SELLER_TIMEZONE_OFFSET || "+07:00",
+  sellerTranslationMode: process.env.SELLER_TRANSLATION_MODE || envFromFile.SELLER_TRANSLATION_MODE || "fallback",
+  sellerTranslationEndpoint: process.env.SELLER_TRANSLATION_ENDPOINT || envFromFile.SELLER_TRANSLATION_ENDPOINT || "",
+  sellerTranslationApiKey: process.env.SELLER_TRANSLATION_API_KEY || envFromFile.SELLER_TRANSLATION_API_KEY || "",
+  sellerTranslationModel: process.env.SELLER_TRANSLATION_MODEL || envFromFile.SELLER_TRANSLATION_MODEL || "",
+  telegramBotToken: process.env.TELEGRAM_BOT_TOKEN || envFromFile.TELEGRAM_BOT_TOKEN || "",
+  telegramBotPollTimeout: Number(process.env.TELEGRAM_BOT_POLL_TIMEOUT || envFromFile.TELEGRAM_BOT_POLL_TIMEOUT || 20),
+  telegramSellerAllowedChatIds: (process.env.TELEGRAM_SELLER_ALLOWED_CHAT_IDS || envFromFile.TELEGRAM_SELLER_ALLOWED_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
+  telegramSellerAdminUserIds: (process.env.TELEGRAM_SELLER_ADMIN_USER_IDS || envFromFile.TELEGRAM_SELLER_ADMIN_USER_IDS || process.env.TELEGRAM_SELLER_ALLOWED_USER_IDS || envFromFile.TELEGRAM_SELLER_ALLOWED_USER_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
+  telegramWebhookPath: process.env.TELEGRAM_SELLER_WEBHOOK_PATH || envFromFile.TELEGRAM_SELLER_WEBHOOK_PATH || "/api/telegram/seller/webhook",
+  telegramWebhookSecret: process.env.TELEGRAM_SELLER_WEBHOOK_SECRET || envFromFile.TELEGRAM_SELLER_WEBHOOK_SECRET || "",
+  openclawControlPath: process.env.OPENCLAW_CONTROL_PATH || envFromFile.OPENCLAW_CONTROL_PATH || "data/openclaw-control-plane.json",
+  openclawControlToken: process.env.OPENCLAW_CONTROL_TOKEN || envFromFile.OPENCLAW_CONTROL_TOKEN || "",
+  openclawWorkerHeartbeatSeconds: Number(process.env.OPENCLAW_WORKER_HEARTBEAT_SECONDS || envFromFile.OPENCLAW_WORKER_HEARTBEAT_SECONDS || 120),
+  openclawJobLeaseSeconds: Number(process.env.OPENCLAW_JOB_LEASE_SECONDS || envFromFile.OPENCLAW_JOB_LEASE_SECONDS || 90)
 };
 const rateLimitBuckets = new Map();
 const RATE_LIMIT_RULES = {
@@ -203,6 +224,33 @@ const platformService = createPlatformService({
   googleClientSecret: config.googleClientSecret,
   adminEmails: config.adminEmails
 });
+const sellerService = createSellerService({
+  statePath: config.sellerCatalogPath,
+  databaseUrl: config.databaseUrl,
+  timezoneOffset: config.sellerTimezoneOffset,
+  translator: createSellerTranslator({
+    mode: config.sellerTranslationMode,
+    endpoint: config.sellerTranslationEndpoint,
+    apiKey: config.sellerTranslationApiKey,
+    model: config.sellerTranslationModel
+  })
+});
+const telegramSellerBot = createTelegramSellerBot({
+  token: config.telegramBotToken,
+  service: sellerService,
+  allowedChatIds: config.telegramSellerAllowedChatIds,
+  adminUserIds: config.telegramSellerAdminUserIds,
+  timezone: config.sellerTimezone,
+  timezoneOffset: config.sellerTimezoneOffset,
+  pollingTimeoutSeconds: config.telegramBotPollTimeout
+});
+const openclawControlPlane = createOpenClawControlPlane({
+  statePath: config.openclawControlPath,
+  databaseUrl: config.databaseUrl,
+  heartbeatTimeoutSeconds: config.openclawWorkerHeartbeatSeconds,
+  defaultJobLeaseSeconds: config.openclawJobLeaseSeconds
+});
+const TELEGRAM_SELLER_WEBHOOK_PATH = normalizeWebhookPath(config.telegramWebhookPath);
 
 const stateCache = new Map();
 const stateTimestamps = new Map();
@@ -216,6 +264,10 @@ server.maxHeadersCount = 64;
 if (sessionSecretResolution.warning) {
   console.warn(sessionSecretResolution.warning);
 }
+
+telegramSellerBot.initialize().catch((error) => {
+  console.error("[telegram-seller-bot:init]", error.message || error);
+});
 
 async function handleRequest(req, res) {
   try {
@@ -245,8 +297,8 @@ async function handleRequest(req, res) {
       return;
     }
 
-    if (method === "POST" && !KNOWN_FORM_ROUTES.has(pathname)) {
-      return sendJson(res, 404, { error: "Not found." });
+    if (method === "POST" && pathname === TELEGRAM_SELLER_WEBHOOK_PATH) {
+      return handleTelegramSellerWebhook(req, res);
     }
 
     const trafficGuardDecision = enforceTrafficGuard(req, pathname, requestUrl);
@@ -267,16 +319,20 @@ async function handleRequest(req, res) {
       return handleAuthRoute(req, res, requestUrl, pathname, null, cookies);
     }
 
-    if (method === "POST") {
-      const viewer = await platformService.getUserById(readSessionUserId(req, config.sessionSecret));
-      return handleFormRoute(req, res, requestUrl, pathname, viewer);
-    }
-
     const publicSiteUrl = resolvePublicSiteUrl(req);
 
     if (pathname.startsWith("/api/")) {
       const state = await getState(publicSiteUrl);
-      return handleApi(pathname, requestUrl, res, state);
+      return handleApi(req, pathname, requestUrl, res, state);
+    }
+
+    if (method === "POST" && !KNOWN_FORM_ROUTES.has(pathname)) {
+      return sendJson(res, 404, { error: "Not found." });
+    }
+
+    if (method === "POST") {
+      const viewer = await platformService.getUserById(readSessionUserId(req, config.sessionSecret));
+      return handleFormRoute(req, res, requestUrl, pathname, viewer);
     }
 
     if (pathname.startsWith("/media/story/") && pathname.endsWith(".svg")) {
@@ -486,6 +542,11 @@ export { server, buildState, handleRequest };
 
 async function buildState(siteUrl = config.siteUrl) {
   const communityArticles = await platformService.listPublishedArticles();
+  const [sellerCatalogVi, sellerCatalogEn, sellerSummary] = await Promise.all([
+    sellerService.readState({ language: "vi" }),
+    sellerService.readState({ language: "en" }),
+    sellerService.getSummary()
+  ]);
   const newsroom = await loadNewsroomState({
     siteUrl,
     storeUrl: config.storeUrl,
@@ -512,6 +573,11 @@ async function buildState(siteUrl = config.siteUrl) {
     vi: getDashboardData(newsroom, "vi"),
     en: getDashboardData(newsroom, "en")
   };
+  newsroom.sellerCatalog = {
+    vi: sellerCatalogVi,
+    en: sellerCatalogEn
+  };
+  newsroom.sellerSummary = sellerSummary;
 
   return newsroom;
 }
@@ -734,8 +800,12 @@ async function tryStatic(pathname, requestUrl, res) {
   }
 }
 
-function handleApi(pathname, requestUrl, res, state) {
+async function handleApi(req, pathname, requestUrl, res, state) {
   const cacheControl = pathname === "/api/newsroom/live" ? LIVE_API_CACHE_CONTROL : PUBLIC_API_CACHE_CONTROL;
+
+  if (pathname === "/api/openclaw/control") {
+    return handleOpenClawControlApi(req, requestUrl, res);
+  }
 
   if (pathname === "/api/newsroom/overview") {
     const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
@@ -787,7 +857,132 @@ function handleApi(pathname, requestUrl, res, state) {
     return sendJson(res, 200, state.home[language].liveDesk, { cacheControl });
   }
 
+  if (pathname === "/api/seller/catalog") {
+    const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
+    return sendJson(
+      res,
+      200,
+      {
+        summary: state.sellerSummary,
+        categories: state.sellerCatalog?.[language]?.categories || [],
+        products: state.sellerCatalog?.[language]?.products || []
+      },
+      { cacheControl }
+    );
+  }
+
+  if (pathname === "/api/seller/summary") {
+    return sendJson(res, 200, state.sellerSummary || {}, { cacheControl });
+  }
+
   return sendJson(res, 404, { error: "Not found." });
+}
+
+async function handleOpenClawControlApi(req, requestUrl, res) {
+  if (!config.openclawControlToken) {
+    return sendJson(res, 503, {
+      error: "OpenClaw control token is not configured."
+    });
+  }
+
+  if (!isAuthorizedOpenClawControlRequest(req)) {
+    return sendJson(res, 401, { error: "Unauthorized." });
+  }
+
+  const method = normalizeMethod(req.method);
+
+  if (method === "GET" || method === "HEAD") {
+    const view = requestUrl.searchParams.get("view") || "summary";
+
+    if (view === "workers") {
+      return sendJson(res, 200, {
+        ok: true,
+        data: await openclawControlPlane.getWorkers()
+      });
+    }
+
+    if (view === "jobs") {
+      return sendJson(res, 200, {
+        ok: true,
+        data: await openclawControlPlane.getJobs()
+      });
+    }
+
+    return sendJson(res, 200, {
+      ok: true,
+      data: await openclawControlPlane.getSummary()
+    });
+  }
+
+  if (method !== "POST") {
+    return sendMethodNotAllowed(res, "GET, HEAD, POST, OPTIONS");
+  }
+
+  try {
+    const body = await readJsonBody(req);
+    const action = String(body.action || "").trim().toLowerCase();
+
+    if (action === "register-worker") {
+      return sendJson(res, 200, {
+        ok: true,
+        data: await openclawControlPlane.registerWorker(body)
+      });
+    }
+
+    if (action === "heartbeat-worker") {
+      return sendJson(res, 200, {
+        ok: true,
+        data: await openclawControlPlane.heartbeatWorker(body)
+      });
+    }
+
+    if (action === "create-job") {
+      return sendJson(res, 200, {
+        ok: true,
+        data: await openclawControlPlane.createJob(body)
+      });
+    }
+
+    if (action === "claim-job") {
+      return sendJson(res, 200, {
+        ok: true,
+        data: await openclawControlPlane.claimNextJob(body)
+      });
+    }
+
+    if (action === "heartbeat-job") {
+      return sendJson(res, 200, {
+        ok: true,
+        data: await openclawControlPlane.heartbeatJob(body)
+      });
+    }
+
+    if (action === "complete-job") {
+      return sendJson(res, 200, {
+        ok: true,
+        data: await openclawControlPlane.completeJob(body)
+      });
+    }
+
+    if (action === "fail-job") {
+      return sendJson(res, 200, {
+        ok: true,
+        data: await openclawControlPlane.failJob(body)
+      });
+    }
+
+    return sendJson(res, 400, { error: "Unsupported OpenClaw control action." });
+  } catch (error) {
+    return sendJson(res, 400, { error: error.message || "OpenClaw control request failed." });
+  }
+}
+
+function isAuthorizedOpenClawControlRequest(req) {
+  const authHeader = String(req.headers.authorization || "");
+  const bearerToken = authHeader.startsWith("Bearer ") ? authHeader.slice("Bearer ".length).trim() : "";
+  const explicitToken = String(req.headers["x-openclaw-control-token"] || "").trim();
+  const suppliedToken = explicitToken || bearerToken;
+  return Boolean(suppliedToken) && suppliedToken === config.openclawControlToken;
 }
 
 function enforceFormSecurity(req, pathname, form, viewer, language) {
@@ -1082,6 +1277,47 @@ async function readFormBody(req) {
 
   const raw = Buffer.concat(chunks).toString("utf8");
   return Object.fromEntries(new URLSearchParams(raw).entries());
+}
+
+async function readJsonBody(req) {
+  const chunks = [];
+  let totalBytes = 0;
+
+  for await (const chunk of req) {
+    const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+    totalBytes += buffer.length;
+
+    if (totalBytes > 512 * 1024) {
+      throw new Error("Payload too large.");
+    }
+
+    chunks.push(buffer);
+  }
+
+  const raw = Buffer.concat(chunks).toString("utf8").trim();
+  return raw ? JSON.parse(raw) : {};
+}
+
+async function handleTelegramSellerWebhook(req, res) {
+  if (!config.telegramBotToken) {
+    return sendJson(res, 503, { error: "Telegram bot token is not configured." });
+  }
+
+  if (config.telegramWebhookSecret) {
+    const suppliedSecret = String(req.headers["x-telegram-bot-api-secret-token"] || "").trim();
+    if (!suppliedSecret || suppliedSecret !== config.telegramWebhookSecret) {
+      return sendJson(res, 403, { error: "Forbidden." });
+    }
+  }
+
+  try {
+    const update = await readJsonBody(req);
+    await telegramSellerBot.handleUpdate(update);
+    return sendJson(res, 200, { ok: true });
+  } catch (error) {
+    console.error("[telegram-seller-webhook]", error.message || error);
+    return sendJson(res, 500, { error: "Webhook processing failed." });
+  }
 }
 
 function mapSubmissionForm(form) {
@@ -1471,6 +1707,15 @@ function resolvePublicSiteUrl(req) {
 function normalizeSiteUrl(value) {
   const normalized = String(value || "").trim().replace(/\/+$/, "");
   return normalized || config.siteUrl;
+}
+
+function normalizeWebhookPath(value) {
+  const normalized = String(value || "").trim();
+  if (!normalized) {
+    return "/api/telegram/seller/webhook";
+  }
+
+  return normalized.startsWith("/") ? normalized : `/${normalized}`;
 }
 
 function resolveSessionSecret(value, siteUrl) {

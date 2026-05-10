@@ -2613,6 +2613,116 @@ h3 {
   background: linear-gradient(145deg, rgba(10, 26, 47, 0.9), rgba(7, 18, 34, 0.82));
 }
 
+.catalog-shell {
+  gap: 22px;
+}
+
+.catalog-head {
+  align-items: center;
+}
+
+.catalog-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.catalog-search {
+  display: grid;
+  gap: 10px;
+}
+
+.catalog-search input {
+  width: 100%;
+  border: 1px solid rgba(74, 181, 255, 0.22);
+  background: rgba(3, 10, 21, 0.72);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 14px 18px;
+  font: inherit;
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.catalog-search input::placeholder {
+  color: var(--muted);
+}
+
+.catalog-search input:focus {
+  border-color: rgba(74, 181, 255, 0.44);
+  box-shadow: 0 0 0 4px rgba(40, 152, 255, 0.12);
+}
+
+.catalog-count {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.catalog-grid {
+  align-items: stretch;
+}
+
+.catalog-card {
+  display: grid;
+  gap: 14px;
+}
+
+.catalog-card.is-hidden {
+  display: none;
+}
+
+.catalog-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.catalog-card h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.35;
+}
+
+.catalog-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.catalog-price {
+  color: var(--signal);
+  font-size: 1.04rem;
+  white-space: nowrap;
+}
+
+.catalog-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.catalog-meta div {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(74, 181, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.catalog-meta dt {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.catalog-meta dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 600;
+  word-break: break-word;
+}
+
 .author-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }

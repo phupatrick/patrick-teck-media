@@ -4,6 +4,30 @@ import { fileURLToPath } from "node:url";
 import { isArticlePublishReady, normalizeText } from "../src/newsroom-quality.mjs";
 import { normalizeArticles, publishArticles, readJson } from "./newsroom-publish.mjs";
 
+const TECH_STRONG_PATTERNS = [
+  /\b(artificial intelligence|ai|machine learning|llm|model|agentic|chatgpt|openai|gemini|claude|copilot|deepseek|midjourney|notebooklm|grok)\b/i,
+  /\b(meta|facebook|instagram|threads|tiktok|youtube|google|apple|microsoft|amazon|nvidia|tesla|bytedance|shopee|oracle|samsung|intel|amd|qualcomm|anthropic|perplexity|xai)\b/i,
+  /\b(chip|gpu|cpu|npu|ram|memory|ssd|semiconductor|device|smartphone|iphone|android|pixel|macbook|ipad|pc|tablet|router|fiber|5g|wifi)\b/i,
+  /\b(app|apps|software|windows|macos|linux|browser|chrome|edge|workspace|productivity|cloud|startup|platform|social|messenger)\b/i,
+  /\b(hack|security|cyber|malware|phishing|ransomware|vulnerability|zero-day|breach|passkey|password|privacy|bảo mật|tấn công)\b/i,
+  /\b(gaming|game|steam|playstation|xbox|nintendo|switch ?2|dlss|rockstar|gta|handheld)\b/i,
+  /\b(how to|how-to|guide|tips|mẹo|thủ thuật|hướng dẫn|cách dùng|cách làm|thiết lập)\b/i
+];
+
+const TECH_SUPPORT_PATTERNS = [
+  /\b(update|rollout|launch|beta|feature|subscription|pricing|plan|tier|bundle)\b/i,
+  /\b(data center|cloudflare|workspace updates|google one|gemini advanced|copilot)\b/i
+];
+
+const NON_TECH_PATTERNS = [
+  /\b(crossword|mini crossword|nyt mini|wordle|connections)\b/i,
+  /\b(best movies|best tv|stream now|netflix you should stream|what to watch)\b/i,
+  /\b(recipe|cooking|restaurant|kitchen|chef)\b/i,
+  /\b(celebrity|movie|album|fashion|dating|travel|vacation|royal)\b/i,
+  /\b(nba|nfl|soccer|baseball|tennis|golf|boxing)\b/i,
+  /\b(health|doctor|disease|diet|sleep|pregnancy|medical)\b/i
+];
+
 function getArg(args, flag, fallback = "") {
   const index = args.indexOf(flag);
   if (index === -1) return fallback;
@@ -114,6 +138,44 @@ function normalizeTitleSignature(title) {
   return tokens.join(" ");
 }
 
+function isTechRelevant(article) {
+  const topic = String(article?.topic || "").trim();
+  const contentType = String(article?.content_type || "").trim();
+  const sourceTypes = new Set(
+    (article?.source_set || []).map((s) => String(s?.source_type || "").trim()).filter(Boolean)
+  );
+
+  // If it’s explicitly a tech beat, we still sanity-check against hard non-tech signals.
+  const text = [
+    article?.title,
+    article?.summary,
+    article?.dek,
+    article?.hook,
+    ...(article?.source_set || []).flatMap((s) => [s?.source_name, s?.source_url])
+  ]
+    .map((v) => normalizeText(v))
+    .filter(Boolean)
+    .join(" ");
+
+  const hasNonTech = NON_TECH_PATTERNS.some((p) => p.test(text));
+  const hasTech = TECH_STRONG_PATTERNS.some((p) => p.test(text)) || TECH_SUPPORT_PATTERNS.some((p) => p.test(text));
+
+  if (hasNonTech && !hasTech) {
+    return false;
+  }
+
+  if (["ai", "devices", "apps-software", "security", "internet-business-tech", "gaming"].includes(topic)) {
+    // If topic says tech but body looks like pure non-tech, block it.
+    if (hasNonTech && !hasTech && sourceTypes.size === 0) return false;
+    return true;
+  }
+
+  // For unknown topic, require some tech signal or an official-site source.
+  if (sourceTypes.has("official-site")) return true;
+  if (contentType === "EvergreenGuide" || contentType === "ComparisonPage") return hasTech;
+  return hasTech && !hasNonTech;
+}
+
 function scoreCandidate(article, now) {
   const topic = String(article?.topic || "").trim();
   const trust = String(article?.source_set?.[0]?.trust_tier || "").trim();
@@ -174,6 +236,7 @@ function selectBatch(candidates, existingArticles, count, nowIso) {
 
   const filtered = candidates
     .filter(isArticlePublishReady)
+    .filter(isTechRelevant)
     .filter((article) => !existingKeys.has(articleKey(article)))
     .filter((article) => !existingSlugs.has(`${article.language}:${article.slug}`))
     .filter((article) => {
@@ -298,4 +361,3 @@ if (isDirectExecution()) {
       process.exit(1);
     });
 }
-

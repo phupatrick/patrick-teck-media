@@ -844,7 +844,18 @@ export function renderStorePage(state, language, adsConfig) {
     : "The AI plans, software stacks, and digital accounts Patrick Tech Co. is pushing now";
   const externalLabel = isVietnamese ? "Vào store" : "Visit store";
   const picksLabel = isVietnamese ? "Từ newsroom" : "From the newsroom";
-  const picksTitle = isVietnamese ? "Bài đang kéo nhu cầu thật" : "Stories driving real demand";
+  const picksTitle = isVietnamese ? "Bài liên quan đang được quan tâm" : "Related stories readers are watching";
+  const catalogLabel = isVietnamese ? "Danh mục sản phẩm" : "Product catalog";
+  const catalogTitle = isVietnamese ? "Sản phẩm đang có sẵn trên catalog" : "Products available in the catalog";
+  const catalogSearchLabel = isVietnamese ? "Tìm nhanh theo tên, mô tả, thời hạn..." : "Search by name, description, duration...";
+  const catalogCountLabel = isVietnamese ? "sản phẩm" : "products";
+  const categoryLabel = isVietnamese ? "Danh mục" : "Category";
+  const durationLabel = isVietnamese ? "Thời hạn" : "Duration";
+  const warrantyLabel = isVietnamese ? "Bảo hành" : "Warranty";
+  const skuLabel = isVietnamese ? "Mã" : "Code";
+  const catalog = state.sellerCatalog?.[language] || { categories: [], products: [] };
+  const summary = state.sellerSummary || { totalProducts: 0, totalCategories: 0 };
+  const categoryNames = new Map(catalog.categories.map((entry) => [entry.id, entry.name]));
   const relatedStories = state.articles
     .filter((article) => article.language === language && article.store_link_mode !== "off")
     .slice(0, 4);
@@ -862,6 +873,76 @@ export function renderStorePage(state, language, adsConfig) {
         <h1>${heroTitle}</h1>
         <p>${escapeHtml(intro)}</p>
       </section>
+
+      ${
+        catalog.products.length
+          ? `
+            <section class="section-block catalog-shell" data-story-browser>
+              <div class="section-head catalog-head">
+                <div>
+                  <p class="eyebrow">${catalogLabel}</p>
+                  <h2>${catalogTitle}</h2>
+                </div>
+                <div class="catalog-summary">
+                  <span class="status-pill">${summary.totalProducts || catalog.products.length} ${catalogCountLabel}</span>
+                  <span class="status-pill subtle">${summary.totalCategories || catalog.categories.length} ${isVietnamese ? "nhóm" : "groups"}</span>
+                </div>
+              </div>
+              <label class="catalog-search">
+                <span class="sr-only">${catalogSearchLabel}</span>
+                <input type="search" placeholder="${escapeHtml(catalogSearchLabel)}" data-story-search />
+                <span class="catalog-count" data-story-count>${catalog.products.length}/${catalog.products.length} ${catalogCountLabel}</span>
+              </label>
+              <div class="story-grid compact-grid catalog-grid">
+                ${catalog.products
+                  .map((product) => {
+                    const searchText = escapeHtml(
+                      [
+                        product.name,
+                        product.description,
+                        product.duration_label,
+                        product.warranty_label,
+                        categoryNames.get(product.category_id) || product.category_name || ""
+                      ]
+                        .join(" ")
+                        .toLowerCase()
+                    );
+
+                    return `
+                      <article class="story-card store-card catalog-card" data-story-card data-status="all" data-search="${searchText}">
+                        <div class="catalog-card-topline">
+                          <span class="pill">${escapeHtml(categoryNames.get(product.category_id) || product.category_name || (isVietnamese ? "Khác" : "General"))}</span>
+                          <strong class="catalog-price">${escapeHtml(formatCatalogPrice(product.price, product.currency))}</strong>
+                        </div>
+                        <h3>${escapeHtml(product.name)}</h3>
+                        <p>${escapeHtml(truncateText(product.description || "", 220))}</p>
+                        <dl class="catalog-meta">
+                          <div>
+                            <dt>${categoryLabel}</dt>
+                            <dd>${escapeHtml(categoryNames.get(product.category_id) || product.category_name || "-")}</dd>
+                          </div>
+                          <div>
+                            <dt>${durationLabel}</dt>
+                            <dd>${escapeHtml(product.duration_label || "-")}</dd>
+                          </div>
+                          <div>
+                            <dt>${warrantyLabel}</dt>
+                            <dd>${escapeHtml(product.warranty_label || "-")}</dd>
+                          </div>
+                          <div>
+                            <dt>${skuLabel}</dt>
+                            <dd>${escapeHtml(product.id)}</dd>
+                          </div>
+                        </dl>
+                      </article>
+                    `;
+                  })
+                  .join("")}
+              </div>
+            </section>
+          `
+          : ""
+      }
 
       <section class="story-grid compact-grid">
         ${state.storeItems
@@ -890,6 +971,35 @@ export function renderStorePage(state, language, adsConfig) {
       </section>
     `
   });
+}
+
+function formatCatalogPrice(value, currency = "USD") {
+  const amount = Number(value || 0);
+  const resolvedCurrency = String(currency || "USD").trim().toUpperCase();
+
+  if (resolvedCurrency === "VND") {
+    return new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: resolvedCurrency,
+      maximumFractionDigits: 0
+    }).format(amount);
+  }
+
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: resolvedCurrency,
+    minimumFractionDigits: Number.isInteger(amount) ? 0 : 2,
+    maximumFractionDigits: 2
+  }).format(amount);
+}
+
+function truncateText(value, length = 180) {
+  const text = String(value || "").trim();
+  if (text.length <= length) {
+    return text;
+  }
+
+  return `${text.slice(0, Math.max(0, length - 1)).trimEnd()}…`;
 }
 
 export function renderHumanSitemapPage(state, language, groups, adsConfig) {
@@ -1733,9 +1843,21 @@ function suspiciousSequenceCount(value) {
   return (String(value || "").match(/(?:Ã|Â|Ä|Å|Æ|Ð|Ñ|â€|â€™|â€œ|â€|áº|á»|Ä‘)/g) || []).length;
 }
 
+function repairCopyObject(value) {
+  if (Array.isArray(value)) {
+    return value.map((entry) => repairCopyObject(entry));
+  }
+
+  if (!value || typeof value !== "object") {
+    return typeof value === "string" ? repairMojibakeText(value) : value;
+  }
+
+  return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, repairCopyObject(entry)]));
+}
+
 function normalizeRenderCopy(language) {
   if (language === "vi") {
-    return {
+    return repairCopyObject({
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
       heroTitle: "Patrick Tech Media: dự án truyền thông công nghệ của Patrick Tech Co.",
@@ -1831,10 +1953,10 @@ function normalizeRenderCopy(language) {
       storeLabel: "Store",
       companyBrief: "Toà soạn công nghệ của Patrick Tech Co. VN.",
       aboutLabel: "Về Patrick Tech Media"
-    };
+    });
   }
 
-  return {
+  return repairCopyObject({
     homeTitle: "Patrick Tech Media | Technology, AI, and the digital shift",
     eyebrow: "Bilingual newsroom",
     heroTitle: "Patrick Tech Media: the technology newsroom by Patrick Tech Co.",
@@ -1843,12 +1965,12 @@ function normalizeRenderCopy(language) {
     founderName: "Nguyen Hoang Phu (Patrick)",
     founderRole: "Founder · Patrick Tech Co. (2020)",
     homeBriefTitle: "Catch the day's rhythm in one pass"
-  };
+  });
 }
 
 function getCopy(language) {
   if (language === "vi") {
-    return {
+    return repairCopyObject({
       ...normalizeRenderCopy("vi"),
       badgeSignals: "Việt Nam + thế giới",
       badgeAds: "AI, Big Tech, social",
@@ -1888,18 +2010,18 @@ function getCopy(language) {
       workflowEndpointsLabel: "Endpoints",
       dashboardStreamLabel: "Signal stream",
       hotLabel: "Nóng lúc này",
-      hotTitle: "Những câu chuyện đang kéo người đọc",
+      hotTitle: "Những tin nóng đang được chú ý",
       editorsLabel: "Biên tập chọn",
       editorsTitle: "Đáng đọc tiếp theo",
       ribbonLabel: "Đường dây nóng",
       ribbonTitle: "Bản tin chạy nhanh",
       packageLabel: "Gói AI",
       packageTitle: "Những gói AI đang đáng tiền hơn"
-    };
+    });
   }
 
   if (language !== "vi") {
-    return {
+    return repairCopyObject({
       ...normalizeRenderCopy("en"),
       badgeSignals: "Vietnam + world",
       badgeAds: "AI, Big Tech, social",
@@ -2018,285 +2140,17 @@ function getCopy(language) {
       humanSitemapLabel: "Reader sitemap",
       storeLabel: "Store",
       hotLabel: "Hot now",
-      hotTitle: "The stories pulling readers in",
+      hotTitle: "The stories making noise today",
       editorsLabel: "Editors' picks",
       editorsTitle: "What to open next",
       ribbonLabel: "Fast line",
       ribbonTitle: "The moving line",
       packageLabel: "AI plans",
       packageTitle: "Where AI plans are becoming better value"
-    };
+    });
   }
 
-  if (language === "vi") {
-    return {
-      homeTitle: "Patrick Tech Media | Tin cĂ´ng nghá»‡ Viá»‡t Nam vĂ  tháº¿ giá»›i",
-      eyebrow: "ToĂ  soáº¡n song ngá»¯",
-      heroTitle: "Tin AI, Big Tech vĂ  cĂ´ng nghá»‡ Ä‘Ă¡ng má»Ÿ Ä‘áº§u ngĂ y.",
-      heroText:
-        "Patrick Tech Media theo sĂ¡t AI, ná»n táº£ng lá»›n, máº¡ng xĂ£ há»™i, pháº§n má»m, thiáº¿t bá»‹ vĂ  nhá»¯ng máº¹o cĂ´ng nghá»‡ Ä‘Ă¡ng giá»¯ láº¡i.",
-      badgeSignals: "Viá»‡t Nam + tháº¿ giá»›i",
-      badgeAds: "AI, Big Tech, social",
-      badgeBilingual: "Tin má»›i + thá»§ thuáº­t",
-      heroNotebookLabel: "Äiá»ƒm Ä‘Ă¡ng Ä‘á»c",
-      heroNotebookTitle: "Má»Ÿ vĂ o lĂ  tháº¥y ngay nhá»¯ng gĂ¬ Ä‘Ă¡ng báº¥m trÆ°á»›c.",
-      heroNotebookCta: "Xem thĂªm tin má»›i",
-      readerStartLabel: "Vá»«a lĂªn",
-      readerStartTitle: "3 bĂ i má»›i Ä‘á»ƒ báº¯t nhá»‹p",
-      readerWatchLabel: "ÄÆ°á»£c chĂº Ă½",
-      readerWatchTitle: "2 cĂ¢u chuyá»‡n Ä‘ang Ä‘Æ°á»£c bĂ n tĂ¡n",
-      liveLabel: "Live desk",
-      liveTitle: "Nhá»‹p cáº­p nháº­t newsroom",
-      liveRefreshLabel: "LĂ m má»›i",
-      liveNextLabel: "Tiáº¿p theo",
-      clusters: "cá»¥m chá»§ Ä‘á» Ä‘ang hoáº¡t Ä‘á»™ng",
-      sourceFamilies: "nhĂ³m nguá»“n",
-      verifiedStories: "bĂ i verified",
-      emergingStories: "bĂ i emerging",
-      trendStories: "bĂ i trend",
-      readStory: "Äá»c bĂ i ná»•i báº­t",
-      briefingLabel: "Äá»c nhanh",
-      policyLabel: "Nhá»‹p biĂªn táº­p",
-      policyText: "TĂ²a soáº¡n váº«n lĂªn bĂ i nhanh, nhÆ°ng chá»‰ báº­t quáº£ng cĂ¡o á»Ÿ nhá»¯ng trang Ä‘Ă£ Ä‘á»§ ngÆ°á»¡ng kiá»ƒm chá»©ng vĂ  trĂ¬nh bĂ y.",
-      viewPolicy: "Xem chĂ­nh sĂ¡ch biĂªn táº­p",
-      latestLabel: "Má»›i nháº¥t",
-      latestTitle: "Tin má»›i nháº¥t",
-      trendingLabel: "Äang theo dĂµi",
-      trendingTitle: "Nhá»¯ng cĂ¢u chuyá»‡n cáº§n Ä‘á»ƒ máº¯t",
-      evergreenLabel: "Thá»§ thuáº­t & hÆ°á»›ng dáº«n",
-      evergreenTitle: "BĂ i Ä‘á»c xong dĂ¹ng Ä‘Æ°á»£c ngay",
-      tipsLabel: "Thá»§ thuáº­t",
-      tipsTitle: "HÆ°á»›ng dáº«n vĂ  máº¹o Ä‘Ă¡ng lÆ°u",
-      updateLabel: "Vá»«a lĂªn",
-      updateTitle: "3 tin má»›i Ä‘á»ƒ báº¯t nhá»‹p",
-      updateText: "Má»Ÿ nhanh nhá»¯ng bĂ i má»›i nháº¥t náº¿u báº¡n muá»‘n náº¯m nhá»‹p ngay tá»« Ä‘áº§u.",
-      ecosystemLabel: "CĂ´ng ty",
-      ecosystemTitle: "Patrick Tech Co. VN",
-      ecosystemText: "Patrick Tech Media náº±m trong há»‡ sinh thĂ¡i Patrick Tech Co. VN, ná»‘i newsroom vá»›i Patrick Tech Store theo má»™t máº¡ch cĂ´ng nghá»‡ thá»‘ng nháº¥t.",
-      visitStore: "Äi tá»›i Patrick Tech Store",
-      radarLabel: "Newsroom radar",
-      radarTitle: "Xem newsroom radar hoáº¡t Ä‘á»™ng",
-      radarText: "Báº£ng nĂ y gom lane trend, emerging vĂ  verified Ä‘á»ƒ báº¡n tháº¥y rĂµ newsroom Ä‘ang Æ°u tiĂªn cĂ¢u chuyá»‡n nĂ o vĂ  vĂ¬ sao.",
-      workflowLabel: "Quy trĂ¬nh xuáº¥t báº£n",
-      workflowTitle: "Má»Ÿ quy trĂ¬nh xuáº¥t báº£n",
-      workflowText: "Trang workflow giáº£i thĂ­ch cĂ¡ch bĂ n tin gom nguá»“n, xáº¿p hĂ ng chá» biĂªn táº­p, gáº¯n tráº¡ng thĂ¡i vĂ  Ä‘Æ°a bĂ i lĂªn site vá»›i guardrail quáº£ng cĂ¡o.",
-      feedLabel: "Feed",
-      feedTitle: "Xuáº¥t JSON vĂ  RSS",
-      feedText: "Feed mĂ¡y Ä‘á»c Ä‘Æ°á»£c Ä‘Ă£ sáºµn sĂ ng cho phĂ¢n phá»‘i, subscriber inbox hoáº·c cĂ¡c lá»›p theo dĂµi cáº­p nháº­t vá» sau.",
-      browserLabel: "Lá»c theo nhá»‹p Ä‘á»c",
-      browserTitle: "Chá»n Ä‘Ăºng tuyáº¿n bĂ i báº¡n muá»‘n Ä‘á»c",
-      browserText: "Lá»c nhanh theo headline, chá»§ Ä‘á» hoáº·c má»©c Ä‘á»™ kiá»ƒm chá»©ng Ä‘á»ƒ Ä‘i tháº³ng tá»›i nhĂ³m bĂ i phĂ¹ há»£p vá»›i má»‘i quan tĂ¢m cá»§a báº¡n.",
-      browserPlaceholder: "TĂ¬m theo tiĂªu Ä‘á», topic hoáº·c tráº¡ng thĂ¡i...",
-      filterAll: "Táº¥t cáº£",
-      filterVerified: "Verified",
-      filterEmerging: "Emerging",
-      filterTrend: "Trend",
-      homeSpotlightLabel: "TiĂªu Ä‘iá»ƒm",
-      homeSpotlightTitle: "Má»Ÿ bĂ i ná»•i báº­t hĂ´m nay",
-      homeBriefLabel: "Báº£n tá»•ng há»£p",
-      homeBriefTitle: "Äá»c nhanh Ä‘á»ƒ náº¯m cáº£ nhá»‹p ngĂ y",
-      homeAuthorsLabel: "Äá»™i biĂªn táº­p",
-      homeAuthorsTitle: "Gáº·p nhá»¯ng ngÆ°á»i Ä‘ang giá»¯ giá»ng Ä‘iá»‡u cá»§a newsroom",
-      homeAuthorsText: "Má»—i tuyáº¿n bĂ i Ä‘á»u cĂ³ ngÆ°á»i theo dĂµi riĂªng Ä‘á»ƒ headline, hook vĂ  gĂ³c nhĂ¬n khĂ´ng bá»‹ loĂ£ng.",
-      moreLabel: "Xem thĂªm",
-      topicLabel: "ChuyĂªn má»¥c",
-      topicIntro: "ToĂ n bá»™ stories trong chuyĂªn má»¥c nĂ y Ä‘Æ°á»£c giá»¯ cĂ¹ng má»™t cáº¥u trĂºc xĂ¡c minh, attribution vĂ  tiĂªu chĂ­ báº­t quáº£ng cĂ¡o.",
-      radarQueueLabel: "Queue newsroom",
-      radarQueueTitle: "Nhá»¯ng story Ä‘ang ná»•i trong pipeline",
-      radarSourceMixLabel: "Source mix",
-      radarSourceMixTitle: "Tá»‰ trá»ng nguá»“n Ä‘ang Ä‘i vĂ o newsroom",
-      workflowMatrixLabel: "Matrix",
-      workflowGuardrailsLabel: "Guardrails",
-      workflowGuardrailsTitle: "Nhá»¯ng nguyĂªn táº¯c báº£o vá»‡ ads vĂ  editorial",
-      workflowEndpointsLabel: "Endpoints",
-      sourcesShort: "nguá»“n",
-      sourceBoxTitle: "Nguá»“n tham kháº£o",
-      relatedLabel: "BĂ i liĂªn quan",
-      articleRailLabel: "BiĂªn táº­p & quáº£ng cĂ¡o",
-      adsOn: "Trang nĂ y Ä‘á»§ Ä‘iá»u kiá»‡n hiá»ƒn thá»‹ quáº£ng cĂ¡o mĂ  váº«n giá»¯ bá»‘ cá»¥c Ä‘á»c.",
-      adsOff: "Trang nĂ y Æ°u tiĂªn tráº£i nghiá»‡m Ä‘á»c vĂ  khĂ´ng hiá»ƒn thá»‹ quáº£ng cĂ¡o.",
-      languageSwitchLabel: "PhiĂªn báº£n ngĂ´n ngá»¯",
-      storePanelLabel: "Tá»« há»‡ Patrick Tech",
-      storePanelTitle: "CĂ´ng cá»¥ liĂªn quan theo ngá»¯ cáº£nh",
-      communityLabel: "Cá»™ng Ä‘á»“ng",
-      communityTitle: "Báº¡n tháº¥y bĂ i nĂ y tháº¿ nĂ o?",
-      communityText: "Tháº£ cáº£m xĂºc hoáº·c Ä‘á»ƒ láº¡i bĂ¬nh luáº­n ngay dÆ°á»›i bĂ i viáº¿t.",
-      commentNameLabel: "TĂªn hiá»ƒn thá»‹",
-      commentNamePlaceholder: "Nháº­p tĂªn cá»§a báº¡n",
-      commentBodyLabel: "BĂ¬nh luáº­n",
-      commentBodyPlaceholder: "Viáº¿t cáº£m nháº­n, gĂ³p Ă½ hoáº·c bá»• sung thĂ´ng tin...",
-      commentSubmitLabel: "Gá»­i bĂ¬nh luáº­n",
-      commentListLabel: "BĂ¬nh luáº­n má»›i",
-      commentEmpty: "ChÆ°a cĂ³ bĂ¬nh luáº­n nĂ o. Báº¡n cĂ³ thá»ƒ lĂ  ngÆ°á»i má»Ÿ Ä‘áº§u cuá»™c trĂ² chuyá»‡n.",
-      authorsLabel: "TĂ¡c giáº£",
-      authorsTitle: "Äá»™i biĂªn táº­p",
-      authorsText: "Má»—i bĂ i Ä‘á»u gáº¯n má»™t biĂªn táº­p viĂªn phá»¥ trĂ¡ch máº£ng Ä‘á»ƒ giá»¯ gĂ³c nhĂ¬n nháº¥t quĂ¡n giá»¯a cĂ¡c Ä‘á»£t cáº­p nháº­t.",
-      footerBlurb: "Tin cĂ´ng nghá»‡, AI, Big Tech, máº¡ng xĂ£ há»™i vĂ  thá»§ thuáº­t Ä‘Ă¡ng lÆ°u.",
-      sitemapLabel: "Sitemap",
-      sitemapTitle: "SÆ¡ Ä‘á»“ Ä‘iá»u hÆ°á»›ng site",
-      sitemapText: "Trang nĂ y gom cĂ¡c Ä‘iá»ƒm vĂ o chĂ­nh cá»§a site dĂ nh cho ngÆ°á»i Ä‘á»c vĂ  kiá»ƒm tra váº­n hĂ nh.",
-      notFoundTitle: "KhĂ´ng tĂ¬m tháº¥y trang",
-      notFoundText: "Route nĂ y chÆ°a cĂ³ ná»™i dung hoáº·c Ä‘Ă£ Ä‘á»•i slug.",
-      backHome: "Quay vá» trang chá»§",
-      dashboardLabel: "Dashboard",
-      dashboardTitle: "Báº£ng Ä‘iá»u khiá»ƒn newsroom",
-      dashboardText: "Trang nĂ y gom cĂ¡c chá»‰ sá»‘ xuáº¥t báº£n, dĂ²ng tĂ­n hiá»‡u vĂ  checklist repo Ä‘á»ƒ báº¡n nhĂ¬n site theo gĂ³c Ä‘á»™ váº­n hĂ nh thay vĂ¬ chá»‰ bá» máº·t public.",
-      dashboardStreamLabel: "Signal stream",
-      dashboardStreamTitle: "DĂ²ng tĂ­n hiá»‡u má»›i nháº¥t Ä‘ang Ä‘i qua newsroom",
-      dashboardHeatLabel: "Topic heat",
-      dashboardHeatTitle: "Chá»§ Ä‘á» nĂ o Ä‘ang chiáº¿m Æ°u tiĂªn",
-      dashboardLaneTitle: "CĂ¡c story Ä‘ang náº±m trong lane nĂ y",
-      dashboardRepoLabel: "Repo",
-      dashboardRepoTitle: "Checklist Ä‘á»ƒ Ä‘áº©y lĂªn GitHub",
-      humanSitemapLabel: "Sitemap ngÆ°á»i Ä‘á»c",
-      storeLabel: "Store",
-      heroTitle: "Tin cĂ´ng nghá»‡ má»›i nháº¥t tá»« Viá»‡t Nam vĂ  tháº¿ giá»›i.",
-      heroText:
-        "Patrick Tech Media bĂ¡m sĂ¡t AI, Big Tech, máº¡ng xĂ£ há»™i, pháº§n má»m, thiáº¿t bá»‹ vĂ  nhá»¯ng thá»§ thuáº­t Ä‘Ă¡ng lÆ°u, vá»›i Æ°u tiĂªn rĂµ cho áº£nh Ä‘áº¹p vĂ  headline Ä‘á»§ lá»±c kĂ©o ngÆ°á»i Ä‘á»c vĂ o ngay tá»« cĂ¡i nhĂ¬n Ä‘áº§u tiĂªn.",
-      hotLabel: "NĂ³ng lĂºc nĂ y",
-      hotTitle: "Nhá»¯ng headline Ä‘ang kĂ©o lÆ°á»£t Ä‘á»c",
-      editorsLabel: "BiĂªn táº­p chá»n",
-      editorsTitle: "ÄĂ¡ng Ä‘á»c tiáº¿p theo",
-      ribbonLabel: "ÄÆ°á»ng dĂ¢y nĂ³ng",
-      ribbonTitle: "CĂ¡c tin vá»«a báº­t lĂªn",
-      companyBrief: "TĂ²a soáº¡n cĂ´ng nghá»‡ cá»§a Patrick Tech Co. VN.",
-      aboutLabel: "Vá» Patrick Tech Media"
-    };
-  }
-
-  return {
-    homeTitle: "Patrick Tech Media | Technology from Vietnam and the wider web",
-    eyebrow: "Bilingual newsroom",
-      heroTitle: "AI, Big Tech, and the technology stories worth opening first.",
-      heroText:
-        "Patrick Tech Media tracks AI, major platforms, software, devices, and practical how-tos with a cleaner editorial voice.",
-    badgeSignals: "Vietnam + world",
-    badgeAds: "AI, Big Tech, social",
-    badgeBilingual: "News + how-tos",
-    heroNotebookLabel: "Worth opening",
-    heroNotebookTitle: "The first stories that tell you what matters right now.",
-    heroNotebookCta: "More fresh stories",
-    readerStartLabel: "Just in",
-    readerStartTitle: "3 fresh stories to start with",
-    readerWatchLabel: "Getting attention",
-    readerWatchTitle: "2 stories readers keep opening",
-    liveLabel: "Live desk",
-    liveTitle: "Continuous desk updates",
-    liveRefreshLabel: "Refreshed",
-    liveNextLabel: "Next",
-    clusters: "active clusters",
-    sourceFamilies: "source families",
-    verifiedStories: "verified stories",
-    emergingStories: "emerging stories",
-    trendStories: "trend stories",
-    readStory: "Read the featured piece",
-    briefingLabel: "Quick read",
-    policyLabel: "Editorial rhythm",
-    policyText: "The desk moves quickly, but ads only appear on pages that meet the stronger verification and presentation bar.",
-    viewPolicy: "Read the editorial policy",
-    latestLabel: "Latest",
-    latestTitle: "Latest stories",
-    trendingLabel: "Under watch",
-    trendingTitle: "The stories worth watching next",
-    evergreenLabel: "How-tos and guides",
-    evergreenTitle: "Pieces readers can use right away",
-    tipsLabel: "How-tos",
-    tipsTitle: "Practical guides worth saving",
-    updateLabel: "Just in",
-    updateTitle: "3 fresh stories to catch the pace",
-    updateText: "Open these first if you want the newest turns on the site.",
-    ecosystemLabel: "Company",
-    ecosystemTitle: "Patrick Tech Co. VN",
-    ecosystemText: "Patrick Tech Media sits inside the Patrick Tech Co. VN ecosystem, linking coverage, useful guides, and Patrick Tech Store without splitting the experience.",
-    visitStore: "Open Patrick Tech Store",
-      radarLabel: "Newsroom radar",
-      radarTitle: "See the newsroom radar in motion",
-      radarText: "This board groups trend, emerging, and verified lanes so you can quickly see what the newsroom is prioritizing and why.",
-      workflowLabel: "Publishing workflow",
-      workflowTitle: "Open the publishing workflow",
-      workflowText: "The workflow page explains how the desk gathers sources, groups story lines, assigns states, and publishes pages with ad guardrails.",
-      feedLabel: "Feed",
-      feedTitle: "Export JSON and RSS",
-      feedText: "Machine-readable feeds are already available for distribution, inbox digests, or future monitoring layers.",
-      browserLabel: "Read by lane",
-      browserTitle: "Filter the stream the way you want to read it",
-      browserText: "Jump straight to the stories that match the headline style, topic, or level of verification you care about most.",
-      browserPlaceholder: "Search by title, topic, or state...",
-      filterAll: "All",
-      filterVerified: "Verified",
-      filterEmerging: "Emerging",
-      filterTrend: "Trend",
-      homeSpotlightLabel: "Spotlight",
-      homeSpotlightTitle: "Start with the strongest lead today",
-      homeBriefLabel: "Briefing",
-      homeBriefTitle: "Catch the dayâ€™s rhythm in one pass",
-      homeAuthorsLabel: "Editorial team",
-      homeAuthorsTitle: "Meet the people shaping the newsroom voice",
-      homeAuthorsText: "Each coverage lane has a real editorial owner so headlines, hooks, and angle do not drift into the same flat tone.",
-      moreLabel: "More",
-      topicLabel: "Topic",
-      topicIntro: "Every story in this section follows the same verification structure, attribution rules, and ad-eligibility logic.",
-      radarQueueLabel: "Newsroom queue",
-      radarQueueTitle: "Stories now moving through the pipeline",
-      radarSourceMixLabel: "Source mix",
-      radarSourceMixTitle: "What kinds of sources are entering the newsroom",
-      workflowMatrixLabel: "Matrix",
-      workflowGuardrailsLabel: "Guardrails",
-      workflowGuardrailsTitle: "Rules protecting ads and editorial quality",
-      workflowEndpointsLabel: "Endpoints",
-      sourcesShort: "sources",
-      sourceBoxTitle: "Source notes",
-    relatedLabel: "Related stories",
-    articleRailLabel: "Editorial and ads",
-    adsOn: "This page is eligible to show ads while keeping a clean reading layout.",
-    adsOff: "This page stays ad-free to protect the reading experience.",
-    languageSwitchLabel: "Language versions",
-    storePanelLabel: "From Patrick Tech",
-    storePanelTitle: "Contextual tools",
-    communityLabel: "Community",
-    communityTitle: "What did you think of this story?",
-    communityText: "Drop a reaction or leave a comment right below the article.",
-    commentNameLabel: "Display name",
-    commentNamePlaceholder: "Enter your name",
-    commentBodyLabel: "Comment",
-    commentBodyPlaceholder: "Share your take, feedback, or extra context...",
-    commentSubmitLabel: "Post comment",
-    commentListLabel: "Latest comments",
-    commentEmpty: "No comments yet. You can start the conversation.",
-    authorsLabel: "Authors",
-    authorsTitle: "Editorial team",
-    authorsText: "Each story is tied to an editor covering the beat so the newsroom keeps a consistent lens across updates.",
-    footerBlurb: "Technology, AI, Big Tech, social platforms, and useful how-tos.",
-    sitemapLabel: "Sitemap",
-    sitemapTitle: "Site navigation map",
-    sitemapText: "This page collects the main entry points for readers and operational review.",
-    notFoundTitle: "Page not found",
-    notFoundText: "This route does not exist yet or the slug has changed.",
-    backHome: "Back to home",
-    dashboardLabel: "Dashboard",
-    dashboardTitle: "The newsroom dashboard",
-    dashboardText: "This page collects publishing metrics, live signal flow, and repo-readiness checks so you can review the site as an operating system, not just a front end.",
-    dashboardStreamLabel: "Signal stream",
-    dashboardStreamTitle: "The latest items moving through the newsroom",
-    dashboardHeatLabel: "Topic heat",
-    dashboardHeatTitle: "Which topics are winning priority",
-    dashboardLaneTitle: "Stories currently sitting in this lane",
-    dashboardRepoLabel: "Repo",
-    dashboardRepoTitle: "Checklist for pushing to GitHub",
-    humanSitemapLabel: "Reader sitemap",
-    storeLabel: "Store",
-    heroTitle: "Fresh technology news from Vietnam and the wider web.",
-    heroText:
-      "Patrick Tech Media tracks AI, Big Tech, social platforms, software, devices, and practical how-tos with a front page that gives priority to visual stories and headlines that make people stop scrolling.",
-    hotLabel: "Hot now",
-    hotTitle: "Headlines pulling readers in",
-    editorsLabel: "Editors' picks",
-    editorsTitle: "What to open next",
-    ribbonLabel: "Fast line",
-    ribbonTitle: "Stories that just moved",
-    companyBrief: "The technology desk of Patrick Tech Co. VN.",
-    aboutLabel: "About Patrick Tech Media"
-  };
+  return repairCopyObject(normalizeRenderCopy("en"));
 }
 
 function escapeHtml(value) {

@@ -264,3 +264,75 @@ npm run storage:sync
 ```
 
 After that, GitHub Actions can run the OpenClaw manager every hour, commit the refreshed newsroom, and Vercel can deploy the site without your local machine staying online.
+
+## Telegram seller bot
+
+This repo now includes a Telegram seller bot that can manage a lightweight product catalog for a seller group.
+
+### Configure
+
+Add these values to `.env`:
+
+```env
+SELLER_CATALOG_PATH=data/seller-catalog.json
+SELLER_TIMEZONE=Asia/Saigon
+SELLER_TIMEZONE_OFFSET=+07:00
+SELLER_TRANSLATION_MODE=fallback
+SELLER_TRANSLATION_ENDPOINT=
+SELLER_TRANSLATION_API_KEY=
+SELLER_TRANSLATION_MODEL=
+TELEGRAM_BOT_TOKEN=your-bot-token
+TELEGRAM_BOT_POLL_TIMEOUT=20
+TELEGRAM_SELLER_ALLOWED_CHAT_IDS=-1001234567890
+TELEGRAM_SELLER_ADMIN_USER_IDS=123456789,987654321
+TELEGRAM_SELLER_WEBHOOK_PATH=/api/telegram/seller/webhook
+TELEGRAM_SELLER_WEBHOOK_SECRET=replace-with-a-random-secret
+```
+
+`TELEGRAM_SELLER_ALLOWED_CHAT_IDS` should contain your seller group chat id. Everyone inside that group can browse and search. `TELEGRAM_SELLER_ADMIN_USER_IDS` is the admin list that can add, edit, and delete products.
+The catalog is USD-only. Product prices are always stored and rendered in `USD`.
+
+### Run locally
+
+```powershell
+npm run telegram:seller:bot
+```
+
+The bot stores categories, products, temporary-product expiry, translations, and user language preferences in `data/seller-catalog.json` by default, and will use `DATABASE_URL` when available through the shared document-store layer. If you configure the `SELLER_TRANSLATION_*` values with an OpenAI-compatible endpoint, the bot can auto-translate admin-entered `English` or `Vietnamese` product content into `Myanmar`.
+The active bot experience is now English-only so the catalog, menus, buttons, help copy, and admin commands stay simple and consistent.
+
+### Run on webhook
+
+Deploy the app so `SITE_URL` points to a public `https` URL, then register the webhook:
+
+```powershell
+npm start
+npm run telegram:seller:webhook:set
+```
+
+The Telegram seller bot webhook is served by the main Node server at `TELEGRAM_SELLER_WEBHOOK_PATH`. Telegram will push updates to that route, so the bot can stay online without your local machine running as long as the deployed app is up.
+
+### Commands
+
+```text
+/heybot
+/find <keyword>
+/addcat Category name
+/add <category_id> | Name | Duration | Warranty | Price | Description
+/addtemp Name | Duration | Warranty | Price | Description | YYYY-MM-DD
+/edit <product_id> | name=... | category=... | duration=... | warranty=... | price=... | desc=... | until=... | status=active|inactive
+/delete <id>
+/summary
+```
+
+`/heybot` opens the inline-button catalog menu. Users can browse categories, open a product card that shows `name - duration - warranty - price`, tap into product details to read the description, and search products from the button flow. Temporary products can live under the temporary layer and will auto-disappear after their expiry date.
+
+Examples:
+
+```text
+/addcat Tep GPT
+/add tep-gpt | GPT Plus | 1 month | 7 days | 20 | Shared GPT Plus account
+/add tep-gpt | GPT Pro | 1 month | 5 days | 18 | Shared GPT Pro account
+/addtemp Gemini Ultra | 1 month | 3 days | 15 | Flash sale account | 2026-04-30
+/edit prod_ab12cd34 | price=18 | warranty=5 days | desc=Updated package note
+```
