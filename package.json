@@ -7,6 +7,7 @@
     "start": "node server.mjs",
     "dev": "node --watch server.mjs",
     "test": "node test/newsroom.test.mjs && node test/platform.test.mjs && node test/security.test.mjs && node test/seller.test.mjs && node test/openclaw-control-plane.test.mjs",
+    "adobe:check": "node tools/adobe-account-checker/checker.mjs",
     "newsroom:publish": "node scripts/newsroom-publish.mjs",
     "newsroom:refresh": "node scripts/newsroom-refresh.mjs",
     "storage:sync": "node scripts/storage-sync.mjs",
@@ -26,6 +27,7 @@
     "openclaw:social:autopilot:install": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\openclaw-social-autopilot-install.ps1 -AllPages"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2"
+    "@neondatabase/serverless": "^1.0.2",
+    "playwright": "^1.54.2"
   }
 }

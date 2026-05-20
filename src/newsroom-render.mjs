@@ -190,13 +190,10 @@ function buildHomePageStoryGroups(home) {
     5,
     AI_BALANCE_OPTIONS
   );
-  const safeLatestStories = buildBalancedLane(
-    [home.latest],
-    [leadFeature, ...leadSideStories, packageLead],
-    4,
-    AI_BALANCE_OPTIONS,
-    [home.latest, home.trending, fallbackStory]
-  );
+  const safeLatestStories = excludeStories(
+    dedupeStories(buildStoryPool(home.latest, home.trending, fallbackStory)),
+    [leadFeature, ...leadSideStories, packageLead]
+  ).slice(0, 4);
   const safeWatchStories = buildBalancedLane(
     [packageStories, home.trending, home.briefing, home.latest],
     [leadFeature, ...leadSideStories, packageLead],

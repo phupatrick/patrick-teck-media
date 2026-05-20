@@ -432,11 +432,10 @@ export function getHomeData(state, language) {
     readyPrioritized.find((article) => !isSameStoryFamily(article, featured)) ||
     readyPrioritized[0] ||
     localized[0];
-  const latest = selectDiverseFrontPageStories([...sameDayReadyStories, ...readyPrioritized], 10, {
-    excludeStories: [featured, briefing],
-    maxPerTopic: { ai: 2, devices: 3, default: 2 },
-    maxPerSource: 2
-  });
+  const latest = dedupeStoryFamilies([...sameDayReadyStories, ...readyPrioritized])
+    .filter((article) => article?.href !== featured?.href && article?.href !== briefing?.href)
+    .sort((left, right) => sortArticlesByDateDesc(left, right))
+    .slice(0, 10);
   const packageWatch = selectDiverseFrontPageStories(packageCandidates, 8, {
     excludeStories: [featured, briefing],
     maxPerSource: 2
@@ -663,6 +662,28 @@ function selectDiverseFrontPageStories(stories, limit, options = {}) {
   }
 
   return selected;
+}
+
+function dedupeStoryFamilies(stories) {
+  const seen = new Set();
+  const output = [];
+
+  for (const story of stories || []) {
+    if (!story) {
+      continue;
+    }
+
+    const familyKey = story.cluster_id || story.id || story.href || story.slug;
+
+    if (!familyKey || seen.has(familyKey)) {
+      continue;
+    }
+
+    seen.add(familyKey);
+    output.push(story);
+  }
+
+  return output;
 }
 
 function computeFrontPagePriority(article, anchorDate, topicWeights = FRONT_PAGE_TOPIC_WEIGHTS, sourceWeights = FRONT_PAGE_SOURCE_WEIGHTS) {
