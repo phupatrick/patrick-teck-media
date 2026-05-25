@@ -2,6 +2,15 @@ name: OpenClaw Manager Cycle
 
 on:
   workflow_dispatch:
+    inputs:
+      source:
+        description: "Who requested this run"
+        required: false
+        default: "manual"
+      reason:
+        description: "Short run reason"
+        required: false
+        default: ""
   schedule:
     - cron: "*/15 * * * *"
 
@@ -58,3 +67,13 @@ jobs:
           OPENCLAW_GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
           OPENCLAW_GIT_COMMIT_MESSAGE: "Run OpenClaw manager cycle"
         run: node scripts/openclaw-git-sync.mjs
+
+      - name: Report newsroom status to Telegram
+        if: ${{ always() && secrets.TELEGRAM_NEWSROOM_BOT_TOKEN != '' && secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS != '' }}
+        env:
+          TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}
+          TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: ${{ secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS }}
+          SITE_URL: https://patricktechmedia.com
+          NEWSROOM_CONTENT_PATH: data/newsroom-content.json
+          OPENCLAW_MANAGER_STATE_PATH: data/openclaw-manager-state.json
+        run: node scripts/telegram-newsroom-report.mjs

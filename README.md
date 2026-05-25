@@ -280,6 +280,50 @@ That keeps the deployed function lighter. The live site should use `DATABASE_URL
 
 This repo now includes a Telegram seller bot that can manage a lightweight product catalog for a seller group.
 
+## Telegram newsroom operator bot
+
+The newsroom bot lets the owner control Patrick Tech Media from Telegram without keeping a local computer online. It runs as a Vercel webhook and delegates heavy refresh work to GitHub Actions/OpenClaw.
+
+Supported commands:
+
+- `/status` - web status, article count, latest story, OpenClaw queue health
+- `/latest` - latest published articles with links
+- `/refresh` - admin-only request to run the newsroom refresh workflow
+- `/jobs` - recent OpenClaw jobs
+- `/help` - command list
+
+Configure these values in Vercel production env vars and GitHub Actions secrets where needed:
+
+```powershell
+TELEGRAM_NEWSROOM_BOT_TOKEN=
+TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS=
+TELEGRAM_NEWSROOM_ADMIN_USER_IDS=
+TELEGRAM_NEWSROOM_REPORT_CHAT_IDS=
+TELEGRAM_NEWSROOM_WEBHOOK_PATH=/api/telegram/newsroom/webhook
+TELEGRAM_NEWSROOM_WEBHOOK_SECRET=
+GITHUB_WORKFLOW_DISPATCH_TOKEN=
+GITHUB_WORKFLOW_REPOSITORY=phupatrick/patrick-teck-media
+GITHUB_WORKFLOW_FILE=newsroom-refresh.yml
+GITHUB_WORKFLOW_REF=main
+CRON_SECRET=
+```
+
+`TELEGRAM_NEWSROOM_ADMIN_USER_IDS` must include your Telegram numeric user id before `/refresh` can dispatch automation.
+
+Register the Telegram webhook after deployment:
+
+```powershell
+npm run telegram:newsroom:webhook:set
+```
+
+Delete it if you need to rotate tokens:
+
+```powershell
+npm run telegram:newsroom:webhook:delete
+```
+
+The Vercel cron route `/api/openclaw/cron` dispatches the GitHub workflow as a daily fallback. The GitHub Actions workflow remains the high-frequency automation path, while Vercel keeps the command webhook online.
+
 ### Configure
 
 Add these values to `.env`:

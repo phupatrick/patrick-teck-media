@@ -56,6 +56,7 @@ import {
 import { createSellerService } from "./src/seller-service.mjs";
 import { createSellerTranslator } from "./src/seller-translation.mjs";
 import { createTelegramSellerBot } from "./src/telegram-seller-bot.mjs";
+import { createTelegramNewsroomBot } from "./src/telegram-newsroom-bot.mjs";
 import { createOpenClawControlPlane } from "./src/openclaw-control-plane.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -97,6 +98,16 @@ const config = {
   telegramSellerAdminUserIds: (process.env.TELEGRAM_SELLER_ADMIN_USER_IDS || envFromFile.TELEGRAM_SELLER_ADMIN_USER_IDS || process.env.TELEGRAM_SELLER_ALLOWED_USER_IDS || envFromFile.TELEGRAM_SELLER_ALLOWED_USER_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
   telegramWebhookPath: process.env.TELEGRAM_SELLER_WEBHOOK_PATH || envFromFile.TELEGRAM_SELLER_WEBHOOK_PATH || "/api/telegram/seller/webhook",
   telegramWebhookSecret: process.env.TELEGRAM_SELLER_WEBHOOK_SECRET || envFromFile.TELEGRAM_SELLER_WEBHOOK_SECRET || "",
+  telegramNewsroomBotToken: process.env.TELEGRAM_NEWSROOM_BOT_TOKEN || envFromFile.TELEGRAM_NEWSROOM_BOT_TOKEN || "",
+  telegramNewsroomAllowedChatIds: (process.env.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS || envFromFile.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
+  telegramNewsroomAdminUserIds: (process.env.TELEGRAM_NEWSROOM_ADMIN_USER_IDS || envFromFile.TELEGRAM_NEWSROOM_ADMIN_USER_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
+  telegramNewsroomWebhookPath: process.env.TELEGRAM_NEWSROOM_WEBHOOK_PATH || envFromFile.TELEGRAM_NEWSROOM_WEBHOOK_PATH || "/api/telegram/newsroom/webhook",
+  telegramNewsroomWebhookSecret: process.env.TELEGRAM_NEWSROOM_WEBHOOK_SECRET || envFromFile.TELEGRAM_NEWSROOM_WEBHOOK_SECRET || "",
+  githubWorkflowDispatchToken: process.env.GITHUB_WORKFLOW_DISPATCH_TOKEN || envFromFile.GITHUB_WORKFLOW_DISPATCH_TOKEN || "",
+  githubWorkflowRepository: process.env.GITHUB_WORKFLOW_REPOSITORY || envFromFile.GITHUB_WORKFLOW_REPOSITORY || "phupatrick/patrick-teck-media",
+  githubWorkflowFile: process.env.GITHUB_WORKFLOW_FILE || envFromFile.GITHUB_WORKFLOW_FILE || "newsroom-refresh.yml",
+  githubWorkflowRef: process.env.GITHUB_WORKFLOW_REF || envFromFile.GITHUB_WORKFLOW_REF || "main",
+  cronSecret: process.env.CRON_SECRET || envFromFile.CRON_SECRET || "",
   openclawControlPath: process.env.OPENCLAW_CONTROL_PATH || envFromFile.OPENCLAW_CONTROL_PATH || "data/openclaw-control-plane.json",
   openclawControlToken: process.env.OPENCLAW_CONTROL_TOKEN || envFromFile.OPENCLAW_CONTROL_TOKEN || "",
   openclawWorkerHeartbeatSeconds: Number(process.env.OPENCLAW_WORKER_HEARTBEAT_SECONDS || envFromFile.OPENCLAW_WORKER_HEARTBEAT_SECONDS || 120),
@@ -251,6 +262,17 @@ const openclawControlPlane = createOpenClawControlPlane({
   defaultJobLeaseSeconds: config.openclawJobLeaseSeconds
 });
 const TELEGRAM_SELLER_WEBHOOK_PATH = normalizeWebhookPath(config.telegramWebhookPath);
+const TELEGRAM_NEWSROOM_WEBHOOK_PATH = normalizeWebhookPath(config.telegramNewsroomWebhookPath);
+const telegramNewsroomBot = createTelegramNewsroomBot({
+  token: config.telegramNewsroomBotToken,
+  allowedChatIds: config.telegramNewsroomAllowedChatIds,
+  adminUserIds: config.telegramNewsroomAdminUserIds,
+  siteUrl: config.siteUrl,
+  getState: () => getState(config.siteUrl),
+  getControlSummary: () => openclawControlPlane.getSummary(),
+  createControlJob: (job) => openclawControlPlane.createJob(job),
+  dispatchWorkflow: dispatchNewsroomWorkflow
+});
 
 const stateCache = new Map();
 const stateTimestamps = new Map();
@@ -267,6 +289,10 @@ if (sessionSecretResolution.warning) {
 
 telegramSellerBot.initialize().catch((error) => {
   console.error("[telegram-seller-bot:init]", error.message || error);
+});
+
+telegramNewsroomBot.initialize().catch((error) => {
+  console.error("[telegram-newsroom-bot:init]", error.message || error);
 });
 
 async function handleRequest(req, res) {
@@ -295,6 +321,10 @@ async function handleRequest(req, res) {
 
     if (await tryStatic(pathname, requestUrl, res)) {
       return;
+    }
+
+    if (method === "POST" && pathname === TELEGRAM_NEWSROOM_WEBHOOK_PATH) {
+      return handleTelegramNewsroomWebhook(req, res);
     }
 
     if (method === "POST" && pathname === TELEGRAM_SELLER_WEBHOOK_PATH) {
@@ -806,6 +836,10 @@ async function tryStatic(pathname, requestUrl, res) {
 async function handleApi(req, pathname, requestUrl, res, state) {
   const cacheControl = pathname === "/api/newsroom/live" ? LIVE_API_CACHE_CONTROL : PUBLIC_API_CACHE_CONTROL;
 
+  if (pathname === "/api/openclaw/cron") {
+    return handleOpenClawCronApi(req, res);
+  }
+
   if (pathname === "/api/openclaw/control") {
     return handleOpenClawControlApi(req, requestUrl, res);
   }
@@ -977,6 +1011,32 @@ async function handleOpenClawControlApi(req, requestUrl, res) {
     return sendJson(res, 400, { error: "Unsupported OpenClaw control action." });
   } catch (error) {
     return sendJson(res, 400, { error: error.message || "OpenClaw control request failed." });
+  }
+}
+
+async function handleOpenClawCronApi(req, res) {
+  const method = normalizeMethod(req.method);
+  if (method !== "GET" && method !== "HEAD") {
+    return sendMethodNotAllowed(res, "GET, HEAD, OPTIONS");
+  }
+
+  if (config.cronSecret) {
+    const authHeader = String(req.headers.authorization || "");
+    const bearerToken = authHeader.startsWith("Bearer ") ? authHeader.slice("Bearer ".length).trim() : "";
+    if (bearerToken !== config.cronSecret) {
+      return sendJson(res, 401, { error: "Unauthorized." });
+    }
+  }
+
+  try {
+    const result = await dispatchNewsroomWorkflow({ reason: "vercel-cron" });
+    return sendJson(res, result.ok ? 200 : 503, {
+      ok: result.ok,
+      mode: result.ok ? "github-workflow-dispatch" : "not-configured",
+      reason: result.reason || ""
+    });
+  } catch (error) {
+    return sendJson(res, 500, { error: error.message || "Cron dispatch failed." });
   }
 }
 
@@ -1321,6 +1381,65 @@ async function handleTelegramSellerWebhook(req, res) {
     console.error("[telegram-seller-webhook]", error.message || error);
     return sendJson(res, 500, { error: "Webhook processing failed." });
   }
+}
+
+async function handleTelegramNewsroomWebhook(req, res) {
+  if (!config.telegramNewsroomBotToken) {
+    return sendJson(res, 503, { error: "Telegram newsroom bot token is not configured." });
+  }
+
+  if (config.telegramNewsroomWebhookSecret) {
+    const suppliedSecret = String(req.headers["x-telegram-bot-api-secret-token"] || "").trim();
+    if (!suppliedSecret || suppliedSecret !== config.telegramNewsroomWebhookSecret) {
+      return sendJson(res, 403, { error: "Forbidden." });
+    }
+  }
+
+  try {
+    const update = await readJsonBody(req);
+    await telegramNewsroomBot.handleUpdate(update);
+    return sendJson(res, 200, { ok: true });
+  } catch (error) {
+    console.error("[telegram-newsroom-webhook]", error.message || error);
+    return sendJson(res, 500, { error: "Webhook processing failed." });
+  }
+}
+
+async function dispatchNewsroomWorkflow(input = {}) {
+  if (!config.githubWorkflowDispatchToken) {
+    return { ok: false, reason: "missing-token" };
+  }
+
+  const repository = String(config.githubWorkflowRepository || "").trim();
+  const workflowFile = String(config.githubWorkflowFile || "").trim();
+  const ref = String(config.githubWorkflowRef || "main").trim();
+
+  if (!repository || !workflowFile || !ref) {
+    return { ok: false, reason: "missing-workflow-config" };
+  }
+
+  const response = await fetch(`https://api.github.com/repos/${repository}/actions/workflows/${workflowFile}/dispatches`, {
+    method: "POST",
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${config.githubWorkflowDispatchToken}`,
+      "Content-Type": "application/json",
+      "User-Agent": "patrick-tech-media-newsroom-bot"
+    },
+    body: JSON.stringify({
+      ref,
+      inputs: {
+        source: "telegram",
+        reason: String(input.reason || "").slice(0, 120)
+      }
+    })
+  });
+
+  if (!response.ok && response.status !== 204) {
+    throw new Error(`GitHub workflow dispatch failed with HTTP ${response.status}.`);
+  }
+
+  return { ok: true };
 }
 
 function mapSubmissionForm(form) {
