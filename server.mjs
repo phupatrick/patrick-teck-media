@@ -271,7 +271,8 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
   getState: () => getState(config.siteUrl),
   getControlSummary: () => openclawControlPlane.getSummary(),
   createControlJob: (job) => openclawControlPlane.createJob(job),
-  dispatchWorkflow: dispatchNewsroomWorkflow
+  dispatchWorkflow: dispatchNewsroomWorkflow,
+  openClawEnabled: Boolean(config.openclawControlToken)
 });
 
 const stateCache = new Map();

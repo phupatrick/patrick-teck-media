@@ -1,21 +1,30 @@
 const DEFAULT_COMMANDS = [
   { command: "status", description: "View web and newsroom status" },
   { command: "latest", description: "Show latest published stories" },
+  { command: "health", description: "Check live site health" },
+  { command: "web", description: "Show web management links" },
+  { command: "id", description: "Show Telegram ids for setup" },
   { command: "refresh", description: "Request a newsroom refresh" },
   { command: "jobs", description: "View OpenClaw jobs" },
+  { command: "setup", description: "Show setup checklist" },
   { command: "help", description: "View commands" }
 ];
 
 const HELP_TEXT = [
   "Patrick Tech Media newsroom bot",
   "",
-  "/status - xem tình hình web, số bài, OpenClaw",
-  "/latest - xem bài mới nhất",
-  "/refresh - yêu cầu quét/cập nhật bài mới",
-  "/jobs - xem hàng đợi OpenClaw",
-  "/help - xem hướng dẫn",
+  "/ping - quick bot check",
+  "/id - show chat id and user id for Vercel env setup",
+  "/status - web status, article count, latest story, OpenClaw summary",
+  "/latest - latest published stories",
+  "/health - check live homepage and newsroom API",
+  "/web - web management links",
+  "/setup - setup checklist for Vercel",
+  "/refresh - admin-only refresh request, enabled after GitHub/OpenClaw setup",
+  "/jobs - OpenClaw queue summary",
+  "/help - command list",
   "",
-  "Bot này chạy bằng webhook trên Vercel. Tác vụ nặng sẽ được chuyển sang GitHub Actions/OpenClaw worker để không cần máy cá nhân mở 24/24."
+  "Current mode: Vercel webhook first. Heavy automation will be connected later through GitHub Actions/OpenClaw."
 ].join("\n");
 
 export function createTelegramNewsroomBot(options = {}) {
@@ -27,6 +36,7 @@ export function createTelegramNewsroomBot(options = {}) {
   const getControlSummary = options.getControlSummary;
   const createControlJob = options.createControlJob;
   const dispatchWorkflow = options.dispatchWorkflow;
+  const openClawEnabled = Boolean(options.openClawEnabled);
   let botProfile = null;
 
   return {
@@ -40,7 +50,7 @@ export function createTelegramNewsroomBot(options = {}) {
       try {
         await apiCall(token, "setMyCommands", { commands: DEFAULT_COMMANDS });
       } catch {
-        // Command registration is convenient but not required for webhook handling.
+        // Command registration is optional.
       }
 
       return true;
@@ -54,7 +64,7 @@ export function createTelegramNewsroomBot(options = {}) {
       }
 
       if (!isAllowedChat(message.chat)) {
-        await sendMessage(message.chat.id, "Chat này chưa được phép điều khiển newsroom bot.");
+        await sendMessage(message.chat.id, "Chat nay chua duoc phep dieu khien newsroom bot.");
         return;
       }
 
@@ -66,13 +76,15 @@ export function createTelegramNewsroomBot(options = {}) {
       try {
         const response = await executeNewsroomCommand(text, {
           userId: String(message.from?.id || ""),
+          chatId: String(message.chat?.id || ""),
           botUsername: botProfile?.username || "",
           isAdmin: isAdminUser(message.from),
           siteUrl,
           getState,
           getControlSummary,
           createControlJob,
-          dispatchWorkflow
+          dispatchWorkflow,
+          openClawEnabled
         });
 
         if (response?.text) {
@@ -112,6 +124,24 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return { text: HELP_TEXT };
   }
 
+  if (command === "/ping") {
+    return { text: `Pong. Bot dang nhan lenh tren Vercel.\nWeb: ${context.siteUrl}/vi/` };
+  }
+
+  if (command === "/id") {
+    return {
+      text: [
+        "Telegram ids",
+        "",
+        `Chat id: ${context.chatId || "unknown"}`,
+        `User id: ${context.userId || "unknown"}`,
+        "",
+        "Dung Chat id cho TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS hoac TELEGRAM_NEWSROOM_REPORT_CHAT_IDS.",
+        "Dung User id cho TELEGRAM_NEWSROOM_ADMIN_USER_IDS."
+      ].join("\n")
+    };
+  }
+
   if (command === "/status") {
     return { text: await buildStatusText(context) };
   }
@@ -120,13 +150,25 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return { text: await buildLatestText(context) };
   }
 
+  if (command === "/health") {
+    return { text: await buildHealthText(context) };
+  }
+
+  if (command === "/web") {
+    return { text: buildWebLinksText(context) };
+  }
+
+  if (command === "/setup") {
+    return { text: buildSetupText(context) };
+  }
+
   if (command === "/jobs") {
     return { text: await buildJobsText(context) };
   }
 
   if (command === "/refresh") {
     if (!context.isAdmin) {
-      throw new Error("Chỉ admin được yêu cầu refresh newsroom.");
+      throw new Error("Chi admin duoc yeu cau refresh newsroom.");
     }
 
     return { text: await requestRefresh(context) };
@@ -160,15 +202,15 @@ async function buildStatusText(context) {
   const latest = articles.slice().sort(sortByPublishedDesc)[0];
 
   return [
-    "Tình hình Patrick Tech Media",
+    "Tinh hinh Patrick Tech Media",
     "",
     `Web: ${context.siteUrl}/vi/`,
-    `Bài public: ${articles.length}`,
-    `Cập nhật dữ liệu: ${formatDate(state?.runtime?.generatedAt || state?.generated_at)}`,
-    latest ? `Bài mới nhất: ${latest.title}` : "Bài mới nhất: chưa có dữ liệu",
+    `Bai public: ${articles.length}`,
+    `Cap nhat du lieu: ${formatDate(state?.runtime?.generatedAt || state?.generated_at)}`,
+    latest ? `Bai moi nhat: ${latest.title}` : "Bai moi nhat: chua co du lieu",
     control
       ? `OpenClaw: ${control.jobs?.queued || 0} queued, ${control.jobs?.running || 0} running, ${control.jobs?.failed || 0} failed`
-      : "OpenClaw: chưa có dữ liệu control"
+      : "OpenClaw: chua co du lieu control"
   ].join("\n");
 }
 
@@ -180,21 +222,38 @@ async function buildLatestText(context) {
     .slice(0, 6);
 
   if (!latest.length) {
-    return "Chưa có bài nào trong newsroom.";
+    return "Chua co bai nao trong newsroom.";
   }
 
   return [
-    "Bài mới nhất",
+    "Bai moi nhat",
     "",
     ...latest.map((article, index) => `${index + 1}. ${article.title}\n${context.siteUrl}${article.href}`)
   ].join("\n\n");
+}
+
+async function buildHealthText(context) {
+  const startedAt = Date.now();
+  const checks = await Promise.all([
+    checkUrl(`${context.siteUrl}/vi/`, "Homepage"),
+    checkUrl(`${context.siteUrl}/api/newsroom/overview?lang=vi`, "Newsroom API")
+  ]);
+  const elapsedMs = Date.now() - startedAt;
+
+  return [
+    "Kiem tra live site",
+    "",
+    ...checks.map((check) => `${check.label}: ${check.ok ? "OK" : "FAIL"} ${check.status || ""} ${check.ms}ms`),
+    "",
+    `Tong thoi gian: ${elapsedMs}ms`
+  ].join("\n");
 }
 
 async function buildJobsText(context) {
   const control = await context.getControlSummary?.();
 
   if (!control) {
-    return "Chưa có dữ liệu OpenClaw jobs.";
+    return "Chua co du lieu OpenClaw jobs.";
   }
 
   const recent = Array.isArray(control.recentJobs) ? control.recentJobs.slice(0, 5) : [];
@@ -217,11 +276,11 @@ async function requestRefresh(context) {
     });
 
     if (result?.ok) {
-      return "Đã yêu cầu GitHub Actions chạy OpenClaw manager. Khi xong bot sẽ báo cáo nếu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS đã cấu hình.";
+      return "Da yeu cau GitHub Actions chay OpenClaw manager. Khi xong bot se bao cao neu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS da cau hinh.";
     }
   }
 
-  if (typeof context.createControlJob === "function") {
+  if (context.openClawEnabled && typeof context.createControlJob === "function") {
     const job = await context.createControlJob({
       type: "newsroom-refresh",
       capability: "newsroom",
@@ -234,10 +293,71 @@ async function requestRefresh(context) {
       leaseSeconds: 1800
     });
 
-    return `Đã đưa job refresh vào hàng đợi OpenClaw: ${job.id}`;
+    return `Da dua job refresh vao hang doi OpenClaw: ${job.id}`;
   }
 
-  return "Chưa cấu hình GITHUB_WORKFLOW_DISPATCH_TOKEN hoặc OpenClaw worker để chạy refresh từ Telegram.";
+  return [
+    "Chua bat tu dong refresh.",
+    "",
+    "Tam thoi bot dang chay tren Vercel de nhan lenh /status, /latest, /health, /web.",
+    "Khi nao setup OpenClaw/GitHub Actions, them GITHUB_WORKFLOW_DISPATCH_TOKEN roi dung lai /refresh."
+  ].join("\n");
+}
+
+function buildWebLinksText(context) {
+  return [
+    "Link quan ly Patrick Tech Media",
+    "",
+    `Trang chinh: ${context.siteUrl}/vi/`,
+    `English: ${context.siteUrl}/en/`,
+    `Tac gia: ${context.siteUrl}/vi/authors`,
+    `Store: ${context.siteUrl}/vi/store`,
+    `Writer portal: ${context.siteUrl}/vi/portal`,
+    `Dang nhap: ${context.siteUrl}/vi/login`,
+    "",
+    "GitHub: https://github.com/phupatrick/patrick-teck-media",
+    "Vercel: mo dashboard project patrick-teck-media"
+  ].join("\n");
+}
+
+function buildSetupText(context) {
+  return [
+    "Checklist setup bot tren Vercel",
+    "",
+    "1. Tao bot voi BotFather va lay token.",
+    "2. Them TELEGRAM_NEWSROOM_BOT_TOKEN vao Vercel env.",
+    "3. Gui /id cho bot de lay chat id va user id.",
+    "4. Them chat id vao TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS.",
+    "5. Them user id cua ban vao TELEGRAM_NEWSROOM_ADMIN_USER_IDS.",
+    "6. Them TELEGRAM_NEWSROOM_WEBHOOK_SECRET vao Vercel env.",
+    "7. Redeploy Vercel.",
+    "8. Chay npm run telegram:newsroom:webhook:set.",
+    "",
+    `Site dang cau hinh: ${context.siteUrl}/vi/`
+  ].join("\n");
+}
+
+async function checkUrl(url, label) {
+  const startedAt = Date.now();
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "User-Agent": "patrick-tech-media-newsroom-bot/1.0" }
+    });
+    return {
+      label,
+      ok: response.ok,
+      status: response.status,
+      ms: Date.now() - startedAt
+    };
+  } catch {
+    return {
+      label,
+      ok: false,
+      status: "",
+      ms: Date.now() - startedAt
+    };
+  }
 }
 
 async function apiCall(token, method, payload) {
@@ -283,7 +403,7 @@ function sortByPublishedDesc(left, right) {
 
 function formatDate(value) {
   if (!value) {
-    return "chưa rõ";
+    return "chua ro";
   }
 
   try {

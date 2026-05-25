@@ -288,6 +288,10 @@ Supported commands:
 
 - `/status` - web status, article count, latest story, OpenClaw queue health
 - `/latest` - latest published articles with links
+- `/health` - live homepage and newsroom API health check
+- `/web` - quick web management links
+- `/id` - show Telegram chat id and user id for env setup
+- `/setup` - Vercel setup checklist
 - `/refresh` - admin-only request to run the newsroom refresh workflow
 - `/jobs` - recent OpenClaw jobs
 - `/help` - command list
