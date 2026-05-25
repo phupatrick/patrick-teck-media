@@ -7,6 +7,7 @@ const DEFAULT_COMMANDS = [
   { command: "refresh", description: "Request a newsroom refresh" },
   { command: "jobs", description: "View OpenClaw jobs" },
   { command: "setup", description: "Show setup checklist" },
+  { command: "menu", description: "Open control panel" },
   { command: "help", description: "View commands" }
 ];
 
@@ -23,8 +24,15 @@ const HELP_TEXT = [
   "/refresh - admin-only refresh request, enabled after GitHub/OpenClaw setup",
   "/jobs - OpenClaw queue summary",
   "/help - command list",
+  "/menu - open button control panel",
   "",
   "Current mode: Vercel webhook first. Heavy automation will be connected later through GitHub Actions/OpenClaw."
+].join("\n");
+
+const MENU_TEXT = [
+  "Patrick Tech Media control panel",
+  "",
+  "Chon mot nut ben duoi de quan ly nhanh newsroom tren Vercel."
 ].join("\n");
 
 export function createTelegramNewsroomBot(options = {}) {
@@ -58,6 +66,11 @@ export function createTelegramNewsroomBot(options = {}) {
     async handleUpdate(update) {
       await this.initialize();
 
+      if (update?.callback_query) {
+        await handleCallback(update.callback_query);
+        return;
+      }
+
       const message = update?.message || update?.edited_message;
       if (!message) {
         return;
@@ -89,7 +102,8 @@ export function createTelegramNewsroomBot(options = {}) {
 
         if (response?.text) {
           await sendMessage(message.chat.id, response.text, {
-            reply_to_message_id: message.message_id
+            reply_to_message_id: message.message_id,
+            reply_markup: response.replyMarkup
           });
         }
       } catch (error) {
@@ -100,8 +114,68 @@ export function createTelegramNewsroomBot(options = {}) {
     }
   };
 
+  async function handleCallback(callbackQuery) {
+    const message = callbackQuery?.message;
+    const chat = message?.chat;
+
+    if (!isAllowedChat(chat)) {
+      await answerCallback(callbackQuery.id, "Chat chua duoc phep.");
+      return;
+    }
+
+    const action = String(callbackQuery.data || "");
+    const command = mapCallbackToCommand(action);
+
+    if (!command) {
+      await answerCallback(callbackQuery.id, "Nut khong hop le.");
+      return;
+    }
+
+    try {
+      const response = await executeNewsroomCommand(command, {
+        userId: String(callbackQuery.from?.id || ""),
+        chatId: String(chat?.id || ""),
+        botUsername: botProfile?.username || "",
+        isAdmin: isAdminUser(callbackQuery.from),
+        siteUrl,
+        getState,
+        getControlSummary,
+        createControlJob,
+        dispatchWorkflow,
+        openClawEnabled
+      });
+
+      await answerCallback(callbackQuery.id, "Da cap nhat.");
+      await editMessage(chat.id, message.message_id, response?.text || MENU_TEXT, {
+        reply_markup: buildMenuMarkup(action)
+      });
+    } catch (error) {
+      await answerCallback(callbackQuery.id, "Loi.");
+      await editMessage(chat.id, message.message_id, error.message || "Newsroom command failed.", {
+        reply_markup: buildMenuMarkup("menu")
+      });
+    }
+  }
+
   async function sendMessage(chatId, text, extra = {}) {
     return sendTelegramMessage({ token, chatId, text, extra });
+  }
+
+  async function editMessage(chatId, messageId, text, extra = {}) {
+    return apiCall(token, "editMessageText", {
+      chat_id: chatId,
+      message_id: messageId,
+      text: String(text || "").slice(0, 4000),
+      disable_web_page_preview: true,
+      ...extra
+    });
+  }
+
+  async function answerCallback(callbackQueryId, text = "") {
+    return apiCall(token, "answerCallbackQuery", {
+      callback_query_id: callbackQueryId,
+      text: String(text || "").slice(0, 180)
+    });
   }
 
   function isAllowedChat(chat) {
@@ -120,8 +194,8 @@ export async function executeNewsroomCommand(rawText, context = {}) {
   const [firstToken] = commandText.split(/\s+/);
   const command = String(firstToken || "").toLowerCase();
 
-  if (["/start", "/help"].includes(command)) {
-    return { text: HELP_TEXT };
+  if (["/start", "/help", "/menu"].includes(command)) {
+    return { text: `${MENU_TEXT}\n\n${HELP_TEXT}`, replyMarkup: buildMenuMarkup("menu") };
   }
 
   if (command === "/ping") {
@@ -335,6 +409,59 @@ function buildSetupText(context) {
     "",
     `Site dang cau hinh: ${context.siteUrl}/vi/`
   ].join("\n");
+}
+
+function buildMenuMarkup(active = "menu") {
+  const selected = (key, label) => key === active ? `${label} *` : label;
+
+  return {
+    inline_keyboard: [
+      [
+        button(selected("status", "Status"), "newsroom:status"),
+        button(selected("latest", "Latest"), "newsroom:latest")
+      ],
+      [
+        button(selected("health", "Health"), "newsroom:health"),
+        button(selected("web", "Web links"), "newsroom:web")
+      ],
+      [
+        button(selected("id", "IDs"), "newsroom:id"),
+        button(selected("setup", "Setup"), "newsroom:setup")
+      ],
+      [
+        button(selected("jobs", "Jobs"), "newsroom:jobs"),
+        button(selected("refresh", "Refresh"), "newsroom:refresh")
+      ],
+      [
+        button("Open site", "newsroom:site"),
+        button("Menu", "newsroom:menu")
+      ]
+    ]
+  };
+}
+
+function button(text, callbackData) {
+  return {
+    text,
+    callback_data: callbackData
+  };
+}
+
+function mapCallbackToCommand(action) {
+  const commandMap = {
+    "newsroom:menu": "/menu",
+    "newsroom:status": "/status",
+    "newsroom:latest": "/latest",
+    "newsroom:health": "/health",
+    "newsroom:web": "/web",
+    "newsroom:id": "/id",
+    "newsroom:setup": "/setup",
+    "newsroom:jobs": "/jobs",
+    "newsroom:refresh": "/refresh",
+    "newsroom:site": "/web"
+  };
+
+  return commandMap[action] || "";
 }
 
 async function checkUrl(url, label) {
