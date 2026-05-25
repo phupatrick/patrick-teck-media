@@ -5,7 +5,13 @@ import path from "node:path";
 const sqlClients = new Map();
 const schemaReady = new Map();
 
-export function createDocumentStore({ documentKey, fallbackPath, initialValue, databaseUrl = process.env.DATABASE_URL || "" }) {
+export function createDocumentStore({
+  documentKey,
+  fallbackPath,
+  initialValue,
+  databaseUrl = process.env.DATABASE_URL || "",
+  requireDatabase = isEnabled(process.env.DOCUMENT_STORE_REQUIRE_DATABASE)
+}) {
   if (!documentKey) {
     throw new Error("A documentKey is required for the document store.");
   }
@@ -14,6 +20,10 @@ export function createDocumentStore({ documentKey, fallbackPath, initialValue, d
   const resolvedPath = resolveWritablePath(preferredPath, initialValue);
   const normalizedInitialValue = cloneValue(initialValue);
   const useDatabase = Boolean(String(databaseUrl || "").trim());
+
+  if (requireDatabase && !useDatabase) {
+    throw new Error("DOCUMENT_STORE_REQUIRE_DATABASE is enabled but DATABASE_URL is missing.");
+  }
 
   return {
     documentKey,
@@ -49,7 +59,11 @@ export function createDocumentStore({ documentKey, fallbackPath, initialValue, d
         }
 
         return databaseValue;
-      } catch {
+      } catch (error) {
+        if (requireDatabase) {
+          throw error;
+        }
+
         return readStateFile(resolvedPath, normalizedInitialValue);
       }
     },
@@ -67,7 +81,11 @@ export function createDocumentStore({ documentKey, fallbackPath, initialValue, d
           initialValue: normalizedInitialValue
         });
         writeStateFile(resolvedPath, nextValue, normalizedInitialValue);
-      } catch {
+      } catch (error) {
+        if (requireDatabase) {
+          throw error;
+        }
+
         writeStateFile(resolvedPath, nextValue, normalizedInitialValue);
       }
 
@@ -211,4 +229,8 @@ function cloneValue(value) {
 
 function isInitialLike(value, initialValue) {
   return JSON.stringify(normalizeValue(value, initialValue)) === JSON.stringify(normalizeValue(initialValue, initialValue));
+}
+
+function isEnabled(value) {
+  return /^(1|true|yes|on)$/i.test(String(value || "").trim());
 }

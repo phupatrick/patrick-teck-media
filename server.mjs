@@ -611,8 +611,11 @@ async function refreshState(siteUrl = config.siteUrl) {
   await refreshPromises.get(cacheKey);
 }
 
-stateCache.set(normalizeSiteUrl(config.siteUrl), await buildState(config.siteUrl));
-stateTimestamps.set(normalizeSiteUrl(config.siteUrl), Date.now());
+if (isDirectExecution()) {
+  refreshState(config.siteUrl).catch((error) => {
+    console.error("[state:init]", error.message || error);
+  });
+}
 
 function isDirectExecution() {
   return path.resolve(process.argv[1] || "") === __filename;

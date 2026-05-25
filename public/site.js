@@ -51,7 +51,7 @@ function initBackdropMotion() {
 
   updatePointer(window.innerWidth * 0.52, window.innerHeight * 0.18, 0.2);
 
-  if (reducedMotion) {
+  if (reducedMotion || coarsePointer) {
     return;
   }
 

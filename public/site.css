@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap");
-
 :root {
   --bg: #020915;
   --bg-2: #081523;
@@ -268,6 +266,12 @@ a {
   margin: 0 auto;
   padding: 24px 18px 48px;
   z-index: 1;
+}
+
+.page-body > section:nth-of-type(n + 3),
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 760px;
 }
 
 .site-shell::before {
@@ -645,10 +649,22 @@ h3 {
   align-items: center;
 }
 
+.masthead-founder picture,
 .masthead-founder img {
   width: 68px;
   height: 68px;
+}
+
+.masthead-founder picture {
+  display: block;
+  overflow: hidden;
   border-radius: 16px;
+}
+
+.masthead-founder img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border: 1px solid rgba(53, 213, 255, 0.24);
 }
@@ -2876,6 +2892,61 @@ h3 {
 }
 
 @media (max-width: 760px) {
+  body {
+    background:
+      radial-gradient(circle at 10% -8%, rgba(40, 152, 255, 0.16), transparent 34%),
+      linear-gradient(180deg, var(--bg), var(--bg-2));
+  }
+
+  body::before,
+  body::after,
+  .backdrop,
+  .site-shell::before {
+    display: none;
+  }
+
+  .topbar,
+  .frontpage-masthead,
+  .hero-panel,
+  .featured-story,
+  .hero-aside,
+  .rail-card,
+  .section-block,
+  .story-card,
+  .topic-column,
+  .article-shell,
+  .policy-card,
+  .author-card,
+  .site-footer,
+  .simple-hero,
+  .ad-shell,
+  .lead-feature,
+  .lead-mini,
+  .headline-ribbon,
+  .guide-showcase-lead {
+    backdrop-filter: none;
+    animation: none;
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+  }
+
+  .topbar::before,
+  .frontpage-masthead::before,
+  .hero-panel::before,
+  .featured-story::before,
+  .hero-aside::before,
+  .rail-card::before,
+  .section-block::before,
+  .story-card::before,
+  .topic-column::before,
+  .article-shell::before,
+  .policy-card::before,
+  .author-card::before,
+  .site-footer::before,
+  .simple-hero::before,
+  .ad-shell::before {
+    display: none;
+  }
+
   body::before {
     opacity: 0.76;
     animation-duration: 24s;
@@ -2975,6 +3046,7 @@ h3 {
     grid-template-columns: 56px minmax(0, 1fr);
   }
 
+  .masthead-founder picture,
   .masthead-founder img {
     width: 56px;
     height: 56px;

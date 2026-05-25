@@ -50,7 +50,10 @@ export function renderHomePage(state, language, adsConfig) {
         </div>
         <aside class="masthead-brief">
           <div class="masthead-founder">
-            <img src="/founder.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" alt="${escapeHtml(founderName || "Founder")}" loading="lazy" decoding="async" />
+            <picture>
+              <source srcset="/founder-thumb.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" media="(max-width: 760px)" />
+              <img src="/founder.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" alt="${escapeHtml(founderName || "Founder")}" loading="lazy" decoding="async" width="68" height="68" />
+            </picture>
             <div>
               <strong>${escapeHtml(founderName)}</strong>
               <span>${escapeHtml(founderRole)}</span>
@@ -1563,7 +1566,7 @@ function renderStoryImage(article, className, eager = false) {
 
   return `
     <figure class="${className}" data-story-image>
-      <img src="${article.hero_image.display_src || article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="${eager ? "eager" : "lazy"}" decoding="async" />
+      <img src="${article.hero_image.display_src || article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="${eager ? "eager" : "lazy"}" decoding="async"${eager ? ` fetchpriority="high"` : ""} />
       <div class="story-image-fallback" aria-hidden="true">
         ${renderImagePlaceholder(article, placeholderClass)}
       </div>
@@ -1583,7 +1586,7 @@ function renderArticleHero(article) {
 
   return `
     <figure class="article-hero-media" data-story-image>
-      <img src="${article.hero_image.display_src || article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="eager" decoding="async" />
+      <img src="${article.hero_image.display_src || article.hero_image.src}" alt="${escapeHtml(article.hero_image.alt)}" loading="eager" decoding="async" fetchpriority="high" />
       <div class="story-image-fallback article-image-fallback" aria-hidden="true">
         ${renderImagePlaceholder(article, "article-placeholder-card")}
       </div>

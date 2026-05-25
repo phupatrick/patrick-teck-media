@@ -459,16 +459,28 @@ export function getHomeData(state, language) {
     maxPerTopic: { ai: 2, devices: 2, default: 2 },
     maxPerSource: 2
   });
-  const tips = selectDiverseFrontPageStories(prioritizeFrontPageStories(sortStoriesForFrontPage(
+  let tips = selectDiverseFrontPageStories(prioritizeFrontPageStories(sortStoriesForFrontPage(
     localized.filter((article) => isPracticalTipsCandidate(article) && isGuideLedTipsCandidate(article)),
     state.runtime.generatedAt,
     state.site.frontPageTopicWeights,
     state.site.frontPageSourceWeights
   )), 8, {
-    excludeStories: [featured, briefing, ...packageWatch, ...evergreen],
+    excludeStories: [featured, briefing, ...packageWatch],
     maxPerTopic: { ai: 2, "apps-software": 3, default: 2 },
     maxPerSource: 1
   });
+  if (tips.length < 3) {
+    tips = selectDiverseFrontPageStories(prioritizeFrontPageStories(sortStoriesForFrontPage(
+      localized.filter((article) => isPracticalTipsCandidate(article) && isGuideLedTipsCandidate(article)),
+      state.runtime.generatedAt,
+      state.site.frontPageTopicWeights,
+      state.site.frontPageSourceWeights
+    )), 8, {
+      excludeStories: [featured, briefing],
+      maxPerTopic: { ai: 3, "apps-software": 3, default: 2 },
+      maxPerSource: 2
+    });
+  }
   const browserStories = selectDiverseFrontPageStories(readyPrioritized, 10, {
     excludeStories: [featured, briefing, ...latest, ...packageWatch],
     maxPerTopic: { ai: 2, devices: 3, default: 2 },

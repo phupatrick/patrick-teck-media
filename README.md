@@ -33,6 +33,7 @@ NEWSROOM_CONTENT_PATH=data/newsroom-content.json
 OPENCLAW_WEB_STATE_PATH=data/openclaw-web-state.json
 PLATFORM_STATE_PATH=data/platform-state.json
 DATABASE_URL=
+DOCUMENT_STORE_REQUIRE_DATABASE=
 SESSION_SECRET=replace-with-a-long-random-secret
 ADMIN_GOOGLE_EMAILS=hphumail@gmail.com,phupunpin@gmail.com,hoangphupatrick@gmail.com
 GOOGLE_CLIENT_ID=
@@ -58,7 +59,7 @@ GOOGLE_ADSENSE_SLOT_MID=
 
 If AdSense values are empty, the site renders clearly marked reserved ad placeholders only on ad-eligible surfaces. Trend pages still render no ad container.
 
-`DATABASE_URL` can point to Neon Postgres. When it is present, the app stores the newsroom, platform state, and OpenClaw web-control state in Postgres while still mirroring a safe local JSON fallback.
+`DATABASE_URL` can point to Neon Postgres. When it is present, the app stores the newsroom, platform state, and OpenClaw web-control state in Postgres while still mirroring a safe local JSON fallback. Set `DOCUMENT_STORE_REQUIRE_DATABASE=1` in production after seeding the database if you want Vercel to fail loudly instead of falling back to local JSON when storage is unavailable.
 
 `NEWSROOM_CONTENT_PATH` points to the JSON file that powers the live newsroom. If the file is missing, the app falls back to the built-in editorial seed data.
 
@@ -263,7 +264,17 @@ To let Patrick Tech Media keep updating without your machine being turned on:
 npm run storage:sync
 ```
 
-After that, GitHub Actions can run the OpenClaw manager every hour, commit the refreshed newsroom, and Vercel can deploy the site without your local machine staying online.
+5. In Vercel production environment variables, set `DOCUMENT_STORE_REQUIRE_DATABASE=1` after the seed succeeds.
+
+After that, GitHub Actions can run the OpenClaw manager every hour, sync the refreshed newsroom into Neon, and Vercel can deploy the site without your local machine staying online.
+
+The Vercel function is configured to exclude the largest generated JSON files from the serverless bundle:
+
+- `data/newsroom-content.json`
+- `data/openclaw-hidden-feed.json`
+- temporary newsroom batch files under `data/`
+
+That keeps the deployed function lighter. The live site should use `DATABASE_URL` as the data source before you rely on that dataless deployment path.
 
 ## Telegram seller bot
 
