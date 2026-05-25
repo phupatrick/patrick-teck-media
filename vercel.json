@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/entry.mjs": {
-      "excludeFiles": "{data/newsroom-content.json,data/openclaw-hidden-feed.json,data/tmp-*.json,data/tmp-*.ndjson,data/manual-*-batch*.json,data/openclaw-batch-*.json,test/**}"
+      "excludeFiles": "{data/openclaw-hidden-feed.json,data/tmp-*.json,data/tmp-*.ndjson,data/manual-*-batch*.json,data/openclaw-batch-*.json,test/**}"
     }
   },
   "rewrites": [

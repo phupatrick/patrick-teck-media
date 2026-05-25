@@ -547,9 +547,18 @@ export async function loadNewsroomState(options = {}) {
     store.readPayload(),
     webStore.readState()
   ]);
+  const externalArticles = normalizeNewsroomPayload(payload).articles;
+
+  if (!externalArticles.length) {
+    return buildNewsroomState({
+      ...options,
+      webControl
+    });
+  }
+
   return buildNewsroomState({
     ...options,
-    externalArticles: normalizeNewsroomPayload(payload).articles,
+    externalArticles,
     webControl
   });
 }
