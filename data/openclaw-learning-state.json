@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-05-26T18:57:29.455Z",
+  "model": {
+    "id": "adaptive-editorial-bandit-v1",
+    "cnn_enabled": false,
+    "reason": "CNN is not a good fit for lightweight text editorial tuning on Vercel."
+  },
+  "feedback": [],
+  "profile": {
+    "version": 1,
+    "updated_at": "2026-05-26T18:57:29.455Z",
+    "confidence": 0.95,
+    "totalSignals": 373,
+    "dailyFocus": [
+      "devices",
+      "security",
+      "ai",
+      "internet-business-tech",
+      "apps-software"
+    ],
+    "topicWeights": {
+      "devices": 12,
+      "security": 12,
+      "ai": 10,
+      "internet-business-tech": 10,
+      "apps-software": 9,
+      "gaming": 8
+    },
+    "sourceTypeWeights": {
+      "press": 11,
+      "official-site": 10
+    },
+    "styleRules": [
+      "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
+      "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
+      "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
+      "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi."
+    ],
+    "avoidRules": [
+      "Khong lap ten nguon qua nhieu lan trong than bai.",
+      "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
+      "Khong publish neu anh nguon khong lien quan ro voi bai."
+    ],
+    "lastCycleSummary": "Learned from 373 articles; 0 owner feedback item(s); 373 signal(s); focus: devices, security, ai, internet-business-tech, apps-software"
+  },
+  "cycles": [
+    {
+      "generated_at": "2026-05-26T18:57:29.455Z",
+      "totalSignals": 373,
+      "confidence": 0.95,
+      "summary": "Learned from 373 articles; 0 owner feedback item(s); 373 signal(s); focus: devices, security, ai, internet-business-tech, apps-software"
+    }
+  ]
+}

@@ -46,12 +46,13 @@ jobs:
         env:
           NEWSROOM_PULL_URL: ${{ secrets.NEWSROOM_PULL_URL }}
           NEWSROOM_PULL_TOKEN: ${{ secrets.NEWSROOM_PULL_TOKEN }}
-          NEWSROOM_SINGLE_URL: ${{ github.event.inputs.article_url }}
+          NEWSROOM_SINGLE_URL: ${{ github.event.inputs.article_url || '' }}
           OPENCLAW_NEWSROOM_URL: ${{ secrets.OPENCLAW_NEWSROOM_URL }}
           OPENCLAW_NEWSROOM_TOKEN: ${{ secrets.OPENCLAW_NEWSROOM_TOKEN }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           NEWSROOM_CONTENT_PATH: data/newsroom-content.json
           OPENCLAW_WEB_STATE_PATH: data/openclaw-web-state.json
+          OPENCLAW_LEARNING_STATE_PATH: data/openclaw-learning-state.json
           PLATFORM_STATE_PATH: data/platform-state.json
           OPENCLAW_MANAGER_STATE_PATH: data/openclaw-manager-state.json
         run: node scripts/openclaw-manager.mjs
@@ -62,6 +63,7 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           NEWSROOM_CONTENT_PATH: data/newsroom-content.json
           OPENCLAW_WEB_STATE_PATH: data/openclaw-web-state.json
+          OPENCLAW_LEARNING_STATE_PATH: data/openclaw-learning-state.json
           PLATFORM_STATE_PATH: data/platform-state.json
         run: npm run storage:sync
 
@@ -81,4 +83,5 @@ jobs:
           SITE_URL: https://patricktechmedia.com
           NEWSROOM_CONTENT_PATH: data/newsroom-content.json
           OPENCLAW_MANAGER_STATE_PATH: data/openclaw-manager-state.json
+          OPENCLAW_LEARNING_STATE_PATH: data/openclaw-learning-state.json
         run: node scripts/telegram-newsroom-report.mjs

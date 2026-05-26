@@ -213,6 +213,7 @@ This manager cycle:
 - can also read a local hidden feed from `NEWSROOM_PULL_FILE` or `OPENCLAW_NEWSROOM_FILE`
 - auto-generates `data/openclaw-hidden-feed.json` before refresh when no external URL/file is configured
 - falls back to curated RSS sources when no hidden feed is configured
+- updates `data/openclaw-learning-state.json` from quality checks, owner feedback, reactions, and comments
 - updates `data/openclaw-web-state.json` so OpenClaw can tune front-page copy and ranking
 - reads `data/openclaw-owner-brief.json` so each cycle keeps the same owner instructions
 - re-checks writer submissions through the automatic editorial gate
@@ -246,6 +247,7 @@ The GitHub Actions workflow at `.github/workflows/newsroom-refresh.yml` runs thi
 - `data/platform-state.json`
 - `data/openclaw-manager-state.json`
 - `data/openclaw-web-state.json`
+- `data/openclaw-learning-state.json`
 - `data/openclaw-owner-brief.json`
 
 ## Cloud mode
@@ -289,6 +291,8 @@ Supported commands:
 - `/status` - web status, article count, latest story, OpenClaw queue health
 - `/auto` - automatic schedule, webhook mode, and setup state
 - `/latest` - latest published articles with links
+- `/learn` - current adaptive learning profile
+- `/feedback <good|bad|more|less|source|image|tone> <note>` - teach the bot what to repeat or avoid
 - `/health` - live homepage and newsroom API health check
 - `/web` - quick web management links
 - `/id` - show Telegram chat id and user id for env setup
@@ -300,6 +304,8 @@ Supported commands:
 
 Admins can also send a plain article URL to the bot without a command. The bot dispatches the GitHub workflow with `article_url`; the refresh cycle fetches the page, removes boilerplate, checks technology relevance, keeps only a suitable source image, applies the newsroom quality gate, and appends the verified article instead of replacing the whole site.
 
+The bot uses an adaptive editorial learning loop rather than CNN training. CNNs are not useful for lightweight text publishing on Vercel, so OpenClaw records feedback and engagement signals, builds topic/source/style weights, and applies those weights to future front-page ranking and editorial rules.
+
 Configure these values in Vercel production env vars and GitHub Actions secrets where needed:
 
 ```powershell
@@ -309,6 +315,7 @@ TELEGRAM_NEWSROOM_ADMIN_USER_IDS=
 TELEGRAM_NEWSROOM_REPORT_CHAT_IDS=
 TELEGRAM_NEWSROOM_WEBHOOK_PATH=/api/telegram/newsroom/webhook
 TELEGRAM_NEWSROOM_WEBHOOK_SECRET=
+OPENCLAW_LEARNING_STATE_PATH=data/openclaw-learning-state.json
 GITHUB_WORKFLOW_DISPATCH_TOKEN=
 GITHUB_WORKFLOW_REPOSITORY=phupatrick/patrick-teck-media
 GITHUB_WORKFLOW_FILE=newsroom-refresh.yml

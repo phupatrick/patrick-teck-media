@@ -8,6 +8,7 @@ const chatIds = normalizeIdList(process.env.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS ||
 const siteUrl = String(process.env.SITE_URL || "https://patricktechmedia.com").replace(/\/+$/, "");
 const contentPath = process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
 const managerStatePath = process.env.OPENCLAW_MANAGER_STATE_PATH || "data/openclaw-manager-state.json";
+const learningStatePath = process.env.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json";
 
 if (!token || chatIds.length === 0) {
   console.log("Telegram newsroom report skipped because token or report chat ids are not configured.");
@@ -16,14 +17,17 @@ if (!token || chatIds.length === 0) {
 
 const content = readJson(contentPath);
 const manager = readJson(managerStatePath);
+const learning = readJson(learningStatePath);
 const articles = Array.isArray(content.articles) ? content.articles : [];
 const latest = articles.slice().sort(sortByPublishedDesc).slice(0, 5);
+const learningProfile = learning.profile || {};
 const message = [
   "Patrick Tech Media đã cập nhật newsroom",
   "",
   `Tổng bài trong file: ${articles.length}`,
   `Nguồn: ${manager.newsroom?.refresh?.mode || "unknown"}`,
   `Submission review: ${manager.platform?.submissionReview?.approved || 0} approved, ${manager.platform?.submissionReview?.held || 0} held`,
+  `Learning: ${learningProfile.totalSignals || 0} signals, ${Math.round((learningProfile.confidence || 0) * 100)}% confidence`,
   "",
   "Bài mới:",
   ...latest.map((article, index) => `${index + 1}. ${article.title}\n${siteUrl}${article.href}`),

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { buildOpenClawLearningProfile } from "../scripts/openclaw-learning.mjs";
 import { runNewsroomRefresh } from "../scripts/newsroom-refresh.mjs";
 import {
   buildJsonFeed,
@@ -100,6 +101,58 @@ const tests = [
       assert.equal(dispatches.length, 1);
       assert.equal(dispatches[0].articleUrl, "https://blog.google/technology/ai/source-story?utm=telegram");
       assert.match(dispatches[0].reason, /telegram-link:12345/);
+    }
+  },
+  {
+    name: "newsroom telegram feedback command teaches the learning store",
+    async run() {
+      const feedback = [];
+      const response = await executeNewsroomCommand("/feedback more https://patricktechmedia.com/vi/news/story Bai can nhieu boi canh va checklist hon", {
+        siteUrl: "https://patricktechmedia.com",
+        userId: "12345",
+        chatId: "-100",
+        isAdmin: true,
+        addLearningFeedback: async (input) => {
+          feedback.push(input);
+        }
+      });
+
+      assert.match(response.text, /Da ghi nho feedback/);
+      assert.equal(feedback.length, 1);
+      assert.equal(feedback[0].kind, "more-depth");
+      assert.equal(feedback[0].targetUrl, "https://patricktechmedia.com/vi/news/story");
+      assert.match(feedback[0].note, /checklist/);
+    }
+  },
+  {
+    name: "openclaw learning profile turns feedback and reactions into ranking weights",
+    run() {
+      const article = state.articles.find((entry) => entry.language === "vi" && entry.topic === "ai");
+      const profile = buildOpenClawLearningProfile({
+        now: "2026-05-27T00:00:00.000Z",
+        articles: [article],
+        platformState: {
+          articleReactions: [
+            { article_id: article.id, article_href: article.href, reaction: "useful" },
+            { article_id: article.id, article_href: article.href, reaction: "love" }
+          ],
+          articleComments: [
+            { article_id: article.id, article_href: article.href, body: "Bai nay huu ich" }
+          ]
+        },
+        feedback: [
+          {
+            kind: "good",
+            note: "Bai co nhieu thong tin lien quan va giong van de hieu",
+            article_id: article.id
+          }
+        ]
+      });
+
+      assert.ok(profile.totalSignals >= 5);
+      assert.ok(profile.confidence > 0);
+      assert.ok(profile.topicWeights.ai > 0);
+      assert.ok(profile.styleRules.some((rule) => /giong van|workflow|checklist/i.test(rule)));
     }
   },
   {

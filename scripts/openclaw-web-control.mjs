@@ -10,9 +10,12 @@ const config = {
   databaseUrl: process.env.DATABASE_URL || "",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
   webStatePath: process.env.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json",
+  learningStatePath: process.env.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json",
   ownerBriefPath: process.env.OPENCLAW_OWNER_BRIEF_PATH || "data/openclaw-owner-brief.json"
 };
 const ownerBrief = readJson(config.ownerBriefPath);
+const learningState = readJson(config.learningStatePath);
+const learningProfile = learningState.profile || {};
 
 const state = await loadNewsroomState({
   siteUrl: config.siteUrl,
@@ -36,9 +39,9 @@ console.log(
 );
 
 function buildWebControlState(state) {
-  const priorityTopics = rankTopics(state.articles);
+  const priorityTopics = rankTopics(state.articles, learningProfile);
   const topicWeights = buildTopicWeights(priorityTopics);
-  const sourceTypeWeights = {
+  const sourceTypeWeights = applyLearningWeights({
     "official-site": 20,
     press: 12,
     "official-social": 9,
@@ -46,7 +49,7 @@ function buildWebControlState(state) {
     "internal-roundup": 6,
     community: -12,
     "social-buzz": -14
-  };
+  }, learningProfile.sourceTypeWeights);
 
   return {
     generated_at: new Date().toISOString(),
@@ -72,7 +75,8 @@ function buildWebControlState(state) {
     priorityTopics,
     ranking: {
       topicWeights,
-      sourceTypeWeights
+      sourceTypeWeights,
+      learningConfidence: Number(learningProfile.confidence || 0)
     },
     frontpageCopy: {
       vi: normalizeFrontpageCopy(buildFrontpageCopy(state, "vi", priorityTopics), "vi"),
@@ -81,9 +85,10 @@ function buildWebControlState(state) {
   };
 }
 
-function rankTopics(articles) {
+function rankTopics(articles, profile = {}) {
   const editorialOrder = ["ai", "apps-software", "internet-business-tech", "security", "devices", "gaming"];
   const scores = new Map(editorialOrder.map((topic, index) => [topic, 260 - index * 32]));
+  const learnedWeights = profile.topicWeights || {};
 
   for (const article of articles) {
     const topic = normalizeTopic(article.topic);
@@ -103,6 +108,10 @@ function rankTopics(articles) {
               : 0;
     const current = scores.get(topic) || 0;
     scores.set(topic, current + freshness + verification + withImage + aiBias);
+  }
+
+  for (const [topic, weight] of Object.entries(learnedWeights)) {
+    scores.set(topic, (scores.get(topic) || 0) + Number(weight || 0) * 6);
   }
 
   return [...scores.entries()]
@@ -127,10 +136,25 @@ function buildTopicWeights(priorityTopics) {
   };
   const bonuses = [18, 11, 7, 4, 2, 0];
 
-  return priorityTopics.reduce((weights, topic, index) => {
+  const ranked = priorityTopics.reduce((weights, topic, index) => {
     weights[topic] = (weights[topic] || 0) + (bonuses[index] || 0);
     return weights;
   }, { ...base });
+
+  return applyLearningWeights(ranked, learningProfile.topicWeights);
+}
+
+function applyLearningWeights(baseWeights, learnedWeights = {}) {
+  const next = { ...baseWeights };
+
+  for (const [key, value] of Object.entries(learnedWeights || {})) {
+    const parsed = Number(value);
+    if (key && Number.isFinite(parsed)) {
+      next[key] = Math.round((next[key] || 0) + parsed);
+    }
+  }
+
+  return next;
 }
 
 function buildFrontpageCopy(state, language, priorityTopics) {

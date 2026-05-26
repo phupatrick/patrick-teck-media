@@ -1,0 +1,321 @@
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { createOpenClawLearningStore, normalizeLearningState } from "../src/openclaw-learning-store.mjs";
+import { evaluateArticleReadiness, normalizeText } from "../src/newsroom-quality.mjs";
+
+const rootDir = process.cwd();
+const envFromFile = loadEnvFile(path.join(rootDir, ".env"));
+
+const config = {
+  contentPath: process.env.NEWSROOM_CONTENT_PATH || envFromFile.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
+  platformStatePath: process.env.PLATFORM_STATE_PATH || envFromFile.PLATFORM_STATE_PATH || "data/platform-state.json",
+  learningStatePath: process.env.OPENCLAW_LEARNING_STATE_PATH || envFromFile.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json",
+  databaseUrl: process.env.DATABASE_URL || envFromFile.DATABASE_URL || ""
+};
+
+export async function runOpenClawLearningCycle(options = {}) {
+  const now = options.now || new Date().toISOString();
+  const store = createOpenClawLearningStore({
+    statePath: options.learningStatePath || config.learningStatePath,
+    databaseUrl: options.databaseUrl ?? config.databaseUrl
+  });
+  const currentState = normalizeLearningState(await store.readState());
+  const newsroomPayload = readJson(options.contentPath || config.contentPath);
+  const platformState = readJson(options.platformStatePath || config.platformStatePath);
+  const articles = Array.isArray(newsroomPayload.articles) ? newsroomPayload.articles : [];
+  const profile = buildOpenClawLearningProfile({
+    articles,
+    platformState,
+    feedback: currentState.feedback,
+    previousProfile: currentState.profile,
+    now
+  });
+  const cycle = {
+    generated_at: now,
+    totalSignals: profile.totalSignals,
+    confidence: profile.confidence,
+    summary: profile.lastCycleSummary
+  };
+  const nextState = {
+    ...currentState,
+    generated_at: now,
+    profile,
+    cycles: [cycle, ...currentState.cycles].slice(0, 40)
+  };
+
+  await store.writeState(nextState);
+
+  return {
+    ok: true,
+    statePath: store.statePath,
+    storageMode: store.storageMode,
+    profile
+  };
+}
+
+export function buildOpenClawLearningProfile({ articles = [], platformState = {}, feedback = [], previousProfile = {}, now = new Date().toISOString() } = {}) {
+  const articleSignals = buildArticleSignals({ articles, platformState, feedback, now });
+  const topicWeights = buildWeightMap(articleSignals, "topic", previousProfile.topicWeights);
+  const sourceTypeWeights = buildWeightMap(articleSignals, "sourceType", previousProfile.sourceTypeWeights);
+  const totalSignals = articleSignals.reduce((sum, signal) => sum + signal.signalCount, 0) + feedback.length;
+  const confidence = Math.min(0.95, Math.round((1 - Math.exp(-totalSignals / 26)) * 100) / 100);
+  const dailyFocus = rankKeys(topicWeights).slice(0, 5);
+  const styleRules = buildStyleRules({ articleSignals, feedback });
+  const avoidRules = buildAvoidRules({ articleSignals, feedback });
+  const lastCycleSummary = [
+    `Learned from ${articles.length} articles`,
+    `${feedback.length} owner feedback item(s)`,
+    `${totalSignals} signal(s)`,
+    dailyFocus.length ? `focus: ${dailyFocus.join(", ")}` : "focus: default editorial priorities"
+  ].join("; ");
+
+  return {
+    version: 1,
+    updated_at: now,
+    confidence,
+    totalSignals,
+    dailyFocus,
+    topicWeights,
+    sourceTypeWeights,
+    styleRules,
+    avoidRules,
+    lastCycleSummary
+  };
+}
+
+function buildArticleSignals({ articles, platformState, feedback, now }) {
+  const reactions = Array.isArray(platformState.articleReactions) ? platformState.articleReactions : [];
+  const comments = Array.isArray(platformState.articleComments) ? platformState.articleComments : [];
+
+  return articles.map((article) => {
+    const readiness = evaluateArticleReadiness(article);
+    const articleReactions = reactions.filter((entry) => matchesArticle(entry, article));
+    const articleComments = comments.filter((entry) => matchesArticle(entry, article));
+    const ownerFeedback = feedback.filter((entry) => matchesFeedback(entry, article));
+    const positiveReactions = articleReactions.filter((entry) => ["useful", "love", "wow"].includes(entry.reaction)).length;
+    const ownerScore = ownerFeedback.reduce((sum, entry) => sum + scoreFeedbackKind(entry.kind), 0);
+    const qualityScore = Number.isFinite(Number(article.quality_score)) ? Number(article.quality_score) : 78;
+    const freshnessScore = computeFreshnessScore(article.updated_at || article.published_at, now);
+    const readinessScore = readiness.ready ? 10 : -12 - readiness.missing.length * 2;
+    const score = qualityScore - 78 + readinessScore + freshnessScore + positiveReactions * 5 + articleComments.length * 3 + ownerScore;
+    const sourceType = normalizeText(article.source_set?.[0]?.source_type || "unknown") || "unknown";
+
+    return {
+      id: normalizeText(article.id || article.href || article.slug),
+      href: normalizeText(article.href),
+      topic: normalizeTopic(article.topic),
+      sourceType,
+      score,
+      signalCount: 1 + positiveReactions + articleComments.length + ownerFeedback.length,
+      readiness,
+      ownerFeedback
+    };
+  });
+}
+
+function buildWeightMap(signals, key, previousWeights = {}) {
+  const groups = new Map();
+
+  for (const signal of signals) {
+    const groupKey = signal[key] || "unknown";
+    const existing = groups.get(groupKey) || { score: 0, count: 0 };
+    existing.score += signal.score;
+    existing.count += signal.signalCount || 1;
+    groups.set(groupKey, existing);
+  }
+
+  const nextWeights = {};
+
+  for (const [groupKey, group] of groups.entries()) {
+    const average = group.score / Math.max(1, group.count);
+    const previous = Number(previousWeights?.[groupKey] || 0);
+    nextWeights[groupKey] = Math.round(clamp(previous * 0.65 + average * 0.35, -24, 32));
+  }
+
+  return Object.fromEntries(Object.entries(nextWeights).sort((left, right) => right[1] - left[1]));
+}
+
+function buildStyleRules({ articleSignals, feedback }) {
+  const goodFeedback = feedback.filter((entry) => ["good", "more-depth", "tone"].includes(entry.kind));
+  const highScoring = articleSignals.filter((entry) => entry.score >= 18);
+  const rules = [
+    "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
+    "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
+    "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung."
+  ];
+
+  if (goodFeedback.some((entry) => /gan gui|de hieu|don gian|than thien/i.test(entry.note))) {
+    rules.push("Giu giong van gan gui, cau ngan, giai thich nhu noi voi nguoi moi theo doi cong nghe.");
+  }
+
+  if (goodFeedback.some((entry) => /sau|chi tiet|nhieu thong tin|gia tri/i.test(entry.note))) {
+    rules.push("Tang do sau bang vi du ap dung, rui ro, gioi han va buoc hanh dong tiep theo.");
+  }
+
+  if (highScoring.some((entry) => entry.topic === "ai")) {
+    rules.push("Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.");
+  }
+
+  return unique(rules).slice(0, 10);
+}
+
+function buildAvoidRules({ articleSignals, feedback }) {
+  const badFeedback = feedback.filter((entry) => ["bad", "less-noise", "source", "image"].includes(entry.kind));
+  const lowReadiness = articleSignals.filter((entry) => !entry.readiness.ready);
+  const rules = [
+    "Khong lap ten nguon qua nhieu lan trong than bai.",
+    "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
+    "Khong publish neu anh nguon khong lien quan ro voi bai."
+  ];
+
+  if (badFeedback.some((entry) => /ngan|mong|it|thieu/i.test(entry.note))) {
+    rules.push("Khong len bai mong: can du section va tong do sau truoc khi publish.");
+  }
+
+  if (badFeedback.some((entry) => /bua|du thua|roi|lan man|noise/i.test(entry.note))) {
+    rules.push("Cat noi dung du thua: uu tien thong tin bao chinh va phan lien quan truc tiep.");
+  }
+
+  if (lowReadiness.some((entry) => entry.readiness.missing.includes("sourceBreadth"))) {
+    rules.push("Neu bai do nhay cam hoac AI/comparison, can them nguon ho tro truoc khi day len.");
+  }
+
+  return unique(rules).slice(0, 10);
+}
+
+function matchesArticle(entry, article) {
+  if (!entry || !article) {
+    return false;
+  }
+
+  if (entry.article_id && article.id && entry.article_id === article.id) {
+    return true;
+  }
+
+  return Boolean(entry.article_href && article.href && entry.article_href === article.href);
+}
+
+function matchesFeedback(entry, article) {
+  if (!entry || !article) {
+    return false;
+  }
+
+  if (entry.article_id && article.id && entry.article_id === article.id) {
+    return true;
+  }
+
+  if (entry.target_url && article.href && entry.target_url.endsWith(article.href)) {
+    return true;
+  }
+
+  return Boolean(entry.target_url && article.source_set?.some((source) => source.source_url === entry.target_url));
+}
+
+function scoreFeedbackKind(kind) {
+  const scores = {
+    good: 18,
+    "more-depth": 10,
+    tone: 8,
+    source: -4,
+    image: -5,
+    "less-noise": -8,
+    bad: -18
+  };
+
+  return scores[kind] || 0;
+}
+
+function rankKeys(weights) {
+  return Object.entries(weights || {})
+    .filter(([, value]) => Number(value) > 0)
+    .sort((left, right) => right[1] - left[1])
+    .map(([key]) => key);
+}
+
+function normalizeTopic(value) {
+  const topic = normalizeText(value);
+  if (topic === "software") {
+    return "apps-software";
+  }
+  if (topic === "internet-business") {
+    return "internet-business-tech";
+  }
+  return topic || "internet-business-tech";
+}
+
+function computeFreshnessScore(dateString, now) {
+  const timestamp = Date.parse(String(dateString || ""));
+  const nowTimestamp = Date.parse(String(now || ""));
+  if (!Number.isFinite(timestamp) || !Number.isFinite(nowTimestamp)) {
+    return 0;
+  }
+
+  const ageHours = Math.max(0, (nowTimestamp - timestamp) / (1000 * 60 * 60));
+  if (ageHours <= 12) {
+    return 8;
+  }
+  if (ageHours <= 48) {
+    return 4;
+  }
+  if (ageHours <= 168) {
+    return 1;
+  }
+  return -2;
+}
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function unique(values) {
+  return values.filter((value, index, list) => value && list.indexOf(value) === index);
+}
+
+function readJson(targetPath) {
+  try {
+    return JSON.parse(fs.readFileSync(path.resolve(rootDir, targetPath), "utf8"));
+  } catch {
+    return {};
+  }
+}
+
+function loadEnvFile(filePath) {
+  try {
+    return fs
+      .readFileSync(filePath, "utf8")
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith("#") && line.includes("="))
+      .reduce((env, line) => {
+        const separator = line.indexOf("=");
+        const key = line.slice(0, separator).trim();
+        const value = line.slice(separator + 1).trim();
+        if (key && !(key in process.env)) {
+          process.env[key] = value;
+        }
+        env[key] = value;
+        return env;
+      }, {});
+  } catch {
+    return {};
+  }
+}
+
+function isDirectExecution() {
+  return fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || "");
+}
+
+if (isDirectExecution()) {
+  runOpenClawLearningCycle()
+    .then((result) => {
+      console.log(
+        `OpenClaw learning updated ${result.statePath} via ${result.storageMode}: ` +
+          `${result.profile.totalSignals} signal(s), confidence ${result.profile.confidence}.`
+      );
+    })
+    .catch((error) => {
+      console.error(error?.stack || error?.message || error);
+      process.exit(1);
+    });
+}

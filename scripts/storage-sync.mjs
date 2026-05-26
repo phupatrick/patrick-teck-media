@@ -3,6 +3,7 @@ import path from "node:path";
 import { createNewsroomStore } from "../src/newsroom-store.mjs";
 import { createPlatformStore } from "../src/platform-store.mjs";
 import { createOpenClawWebStore } from "../src/openclaw-web-store.mjs";
+import { createOpenClawLearningStore } from "../src/openclaw-learning-store.mjs";
 
 const rootDir = process.cwd();
 const envFromFile = loadEnvFile(path.join(rootDir, ".env"));
@@ -29,6 +30,12 @@ const syncTargets = [
     label: "openclaw-web",
     filePath: process.env.OPENCLAW_WEB_STATE_PATH || envFromFile.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json",
     createStore: (targetPath) => createOpenClawWebStore({ statePath: targetPath, databaseUrl }),
+    write: (store, value) => store.writeState(value)
+  },
+  {
+    label: "openclaw-learning",
+    filePath: process.env.OPENCLAW_LEARNING_STATE_PATH || envFromFile.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json",
+    createStore: (targetPath) => createOpenClawLearningStore({ statePath: targetPath, databaseUrl }),
     write: (store, value) => store.writeState(value)
   }
 ];

@@ -3,6 +3,8 @@ const DEFAULT_COMMANDS = [
   { command: "auto", description: "View automatic run schedule" },
   { command: "latest", description: "Show latest published stories" },
   { command: "audit", description: "Review public story quality issues" },
+  { command: "learn", description: "View bot learning profile" },
+  { command: "feedback", description: "Teach the bot from owner feedback" },
   { command: "health", description: "Check live site health" },
   { command: "web", description: "Show web management links" },
   { command: "id", description: "Show Telegram ids for setup" },
@@ -23,6 +25,8 @@ const HELP_TEXT = [
   "/auto - automatic run schedule and setup state",
   "/latest - latest published stories",
   "/audit - scan public stories for thin or noisy content",
+  "/learn - current learning profile",
+  "/feedback <good|bad|more|less|source|image|tone> <note> - teach the bot",
   "/health - check live homepage and newsroom API",
   "/web - web management links",
   "/setup - setup checklist for Vercel",
@@ -48,6 +52,8 @@ export function createTelegramNewsroomBot(options = {}) {
   const siteUrl = normalizeSiteUrl(options.siteUrl || "https://patricktechmedia.com");
   const getState = options.getState;
   const getControlSummary = options.getControlSummary;
+  const getLearningSummary = options.getLearningSummary;
+  const addLearningFeedback = options.addLearningFeedback;
   const createControlJob = options.createControlJob;
   const dispatchWorkflow = options.dispatchWorkflow;
   const openClawEnabled = Boolean(options.openClawEnabled);
@@ -101,6 +107,8 @@ export function createTelegramNewsroomBot(options = {}) {
           siteUrl,
           getState,
           getControlSummary,
+          getLearningSummary,
+          addLearningFeedback,
           createControlJob,
           dispatchWorkflow,
           openClawEnabled
@@ -151,6 +159,8 @@ export function createTelegramNewsroomBot(options = {}) {
         siteUrl,
         getState,
         getControlSummary,
+        getLearningSummary,
+        addLearningFeedback,
         createControlJob,
         dispatchWorkflow,
         openClawEnabled
@@ -243,6 +253,15 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return { text: await buildAuditText(context) };
   }
 
+  if (command === "/learn") {
+    return { text: await buildLearningText(context) };
+  }
+
+  if (command === "/feedback") {
+    const feedbackText = commandText.slice(firstToken.length).trim();
+    return submitLearningFeedback(feedbackText, context);
+  }
+
   if (command === "/health") {
     return { text: await buildHealthText(context) };
   }
@@ -273,6 +292,52 @@ export async function executeNewsroomCommand(rawText, context = {}) {
   }
 
   return { text: HELP_TEXT };
+}
+
+export async function submitLearningFeedback(rawText, context = {}) {
+  if (!context.isAdmin) {
+    throw new Error("Chi admin duoc day feedback cho bot hoc.");
+  }
+
+  const parsed = parseFeedbackText(rawText);
+  if (!parsed.note) {
+    return {
+      text: [
+        "Chua co noi dung feedback.",
+        "",
+        "Vi du:",
+        "/feedback good Bai co checklist va vi du thuc te rat on",
+        "/feedback bad Bai con mong, thieu thong tin lien quan"
+      ].join("\n")
+    };
+  }
+
+  if (typeof context.addLearningFeedback !== "function") {
+    return {
+      text: "Chua co learning store. Can cau hinh DATABASE_URL hoac OPENCLAW_LEARNING_STATE_PATH de bot ghi nho feedback."
+    };
+  }
+
+  await context.addLearningFeedback({
+    source: "telegram",
+    userId: context.userId || "",
+    chatId: context.chatId || "",
+    kind: parsed.kind,
+    note: parsed.note,
+    targetUrl: parsed.targetUrl
+  });
+
+  return {
+    text: [
+      "Da ghi nho feedback cho bot hoc.",
+      "",
+      `Loai: ${parsed.kind}`,
+      parsed.targetUrl ? `Link: ${parsed.targetUrl}` : "",
+      `Ghi chu: ${parsed.note}`,
+      "",
+      "Chu ky OpenClaw tiep theo se cap nhat learning profile va dieu chinh uu tien bai/nguon."
+    ].filter(Boolean).join("\n")
+  };
 }
 
 export async function submitNewsroomLink(rawText, context = {}) {
@@ -353,6 +418,39 @@ async function buildAutomationText(context) {
     "",
     "De /refresh bam tay tren Telegram hoat dong, Vercel can GITHUB_WORKFLOW_DISPATCH_TOKEN va GitHub repo/ref dung."
   ].join("\n");
+}
+
+async function buildLearningText(context) {
+  const summary = typeof context.getLearningSummary === "function"
+    ? await context.getLearningSummary().catch(() => null)
+    : null;
+  const profile = summary?.profile || {};
+  const topicWeights = Object.entries(profile.topicWeights || {}).slice(0, 5);
+  const sourceTypeWeights = Object.entries(profile.sourceTypeWeights || {}).slice(0, 5);
+
+  if (!summary) {
+    return "Chua co learning profile. Hay gui /feedback sau moi bai de bot bat dau hoc.";
+  }
+
+  return [
+    "Bot learning profile",
+    "",
+    `Model: ${summary.model?.id || "adaptive-editorial-bandit-v1"}`,
+    `CNN: ${summary.model?.cnn_enabled ? "bat" : "tat"} (${summary.model?.reason || "khong phu hop cho text/Vercel"})`,
+    `Tin hieu: ${profile.totalSignals || 0}`,
+    `Feedback owner: ${summary.feedbackCount || 0}`,
+    `Do tu tin: ${Math.round((profile.confidence || 0) * 100)}%`,
+    profile.updated_at ? `Cap nhat: ${formatDate(profile.updated_at)}` : "",
+    "",
+    topicWeights.length ? `Chu de dang uu tien: ${topicWeights.map(([key, value]) => `${key} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Chu de dang uu tien: chua du tin hieu",
+    sourceTypeWeights.length ? `Nguon dang uu tien: ${sourceTypeWeights.map(([key, value]) => `${key} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Nguon dang uu tien: chua du tin hieu",
+    "",
+    "Quy tac dang hoc:",
+    ...((profile.styleRules || []).slice(0, 4).map((rule) => `- ${rule}`)),
+    "",
+    "Nen tranh:",
+    ...((profile.avoidRules || []).slice(0, 4).map((rule) => `- ${rule}`))
+  ].filter((line) => line !== "").join("\n");
 }
 
 async function buildLatestText(context) {
@@ -591,10 +689,13 @@ function buildMenuMarkup(active = "menu") {
       ],
       [
         button(selected("jobs", "Jobs"), "newsroom:jobs"),
-        button(selected("id", "IDs"), "newsroom:id")
+        button(selected("learn", "Learn"), "newsroom:learn")
       ],
       [
-        button(selected("setup", "Setup"), "newsroom:setup"),
+        button(selected("id", "IDs"), "newsroom:id"),
+        button(selected("setup", "Setup"), "newsroom:setup")
+      ],
+      [
         button(selected("refresh", "Refresh"), "newsroom:refresh")
       ],
       [
@@ -619,6 +720,7 @@ function mapCallbackToCommand(action) {
     "newsroom:auto": "/auto",
     "newsroom:latest": "/latest",
     "newsroom:audit": "/audit",
+    "newsroom:learn": "/learn",
     "newsroom:health": "/health",
     "newsroom:web": "/web",
     "newsroom:id": "/id",
@@ -629,6 +731,64 @@ function mapCallbackToCommand(action) {
   };
 
   return commandMap[action] || "";
+}
+
+function parseFeedbackText(rawText) {
+  const [firstToken, ...rest] = String(rawText || "").trim().split(/\s+/);
+  const explicitKind = isFeedbackKind(firstToken);
+  const kind = explicitKind ? normalizeFeedbackKind(firstToken) : "good";
+  const body = explicitKind ? rest.join(" ").trim() : String(rawText || "").trim();
+  const [targetUrl] = extractArticleUrls(body);
+  const note = body.replace(targetUrl || "", "").trim() || body || String(rawText || "").trim();
+
+  return {
+    kind,
+    targetUrl: targetUrl || "",
+    note
+  };
+}
+
+function isFeedbackKind(value) {
+  const normalized = String(value || "").trim().toLowerCase();
+  return [
+    "good", "hay", "like", "useful", "tot",
+    "bad", "te", "chua", "weak",
+    "more", "sau", "depth", "long",
+    "less", "gon", "noise",
+    "source", "nguon",
+    "image", "anh",
+    "tone", "giong"
+  ].includes(normalized);
+}
+
+function normalizeFeedbackKind(value) {
+  const normalized = String(value || "").trim().toLowerCase();
+  const aliases = {
+    good: "good",
+    hay: "good",
+    like: "good",
+    useful: "good",
+    tot: "good",
+    bad: "bad",
+    te: "bad",
+    chua: "bad",
+    weak: "bad",
+    more: "more-depth",
+    sau: "more-depth",
+    depth: "more-depth",
+    long: "more-depth",
+    less: "less-noise",
+    gon: "less-noise",
+    noise: "less-noise",
+    source: "source",
+    nguon: "source",
+    image: "image",
+    anh: "image",
+    tone: "tone",
+    giong: "tone"
+  };
+
+  return aliases[normalized] || "good";
 }
 
 function extractArticleUrls(text) {

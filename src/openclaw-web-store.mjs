@@ -22,7 +22,8 @@ export const DEFAULT_OPENCLAW_WEB_STATE = {
   priorityTopics: [],
   ranking: {
     topicWeights: {},
-    sourceTypeWeights: {}
+    sourceTypeWeights: {},
+    learningConfidence: 0
   },
   frontpageCopy: {
     vi: {},
@@ -82,13 +83,23 @@ export function normalizeOpenClawWebState(payload) {
       : [],
     ranking: {
       topicWeights: normalizeWeights(normalized.ranking?.topicWeights),
-      sourceTypeWeights: normalizeWeights(normalized.ranking?.sourceTypeWeights)
+      sourceTypeWeights: normalizeWeights(normalized.ranking?.sourceTypeWeights),
+      learningConfidence: clampNumber(normalized.ranking?.learningConfidence, 0, 1, 0)
     },
     frontpageCopy: {
       vi: normalizeFrontpageCopy(normalized.frontpageCopy?.vi),
       en: normalizeFrontpageCopy(normalized.frontpageCopy?.en)
     }
   };
+}
+
+function clampNumber(value, min, max, fallback) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) {
+    return fallback;
+  }
+
+  return Math.max(min, Math.min(max, parsed));
 }
 
 function normalizeWeights(value) {

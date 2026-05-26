@@ -58,6 +58,7 @@ import { createSellerTranslator } from "./src/seller-translation.mjs";
 import { createTelegramSellerBot } from "./src/telegram-seller-bot.mjs";
 import { createTelegramNewsroomBot } from "./src/telegram-newsroom-bot.mjs";
 import { createOpenClawControlPlane } from "./src/openclaw-control-plane.mjs";
+import { createOpenClawLearningStore } from "./src/openclaw-learning-store.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -109,6 +110,7 @@ const config = {
   githubWorkflowRef: process.env.GITHUB_WORKFLOW_REF || envFromFile.GITHUB_WORKFLOW_REF || "main",
   cronSecret: process.env.CRON_SECRET || envFromFile.CRON_SECRET || "",
   openclawControlPath: process.env.OPENCLAW_CONTROL_PATH || envFromFile.OPENCLAW_CONTROL_PATH || "data/openclaw-control-plane.json",
+  openclawLearningStatePath: process.env.OPENCLAW_LEARNING_STATE_PATH || envFromFile.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json",
   openclawControlToken: process.env.OPENCLAW_CONTROL_TOKEN || envFromFile.OPENCLAW_CONTROL_TOKEN || "",
   openclawWorkerHeartbeatSeconds: Number(process.env.OPENCLAW_WORKER_HEARTBEAT_SECONDS || envFromFile.OPENCLAW_WORKER_HEARTBEAT_SECONDS || 120),
   openclawJobLeaseSeconds: Number(process.env.OPENCLAW_JOB_LEASE_SECONDS || envFromFile.OPENCLAW_JOB_LEASE_SECONDS || 90)
@@ -261,6 +263,10 @@ const openclawControlPlane = createOpenClawControlPlane({
   heartbeatTimeoutSeconds: config.openclawWorkerHeartbeatSeconds,
   defaultJobLeaseSeconds: config.openclawJobLeaseSeconds
 });
+const openclawLearningStore = createOpenClawLearningStore({
+  statePath: config.openclawLearningStatePath,
+  databaseUrl: config.databaseUrl
+});
 const TELEGRAM_SELLER_WEBHOOK_PATH = normalizeWebhookPath(config.telegramWebhookPath);
 const TELEGRAM_NEWSROOM_WEBHOOK_PATH = normalizeWebhookPath(config.telegramNewsroomWebhookPath);
 const telegramNewsroomBot = createTelegramNewsroomBot({
@@ -270,6 +276,8 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
   siteUrl: config.siteUrl,
   getState: () => getState(config.siteUrl),
   getControlSummary: () => openclawControlPlane.getSummary(),
+  getLearningSummary: () => openclawLearningStore.getSummary(),
+  addLearningFeedback: (input) => openclawLearningStore.addFeedback(input),
   createControlJob: (job) => openclawControlPlane.createJob(job),
   dispatchWorkflow: dispatchNewsroomWorkflow,
   openClawEnabled: Boolean(config.openclawControlToken)

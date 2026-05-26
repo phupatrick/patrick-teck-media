@@ -10,6 +10,7 @@ const config = {
   siteUrl: process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.com",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || envFromFile.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
   webStatePath: process.env.OPENCLAW_WEB_STATE_PATH || envFromFile.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json",
+  learningStatePath: process.env.OPENCLAW_LEARNING_STATE_PATH || envFromFile.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json",
   ownerBriefPath: process.env.OPENCLAW_OWNER_BRIEF_PATH || envFromFile.OPENCLAW_OWNER_BRIEF_PATH || "data/openclaw-owner-brief.json",
   platformStatePath: process.env.PLATFORM_STATE_PATH || envFromFile.PLATFORM_STATE_PATH || "data/platform-state.json",
   managerStatePath: process.env.OPENCLAW_MANAGER_STATE_PATH || envFromFile.OPENCLAW_MANAGER_STATE_PATH || "data/openclaw-manager-state.json",
@@ -29,6 +30,7 @@ const config = {
 const startedAt = new Date().toISOString();
 const feedSource = ensureHiddenFeedSource();
 const refresh = runRefreshCycle(feedSource.refreshSource);
+const learning = runLearningCycle();
 const webControl = runWebControlCycle();
 const ownerBrief = readJson(config.ownerBriefPath);
 const platformService = createPlatformService({
@@ -46,6 +48,7 @@ const managerSnapshot = buildManagerSnapshot({
   finishedAt: new Date().toISOString(),
   feedSource,
   refresh,
+  learning,
   webControl,
   ownerBrief,
   submissionReview,
@@ -175,6 +178,40 @@ function runRefreshCycle(refreshSource = null) {
   };
 }
 
+function runLearningCycle() {
+  const scriptPath = path.resolve(rootDir, "scripts/openclaw-learning.mjs");
+  const result = spawnSync(process.execPath, [scriptPath], {
+    cwd: rootDir,
+    env: {
+      ...process.env,
+      NEWSROOM_CONTENT_PATH: config.contentPath,
+      PLATFORM_STATE_PATH: config.platformStatePath,
+      OPENCLAW_LEARNING_STATE_PATH: config.learningStatePath,
+      DATABASE_URL: process.env.DATABASE_URL || envFromFile.DATABASE_URL || ""
+    },
+    encoding: "utf8"
+  });
+
+  if (result.stdout) {
+    process.stdout.write(result.stdout);
+  }
+
+  if (result.stderr) {
+    process.stderr.write(result.stderr);
+  }
+
+  if (result.status !== 0) {
+    throw new Error(result.stderr || result.stdout || "The OpenClaw learning cycle failed.");
+  }
+
+  return {
+    ok: true,
+    path: path.resolve(rootDir, config.learningStatePath),
+    output: compactText(result.stdout),
+    warnings: compactText(result.stderr)
+  };
+}
+
 function runWebControlCycle() {
   const scriptPath = path.resolve(rootDir, "scripts/openclaw-web-control.mjs");
   const result = spawnSync(process.execPath, [scriptPath], {
@@ -185,6 +222,7 @@ function runWebControlCycle() {
       PATRICK_TECH_STORE_URL: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
       NEWSROOM_CONTENT_PATH: config.contentPath,
       OPENCLAW_WEB_STATE_PATH: config.webStatePath,
+      OPENCLAW_LEARNING_STATE_PATH: config.learningStatePath,
       OPENCLAW_OWNER_BRIEF_PATH: config.ownerBriefPath,
       DATABASE_URL: process.env.DATABASE_URL || envFromFile.DATABASE_URL || ""
     },
@@ -211,7 +249,7 @@ function runWebControlCycle() {
   };
 }
 
-function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, webControl, ownerBrief, submissionReview, contentPath, platformStatePath, webStatePath }) {
+function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, learning, webControl, ownerBrief, submissionReview, contentPath, platformStatePath, webStatePath }) {
   const payload = readJson(contentPath);
   const articles = Array.isArray(payload?.articles) ? payload.articles : [];
 
@@ -236,6 +274,7 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, webC
         url: feedSource.refreshSource?.url || feedSource.refreshSource?.singleUrl || ""
       },
       refresh,
+      learning,
       webControl
     },
     platform: {
@@ -244,6 +283,7 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, webC
     },
     automation: {
       webStatePath: path.resolve(rootDir, webStatePath),
+      learningStatePath: path.resolve(rootDir, config.learningStatePath),
       gitAutopush: /^(1|true|yes|on)$/i.test(String(process.env.OPENCLAW_GIT_AUTOPUSH || envFromFile.OPENCLAW_GIT_AUTOPUSH || "")),
       ownerBrief: {
         siteName: ownerBrief.brand?.site_name || "",
