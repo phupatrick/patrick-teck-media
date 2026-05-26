@@ -5,6 +5,12 @@
       "excludeFiles": "{data/openclaw-hidden-feed.json,data/tmp-*.json,data/tmp-*.ndjson,data/manual-*-batch*.json,data/openclaw-batch-*.json,test/**}"
     }
   },
+  "crons": [
+    {
+      "path": "/api/openclaw/cron",
+      "schedule": "0 18 * * *"
+    }
+  ],
   "rewrites": [
     {
       "source": "/",

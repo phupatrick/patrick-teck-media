@@ -240,7 +240,7 @@ Let OpenClaw run tests and commit the generated newsroom files:
 npm run openclaw:git-sync
 ```
 
-The ready-to-enable GitHub Actions workflow at `.github/workflows/newsroom-refresh.yml` now runs this OpenClaw manager cycle on an hourly schedule and commits:
+The GitHub Actions workflow at `.github/workflows/newsroom-refresh.yml` runs this OpenClaw manager cycle every 15 minutes and commits:
 
 - `data/newsroom-content.json`
 - `data/platform-state.json`
@@ -266,7 +266,7 @@ npm run storage:sync
 
 5. In Vercel production environment variables, set `DOCUMENT_STORE_REQUIRE_DATABASE=1` after the seed succeeds.
 
-After that, GitHub Actions can run the OpenClaw manager every hour, sync the refreshed newsroom into Neon, and Vercel can deploy the site without your local machine staying online.
+After that, GitHub Actions can run the OpenClaw manager every 15 minutes, sync the refreshed newsroom into Neon, and Vercel can deploy the site without your local machine staying online.
 
 The Vercel function is configured to exclude the largest generated JSON files from the serverless bundle:
 
@@ -287,6 +287,7 @@ The newsroom bot lets the owner control Patrick Tech Media from Telegram without
 Supported commands:
 
 - `/status` - web status, article count, latest story, OpenClaw queue health
+- `/auto` - automatic schedule, webhook mode, and setup state
 - `/latest` - latest published articles with links
 - `/health` - live homepage and newsroom API health check
 - `/web` - quick web management links
@@ -326,7 +327,7 @@ Delete it if you need to rotate tokens:
 npm run telegram:newsroom:webhook:delete
 ```
 
-The Vercel cron route `/api/openclaw/cron` dispatches the GitHub workflow as a daily fallback. The GitHub Actions workflow remains the high-frequency automation path, while Vercel keeps the command webhook online.
+The Vercel cron route `/api/openclaw/cron` is enabled in `vercel.json` with schedule `0 18 * * *`, which is 01:00 Asia/Saigon. It dispatches the GitHub workflow as a daily fallback. The GitHub Actions workflow remains the high-frequency automation path at `*/15 * * * *`, while Vercel keeps the Telegram command webhook online.
 
 ### Configure
 

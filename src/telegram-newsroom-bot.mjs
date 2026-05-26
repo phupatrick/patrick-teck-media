@@ -1,5 +1,6 @@
 const DEFAULT_COMMANDS = [
   { command: "status", description: "View web and newsroom status" },
+  { command: "auto", description: "View automatic run schedule" },
   { command: "latest", description: "Show latest published stories" },
   { command: "audit", description: "Review public story quality issues" },
   { command: "health", description: "Check live site health" },
@@ -18,6 +19,7 @@ const HELP_TEXT = [
   "/ping - quick bot check",
   "/id - show chat id and user id for Vercel env setup",
   "/status - web status, article count, latest story, OpenClaw summary",
+  "/auto - automatic run schedule and setup state",
   "/latest - latest published stories",
   "/audit - scan public stories for thin or noisy content",
   "/health - check live homepage and newsroom API",
@@ -28,7 +30,7 @@ const HELP_TEXT = [
   "/help - command list",
   "/menu - open button control panel",
   "",
-  "Current mode: Vercel webhook first. Heavy automation will be connected later through GitHub Actions/OpenClaw."
+  "Current mode: Vercel webhook for Telegram commands, GitHub Actions for frequent newsroom refresh, Vercel cron as daily fallback."
 ].join("\n");
 
 const MENU_TEXT = [
@@ -222,6 +224,10 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return { text: await buildStatusText(context) };
   }
 
+  if (command === "/auto") {
+    return { text: await buildAutomationText(context) };
+  }
+
   if (command === "/latest") {
     return { text: await buildLatestText(context) };
   }
@@ -291,6 +297,28 @@ async function buildStatusText(context) {
     control
       ? `OpenClaw: ${control.jobs?.queued || 0} queued, ${control.jobs?.running || 0} running, ${control.jobs?.failed || 0} failed`
       : "OpenClaw: chua co du lieu control"
+  ].join("\n");
+}
+
+async function buildAutomationText(context) {
+  const control = await context.getControlSummary?.().catch(() => null);
+  const jobs = control?.jobs || {};
+  const openClawQueueText = control
+    ? `${jobs.queued || 0} queued, ${jobs.running || 0} running, ${jobs.failed || 0} failed`
+    : "chua co du lieu control";
+
+  return [
+    "Che do tu dong",
+    "",
+    "Telegram webhook: Vercel nhan lenh 24/24 theo kieu serverless.",
+    "Newsroom refresh: GitHub Actions chay moi 15 phut.",
+    "Vercel cron fallback: goi /api/openclaw/cron moi ngay 01:00 Asia/Saigon.",
+    "Bao cao Telegram: gui sau moi chu ky neu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS da cau hinh.",
+    "",
+    `OpenClaw queue: ${openClawQueueText}`,
+    `Admin hien tai: ${context.isAdmin ? "co quyen /refresh" : "chua co quyen /refresh"}`,
+    "",
+    "De /refresh bam tay tren Telegram hoat dong, Vercel can GITHUB_WORKFLOW_DISPATCH_TOKEN va GitHub repo/ref dung."
   ].join("\n");
 }
 
@@ -460,27 +488,29 @@ function buildSetupText(context) {
 }
 
 function buildMenuMarkup(active = "menu") {
-  const selected = (key, label) => key === active ? `${label} *` : label;
+  const activeKey = String(active || "menu").replace(/^newsroom:/, "");
+  const selected = (key, label) => key === activeKey ? `${label} *` : label;
 
   return {
     inline_keyboard: [
       [
         button(selected("status", "Status"), "newsroom:status"),
-        button(selected("latest", "Latest"), "newsroom:latest")
+        button(selected("auto", "Auto"), "newsroom:auto")
       ],
       [
-        button(selected("audit", "Audit"), "newsroom:audit"),
-        button(selected("health", "Health"), "newsroom:health")
+        button(selected("latest", "Latest"), "newsroom:latest"),
+        button(selected("audit", "Audit"), "newsroom:audit")
       ],
       [
-        button(selected("web", "Web links"), "newsroom:web"),
-        button(selected("jobs", "Jobs"), "newsroom:jobs")
+        button(selected("health", "Health"), "newsroom:health"),
+        button(selected("web", "Web links"), "newsroom:web")
       ],
       [
-        button(selected("id", "IDs"), "newsroom:id"),
-        button(selected("setup", "Setup"), "newsroom:setup")
+        button(selected("jobs", "Jobs"), "newsroom:jobs"),
+        button(selected("id", "IDs"), "newsroom:id")
       ],
       [
+        button(selected("setup", "Setup"), "newsroom:setup"),
         button(selected("refresh", "Refresh"), "newsroom:refresh")
       ],
       [
@@ -502,6 +532,7 @@ function mapCallbackToCommand(action) {
   const commandMap = {
     "newsroom:menu": "/menu",
     "newsroom:status": "/status",
+    "newsroom:auto": "/auto",
     "newsroom:latest": "/latest",
     "newsroom:audit": "/audit",
     "newsroom:health": "/health",

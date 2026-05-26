@@ -62,6 +62,27 @@ const tests = [
     }
   },
   {
+    name: "newsroom telegram auto command explains continuous schedule",
+    async run() {
+      const response = await executeNewsroomCommand("/auto", {
+        siteUrl: "https://patricktechmedia.com",
+        isAdmin: true,
+        getControlSummary: async () => ({
+          jobs: {
+            queued: 1,
+            running: 0,
+            failed: 0
+          }
+        })
+      });
+
+      assert.match(response.text, /Che do tu dong/);
+      assert.match(response.text, /15 phut/);
+      assert.match(response.text, /01:00 Asia\/Saigon/);
+      assert.match(response.text, /co quyen \/refresh/);
+    }
+  },
+  {
     name: "ships at least 20 localized newsroom articles across at least 10 clusters",
     run() {
       assert.ok(state.articles.length >= 20);
