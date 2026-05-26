@@ -648,6 +648,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
   const verification = getVerificationMeta(article.verification_state, language);
   const shouldShowBadge = Boolean(article.editorial_label);
   const feedback = options.feedback || { reactions: [], comments: [], totalComments: 0, totalReactions: 0 };
+  const publicSections = selectPublicArticleSections(article);
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -702,55 +703,17 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
         <div class="article-layout">
           <div class="article-content">
             <p class="article-summary">${escapeHtml(article.summary)}</p>
-            ${renderSlot(adsConfig, { language, pageAllowsAds: article.ad_eligible, placement: "inline", promoHref: getStoreLandingHref(language) })}
-            ${article.sections
+            ${publicSections
               .map(
                 (section, index) => `
                   <section class="article-section">
                     <h2>${escapeHtml(section.heading)}</h2>
                     <p>${escapeHtml(section.body)}</p>
                   </section>
-                  ${index === 1 ? renderSlot(adsConfig, { language, pageAllowsAds: article.ad_eligible, placement: "mid", promoHref: getStoreLandingHref(language) }) : ""}
                 `
               )
               .join("")}
-            <section class="article-section note-surface">
-              <h2>${copy.sourceBoxTitle}</h2>
-              <ul class="source-list">
-                ${article.source_set
-                  .map(
-                    (source) => `
-                      <li>
-                        <a href="${source.source_url}">${escapeHtml(source.source_name)}</a>
-                        ${[source.source_type, source.region]
-                          .filter(Boolean)
-                          .map((value) => `<span>${escapeHtml(value)}</span>`)
-                          .join("")}
-                      </li>
-                    `
-                  )
-                  .join("")}
-              </ul>
-            </section>
-
-            ${
-              article.store_link_mode !== "off"
-                ? renderStorePanel(state, article, language)
-                : ""
-            }
-
-            ${renderArticleCommunity(article, feedback, language, options.viewer, {
-              notice: options.notice || "",
-              error: options.error || "",
-              csrf: options.csrf || {}
-            })}
-
-            <section class="article-section">
-              <h2>${copy.relatedLabel}</h2>
-              <div class="story-grid compact-grid">
-                ${relatedStories.map((story) => renderStoryCard(story, language)).join("")}
-              </div>
-            </section>
+            ${renderCompactSources(article, copy)}
           </div>
 
           <aside class="article-rail">
@@ -1593,6 +1556,134 @@ function renderArticleHero(article) {
       <figcaption>${escapeHtml(article.hero_image.caption)}${article.hero_image.credit ? ` <span>${escapeHtml(article.hero_image.credit)}</span>` : ""}</figcaption>
     </figure>
   `;
+}
+
+function selectPublicArticleSections(article) {
+  const sourceNames = new Set((article.source_set || []).map((source) => normalizeSourceName(source.source_name)).filter(Boolean));
+  const sourcePattern = sourceNames.size
+    ? new RegExp([...sourceNames].map(escapeRegex).join("|"), "gi")
+    : null;
+  const blockedHeadingPattern = /(bối cảnh|boi canh|nguồn|nguon|tham khảo|tham khao|kết luận|ket luan|checklist|cần giữ|can giu|nơi dễ|noi de|mua trùng|mua trung|chia việc|chia viec)/i;
+  const seen = new Set();
+  const selected = [];
+
+  for (const section of article.sections || []) {
+    const heading = String(section?.heading || "").trim();
+    const body = String(section?.body || "").trim();
+
+    if (!heading || !body) {
+      continue;
+    }
+
+    if (blockedHeadingPattern.test(heading)) {
+      continue;
+    }
+
+    if (sourcePattern && countSourceMentions(body, sourcePattern) >= 2) {
+      continue;
+    }
+
+    const compactBody = trimArticleBody(body, 440);
+    const signature = `${heading.toLowerCase()}::${compactBody.toLowerCase().slice(0, 90)}`;
+
+    if (seen.has(signature)) {
+      continue;
+    }
+
+    seen.add(signature);
+    selected.push({ heading, body: compactBody });
+
+    if (selected.length >= 3) {
+      break;
+    }
+  }
+
+  if (selected.length >= 2) {
+    return selected;
+  }
+
+  return (article.sections || [])
+    .filter((section) => section?.heading && section?.body)
+    .slice(0, 2)
+    .map((section) => ({
+      heading: String(section.heading).trim(),
+      body: trimArticleBody(String(section.body).trim(), 440)
+    }));
+}
+
+function trimArticleBody(value, maxLength) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+
+  if (text.length <= maxLength) {
+    return text;
+  }
+
+  const trimmed = text.slice(0, maxLength);
+  const sentenceEnd = Math.max(trimmed.lastIndexOf("."), trimmed.lastIndexOf("?"), trimmed.lastIndexOf("!"));
+
+  if (sentenceEnd >= 180) {
+    return trimmed.slice(0, sentenceEnd + 1);
+  }
+
+  const wordEnd = trimmed.lastIndexOf(" ");
+  return `${trimmed.slice(0, wordEnd > 160 ? wordEnd : maxLength).trim()}...`;
+}
+
+function renderCompactSources(article, copy) {
+  const uniqueSources = dedupeSources(article.source_set || []).slice(0, 4);
+
+  if (!uniqueSources.length) {
+    return "";
+  }
+
+  return `
+    <section class="article-section source-compact">
+      <h2>${copy.sourceBoxTitle}</h2>
+      <div class="source-chip-list">
+        ${uniqueSources
+          .map(
+            (source) => `
+              <a class="source-chip" href="${source.source_url}" target="_blank" rel="noreferrer">
+                ${escapeHtml(source.source_name)}
+              </a>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function dedupeSources(sources) {
+  const seen = new Set();
+  const entries = [];
+
+  for (const source of sources) {
+    const name = String(source?.source_name || "").trim();
+    const url = String(source?.source_url || "").trim();
+    const key = normalizeSourceName(name) || url;
+
+    if (!name || !url || seen.has(key)) {
+      continue;
+    }
+
+    seen.add(key);
+    entries.push({ ...source, source_name: name, source_url: url });
+  }
+
+  return entries;
+}
+
+function normalizeSourceName(value) {
+  return String(value || "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function countSourceMentions(value, pattern) {
+  return (String(value || "").match(pattern) || []).length;
+}
+
+function escapeRegex(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function renderImagePlaceholder(article, className) {

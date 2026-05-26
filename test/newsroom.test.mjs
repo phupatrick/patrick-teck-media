@@ -540,7 +540,7 @@ const tests = [
     }
   },
   {
-    name: "renders Patrick Tech Store promo slots for verified stories when AdSense is not configured",
+    name: "keeps verified story pages editorial-first without inline promo clutter",
     run() {
       const scenario = buildScenarioState([
         makeScenarioArticle({
@@ -599,8 +599,11 @@ const tests = [
       assert.equal(article.verification_state, "verified");
       assert.equal(article.ad_eligible, true);
       assert.equal(article.hero_image.kind, "source");
-      assert.match(html, /Patrick Tech Store/);
-      assert.match(html, /patricktechstore\.vercel\.app/);
+      assert.doesNotMatch(html, /Patrick Tech Store/);
+      assert.doesNotMatch(html, /patricktechstore\.vercel\.app/);
+      assert.doesNotMatch(html, /store-panel/);
+      assert.doesNotMatch(html, /store-promo-slot/);
+      assert.match(html, /source-compact/);
       assert.match(html, /\/media\/source\?src=https%3A%2F%2Fimages\.example\.com%2Fverified-edge-ai\.jpg/);
     }
   },
@@ -1109,7 +1112,7 @@ const tests = [
     }
   },
   {
-    name: "renders a news-first homepage and article community section",
+    name: "renders a news-first homepage and uncluttered article pages",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
       const article = state.articles.find((entry) => entry.language === "vi");
@@ -1135,9 +1138,12 @@ const tests = [
       assert.doesNotMatch(homeHtml, /3 bÄ‚Â i giĂ¡Â»Â¯ nhĂ¡Â»â€¹p hÄ‚Â´m nay/);
       assert.doesNotMatch(homeHtml, /NhĂ¡Â»Â¯ng chĂ¡Â»Â§ Ă„â€˜Ă¡Â»Â kÄ‚Â©o Ă„â€˜Ă¡Â»â„¢c giĂ¡ÂºÂ£ vÄ‚Â o Ă„â€˜Ă¡Â»Âc/);
       assert.doesNotMatch(homeHtml, /DÄ‚Â²ng tin mĂ¡Â»â€ºi Ă„â€˜ang chĂ¡ÂºÂ¡y trÄ‚Âªn trang chĂ¡Â»Â§/);
-      assert.match(articleHtml, /feedback-section/);
-      assert.match(articleHtml, /comment-form/);
-      assert.match(articleHtml, /reaction-button/);
+      assert.match(articleHtml, /article-section/);
+      assert.match(articleHtml, /source-compact/);
+      assert.doesNotMatch(articleHtml, /feedback-section/);
+      assert.doesNotMatch(articleHtml, /comment-form/);
+      assert.doesNotMatch(articleHtml, /reaction-button/);
+      assert.doesNotMatch(articleHtml, /store-panel/);
 
 
 
@@ -1299,7 +1305,9 @@ const tests = [
 
       assert.ok(article.sections.length >= 5);
       assert.ok(totalDepth >= 900);
-      assert.match(articleHtml, /Bối cảnh cần giữ|Tác động thực tế|Ai nên để ý|Điều cần theo dõi tiếp/);
+      assert.match(articleHtml, /Dieu moi|Vi sao dang doc|Dieu can theo doi/);
+      assert.match(articleHtml, /source-compact/);
+      assert.doesNotMatch(articleHtml, /feedback-section|store-panel|store-promo-slot/);
     }
   },
   {
