@@ -15,9 +15,52 @@ import {
 } from "../src/newsroom-service.mjs";
 import { buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
+import { executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
 
 const state = createState();
 const tests = [
+  {
+    name: "newsroom telegram audit flags noisy scraped source text",
+    async run() {
+      const response = await executeNewsroomCommand("/audit", {
+        siteUrl: "https://patricktechmedia.com",
+        getState: async () => ({
+          articles: [
+            {
+              title: "Clean AI package guide",
+              href: "/vi/huong-dan/clean-ai-package-guide",
+              summary: "Mot bai huong dan ro rang ve cach chon goi AI cho nhom lam viec.",
+              dek: "Bai tap trung vao nhu cau thuc te, chi phi va cach trien khai.",
+              hook: "Nguoi doc can mot cach chon goi AI de tiet kiem tien.",
+              sections: [
+                { heading: "Nhu cau", body: "Noi dung du dai ve nhu cau lam viec hang ngay va cach xac dinh uu tien trong team. Phan nay giai thich khi nao can viet dai, research, ghi chu, tong hop tai lieu va phoi hop nhieu nguoi. Nguoi doc nhin vao day se biet nen mua goi vi cong viec nao, khong phai vi quang cao. Bai con dua vi du ve mot nhom noi dung, mot nhom ban hang va mot freelancer de nguoi doc tu so voi quy trinh cua minh." },
+                { heading: "Chi phi", body: "Noi dung du dai ve chi phi, gioi han va nhung dieu can doi chieu truoc khi nang cap. Phan nay tach phi hang thang, gioi han model, dung luong file, tinh nang hop va quyen quan tri. Cach viet nay giup nguoi doc tranh mua hai app co trung mot cong dung. Bai cung nhac den chi phi an nhu thoi gian chuyen du lieu, dao tao lai thanh vien va rui ro mat lich su lam viec." },
+                { heading: "Du lieu", body: "Noi dung du dai ve du lieu, bao mat va quyen quan tri khi dung cong cu AI trong nhom. Phan nay nhac den viec file nam o dau, ai co quyen xem, co xuat duoc lich su hay khong, va khi roi goi thi du lieu co bi khoa trong nen tang nao khong. Nguoi quan tri can nhin ca quyen chia se, audit log, chinh sach luu tru va kha nang tach tai khoan ca nhan khoi tai khoan cong viec." },
+                { heading: "Trien khai", body: "Noi dung du dai ve cach trien khai, do luong hieu qua va kiem tra lai sau mot thang. Phan nay dua ra cach chon mot nhom nho de thu, ghi lai thoi gian tiet kiem, loi lap lai, chi phi phat sinh va quyet dinh giu hay huy goi. Bai khuyen khong nen mua theo cam giac day du, ma can co tieu chi ro rang ve buoc viec duoc rut gon va loi lap lai duoc giam." }
+              ],
+              source_set: [{ source_name: "Google AI Blog", source_url: "https://example.com/google" }]
+            },
+            {
+              title: "Dirty scraped story",
+              href: "/vi/tin-tuc/dirty-scraped-story",
+              summary: "Open menu View Profile Sign out Search Search Popular Brands More from Phones Buying Guides Coupons Get daily insight.",
+              dek: "Open menu View Profile Sign out Search Search Popular Brands More from Phones Buying Guides Coupons Get daily insight.",
+              hook: "Open menu View Profile Sign out Search Search Popular Brands More from Phones Buying Guides Coupons Get daily insight.",
+              sections: [
+                { heading: "Open menu", body: "Open menu View Profile Sign out Search Search Popular Brands More from Phones Buying Guides Coupons Get daily insight." }
+              ],
+              source_set: [{ source_name: "TechRadar", source_url: "https://example.com/techradar" }]
+            }
+          ]
+        })
+      });
+
+      assert.match(response.text, /Audit noi dung/);
+      assert.match(response.text, /Dirty scraped story/);
+      assert.match(response.text, /nhiem menu nguon/);
+      assert.doesNotMatch(response.text, /Clean AI package guide/);
+    }
+  },
   {
     name: "ships at least 20 localized newsroom articles across at least 10 clusters",
     run() {
@@ -1647,6 +1690,7 @@ function createState() {
   const newsroom = buildNewsroomState({
     siteUrl: "https://patricktechmedia.com",
     storeUrl: "https://patricktechstore.vercel.app",
+    now: "2026-05-26T20:00:00.000+07:00",
     webControl: {}
   });
   newsroom.home = {

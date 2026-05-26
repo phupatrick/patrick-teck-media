@@ -1,6 +1,7 @@
 const DEFAULT_COMMANDS = [
   { command: "status", description: "View web and newsroom status" },
   { command: "latest", description: "Show latest published stories" },
+  { command: "audit", description: "Review public story quality issues" },
   { command: "health", description: "Check live site health" },
   { command: "web", description: "Show web management links" },
   { command: "id", description: "Show Telegram ids for setup" },
@@ -18,6 +19,7 @@ const HELP_TEXT = [
   "/id - show chat id and user id for Vercel env setup",
   "/status - web status, article count, latest story, OpenClaw summary",
   "/latest - latest published stories",
+  "/audit - scan public stories for thin or noisy content",
   "/health - check live homepage and newsroom API",
   "/web - web management links",
   "/setup - setup checklist for Vercel",
@@ -224,6 +226,10 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return { text: await buildLatestText(context) };
   }
 
+  if (command === "/audit") {
+    return { text: await buildAuditText(context) };
+  }
+
   if (command === "/health") {
     return { text: await buildHealthText(context) };
   }
@@ -304,6 +310,48 @@ async function buildLatestText(context) {
     "",
     ...latest.map((article, index) => `${index + 1}. ${article.title}\n${context.siteUrl}${article.href}`)
   ].join("\n\n");
+}
+
+async function buildAuditText(context) {
+  const state = await context.getState?.();
+  const articles = Array.isArray(state?.articles) ? state.articles : [];
+  const audits = articles.map(auditArticleForTelegram).filter((entry) => entry.issues.length > 0);
+  const thinCount = audits.filter((entry) => entry.issues.some((issue) => issue.startsWith("noi dung mong"))).length;
+  const noisyCount = audits.filter((entry) => entry.issues.some((issue) => issue.startsWith("nhiem menu"))).length;
+  const sourceCount = audits.filter((entry) => entry.issues.some((issue) => issue.startsWith("nguon lap"))).length;
+
+  if (!articles.length) {
+    return "Chua co du lieu bai viet de audit.";
+  }
+
+  if (!audits.length) {
+    return [
+      "Audit noi dung",
+      "",
+      `Da quet ${articles.length} bai public.`,
+      "Khong thay bai mong, nhiem menu nguon, hoac lap nguon qua muc."
+    ].join("\n");
+  }
+
+  const topIssues = audits
+    .sort((left, right) => right.score - left.score)
+    .slice(0, 6);
+
+  return [
+    "Audit noi dung",
+    "",
+    `Da quet ${articles.length} bai public.`,
+    `Can xem lai: ${audits.length}`,
+    `Noi dung mong: ${thinCount}`,
+    `Nhiem menu nguon: ${noisyCount}`,
+    `Lap ten nguon: ${sourceCount}`,
+    "",
+    ...topIssues.map((entry, index) => [
+      `${index + 1}. ${entry.title}`,
+      `Van de: ${entry.issues.join(", ")}`,
+      `${context.siteUrl}${entry.href}`
+    ].join("\n"))
+  ].join("\n");
 }
 
 async function buildHealthText(context) {
@@ -421,15 +469,18 @@ function buildMenuMarkup(active = "menu") {
         button(selected("latest", "Latest"), "newsroom:latest")
       ],
       [
-        button(selected("health", "Health"), "newsroom:health"),
-        button(selected("web", "Web links"), "newsroom:web")
+        button(selected("audit", "Audit"), "newsroom:audit"),
+        button(selected("health", "Health"), "newsroom:health")
+      ],
+      [
+        button(selected("web", "Web links"), "newsroom:web"),
+        button(selected("jobs", "Jobs"), "newsroom:jobs")
       ],
       [
         button(selected("id", "IDs"), "newsroom:id"),
         button(selected("setup", "Setup"), "newsroom:setup")
       ],
       [
-        button(selected("jobs", "Jobs"), "newsroom:jobs"),
         button(selected("refresh", "Refresh"), "newsroom:refresh")
       ],
       [
@@ -452,6 +503,7 @@ function mapCallbackToCommand(action) {
     "newsroom:menu": "/menu",
     "newsroom:status": "/status",
     "newsroom:latest": "/latest",
+    "newsroom:audit": "/audit",
     "newsroom:health": "/health",
     "newsroom:web": "/web",
     "newsroom:id": "/id",
@@ -526,6 +578,79 @@ function normalizeSiteUrl(value) {
 
 function sortByPublishedDesc(left, right) {
   return Date.parse(right.updated_at || right.published_at || 0) - Date.parse(left.updated_at || left.published_at || 0);
+}
+
+function auditArticleForTelegram(article) {
+  const sections = Array.isArray(article?.sections) ? article.sections : [];
+  const fields = [
+    article?.summary,
+    article?.dek,
+    article?.hook,
+    ...sections.flatMap((section) => [section?.heading, section?.body])
+  ].map(normalizeText);
+  const combined = fields.join(" ");
+  const totalDepth = sections.reduce((sum, section) => sum + normalizeText(section?.body).length, 0);
+  const sourceNames = Array.isArray(article?.source_set)
+    ? article.source_set.map((source) => normalizeText(source?.source_name)).filter(Boolean)
+    : [];
+  const sourceMentionCount = sourceNames.reduce((sum, name) => sum + countTextOccurrences(combined, name), 0);
+  const issues = [];
+
+  if (sections.length < 4 || totalDepth < 1200) {
+    issues.push(`noi dung mong ${sections.length} muc/${totalDepth} ky tu`);
+  }
+
+  if (looksLikeScrapedMenu(combined)) {
+    issues.push("nhiem menu nguon");
+  }
+
+  if (sourceMentionCount >= Math.max(12, sourceNames.length * 3)) {
+    issues.push(`nguon lap ${sourceMentionCount} lan`);
+  }
+
+  return {
+    title: normalizeText(article?.title) || "Untitled",
+    href: article?.href || "",
+    issues,
+    score: issues.length * 100 + (looksLikeScrapedMenu(combined) ? 50 : 0) + Math.max(0, 1500 - totalDepth) / 100
+  };
+}
+
+function looksLikeScrapedMenu(text) {
+  const normalized = normalizeText(text).toLowerCase();
+  const menuSignals = [
+    "open menu",
+    "view profile",
+    "sign out",
+    "search search",
+    "popular brands",
+    "more from",
+    "buying guides",
+    "coupons",
+    "get daily insight"
+  ];
+  const hits = menuSignals.filter((signal) => normalized.includes(signal)).length;
+  return hits >= 3 || /open menu[\s\S]{0,800}view profile[\s\S]{0,800}sign out/i.test(normalized);
+}
+
+function countTextOccurrences(text, needle) {
+  const haystack = normalizeText(text).toLowerCase();
+  const target = normalizeText(needle).toLowerCase();
+  if (!target) {
+    return 0;
+  }
+
+  let count = 0;
+  let index = haystack.indexOf(target);
+  while (index !== -1) {
+    count += 1;
+    index = haystack.indexOf(target, index + target.length);
+  }
+  return count;
+}
+
+function normalizeText(value) {
+  return String(value || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
 
 function formatDate(value) {

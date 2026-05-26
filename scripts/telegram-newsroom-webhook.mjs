@@ -15,7 +15,7 @@ if (deleteMode) {
   const webhookUrl = `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
   const payload = {
     url: webhookUrl,
-    allowed_updates: ["message", "edited_message"],
+    allowed_updates: ["message", "edited_message", "callback_query"],
     ...(secret ? { secret_token: secret } : {})
   };
   const result = await telegram("setWebhook", payload);
