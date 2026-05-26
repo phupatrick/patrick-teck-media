@@ -403,7 +403,7 @@ function buildAiPackageCompanionStory({ language, members, now }) {
     language === "vi"
       ? "Đó là lý do những thay đổi ở Google AI Pro, Workspace, ChatGPT, Claude hay Copilot đang đáng đọc hơn một headline nâng giá hay tăng dung lượng đơn lẻ."
       : "That is why changes across Google AI Pro, Workspace, ChatGPT, Claude, or Copilot now deserve more than a one-line headline about a price move or a storage bump.",
-    180
+    260
   );
   const sections = [
     {
@@ -1700,7 +1700,7 @@ function buildClusterDek({ lead, sources, pool, language, topic, contentType, ve
   return composeParagraph(
     [opening, ...extra, angle],
     buildFallbackDek({ language, topic, contentType }),
-    120
+    200
   );
 }
 
@@ -1721,7 +1721,7 @@ function buildClusterHook({ lead, sources, pool, language, topic, contentType, v
   return composeParagraph(
     [opening, ...detail, angle],
     buildFallbackHook({ language, topic, contentType }),
-    140
+    220
   );
 }
 
@@ -1755,7 +1755,7 @@ function buildAiPackageClusterSummary({ lead, sources, pool, language, verificat
     language === "vi"
       ? "Đây không còn là câu chuyện thêm một dòng quyền lợi vào bảng giá, mà là cuộc đua xem hãng nào đang tăng giá trị thật cho người dùng trả tiền."
       : "This is no longer just a pricing-table footnote, but a race to see which vendor is increasing real value for paying users.",
-    190
+    260
   );
 }
 
@@ -1772,7 +1772,7 @@ function buildAiPackageClusterDek({ lead, sources, pool, language, verificationS
     language === "vi"
       ? "Kiểu bài này đáng đọc khi bạn đang trả tiền cho AI, lưu trữ hoặc Workspace và muốn biết khoản chi đó đang đổi lại được gì rõ ràng hơn."
       : "This kind of piece matters when you are already paying for AI, storage, or a workspace stack and want a clearer answer on what that spend now buys.",
-    160
+    230
   );
 }
 
@@ -1786,7 +1786,7 @@ function buildAiPackageClusterHook({ lead, sources, pool, language, verification
       firstUnusedSentences(pool, [lead.summary, lead.dek], 1)[0]
     ],
     firstUsefulSentence([lead.hook, lead.summary]),
-    180
+    250
   );
 }
 
@@ -1817,7 +1817,7 @@ function buildAiPackageClusterSections({ lead, sources, pool, language, verifica
           buildCorroborationSentence(sources, language, verificationState)
         ],
         lead.summary,
-        170
+        240
       )
     },
     {
@@ -1830,7 +1830,7 @@ function buildAiPackageClusterSections({ lead, sources, pool, language, verifica
             : "On AI plans, the critical read is not just the extra terabytes on paper, but whether pricing stays stable, which model tier is actually unlocked, how tight the regional limits remain, and how clearly data privacy is promised."
         ],
         buildSourceTrailSentence(sources, language),
-        170
+        240
       )
     },
     {
@@ -1843,7 +1843,7 @@ function buildAiPackageClusterSections({ lead, sources, pool, language, verifica
             : "What makes this worth opening is that the bundled AI touches real tools like mail, docs, research, image generation, video, or note-taking instead of sitting as a standalone demo."
         ],
         buildImpactSentence("ai", language, "NewsArticle"),
-        170
+        240
       )
     },
     {
@@ -1855,7 +1855,7 @@ function buildAiPackageClusterSections({ lead, sources, pool, language, verifica
             : "The readers who should watch most closely are the ones already paying for storage, docs, meetings, content creation, and AI at the same time. If one plan truly bundles those layers, the value will surface quickly. Readers using AI only for occasional prompts may still be fine on lighter or free tiers."
         ],
         buildAssessmentSentence({ language, topic: "ai", contentType: "NewsArticle", verificationState, sourceCount: sources.length }),
-        170
+        240
       )
     },
     {
@@ -1868,7 +1868,7 @@ function buildAiPackageClusterSections({ lead, sources, pool, language, verifica
           buildCoverageSentence({ language, members: 1, sources: sources.length })
         ],
         buildForwardLook("ai", lead.title, language),
-        180
+        260
       )
     }
   ];
@@ -1923,7 +1923,7 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
           sourceTrail
         ],
         sourceTrail,
-        150
+        230
       )
     },
     {
@@ -1935,7 +1935,7 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
           buildSourceTrailSentence(sources, language)
         ],
         consensus,
-        150
+        230
       )
     },
     {
@@ -1946,7 +1946,7 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
           impact
         ],
         impact,
-        150
+        230
       )
     },
     {
@@ -1958,7 +1958,7 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
           detailThree
         ],
         assessment,
-        150
+        230
       )
     },
     {
@@ -1970,7 +1970,7 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
           buildCoverageSentence({ language, members: members.length, sources: sources.length })
         ],
         watch,
-        150
+        230
       )
     }
   ];
@@ -2014,7 +2014,7 @@ function buildGuideSections({ lead, sources, pool, language, topic, verification
           setup
         ],
         setup,
-        150
+        230
       )
     },
     {
@@ -2026,7 +2026,7 @@ function buildGuideSections({ lead, sources, pool, language, topic, verification
           buildCorroborationSentence(sources, language, verificationState)
         ],
         buildCorroborationSentence(sources, language, verificationState),
-        150
+        230
       )
     },
     {
@@ -2038,7 +2038,7 @@ function buildGuideSections({ lead, sources, pool, language, topic, verification
           lead.sections?.[2]?.body
         ],
         mistakes,
-        150
+        230
       )
     },
     {
@@ -2050,7 +2050,7 @@ function buildGuideSections({ lead, sources, pool, language, topic, verification
           buildSourceTrailSentence(sources, language)
         ],
         fit,
-        150
+        230
       )
     },
     {
@@ -2062,7 +2062,7 @@ function buildGuideSections({ lead, sources, pool, language, topic, verification
           buildForwardLook(topic, lead.title, language)
         ],
         assessment,
-        150
+        230
       )
     }
   ];
@@ -2102,7 +2102,7 @@ function buildComparisonSections({ lead, sources, pool, language, topic, verific
           lead.sections?.[0]?.body
         ],
         comparisonAngle,
-        150
+        230
       )
     },
     {
@@ -2114,7 +2114,7 @@ function buildComparisonSections({ lead, sources, pool, language, topic, verific
           firstUnusedSentences(pool, [lead.summary], 1)[0]
         ],
         buildCorroborationSentence(sources, language, verificationState),
-        150
+        230
       )
     },
     {
@@ -2126,7 +2126,7 @@ function buildComparisonSections({ lead, sources, pool, language, topic, verific
           buildImpactSentence(topic, language, "ComparisonPage")
         ],
         readerFit,
-        150
+        230
       )
     },
     {
@@ -2143,7 +2143,7 @@ function buildComparisonSections({ lead, sources, pool, language, topic, verific
           buildNuanceSentence({ language, topic, verificationState, sourceCount: sources.length })
         ],
         comparisonAngle,
-        150
+        230
       )
     },
     {
@@ -2154,7 +2154,7 @@ function buildComparisonSections({ lead, sources, pool, language, topic, verific
           buildCoverageSentence({ language, members: 1, sources: sources.length })
         ],
         readerFit,
-        150
+        230
       )
     }
   ];

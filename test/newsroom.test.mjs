@@ -1290,8 +1290,12 @@ const tests = [
     run() {
       assert.ok(state.articles.length > 0);
       assert.ok(state.articles.every((article) => article.hero_image.kind === "source"));
-      assert.ok(state.articles.every((article) => article.sections.length >= 3));
-      assert.ok(state.articles.every((article) => article.summary.length >= 90));
+      assert.ok(state.articles.every((article) => article.sections.length >= 5));
+      assert.ok(state.articles.every((article) => article.summary.length >= 120));
+      assert.ok(state.articles.every((article) => article.dek.length >= 110));
+      assert.ok(state.articles.every((article) => article.hook.length >= 110));
+      assert.ok(state.articles.every((article) => article.sections.reduce((sum, section) => sum + section.body.length, 0) >= 1200));
+      assert.ok(state.articles.every((article) => article.readiness?.checks?.valueDensity !== false));
     }
   },
   {
@@ -1349,7 +1353,7 @@ const tests = [
       const articleHtml = renderArticlePage(scenario, "vi", article, [], { client: "", slots: {} });
 
       assert.ok(article.sections.length >= 5);
-      assert.ok(totalDepth >= 900);
+      assert.ok(totalDepth >= 1500);
       assert.match(articleHtml, /Dieu moi|Vi sao dang doc|Dieu can theo doi/);
       assert.match(articleHtml, /source-compact/);
       assert.ok((articleHtml.match(/class="article-section"/g) || []).length >= 5);

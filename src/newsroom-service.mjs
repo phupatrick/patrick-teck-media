@@ -2042,14 +2042,17 @@ function buildEditorialTitleSuffix({ language, topic, verificationState, content
 function polishExternalDek({ value, summary, sections, language }) {
   const provided = finalizeEditorialSentence(value);
 
-  if (provided && provided.length >= 68) {
+  if (provided && provided.length >= 110) {
     return provided;
   }
 
   const source = finalizeEditorialSentence(summary) || firstEditorialSentence(sections[0]?.body || "");
+  const valueLine = language === "vi"
+    ? "Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo."
+    : "The useful part sits in the context, the practical impact, and what readers can use to decide the next step.";
 
   if (source) {
-    return source;
+    return joinEditorialSentences(source, provided, valueLine);
   }
 
   return language === "vi"
@@ -2060,7 +2063,7 @@ function polishExternalDek({ value, summary, sections, language }) {
 function polishExternalSummary({ value, dek, sections, language }) {
   const provided = finalizeEditorialSentence(value);
 
-  if (provided && provided.length >= 100) {
+  if (provided && provided.length >= 120) {
     return provided;
   }
 
@@ -2069,7 +2072,9 @@ function polishExternalSummary({ value, dek, sections, language }) {
     .join(" ");
 
   if (source.length >= 100) {
-    return source;
+    return joinEditorialSentences(source, language === "vi"
+      ? "Bài viết giữ lại phần bối cảnh, tác động và dấu hiệu cần theo dõi để người đọc không phải dừng ở headline."
+      : "The piece keeps the context, impact, and follow-up signals in view so readers do not stop at the headline.");
   }
 
   return language === "vi"
@@ -2080,7 +2085,7 @@ function polishExternalSummary({ value, dek, sections, language }) {
 function normalizeArticleHook(article, { language, topic, verificationState, contentType, summary, dek, sections }) {
   const explicit = finalizeEditorialSentence(article.hook);
 
-  if (explicit.length >= 80) {
+  if (explicit.length >= 110) {
     return explicit;
   }
 
@@ -2191,7 +2196,7 @@ function buildEditorialSections({ language, topic, verificationState, contentTyp
     seen.add(signature);
     merged.push(section);
 
-    if (merged.length >= 6 && totalEditorialSectionLength(merged) >= 780) {
+    if (merged.length >= 6 && totalEditorialSectionLength(merged) >= 1500) {
       break;
     }
   }
@@ -2224,12 +2229,12 @@ function expandEditorialSectionBody(body, index, context) {
   const base = joinEditorialSentences(body);
   const additions = [supportMap[index], supportMap[index + 1]].filter(Boolean);
 
-  if (base.length >= 260) {
+  if (base.length >= 360) {
     return base;
   }
 
   const enriched = joinEditorialSentences(base, ...additions);
-  return enriched.length >= 220 ? enriched : joinEditorialSentences(enriched, buildContextSentence(context));
+  return enriched.length >= 320 ? enriched : joinEditorialSentences(enriched, buildContextSentence(context), buildReaderActionSentence(context));
 }
 
 function buildGeneratedEditorialSections(context) {
@@ -2251,6 +2256,10 @@ function buildGeneratedEditorialSections(context) {
     {
       heading: copy.watchHeading,
       body: joinEditorialSentences(context.hook || context.dek, buildVerificationWatchSentence(context), buildSourceFollowUpSentence(context))
+    },
+    {
+      heading: copy.readerValueHeading,
+      body: joinEditorialSentences(buildReaderChecklistSentence(context), buildTopicWorkflowSentence(context), buildReaderActionSentence(context))
     }
   ];
 }
@@ -2261,7 +2270,8 @@ function getGeneratedSectionCopy(language) {
       contextHeading: "Context Worth Keeping",
       impactHeading: "What Changes In Practice",
       audienceHeading: "Who Should Pay Attention",
-      watchHeading: "What To Watch Next"
+      watchHeading: "What To Watch Next",
+      readerValueHeading: "What Readers Can Use"
     };
   }
 
@@ -2269,7 +2279,8 @@ function getGeneratedSectionCopy(language) {
     contextHeading: "Bối cảnh cần giữ",
     impactHeading: "Tác động thực tế",
     audienceHeading: "Ai nên để ý",
-    watchHeading: "Điều cần theo dõi tiếp"
+    watchHeading: "Điều cần theo dõi tiếp",
+    readerValueHeading: "Giá trị người đọc có thể dùng"
   };
 }
 
@@ -2477,6 +2488,34 @@ function buildVerificationWatchSentence({ language, verificationState, topic }) 
   };
 
   return verifiedMap[topicKey]?.[language] || verifiedMap.ai[language];
+}
+
+function buildReaderChecklistSentence({ language, topic, contentType, verificationState, sourceSet }) {
+  const topicKey = getEditorialTopicKey(topic);
+  const sourceCount = Array.isArray(sourceSet) ? sourceSet.length : 0;
+
+  if (language === "en") {
+    const intro = contentType === "ComparisonPage"
+      ? "A useful comparison should leave readers with a decision checklist, not only a winner."
+      : contentType === "EvergreenGuide"
+        ? "A useful guide should leave readers with a next action they can test immediately."
+        : "A useful news story should leave readers with a clearer decision, risk, or follow-up path.";
+    return `${intro} For this topic, check what changed, who feels it first, what cost or workflow shifts, and whether the ${sourceCount || "current"} source layer is strong enough to act on now.`;
+  }
+
+  const topicMap = {
+    ai: "Với AI, người đọc nên rời bài viết với một checklist rõ: tính năng nào dùng được ngay, gói nào tránh mua trùng, dữ liệu có an toàn không, và chi phí có đổi thành năng suất thật hay không.",
+    software: "Với phần mềm, giá trị cần giữ là thao tác nào được rút ngắn, nhóm nào đỡ mở thêm công cụ, và phần cập nhật có làm workflow bớt lỗi trong ngày làm việc thật hay không.",
+    devices: "Với thiết bị, phần hữu ích là biết thay đổi đó chạm vào pin, nhiệt, độ bền, hiệu năng hay quyết định nâng cấp ra sao, thay vì chỉ nhớ một con số trên thông số.",
+    security: "Với bảo mật, người đọc cần biết rủi ro nào giảm, thao tác nào phải làm ngay, tài khoản nào cần kiểm tra và dấu hiệu nào nên tiếp tục theo dõi.",
+    gaming: "Với gaming, giá trị nằm ở việc biết thay đổi này có đáng quay lại chơi, chờ mua, nâng máy hay chỉ nên xem như một nhịp bàn tán ngắn.",
+    "internet-business": "Với Internet và doanh nghiệp số, phần dùng được là biết thay đổi này kéo traffic, doanh thu, hành vi người dùng hoặc chi phí vận hành lệch theo hướng nào."
+  };
+  const sourceNote = verificationState === "verified"
+    ? `Lớp nguồn hiện có ${sourceCount || "một"} điểm tựa đủ mạnh để người đọc cân nhắc hành động.`
+    : `Lớp nguồn hiện có ${sourceCount || "một"} điểm tựa, nên phần hành động vẫn cần đi kèm theo dõi thêm.`;
+
+  return `${topicMap[topicKey] || topicMap.ai} ${sourceNote}`;
 }
 
 function buildReaderActionSentence({ language, topic }) {

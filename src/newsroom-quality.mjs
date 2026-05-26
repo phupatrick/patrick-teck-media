@@ -25,11 +25,14 @@ export function evaluateArticleReadiness(article) {
     isComparison ||
     String(article?.content_type || "").trim() === "EvergreenGuide" ||
     editorialFocus.some((entry) => /ai-package|comparison|provider-|workspace|pricing/i.test(String(entry || "")));
+  const minimumSectionCount = isHighScrutinyArticle ? 5 : 4;
+  const minimumSectionBodyLength = isHighScrutinyArticle ? 140 : 120;
+  const minimumTotalDepth = isHighScrutinyArticle ? 1200 : 900;
   const checks = {
     title: title.length >= 28,
-    summary: summary.length >= 90,
-    dek: dek.length >= 80,
-    hook: hook.length >= 80,
+    summary: summary.length >= 120,
+    dek: dek.length >= 110,
+    hook: hook.length >= 110,
     sourceImage: hasSourceImage(article),
     sourceAttribution: hasSourceAttribution(article),
     sourceBreadth:
@@ -41,11 +44,12 @@ export function evaluateArticleReadiness(article) {
       )
       || (!isHighScrutinyArticle && (sourceCount >= 2 || (sourceCount >= 1 && (reliableSingleSource || verificationState === "trend")))),
     sourceVariety: !isHighScrutinyArticle || hasSourceVariety(article) || verifiedReliableSingleSource,
-    sectionCount: sections.length >= 3,
-    sectionBodies: sectionBodies.length >= 3 && sectionBodies.every((body) => body.length >= 80),
-    totalDepth: totalSectionLength >= (isAiPackageComparison ? 420 : 280),
-    distinctSections: distinctSectionBodies.size >= Math.min(3, sectionBodies.length),
+    sectionCount: sections.length >= minimumSectionCount,
+    sectionBodies: sectionBodies.length >= minimumSectionCount && sectionBodies.every((body) => body.length >= minimumSectionBodyLength),
+    totalDepth: totalSectionLength >= minimumTotalDepth,
+    distinctSections: distinctSectionBodies.size >= Math.min(minimumSectionCount, sectionBodies.length),
     leadFieldVariety: leadFieldVariety.size >= 1,
+    valueDensity: hasReaderValueDensity({ title, summary, dek, hook, sectionBodies, isHighScrutinyArticle }),
     noPlaceholderCopy: !containsPlaceholderCopy([summary, dek, hook, ...sectionBodies]),
     cleanEncoding: !containsEncodingArtifacts([title, summary, dek, hook, ...sectionBodies])
   };
@@ -158,6 +162,25 @@ function containsEncodingArtifacts(values) {
     const text = normalizeText(value);
     return patterns.some((pattern) => pattern.test(text));
   });
+}
+
+function hasReaderValueDensity({ title, summary, dek, hook, sectionBodies, isHighScrutinyArticle }) {
+  const text = normalizeText([title, summary, dek, hook, ...sectionBodies].join(" ")).toLowerCase();
+  const patterns = [
+    /\b(context|background|why it matters|impact|risk|cost|price|workflow|rollout|limitation|trade[- ]?off|what to watch|who should|next step|checklist|practical|decision)\b/i,
+    /\b(bối cảnh|boi canh|vì sao|vi sao|tác động|tac dong|rủi ro|rui ro|chi phí|chi phi|giá|gia|workflow|quy trình|quy trinh|triển khai|trien khai|giới hạn|gioi han|ai nên|ai nen|theo dõi|theo doi|checklist|quyết định|quyet dinh)\b/i
+  ];
+  const hits = patterns.reduce((sum, pattern) => sum + countMatches(text, pattern), 0);
+  const numericSignals = (text.match(/\b\d+(?:[.,]\d+)?\s?(?:%|gb|tb|mb|usd|vnd|triệu|trieu|tỷ|ty|ngày|ngay|tháng|thang|hours?|days?|users?|countries|quốc gia|quoc gia)\b/gi) || []).length;
+  const sourceSignals = (text.match(/\b(according to|the company said|official|reported|nguồn|nguon|cho biết|cong bố|công bố|xac nhan|xác nhận)\b/gi) || []).length;
+  const requiredHits = isHighScrutinyArticle ? 6 : 4;
+
+  return hits + numericSignals + sourceSignals >= requiredHits;
+}
+
+function countMatches(text, pattern) {
+  const flags = pattern.flags.includes("g") ? pattern.flags : `${pattern.flags}g`;
+  return (String(text || "").match(new RegExp(pattern.source, flags)) || []).length;
 }
 
 function makeBodySignature(value) {
