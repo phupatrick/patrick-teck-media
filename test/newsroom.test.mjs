@@ -604,6 +604,7 @@ const tests = [
       assert.doesNotMatch(html, /store-panel/);
       assert.doesNotMatch(html, /store-promo-slot/);
       assert.match(html, /source-compact/);
+      assert.ok((html.match(/class="article-section"/g) || []).length >= 4);
       assert.match(html, /\/media\/source\?src=https%3A%2F%2Fimages\.example\.com%2Fverified-edge-ai\.jpg/);
     }
   },
@@ -1140,6 +1141,7 @@ const tests = [
       assert.doesNotMatch(homeHtml, /DÄ‚Â²ng tin mĂ¡Â»â€ºi Ă„â€˜ang chĂ¡ÂºÂ¡y trÄ‚Âªn trang chĂ¡Â»Â§/);
       assert.match(articleHtml, /article-section/);
       assert.match(articleHtml, /source-compact/);
+      assert.ok((articleHtml.match(/class="article-section"/g) || []).length >= 4);
       assert.doesNotMatch(articleHtml, /feedback-section/);
       assert.doesNotMatch(articleHtml, /comment-form/);
       assert.doesNotMatch(articleHtml, /reaction-button/);
@@ -1307,6 +1309,7 @@ const tests = [
       assert.ok(totalDepth >= 900);
       assert.match(articleHtml, /Dieu moi|Vi sao dang doc|Dieu can theo doi/);
       assert.match(articleHtml, /source-compact/);
+      assert.ok((articleHtml.match(/class="article-section"/g) || []).length >= 5);
       assert.doesNotMatch(articleHtml, /feedback-section|store-panel|store-promo-slot/);
     }
   },

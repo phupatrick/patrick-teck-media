@@ -1563,13 +1563,14 @@ function selectPublicArticleSections(article) {
   const sourcePattern = sourceNames.size
     ? new RegExp([...sourceNames].map(escapeRegex).join("|"), "gi")
     : null;
-  const blockedHeadingPattern = /(bối cảnh|boi canh|nguồn|nguon|tham khảo|tham khao|kết luận|ket luan|checklist|cần giữ|can giu|nơi dễ|noi de|mua trùng|mua trung|chia việc|chia viec)/i;
+  const blockedHeadingPattern = /(nguồn|nguon|tham khảo|tham khao|từ patrick tech|tu patrick tech|công cụ liên quan|cong cu lien quan|store|mua ngay|đi tới|di toi)/i;
   const seen = new Set();
   const selected = [];
 
   for (const section of article.sections || []) {
     const heading = String(section?.heading || "").trim();
-    const body = String(section?.body || "").trim();
+    const rawBody = String(section?.body || "").trim();
+    const body = cleanArticleBodyForPublic(rawBody, sourcePattern);
 
     if (!heading || !body) {
       continue;
@@ -1579,11 +1580,11 @@ function selectPublicArticleSections(article) {
       continue;
     }
 
-    if (sourcePattern && countSourceMentions(body, sourcePattern) >= 2) {
+    if (sourcePattern && countSourceMentions(body, sourcePattern) >= 3) {
       continue;
     }
 
-    const compactBody = trimArticleBody(body, 440);
+    const compactBody = trimArticleBody(body, 760);
     const signature = `${heading.toLowerCase()}::${compactBody.toLowerCase().slice(0, 90)}`;
 
     if (seen.has(signature)) {
@@ -1593,21 +1594,21 @@ function selectPublicArticleSections(article) {
     seen.add(signature);
     selected.push({ heading, body: compactBody });
 
-    if (selected.length >= 3) {
+    if (selected.length >= 5) {
       break;
     }
   }
 
-  if (selected.length >= 2) {
+  if (selected.length >= 3) {
     return selected;
   }
 
   return (article.sections || [])
     .filter((section) => section?.heading && section?.body)
-    .slice(0, 2)
+    .slice(0, 5)
     .map((section) => ({
       heading: String(section.heading).trim(),
-      body: trimArticleBody(String(section.body).trim(), 440)
+      body: trimArticleBody(String(section.body).trim(), 760)
     }));
 }
 
@@ -1627,6 +1628,23 @@ function trimArticleBody(value, maxLength) {
 
   const wordEnd = trimmed.lastIndexOf(" ");
   return `${trimmed.slice(0, wordEnd > 160 ? wordEnd : maxLength).trim()}...`;
+}
+
+function cleanArticleBodyForPublic(value, sourcePattern) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+
+  if (!sourcePattern) {
+    return text;
+  }
+
+  const sentences = text.match(/[^.!?]+[.!?]?/g) || [text];
+  const cleaned = sentences
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence && countSourceMentions(sentence, sourcePattern) < 2)
+    .join(" ")
+    .trim();
+
+  return cleaned.length >= 160 ? cleaned : text;
 }
 
 function renderCompactSources(article, copy) {
