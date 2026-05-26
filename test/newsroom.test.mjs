@@ -83,6 +83,26 @@ const tests = [
     }
   },
   {
+    name: "newsroom telegram submit command dispatches a verified source link",
+    async run() {
+      const dispatches = [];
+      const response = await executeNewsroomCommand("/submit https://blog.google/technology/ai/source-story?utm=telegram#comments", {
+        siteUrl: "https://patricktechmedia.com",
+        userId: "12345",
+        isAdmin: true,
+        dispatchWorkflow: async (input) => {
+          dispatches.push(input);
+          return { ok: true };
+        }
+      });
+
+      assert.match(response.text, /Da nhan link/);
+      assert.equal(dispatches.length, 1);
+      assert.equal(dispatches[0].articleUrl, "https://blog.google/technology/ai/source-story?utm=telegram");
+      assert.match(dispatches[0].reason, /telegram-link:12345/);
+    }
+  },
+  {
     name: "ships at least 20 localized newsroom articles across at least 10 clusters",
     run() {
       assert.ok(state.articles.length >= 20);
@@ -1585,6 +1605,76 @@ const tests = [
       const output = JSON.parse(fs.readFileSync(outputPath, "utf8"));
       assert.equal(output.articles.length, 1);
       assert.equal(output.articles[0].slug, article.slug);
+    }
+  },
+  {
+    name: "refresh turns a Telegram submitted URL into an appended verified article",
+    async run() {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-single-link-"));
+      const outputPath = path.join(tempDir, "newsroom-content.json");
+      const existing = {
+        ...state.articles.find((entry) => entry.language === "en" && entry.content_type === "NewsArticle"),
+        id: "existing-story-kept",
+        cluster_id: "existing-story-kept",
+        slug: "existing-story-kept",
+        href: "/en/news/existing-story-kept"
+      };
+      const sourceUrl = "https://blog.google/technology/ai/gemini-agent-workspace-controls/";
+      const sourceHtml = `<!doctype html>
+        <html>
+          <head>
+            <title>Google Gemini adds agent workspace controls for teams</title>
+            <meta property="og:title" content="Google Gemini adds agent workspace controls for teams">
+            <meta property="og:description" content="Google is adding Gemini agent controls for workspace teams that need clearer admin review, safer rollout, and practical automation governance.">
+            <meta property="og:image" content="https://storage.googleapis.com/example/gemini-agent-workspace.jpg">
+            <meta property="article:published_time" content="2026-05-26T12:00:00.000Z">
+          </head>
+          <body>
+            <article>
+              <p>Google says Gemini agent controls are moving closer to daily workspace use, with admins getting more review points before a team lets automation touch shared documents, mail, meetings, and internal knowledge.</p>
+              <p>The useful detail is not just that Gemini can answer more prompts, but that workspace teams need guardrails for who can create agents, what data they can reach, and how managers audit risky actions.</p>
+              <p>For companies already testing AI assistants, the rollout changes the checklist from buying another plan to deciding which workflows deserve automation, which files stay restricted, and which teams should pilot first.</p>
+              <p>Google frames the update as a practical control layer for admins, and that makes the story relevant beyond a feature announcement because rollout speed, permission design, and training cost all matter.</p>
+              <p>The next thing to watch is whether the controls arrive in smaller business plans or stay limited to larger workspace tiers, because that decision shapes how many teams can safely test agent workflows.</p>
+            </article>
+          </body>
+        </html>`;
+      const previousFetch = globalThis.fetch;
+
+      fs.writeFileSync(outputPath, JSON.stringify({ articles: [existing] }, null, 2), "utf8");
+      globalThis.fetch = async () => new Response(sourceHtml, {
+        status: 200,
+        headers: { "Content-Type": "text/html; charset=utf-8" }
+      });
+
+      try {
+        const result = await withTempEnv(
+          {
+            NEWSROOM_SINGLE_URL: sourceUrl,
+            NEWSROOM_ARTICLE_URL: "",
+            NEWSROOM_PULL_URL: "",
+            OPENCLAW_NEWSROOM_URL: "",
+            NEWSROOM_PULL_FILE: "",
+            OPENCLAW_NEWSROOM_FILE: "",
+            NEWSROOM_CONTENT_PATH: outputPath
+          },
+          () => runNewsroomRefresh(process.env)
+        );
+
+        assert.equal(result.changed, true);
+        assert.equal(result.sourceLabel, "telegram-link");
+
+        const output = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+        assert.ok(output.articles.some((article) => article.id === "existing-story-kept"));
+        const published = output.articles.find((article) =>
+          article.source_set?.some((source) => source.source_url === sourceUrl)
+        );
+        assert.ok(published);
+        assert.equal(published.verification_state, "verified");
+        assert.equal(published.source_set[0].source_type, "official-site");
+      } finally {
+        globalThis.fetch = previousFetch;
+      }
     }
   },
   {

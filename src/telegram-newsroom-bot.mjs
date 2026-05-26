@@ -6,6 +6,7 @@ const DEFAULT_COMMANDS = [
   { command: "health", description: "Check live site health" },
   { command: "web", description: "Show web management links" },
   { command: "id", description: "Show Telegram ids for setup" },
+  { command: "submit", description: "Read, verify, and publish a link" },
   { command: "refresh", description: "Request a newsroom refresh" },
   { command: "jobs", description: "View OpenClaw jobs" },
   { command: "setup", description: "Show setup checklist" },
@@ -25,6 +26,7 @@ const HELP_TEXT = [
   "/health - check live homepage and newsroom API",
   "/web - web management links",
   "/setup - setup checklist for Vercel",
+  "/submit <url> - read, verify, and publish a source link",
   "/refresh - admin-only refresh request, enabled after GitHub/OpenClaw setup",
   "/jobs - OpenClaw queue summary",
   "/help - command list",
@@ -85,13 +87,13 @@ export function createTelegramNewsroomBot(options = {}) {
         return;
       }
 
-      const text = String(message.text || "").trim();
-      if (!text || !text.startsWith("/")) {
+      const text = String(message.text || message.caption || "").trim();
+      if (!text) {
         return;
       }
 
       try {
-        const response = await executeNewsroomCommand(text, {
+        const context = {
           userId: String(message.from?.id || ""),
           chatId: String(message.chat?.id || ""),
           botUsername: botProfile?.username || "",
@@ -102,7 +104,12 @@ export function createTelegramNewsroomBot(options = {}) {
           createControlJob,
           dispatchWorkflow,
           openClawEnabled
-        });
+        };
+        const response = text.startsWith("/")
+          ? await executeNewsroomCommand(text, context)
+          : extractArticleUrls(text).length
+            ? await submitNewsroomLink(text, context)
+            : null;
 
         if (response?.text) {
           await sendMessage(message.chat.id, response.text, {
@@ -248,6 +255,11 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return { text: buildSetupText(context) };
   }
 
+  if (command === "/submit") {
+    const linkText = commandText.slice(firstToken.length).trim();
+    return submitNewsroomLink(linkText, context);
+  }
+
   if (command === "/jobs") {
     return { text: await buildJobsText(context) };
   }
@@ -261,6 +273,27 @@ export async function executeNewsroomCommand(rawText, context = {}) {
   }
 
   return { text: HELP_TEXT };
+}
+
+export async function submitNewsroomLink(rawText, context = {}) {
+  const [articleUrl] = extractArticleUrls(rawText);
+
+  if (!articleUrl) {
+    return {
+      text: [
+        "Chua thay link bai viet hop le.",
+        "",
+        "Gui link truc tiep cho bot, hoac dung:",
+        "/submit https://example.com/article"
+      ].join("\n")
+    };
+  }
+
+  if (!context.isAdmin) {
+    throw new Error("Chi admin duoc gui link de bot xac thuc va len bai.");
+  }
+
+  return { text: await requestArticlePublish(context, articleUrl) };
 }
 
 export async function sendTelegramMessage({ token, chatId, text, extra = {} }) {
@@ -454,6 +487,56 @@ async function requestRefresh(context) {
   ].join("\n");
 }
 
+async function requestArticlePublish(context, articleUrl) {
+  if (typeof context.dispatchWorkflow === "function") {
+    const result = await context.dispatchWorkflow({
+      reason: `telegram-link:${context.userId || "admin"}`,
+      articleUrl
+    });
+
+    if (result?.ok) {
+      return [
+        "Da nhan link va gui vao workflow tu dong.",
+        "",
+        `Link: ${articleUrl}`,
+        "Bot se doc noi dung, loc boilerplate, xac thuc do tin cay, chon anh nguon phu hop, viet bai co gia tri, chay quality gate roi moi publish.",
+        "Khi workflow xong, Telegram report se bao lai neu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS da cau hinh."
+      ].join("\n");
+    }
+  }
+
+  if (context.openClawEnabled && typeof context.createControlJob === "function") {
+    const job = await context.createControlJob({
+      type: "newsroom-link-publish",
+      capability: "newsroom",
+      command: "npm run openclaw:manage && npm run openclaw:git-sync",
+      payload: {
+        source: "telegram-link",
+        url: articleUrl,
+        requestedBy: context.userId || "",
+        instructions: "Read the source URL, verify technology relevance and source quality, publish only if the article passes the newsroom readiness gate."
+      },
+      priority: 950,
+      leaseSeconds: 1800
+    });
+
+    return [
+      "Da dua link vao hang doi OpenClaw.",
+      "",
+      `Job: ${job.id}`,
+      `Link: ${articleUrl}`,
+      "Worker se xu ly khi co OpenClaw worker online."
+    ].join("\n");
+  }
+
+  return [
+    "Da nhan link nhung chua co duong chay tu dong de publish.",
+    "",
+    `Link: ${articleUrl}`,
+    "Can cau hinh GITHUB_WORKFLOW_DISPATCH_TOKEN trong Vercel de bot dispatch GitHub Actions, hoac bat OpenClaw worker."
+  ].join("\n");
+}
+
 function buildWebLinksText(context) {
   return [
     "Link quan ly Patrick Tech Media",
@@ -482,6 +565,7 @@ function buildSetupText(context) {
     "6. Them TELEGRAM_NEWSROOM_WEBHOOK_SECRET vao Vercel env.",
     "7. Redeploy Vercel.",
     "8. Chay npm run telegram:newsroom:webhook:set.",
+    "9. Them GITHUB_WORKFLOW_DISPATCH_TOKEN de bot nhan link va day len GitHub Actions.",
     "",
     `Site dang cau hinh: ${context.siteUrl}/vi/`
   ].join("\n");
@@ -545,6 +629,52 @@ function mapCallbackToCommand(action) {
   };
 
   return commandMap[action] || "";
+}
+
+function extractArticleUrls(text) {
+  return [...String(text || "").matchAll(/https?:\/\/[^\s<>"')\]]+/gi)]
+    .map((match) => normalizeArticleUrl(match[0]))
+    .filter(Boolean)
+    .filter((url, index, list) => list.indexOf(url) === index)
+    .slice(0, 3);
+}
+
+function normalizeArticleUrl(value) {
+  const trimmed = String(value || "").trim().replace(/[.,;:!?]+$/g, "");
+
+  try {
+    const url = new URL(trimmed);
+    if (!["http:", "https:"].includes(url.protocol)) {
+      return "";
+    }
+
+    const hostname = url.hostname.toLowerCase();
+    if (isPrivateOrLocalHostname(hostname)) {
+      return "";
+    }
+
+    url.hash = "";
+    return url.toString().slice(0, 500);
+  } catch {
+    return "";
+  }
+}
+
+function isPrivateOrLocalHostname(hostname) {
+  const host = String(hostname || "").toLowerCase();
+  return host === "localhost"
+    || host.endsWith(".localhost")
+    || host.endsWith(".local")
+    || host === "0.0.0.0"
+    || host.startsWith("127.")
+    || host.startsWith("10.")
+    || host.startsWith("192.168.")
+    || /^172\.(1[6-9]|2\d|3[0-1])\./.test(host)
+    || host.startsWith("169.254.")
+    || host === "::1"
+    || host.startsWith("fc")
+    || host.startsWith("fd")
+    || host.startsWith("fe80");
 }
 
 async function checkUrl(url, label) {

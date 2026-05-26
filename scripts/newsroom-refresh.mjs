@@ -129,6 +129,7 @@ async function mapWithConcurrency(items, concurrency, mapper) {
 
 export async function runNewsroomRefresh(env = process.env) {
   const outputPath = env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
+  const singleUrl = normalizePublicArticleUrl(env.NEWSROOM_SINGLE_URL || env.NEWSROOM_ARTICLE_URL || "");
   const sourceUrl = env.NEWSROOM_PULL_URL || env.OPENCLAW_NEWSROOM_URL || "";
   const sourceFile = env.NEWSROOM_PULL_FILE || env.OPENCLAW_NEWSROOM_FILE || "";
   const sourceToken = env.NEWSROOM_PULL_TOKEN || env.OPENCLAW_NEWSROOM_TOKEN || "";
@@ -822,7 +823,26 @@ const SOURCE_TOPIC_HINTS = [
   let incomingArticles = [];
   let sourceLabel = "";
 
-  if (sourceUrl) {
+  if (singleUrl) {
+    try {
+      incomingArticles = await fetchSingleUrlArticles(singleUrl, now, env);
+      sourceLabel = "telegram-link";
+    } catch (error) {
+      console.warn(`${error.message || error}. Single URL was not published.`);
+    }
+  }
+
+  if (!incomingArticles.length && singleUrl) {
+    return {
+      changed: false,
+      publishedCount: 0,
+      outputPath,
+      sourceLabel: "telegram-link",
+      reason: "single-url-not-publishable"
+    };
+  }
+
+  if (!incomingArticles.length && sourceUrl) {
     try {
       const response = await fetch(sourceUrl, { headers });
 
@@ -873,7 +893,7 @@ const SOURCE_TOPIC_HINTS = [
   const result = await publishArticles({
     incomingArticles,
     outputPath,
-    replaceMode: true,
+    replaceMode: sourceLabel !== "telegram-link",
     now,
     databaseUrl: env.DATABASE_URL || ""
   });
@@ -1016,6 +1036,71 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
       console.error(error?.stack || error?.message || error);
       process.exit(1);
     });
+}
+
+async function fetchSingleUrlArticles(sourceUrl, timestamp, env = process.env) {
+  const link = normalizePublicArticleUrl(sourceUrl);
+  if (!link) {
+    return [];
+  }
+
+  const snapshot = await fetchSourceSnapshot(link);
+  const title = cleanText(snapshot.title || inferTitleFromUrl(link));
+  const sourceDescription = pickRelevantLeadText({
+    title,
+    values: [snapshot.description, snapshot.bodyText]
+  });
+  const relevantParagraphs = filterRelevantParagraphs({
+    title,
+    description: sourceDescription,
+    paragraphs: snapshot.paragraphs
+  });
+  const rawBody = cleanText([sourceDescription, ...relevantParagraphs].join(" "));
+
+  if (!title || rawBody.length < 180 || relevantParagraphs.length < 2) {
+    return [];
+  }
+
+  const source = classifySubmittedSource(link, `${title} ${rawBody}`);
+  const article = await mapFeedItem(
+    {
+      name: source.name,
+      url: link,
+      language: source.language,
+      region: source.region,
+      sourceType: source.sourceType,
+      trustTier: source.trustTier,
+      topicHint: source.topicHint,
+      contentTypeHint: env.NEWSROOM_SINGLE_CONTENT_TYPE || ""
+    },
+    {
+      title,
+      link,
+      description: sourceDescription,
+      content: rawBody,
+      pubDate: snapshot.publishedAt || timestamp,
+      imageUrl: snapshot.imageUrl
+    },
+    timestamp
+  );
+
+  if (!article) {
+    return [];
+  }
+
+  return [
+    {
+      ...article,
+      id: article.id.replace(/^feed-/, "telegram-link-"),
+      cluster_id: article.cluster_id.replace(/^feed-/, "telegram-link-"),
+      verification_state: source.verificationState,
+      draft_context: {
+        ...article.draft_context,
+        submitted_via: "telegram-link",
+        submitted_url: link
+      }
+    }
+  ];
 }
 
 async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
@@ -1225,6 +1310,153 @@ async function mapFeedItem(feed, item, timestamp) {
   };
 }
 
+function classifySubmittedSource(url, text = "") {
+  const parsed = new URL(url);
+  const host = parsed.hostname.replace(/^www\./i, "").toLowerCase();
+  const officialSources = [
+    ["openai.com", "OpenAI", "ai"],
+    ["blog.google", "Google Blog", "ai"],
+    ["googleblog.com", "Google Blog", "ai"],
+    ["microsoft.com", "Microsoft", "ai"],
+    ["github.blog", "GitHub Blog", "apps-software"],
+    ["aws.amazon.com", "AWS", "ai"],
+    ["anthropic.com", "Anthropic", "ai"],
+    ["x.ai", "xAI", "ai"],
+    ["huggingface.co", "Hugging Face", "ai"],
+    ["nvidia.com", "NVIDIA", "ai"],
+    ["apple.com", "Apple", "devices"],
+    ["samsung.com", "Samsung", "devices"],
+    ["cloudflare.com", "Cloudflare", "security"],
+    ["vercel.com", "Vercel", "apps-software"]
+  ];
+  const pressSources = [
+    ["genk.vn", "GenK", "internet-business-tech"],
+    ["vnexpress.net", "VnExpress", "internet-business-tech"],
+    ["vietnamnet.vn", "VietnamNet", "internet-business-tech"],
+    ["tuoitre.vn", "Tuoi Tre", "internet-business-tech"],
+    ["thanhnien.vn", "Thanh Nien", "internet-business-tech"],
+    ["theverge.com", "The Verge", "internet-business-tech"],
+    ["techcrunch.com", "TechCrunch", "internet-business-tech"],
+    ["wired.com", "WIRED", "internet-business-tech"],
+    ["arstechnica.com", "Ars Technica", "security"],
+    ["bleepingcomputer.com", "BleepingComputer", "security"],
+    ["reuters.com", "Reuters", "internet-business-tech"],
+    ["bloomberg.com", "Bloomberg", "internet-business-tech"],
+    ["engadget.com", "Engadget", "devices"],
+    ["androidauthority.com", "Android Authority", "devices"],
+    ["9to5google.com", "9to5Google", "devices"],
+    ["9to5mac.com", "9to5Mac", "devices"],
+    ["macrumors.com", "MacRumors", "devices"],
+    ["windowscentral.com", "Windows Central", "apps-software"],
+    ["pcgamer.com", "PC Gamer", "gaming"],
+    ["ign.com", "IGN", "gaming"],
+    ["polygon.com", "Polygon", "gaming"]
+  ];
+  const socialSources = [
+    ["x.com", "X", "internet-business-tech"],
+    ["twitter.com", "X", "internet-business-tech"],
+    ["facebook.com", "Facebook", "internet-business-tech"],
+    ["threads.net", "Threads", "internet-business-tech"],
+    ["tiktok.com", "TikTok", "internet-business-tech"],
+    ["youtube.com", "YouTube", "internet-business-tech"],
+    ["linkedin.com", "LinkedIn", "internet-business-tech"]
+  ];
+  const official = officialSources.find(([domain]) => matchesDomain(host, domain));
+  const press = pressSources.find(([domain]) => matchesDomain(host, domain));
+  const social = socialSources.find(([domain]) => matchesDomain(host, domain));
+  const language = inferSubmittedLanguage(host, text);
+
+  if (official) {
+    return {
+      name: official[1],
+      language,
+      region: host.endsWith(".vn") ? "VN" : "Global",
+      sourceType: "official-site",
+      trustTier: "official",
+      verificationState: "verified",
+      topicHint: official[2]
+    };
+  }
+
+  if (press) {
+    return {
+      name: press[1],
+      language,
+      region: host.endsWith(".vn") ? "VN" : "Global",
+      sourceType: "press",
+      trustTier: "established-media",
+      verificationState: "verified",
+      topicHint: press[2]
+    };
+  }
+
+  if (social) {
+    return {
+      name: social[1],
+      language,
+      region: "Global",
+      sourceType: "official-social",
+      trustTier: "social-signal",
+      verificationState: "emerging",
+      topicHint: social[2]
+    };
+  }
+
+  return {
+    name: titleCaseHost(host),
+    language,
+    region: host.endsWith(".vn") ? "VN" : "Global",
+    sourceType: "press",
+    trustTier: "reader-submitted",
+    verificationState: "emerging",
+    topicHint: inferTopicHintFromText(`${host} ${text}`)
+  };
+}
+
+function matchesDomain(host, domain) {
+  return host === domain || host.endsWith(`.${domain}`);
+}
+
+function inferSubmittedLanguage(host, text) {
+  if (host.endsWith(".vn") || /[\u00c0-\u1ef9]/i.test(String(text || ""))) {
+    return "vi";
+  }
+
+  return "en";
+}
+
+function inferTopicHintFromText(text) {
+  const haystack = String(text || "");
+  if (hasGamingSignals(haystack)) {
+    return "gaming";
+  }
+  if (hasStrongAiSignals(haystack) || hasGenericAiSignals(haystack)) {
+    return "ai";
+  }
+  if (hasWorkspaceUtilitySignals(haystack)) {
+    return "apps-software";
+  }
+  if (/\b(security|malware|ransomware|vulnerability|privacy|passkey|password|breach|hack)\b/i.test(haystack)) {
+    return "security";
+  }
+  if (/\b(phone|iphone|android|pixel|macbook|ipad|laptop|pc|gpu|cpu|chip|npu|device)\b/i.test(haystack)) {
+    return "devices";
+  }
+  return "internet-business-tech";
+}
+
+function titleCaseHost(host) {
+  const label = String(host || "")
+    .replace(/^www\./i, "")
+    .split(".")
+    .filter(Boolean)[0] || "Submitted Source";
+  return label
+    .split(/[-_]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 async function fetchSourceSnapshot(url) {
   try {
     const response = await fetch(url, {
@@ -1235,28 +1467,40 @@ async function fetchSourceSnapshot(url) {
     });
 
     if (!response.ok) {
-      return { description: "", imageUrl: "", paragraphs: [], bodyText: "" };
+      return { title: "", description: "", imageUrl: "", publishedAt: "", paragraphs: [], bodyText: "" };
     }
 
     const html = await response.text();
+    const title =
+      readMetaContent(html, "property", "og:title") ||
+      readMetaContent(html, "name", "twitter:title") ||
+      readPageTitle(html) ||
+      "";
     const description =
       readMetaContent(html, "property", "og:description") ||
       readMetaContent(html, "name", "description") ||
       "";
-    const imageUrl =
+    const rawImageUrl =
       readMetaContent(html, "property", "og:image") ||
       readMetaContent(html, "name", "twitter:image") ||
+      "";
+    const publishedAt =
+      readMetaContent(html, "property", "article:published_time") ||
+      readMetaContent(html, "name", "pubdate") ||
+      readMetaContent(html, "name", "publishdate") ||
       "";
     const paragraphs = extractArticleParagraphs(html);
 
     return {
+      title: cleanText(title),
       description: cleanText(description),
-      imageUrl: cleanUrl(imageUrl),
+      imageUrl: normalizePublicArticleUrl(resolveUrlAgainst(rawImageUrl, url)),
+      publishedAt: normalizeDate(publishedAt, ""),
       paragraphs,
       bodyText: paragraphs.join(" ")
     };
   } catch {
-    return { description: "", imageUrl: "", paragraphs: [], bodyText: "" };
+    return { title: "", description: "", imageUrl: "", publishedAt: "", paragraphs: [], bodyText: "" };
   }
 }
 
@@ -1350,6 +1594,11 @@ function readMetaContent(html, attribute, value) {
   const reversePattern = new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+${attribute}=["']${escapeRegex(value)}["'][^>]*>`, "i");
   const match = html.match(firstPattern) || html.match(reversePattern);
   return decodeXmlEntities(match?.[1] || "");
+}
+
+function readPageTitle(html) {
+  const match = String(html || "").match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  return decodeXmlEntities(stripCdata(match?.[1] || ""));
 }
 
 function extractArticleParagraphs(html) {
@@ -2239,6 +2488,70 @@ function hasBusinessPlatformSignals(value) {
 function cleanUrl(value) {
   const url = String(value || "").trim();
   return /^https?:\/\//i.test(url) ? url : "";
+}
+
+function normalizePublicArticleUrl(value) {
+  const candidate = String(value || "").trim().replace(/[.,;:!?]+$/g, "");
+  if (!candidate) {
+    return "";
+  }
+
+  try {
+    const url = new URL(candidate);
+    if (!["http:", "https:"].includes(url.protocol)) {
+      return "";
+    }
+
+    const hostname = url.hostname.toLowerCase();
+    if (isPrivateOrLocalHostname(hostname)) {
+      return "";
+    }
+
+    url.hash = "";
+    return url.toString();
+  } catch {
+    return "";
+  }
+}
+
+function resolveUrlAgainst(value, baseUrl) {
+  const candidate = String(value || "").trim();
+  if (!candidate) {
+    return "";
+  }
+
+  try {
+    return new URL(candidate, baseUrl).toString();
+  } catch {
+    return cleanUrl(candidate);
+  }
+}
+
+function inferTitleFromUrl(value) {
+  try {
+    const url = new URL(value);
+    const lastSegment = decodeURIComponent(url.pathname.split("/").filter(Boolean).pop() || "");
+    return cleanText(lastSegment.replace(/[-_]+/g, " "));
+  } catch {
+    return "";
+  }
+}
+
+function isPrivateOrLocalHostname(hostname) {
+  const host = String(hostname || "").toLowerCase();
+  return host === "localhost"
+    || host.endsWith(".localhost")
+    || host.endsWith(".local")
+    || host === "0.0.0.0"
+    || host.startsWith("127.")
+    || host.startsWith("10.")
+    || host.startsWith("192.168.")
+    || /^172\.(1[6-9]|2\d|3[0-1])\./.test(host)
+    || host.startsWith("169.254.")
+    || host === "::1"
+    || host.startsWith("fc")
+    || host.startsWith("fd")
+    || host.startsWith("fe80");
 }
 
 function normalizeDate(value, fallback) {

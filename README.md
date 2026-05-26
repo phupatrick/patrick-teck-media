@@ -293,9 +293,12 @@ Supported commands:
 - `/web` - quick web management links
 - `/id` - show Telegram chat id and user id for env setup
 - `/setup` - Vercel setup checklist
+- `/submit <url>` - read, verify, and publish a source link through the newsroom workflow
 - `/refresh` - admin-only request to run the newsroom refresh workflow
 - `/jobs` - recent OpenClaw jobs
 - `/help` - command list
+
+Admins can also send a plain article URL to the bot without a command. The bot dispatches the GitHub workflow with `article_url`; the refresh cycle fetches the page, removes boilerplate, checks technology relevance, keeps only a suitable source image, applies the newsroom quality gate, and appends the verified article instead of replacing the whole site.
 
 Configure these values in Vercel production env vars and GitHub Actions secrets where needed:
 

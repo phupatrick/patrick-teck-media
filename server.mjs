@@ -1419,6 +1419,16 @@ async function dispatchNewsroomWorkflow(input = {}) {
     return { ok: false, reason: "missing-workflow-config" };
   }
 
+  const articleUrl = normalizeWorkflowArticleUrl(input.articleUrl);
+  const workflowInputs = {
+    source: articleUrl ? "telegram-link" : "telegram",
+    reason: String(input.reason || "").slice(0, 120)
+  };
+
+  if (articleUrl) {
+    workflowInputs.article_url = articleUrl;
+  }
+
   const response = await fetch(`https://api.github.com/repos/${repository}/actions/workflows/${workflowFile}/dispatches`, {
     method: "POST",
     headers: {
@@ -1429,10 +1439,7 @@ async function dispatchNewsroomWorkflow(input = {}) {
     },
     body: JSON.stringify({
       ref,
-      inputs: {
-        source: "telegram",
-        reason: String(input.reason || "").slice(0, 120)
-      }
+      inputs: workflowInputs
     })
   });
 
@@ -1441,6 +1448,25 @@ async function dispatchNewsroomWorkflow(input = {}) {
   }
 
   return { ok: true };
+}
+
+function normalizeWorkflowArticleUrl(value) {
+  const candidate = String(value || "").trim();
+  if (!candidate) {
+    return "";
+  }
+
+  try {
+    const url = new URL(candidate);
+    if (!["http:", "https:"].includes(url.protocol)) {
+      return "";
+    }
+
+    url.hash = "";
+    return url.toString().slice(0, 500);
+  } catch {
+    return "";
+  }
 }
 
 function mapSubmissionForm(form) {

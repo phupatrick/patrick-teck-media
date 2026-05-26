@@ -63,9 +63,22 @@ console.log(
 );
 
 function ensureHiddenFeedSource() {
+  const singleUrl = process.env.NEWSROOM_SINGLE_URL || process.env.NEWSROOM_ARTICLE_URL || "";
   const configuredUrl = process.env.NEWSROOM_PULL_URL || process.env.OPENCLAW_NEWSROOM_URL || "";
   const configuredToken = process.env.NEWSROOM_PULL_TOKEN || process.env.OPENCLAW_NEWSROOM_TOKEN || "";
   const configuredFile = process.env.NEWSROOM_PULL_FILE || process.env.OPENCLAW_NEWSROOM_FILE || "";
+
+  if (singleUrl) {
+    return {
+      type: "single-url",
+      generated: false,
+      refreshSource: {
+        singleUrl
+      },
+      output: "Using Telegram submitted source URL.",
+      warnings: ""
+    };
+  }
 
   if (configuredUrl) {
     return {
@@ -133,6 +146,7 @@ function runRefreshCycle(refreshSource = null) {
     cwd: rootDir,
     env: {
       ...process.env,
+      ...(refreshSource?.singleUrl ? { NEWSROOM_SINGLE_URL: refreshSource.singleUrl } : {}),
       ...(refreshSource?.url ? { NEWSROOM_PULL_URL: refreshSource.url } : {}),
       ...(refreshSource?.token ? { NEWSROOM_PULL_TOKEN: refreshSource.token } : {}),
       ...(refreshSource?.file ? { NEWSROOM_PULL_FILE: refreshSource.file } : {})
@@ -155,7 +169,7 @@ function runRefreshCycle(refreshSource = null) {
   return {
     ok: true,
     exitCode: result.status || 0,
-    mode: refreshSource?.url || refreshSource?.file ? "external-feed" : "curated-rss",
+    mode: refreshSource?.singleUrl ? "telegram-link" : refreshSource?.url || refreshSource?.file ? "external-feed" : "curated-rss",
     output: compactText(result.stdout),
     warnings: compactText(result.stderr)
   };
@@ -219,7 +233,7 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, webC
         output: feedSource.output,
         warnings: feedSource.warnings,
         path: feedSource.refreshSource?.file ? path.resolve(rootDir, feedSource.refreshSource.file) : "",
-        url: feedSource.refreshSource?.url || ""
+        url: feedSource.refreshSource?.url || feedSource.refreshSource?.singleUrl || ""
       },
       refresh,
       webControl
