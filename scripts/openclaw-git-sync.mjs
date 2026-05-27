@@ -7,10 +7,12 @@ const runTests = !isEnabled(process.env.OPENCLAW_GIT_SKIP_TESTS);
 const commitMessage = process.env.OPENCLAW_GIT_COMMIT_MESSAGE || "OpenClaw: refresh newsroom, frontpage, and web code";
 const gitUserName = process.env.OPENCLAW_GIT_USER_NAME || "OpenClaw[bot]";
 const gitUserEmail = process.env.OPENCLAW_GIT_USER_EMAIL || "openclaw@users.noreply.github.com";
+const transientTestArtifacts = ["data/openclaw-control-plane.json", "data/seller-catalog.json"];
 const managedPaths = buildManagedPaths();
 
 if (runTests) {
   runCommand(process.platform === "win32" ? "npm.cmd" : "npm", ["test"], "OpenClaw test gate failed.");
+  cleanupTransientTestArtifacts();
 }
 
 const status = runCommand("git", ["status", "--porcelain", "--", ...managedPaths], "Unable to inspect git status.", {
@@ -49,6 +51,14 @@ function buildManagedPaths() {
 
 function isEnabled(value) {
   return /^(1|true|yes|on)$/i.test(String(value || "").trim());
+}
+
+function cleanupTransientTestArtifacts() {
+  for (const artifactPath of transientTestArtifacts) {
+    runCommand("git", ["rm", "-f", "--ignore-unmatch", "--", artifactPath], `Unable to clean ${artifactPath}.`, {
+      allowFailure: true
+    });
+  }
 }
 
 function runCommand(command, args, errorMessage, options = {}) {
