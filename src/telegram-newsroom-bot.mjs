@@ -2,12 +2,12 @@ const DEFAULT_COMMANDS = [
   { command: "status", description: "Xem trạng thái web và tòa soạn" },
   { command: "auto", description: "Xem lịch chạy tự động" },
   { command: "latest", description: "Xem các bài mới đăng" },
-  { command: "audit", description: "Kiểm tra chất lượng bài public" },
+  { command: "audit", description: "Kiểm tra chất lượng bài đã đăng" },
   { command: "learn", description: "Xem hồ sơ học của bot" },
   { command: "feedback", description: "Dạy bot bằng phản hồi của chủ sở hữu" },
-  { command: "health", description: "Kiểm tra sức khỏe web live" },
+  { command: "health", description: "Kiểm tra tình trạng web đang chạy" },
   { command: "web", description: "Mở liên kết quản lý web" },
-  { command: "id", description: "Lấy Telegram chat id và user id" },
+  { command: "id", description: "Lấy mã chat và mã người dùng" },
   { command: "submit", description: "Đọc, xác thực và đăng bài từ link" },
   { command: "up", description: "Tự động up thêm bài mới" },
   { command: "refresh", description: "Yêu cầu làm mới tòa soạn" },
@@ -21,14 +21,14 @@ const HELP_TEXT = [
   "Bot tòa soạn Patrick Tech Media",
   "",
   "/ping - kiểm tra bot nhanh",
-  "/id - lấy chat id và user id để cấu hình Vercel",
+  "/id - lấy mã chat và mã người dùng để cấu hình Vercel",
   "/status - trạng thái web, số bài, bài mới nhất và OpenClaw",
   "/auto - lịch chạy tự động và trạng thái thiết lập",
   "/latest - danh sách bài mới đăng",
-  "/audit - quét bài public bị mỏng hoặc nhiễu nội dung",
+  "/audit - quét bài đã đăng bị mỏng hoặc nhiễu nội dung",
   "/learn - hồ sơ học hiện tại của bot",
-  "/feedback <good|bad|more|less|source|image|tone> <ghi chú> - dạy bot bằng phản hồi",
-  "/health - kiểm tra homepage live và API tòa soạn",
+  "/feedback <tốt|tệ|sâu|gọn|nguồn|ảnh|giọng> <ghi chú> - dạy bot bằng phản hồi",
+  "/health - kiểm tra trang chủ đang chạy và API tòa soạn",
   "/web - liên kết quản lý web",
   "/setup - checklist cài đặt trên Vercel",
   "/submit <url> - đọc, xác thực và đăng bài từ link nguồn",
@@ -82,8 +82,9 @@ export function createTelegramNewsroomBot(options = {}) {
 
         try {
           await apiCall(token, "setMyCommands", { commands: DEFAULT_COMMANDS });
+          await apiCall(token, "setMyCommands", { commands: DEFAULT_COMMANDS, language_code: "vi" });
         } catch {
-          // Command registration is optional.
+          // Telegram command registration is optional; the bot can still answer messages.
         }
       }
 
@@ -105,7 +106,7 @@ export function createTelegramNewsroomBot(options = {}) {
           webhookStatus = {
             ...webhookStatus,
             lastAttemptAt: new Date().toISOString(),
-            lastError: error.message || "Webhook registration failed."
+            lastError: error.message || "Không đăng ký được webhook."
           };
         }
       }
@@ -135,7 +136,7 @@ export function createTelegramNewsroomBot(options = {}) {
 
       const publicSetupCommand = isPublicSetupCommand(text, botProfile?.username || "");
       if (!isAllowedChat(message.chat) && !publicSetupCommand) {
-        await sendMessage(message.chat.id, "Chat nay chua duoc phep dieu khien newsroom bot. Gui /id de lay Chat id va User id cau hinh tren Vercel.");
+        await sendMessage(message.chat.id, "Chat này chưa được phép điều khiển bot tòa soạn. Gửi /id để lấy mã chat và mã người dùng rồi cấu hình trên Vercel.");
         return;
       }
 
@@ -169,7 +170,7 @@ export function createTelegramNewsroomBot(options = {}) {
           });
         }
       } catch (error) {
-        await sendMessage(message.chat.id, error.message || "Newsroom command failed.", {
+        await sendMessage(message.chat.id, error.message || "Lệnh tòa soạn bị lỗi.", {
           reply_to_message_id: message.message_id
         });
       }
@@ -181,7 +182,7 @@ export function createTelegramNewsroomBot(options = {}) {
     const chat = message?.chat;
 
     if (!isAllowedChat(chat)) {
-      await answerCallback(callbackQuery.id, "Chat chua duoc phep.");
+      await answerCallback(callbackQuery.id, "Chat chưa được phép.");
       return;
     }
 
@@ -189,7 +190,7 @@ export function createTelegramNewsroomBot(options = {}) {
     const command = mapCallbackToCommand(action);
 
     if (!command) {
-      await answerCallback(callbackQuery.id, "Nut khong hop le.");
+      await answerCallback(callbackQuery.id, "Nút không hợp lệ.");
       return;
     }
 
@@ -211,13 +212,13 @@ export function createTelegramNewsroomBot(options = {}) {
         openClawEnabled
       });
 
-      await answerCallback(callbackQuery.id, "Da cap nhat.");
+      await answerCallback(callbackQuery.id, "Đã cập nhật.");
       await editMessage(chat.id, message.message_id, response?.text || MENU_TEXT, {
         reply_markup: buildMenuMarkup(action)
       });
     } catch (error) {
-      await answerCallback(callbackQuery.id, "Loi.");
-      await editMessage(chat.id, message.message_id, error.message || "Newsroom command failed.", {
+      await answerCallback(callbackQuery.id, "Có lỗi.");
+      await editMessage(chat.id, message.message_id, error.message || "Lệnh tòa soạn bị lỗi.", {
         reply_markup: buildMenuMarkup("menu")
       });
     }
@@ -265,19 +266,19 @@ export async function executeNewsroomCommand(rawText, context = {}) {
   }
 
   if (command === "/ping") {
-    return { text: `Pong. Bot dang nhan lenh tren Vercel.\nWeb: ${context.siteUrl}/vi/` };
+    return { text: `Bot đang nhận lệnh trên Vercel.\nTrang web: ${context.siteUrl}/vi/` };
   }
 
   if (command === "/id") {
     return {
       text: [
-        "Telegram ids",
+        "Mã Telegram",
         "",
-        `Chat id: ${context.chatId || "unknown"}`,
-        `User id: ${context.userId || "unknown"}`,
+        `Mã chat: ${context.chatId || "chưa rõ"}`,
+        `Mã người dùng: ${context.userId || "chưa rõ"}`,
         "",
-        "Dung Chat id cho TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS hoac TELEGRAM_NEWSROOM_REPORT_CHAT_IDS.",
-        "Dung User id cho TELEGRAM_NEWSROOM_ADMIN_USER_IDS."
+        "Dùng mã chat cho TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS hoặc TELEGRAM_NEWSROOM_REPORT_CHAT_IDS.",
+        "Dùng mã người dùng cho TELEGRAM_NEWSROOM_ADMIN_USER_IDS."
       ].join("\n")
     };
   }
@@ -326,7 +327,7 @@ export async function executeNewsroomCommand(rawText, context = {}) {
 
   if (command === "/up" || command === "/upbai" || command === "/dangbai") {
     if (!context.isAdmin && !context.canSubmitLinks) {
-      throw new Error("Chat nay chua duoc phep yeu cau bot tu dong up bai.");
+      throw new Error("Chat này chưa được phép yêu cầu bot tự động up bài.");
     }
 
     return { text: await requestRefresh(context, "telegram-up-more") };
@@ -338,7 +339,7 @@ export async function executeNewsroomCommand(rawText, context = {}) {
 
   if (command === "/refresh") {
     if (!context.isAdmin) {
-      throw new Error("Chi admin duoc yeu cau refresh newsroom.");
+      throw new Error("Chỉ admin được yêu cầu làm mới tòa soạn.");
     }
 
     return { text: await requestRefresh(context) };
@@ -349,25 +350,25 @@ export async function executeNewsroomCommand(rawText, context = {}) {
 
 export async function submitLearningFeedback(rawText, context = {}) {
   if (!context.isAdmin) {
-    throw new Error("Chi admin duoc day feedback cho bot hoc.");
+    throw new Error("Chỉ admin được dạy bot bằng phản hồi.");
   }
 
   const parsed = parseFeedbackText(rawText);
   if (!parsed.note) {
     return {
       text: [
-        "Chua co noi dung feedback.",
+        "Chưa có nội dung phản hồi.",
         "",
-        "Vi du:",
-        "/feedback good Bai co checklist va vi du thuc te rat on",
-        "/feedback bad Bai con mong, thieu thong tin lien quan"
+        "Ví dụ:",
+        "/feedback tốt Bài có checklist và ví dụ thực tế rất ổn",
+        "/feedback tệ Bài còn mỏng, thiếu thông tin liên quan"
       ].join("\n")
     };
   }
 
   if (typeof context.addLearningFeedback !== "function") {
     return {
-      text: "Chua co learning store. Can cau hinh DATABASE_URL hoac OPENCLAW_LEARNING_STATE_PATH de bot ghi nho feedback."
+      text: "Chưa có nơi lưu hồ sơ học. Cần cấu hình DATABASE_URL hoặc OPENCLAW_LEARNING_STATE_PATH để bot ghi nhớ phản hồi."
     };
   }
 
@@ -382,13 +383,13 @@ export async function submitLearningFeedback(rawText, context = {}) {
 
   return {
     text: [
-      "Da ghi nho feedback cho bot hoc.",
+      "Đã ghi nhớ phản hồi để bot học.",
       "",
-      `Loai: ${parsed.kind}`,
-      parsed.targetUrl ? `Link: ${parsed.targetUrl}` : "",
-      `Ghi chu: ${parsed.note}`,
+      `Loại phản hồi: ${formatFeedbackKind(parsed.kind)}`,
+      parsed.targetUrl ? `Liên kết: ${parsed.targetUrl}` : "",
+      `Ghi chú: ${parsed.note}`,
       "",
-      "Chu ky OpenClaw tiep theo se cap nhat learning profile va dieu chinh uu tien bai/nguon."
+      "Chu kỳ OpenClaw tiếp theo sẽ cập nhật hồ sơ học và điều chỉnh ưu tiên bài/nguồn."
     ].filter(Boolean).join("\n")
   };
 }
@@ -399,16 +400,16 @@ export async function submitNewsroomLink(rawText, context = {}) {
   if (!articleUrl) {
     return {
       text: [
-        "Chua thay link bai viet hop le.",
+        "Chưa thấy liên kết bài viết hợp lệ.",
         "",
-        "Gui link truc tiep cho bot, hoac dung:",
+        "Gửi liên kết trực tiếp cho bot, hoặc dùng:",
         "/submit https://example.com/article"
       ].join("\n")
     };
   }
 
   if (!context.isAdmin && !context.canSubmitLinks) {
-    throw new Error("Chat nay chua duoc phep gui link de bot xac thuc va len bai.");
+    throw new Error("Chat này chưa được phép gửi liên kết để bot xác thực và lên bài.");
   }
 
   return { text: await requestArticlePublish(context, articleUrl) };
@@ -439,15 +440,15 @@ async function buildStatusText(context) {
   const latest = selectLatestNewsArticles(articles, 1)[0] || articles.slice().sort(sortByPublishedDesc)[0];
 
   return [
-    "Tinh hinh Patrick Tech Media",
+    "Tình hình Patrick Tech Media",
     "",
-    `Web: ${context.siteUrl}/vi/`,
-    `Bai public: ${articles.length}`,
-    `Cap nhat du lieu: ${formatDate(state?.runtime?.generatedAt || state?.generated_at)}`,
-    latest ? `Bai moi nhat: ${latest.title}` : "Bai moi nhat: chua co du lieu",
+    `Trang web: ${context.siteUrl}/vi/`,
+    `Bài đã đăng: ${articles.length}`,
+    `Cập nhật dữ liệu: ${formatDate(state?.runtime?.generatedAt || state?.generated_at)}`,
+    latest ? `Bài mới nhất: ${latest.title}` : "Bài mới nhất: chưa có dữ liệu",
     control
-      ? `OpenClaw: ${control.jobs?.queued || 0} queued, ${control.jobs?.running || 0} running, ${control.jobs?.failed || 0} failed`
-      : "OpenClaw: chua co du lieu control"
+      ? `OpenClaw: ${formatQueueSummary(control.jobs)}`
+      : "OpenClaw: chưa có dữ liệu điều phối"
   ].join("\n");
 }
 
@@ -461,29 +462,29 @@ async function buildAutomationText(context) {
   ]);
   const jobs = control?.jobs || {};
   const openClawQueueText = control
-    ? `${jobs.queued || 0} queued, ${jobs.running || 0} running, ${jobs.failed || 0} failed`
-    : "chua co du lieu control";
+    ? formatQueueSummary(jobs)
+    : "chưa có dữ liệu điều phối";
   const webhookText = webhook?.enabled
     ? webhook.lastError
-      ? `tu dong bat nhung loi: ${webhook.lastError}`
+      ? `tự động bật nhưng có lỗi: ${webhook.lastError}`
       : webhook.registeredAt
-        ? `tu dong OK luc ${formatDate(webhook.registeredAt)}`
-        : "tu dong dang cho cold start"
-    : "tat hoac chua co webhook URL";
+        ? `tự động ổn lúc ${formatDate(webhook.registeredAt)}`
+        : "tự động đang chờ khởi động lạnh"
+    : "tắt hoặc chưa có URL webhook";
 
   return [
-    "Che do tu dong",
+    "Chế độ tự động",
     "",
-    "Telegram webhook: Vercel nhan lenh 24/24 theo kieu serverless.",
-    `Auto webhook: ${webhookText}`,
-    "Newsroom refresh: GitHub Actions chay moi 15 phut.",
-    "Vercel cron fallback: goi /api/openclaw/cron moi ngay 01:00 Asia/Saigon.",
-    "Bao cao Telegram: gui sau moi chu ky neu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS da cau hinh.",
+    "Telegram webhook: Vercel nhận lệnh 24/24 theo kiểu không cần mở máy.",
+    `Webhook tự động: ${webhookText}`,
+    "Làm mới tòa soạn: GitHub Actions chạy mỗi 15 phút.",
+    "Lịch dự phòng Vercel: gọi /api/openclaw/cron mỗi ngày lúc 01:00 Asia/Saigon.",
+    "Báo cáo Telegram: gửi sau mỗi chu kỳ nếu đã cấu hình TELEGRAM_NEWSROOM_REPORT_CHAT_IDS.",
     "",
-    `OpenClaw queue: ${openClawQueueText}`,
-    `Admin hien tai: ${context.isAdmin ? "co quyen /refresh" : "chua co quyen /refresh"}`,
+    `Hàng đợi OpenClaw: ${openClawQueueText}`,
+    `Quyền hiện tại: ${context.isAdmin ? "có quyền /refresh" : "chưa có quyền /refresh"}`,
     "",
-    "De /refresh bam tay tren Telegram hoat dong, Vercel can GITHUB_WORKFLOW_DISPATCH_TOKEN va GitHub repo/ref dung."
+    "Để bấm /refresh trên Telegram, Vercel cần có GITHUB_WORKFLOW_DISPATCH_TOKEN và đúng repo/ref GitHub."
   ].join("\n");
 }
 
@@ -496,27 +497,27 @@ async function buildLearningText(context) {
   const sourceTypeWeights = Object.entries(profile.sourceTypeWeights || {}).slice(0, 5);
 
   if (!summary) {
-    return "Chua co learning profile. Hay gui /feedback sau moi bai de bot bat dau hoc.";
+    return "Chưa có hồ sơ học. Hãy gửi /feedback sau mỗi bài để bot bắt đầu học.";
   }
 
   return [
-    "Bot learning profile",
+    "Hồ sơ học của bot",
     "",
-    `Model: ${summary.model?.id || "adaptive-editorial-bandit-v1"}`,
-    `CNN: ${summary.model?.cnn_enabled ? "bat" : "tat"} (${summary.model?.reason || "khong phu hop cho text/Vercel"})`,
-    `Tin hieu: ${profile.totalSignals || 0}`,
-    `Feedback owner: ${summary.feedbackCount || 0}`,
-    `Do tu tin: ${Math.round((profile.confidence || 0) * 100)}%`,
-    profile.updated_at ? `Cap nhat: ${formatDate(profile.updated_at)}` : "",
+    `Mô hình học: ${summary.model?.id || "adaptive-editorial-bandit-v1"}`,
+    `CNN: ${summary.model?.cnn_enabled ? "bật" : "tắt"} (${summary.model?.reason || "chưa phù hợp cho văn bản/Vercel"})`,
+    `Tín hiệu học: ${profile.totalSignals || 0}`,
+    `Phản hồi của chủ sở hữu: ${summary.feedbackCount || 0}`,
+    `Độ tự tin: ${Math.round((profile.confidence || 0) * 100)}%`,
+    profile.updated_at ? `Cập nhật: ${formatDate(profile.updated_at)}` : "",
     "",
-    topicWeights.length ? `Chu de dang uu tien: ${topicWeights.map(([key, value]) => `${key} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Chu de dang uu tien: chua du tin hieu",
-    sourceTypeWeights.length ? `Nguon dang uu tien: ${sourceTypeWeights.map(([key, value]) => `${key} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Nguon dang uu tien: chua du tin hieu",
+    topicWeights.length ? `Chủ đề đang ưu tiên: ${topicWeights.map(([key, value]) => `${formatTopicKey(key)} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Chủ đề đang ưu tiên: chưa đủ tín hiệu",
+    sourceTypeWeights.length ? `Nguồn đang ưu tiên: ${sourceTypeWeights.map(([key, value]) => `${formatSourceTypeKey(key)} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Nguồn đang ưu tiên: chưa đủ tín hiệu",
     "",
-    "Quy tac dang hoc:",
-    ...((profile.styleRules || []).slice(0, 4).map((rule) => `- ${rule}`)),
+    "Quy tắc đang học:",
+    ...((profile.styleRules || []).slice(0, 4).map((rule) => `- ${localizeLearningRule(rule)}`)),
     "",
-    "Nen tranh:",
-    ...((profile.avoidRules || []).slice(0, 4).map((rule) => `- ${rule}`))
+    "Nên tránh:",
+    ...((profile.avoidRules || []).slice(0, 4).map((rule) => `- ${localizeLearningRule(rule)}`))
   ].filter((line) => line !== "").join("\n");
 }
 
@@ -526,12 +527,11 @@ async function buildLatestText(context) {
   const latest = selectLatestNewsArticles(articles, 6);
 
   if (!latest.length) {
-    return "Chua co bai nao trong newsroom.";
+    return "Chưa có bài nào trong tòa soạn.";
   }
 
   return [
-    "Bai moi nhat",
-    "",
+    "Bài mới nhất",
     ...latest.map((article, index) => `${index + 1}. ${article.title}\n${context.siteUrl}${article.href}`)
   ].join("\n\n");
 }
@@ -540,20 +540,20 @@ async function buildAuditText(context) {
   const state = await context.getState?.();
   const articles = Array.isArray(state?.articles) ? state.articles : [];
   const audits = articles.map(auditArticleForTelegram).filter((entry) => entry.issues.length > 0);
-  const thinCount = audits.filter((entry) => entry.issues.some((issue) => issue.startsWith("noi dung mong"))).length;
-  const noisyCount = audits.filter((entry) => entry.issues.some((issue) => issue.startsWith("nhiem menu"))).length;
-  const sourceCount = audits.filter((entry) => entry.issues.some((issue) => issue.startsWith("nguon lap"))).length;
+  const thinCount = audits.filter((entry) => entry.issues.some((issue) => issue.startsWith("nội dung mỏng"))).length;
+  const noisyCount = audits.filter((entry) => entry.issues.some((issue) => issue.startsWith("nhiễm menu"))).length;
+  const sourceCount = audits.filter((entry) => entry.issues.some((issue) => issue.startsWith("lặp tên nguồn"))).length;
 
   if (!articles.length) {
-    return "Chua co du lieu bai viet de audit.";
+    return "Chưa có dữ liệu bài viết để kiểm tra.";
   }
 
   if (!audits.length) {
     return [
-      "Audit noi dung",
+      "Kiểm tra nội dung",
       "",
-      `Da quet ${articles.length} bai public.`,
-      "Khong thay bai mong, nhiem menu nguon, hoac lap nguon qua muc."
+      `Đã quét ${articles.length} bài đã đăng.`,
+      "Không thấy bài mỏng, nhiễm menu nguồn, hoặc lặp nguồn quá mức."
     ].join("\n");
   }
 
@@ -562,17 +562,17 @@ async function buildAuditText(context) {
     .slice(0, 6);
 
   return [
-    "Audit noi dung",
+    "Kiểm tra nội dung",
     "",
-    `Da quet ${articles.length} bai public.`,
-    `Can xem lai: ${audits.length}`,
-    `Noi dung mong: ${thinCount}`,
-    `Nhiem menu nguon: ${noisyCount}`,
-    `Lap ten nguon: ${sourceCount}`,
+    `Đã quét ${articles.length} bài đã đăng.`,
+    `Cần xem lại: ${audits.length}`,
+    `Nội dung mỏng: ${thinCount}`,
+    `Nhiễm menu nguồn: ${noisyCount}`,
+    `Lặp tên nguồn: ${sourceCount}`,
     "",
     ...topIssues.map((entry, index) => [
       `${index + 1}. ${entry.title}`,
-      `Van de: ${entry.issues.join(", ")}`,
+      `Vấn đề: ${entry.issues.join(", ")}`,
       `${context.siteUrl}${entry.href}`
     ].join("\n"))
   ].join("\n");
@@ -581,17 +581,17 @@ async function buildAuditText(context) {
 async function buildHealthText(context) {
   const startedAt = Date.now();
   const checks = await Promise.all([
-    checkUrl(`${context.siteUrl}/vi/`, "Homepage"),
-    checkUrl(`${context.siteUrl}/api/newsroom/overview?lang=vi`, "Newsroom API")
+    checkUrl(`${context.siteUrl}/vi/`, "Trang chủ"),
+    checkUrl(`${context.siteUrl}/api/newsroom/overview?lang=vi`, "API tòa soạn")
   ]);
   const elapsedMs = Date.now() - startedAt;
 
   return [
-    "Kiem tra live site",
+    "Kiểm tra web đang chạy",
     "",
-    ...checks.map((check) => `${check.label}: ${check.ok ? "OK" : "FAIL"} ${check.status || ""} ${check.ms}ms`),
+    ...checks.map((check) => `${check.label}: ${check.ok ? "ổn" : "lỗi"} ${check.status || ""} ${check.ms}ms`),
     "",
-    `Tong thoi gian: ${elapsedMs}ms`
+    `Tổng thời gian: ${elapsedMs}ms`
   ].join("\n");
 }
 
@@ -599,19 +599,19 @@ async function buildJobsText(context) {
   const control = await context.getControlSummary?.();
 
   if (!control) {
-    return "Chua co du lieu OpenClaw jobs.";
+    return "Chưa có dữ liệu hàng đợi OpenClaw.";
   }
 
   const recent = Array.isArray(control.recentJobs) ? control.recentJobs.slice(0, 5) : [];
   return [
-    "OpenClaw jobs",
+    "Hàng đợi OpenClaw",
     "",
-    `Queued: ${control.jobs?.queued || 0}`,
-    `Running: ${control.jobs?.running || 0}`,
-    `Completed: ${control.jobs?.completed || 0}`,
-    `Failed: ${control.jobs?.failed || 0}`,
+    `Đang chờ: ${control.jobs?.queued || 0}`,
+    `Đang chạy: ${control.jobs?.running || 0}`,
+    `Đã xong: ${control.jobs?.completed || 0}`,
+    `Bị lỗi: ${control.jobs?.failed || 0}`,
     "",
-    ...recent.map((job) => `- ${job.status}: ${job.type} (${job.id})`)
+    ...recent.map((job) => `- ${formatJobStatus(job.status)}: ${formatJobType(job.type)} (${job.id})`)
   ].join("\n").trim();
 }
 
@@ -623,8 +623,8 @@ async function requestRefresh(context, reasonPrefix = "telegram") {
 
     if (result?.ok) {
       return reasonPrefix === "telegram-up-more"
-        ? "Da yeu cau bot tu dong up them bai. GitHub Actions dang chay OpenClaw manager; khi xong bot se bao cao tren Telegram."
-        : "Da yeu cau GitHub Actions chay OpenClaw manager. Khi xong bot se bao cao neu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS da cau hinh.";
+        ? "Đã yêu cầu bot tự động up thêm bài. GitHub Actions đang chạy OpenClaw manager; khi xong bot sẽ báo cáo trên Telegram."
+        : "Đã yêu cầu GitHub Actions chạy OpenClaw manager. Khi xong bot sẽ báo cáo nếu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS đã cấu hình.";
     }
   }
 
@@ -642,15 +642,15 @@ async function requestRefresh(context, reasonPrefix = "telegram") {
     });
 
     return reasonPrefix === "telegram-up-more"
-      ? `Da dua job tu dong up bai vao hang doi OpenClaw: ${job.id}`
-      : `Da dua job refresh vao hang doi OpenClaw: ${job.id}`;
+      ? `Đã đưa tác vụ tự động up bài vào hàng đợi OpenClaw: ${job.id}`
+      : `Đã đưa tác vụ làm mới vào hàng đợi OpenClaw: ${job.id}`;
   }
 
   return [
-    "Chua bat tu dong refresh.",
+    "Chưa bật tự động làm mới.",
     "",
-    "Tam thoi bot dang chay tren Vercel de nhan lenh /status, /latest, /health, /web.",
-    "Khi nao setup OpenClaw/GitHub Actions, them GITHUB_WORKFLOW_DISPATCH_TOKEN roi dung lai /refresh."
+    "Hiện bot đang chạy trên Vercel để nhận lệnh /status, /latest, /health, /web.",
+    "Khi đã thiết lập OpenClaw/GitHub Actions, thêm GITHUB_WORKFLOW_DISPATCH_TOKEN rồi dùng lại /refresh."
   ].join("\n");
 }
 
@@ -663,11 +663,11 @@ async function requestArticlePublish(context, articleUrl) {
 
     if (result?.ok) {
       return [
-        "Da nhan link va gui vao workflow tu dong.",
+        "Đã nhận liên kết và gửi vào quy trình tự động.",
         "",
-        `Link: ${articleUrl}`,
-        "Bot se doc noi dung, loc boilerplate, xac thuc do tin cay, chon anh nguon phu hop, viet bai co gia tri, chay quality gate roi moi publish.",
-        "Khi workflow xong, Telegram report se bao lai neu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS da cau hinh."
+        `Liên kết: ${articleUrl}`,
+        "Bot sẽ đọc nội dung, lọc phần dư thừa, xác thực độ tin cậy, chọn ảnh nguồn phù hợp, viết bài có giá trị, chạy cổng kiểm tra chất lượng rồi mới đăng.",
+        "Khi quy trình xong, báo cáo Telegram sẽ gửi lại nếu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS đã cấu hình."
       ].join("\n");
     }
   }
@@ -681,61 +681,61 @@ async function requestArticlePublish(context, articleUrl) {
         source: "telegram-link",
         url: articleUrl,
         requestedBy: context.userId || "",
-        instructions: "Read the source URL, verify technology relevance and source quality, publish only if the article passes the newsroom readiness gate."
+        instructions: "Đọc URL nguồn, xác thực mức liên quan công nghệ và chất lượng nguồn, chỉ đăng khi bài vượt qua cổng sẵn sàng của tòa soạn."
       },
       priority: 950,
       leaseSeconds: 1800
     });
 
     return [
-      "Da dua link vao hang doi OpenClaw.",
+      "Đã đưa liên kết vào hàng đợi OpenClaw.",
       "",
-      `Job: ${job.id}`,
-      `Link: ${articleUrl}`,
-      "Worker se xu ly khi co OpenClaw worker online."
+      `Tác vụ: ${job.id}`,
+      `Liên kết: ${articleUrl}`,
+      "Trình xử lý sẽ chạy khi OpenClaw trực tuyến."
     ].join("\n");
   }
 
   return [
-    "Da nhan link nhung chua co duong chay tu dong de publish.",
+    "Đã nhận liên kết nhưng chưa có đường chạy tự động để đăng bài.",
     "",
-    `Link: ${articleUrl}`,
-    "Can cau hinh GITHUB_WORKFLOW_DISPATCH_TOKEN trong Vercel de bot dispatch GitHub Actions, hoac bat OpenClaw worker."
+    `Liên kết: ${articleUrl}`,
+    "Cần cấu hình GITHUB_WORKFLOW_DISPATCH_TOKEN trong Vercel để bot gọi GitHub Actions, hoặc bật OpenClaw worker."
   ].join("\n");
 }
 
 function buildWebLinksText(context) {
   return [
-    "Link quan ly Patrick Tech Media",
+    "Liên kết quản lý Patrick Tech Media",
     "",
-    `Trang chinh: ${context.siteUrl}/vi/`,
-    `English: ${context.siteUrl}/en/`,
-    `Tac gia: ${context.siteUrl}/vi/authors`,
-    `Store: ${context.siteUrl}/vi/store`,
-    `Writer portal: ${context.siteUrl}/vi/portal`,
-    `Dang nhap: ${context.siteUrl}/vi/login`,
+    `Trang chính: ${context.siteUrl}/vi/`,
+    `Bản tiếng Anh: ${context.siteUrl}/en/`,
+    `Tác giả: ${context.siteUrl}/vi/authors`,
+    `Cửa hàng: ${context.siteUrl}/vi/store`,
+    `Cổng cộng tác viên: ${context.siteUrl}/vi/portal`,
+    `Đăng nhập: ${context.siteUrl}/vi/login`,
     "",
     "GitHub: https://github.com/phupatrick/patrick-teck-media",
-    "Vercel: mo dashboard project patrick-teck-media"
+    "Vercel: mở dashboard dự án patrick-teck-media"
   ].join("\n");
 }
 
 function buildSetupText(context) {
   return [
-    "Checklist setup bot tren Vercel",
+    "Checklist cài đặt bot trên Vercel",
     "",
-    "1. Tao bot voi BotFather va lay token.",
-    "2. Them TELEGRAM_NEWSROOM_BOT_TOKEN vao Vercel env.",
-    "3. Gui /id cho bot de lay chat id va user id.",
-    "4. Them chat id vao TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS.",
-    "5. Them user id cua ban vao TELEGRAM_NEWSROOM_ADMIN_USER_IDS.",
-    "6. Them TELEGRAM_NEWSROOM_WEBHOOK_SECRET vao Vercel env.",
-    "7. De TELEGRAM_NEWSROOM_AUTO_WEBHOOK=1 de Vercel tu dang ky webhook.",
-    "8. Them GITHUB_WORKFLOW_DISPATCH_TOKEN de bot nhan link va day len GitHub Actions.",
-    "9. Them DATABASE_URL de feedback/learning luu ben vung 24/24.",
-    "10. Redeploy Vercel.",
+    "1. Tạo bot với BotFather và lấy token.",
+    "2. Thêm TELEGRAM_NEWSROOM_BOT_TOKEN vào biến môi trường Vercel.",
+    "3. Gửi /id cho bot để lấy mã chat và mã người dùng.",
+    "4. Thêm mã chat vào TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS.",
+    "5. Thêm mã người dùng của bạn vào TELEGRAM_NEWSROOM_ADMIN_USER_IDS.",
+    "6. Thêm TELEGRAM_NEWSROOM_WEBHOOK_SECRET vào biến môi trường Vercel.",
+    "7. Đặt TELEGRAM_NEWSROOM_AUTO_WEBHOOK=1 để Vercel tự đăng ký webhook.",
+    "8. Thêm GITHUB_WORKFLOW_DISPATCH_TOKEN để bot nhận liên kết và đẩy lên GitHub Actions.",
+    "9. Thêm DATABASE_URL để phản hồi/hồ sơ học được lưu bền vững 24/24.",
+    "10. Triển khai lại Vercel.",
     "",
-    `Site dang cau hinh: ${context.siteUrl}/vi/`
+    `Trang đang cấu hình: ${context.siteUrl}/vi/`
   ].join("\n");
 }
 
@@ -755,10 +755,10 @@ function buildMenuMarkup(active = "menu") {
       ],
       [
         button(selected("audit", "Kiểm tra bài"), "newsroom:audit"),
-        button(selected("health", "Sức khỏe web"), "newsroom:health")
+        button(selected("health", "Tình trạng web"), "newsroom:health")
       ],
       [
-        button(selected("web", "Link quản lý"), "newsroom:web"),
+        button(selected("web", "Liên kết quản lý"), "newsroom:web"),
         button(selected("jobs", "Hàng đợi"), "newsroom:jobs")
       ],
       [
@@ -771,7 +771,7 @@ function buildMenuMarkup(active = "menu") {
       ],
       [
         button("Mở web", "newsroom:site"),
-        button("Menu", "newsroom:menu")
+        button("Bảng lệnh", "newsroom:menu")
       ]
     ]
   };
@@ -823,13 +823,13 @@ function parseFeedbackText(rawText) {
 function isFeedbackKind(value) {
   const normalized = String(value || "").trim().toLowerCase();
   return [
-    "good", "hay", "like", "useful", "tot",
-    "bad", "te", "chua", "weak",
-    "more", "sau", "depth", "long",
-    "less", "gon", "noise",
-    "source", "nguon",
-    "image", "anh",
-    "tone", "giong"
+    "good", "hay", "like", "useful", "tot", "tốt",
+    "bad", "te", "tệ", "chua", "chưa", "weak",
+    "more", "sau", "sâu", "depth", "long",
+    "less", "gon", "gọn", "noise",
+    "source", "nguon", "nguồn",
+    "image", "anh", "ảnh",
+    "tone", "giong", "giọng"
   ].includes(normalized);
 }
 
@@ -841,26 +841,117 @@ function normalizeFeedbackKind(value) {
     like: "good",
     useful: "good",
     tot: "good",
+    tốt: "good",
     bad: "bad",
     te: "bad",
+    tệ: "bad",
     chua: "bad",
+    chưa: "bad",
     weak: "bad",
     more: "more-depth",
     sau: "more-depth",
+    sâu: "more-depth",
     depth: "more-depth",
     long: "more-depth",
     less: "less-noise",
     gon: "less-noise",
+    gọn: "less-noise",
     noise: "less-noise",
     source: "source",
     nguon: "source",
+    nguồn: "source",
     image: "image",
     anh: "image",
+    ảnh: "image",
     tone: "tone",
-    giong: "tone"
+    giong: "tone",
+    giọng: "tone"
   };
 
   return aliases[normalized] || "good";
+}
+
+function formatFeedbackKind(kind) {
+  const labels = {
+    good: "tốt",
+    bad: "cần sửa",
+    "more-depth": "cần đào sâu hơn",
+    "less-noise": "cần gọn và ít nhiễu hơn",
+    source: "nguồn",
+    image: "ảnh",
+    tone: "giọng văn"
+  };
+
+  return labels[kind] || kind || "tốt";
+}
+
+function formatQueueSummary(jobs = {}) {
+  return `${jobs.queued || 0} đang chờ, ${jobs.running || 0} đang chạy, ${jobs.failed || 0} bị lỗi`;
+}
+
+function formatJobStatus(status) {
+  const labels = {
+    queued: "đang chờ",
+    running: "đang chạy",
+    completed: "đã xong",
+    failed: "bị lỗi",
+    cancelled: "đã hủy",
+    canceled: "đã hủy",
+    timed_out: "quá thời gian"
+  };
+
+  return labels[String(status || "").toLowerCase()] || String(status || "chưa rõ");
+}
+
+function formatJobType(type) {
+  const labels = {
+    "newsroom-refresh": "làm mới tòa soạn",
+    "newsroom-link-publish": "đăng bài từ liên kết"
+  };
+
+  return labels[String(type || "").toLowerCase()] || String(type || "tác vụ");
+}
+
+function formatTopicKey(key) {
+  const labels = {
+    ai: "AI",
+    devices: "thiết bị",
+    security: "bảo mật",
+    gaming: "gaming",
+    "apps-software": "ứng dụng và phần mềm",
+    "internet-business-tech": "internet và doanh nghiệp số"
+  };
+
+  return labels[String(key || "").toLowerCase()] || String(key || "chủ đề khác");
+}
+
+function formatSourceTypeKey(key) {
+  const labels = {
+    "official-site": "trang chính thức",
+    "official-social": "mạng xã hội chính thức",
+    press: "báo chí",
+    "established-media": "truyền thông uy tín",
+    community: "cộng đồng",
+    "social-buzz": "tín hiệu mạng xã hội",
+    "editorial-research": "nghiên cứu biên tập"
+  };
+
+  return labels[String(key || "").toLowerCase()] || String(key || "nguồn khác");
+}
+
+function localizeLearningRule(rule) {
+  const normalized = String(rule || "").trim();
+  const translations = new Map([
+    ["prefer practical examples", "ưu tiên ví dụ thực tế"],
+    ["prefer source-backed claims", "ưu tiên nhận định có nguồn chứng minh"],
+    ["prefer specific workflows", "ưu tiên quy trình cụ thể"],
+    ["avoid vague trend language", "tránh nói xu hướng chung chung"],
+    ["avoid thin summaries", "tránh tóm tắt mỏng"],
+    ["avoid repeated source names", "tránh lặp tên nguồn quá nhiều"],
+    ["avoid scraped menu text", "tránh dính menu hoặc chữ thừa từ nguồn"]
+  ]);
+
+  return translations.get(normalized.toLowerCase()) || normalized;
 }
 
 function extractArticleUrls(text) {
@@ -940,12 +1031,12 @@ async function apiCall(token, method, payload) {
   });
 
   if (!response.ok) {
-    throw new Error(`Telegram API ${method} failed with HTTP ${response.status}.`);
+    throw new Error(`Telegram API ${method} bị lỗi HTTP ${response.status}.`);
   }
 
   const body = await response.json();
   if (!body.ok) {
-    throw new Error(body.description || `Telegram API ${method} failed.`);
+    throw new Error(body.description || `Telegram API ${method} bị lỗi.`);
   }
 
   return body.result;
@@ -1045,19 +1136,19 @@ function auditArticleForTelegram(article) {
   const issues = [];
 
   if (sections.length < 4 || totalDepth < 1200) {
-    issues.push(`noi dung mong ${sections.length} muc/${totalDepth} ky tu`);
+    issues.push(`nội dung mỏng ${sections.length} mục/${totalDepth} ký tự`);
   }
 
   if (looksLikeScrapedMenu(combined)) {
-    issues.push("nhiem menu nguon");
+    issues.push("nhiễm menu nguồn");
   }
 
   if (sourceMentionCount >= Math.max(12, sourceNames.length * 3)) {
-    issues.push(`nguon lap ${sourceMentionCount} lan`);
+    issues.push(`lặp tên nguồn ${sourceMentionCount} lần`);
   }
 
   return {
-    title: normalizeText(article?.title) || "Untitled",
+    title: normalizeText(article?.title) || "Chưa có tiêu đề",
     href: article?.href || "",
     issues,
     score: issues.length * 100 + (looksLikeScrapedMenu(combined) ? 50 : 0) + Math.max(0, 1500 - totalDepth) / 100
@@ -1103,7 +1194,7 @@ function normalizeText(value) {
 
 function formatDate(value) {
   if (!value) {
-    return "chua ro";
+    return "chưa rõ";
   }
 
   try {

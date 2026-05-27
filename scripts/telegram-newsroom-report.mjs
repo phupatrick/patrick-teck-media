@@ -11,7 +11,7 @@ const managerStatePath = process.env.OPENCLAW_MANAGER_STATE_PATH || "data/opencl
 const learningStatePath = process.env.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json";
 
 if (!token || chatIds.length === 0) {
-  console.log("Telegram newsroom report skipped because token or report chat ids are not configured.");
+  console.log("Bỏ qua báo cáo Telegram vì chưa cấu hình token hoặc chat nhận báo cáo.");
   process.exit(0);
 }
 
@@ -19,27 +19,27 @@ const content = readJson(contentPath);
 const manager = readJson(managerStatePath);
 const learning = readJson(learningStatePath);
 const articles = Array.isArray(content.articles) ? content.articles : [];
-const latest = articles.slice().sort(sortByPublishedDesc).slice(0, 5);
+const latest = selectLatestNewsArticles(articles, 5);
 const learningProfile = learning.profile || {};
 const message = [
-  "Patrick Tech Media đã cập nhật newsroom",
+  "Patrick Tech Media đã cập nhật tòa soạn",
   "",
   `Tổng bài trong file: ${articles.length}`,
-  `Nguồn: ${manager.newsroom?.refresh?.mode || "unknown"}`,
-  `Submission review: ${manager.platform?.submissionReview?.approved || 0} approved, ${manager.platform?.submissionReview?.held || 0} held`,
-  `Learning: ${learningProfile.totalSignals || 0} signals, ${Math.round((learningProfile.confidence || 0) * 100)}% confidence`,
+  `Nguồn chạy: ${formatRefreshMode(manager.newsroom?.refresh?.mode)}`,
+  `Duyệt bài gửi: ${manager.platform?.submissionReview?.approved || 0} đã duyệt, ${manager.platform?.submissionReview?.held || 0} đang giữ lại`,
+  `Bot học: ${learningProfile.totalSignals || 0} tín hiệu, độ tin cậy ${Math.round((learningProfile.confidence || 0) * 100)}%`,
   "",
   "Bài mới:",
   ...latest.map((article, index) => `${index + 1}. ${article.title}\n${siteUrl}${article.href}`),
   "",
-  `Web: ${siteUrl}/vi/`
+  `Trang web: ${siteUrl}/vi/`
 ].join("\n");
 
 for (const chatId of chatIds) {
   await sendTelegramMessage({ token, chatId, text: message });
 }
 
-console.log(`Telegram newsroom report sent to ${chatIds.length} chat(s).`);
+console.log(`Đã gửi báo cáo Telegram đến ${chatIds.length} chat.`);
 
 function readJson(targetPath) {
   try {
@@ -57,5 +57,25 @@ function normalizeIdList(values) {
 }
 
 function sortByPublishedDesc(left, right) {
-  return Date.parse(right.updated_at || right.published_at || 0) - Date.parse(left.updated_at || left.published_at || 0);
+  return Date.parse(right.published_at || right.updated_at || 0) - Date.parse(left.published_at || left.updated_at || 0);
+}
+
+function selectLatestNewsArticles(sourceArticles, limit) {
+  const news = sourceArticles
+    .filter((article) => article?.content_type === "NewsArticle" && article.verification_state !== "trend")
+    .sort(sortByPublishedDesc);
+
+  return (news.length ? news : sourceArticles.slice().sort(sortByPublishedDesc)).slice(0, limit);
+}
+
+function formatRefreshMode(mode) {
+  const labels = {
+    "external-feed": "nguồn ngoài",
+    "telegram-link": "liên kết gửi từ Telegram",
+    "hidden-feed": "nguồn ẩn",
+    "default": "nguồn mặc định",
+    "unknown": "chưa rõ"
+  };
+
+  return labels[String(mode || "unknown").toLowerCase()] || String(mode || "chưa rõ");
 }

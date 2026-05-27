@@ -56,9 +56,9 @@ const tests = [
         })
       });
 
-      assert.match(response.text, /Audit noi dung/);
+      assert.match(response.text, /Kiểm tra nội dung/);
       assert.match(response.text, /Dirty scraped story/);
-      assert.match(response.text, /nhiem menu nguon/);
+      assert.match(response.text, /nhiễm menu nguồn/);
       assert.doesNotMatch(response.text, /Clean AI package guide/);
     }
   },
@@ -77,10 +77,10 @@ const tests = [
         })
       });
 
-      assert.match(response.text, /Che do tu dong/);
-      assert.match(response.text, /15 phut/);
+      assert.match(response.text, /Chế độ tự động/);
+      assert.match(response.text, /15 phút/);
       assert.match(response.text, /01:00 Asia\/Saigon/);
-      assert.match(response.text, /co quyen \/refresh/);
+      assert.match(response.text, /có quyền \/refresh/);
     }
   },
   {
@@ -167,9 +167,9 @@ const tests = [
 
         const messageCall = calls.find((entry) => entry.method === "sendMessage");
         assert.ok(messageCall);
-        assert.match(messageCall.body.text, /Chat id: -100111222333/);
-        assert.match(messageCall.body.text, /User id: 456789/);
-        assert.doesNotMatch(messageCall.body.text, /chua duoc phep/);
+        assert.match(messageCall.body.text, /Mã chat: -100111222333/);
+        assert.match(messageCall.body.text, /Mã người dùng: 456789/);
+        assert.doesNotMatch(messageCall.body.text, /chưa được phép/);
       } finally {
         globalThis.fetch = previousFetch;
       }
@@ -189,7 +189,7 @@ const tests = [
         }
       });
 
-      assert.match(response.text, /Da nhan link/);
+      assert.match(response.text, /Đã nhận liên kết/);
       assert.equal(dispatches.length, 1);
       assert.equal(dispatches[0].articleUrl, "https://blog.google/technology/ai/source-story?utm=telegram");
       assert.match(dispatches[0].reason, /telegram-link:12345/);
@@ -210,7 +210,7 @@ const tests = [
         }
       });
 
-      assert.match(response.text, /Da nhan link/);
+      assert.match(response.text, /Đã nhận liên kết/);
       assert.equal(dispatches.length, 1);
       assert.equal(dispatches[0].articleUrl, "https://blog.google/technology/ai/source-story");
     }
@@ -230,7 +230,7 @@ const tests = [
         }
       });
 
-      assert.match(response.text, /tu dong up them bai/i);
+      assert.match(response.text, /tự động up thêm bài/i);
       assert.equal(dispatches.length, 1);
       assert.match(dispatches[0].reason, /telegram-up-more:67890/);
       assert.equal(dispatches[0].articleUrl, undefined);
@@ -250,7 +250,7 @@ const tests = [
         }
       });
 
-      assert.match(response.text, /Da ghi nho feedback/);
+      assert.match(response.text, /Đã ghi nhớ phản hồi/);
       assert.equal(feedback.length, 1);
       assert.equal(feedback[0].kind, "more-depth");
       assert.equal(feedback[0].targetUrl, "https://patricktechmedia.com/vi/news/story");

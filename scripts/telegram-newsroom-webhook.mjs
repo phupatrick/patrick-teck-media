@@ -5,12 +5,12 @@ const secret = String(process.env.TELEGRAM_NEWSROOM_WEBHOOK_SECRET || "").trim()
 const deleteMode = process.argv.includes("--delete");
 
 if (!token) {
-  throw new Error("TELEGRAM_NEWSROOM_BOT_TOKEN is required.");
+  throw new Error("Thiếu TELEGRAM_NEWSROOM_BOT_TOKEN.");
 }
 
 if (deleteMode) {
   const result = await telegram("deleteWebhook", { drop_pending_updates: false });
-  console.log(`Newsroom webhook deleted: ${JSON.stringify(result)}`);
+  console.log(`Đã xóa webhook tòa soạn: ${JSON.stringify(result)}`);
 } else {
   const webhookUrl = `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
   const payload = {
@@ -19,7 +19,7 @@ if (deleteMode) {
     ...(secret ? { secret_token: secret } : {})
   };
   const result = await telegram("setWebhook", payload);
-  console.log(`Newsroom webhook set to ${webhookUrl}: ${JSON.stringify(result)}`);
+  console.log(`Đã đặt webhook tòa soạn tới ${webhookUrl}: ${JSON.stringify(result)}`);
 }
 
 async function telegram(method, payload) {
@@ -30,12 +30,12 @@ async function telegram(method, payload) {
   });
 
   if (!response.ok) {
-    throw new Error(`Telegram ${method} failed with HTTP ${response.status}.`);
+    throw new Error(`Telegram ${method} bị lỗi HTTP ${response.status}.`);
   }
 
   const body = await response.json();
   if (!body.ok) {
-    throw new Error(body.description || `Telegram ${method} failed.`);
+    throw new Error(body.description || `Telegram ${method} bị lỗi.`);
   }
 
   return body.result;
