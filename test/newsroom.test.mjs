@@ -3,6 +3,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { buildOpenClawLearningProfile } from "../scripts/openclaw-learning.mjs";
+import { repairNewsroomAudit } from "../scripts/newsroom-audit-repair.mjs";
 import { runNewsroomRefresh } from "../scripts/newsroom-refresh.mjs";
 import {
   buildJsonFeed,
@@ -60,6 +61,43 @@ const tests = [
       assert.match(response.text, /Dirty scraped story/);
       assert.match(response.text, /nhiễm menu nguồn/);
       assert.doesNotMatch(response.text, /Clean AI package guide/);
+    }
+  },
+  {
+    name: "newsroom telegram audit automatically dispatches a repair cycle",
+    async run() {
+      const dispatches = [];
+      const response = await executeNewsroomCommand("/audit", {
+        siteUrl: "https://patricktechmedia.com",
+        userId: "67890",
+        isAdmin: true,
+        dispatchWorkflow: async (input) => {
+          dispatches.push(input);
+          return { ok: true };
+        },
+        getState: async () => ({
+          articles: [
+            {
+              title: "Bài quá mỏng cần sửa",
+              href: "/vi/tin-tuc/bai-qua-mong-can-sua",
+              content_type: "NewsArticle",
+              verification_state: "verified",
+              published_at: "2026-05-27T10:00:00.000Z",
+              summary: "Ngắn.",
+              dek: "Ngắn.",
+              hook: "Ngắn.",
+              sections: [{ heading: "Mỏng", body: "Ngắn." }],
+              source_set: [{ source_name: "Nguồn kiểm tra", source_url: "https://example.com/source" }]
+            }
+          ]
+        })
+      });
+
+      assert.match(response.text, /Xử lý tự động/);
+      assert.match(response.text, /Đã đưa 1 bài cần sửa/);
+      assert.equal(dispatches.length, 1);
+      assert.equal(dispatches[0].auditRepair, true);
+      assert.match(dispatches[0].reason, /telegram-audit-fix:67890/);
     }
   },
   {
@@ -1644,6 +1682,57 @@ const tests = [
       assert.ok(state.articles.every((article) => article.hook.length >= 110));
       assert.ok(state.articles.every((article) => article.sections.reduce((sum, section) => sum + section.body.length, 0) >= 1200));
       assert.ok(state.articles.every((article) => article.readiness?.checks?.valueDensity !== false));
+    }
+  },
+  {
+    name: "audit repair script expands thin articles before committing repaired data",
+    run() {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-audit-repair-"));
+      const outputPath = path.join(tempDir, "newsroom-content.json");
+      const article = makeScenarioArticle({
+        language: "vi",
+        topic: "devices",
+        content_type: "NewsArticle",
+        verification_state: "verified",
+        slug: "bai-mong-can-duoc-sua-tu-dong",
+        title: "Bài mỏng cần được bot sửa tự động trước khi giữ trên web",
+        summary: "Ngắn.",
+        dek: "Ngắn.",
+        hook: "Ngắn.",
+        sections: [{ heading: "Ngắn", body: "Ngắn." }],
+        image: {
+          src: "https://images.example.com/audit-repair.jpg",
+          caption: "Ảnh nguồn phục vụ kiểm tra sửa audit.",
+          credit: "Audit Source",
+          source_url: "https://example.com/audit-repair"
+        },
+        source_set: [
+          {
+            source_type: "press",
+            source_name: "Audit Source",
+            source_url: "https://example.com/audit-repair",
+            region: "VN",
+            language: "vi",
+            trust_tier: "established-media",
+            image_url: "https://images.example.com/audit-repair.jpg",
+            image_caption: "Ảnh nguồn phục vụ kiểm tra sửa audit.",
+            image_credit: "Audit Source"
+          }
+        ]
+      });
+      fs.writeFileSync(outputPath, JSON.stringify({ articles: [article] }, null, 2), "utf8");
+
+      const result = repairNewsroomAudit({
+        targetPath: outputPath,
+        now: "2026-05-27T11:00:00.000Z"
+      });
+      const output = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+
+      assert.equal(result.changed, true);
+      assert.equal(output.articles.length, 1);
+      assert.ok(output.articles[0].sections.length >= 4);
+      assert.equal(output.articles[0].readiness.ready, true);
+      assert.equal(output.articles[0].canonicalUrl, undefined);
     }
   },
   {

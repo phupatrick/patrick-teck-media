@@ -560,6 +560,14 @@ async function buildAuditText(context) {
   const topIssues = audits
     .sort((left, right) => right.score - left.score)
     .slice(0, 6);
+  const repairText = await requestAuditRepair(context, {
+    totalIssues: audits.length,
+    examples: topIssues.map((entry) => ({
+      title: entry.title,
+      href: entry.href,
+      issues: entry.issues
+    }))
+  });
 
   return [
     "Kiểm tra nội dung",
@@ -574,7 +582,10 @@ async function buildAuditText(context) {
       `${index + 1}. ${entry.title}`,
       `Vấn đề: ${entry.issues.join(", ")}`,
       `${context.siteUrl}${entry.href}`
-    ].join("\n"))
+    ].join("\n")),
+    "",
+    "Xử lý tự động:",
+    repairText
   ].join("\n");
 }
 
@@ -652,6 +663,46 @@ async function requestRefresh(context, reasonPrefix = "telegram") {
     "Hiện bot đang chạy trên Vercel để nhận lệnh /status, /latest, /health, /web.",
     "Khi đã thiết lập OpenClaw/GitHub Actions, thêm GITHUB_WORKFLOW_DISPATCH_TOKEN rồi dùng lại /refresh."
   ].join("\n");
+}
+
+async function requestAuditRepair(context, auditSummary) {
+  if (!context.isAdmin && !context.canSubmitLinks) {
+    return "Chat này chưa có quyền tự xử lý lỗi audit.";
+  }
+
+  if (typeof context.dispatchWorkflow === "function") {
+    const result = await context.dispatchWorkflow({
+      reason: `telegram-audit-fix:${context.userId || "admin"}`,
+      auditRepair: true
+    });
+
+    if (result?.ok) {
+      return [
+        `Đã đưa ${auditSummary.totalIssues} bài cần sửa vào quy trình tự động.`,
+        "GitHub Actions sẽ chạy bước sửa audit, chuẩn hóa lại nội dung, lọc bài không đủ điều kiện và commit dữ liệu mới.",
+        "Khi xong, bot sẽ gửi báo cáo Telegram."
+      ].join("\n");
+    }
+  }
+
+  if (context.openClawEnabled && typeof context.createControlJob === "function") {
+    const job = await context.createControlJob({
+      type: "newsroom-audit-repair",
+      capability: "newsroom",
+      command: "node scripts/newsroom-audit-repair.mjs && npm run openclaw:git-sync",
+      payload: {
+        source: "telegram-audit",
+        requestedBy: context.userId || "",
+        auditSummary
+      },
+      priority: 980,
+      leaseSeconds: 1800
+    });
+
+    return `Đã đưa tác vụ sửa audit vào hàng đợi OpenClaw: ${job.id}`;
+  }
+
+  return "Đã phát hiện lỗi, nhưng chưa có GITHUB_WORKFLOW_DISPATCH_TOKEN hoặc OpenClaw worker để tự sửa. Cần bật một trong hai đường này.";
 }
 
 async function requestArticlePublish(context, articleUrl) {

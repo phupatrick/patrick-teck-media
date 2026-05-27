@@ -1433,13 +1433,18 @@ async function dispatchNewsroomWorkflow(input = {}) {
   }
 
   const articleUrl = normalizeWorkflowArticleUrl(input.articleUrl);
+  const auditRepair = Boolean(input.auditRepair);
   const workflowInputs = {
-    source: articleUrl ? "telegram-link" : "telegram",
+    source: auditRepair ? "telegram-audit" : articleUrl ? "telegram-link" : "telegram",
     reason: String(input.reason || "").slice(0, 120)
   };
 
   if (articleUrl) {
     workflowInputs.article_url = articleUrl;
+  }
+
+  if (auditRepair) {
+    workflowInputs.repair_audit = "1";
   }
 
   const response = await fetch(`https://api.github.com/repos/${repository}/actions/workflows/${workflowFile}/dispatches`, {

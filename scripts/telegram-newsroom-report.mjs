@@ -26,6 +26,9 @@ const message = [
   "",
   `Tổng bài trong file: ${articles.length}`,
   `Nguồn chạy: ${formatRefreshMode(manager.newsroom?.refresh?.mode)}`,
+  manager.newsroom?.auditRepair?.skipped
+    ? "Sửa audit: không yêu cầu trong chu kỳ này"
+    : `Sửa audit: ${manager.newsroom?.auditRepair?.ok ? "đã chạy" : "chưa chạy"}`,
   `Duyệt bài gửi: ${manager.platform?.submissionReview?.approved || 0} đã duyệt, ${manager.platform?.submissionReview?.held || 0} đang giữ lại`,
   `Bot học: ${learningProfile.totalSignals || 0} tín hiệu, độ tin cậy ${Math.round((learningProfile.confidence || 0) * 100)}%`,
   "",

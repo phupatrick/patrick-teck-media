@@ -14,6 +14,7 @@ const config = {
   ownerBriefPath: process.env.OPENCLAW_OWNER_BRIEF_PATH || envFromFile.OPENCLAW_OWNER_BRIEF_PATH || "data/openclaw-owner-brief.json",
   platformStatePath: process.env.PLATFORM_STATE_PATH || envFromFile.PLATFORM_STATE_PATH || "data/platform-state.json",
   managerStatePath: process.env.OPENCLAW_MANAGER_STATE_PATH || envFromFile.OPENCLAW_MANAGER_STATE_PATH || "data/openclaw-manager-state.json",
+  auditRepair: /^(1|true|yes|on)$/i.test(String(process.env.NEWSROOM_AUDIT_REPAIR || envFromFile.NEWSROOM_AUDIT_REPAIR || "")),
   hiddenFeedPath:
     process.env.NEWSROOM_PULL_FILE ||
     envFromFile.NEWSROOM_PULL_FILE ||
@@ -30,6 +31,7 @@ const config = {
 const startedAt = new Date().toISOString();
 const feedSource = ensureHiddenFeedSource();
 const refresh = runRefreshCycle(feedSource.refreshSource);
+const auditRepair = config.auditRepair ? runAuditRepairCycle() : { ok: true, skipped: true, output: "Audit repair was not requested.", warnings: "" };
 const learning = runLearningCycle();
 const webControl = runWebControlCycle();
 const ownerBrief = readJson(config.ownerBriefPath);
@@ -48,6 +50,7 @@ const managerSnapshot = buildManagerSnapshot({
   finishedAt: new Date().toISOString(),
   feedSource,
   refresh,
+  auditRepair,
   learning,
   webControl,
   ownerBrief,
@@ -249,7 +252,40 @@ function runWebControlCycle() {
   };
 }
 
-function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, learning, webControl, ownerBrief, submissionReview, contentPath, platformStatePath, webStatePath }) {
+function runAuditRepairCycle() {
+  const scriptPath = path.resolve(rootDir, "scripts/newsroom-audit-repair.mjs");
+  const result = spawnSync(process.execPath, [scriptPath], {
+    cwd: rootDir,
+    env: {
+      ...process.env,
+      SITE_URL: config.siteUrl,
+      PATRICK_TECH_STORE_URL: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+      NEWSROOM_CONTENT_PATH: config.contentPath
+    },
+    encoding: "utf8"
+  });
+
+  if (result.stdout) {
+    process.stdout.write(result.stdout);
+  }
+
+  if (result.stderr) {
+    process.stderr.write(result.stderr);
+  }
+
+  if (result.status !== 0) {
+    throw new Error(result.stderr || result.stdout || "The newsroom audit repair cycle failed.");
+  }
+
+  return {
+    ok: true,
+    exitCode: result.status || 0,
+    output: compactText(result.stdout),
+    warnings: compactText(result.stderr)
+  };
+}
+
+function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, auditRepair, learning, webControl, ownerBrief, submissionReview, contentPath, platformStatePath, webStatePath }) {
   const payload = readJson(contentPath);
   const articles = Array.isArray(payload?.articles) ? payload.articles : [];
 
@@ -274,6 +310,7 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, lear
         url: feedSource.refreshSource?.url || feedSource.refreshSource?.singleUrl || ""
       },
       refresh,
+      auditRepair,
       learning,
       webControl
     },

@@ -15,6 +15,10 @@ on:
         description: "Single source URL submitted from Telegram"
         required: false
         default: ""
+      repair_audit:
+        description: "Run automatic audit repair before publishing"
+        required: false
+        default: ""
   schedule:
     - cron: "*/15 * * * *"
 
@@ -54,6 +58,7 @@ jobs:
           NEWSROOM_PULL_URL: ${{ secrets.NEWSROOM_PULL_URL }}
           NEWSROOM_PULL_TOKEN: ${{ secrets.NEWSROOM_PULL_TOKEN }}
           NEWSROOM_SINGLE_URL: ${{ github.event.inputs.article_url || '' }}
+          NEWSROOM_AUDIT_REPAIR: ${{ github.event.inputs.repair_audit || '' }}
           OPENCLAW_NEWSROOM_URL: ${{ secrets.OPENCLAW_NEWSROOM_URL }}
           OPENCLAW_NEWSROOM_TOKEN: ${{ secrets.OPENCLAW_NEWSROOM_TOKEN }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}

@@ -4,6 +4,7 @@ const workflowFile = String(process.env.GITHUB_WORKFLOW_FILE || "newsroom-refres
 const ref = String(process.env.GITHUB_WORKFLOW_REF || "main").trim();
 const reason = process.argv.slice(2).join(" ").trim() || "manual-dispatch-script";
 const articleUrl = String(process.env.NEWSROOM_SINGLE_URL || process.env.NEWSROOM_ARTICLE_URL || "").trim();
+const auditRepair = /^(1|true|yes|on)$/i.test(String(process.env.NEWSROOM_AUDIT_REPAIR || ""));
 
 if (!token) {
   throw new Error("GITHUB_WORKFLOW_DISPATCH_TOKEN is required.");
@@ -20,9 +21,10 @@ const response = await fetch(`https://api.github.com/repos/${repository}/actions
   body: JSON.stringify({
     ref,
     inputs: {
-      source: articleUrl ? "script-link" : "script",
+      source: auditRepair ? "script-audit" : articleUrl ? "script-link" : "script",
       reason: reason.slice(0, 120),
-      ...(articleUrl ? { article_url: articleUrl.slice(0, 500) } : {})
+      ...(articleUrl ? { article_url: articleUrl.slice(0, 500) } : {}),
+      ...(auditRepair ? { repair_audit: "1" } : {})
     }
   })
 });
