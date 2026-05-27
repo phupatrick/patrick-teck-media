@@ -216,6 +216,27 @@ const tests = [
     }
   },
   {
+    name: "newsroom telegram up command lets an approved chat trigger more auto publishing",
+    async run() {
+      const dispatches = [];
+      const response = await executeNewsroomCommand("/up", {
+        siteUrl: "https://patricktechmedia.com",
+        userId: "67890",
+        isAdmin: false,
+        canSubmitLinks: true,
+        dispatchWorkflow: async (input) => {
+          dispatches.push(input);
+          return { ok: true };
+        }
+      });
+
+      assert.match(response.text, /tu dong up them bai/i);
+      assert.equal(dispatches.length, 1);
+      assert.match(dispatches[0].reason, /telegram-up-more:67890/);
+      assert.equal(dispatches[0].articleUrl, undefined);
+    }
+  },
+  {
     name: "newsroom telegram feedback command teaches the learning store",
     async run() {
       const feedback = [];

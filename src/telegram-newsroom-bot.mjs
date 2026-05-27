@@ -9,6 +9,7 @@ const DEFAULT_COMMANDS = [
   { command: "web", description: "Mở liên kết quản lý web" },
   { command: "id", description: "Lấy Telegram chat id và user id" },
   { command: "submit", description: "Đọc, xác thực và đăng bài từ link" },
+  { command: "up", description: "Tự động up thêm bài mới" },
   { command: "refresh", description: "Yêu cầu làm mới tòa soạn" },
   { command: "jobs", description: "Xem hàng đợi OpenClaw" },
   { command: "setup", description: "Xem checklist cài đặt" },
@@ -31,6 +32,7 @@ const HELP_TEXT = [
   "/web - liên kết quản lý web",
   "/setup - checklist cài đặt trên Vercel",
   "/submit <url> - đọc, xác thực và đăng bài từ link nguồn",
+  "/up - tự động up thêm bài mới",
   "/refresh - yêu cầu làm mới tòa soạn, chỉ admin dùng được",
   "/jobs - tóm tắt hàng đợi OpenClaw",
   "/help - danh sách lệnh",
@@ -322,6 +324,14 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return submitNewsroomLink(linkText, context);
   }
 
+  if (command === "/up" || command === "/upbai" || command === "/dangbai") {
+    if (!context.isAdmin && !context.canSubmitLinks) {
+      throw new Error("Chat nay chua duoc phep yeu cau bot tu dong up bai.");
+    }
+
+    return { text: await requestRefresh(context, "telegram-up-more") };
+  }
+
   if (command === "/jobs") {
     return { text: await buildJobsText(context) };
   }
@@ -607,14 +617,16 @@ async function buildJobsText(context) {
   ].join("\n").trim();
 }
 
-async function requestRefresh(context) {
+async function requestRefresh(context, reasonPrefix = "telegram") {
   if (typeof context.dispatchWorkflow === "function") {
     const result = await context.dispatchWorkflow({
-      reason: `telegram:${context.userId || "admin"}`
+      reason: `${reasonPrefix}:${context.userId || "admin"}`
     });
 
     if (result?.ok) {
-      return "Da yeu cau GitHub Actions chay OpenClaw manager. Khi xong bot se bao cao neu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS da cau hinh.";
+      return reasonPrefix === "telegram-up-more"
+        ? "Da yeu cau bot tu dong up them bai. GitHub Actions dang chay OpenClaw manager; khi xong bot se bao cao tren Telegram."
+        : "Da yeu cau GitHub Actions chay OpenClaw manager. Khi xong bot se bao cao neu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS da cau hinh.";
     }
   }
 
@@ -624,14 +636,16 @@ async function requestRefresh(context) {
       capability: "newsroom",
       command: "npm run openclaw:manage && npm run openclaw:git-sync",
       payload: {
-        source: "telegram",
+        source: reasonPrefix,
         requestedBy: context.userId || ""
       },
       priority: 900,
       leaseSeconds: 1800
     });
 
-    return `Da dua job refresh vao hang doi OpenClaw: ${job.id}`;
+    return reasonPrefix === "telegram-up-more"
+      ? `Da dua job tu dong up bai vao hang doi OpenClaw: ${job.id}`
+      : `Da dua job refresh vao hang doi OpenClaw: ${job.id}`;
   }
 
   return [
@@ -734,30 +748,31 @@ function buildMenuMarkup(active = "menu") {
   return {
     inline_keyboard: [
       [
-        button(selected("status", "Status"), "newsroom:status"),
-        button(selected("auto", "Auto"), "newsroom:auto")
+        button(selected("status", "Trạng thái"), "newsroom:status"),
+        button(selected("auto", "Tự động"), "newsroom:auto")
       ],
       [
-        button(selected("latest", "Latest"), "newsroom:latest"),
-        button(selected("audit", "Audit"), "newsroom:audit")
+        button(selected("up", "Tự động up bài"), "newsroom:up"),
+        button(selected("latest", "Bài mới"), "newsroom:latest")
       ],
       [
-        button(selected("health", "Health"), "newsroom:health"),
-        button(selected("web", "Web links"), "newsroom:web")
+        button(selected("audit", "Kiểm tra bài"), "newsroom:audit"),
+        button(selected("health", "Sức khỏe web"), "newsroom:health")
       ],
       [
-        button(selected("jobs", "Jobs"), "newsroom:jobs"),
-        button(selected("learn", "Learn"), "newsroom:learn")
+        button(selected("web", "Link quản lý"), "newsroom:web"),
+        button(selected("jobs", "Hàng đợi"), "newsroom:jobs")
       ],
       [
-        button(selected("id", "IDs"), "newsroom:id"),
-        button(selected("setup", "Setup"), "newsroom:setup")
+        button(selected("learn", "Bot học"), "newsroom:learn"),
+        button(selected("id", "Lấy ID"), "newsroom:id")
       ],
       [
-        button(selected("refresh", "Refresh"), "newsroom:refresh")
+        button(selected("setup", "Cài đặt"), "newsroom:setup"),
+        button(selected("refresh", "Làm mới"), "newsroom:refresh")
       ],
       [
-        button("Open site", "newsroom:site"),
+        button("Mở web", "newsroom:site"),
         button("Menu", "newsroom:menu")
       ]
     ]
@@ -784,6 +799,7 @@ function mapCallbackToCommand(action) {
     "newsroom:id": "/id",
     "newsroom:setup": "/setup",
     "newsroom:jobs": "/jobs",
+    "newsroom:up": "/up",
     "newsroom:refresh": "/refresh",
     "newsroom:site": "/web"
   };
