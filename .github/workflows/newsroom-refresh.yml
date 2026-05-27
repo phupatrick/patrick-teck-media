@@ -42,6 +42,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Wake Vercel webhook self-registration
+        continue-on-error: true
+        env:
+          SITE_URL: https://patricktechmedia.com
+        run: |
+          curl --fail --silent --show-error --location --user-agent "github-actions-newsroom-wake" "${SITE_URL%/}/vi/" > /dev/null
+
       - name: Run OpenClaw manager
         env:
           NEWSROOM_PULL_URL: ${{ secrets.NEWSROOM_PULL_URL }}

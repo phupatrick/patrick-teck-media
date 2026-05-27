@@ -57,23 +57,61 @@ export function createTelegramNewsroomBot(options = {}) {
   const createControlJob = options.createControlJob;
   const dispatchWorkflow = options.dispatchWorkflow;
   const openClawEnabled = Boolean(options.openClawEnabled);
+  const webhookUrl = normalizeWebhookUrl(options.webhookUrl || "");
+  const webhookSecret = String(options.webhookSecret || "").trim();
+  const autoRegisterWebhook = options.autoRegisterWebhook !== false && Boolean(webhookUrl);
   let botProfile = null;
+  let webhookStatus = {
+    enabled: autoRegisterWebhook,
+    url: webhookUrl,
+    lastAttemptAt: "",
+    registeredAt: "",
+    lastError: ""
+  };
 
   return {
     async initialize() {
-      if (!token || botProfile) {
-        return Boolean(token);
+      if (!token) {
+        return false;
       }
 
-      botProfile = await apiCall(token, "getMe", {});
+      if (!botProfile) {
+        botProfile = await apiCall(token, "getMe", {});
 
-      try {
-        await apiCall(token, "setMyCommands", { commands: DEFAULT_COMMANDS });
-      } catch {
-        // Command registration is optional.
+        try {
+          await apiCall(token, "setMyCommands", { commands: DEFAULT_COMMANDS });
+        } catch {
+          // Command registration is optional.
+        }
+      }
+
+      if (autoRegisterWebhook) {
+        const shouldTryWebhook = !webhookStatus.registeredAt || shouldRetryWebhook(webhookStatus.lastAttemptAt, webhookStatus.lastError);
+        try {
+          if (shouldTryWebhook) {
+            const attemptedAt = new Date().toISOString();
+            await registerWebhook({ token, webhookUrl, webhookSecret });
+            webhookStatus = {
+              enabled: true,
+              url: webhookUrl,
+              lastAttemptAt: attemptedAt,
+              registeredAt: attemptedAt,
+              lastError: ""
+            };
+          }
+        } catch (error) {
+          webhookStatus = {
+            ...webhookStatus,
+            lastAttemptAt: new Date().toISOString(),
+            lastError: error.message || "Webhook registration failed."
+          };
+        }
       }
 
       return true;
+    },
+    getWebhookStatus() {
+      return { ...webhookStatus };
     },
     async handleUpdate(update) {
       await this.initialize();
@@ -109,6 +147,7 @@ export function createTelegramNewsroomBot(options = {}) {
           getControlSummary,
           getLearningSummary,
           addLearningFeedback,
+          getWebhookStatus: () => ({ ...webhookStatus }),
           createControlJob,
           dispatchWorkflow,
           openClawEnabled
@@ -161,6 +200,7 @@ export function createTelegramNewsroomBot(options = {}) {
         getControlSummary,
         getLearningSummary,
         addLearningFeedback,
+        getWebhookStatus: () => ({ ...webhookStatus }),
         createControlJob,
         dispatchWorkflow,
         openClawEnabled
@@ -399,16 +439,30 @@ async function buildStatusText(context) {
 }
 
 async function buildAutomationText(context) {
-  const control = await context.getControlSummary?.().catch(() => null);
+  const controlPromise = typeof context.getControlSummary === "function"
+    ? context.getControlSummary().catch(() => null)
+    : Promise.resolve(null);
+  const [control, webhook] = await Promise.all([
+    controlPromise,
+    Promise.resolve(typeof context.getWebhookStatus === "function" ? context.getWebhookStatus() : null)
+  ]);
   const jobs = control?.jobs || {};
   const openClawQueueText = control
     ? `${jobs.queued || 0} queued, ${jobs.running || 0} running, ${jobs.failed || 0} failed`
     : "chua co du lieu control";
+  const webhookText = webhook?.enabled
+    ? webhook.lastError
+      ? `tu dong bat nhung loi: ${webhook.lastError}`
+      : webhook.registeredAt
+        ? `tu dong OK luc ${formatDate(webhook.registeredAt)}`
+        : "tu dong dang cho cold start"
+    : "tat hoac chua co webhook URL";
 
   return [
     "Che do tu dong",
     "",
     "Telegram webhook: Vercel nhan lenh 24/24 theo kieu serverless.",
+    `Auto webhook: ${webhookText}`,
     "Newsroom refresh: GitHub Actions chay moi 15 phut.",
     "Vercel cron fallback: goi /api/openclaw/cron moi ngay 01:00 Asia/Saigon.",
     "Bao cao Telegram: gui sau moi chu ky neu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS da cau hinh.",
@@ -661,9 +715,10 @@ function buildSetupText(context) {
     "4. Them chat id vao TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS.",
     "5. Them user id cua ban vao TELEGRAM_NEWSROOM_ADMIN_USER_IDS.",
     "6. Them TELEGRAM_NEWSROOM_WEBHOOK_SECRET vao Vercel env.",
-    "7. Redeploy Vercel.",
-    "8. Chay npm run telegram:newsroom:webhook:set.",
-    "9. Them GITHUB_WORKFLOW_DISPATCH_TOKEN de bot nhan link va day len GitHub Actions.",
+    "7. De TELEGRAM_NEWSROOM_AUTO_WEBHOOK=1 de Vercel tu dang ky webhook.",
+    "8. Them GITHUB_WORKFLOW_DISPATCH_TOKEN de bot nhan link va day len GitHub Actions.",
+    "9. Them DATABASE_URL de feedback/learning luu ben vung 24/24.",
+    "10. Redeploy Vercel.",
     "",
     `Site dang cau hinh: ${context.siteUrl}/vi/`
   ].join("\n");
@@ -879,6 +934,28 @@ async function apiCall(token, method, payload) {
   return body.result;
 }
 
+async function registerWebhook({ token, webhookUrl, webhookSecret }) {
+  return apiCall(token, "setWebhook", {
+    url: webhookUrl,
+    allowed_updates: ["message", "edited_message", "callback_query"],
+    drop_pending_updates: false,
+    ...(webhookSecret ? { secret_token: webhookSecret } : {})
+  });
+}
+
+function shouldRetryWebhook(lastAttemptAt, lastError) {
+  if (!lastError) {
+    return false;
+  }
+
+  const timestamp = Date.parse(lastAttemptAt || "");
+  if (!Number.isFinite(timestamp)) {
+    return true;
+  }
+
+  return Date.now() - timestamp > 5 * 60 * 1000;
+}
+
 function stripBotMention(text, username = "") {
   if (!username) {
     return text;
@@ -895,6 +972,20 @@ function normalizeIdList(values) {
 
 function normalizeSiteUrl(value) {
   return String(value || "").trim().replace(/\/+$/, "") || "https://patricktechmedia.com";
+}
+
+function normalizeWebhookUrl(value) {
+  const raw = String(value || "").trim();
+  if (!raw) {
+    return "";
+  }
+
+  try {
+    const url = new URL(raw);
+    return ["http:", "https:"].includes(url.protocol) ? url.toString() : "";
+  } catch {
+    return "";
+  }
 }
 
 function sortByPublishedDesc(left, right) {

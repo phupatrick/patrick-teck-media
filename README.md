@@ -315,6 +315,7 @@ TELEGRAM_NEWSROOM_ADMIN_USER_IDS=
 TELEGRAM_NEWSROOM_REPORT_CHAT_IDS=
 TELEGRAM_NEWSROOM_WEBHOOK_PATH=/api/telegram/newsroom/webhook
 TELEGRAM_NEWSROOM_WEBHOOK_SECRET=
+TELEGRAM_NEWSROOM_AUTO_WEBHOOK=1
 OPENCLAW_LEARNING_STATE_PATH=data/openclaw-learning-state.json
 GITHUB_WORKFLOW_DISPATCH_TOKEN=
 GITHUB_WORKFLOW_REPOSITORY=phupatrick/patrick-teck-media
@@ -325,11 +326,7 @@ CRON_SECRET=
 
 `TELEGRAM_NEWSROOM_ADMIN_USER_IDS` must include your Telegram numeric user id before `/refresh` can dispatch automation.
 
-Register the Telegram webhook after deployment:
-
-```powershell
-npm run telegram:newsroom:webhook:set
-```
+The Telegram webhook self-registers from Vercel when `TELEGRAM_NEWSROOM_AUTO_WEBHOOK=1`, `SITE_URL`, `TELEGRAM_NEWSROOM_BOT_TOKEN`, `TELEGRAM_NEWSROOM_WEBHOOK_PATH`, and `TELEGRAM_NEWSROOM_WEBHOOK_SECRET` are present. The 15-minute GitHub Actions cycle also wakes the production site so Vercel can refresh the webhook without your local machine running. The `telegram:newsroom:webhook:set` script remains only as a repair tool for local/manual recovery.
 
 Delete it if you need to rotate tokens:
 

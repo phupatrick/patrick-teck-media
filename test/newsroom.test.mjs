@@ -16,7 +16,7 @@ import {
 } from "../src/newsroom-service.mjs";
 import { buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
-import { executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
+import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
 
 const state = createState();
 const tests = [
@@ -81,6 +81,51 @@ const tests = [
       assert.match(response.text, /15 phut/);
       assert.match(response.text, /01:00 Asia\/Saigon/);
       assert.match(response.text, /co quyen \/refresh/);
+    }
+  },
+  {
+    name: "newsroom telegram bot auto-registers its Vercel webhook",
+    async run() {
+      const calls = [];
+      const previousFetch = globalThis.fetch;
+      globalThis.fetch = async (url, options = {}) => {
+        const method = String(url).split("/").pop();
+        const body = options.body ? JSON.parse(options.body) : {};
+        calls.push({ method, body });
+
+        if (method === "getMe") {
+          return new Response(JSON.stringify({ ok: true, result: { username: "patrick_tech_admin_bot" } }), { status: 200 });
+        }
+
+        if (method === "setMyCommands" || method === "setWebhook") {
+          return new Response(JSON.stringify({ ok: true, result: true }), { status: 200 });
+        }
+
+        throw new Error(`Unexpected Telegram method ${method}`);
+      };
+
+      try {
+        const bot = createTelegramNewsroomBot({
+          token: "123:test",
+          siteUrl: "https://patricktechmedia.com",
+          webhookUrl: "https://patricktechmedia.com/api/telegram/newsroom/webhook",
+          webhookSecret: "test-secret",
+          autoRegisterWebhook: true
+        });
+
+        await bot.initialize();
+
+        const webhookCall = calls.find((entry) => entry.method === "setWebhook");
+        assert.ok(webhookCall);
+        assert.equal(webhookCall.body.url, "https://patricktechmedia.com/api/telegram/newsroom/webhook");
+        assert.deepEqual(webhookCall.body.allowed_updates, ["message", "edited_message", "callback_query"]);
+        assert.equal(webhookCall.body.secret_token, "test-secret");
+        assert.equal(webhookCall.body.drop_pending_updates, false);
+        assert.equal(bot.getWebhookStatus().lastError, "");
+        assert.ok(bot.getWebhookStatus().registeredAt);
+      } finally {
+        globalThis.fetch = previousFetch;
+      }
     }
   },
   {

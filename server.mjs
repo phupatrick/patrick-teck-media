@@ -104,6 +104,7 @@ const config = {
   telegramNewsroomAdminUserIds: (process.env.TELEGRAM_NEWSROOM_ADMIN_USER_IDS || envFromFile.TELEGRAM_NEWSROOM_ADMIN_USER_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
   telegramNewsroomWebhookPath: process.env.TELEGRAM_NEWSROOM_WEBHOOK_PATH || envFromFile.TELEGRAM_NEWSROOM_WEBHOOK_PATH || "/api/telegram/newsroom/webhook",
   telegramNewsroomWebhookSecret: process.env.TELEGRAM_NEWSROOM_WEBHOOK_SECRET || envFromFile.TELEGRAM_NEWSROOM_WEBHOOK_SECRET || "",
+  telegramNewsroomAutoWebhook: !isExplicitlyDisabled(process.env.TELEGRAM_NEWSROOM_AUTO_WEBHOOK || envFromFile.TELEGRAM_NEWSROOM_AUTO_WEBHOOK || "1"),
   githubWorkflowDispatchToken: process.env.GITHUB_WORKFLOW_DISPATCH_TOKEN || envFromFile.GITHUB_WORKFLOW_DISPATCH_TOKEN || "",
   githubWorkflowRepository: process.env.GITHUB_WORKFLOW_REPOSITORY || envFromFile.GITHUB_WORKFLOW_REPOSITORY || "phupatrick/patrick-teck-media",
   githubWorkflowFile: process.env.GITHUB_WORKFLOW_FILE || envFromFile.GITHUB_WORKFLOW_FILE || "newsroom-refresh.yml",
@@ -269,11 +270,15 @@ const openclawLearningStore = createOpenClawLearningStore({
 });
 const TELEGRAM_SELLER_WEBHOOK_PATH = normalizeWebhookPath(config.telegramWebhookPath);
 const TELEGRAM_NEWSROOM_WEBHOOK_PATH = normalizeWebhookPath(config.telegramNewsroomWebhookPath);
+const TELEGRAM_NEWSROOM_WEBHOOK_URL = buildPublicUrl(config.siteUrl, TELEGRAM_NEWSROOM_WEBHOOK_PATH);
 const telegramNewsroomBot = createTelegramNewsroomBot({
   token: config.telegramNewsroomBotToken,
   allowedChatIds: config.telegramNewsroomAllowedChatIds,
   adminUserIds: config.telegramNewsroomAdminUserIds,
   siteUrl: config.siteUrl,
+  webhookUrl: TELEGRAM_NEWSROOM_WEBHOOK_URL,
+  webhookSecret: config.telegramNewsroomWebhookSecret,
+  autoRegisterWebhook: config.telegramNewsroomAutoWebhook,
   getState: () => getState(config.siteUrl),
   getControlSummary: () => openclawControlPlane.getSummary(),
   getLearningSummary: () => openclawLearningStore.getSummary(),
@@ -1866,6 +1871,12 @@ function normalizeSiteUrl(value) {
   return normalized || config.siteUrl;
 }
 
+function buildPublicUrl(baseUrl, pathname) {
+  const base = String(baseUrl || config.siteUrl || "").trim().replace(/\/+$/, "");
+  const pathValue = normalizeWebhookPath(pathname);
+  return `${base}${pathValue}`;
+}
+
 function normalizeWebhookPath(value) {
   const normalized = String(value || "").trim();
   if (!normalized) {
@@ -1873,6 +1884,10 @@ function normalizeWebhookPath(value) {
   }
 
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
+}
+
+function isExplicitlyDisabled(value) {
+  return /^(0|false|no|off)$/i.test(String(value || "").trim());
 }
 
 function resolveSessionSecret(value, siteUrl) {
