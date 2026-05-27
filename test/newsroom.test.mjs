@@ -129,6 +129,53 @@ const tests = [
     }
   },
   {
+    name: "newsroom telegram bot exposes setup ids before allowlist is configured",
+    async run() {
+      const calls = [];
+      const previousFetch = globalThis.fetch;
+      globalThis.fetch = async (url, options = {}) => {
+        const method = String(url).split("/").pop();
+        const body = options.body ? JSON.parse(options.body) : {};
+        calls.push({ method, body });
+
+        if (method === "getMe") {
+          return new Response(JSON.stringify({ ok: true, result: { username: "patrick_tech_admin_bot" } }), { status: 200 });
+        }
+
+        if (method === "setMyCommands" || method === "sendMessage") {
+          return new Response(JSON.stringify({ ok: true, result: true }), { status: 200 });
+        }
+
+        throw new Error(`Unexpected Telegram method ${method}`);
+      };
+
+      try {
+        const bot = createTelegramNewsroomBot({
+          token: "123:test",
+          siteUrl: "https://patricktechmedia.com",
+          autoRegisterWebhook: false
+        });
+
+        await bot.handleUpdate({
+          message: {
+            message_id: 1,
+            text: "/id",
+            chat: { id: -100111222333 },
+            from: { id: 456789 }
+          }
+        });
+
+        const messageCall = calls.find((entry) => entry.method === "sendMessage");
+        assert.ok(messageCall);
+        assert.match(messageCall.body.text, /Chat id: -100111222333/);
+        assert.match(messageCall.body.text, /User id: 456789/);
+        assert.doesNotMatch(messageCall.body.text, /chua duoc phep/);
+      } finally {
+        globalThis.fetch = previousFetch;
+      }
+    }
+  },
+  {
     name: "newsroom telegram submit command dispatches a verified source link",
     async run() {
       const dispatches = [];

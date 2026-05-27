@@ -126,13 +126,14 @@ export function createTelegramNewsroomBot(options = {}) {
         return;
       }
 
-      if (!isAllowedChat(message.chat)) {
-        await sendMessage(message.chat.id, "Chat nay chua duoc phep dieu khien newsroom bot.");
+      const text = String(message.text || message.caption || "").trim();
+      if (!text) {
         return;
       }
 
-      const text = String(message.text || message.caption || "").trim();
-      if (!text) {
+      const publicSetupCommand = isPublicSetupCommand(text, botProfile?.username || "");
+      if (!isAllowedChat(message.chat) && !publicSetupCommand) {
+        await sendMessage(message.chat.id, "Chat nay chua duoc phep dieu khien newsroom bot. Gui /id de lay Chat id va User id cau hinh tren Vercel.");
         return;
       }
 
@@ -962,6 +963,12 @@ function stripBotMention(text, username = "") {
   }
 
   return text.replace(new RegExp(`^(/\\w+)@${username}\\b`, "i"), "$1");
+}
+
+function isPublicSetupCommand(text, username = "") {
+  const commandText = stripBotMention(String(text || "").trim(), username);
+  const [firstToken] = commandText.split(/\s+/);
+  return ["/id", "/setup", "/ping", "/help", "/start"].includes(String(firstToken || "").toLowerCase());
 }
 
 function normalizeIdList(values) {
