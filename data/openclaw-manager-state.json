@@ -4,16 +4,16 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-05-27T20:09:49.808Z",
-    "finishedAt": "2026-05-27T20:11:00.012Z"
+    "startedAt": "2026-05-27T21:52:05.178Z",
+    "finishedAt": "2026-05-27T21:53:26.071Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 338,
+    "totalArticles": 339,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 338 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1779912589840-d2c533.json Generated OpenClaw hidden feed with 338 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 339 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1779918725209-f3b046.json Generated OpenClaw hidden feed with 339 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -22,19 +22,19 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 338 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "output": "Refreshed 339 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     },
     "auditRepair": {
       "ok": true,
-      "exitCode": 0,
-      "output": "Không có bài nào cần sửa trong /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json.",
+      "skipped": true,
+      "output": "Audit repair was not requested.",
       "warnings": ""
     },
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 338 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 339 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -49,7 +49,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-05-27T20:11:00.012Z",
+      "reviewedAt": "2026-05-27T21:53:26.070Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
