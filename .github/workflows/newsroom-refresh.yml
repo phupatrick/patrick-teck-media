@@ -65,14 +65,18 @@ jobs:
         run: node scripts/openclaw-manager.mjs
 
       - name: Sync generated data to cloud storage
-        if: ${{ secrets.DATABASE_URL != '' }}
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           NEWSROOM_CONTENT_PATH: data/newsroom-content.json
           OPENCLAW_WEB_STATE_PATH: data/openclaw-web-state.json
           OPENCLAW_LEARNING_STATE_PATH: data/openclaw-learning-state.json
           PLATFORM_STATE_PATH: data/platform-state.json
-        run: npm run storage:sync
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "DATABASE_URL is not configured; skipping storage sync."
+            exit 0
+          fi
+          npm run storage:sync
 
       - name: Verify and publish OpenClaw changes
         env:
@@ -83,7 +87,7 @@ jobs:
         run: node scripts/openclaw-git-sync.mjs
 
       - name: Report newsroom status to Telegram
-        if: ${{ always() && secrets.TELEGRAM_NEWSROOM_BOT_TOKEN != '' && secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS != '' }}
+        if: ${{ always() }}
         env:
           TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}
           TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: ${{ secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS }}
@@ -91,4 +95,9 @@ jobs:
           NEWSROOM_CONTENT_PATH: data/newsroom-content.json
           OPENCLAW_MANAGER_STATE_PATH: data/openclaw-manager-state.json
           OPENCLAW_LEARNING_STATE_PATH: data/openclaw-learning-state.json
-        run: node scripts/telegram-newsroom-report.mjs
+        run: |
+          if [ -z "$TELEGRAM_NEWSROOM_BOT_TOKEN" ] || [ -z "$TELEGRAM_NEWSROOM_REPORT_CHAT_IDS" ]; then
+            echo "Telegram report env is not configured; skipping report."
+            exit 0
+          fi
+          node scripts/telegram-newsroom-report.mjs
