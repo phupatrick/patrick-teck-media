@@ -390,6 +390,12 @@ export function getHomeData(state, language) {
   const sameDayReadyStories = prioritizeFrontPageStories(
     readyPrioritized.filter((article) => isStoryPublishedOnAnchorDay(article, state.runtime.generatedAt))
   );
+  const guideLedTipCandidates = prioritizeFrontPageStories(sortStoriesForFrontPage(
+    localized.filter((article) => isPracticalTipsCandidate(article) && isGuideLedTipsCandidate(article)),
+    state.runtime.generatedAt,
+    state.site.frontPageTopicWeights,
+    state.site.frontPageSourceWeights
+  ));
   const featured =
     sameDayLeadStories.find((article) => isFrontPageReady(article)) ||
     sameDayLeadStories.find((article) => article.hero_image?.kind === "source") ||
@@ -404,7 +410,11 @@ export function getHomeData(state, language) {
     prioritized[0] ||
     localized[0];
   const freshnessAnchor = featured?.updated_at || featured?.published_at || readyPrioritized[0]?.updated_at || readyPrioritized[0]?.published_at;
-  const sameDayBriefingStories = readyPrioritized.filter(
+  const protectedBriefingCandidates = guideLedTipCandidates.length <= 3
+    ? readyPrioritized.filter((article) => !isGuideLedTipsCandidate(article))
+    : readyPrioritized;
+  const briefingCandidates = protectedBriefingCandidates.length ? protectedBriefingCandidates : readyPrioritized;
+  const sameDayBriefingStories = briefingCandidates.filter(
     (article) =>
       article?.href !== featured?.href &&
       !isSameStoryFamily(article, featured) &&
@@ -420,16 +430,18 @@ export function getHomeData(state, language) {
       (article) =>
         article.content_type === "Roundup" &&
         isContrastingLeadStory(article, featured) &&
+        briefingCandidates.includes(article) &&
         isStoryFreshRelativeToAnchor(article, freshnessAnchor, 5)
     ) ||
-    readyPrioritized.find((article) => isContrastingLeadStory(article, featured)) ||
+    briefingCandidates.find((article) => isContrastingLeadStory(article, featured)) ||
     readyPrioritized.find(
       (article) =>
         article.content_type === "Roundup" &&
+        briefingCandidates.includes(article) &&
         !isSameStoryFamily(article, featured) &&
         isStoryFreshRelativeToAnchor(article, freshnessAnchor, 5)
     ) ||
-    readyPrioritized.find((article) => !isSameStoryFamily(article, featured)) ||
+    briefingCandidates.find((article) => !isSameStoryFamily(article, featured)) ||
     readyPrioritized[0] ||
     localized[0];
   const latest = dedupeStoryFamilies([...sameDayReadyStories, ...readyPrioritized])
@@ -459,23 +471,13 @@ export function getHomeData(state, language) {
     maxPerTopic: { ai: 2, devices: 2, default: 2 },
     maxPerSource: 2
   });
-  let tips = selectDiverseFrontPageStories(prioritizeFrontPageStories(sortStoriesForFrontPage(
-    localized.filter((article) => isPracticalTipsCandidate(article) && isGuideLedTipsCandidate(article)),
-    state.runtime.generatedAt,
-    state.site.frontPageTopicWeights,
-    state.site.frontPageSourceWeights
-  )), 8, {
+  let tips = selectDiverseFrontPageStories(guideLedTipCandidates, 8, {
     excludeStories: [featured, briefing, ...packageWatch],
     maxPerTopic: { ai: 2, "apps-software": 3, default: 2 },
     maxPerSource: 1
   });
   if (tips.length < 3) {
-    tips = selectDiverseFrontPageStories(prioritizeFrontPageStories(sortStoriesForFrontPage(
-      localized.filter((article) => isPracticalTipsCandidate(article) && isGuideLedTipsCandidate(article)),
-      state.runtime.generatedAt,
-      state.site.frontPageTopicWeights,
-      state.site.frontPageSourceWeights
-    )), 8, {
+    tips = selectDiverseFrontPageStories(guideLedTipCandidates, 8, {
       excludeStories: [featured, briefing],
       maxPerTopic: { ai: 3, "apps-software": 3, default: 2 },
       maxPerSource: 2
