@@ -1271,6 +1271,127 @@ const tests = [
     }
   },
   {
+    name: "homepage latest lane keeps real news ahead of freshly regenerated package pages",
+    run() {
+      const sourceSet = (sourceName, slug) => [
+        {
+          source_type: "official-site",
+          source_name: sourceName,
+          source_url: `https://example.com/${slug}`,
+          region: "Global",
+          language: "vi",
+          trust_tier: "official",
+          published_at: "2026-04-10T12:00:00.000Z",
+          image_url: `https://images.example.com/${slug}.jpg`,
+          image_caption: `Reference image from ${sourceName} for ${slug}.`,
+          image_credit: sourceName
+        }
+      ];
+      const image = (sourceName, slug) => ({
+        src: `https://images.example.com/${slug}.jpg`,
+        caption: `Reference image from ${sourceName} for ${slug}.`,
+        credit: sourceName,
+        source_url: `https://example.com/${slug}`
+      });
+      const baseSections = [
+        { heading: "Diem moi", body: "Bai viet giai thich ro tin moi, tac dong thuc te va viec nguoi doc nen theo doi tiep theo." },
+        { heading: "Tac dong", body: "Noi dung di vao ngu canh, chi phi, doi tuong bi anh huong va cach ap dung vao cong viec hang ngay." },
+        { heading: "Can theo doi", body: "Phan nay giu cac moc nguon, do tin cay va nhung diem can kiem tra lai neu cau chuyen thay doi." }
+      ];
+      const scenario = buildScenarioState(
+        [
+          makeScenarioArticle({
+            language: "vi",
+            topic: "ai",
+            content_type: "EvergreenGuide",
+            verification_state: "verified",
+            slug: "package-ai-vua-duoc-lam-moi",
+            title: "Package AI vua duoc lam moi nhung khong duoc che tin moi",
+            summary: "Trang chu van can package, nhung khong de no dung dau lane tin moi chi vi workflow vua tai tao.",
+            dek: "Tin moi phai nhin thay truoc, con package nen nam o khu huong dan va so sanh rieng.",
+            hook: "Nguoi doc can thay newsroom co bai moi that, khong phai chi thay lai cac trang package duoc render lai.",
+            sections: baseSections,
+            source_set: sourceSet("AI Package Desk", "package-ai-vua-duoc-lam-moi"),
+            image: image("AI Package Desk", "package-ai-vua-duoc-lam-moi"),
+            published_at: "2026-04-10T12:20:00.000Z",
+            updated_at: "2026-04-10T12:20:00.000Z",
+            editorial_focus: ["ai-package", "guide"]
+          }),
+          makeScenarioArticle({
+            language: "vi",
+            topic: "devices",
+            content_type: "NewsArticle",
+            verification_state: "verified",
+            slug: "chip-moi-len-ke-trong-ngay",
+            title: "Chip moi len ke trong ngay va can hien ro tren trang chu",
+            summary: "Tin thiet bi vua len phai nam trong nhom bai moi truoc cac package evergreen.",
+            dek: "Lane tin moi can phan anh bai vua dang, khong bi timestamp cua package che mat.",
+            hook: "Neu nguoi doc khong thay tin moi o dau trang, ho se nghi bot chua dang bai.",
+            sections: baseSections,
+            source_set: sourceSet("Hardware Desk", "chip-moi-len-ke-trong-ngay"),
+            image: image("Hardware Desk", "chip-moi-len-ke-trong-ngay"),
+            published_at: "2026-04-10T12:00:00.000Z",
+            updated_at: "2026-04-10T12:00:00.000Z"
+          }),
+          makeScenarioArticle({
+            language: "vi",
+            topic: "internet-business-tech",
+            content_type: "NewsArticle",
+            verification_state: "verified",
+            slug: "nen-tang-doi-luat-moi-trong-ngay",
+            title: "Nen tang doi luat moi trong ngay va can len lane moi nhat",
+            summary: "Tin internet business moi giup trang chu co nhieu gia tri thoi diem hon.",
+            dek: "Bai news nen dung truoc package khi nguoi doc bam vao khu tin moi vua len.",
+            hook: "Day la tin moi that duoc uu tien tren lane latest sau khi featured da chon bai dau tien.",
+            sections: baseSections,
+            source_set: sourceSet("Platform Watch", "nen-tang-doi-luat-moi-trong-ngay"),
+            image: image("Platform Watch", "nen-tang-doi-luat-moi-trong-ngay"),
+            published_at: "2026-04-10T11:30:00.000Z",
+            updated_at: "2026-04-10T11:30:00.000Z"
+          }),
+          makeScenarioArticle({
+            language: "vi",
+            topic: "apps-software",
+            content_type: "NewsArticle",
+            verification_state: "verified",
+            slug: "ung-dung-moi-ho-tro-team-trong-ngay",
+            title: "Ung dung moi ho tro team trong ngay va can thay trong tin moi",
+            summary: "Them mot bai news de lane latest van con bai moi sau khi hero va briefing da chon bai dau trang.",
+            dek: "Trang chu can de lai nhieu bai news that trong khu moi nhat.",
+            hook: "Tin moi that phai du hien thi thanh mot nhom, khong chi mot bai le bi day khoi man hinh.",
+            sections: baseSections,
+            source_set: sourceSet("Workspace Desk", "ung-dung-moi-ho-tro-team-trong-ngay"),
+            image: image("Workspace Desk", "ung-dung-moi-ho-tro-team-trong-ngay"),
+            published_at: "2026-04-10T11:00:00.000Z",
+            updated_at: "2026-04-10T11:00:00.000Z"
+          }),
+          makeScenarioArticle({
+            language: "vi",
+            topic: "security",
+            content_type: "NewsArticle",
+            verification_state: "verified",
+            slug: "bao-mat-moi-can-theo-doi-trong-ngay",
+            title: "Bao mat moi can theo doi trong ngay va khong bi package che mat",
+            summary: "Tin bao mat moi giup lane latest co them gia tri thoi diem cho nguoi doc.",
+            dek: "Nhung canh bao moi nen xuat hien truoc cac trang package duoc tai tao.",
+            hook: "Khi bot dang bai moi, nguoi doc can thay ngay nhung tin co tinh thoi diem.",
+            sections: baseSections,
+            source_set: sourceSet("Security Desk", "bao-mat-moi-can-theo-doi-trong-ngay"),
+            image: image("Security Desk", "bao-mat-moi-can-theo-doi-trong-ngay"),
+            published_at: "2026-04-10T10:30:00.000Z",
+            updated_at: "2026-04-10T10:30:00.000Z"
+          })
+        ],
+        { now: "2026-04-10T12:30:00.000Z" }
+      );
+      const home = getHomeData(scenario, "vi");
+
+      assert.equal(home.latest[0].content_type, "NewsArticle");
+      assert.ok(home.latest.slice(0, 2).every((article) => article.content_type === "NewsArticle"));
+      assert.ok(home.latest.filter((article) => article.content_type === "NewsArticle").length >= 2);
+    }
+  },
+  {
     name: "keeps the front page focused on stories and supports pull-to-refresh on touch devices",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });

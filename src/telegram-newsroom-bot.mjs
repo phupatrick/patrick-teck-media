@@ -436,7 +436,7 @@ async function buildStatusText(context) {
     context.getControlSummary?.().catch(() => null)
   ]);
   const articles = Array.isArray(state?.articles) ? state.articles : [];
-  const latest = articles.slice().sort(sortByPublishedDesc)[0];
+  const latest = selectLatestNewsArticles(articles, 1)[0] || articles.slice().sort(sortByPublishedDesc)[0];
 
   return [
     "Tinh hinh Patrick Tech Media",
@@ -522,10 +522,8 @@ async function buildLearningText(context) {
 
 async function buildLatestText(context) {
   const state = await context.getState?.();
-  const latest = (Array.isArray(state?.articles) ? state.articles : [])
-    .slice()
-    .sort(sortByPublishedDesc)
-    .slice(0, 6);
+  const articles = Array.isArray(state?.articles) ? state.articles : [];
+  const latest = selectLatestNewsArticles(articles, 6);
 
   if (!latest.length) {
     return "Chua co bai nao trong newsroom.";
@@ -1014,7 +1012,20 @@ function normalizeWebhookUrl(value) {
 }
 
 function sortByPublishedDesc(left, right) {
-  return Date.parse(right.updated_at || right.published_at || 0) - Date.parse(left.updated_at || left.published_at || 0);
+  return Date.parse(right.published_at || right.updated_at || 0) - Date.parse(left.published_at || left.updated_at || 0);
+}
+
+function selectLatestNewsArticles(articles, limit) {
+  const list = Array.isArray(articles) ? articles : [];
+  const news = list
+    .filter((article) => article?.content_type === "NewsArticle" && article.verification_state !== "trend")
+    .sort(sortByPublishedDesc);
+
+  if (news.length) {
+    return news.slice(0, limit);
+  }
+
+  return list.slice().sort(sortByPublishedDesc).slice(0, limit);
 }
 
 function auditArticleForTelegram(article) {

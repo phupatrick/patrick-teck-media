@@ -444,10 +444,15 @@ export function getHomeData(state, language) {
     briefingCandidates.find((article) => !isSameStoryFamily(article, featured)) ||
     readyPrioritized[0] ||
     localized[0];
-  const latest = dedupeStoryFamilies([...sameDayReadyStories, ...readyPrioritized])
-    .filter((article) => article?.href !== featured?.href && article?.href !== briefing?.href)
-    .sort((left, right) => sortArticlesByDateDesc(left, right))
-    .slice(0, 10);
+  const latestCandidates = dedupeStoryFamilies([...sameDayReadyStories, ...readyPrioritized])
+    .filter((article) => article?.href !== featured?.href && article?.href !== briefing?.href);
+  const latestNews = latestCandidates
+    .filter((article) => article.content_type === "NewsArticle" && article.verification_state !== "trend")
+    .sort((left, right) => sortArticlesByDateDesc(left, right));
+  const latestFallback = latestCandidates
+    .filter((article) => !(article.content_type === "NewsArticle" && article.verification_state !== "trend"))
+    .sort((left, right) => sortArticlesByDateDesc(left, right));
+  const latest = dedupeStoriesByHref([...latestNews, ...latestFallback]).slice(0, 10);
   const packageWatch = selectDiverseFrontPageStories(packageCandidates, 8, {
     excludeStories: [featured, briefing],
     maxPerSource: 2
