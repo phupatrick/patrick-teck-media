@@ -143,6 +143,7 @@ export function createTelegramNewsroomBot(options = {}) {
           chatId: String(message.chat?.id || ""),
           botUsername: botProfile?.username || "",
           isAdmin: isAdminUser(message.from),
+          canSubmitLinks: true,
           siteUrl,
           getState,
           getControlSummary,
@@ -196,6 +197,7 @@ export function createTelegramNewsroomBot(options = {}) {
         chatId: String(chat?.id || ""),
         botUsername: botProfile?.username || "",
         isAdmin: isAdminUser(callbackQuery.from),
+        canSubmitLinks: true,
         siteUrl,
         getState,
         getControlSummary,
@@ -395,8 +397,8 @@ export async function submitNewsroomLink(rawText, context = {}) {
     };
   }
 
-  if (!context.isAdmin) {
-    throw new Error("Chi admin duoc gui link de bot xac thuc va len bai.");
+  if (!context.isAdmin && !context.canSubmitLinks) {
+    throw new Error("Chat nay chua duoc phep gui link de bot xac thuc va len bai.");
   }
 
   return { text: await requestArticlePublish(context, articleUrl) };
