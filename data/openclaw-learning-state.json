@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T11:05:16.645Z",
+  "generated_at": "2026-05-27T11:10:38.231Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,27 +8,27 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-05-27T11:05:16.645Z",
+    "updated_at": "2026-05-27T11:10:38.231Z",
     "confidence": 0.95,
     "totalSignals": 342,
     "dailyFocus": [
       "devices",
       "security",
       "ai",
-      "internet-business-tech",
-      "apps-software"
+      "apps-software",
+      "gaming"
     ],
     "topicWeights": {
-      "devices": 21,
-      "security": 21,
-      "ai": 20,
-      "internet-business-tech": 20,
-      "apps-software": 19,
-      "gaming": 19
+      "devices": 27,
+      "security": 27,
+      "ai": 26,
+      "apps-software": 26,
+      "gaming": 26,
+      "internet-business-tech": 26
     },
     "sourceTypeWeights": {
-      "press": 20,
-      "official-site": 20
+      "official-site": 26,
+      "press": 26
     },
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
@@ -41,9 +41,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 342 articles; 0 owner feedback item(s); 342 signal(s); focus: devices, security, ai, internet-business-tech, apps-software"
+    "lastCycleSummary": "Learned from 342 articles; 0 owner feedback item(s); 342 signal(s); focus: devices, security, ai, apps-software, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-05-27T11:10:38.231Z",
+      "totalSignals": 342,
+      "confidence": 0.95,
+      "summary": "Learned from 342 articles; 0 owner feedback item(s); 342 signal(s); focus: devices, security, ai, apps-software, gaming"
+    },
     {
       "generated_at": "2026-05-27T11:05:16.645Z",
       "totalSignals": 342,
