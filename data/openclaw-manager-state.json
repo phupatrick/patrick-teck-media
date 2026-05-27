@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-05-27T19:58:38.738Z",
-    "finishedAt": "2026-05-27T19:59:55.888Z"
+    "startedAt": "2026-05-27T20:05:45.685Z",
+    "finishedAt": "2026-05-27T20:08:16.555Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
@@ -13,7 +13,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 336 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1779911918769-359917.json Generated OpenClaw hidden feed with 336 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 336 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1779912345719-87eca1.json Generated OpenClaw hidden feed with 336 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -27,8 +27,8 @@
     },
     "auditRepair": {
       "ok": true,
-      "exitCode": 0,
-      "output": "Không có bài nào cần sửa trong /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json.",
+      "skipped": true,
+      "output": "Audit repair was not requested.",
       "warnings": ""
     },
     "learning": {
@@ -49,7 +49,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-05-27T19:59:55.888Z",
+      "reviewedAt": "2026-05-27T20:08:16.554Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
