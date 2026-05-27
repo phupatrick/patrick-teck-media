@@ -1,48 +1,48 @@
 const DEFAULT_COMMANDS = [
-  { command: "status", description: "View web and newsroom status" },
-  { command: "auto", description: "View automatic run schedule" },
-  { command: "latest", description: "Show latest published stories" },
-  { command: "audit", description: "Review public story quality issues" },
-  { command: "learn", description: "View bot learning profile" },
-  { command: "feedback", description: "Teach the bot from owner feedback" },
-  { command: "health", description: "Check live site health" },
-  { command: "web", description: "Show web management links" },
-  { command: "id", description: "Show Telegram ids for setup" },
-  { command: "submit", description: "Read, verify, and publish a link" },
-  { command: "refresh", description: "Request a newsroom refresh" },
-  { command: "jobs", description: "View OpenClaw jobs" },
-  { command: "setup", description: "Show setup checklist" },
-  { command: "menu", description: "Open control panel" },
-  { command: "help", description: "View commands" }
+  { command: "status", description: "Xem trạng thái web và tòa soạn" },
+  { command: "auto", description: "Xem lịch chạy tự động" },
+  { command: "latest", description: "Xem các bài mới đăng" },
+  { command: "audit", description: "Kiểm tra chất lượng bài public" },
+  { command: "learn", description: "Xem hồ sơ học của bot" },
+  { command: "feedback", description: "Dạy bot bằng phản hồi của chủ sở hữu" },
+  { command: "health", description: "Kiểm tra sức khỏe web live" },
+  { command: "web", description: "Mở liên kết quản lý web" },
+  { command: "id", description: "Lấy Telegram chat id và user id" },
+  { command: "submit", description: "Đọc, xác thực và đăng bài từ link" },
+  { command: "refresh", description: "Yêu cầu làm mới tòa soạn" },
+  { command: "jobs", description: "Xem hàng đợi OpenClaw" },
+  { command: "setup", description: "Xem checklist cài đặt" },
+  { command: "menu", description: "Mở bảng điều khiển" },
+  { command: "help", description: "Xem danh sách lệnh" }
 ];
 
 const HELP_TEXT = [
-  "Patrick Tech Media newsroom bot",
+  "Bot tòa soạn Patrick Tech Media",
   "",
-  "/ping - quick bot check",
-  "/id - show chat id and user id for Vercel env setup",
-  "/status - web status, article count, latest story, OpenClaw summary",
-  "/auto - automatic run schedule and setup state",
-  "/latest - latest published stories",
-  "/audit - scan public stories for thin or noisy content",
-  "/learn - current learning profile",
-  "/feedback <good|bad|more|less|source|image|tone> <note> - teach the bot",
-  "/health - check live homepage and newsroom API",
-  "/web - web management links",
-  "/setup - setup checklist for Vercel",
-  "/submit <url> - read, verify, and publish a source link",
-  "/refresh - admin-only refresh request, enabled after GitHub/OpenClaw setup",
-  "/jobs - OpenClaw queue summary",
-  "/help - command list",
-  "/menu - open button control panel",
+  "/ping - kiểm tra bot nhanh",
+  "/id - lấy chat id và user id để cấu hình Vercel",
+  "/status - trạng thái web, số bài, bài mới nhất và OpenClaw",
+  "/auto - lịch chạy tự động và trạng thái thiết lập",
+  "/latest - danh sách bài mới đăng",
+  "/audit - quét bài public bị mỏng hoặc nhiễu nội dung",
+  "/learn - hồ sơ học hiện tại của bot",
+  "/feedback <good|bad|more|less|source|image|tone> <ghi chú> - dạy bot bằng phản hồi",
+  "/health - kiểm tra homepage live và API tòa soạn",
+  "/web - liên kết quản lý web",
+  "/setup - checklist cài đặt trên Vercel",
+  "/submit <url> - đọc, xác thực và đăng bài từ link nguồn",
+  "/refresh - yêu cầu làm mới tòa soạn, chỉ admin dùng được",
+  "/jobs - tóm tắt hàng đợi OpenClaw",
+  "/help - danh sách lệnh",
+  "/menu - mở bảng điều khiển bằng nút",
   "",
-  "Current mode: Vercel webhook for Telegram commands, GitHub Actions for frequent newsroom refresh, Vercel cron as daily fallback."
+  "Chế độ hiện tại: Vercel nhận lệnh Telegram qua webhook, GitHub Actions làm mới tòa soạn thường xuyên, Vercel cron làm dự phòng hằng ngày."
 ].join("\n");
 
 const MENU_TEXT = [
-  "Patrick Tech Media control panel",
+  "Bảng điều khiển Patrick Tech Media",
   "",
-  "Chon mot nut ben duoi de quan ly nhanh newsroom tren Vercel."
+  "Chọn một nút bên dưới để quản lý nhanh tòa soạn trên Vercel."
 ].join("\n");
 
 export function createTelegramNewsroomBot(options = {}) {
