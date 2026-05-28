@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T18:39:42.932Z",
+  "generated_at": "2026-05-28T19:22:41.232Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-05-28T18:39:42.932Z",
+    "updated_at": "2026-05-28T19:22:41.232Z",
     "confidence": 0.95,
-    "totalSignals": 335,
+    "totalSignals": 336,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -41,9 +41,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 335 articles; 0 owner feedback item(s); 335 signal(s); focus: ai, apps-software, devices, security, gaming"
+    "lastCycleSummary": "Learned from 336 articles; 0 owner feedback item(s); 336 signal(s); focus: ai, apps-software, devices, security, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-05-28T19:22:41.232Z",
+      "totalSignals": 336,
+      "confidence": 0.95,
+      "summary": "Learned from 336 articles; 0 owner feedback item(s); 336 signal(s); focus: ai, apps-software, devices, security, gaming"
+    },
     {
       "generated_at": "2026-05-28T18:39:42.932Z",
       "totalSignals": 335,
