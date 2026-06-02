@@ -282,6 +282,7 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
   getState: () => getState(config.siteUrl),
   getControlSummary: () => openclawControlPlane.getSummary(),
   getLearningSummary: () => openclawLearningStore.getSummary(),
+  getArticleViewStats: (input) => platformService.listArticleViewStats(input),
   addLearningFeedback: (input) => openclawLearningStore.addFeedback(input),
   createControlJob: (job) => openclawControlPlane.createJob(job),
   dispatchWorkflow: dispatchNewsroomWorkflow,
@@ -555,6 +556,13 @@ async function handleRequest(req, res) {
         href: article.href,
         language
       });
+      if (method === "GET") {
+        await platformService.recordArticleView({
+          article,
+          visitorKey: createArticleVisitorKey(req),
+          now: new Date().toISOString()
+        });
+      }
       const viewer = await loadViewer();
 
       return sendHtml(
@@ -1823,6 +1831,17 @@ function getClientAddress(req) {
     .find(Boolean);
 
   return forwarded || req.socket?.remoteAddress || "unknown";
+}
+
+function createArticleVisitorKey(req) {
+  const day = new Date().toISOString().slice(0, 10);
+  const userAgent = String(req.headers["user-agent"] || "").slice(0, 240);
+  const acceptLanguage = String(req.headers["accept-language"] || "").slice(0, 80);
+  return crypto
+    .createHash("sha256")
+    .update(`${day}:${getClientAddress(req)}:${userAgent}:${acceptLanguage}`)
+    .digest("hex")
+    .slice(0, 32);
 }
 
 function isAllowedFormOrigin(req) {

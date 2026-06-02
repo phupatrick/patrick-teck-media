@@ -309,6 +309,9 @@ const tests = [
           ],
           articleComments: [
             { article_id: article.id, article_href: article.href, body: "Bai nay huu ich" }
+          ],
+          articleViews: [
+            { article_id: article.id, article_href: article.href, title: article.title, views: 42, unique_views: 21, topic: article.topic, content_type: article.content_type, source_type: "official-site" }
           ]
         },
         feedback: [
@@ -323,7 +326,44 @@ const tests = [
       assert.ok(profile.totalSignals >= 5);
       assert.ok(profile.confidence > 0);
       assert.ok(profile.topicWeights.ai > 0);
+      assert.equal(profile.topViewedArticles[0].views, 42);
+      assert.equal(profile.topViewedArticles[0].rank, 1);
+      assert.ok(profile.viewInsights.length > 0);
       assert.ok(profile.styleRules.some((rule) => /giong van|workflow|checklist/i.test(rule)));
+    }
+  },
+  {
+    name: "newsroom telegram views command lists high-view articles",
+    async run() {
+      const response = await executeNewsroomCommand("/views", {
+        siteUrl: "https://patricktechmedia.com",
+        getArticleViewStats: async () => [
+          {
+            article_href: "/vi/tin-tuc/story-cao-view",
+            title: "Bai co view cao",
+            rank: 1,
+            rank_label: "Top 1",
+            rank_score: 1520,
+            views: 120,
+            unique_views: 80,
+            topic: "ai",
+            content_type: "NewsArticle",
+            source_type: "official-site"
+          }
+        ],
+        getLearningSummary: async () => ({
+          profile: {
+            viewInsights: ["Bai view cao dang nghieng ve chu de ai"]
+          }
+        })
+      });
+
+      assert.match(response.text, /Bảng xếp hạng view/);
+      assert.match(response.text, /Bai co view cao/);
+      assert.match(response.text, /Top 1/);
+      assert.match(response.text, /Điểm hạng: 1520/);
+      assert.match(response.text, /View: 120/);
+      assert.match(response.text, /Bot rút ra/);
     }
   },
   {

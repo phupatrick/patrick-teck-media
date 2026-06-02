@@ -41,6 +41,112 @@ export function createPlatformService(options) {
         language
       });
     },
+    async recordArticleView({ article, visitorKey = "", now = new Date().toISOString() }) {
+      if (!article?.id && !article?.href) {
+        return null;
+      }
+
+      let updatedView = null;
+      await store.updateState((draft) => {
+        const views = Array.isArray(draft.articleViews) ? draft.articleViews : [];
+        draft.articleViews = views;
+        const articleId = safeTrim(article.id);
+        const articleHref = safeTrim(article.href);
+        const viewKey = articleId || articleHref;
+        const dateKey = safeTrim(now).slice(0, 10) || new Date().toISOString().slice(0, 10);
+        let entry = views.find((item) => {
+          if (articleId && item.article_id === articleId) {
+            return true;
+          }
+          return Boolean(articleHref && item.article_href === articleHref);
+        });
+
+        if (!entry) {
+          entry = {
+            article_id: articleId,
+            article_href: articleHref,
+            title: safeTrim(article.title),
+            language: article.language === "en" ? "en" : "vi",
+            topic: safeTrim(article.topic),
+            content_type: safeTrim(article.content_type),
+            source_type: safeTrim(article.source_set?.[0]?.source_type || ""),
+            views: 0,
+            unique_views: 0,
+            first_viewed_at: now,
+            last_viewed_at: now,
+            daily: []
+          };
+          views.unshift(entry);
+        }
+
+        entry.article_id = entry.article_id || articleId;
+        entry.article_href = entry.article_href || articleHref;
+        entry.title = safeTrim(article.title) || entry.title;
+        entry.language = article.language === "en" ? "en" : entry.language || "vi";
+        entry.topic = safeTrim(article.topic) || entry.topic;
+        entry.content_type = safeTrim(article.content_type) || entry.content_type;
+        entry.source_type = safeTrim(article.source_set?.[0]?.source_type || "") || entry.source_type;
+        entry.views = clampInteger(entry.views, 0, 1_000_000_000, 0) + 1;
+        entry.last_viewed_at = now;
+
+        if (!entry.first_viewed_at) {
+          entry.first_viewed_at = now;
+        }
+
+        const daily = Array.isArray(entry.daily) ? entry.daily : [];
+        entry.daily = daily;
+        let day = daily.find((item) => item.date === dateKey);
+        if (!day) {
+          day = { date: dateKey, views: 0, unique_views: 0, visitors: [] };
+          daily.unshift(day);
+        }
+
+        day.views = clampInteger(day.views, 0, 1_000_000_000, 0) + 1;
+        const normalizedVisitorKey = safeTrim(visitorKey).slice(0, 80);
+        const visitors = Array.isArray(day.visitors) ? day.visitors : [];
+        day.visitors = visitors;
+        if (normalizedVisitorKey && !visitors.includes(normalizedVisitorKey)) {
+          visitors.push(normalizedVisitorKey);
+          day.unique_views = clampInteger(day.unique_views, 0, 1_000_000_000, 0) + 1;
+          entry.unique_views = clampInteger(entry.unique_views, 0, 1_000_000_000, 0) + 1;
+        }
+
+        day.visitors = visitors.slice(-500);
+        entry.daily = daily.slice(0, 45);
+        draft.articleViews = views
+          .sort((left, right) => Date.parse(right.last_viewed_at || 0) - Date.parse(left.last_viewed_at || 0))
+          .slice(0, 1000);
+        updatedView = { ...entry, key: viewKey };
+        return draft;
+      });
+
+      return updatedView;
+    },
+    async listArticleViewStats({ limit = 20, language = "" } = {}) {
+      const state = await store.readState();
+      const normalizedLimit = clampInteger(limit, 1, 100, 20);
+      const normalizedLanguage = language === "en" ? "en" : language === "vi" ? "vi" : "";
+      return (Array.isArray(state.articleViews) ? state.articleViews : [])
+        .filter((entry) => !normalizedLanguage || entry.language === normalizedLanguage)
+        .map(normalizeArticleViewStats)
+        .map((entry) => ({
+          ...entry,
+          rank_score: computeArticleViewRankScore(entry)
+        }))
+        .sort((left, right) => {
+          const scoreDelta = right.rank_score - left.rank_score;
+          if (scoreDelta !== 0) {
+            return scoreDelta;
+          }
+          return Date.parse(right.last_viewed_at || 0) - Date.parse(left.last_viewed_at || 0);
+        })
+        .slice(0, normalizedLimit)
+        .map((entry, index) => ({
+          ...entry,
+          rank: index + 1,
+          rank_label: formatArticleViewRankLabel(index + 1)
+        }));
+    },
     async addArticleReaction({ articleId, href, reaction, user, language }) {
       const normalizedReaction = normalizeArticleReaction(reaction);
 
@@ -897,9 +1003,12 @@ function buildArticleFeedback(state, { articleId, href, language }) {
 
   const reactions = (state.articleReactions || []).filter(matchesArticle);
   const comments = (state.articleComments || []).filter(matchesArticle).sort(sortByCreatedAtDesc);
+  const viewStats = normalizeArticleViewStats((state.articleViews || []).find(matchesArticle) || {});
   const counts = createReactionCounts(reactions);
 
   return {
+    views: viewStats.views,
+    uniqueViews: viewStats.unique_views,
     totalReactions: reactions.length,
     totalComments: comments.length,
     reactions: getReactionCatalog(language).map((item) => ({
@@ -913,6 +1022,54 @@ function buildArticleFeedback(state, { articleId, href, language }) {
       created_at: comment.created_at
     }))
   };
+}
+
+function normalizeArticleViewStats(entry = {}) {
+  const daily = (Array.isArray(entry.daily) ? entry.daily : [])
+    .map((item) => ({
+      date: safeTrim(item.date).slice(0, 10),
+      views: clampInteger(item.views, 0, 1_000_000_000, 0),
+      unique_views: clampInteger(item.unique_views, 0, 1_000_000_000, 0)
+    }))
+    .filter((item) => item.date)
+    .sort((left, right) => String(right.date).localeCompare(String(left.date)));
+
+  return {
+    article_id: safeTrim(entry.article_id),
+    article_href: safeTrim(entry.article_href),
+    title: safeTrim(entry.title),
+    language: entry.language === "en" ? "en" : "vi",
+    topic: safeTrim(entry.topic),
+    content_type: safeTrim(entry.content_type),
+    source_type: safeTrim(entry.source_type),
+    views: clampInteger(entry.views, 0, 1_000_000_000, 0),
+    unique_views: clampInteger(entry.unique_views, 0, 1_000_000_000, 0),
+    first_viewed_at: safeTrim(entry.first_viewed_at),
+    last_viewed_at: safeTrim(entry.last_viewed_at),
+    daily
+  };
+}
+
+function computeArticleViewRankScore(entry) {
+  const views = clampInteger(entry.views, 0, 1_000_000_000, 0);
+  const uniqueViews = clampInteger(entry.unique_views, 0, 1_000_000_000, 0);
+  const recentViews = (Array.isArray(entry.daily) ? entry.daily : [])
+    .slice(0, 7)
+    .reduce((sum, day) => sum + clampInteger(day.views, 0, 1_000_000_000, 0), 0);
+  return views * 10 + uniqueViews * 4 + recentViews * 3;
+}
+
+function formatArticleViewRankLabel(rank) {
+  if (rank === 1) {
+    return "Top 1";
+  }
+  if (rank <= 3) {
+    return `Top ${rank}`;
+  }
+  if (rank <= 10) {
+    return `Top 10 #${rank}`;
+  }
+  return `#${rank}`;
 }
 
 function getReactionCatalog(language) {
@@ -1077,6 +1234,14 @@ function normalizeEmail(email) {
 
 function safeTrim(value) {
   return String(value || "").trim();
+}
+
+function clampInteger(value, min, max, fallback) {
+  const parsed = Number.parseInt(String(value ?? ""), 10);
+  if (!Number.isFinite(parsed)) {
+    return fallback;
+  }
+  return Math.max(min, Math.min(max, parsed));
 }
 
 function stripTrailingPunctuation(value) {

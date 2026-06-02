@@ -5,7 +5,8 @@ const DEFAULT_STATE = {
   submissions: [],
   withdrawals: [],
   articleComments: [],
-  articleReactions: []
+  articleReactions: [],
+  articleViews: []
 };
 
 export function createPlatformStore({ statePath, databaseUrl = process.env.DATABASE_URL || "" }) {
@@ -37,6 +38,7 @@ function normalizeState(state) {
     submissions: Array.isArray(state?.submissions) ? state.submissions : [],
     withdrawals: Array.isArray(state?.withdrawals) ? state.withdrawals : [],
     articleComments: Array.isArray(state?.articleComments) ? state.articleComments : [],
-    articleReactions: Array.isArray(state?.articleReactions) ? state.articleReactions : []
+    articleReactions: Array.isArray(state?.articleReactions) ? state.articleReactions : [],
+    articleViews: Array.isArray(state?.articleViews) ? state.articleViews : []
   };
 }

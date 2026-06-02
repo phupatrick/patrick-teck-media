@@ -2,6 +2,8 @@ const DEFAULT_COMMANDS = [
   { command: "status", description: "Xem trạng thái web và tòa soạn" },
   { command: "auto", description: "Xem lịch chạy tự động" },
   { command: "latest", description: "Xem các bài mới đăng" },
+  { command: "views", description: "Xem bảng xếp hạng bài view cao" },
+  { command: "rank", description: "Xếp hạng bài theo view" },
   { command: "audit", description: "Kiểm tra chất lượng bài đã đăng" },
   { command: "learn", description: "Xem hồ sơ học của bot" },
   { command: "feedback", description: "Dạy bot bằng phản hồi của chủ sở hữu" },
@@ -25,6 +27,7 @@ const HELP_TEXT = [
   "/status - trạng thái web, số bài, bài mới nhất và OpenClaw",
   "/auto - lịch chạy tự động và trạng thái thiết lập",
   "/latest - danh sách bài mới đăng",
+  "/views hoặc /rank - bảng xếp hạng bài view cao và bot học được gì từ nhóm đó",
   "/audit - quét bài đã đăng bị mỏng hoặc nhiễu nội dung",
   "/learn - hồ sơ học hiện tại của bot",
   "/feedback <tốt|tệ|sâu|gọn|nguồn|ảnh|giọng> <ghi chú> - dạy bot bằng phản hồi",
@@ -55,6 +58,7 @@ export function createTelegramNewsroomBot(options = {}) {
   const getState = options.getState;
   const getControlSummary = options.getControlSummary;
   const getLearningSummary = options.getLearningSummary;
+  const getArticleViewStats = options.getArticleViewStats;
   const addLearningFeedback = options.addLearningFeedback;
   const createControlJob = options.createControlJob;
   const dispatchWorkflow = options.dispatchWorkflow;
@@ -151,6 +155,7 @@ export function createTelegramNewsroomBot(options = {}) {
           getState,
           getControlSummary,
           getLearningSummary,
+          getArticleViewStats,
           addLearningFeedback,
           getWebhookStatus: () => ({ ...webhookStatus }),
           createControlJob,
@@ -205,6 +210,7 @@ export function createTelegramNewsroomBot(options = {}) {
         getState,
         getControlSummary,
         getLearningSummary,
+        getArticleViewStats,
         addLearningFeedback,
         getWebhookStatus: () => ({ ...webhookStatus }),
         createControlJob,
@@ -293,6 +299,10 @@ export async function executeNewsroomCommand(rawText, context = {}) {
 
   if (command === "/latest") {
     return { text: await buildLatestText(context) };
+  }
+
+  if (command === "/views" || command === "/view" || command === "/rank" || command === "/ranking") {
+    return { text: await buildViewsText(context) };
   }
 
   if (command === "/audit") {
@@ -495,6 +505,8 @@ async function buildLearningText(context) {
   const profile = summary?.profile || {};
   const topicWeights = Object.entries(profile.topicWeights || {}).slice(0, 5);
   const sourceTypeWeights = Object.entries(profile.sourceTypeWeights || {}).slice(0, 5);
+  const topViewed = Array.isArray(profile.topViewedArticles) ? profile.topViewedArticles.slice(0, 3) : [];
+  const viewInsights = Array.isArray(profile.viewInsights) ? profile.viewInsights.slice(0, 3) : [];
 
   if (!summary) {
     return "Chưa có hồ sơ học. Hãy gửi /feedback sau mỗi bài để bot bắt đầu học.";
@@ -512,6 +524,8 @@ async function buildLearningText(context) {
     "",
     topicWeights.length ? `Chủ đề đang ưu tiên: ${topicWeights.map(([key, value]) => `${formatTopicKey(key)} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Chủ đề đang ưu tiên: chưa đủ tín hiệu",
     sourceTypeWeights.length ? `Nguồn đang ưu tiên: ${sourceTypeWeights.map(([key, value]) => `${formatSourceTypeKey(key)} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Nguồn đang ưu tiên: chưa đủ tín hiệu",
+    topViewed.length ? `Bài view cao đang học: ${topViewed.map((entry) => `${entry.title} (${entry.views})`).join("; ")}` : "Bài view cao đang học: chưa có dữ liệu view",
+    viewInsights.length ? `Bài học từ view: ${viewInsights.map(localizeLearningRule).join(" | ")}` : "",
     "",
     "Quy tắc đang học:",
     ...((profile.styleRules || []).slice(0, 4).map((rule) => `- ${localizeLearningRule(rule)}`)),
@@ -534,6 +548,49 @@ async function buildLatestText(context) {
     "Bài mới nhất",
     ...latest.map((article, index) => `${index + 1}. ${article.title}\n${context.siteUrl}${article.href}`)
   ].join("\n\n");
+}
+
+async function buildViewsText(context) {
+  const [views, learning] = await Promise.all([
+    typeof context.getArticleViewStats === "function"
+      ? context.getArticleViewStats({ limit: 10, language: "vi" }).catch(() => [])
+      : Promise.resolve([]),
+    typeof context.getLearningSummary === "function"
+      ? context.getLearningSummary().catch(() => null)
+      : Promise.resolve(null)
+  ]);
+  const items = Array.isArray(views) ? views : [];
+  const insights = Array.isArray(learning?.profile?.viewInsights) ? learning.profile.viewInsights.slice(0, 4) : [];
+
+  if (!items.length) {
+    return [
+      "Thống kê view",
+      "",
+      "Chưa có dữ liệu view. Từ bản này, mỗi lần mở trang bài viết sẽ được ghi nhớ dạng thống kê gộp để bot học."
+    ].join("\n");
+  }
+
+  return [
+    "Bảng xếp hạng view",
+    "",
+    ...items.map((entry, index) => [
+      `${formatViewRank(entry.rank || index + 1, entry.rank_label)} ${entry.title || entry.article_href}`,
+      `Điểm hạng: ${entry.rank_score || 0} | View: ${entry.views} | Unique: ${entry.unique_views}`,
+      `Nhóm: ${formatTopicKey(entry.topic)} / ${entry.content_type || "NewsArticle"} / ${formatSourceTypeKey(entry.source_type)}`,
+      `${context.siteUrl}${entry.article_href}`
+    ].join("\n")),
+    insights.length ? "" : "",
+    insights.length ? "Bot rút ra:" : "",
+    ...insights.map((insight) => `- ${localizeLearningRule(insight)}`)
+  ].filter((line) => line !== "").join("\n\n");
+}
+
+function formatViewRank(rank, label = "") {
+  const normalizedRank = Number.isFinite(Number(rank)) ? Number(rank) : 0;
+  if (label) {
+    return `${label}.`;
+  }
+  return normalizedRank > 0 ? `#${normalizedRank}.` : "#.";
 }
 
 async function buildAuditText(context) {
@@ -805,7 +862,10 @@ function buildMenuMarkup(active = "menu") {
         button(selected("latest", "Bài mới"), "newsroom:latest")
       ],
       [
-        button(selected("audit", "Kiểm tra bài"), "newsroom:audit"),
+        button(selected("views", "View cao"), "newsroom:views"),
+        button(selected("audit", "Kiểm tra bài"), "newsroom:audit")
+      ],
+      [
         button(selected("health", "Tình trạng web"), "newsroom:health")
       ],
       [
@@ -841,6 +901,8 @@ function mapCallbackToCommand(action) {
     "newsroom:status": "/status",
     "newsroom:auto": "/auto",
     "newsroom:latest": "/latest",
+    "newsroom:views": "/views",
+    "newsroom:rank": "/rank",
     "newsroom:audit": "/audit",
     "newsroom:learn": "/learn",
     "newsroom:health": "/health",

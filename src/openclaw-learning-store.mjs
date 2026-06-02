@@ -17,6 +17,8 @@ export const DEFAULT_OPENCLAW_LEARNING_STATE = {
     dailyFocus: [],
     topicWeights: {},
     sourceTypeWeights: {},
+    topViewedArticles: [],
+    viewInsights: [],
     styleRules: [],
     avoidRules: [],
     lastCycleSummary: ""
@@ -110,10 +112,28 @@ export function normalizeLearningProfile(profile) {
     dailyFocus: normalizeTextList(normalized.dailyFocus, 8),
     topicWeights: normalizeWeights(normalized.topicWeights),
     sourceTypeWeights: normalizeWeights(normalized.sourceTypeWeights),
+    topViewedArticles: normalizeTopViewedArticles(normalized.topViewedArticles),
+    viewInsights: normalizeTextList(normalized.viewInsights, 8),
     styleRules: normalizeTextList(normalized.styleRules, 12),
     avoidRules: normalizeTextList(normalized.avoidRules, 12),
     lastCycleSummary: normalizeText(normalized.lastCycleSummary).slice(0, 500)
   };
+}
+
+function normalizeTopViewedArticles(value) {
+  return (Array.isArray(value) ? value : [])
+    .map((entry) => ({
+      rank: clampInteger(entry?.rank, 1, 100, 0),
+      title: normalizeText(entry?.title).slice(0, 160),
+      href: normalizeText(entry?.href || entry?.article_href).slice(0, 240),
+      views: clampInteger(entry?.views, 0, 1_000_000_000, 0),
+      uniqueViews: clampInteger(entry?.uniqueViews ?? entry?.unique_views, 0, 1_000_000_000, 0),
+      topic: normalizeText(entry?.topic).slice(0, 80),
+      contentType: normalizeText(entry?.contentType || entry?.content_type).slice(0, 80),
+      sourceType: normalizeText(entry?.sourceType || entry?.source_type).slice(0, 80)
+    }))
+    .filter((entry) => entry.title || entry.href)
+    .slice(0, 8);
 }
 
 function normalizeFeedback(input = {}) {

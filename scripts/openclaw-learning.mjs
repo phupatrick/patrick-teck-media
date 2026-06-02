@@ -61,12 +61,15 @@ export function buildOpenClawLearningProfile({ articles = [], platformState = {}
   const totalSignals = articleSignals.reduce((sum, signal) => sum + signal.signalCount, 0) + feedback.length;
   const confidence = Math.min(0.95, Math.round((1 - Math.exp(-totalSignals / 26)) * 100) / 100);
   const dailyFocus = rankKeys(topicWeights).slice(0, 5);
+  const topViewedArticles = buildTopViewedArticles(articleSignals);
+  const viewInsights = buildViewInsights(topViewedArticles);
   const styleRules = buildStyleRules({ articleSignals, feedback });
   const avoidRules = buildAvoidRules({ articleSignals, feedback });
   const lastCycleSummary = [
     `Learned from ${articles.length} articles`,
     `${feedback.length} owner feedback item(s)`,
     `${totalSignals} signal(s)`,
+    topViewedArticles.length ? `${topViewedArticles[0].views} top view(s): ${topViewedArticles[0].title}` : "no view data yet",
     dailyFocus.length ? `focus: ${dailyFocus.join(", ")}` : "focus: default editorial priorities"
   ].join("; ");
 
@@ -78,6 +81,8 @@ export function buildOpenClawLearningProfile({ articles = [], platformState = {}
     dailyFocus,
     topicWeights,
     sourceTypeWeights,
+    topViewedArticles,
+    viewInsights,
     styleRules,
     avoidRules,
     lastCycleSummary
@@ -87,27 +92,36 @@ export function buildOpenClawLearningProfile({ articles = [], platformState = {}
 function buildArticleSignals({ articles, platformState, feedback, now }) {
   const reactions = Array.isArray(platformState.articleReactions) ? platformState.articleReactions : [];
   const comments = Array.isArray(platformState.articleComments) ? platformState.articleComments : [];
+  const viewStats = Array.isArray(platformState.articleViews) ? platformState.articleViews : [];
 
   return articles.map((article) => {
     const readiness = evaluateArticleReadiness(article);
     const articleReactions = reactions.filter((entry) => matchesArticle(entry, article));
     const articleComments = comments.filter((entry) => matchesArticle(entry, article));
+    const articleViews = viewStats.find((entry) => matchesArticle(entry, article)) || {};
     const ownerFeedback = feedback.filter((entry) => matchesFeedback(entry, article));
     const positiveReactions = articleReactions.filter((entry) => ["useful", "love", "wow"].includes(entry.reaction)).length;
     const ownerScore = ownerFeedback.reduce((sum, entry) => sum + scoreFeedbackKind(entry.kind), 0);
     const qualityScore = Number.isFinite(Number(article.quality_score)) ? Number(article.quality_score) : 78;
     const freshnessScore = computeFreshnessScore(article.updated_at || article.published_at, now);
     const readinessScore = readiness.ready ? 10 : -12 - readiness.missing.length * 2;
-    const score = qualityScore - 78 + readinessScore + freshnessScore + positiveReactions * 5 + articleComments.length * 3 + ownerScore;
+    const views = clampInteger(articleViews.views, 0, 1_000_000_000, 0);
+    const uniqueViews = clampInteger(articleViews.unique_views, 0, 1_000_000_000, 0);
+    const viewScore = computeViewScore(views, uniqueViews);
+    const score = qualityScore - 78 + readinessScore + freshnessScore + viewScore + positiveReactions * 5 + articleComments.length * 3 + ownerScore;
     const sourceType = normalizeText(article.source_set?.[0]?.source_type || "unknown") || "unknown";
 
     return {
       id: normalizeText(article.id || article.href || article.slug),
       href: normalizeText(article.href),
+      title: normalizeText(article.title),
       topic: normalizeTopic(article.topic),
+      contentType: normalizeText(article.content_type),
       sourceType,
       score,
-      signalCount: 1 + positiveReactions + articleComments.length + ownerFeedback.length,
+      views,
+      uniqueViews,
+      signalCount: 1 + Math.min(20, Math.ceil(views / 5)) + positiveReactions + articleComments.length + ownerFeedback.length,
       readiness,
       ownerFeedback
     };
@@ -139,6 +153,7 @@ function buildWeightMap(signals, key, previousWeights = {}) {
 function buildStyleRules({ articleSignals, feedback }) {
   const goodFeedback = feedback.filter((entry) => ["good", "more-depth", "tone"].includes(entry.kind));
   const highScoring = articleSignals.filter((entry) => entry.score >= 18);
+  const topViewed = articleSignals.filter((entry) => entry.views > 0).sort((left, right) => right.views - left.views).slice(0, 5);
   const rules = [
     "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
     "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
@@ -157,7 +172,64 @@ function buildStyleRules({ articleSignals, feedback }) {
     rules.push("Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.");
   }
 
+  if (topViewed.some((entry) => entry.contentType === "EvergreenGuide" || entry.contentType === "ComparisonPage")) {
+    rules.push("Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong.");
+  }
+
+  if (topViewed.some((entry) => entry.topic === "devices")) {
+    rules.push("Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.");
+  }
+
+  if (topViewed.some((entry) => entry.topic === "internet-business-tech")) {
+    rules.push("Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh.");
+  }
+
   return unique(rules).slice(0, 10);
+}
+
+function buildTopViewedArticles(articleSignals) {
+  return articleSignals
+    .filter((entry) => entry.views > 0)
+    .sort((left, right) => right.views - left.views)
+    .slice(0, 8)
+    .map((entry, index) => ({
+      rank: index + 1,
+      title: entry.title,
+      href: entry.href,
+      views: entry.views,
+      uniqueViews: entry.uniqueViews,
+      topic: entry.topic,
+      contentType: entry.contentType,
+      sourceType: entry.sourceType
+    }));
+}
+
+function buildViewInsights(topViewedArticles) {
+  if (!topViewedArticles.length) {
+    return [];
+  }
+
+  const topics = countKeys(topViewedArticles.map((entry) => entry.topic));
+  const contentTypes = countKeys(topViewedArticles.map((entry) => entry.contentType));
+  const sourceTypes = countKeys(topViewedArticles.map((entry) => entry.sourceType));
+  const insights = [];
+  const topTopic = firstRankedKey(topics);
+  const topContentType = firstRankedKey(contentTypes);
+  const topSourceType = firstRankedKey(sourceTypes);
+
+  if (topTopic) {
+    insights.push(`Bai view cao dang nghieng ve chu de ${topTopic}; tang uu tien neu van con tin moi va nguon tot.`);
+  }
+
+  if (topContentType) {
+    insights.push(`Dinh dang hut view nhat hien la ${topContentType}; nen tai su dung cach dat tieu de va cau truc cua nhom nay.`);
+  }
+
+  if (topSourceType) {
+    insights.push(`Nguon tao view tot nhat la ${topSourceType}; uu tien nguon cung loai khi chat luong bai dat chuan.`);
+  }
+
+  return insights.slice(0, 6);
 }
 
 function buildAvoidRules({ articleSignals, feedback }) {
@@ -264,8 +336,39 @@ function computeFreshnessScore(dateString, now) {
   return -2;
 }
 
+function computeViewScore(views, uniqueViews) {
+  if (!views) {
+    return 0;
+  }
+
+  const rawViews = Math.log2(views + 1) * 4;
+  const uniqueBonus = Math.log2(uniqueViews + 1) * 3;
+  return Math.round(clamp(rawViews + uniqueBonus, 0, 34));
+}
+
+function countKeys(values) {
+  const counts = new Map();
+  for (const value of values) {
+    const key = normalizeText(value || "unknown") || "unknown";
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  return counts;
+}
+
+function firstRankedKey(counts) {
+  return [...counts.entries()].sort((left, right) => right[1] - left[1])[0]?.[0] || "";
+}
+
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
+}
+
+function clampInteger(value, min, max, fallback) {
+  const parsed = Number.parseInt(String(value ?? ""), 10);
+  if (!Number.isFinite(parsed)) {
+    return fallback;
+  }
+  return Math.max(min, Math.min(max, parsed));
 }
 
 function unique(values) {
