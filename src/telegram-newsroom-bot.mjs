@@ -59,6 +59,7 @@ export function createTelegramNewsroomBot(options = {}) {
   const getControlSummary = options.getControlSummary;
   const getLearningSummary = options.getLearningSummary;
   const getArticleViewStats = options.getArticleViewStats;
+  const getArticleViewStorageMode = options.getArticleViewStorageMode;
   const addLearningFeedback = options.addLearningFeedback;
   const createControlJob = options.createControlJob;
   const dispatchWorkflow = options.dispatchWorkflow;
@@ -156,6 +157,7 @@ export function createTelegramNewsroomBot(options = {}) {
           getControlSummary,
           getLearningSummary,
           getArticleViewStats,
+          getArticleViewStorageMode,
           addLearningFeedback,
           getWebhookStatus: () => ({ ...webhookStatus }),
           createControlJob,
@@ -211,6 +213,7 @@ export function createTelegramNewsroomBot(options = {}) {
         getControlSummary,
         getLearningSummary,
         getArticleViewStats,
+        getArticleViewStorageMode,
         addLearningFeedback,
         getWebhookStatus: () => ({ ...webhookStatus }),
         createControlJob,
@@ -561,17 +564,24 @@ async function buildViewsText(context) {
   ]);
   const items = Array.isArray(views) ? views : [];
   const insights = Array.isArray(learning?.profile?.viewInsights) ? learning.profile.viewInsights.slice(0, 4) : [];
+  const storageMode = typeof context.getArticleViewStorageMode === "function" ? context.getArticleViewStorageMode() : "";
+  const storageWarning = storageMode && storageMode !== "neon-postgres"
+    ? "Storage view chưa bền. Cần DATABASE_URL trên Vercel production để bot đọc được view sau cold start."
+    : "";
 
   if (!items.length) {
     return [
       "Thống kê view",
+      storageMode ? `Storage: ${storageMode}` : "",
       "",
-      "Chưa có dữ liệu view. Từ bản này, mỗi lần mở trang bài viết sẽ được ghi nhớ dạng thống kê gộp để bot học."
-    ].join("\n");
+      "Chưa có dữ liệu view. Từ bản này, mỗi lần mở trang bài viết sẽ được ghi nhớ dạng thống kê gộp để bot học.",
+      storageWarning
+    ].filter((line) => line !== "").join("\n");
   }
 
   return [
     "Bảng xếp hạng view",
+    storageMode ? `Storage: ${storageMode}` : "",
     "",
     ...items.map((entry, index) => [
       `${formatViewRank(entry.rank || index + 1, entry.rank_label)} ${entry.title || entry.article_href}`,
@@ -579,6 +589,8 @@ async function buildViewsText(context) {
       `Nhóm: ${formatTopicKey(entry.topic)} / ${entry.content_type || "NewsArticle"} / ${formatSourceTypeKey(entry.source_type)}`,
       `${context.siteUrl}${entry.article_href}`
     ].join("\n")),
+    storageWarning ? "" : "",
+    storageWarning,
     insights.length ? "" : "",
     insights.length ? "Bot rút ra:" : "",
     ...insights.map((insight) => `- ${localizeLearningRule(insight)}`)

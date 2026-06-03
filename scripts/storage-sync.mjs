@@ -24,7 +24,10 @@ const syncTargets = [
     label: "platform",
     filePath: process.env.PLATFORM_STATE_PATH || envFromFile.PLATFORM_STATE_PATH || "data/platform-state.json",
     createStore: (targetPath) => createPlatformStore({ statePath: targetPath, databaseUrl }),
-    write: (store, value) => store.writeState(value)
+    write: async (store, value) => {
+      const existing = await store.readState();
+      return store.writeState(mergePlatformState(existing, value));
+    }
   },
   {
     label: "openclaw-web",
@@ -55,6 +58,24 @@ function readJson(filePath) {
   } catch {
     return {};
   }
+}
+
+function mergePlatformState(existing, incoming) {
+  const normalizedExisting = existing && typeof existing === "object" ? existing : {};
+  const normalizedIncoming = incoming && typeof incoming === "object" ? incoming : {};
+  const dynamicKeys = ["users", "submissions", "withdrawals", "articleComments", "articleReactions", "articleViews"];
+  const merged = {
+    ...normalizedExisting,
+    ...normalizedIncoming
+  };
+
+  for (const key of dynamicKeys) {
+    const existingList = Array.isArray(normalizedExisting[key]) ? normalizedExisting[key] : [];
+    const incomingList = Array.isArray(normalizedIncoming[key]) ? normalizedIncoming[key] : [];
+    merged[key] = incomingList.length ? incomingList : existingList;
+  }
+
+  return merged;
 }
 
 function loadEnvFile(filePath) {

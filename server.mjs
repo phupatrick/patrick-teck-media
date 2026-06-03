@@ -283,6 +283,7 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
   getControlSummary: () => openclawControlPlane.getSummary(),
   getLearningSummary: () => openclawLearningStore.getSummary(),
   getArticleViewStats: (input) => platformService.listArticleViewStats(input),
+  getArticleViewStorageMode: () => platformService.storageMode,
   addLearningFeedback: (input) => openclawLearningStore.addFeedback(input),
   createControlJob: (job) => openclawControlPlane.createJob(job),
   dispatchWorkflow: dispatchNewsroomWorkflow,
