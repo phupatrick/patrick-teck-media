@@ -4,16 +4,16 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-06-09T18:29:27.219Z",
-    "finishedAt": "2026-06-09T18:30:50.744Z"
+    "startedAt": "2026-06-09T20:31:10.916Z",
+    "finishedAt": "2026-06-09T20:32:30.225Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 342,
+    "totalArticles": 340,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 342 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1781029767252-263206.json Generated OpenClaw hidden feed with 342 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 340 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1781037070953-6145c9.json Generated OpenClaw hidden feed with 340 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -22,7 +22,7 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 342 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "output": "Refreshed 340 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     },
     "auditRepair": {
@@ -34,7 +34,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 342 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 340 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -49,7 +49,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-06-09T18:30:50.743Z",
+      "reviewedAt": "2026-06-09T20:32:30.225Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
