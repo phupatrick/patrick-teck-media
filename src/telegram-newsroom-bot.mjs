@@ -72,9 +72,12 @@ export function createTelegramNewsroomBot(options = {}) {
     enabled: autoRegisterWebhook,
     url: webhookUrl,
     lastAttemptAt: "",
+    verifiedAt: "",
     registeredAt: "",
+    retryAfterSeconds: 0,
     lastError: ""
   };
+  let webhookRegistrationPromise = null;
 
   return {
     async initialize() {
@@ -94,23 +97,13 @@ export function createTelegramNewsroomBot(options = {}) {
       }
 
       if (autoRegisterWebhook) {
-        const shouldTryWebhook = !webhookStatus.registeredAt || shouldRetryWebhook(webhookStatus.lastAttemptAt, webhookStatus.lastError);
         try {
-          if (shouldTryWebhook) {
-            const attemptedAt = new Date().toISOString();
-            await registerWebhook({ token, webhookUrl, webhookSecret });
-            webhookStatus = {
-              enabled: true,
-              url: webhookUrl,
-              lastAttemptAt: attemptedAt,
-              registeredAt: attemptedAt,
-              lastError: ""
-            };
-          }
+          await ensureWebhookRegistration();
         } catch (error) {
           webhookStatus = {
             ...webhookStatus,
             lastAttemptAt: new Date().toISOString(),
+            retryAfterSeconds: Number(error?.retryAfterSeconds || 0),
             lastError: error.message || "Không đăng ký được webhook."
           };
         }
@@ -262,6 +255,47 @@ export function createTelegramNewsroomBot(options = {}) {
   function isAdminUser(user) {
     const userId = String(user?.id || "");
     return adminUserIds.has(userId);
+  }
+
+  async function ensureWebhookRegistration() {
+    if (webhookRegistrationPromise) {
+      return webhookRegistrationPromise;
+    }
+
+    webhookRegistrationPromise = (async () => {
+      const attemptedAt = new Date().toISOString();
+      const current = await apiCall(token, "getWebhookInfo", {});
+      const currentUrl = normalizeWebhookUrl(current?.url || "");
+
+      if (currentUrl === webhookUrl) {
+        webhookStatus = {
+          enabled: true,
+          url: webhookUrl,
+          lastAttemptAt: attemptedAt,
+          verifiedAt: attemptedAt,
+          registeredAt: webhookStatus.registeredAt || attemptedAt,
+          retryAfterSeconds: 0,
+          lastError: ""
+        };
+        return current;
+      }
+
+      await registerWebhook({ token, webhookUrl, webhookSecret });
+      webhookStatus = {
+        enabled: true,
+        url: webhookUrl,
+        lastAttemptAt: attemptedAt,
+        verifiedAt: attemptedAt,
+        registeredAt: attemptedAt,
+        retryAfterSeconds: 0,
+        lastError: ""
+      };
+      return current;
+    })().finally(() => {
+      webhookRegistrationPromise = null;
+    });
+
+    return webhookRegistrationPromise;
   }
 }
 
@@ -479,9 +513,9 @@ async function buildAutomationText(context) {
     : "chưa có dữ liệu điều phối";
   const webhookText = webhook?.enabled
     ? webhook.lastError
-      ? `tự động bật nhưng có lỗi: ${webhook.lastError}`
-      : webhook.registeredAt
-        ? `tự động ổn lúc ${formatDate(webhook.registeredAt)}`
+      ? `tự động bật nhưng có lỗi: ${webhook.lastError}${webhook.retryAfterSeconds ? ` (chờ ${webhook.retryAfterSeconds} giây)` : ""}`
+      : webhook.verifiedAt || webhook.registeredAt
+        ? `đã kiểm tra, webhook đang đúng lúc ${formatDate(webhook.verifiedAt || webhook.registeredAt)}`
         : "tự động đang chờ khởi động lạnh"
     : "tắt hoặc chưa có URL webhook";
 
@@ -1154,14 +1188,25 @@ async function apiCall(token, method, payload) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload || {})
   });
+  const responseText = await response.text();
+  let body = {};
 
-  if (!response.ok) {
-    throw new Error(`Telegram API ${method} bị lỗi HTTP ${response.status}.`);
+  try {
+    body = responseText ? JSON.parse(responseText) : {};
+  } catch {
+    body = {};
   }
 
-  const body = await response.json();
-  if (!body.ok) {
-    throw new Error(body.description || `Telegram API ${method} bị lỗi.`);
+  if (!response.ok || !body.ok) {
+    const retryAfterSeconds = Number(body?.parameters?.retry_after || response.headers.get("retry-after") || 0);
+    const retryHint = retryAfterSeconds > 0 ? ` Thử lại sau ${retryAfterSeconds} giây.` : "";
+    const error = new Error(
+      `${body.description || `Telegram API ${method} bị lỗi HTTP ${response.status}`}.${retryHint}`.replace(/\.\./g, ".")
+    );
+    error.statusCode = response.status;
+    error.retryAfterSeconds = retryAfterSeconds;
+    error.telegramMethod = method;
+    throw error;
   }
 
   return body.result;
@@ -1174,19 +1219,6 @@ async function registerWebhook({ token, webhookUrl, webhookSecret }) {
     drop_pending_updates: false,
     ...(webhookSecret ? { secret_token: webhookSecret } : {})
   });
-}
-
-function shouldRetryWebhook(lastAttemptAt, lastError) {
-  if (!lastError) {
-    return false;
-  }
-
-  const timestamp = Date.parse(lastAttemptAt || "");
-  if (!Number.isFinite(timestamp)) {
-    return true;
-  }
-
-  return Date.now() - timestamp > 5 * 60 * 1000;
 }
 
 function stripBotMention(text, username = "") {

@@ -135,6 +135,10 @@ const tests = [
           return new Response(JSON.stringify({ ok: true, result: { username: "patrick_tech_admin_bot" } }), { status: 200 });
         }
 
+        if (method === "getWebhookInfo") {
+          return new Response(JSON.stringify({ ok: true, result: { url: "" } }), { status: 200 });
+        }
+
         if (method === "setMyCommands" || method === "setWebhook") {
           return new Response(JSON.stringify({ ok: true, result: true }), { status: 200 });
         }
@@ -161,6 +165,51 @@ const tests = [
         assert.equal(webhookCall.body.drop_pending_updates, false);
         assert.equal(bot.getWebhookStatus().lastError, "");
         assert.ok(bot.getWebhookStatus().registeredAt);
+      } finally {
+        globalThis.fetch = previousFetch;
+      }
+    }
+  },
+  {
+    name: "newsroom telegram bot does not reset a webhook that is already correct",
+    async run() {
+      const calls = [];
+      const previousFetch = globalThis.fetch;
+      const webhookUrl = "https://patricktechmedia.com/api/telegram/newsroom/webhook";
+      globalThis.fetch = async (url) => {
+        const method = String(url).split("/").pop();
+        calls.push(method);
+
+        if (method === "getMe") {
+          return new Response(JSON.stringify({ ok: true, result: { username: "patrick_tech_admin_bot" } }), { status: 200 });
+        }
+
+        if (method === "setMyCommands") {
+          return new Response(JSON.stringify({ ok: true, result: true }), { status: 200 });
+        }
+
+        if (method === "getWebhookInfo") {
+          return new Response(JSON.stringify({ ok: true, result: { url: webhookUrl, pending_update_count: 0 } }), { status: 200 });
+        }
+
+        throw new Error(`Unexpected Telegram method ${method}`);
+      };
+
+      try {
+        const bot = createTelegramNewsroomBot({
+          token: "123:test",
+          siteUrl: "https://patricktechmedia.com",
+          webhookUrl,
+          webhookSecret: "test-secret",
+          autoRegisterWebhook: true
+        });
+
+        await bot.initialize();
+
+        assert.equal(calls.filter((method) => method === "getWebhookInfo").length, 1);
+        assert.equal(calls.filter((method) => method === "setWebhook").length, 0);
+        assert.ok(bot.getWebhookStatus().verifiedAt);
+        assert.equal(bot.getWebhookStatus().lastError, "");
       } finally {
         globalThis.fetch = previousFetch;
       }
