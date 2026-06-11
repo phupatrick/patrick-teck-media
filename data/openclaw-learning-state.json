@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T12:29:47.181Z",
+  "generated_at": "2026-06-11T16:37:16.432Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-11T12:29:47.181Z",
+    "updated_at": "2026-06-11T16:37:16.432Z",
     "confidence": 0.95,
-    "totalSignals": 318,
+    "totalSignals": 332,
     "dailyFocus": [
       "ai",
       "apps-software",
       "devices",
-      "gaming",
-      "security"
+      "security",
+      "gaming"
     ],
     "topicWeights": {
       "ai": 32,
       "apps-software": 32,
       "devices": 32,
-      "gaming": 32,
       "security": 32,
+      "gaming": 32,
       "internet-business-tech": 32
     },
     "sourceTypeWeights": {
@@ -43,9 +43,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 318 articles; 0 owner feedback item(s); 318 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, security"
+    "lastCycleSummary": "Learned from 332 articles; 0 owner feedback item(s); 332 signal(s); no view data yet; focus: ai, apps-software, devices, security, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-11T16:37:16.432Z",
+      "totalSignals": 332,
+      "confidence": 0.95,
+      "summary": "Learned from 332 articles; 0 owner feedback item(s); 332 signal(s); no view data yet; focus: ai, apps-software, devices, security, gaming"
+    },
     {
       "generated_at": "2026-06-11T12:29:47.181Z",
       "totalSignals": 318,
@@ -279,12 +285,6 @@
       "totalSignals": 326,
       "confidence": 0.95,
       "summary": "Learned from 326 articles; 0 owner feedback item(s); 326 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-07T09:48:00.550Z",
-      "totalSignals": 324,
-      "confidence": 0.95,
-      "summary": "Learned from 324 articles; 0 owner feedback item(s); 324 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
