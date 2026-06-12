@@ -4,17 +4,17 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-06-12T18:45:31.555Z",
-    "finishedAt": "2026-06-12T18:48:00.873Z"
+    "startedAt": "2026-06-12T19:28:53.123Z",
+    "finishedAt": "2026-06-12T19:30:22.324Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 291,
+    "totalArticles": 307,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 291 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1781289931595-142df0.json Generated OpenClaw hidden feed with 291 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping GenK Tin ICT: Feed GenK Tin ICT returned 502 Skipping GenK AI: Feed GenK AI returned 502 Skipping GenK Mobile: Feed GenK Mobile returned 502 Skipping GenK Kham Pha: Feed GenK Kham Pha returned 502 Skipping GenK Xem Mua Luon: Feed GenK Xem Mua Luon returned 502 Skipping GenK Do Choi So: Feed GenK Do Choi So returned 502 Skipping GenK Apps-Games: Feed GenK Apps-Games returned 502 Skipping Microsoft AI Blog: Feed Microsoft AI Blog returned 410 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 502",
+      "output": "Refreshed 307 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1781292533158-c6e6ab.json Generated OpenClaw hidden feed with 307 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Microsoft AI Blog: Feed Microsoft AI Blog returned 410 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 502",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -22,7 +22,7 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 291 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "output": "Refreshed 307 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     },
     "auditRepair": {
@@ -34,7 +34,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 291 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 307 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -49,7 +49,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-06-12T18:48:00.872Z",
+      "reviewedAt": "2026-06-12T19:30:22.323Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
