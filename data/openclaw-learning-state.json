@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T10:50:21.468Z",
+  "generated_at": "2026-06-12T14:12:05.345Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-12T10:50:21.468Z",
+    "updated_at": "2026-06-12T14:12:05.345Z",
     "confidence": 0.95,
-    "totalSignals": 294,
+    "totalSignals": 298,
     "dailyFocus": [
       "ai",
       "apps-software",
+      "internet-business-tech",
       "devices",
-      "security",
-      "gaming"
+      "security"
     ],
     "topicWeights": {
       "ai": 32,
       "apps-software": 32,
+      "internet-business-tech": 32,
       "devices": 32,
       "security": 32,
-      "gaming": 32,
-      "internet-business-tech": 32
+      "gaming": 32
     },
     "sourceTypeWeights": {
       "official-site": 32,
@@ -43,9 +43,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 294 articles; 0 owner feedback item(s); 294 signal(s); no view data yet; focus: ai, apps-software, devices, security, gaming"
+    "lastCycleSummary": "Learned from 298 articles; 0 owner feedback item(s); 298 signal(s); no view data yet; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-12T14:12:05.345Z",
+      "totalSignals": 298,
+      "confidence": 0.95,
+      "summary": "Learned from 298 articles; 0 owner feedback item(s); 298 signal(s); no view data yet; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-12T10:50:21.468Z",
       "totalSignals": 294,
@@ -279,12 +285,6 @@
       "totalSignals": 324,
       "confidence": 0.95,
       "summary": "Learned from 324 articles; 0 owner feedback item(s); 324 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-07T22:19:07.874Z",
-      "totalSignals": 321,
-      "confidence": 0.95,
-      "summary": "Learned from 321 articles; 0 owner feedback item(s); 321 signal(s); no view data yet; focus: ai, apps-software, gaming, security, devices"
     }
   ]
 }
