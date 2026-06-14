@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T01:43:39.642Z",
+  "generated_at": "2026-06-14T06:22:54.893Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-14T01:43:39.642Z",
+    "updated_at": "2026-06-14T06:22:54.893Z",
     "confidence": 0.95,
-    "totalSignals": 303,
+    "totalSignals": 302,
     "dailyFocus": [
+      "devices",
       "ai",
       "apps-software",
-      "devices",
-      "gaming",
-      "security"
+      "internet-business-tech",
+      "gaming"
     ],
     "topicWeights": {
+      "devices": 32,
       "ai": 32,
       "apps-software": 32,
-      "devices": 32,
+      "internet-business-tech": 32,
       "gaming": 32,
-      "security": 32,
-      "internet-business-tech": 32
+      "security": 32
     },
     "sourceTypeWeights": {
       "official-site": 32,
@@ -43,9 +43,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 303 articles; 0 owner feedback item(s); 303 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, security"
+    "lastCycleSummary": "Learned from 302 articles; 0 owner feedback item(s); 302 signal(s); no view data yet; focus: devices, ai, apps-software, internet-business-tech, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-14T06:22:54.893Z",
+      "totalSignals": 302,
+      "confidence": 0.95,
+      "summary": "Learned from 302 articles; 0 owner feedback item(s); 302 signal(s); no view data yet; focus: devices, ai, apps-software, internet-business-tech, gaming"
+    },
     {
       "generated_at": "2026-06-14T01:43:39.642Z",
       "totalSignals": 303,
@@ -279,12 +285,6 @@
       "totalSignals": 325,
       "confidence": 0.95,
       "summary": "Learned from 325 articles; 0 owner feedback item(s); 325 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-10T06:22:57.804Z",
-      "totalSignals": 324,
-      "confidence": 0.95,
-      "summary": "Learned from 324 articles; 0 owner feedback item(s); 324 signal(s); no view data yet; focus: devices, ai, apps-software, internet-business-tech, gaming"
     }
   ]
 }
