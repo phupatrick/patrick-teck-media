@@ -649,21 +649,31 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
   const shouldShowBadge = Boolean(article.editorial_label);
   const feedback = options.feedback || { reactions: [], comments: [], totalComments: 0, totalReactions: 0 };
   const publicSections = selectPublicArticleSections(article);
+  const seoDescription = buildSeoDescription(article, language);
+  const schemaType = article.content_type === "NewsArticle" ? "NewsArticle" : "Article";
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "NewsArticle",
+    "@type": schemaType,
     headline: article.title,
-    description: article.summary,
+    description: seoDescription,
     inLanguage: language,
     datePublished: article.published_at,
     dateModified: article.updated_at,
     mainEntityOfPage: article.canonicalUrl,
     image: article.hero_image?.url,
-    author: { "@type": "Person", name: article.author.name },
+    author: {
+      "@type": "Person",
+      name: article.author.name,
+      url: `${state.site.siteUrl}/${language}/authors#${article.author.id}`
+    },
     publisher: {
       "@type": "Organization",
       name: state.site.name,
-      url: state.site.siteUrl
+      url: state.site.siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${state.site.siteUrl}/patrick-tech-media-mark.svg`
+      }
     }
   };
 
@@ -674,7 +684,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
     alternateHref: article.alternates[0]?.href || null,
     adsConfig,
     title: `${article.title} | ${state.site.name}`,
-    description: article.summary,
+    description: seoDescription,
     schema: articleSchema,
     content: `
       <article class="article-shell">
@@ -1028,10 +1038,13 @@ export function renderNotFoundPage(state, language, adsConfig) {
   });
 }
 
-function renderLayout({ state, language, path, alternateHref = null, adsConfig, title, description, content, schema = null }) {
+function renderLayout({ state, language, path, alternateHref, adsConfig, title, description, content, schema = null }) {
   const copy = getRenderCopy(state, language);
-  const alternatePath =
-    alternateHref || path.replace(/^\/(vi|en)\//, (_, current) => `/${current === "vi" ? "en" : "vi"}/`);
+  const alternateLanguage = language === "vi" ? "en" : "vi";
+  const inferredAlternatePath = path.replace(/^\/(vi|en)\//, `/${alternateLanguage}/`);
+  const hasAlternatePage = alternateHref !== null;
+  const alternatePath = typeof alternateHref === "string" && alternateHref ? alternateHref : inferredAlternatePath;
+  const languageSwitchPath = hasAlternatePage ? alternatePath : `/${alternateLanguage}/`;
   const nav = getPrimaryNav(state, language);
   const footerLinks = getFooterLinks(language);
   const homePath = `/${language}/`;
@@ -1059,7 +1072,9 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     `<link rel="apple-touch-icon" href="${iconPath}" />`,
     `<link rel="canonical" href="${canonicalUrl}" />`,
     `<link rel="alternate" hreflang="${language}" href="${canonicalUrl}" />`,
-    `<link rel="alternate" hreflang="${language === "vi" ? "en" : "vi"}" href="${state.site.siteUrl}${alternatePath}" />`,
+    hasAlternatePage
+      ? `<link rel="alternate" hreflang="${alternateLanguage}" href="${state.site.siteUrl}${alternatePath}" />`
+      : "",
     `<meta property="og:site_name" content="${escapeHtml(state.site.name)}" />`,
     `<meta property="og:title" content="${escapeHtml(title)}" />`,
     `<meta property="og:description" content="${escapeHtml(description)}" />`,
@@ -1067,7 +1082,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     `<meta property="og:image" content="${ogImageUrl}" />`,
     `<meta property="og:image:secure_url" content="${ogImageUrl}" />`,
     `<meta property="og:image:alt" content="${escapeHtml(ogImageAlt)}" />`,
-    `<meta property="og:type" content="${schema?.["@type"] === "NewsArticle" ? "article" : "website"}" />`,
+    `<meta property="og:type" content="${["NewsArticle", "Article"].includes(schema?.["@type"]) ? "article" : "website"}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
@@ -1075,7 +1090,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
     `<meta name="twitter:image:alt" content="${escapeHtml(ogImageAlt)}" />`,
     `<link rel="stylesheet" href="${stylesheetPath}" />`,
     `<script defer src="${scriptPath}"></script>`
-  ];
+  ].filter(Boolean);
 
   if (adsConfig.client) {
     headTags.push(
@@ -1117,7 +1132,7 @@ function renderLayout({ state, language, path, alternateHref = null, adsConfig, 
         <div class="topbar-actions">
           <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Viết bài" : "Write"}</a>
           <a class="lang-pill" href="/${language}/login">${language === "vi" ? "Đăng nhập" : "Login"}</a>
-          <a class="lang-pill" href="${alternatePath}">${language === "vi" ? "EN" : "VI"}</a>
+          <a class="lang-pill" href="${languageSwitchPath}">${language === "vi" ? "EN" : "VI"}</a>
           <a class="lang-pill subtle" href="/${language}/store">${copy.storeLabel}</a>
         </div>
       </header>
@@ -1610,6 +1625,37 @@ function selectPublicArticleSections(article) {
       heading: String(section.heading).trim(),
       body: trimArticleBody(String(section.body).trim(), 760)
     }));
+}
+
+function buildSeoDescription(article, language) {
+  const navigationNoise =
+    /(open menu|view profile|sign out|search search|popular brands|buying guides|coupons|get daily|more from phones)/i;
+  const candidates = [article.dek, article.hook, article.summary]
+    .map((value) => String(value || "").replace(/\s+/g, " ").trim())
+    .filter((value) => value && !navigationNoise.test(value));
+  const fallback = language === "vi"
+    ? `${article.title}. Phân tích và cập nhật từ Patrick Tech Media.`
+    : `${article.title}. Analysis and updates from Patrick Tech Media.`;
+
+  return trimMetaDescription(candidates[0] || fallback, 160);
+}
+
+function trimMetaDescription(value, maxLength) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+
+  if (text.length <= maxLength) {
+    return text;
+  }
+
+  const shortened = text.slice(0, maxLength - 3);
+  const sentenceEnd = Math.max(shortened.lastIndexOf("."), shortened.lastIndexOf("?"), shortened.lastIndexOf("!"));
+
+  if (sentenceEnd >= 90) {
+    return shortened.slice(0, sentenceEnd + 1);
+  }
+
+  const wordEnd = shortened.lastIndexOf(" ");
+  return `${shortened.slice(0, wordEnd >= 90 ? wordEnd : maxLength - 3).trim()}...`;
 }
 
 function trimArticleBody(value, maxLength) {

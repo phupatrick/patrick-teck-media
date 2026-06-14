@@ -291,9 +291,10 @@ export function buildNewsroomState(options = {}) {
   const baseArticles = Array.isArray(options.externalArticles)
     ? normalizeInjectedArticles(options.externalArticles, { topics, contentTypeMeta })
     : loadExternalArticles(contentPath, { topics, contentTypeMeta }) || buildArticles();
-  const sourceArticles = mergeArticleSets(baseArticles, normalizeInjectedArticles(options.injectedArticles, { topics, contentTypeMeta })).filter(
-    isArticlePublishReady
-  );
+  const sourceArticles = mergeArticleSets(
+    baseArticles,
+    normalizeInjectedArticles(options.injectedArticles, { topics, contentTypeMeta })
+  ).filter(isArticlePublishReady);
   const assetVersion = resolveAssetVersion(options.assetVersion, sourceArticles, now);
   const frontPageTopicWeights = {
     ...FRONT_PAGE_TOPIC_WEIGHTS,
@@ -1399,9 +1400,26 @@ export function buildSitemapXml(state) {
 }
 
 export function buildNewsSitemapXml(state) {
+  const generatedAt = new Date(state.runtime?.generatedAt || Date.now()).getTime();
+  const earliestPublication = generatedAt - 2 * 24 * 60 * 60 * 1000;
+  const seenHrefs = new Set();
   const items = state.articles
-    .filter((article) => article.indexable && article.content_type === "NewsArticle")
-    .sort((left, right) => new Date(right.updated_at || right.published_at) - new Date(left.updated_at || left.published_at))
+    .filter((article) => {
+      const publishedAt = new Date(article.published_at).getTime();
+      return article.indexable
+        && article.content_type === "NewsArticle"
+        && Number.isFinite(publishedAt)
+        && publishedAt >= earliestPublication;
+    })
+    .sort((left, right) => new Date(right.published_at) - new Date(left.published_at))
+    .filter((article) => {
+      if (seenHrefs.has(article.href)) {
+        return false;
+      }
+
+      seenHrefs.add(article.href);
+      return true;
+    })
     .slice(0, 1000)
     .map((article) => {
       const publicationDate = new Date(article.published_at).toISOString();
@@ -1677,7 +1695,7 @@ function mergeArticleSets(primaryArticles, injectedArticles) {
   const articleMap = new Map();
 
   for (const article of [...(primaryArticles || []), ...(injectedArticles || [])]) {
-    const key = article.id || article.href || `${article.language}:${article.content_type}:${article.slug}`;
+    const key = article.href || article.id || `${article.language}:${article.content_type}:${article.slug}`;
     const previous = articleMap.get(key);
 
     if (!previous || new Date(article.updated_at || article.published_at || 0) >= new Date(previous.updated_at || previous.published_at || 0)) {

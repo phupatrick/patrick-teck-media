@@ -1055,6 +1055,96 @@ const tests = [
     }
   },
   {
+    name: "keeps the news sitemap limited to unique articles published in the last two days",
+    run() {
+      const recentArticle = {
+        ...state.articles.find((article) => article.content_type === "NewsArticle"),
+        href: "/vi/tin-tuc/recent-seo-story",
+        slug: "recent-seo-story",
+        title: "Recent SEO story",
+        language: "vi",
+        published_at: "2026-06-14T02:00:00.000Z",
+        updated_at: "2026-06-14T03:00:00.000Z"
+      };
+      const sitemapState = {
+        ...state,
+        runtime: { ...state.runtime, generatedAt: "2026-06-14T12:00:00.000Z" },
+        articles: [
+          recentArticle,
+          { ...recentArticle, id: "duplicate-recent-seo-story" },
+          {
+            ...recentArticle,
+            id: "old-seo-story",
+            href: "/vi/tin-tuc/old-seo-story",
+            slug: "old-seo-story",
+            title: "Old SEO story",
+            published_at: "2026-06-11T01:00:00.000Z",
+            updated_at: "2026-06-11T01:00:00.000Z"
+          }
+        ]
+      };
+      const xml = buildNewsSitemapXml(sitemapState);
+
+      assert.equal((xml.match(/recent-seo-story/g) || []).length, 1);
+      assert.doesNotMatch(xml, /old-seo-story/);
+    }
+  },
+  {
+    name: "deduplicates public articles by URL even when bot runs create different IDs",
+    run() {
+      const template = state.articles.find((article) => article.language === "vi" && article.content_type === "NewsArticle");
+      const href = "/vi/tin-tuc/mot-url-cong-khai-duy-nhat";
+      const scenario = buildScenarioState([
+        {
+          ...template,
+          id: "older-bot-run",
+          cluster_id: "older-bot-run",
+          slug: "mot-url-cong-khai-duy-nhat",
+          href,
+          title: "Ban cu cua bai SEO",
+          updated_at: "2026-06-14T01:00:00.000Z"
+        },
+        {
+          ...template,
+          id: "newer-bot-run",
+          cluster_id: "newer-bot-run",
+          slug: "mot-url-cong-khai-duy-nhat",
+          href,
+          title: "Ban moi cua bai SEO",
+          updated_at: "2026-06-14T02:00:00.000Z"
+        }
+      ], { now: "2026-06-14T03:00:00.000Z" });
+
+      assert.equal(scenario.articles.filter((article) => article.href === href).length, 1);
+      assert.match(scenario.articles.find((article) => article.href === href).title, /Ban moi/);
+    }
+  },
+  {
+    name: "does not emit fake hreflang URLs for untranslated articles and keeps SEO metadata compact",
+    run() {
+      const template = state.articles.find((article) => article.language === "vi" && article.content_type !== "NewsArticle")
+        || state.articles.find((article) => article.language === "vi");
+      const article = {
+        ...template,
+        content_type: "EvergreenGuide",
+        alternates: [],
+        summary: "Open menu View Profile Sign out Search Search Popular Brands More from Phones Buying Guides Coupons Get daily insight.",
+        dek: "Open menu View Profile Sign out Search Search Popular Brands More from Phones Buying Guides Coupons Get daily insight.",
+        hook: "Open menu View Profile Sign out Search Search Popular Brands More from Phones Buying Guides Coupons Get daily insight."
+      };
+      const html = renderArticlePage(state, "vi", article, [], { client: "", slots: {} });
+      const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1] || "";
+
+      assert.doesNotMatch(html, /hreflang="en"/);
+      assert.match(html, /class="lang-pill" href="\/en\/">EN<\/a>/);
+      assert.ok(description.length <= 160);
+      assert.doesNotMatch(description, /Open menu|View Profile/i);
+      assert.match(html, /"@type":"Article"/);
+      assert.match(html, /"author":\{"@type":"Person","name":"[^"]+","url":"https:\/\/patricktechmedia\.com\/vi\/authors#/);
+      assert.match(html, /"logo":\{"@type":"ImageObject"/);
+    }
+  },
+  {
     name: "home data exposes a live desk payload for continuous refresh",
     run() {
       const home = getHomeData(state, "vi");
