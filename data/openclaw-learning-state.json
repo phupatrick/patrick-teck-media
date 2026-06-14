@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T16:12:41.207Z",
+  "generated_at": "2026-06-14T17:49:10.235Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-14T16:12:41.207Z",
+    "updated_at": "2026-06-14T17:49:10.235Z",
     "confidence": 0.95,
-    "totalSignals": 289,
+    "totalSignals": 288,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -43,9 +43,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 289 articles; 0 owner feedback item(s); 289 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 288 articles; 0 owner feedback item(s); 288 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-14T17:49:10.235Z",
+      "totalSignals": 288,
+      "confidence": 0.95,
+      "summary": "Learned from 288 articles; 0 owner feedback item(s); 288 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-14T16:12:41.207Z",
       "totalSignals": 289,
@@ -279,12 +285,6 @@
       "totalSignals": 319,
       "confidence": 0.95,
       "summary": "Learned from 319 articles; 0 owner feedback item(s); 319 signal(s); no view data yet; focus: gaming, ai, apps-software, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-10T18:51:13.648Z",
-      "totalSignals": 317,
-      "confidence": 0.95,
-      "summary": "Learned from 317 articles; 0 owner feedback item(s); 317 signal(s); no view data yet; focus: ai, apps-software, internet-business-tech, devices, gaming"
     }
   ]
 }
