@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T17:49:10.235Z",
+  "generated_at": "2026-06-14T18:12:43.527Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-14T17:49:10.235Z",
+    "updated_at": "2026-06-14T18:12:43.527Z",
     "confidence": 0.95,
     "totalSignals": 288,
     "dailyFocus": [
@@ -46,6 +46,12 @@
     "lastCycleSummary": "Learned from 288 articles; 0 owner feedback item(s); 288 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-14T18:12:43.527Z",
+      "totalSignals": 288,
+      "confidence": 0.95,
+      "summary": "Learned from 288 articles; 0 owner feedback item(s); 288 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-14T17:49:10.235Z",
       "totalSignals": 288,
@@ -279,12 +285,6 @@
       "totalSignals": 323,
       "confidence": 0.95,
       "summary": "Learned from 323 articles; 0 owner feedback item(s); 323 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-10T20:00:32.218Z",
-      "totalSignals": 319,
-      "confidence": 0.95,
-      "summary": "Learned from 319 articles; 0 owner feedback item(s); 319 signal(s); no view data yet; focus: gaming, ai, apps-software, devices, internet-business-tech"
     }
   ]
 }
