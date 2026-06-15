@@ -693,6 +693,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
             <span class="pill">${escapeHtml(article.content_type_label)}</span>
             <a href="/${language}/topics/${article.topic_slug}">${escapeHtml(article.topic_label)}</a>
             <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+            <span>${language === "vi" ? "Lượt xem" : "Views"}: ${Number(feedback.views || 0).toLocaleString(language === "vi" ? "vi-VN" : "en-US")}</span>
           </div>
           ${shouldShowBadge ? `<div class="story-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
           <h1>${escapeHtml(article.title)}</h1>

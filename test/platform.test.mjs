@@ -236,6 +236,34 @@ const tests = [
     }
   },
   {
+    name: "tracks article views, daily unique readers, and ranking",
+    async run() {
+      const article = {
+        id: "view-ranking-story",
+        href: "/vi/tin-tuc/view-ranking-story",
+        title: "Bai kiem tra xep hang view",
+        language: "vi",
+        topic: "ai",
+        content_type: "NewsArticle",
+        source_set: [{ source_type: "official-site" }]
+      };
+
+      await service.recordArticleView({ article, visitorKey: "reader-a", now: "2026-06-16T01:00:00.000Z" });
+      await service.recordArticleView({ article, visitorKey: "reader-a", now: "2026-06-16T02:00:00.000Z" });
+      await service.recordArticleView({ article, visitorKey: "reader-b", now: "2026-06-16T03:00:00.000Z" });
+
+      const ranking = await service.listArticleViewStats({ language: "vi", limit: 10 });
+      const entry = ranking.find((item) => item.article_id === article.id);
+
+      assert.ok(entry);
+      assert.equal(entry.views, 3);
+      assert.equal(entry.unique_views, 2);
+      assert.equal(entry.daily[0].views, 3);
+      assert.equal(entry.rank_label, "Top 1");
+      assert.ok(entry.rank_score > 0);
+    }
+  },
+  {
     name: "limits Google admin access to the approved email list",
     async run() {
       const admin = await service.upsertAdminFromGoogle(

@@ -208,7 +208,7 @@ function buildClusterArticle(cluster, now) {
     language,
     topic,
     content_type: contentType,
-    slug: slugify(title).slice(0, 96),
+    slug: truncateSlug(slugify(title), 96),
     title,
     summary,
     dek,
@@ -3166,5 +3166,9 @@ function normalizeCompact(value) {
 
 function slugify(value) {
   return normalizeCompact(value) || `story-${crypto.randomUUID().slice(0, 8)}`;
+}
+
+function truncateSlug(value, maxLength) {
+  return String(value || "").slice(0, maxLength).replace(/-+$/g, "");
 }
 

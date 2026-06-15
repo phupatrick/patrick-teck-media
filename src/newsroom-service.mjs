@@ -1981,7 +1981,7 @@ function isGuideLedTipsCandidate(article) {
 }
 
 function strengthenEditorialTitle(title, { language, topic, verificationState, contentType, summary, dek, sections }) {
-  const normalized = stripEditorialTrailingPunctuation(title);
+  const normalized = stripEditorialTrailingPunctuation(stripBoilerplateEditorialSuffix(title));
 
   if (!normalized) {
     return "";
@@ -1999,6 +1999,13 @@ function strengthenEditorialTitle(title, { language, topic, verificationState, c
 
   const candidate = `${normalized}: ${suffix}`;
   return candidate.length <= 120 ? candidate : normalized;
+}
+
+function stripBoilerplateEditorialSuffix(value) {
+  return String(value || "").replace(
+    /:\s*(why this signal is getting harder to ignore|vì sao tín hiệu này đang đậm dần)\s*$/i,
+    ""
+  );
 }
 
 function buildEditorialTitleSuffix({ language, topic, verificationState, contentType }) {
@@ -3093,7 +3100,7 @@ function extractEditorialPhrases(value) {
 
 function isEditorialTitleCompelling(title, language) {
   const normalized = title.toLowerCase();
-  const hasShape = /[:?!]/.test(title) || title.length >= 72 || /nhưng|vì sao|what|why|but|how/i.test(normalized);
+  const hasShape = /[:?!]/.test(title) || title.length >= 35 || /\d/.test(title) || /nhưng|vì sao|what|why|but|how/i.test(normalized);
   const banned =
     language === "vi"
       ? ["mua ngay", "giam gia", "khuyen mai", "hot nhat hom nay"]

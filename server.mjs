@@ -552,11 +552,6 @@ async function handleRequest(req, res) {
       const relatedStories = getArticlesForLanguage(state, language)
         .filter((story) => story.cluster_id !== article.cluster_id && story.topic === article.topic)
         .slice(0, 3);
-      const feedback = await platformService.getArticleFeedback({
-        articleId: article.id,
-        href: article.href,
-        language
-      });
       if (method === "GET") {
         await platformService.recordArticleView({
           article,
@@ -564,6 +559,11 @@ async function handleRequest(req, res) {
           now: new Date().toISOString()
         });
       }
+      const feedback = await platformService.getArticleFeedback({
+        articleId: article.id,
+        href: article.href,
+        language
+      });
       const viewer = await loadViewer();
 
       return sendHtml(
@@ -915,6 +915,42 @@ async function handleApi(req, pathname, requestUrl, res, state) {
   if (pathname === "/api/newsroom/live") {
     const language = requestUrl.searchParams.get("lang") === "en" ? "en" : "vi";
     return sendJson(res, 200, state.home[language].liveDesk, { cacheControl });
+  }
+
+  if (pathname === "/api/newsroom/views") {
+    const language = requestUrl.searchParams.get("lang") === "en"
+      ? "en"
+      : requestUrl.searchParams.get("lang") === "vi"
+        ? "vi"
+        : "";
+    const limit = Number(requestUrl.searchParams.get("limit") || 20);
+    return sendJson(
+      res,
+      200,
+      {
+        storage: {
+          mode: platformService.storageMode,
+          durable: platformService.storageMode === "neon-postgres"
+        },
+        articles: await platformService.listArticleViewStats({ language, limit })
+      },
+      { cacheControl: "no-store" }
+    );
+  }
+
+  if (pathname === "/api/openclaw/status") {
+    return sendJson(
+      res,
+      200,
+      {
+        ok: true,
+        controlConfigured: Boolean(config.openclawControlToken),
+        databaseConfigured: Boolean(config.databaseUrl),
+        storageMode: platformService.storageMode,
+        durableViewStorage: platformService.storageMode === "neon-postgres"
+      },
+      { cacheControl: "no-store" }
+    );
   }
 
   if (pathname === "/api/seller/catalog") {

@@ -519,7 +519,7 @@ const fallbackFeeds = [
   },
   {
     name: "Microsoft AI Blog",
-    url: "https://blogs.microsoft.com/ai/feed/",
+    url: "https://news.microsoft.com/source/topics/ai/feed/",
     language: "en",
     region: "Global",
     sourceType: "official-site",
@@ -1241,7 +1241,7 @@ async function mapFeedItem(feed, item, timestamp) {
   });
   const publishedAt = normalizeDate(item.pubDate, timestamp);
   const articleHash = crypto.createHash("sha1").update(`${feed.name}:${link}:${feed.language}`).digest("hex").slice(0, 12);
-  const slug = slugify(title).slice(0, 96);
+  const slug = truncateSlug(slugify(title), 96);
   const imageUrl = chooseStoryImage({
     itemImageUrl: item.imageUrl,
     snapshotImageUrl: snapshot.imageUrl,
@@ -2566,6 +2566,10 @@ function slugify(value) {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "") || `story-${crypto.randomUUID().slice(0, 8)}`;
+}
+
+function truncateSlug(value, maxLength) {
+  return String(value || "").slice(0, maxLength).replace(/-+$/g, "");
 }
 
 function stripCdata(value) {

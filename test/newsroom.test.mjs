@@ -1145,6 +1145,37 @@ const tests = [
     }
   },
   {
+    name: "shows current article views and removes repetitive generated title suffixes",
+    run() {
+      const template = state.articles.find((article) => article.language === "en" && article.content_type === "NewsArticle");
+      const scenario = buildScenarioState([
+        {
+          ...template,
+          id: "clean-title-view-story",
+          cluster_id: "clean-title-view-story",
+          slug: "clean-title-view-story",
+          href: "/en/news/clean-title-view-story",
+          title: "Samsung foldables move closer to launch: why this signal is getting harder to ignore"
+        }
+      ], { now: "2026-06-16T03:00:00.000Z" });
+      const article = scenario.articles.find((entry) => entry.id === "clean-title-view-story");
+      const html = renderArticlePage(scenario, "en", article, [], { client: "", slots: {} }, {
+        feedback: {
+          views: 1234,
+          uniqueViews: 900,
+          reactions: [],
+          comments: [],
+          totalComments: 0,
+          totalReactions: 0
+        }
+      });
+
+      assert.equal(article.title, "Samsung foldables move closer to launch");
+      assert.match(html, /Views: 1,234/);
+      assert.doesNotMatch(html, /why this signal is getting harder to ignore/i);
+    }
+  },
+  {
     name: "home data exposes a live desk payload for continuous refresh",
     run() {
       const home = getHomeData(state, "vi");
