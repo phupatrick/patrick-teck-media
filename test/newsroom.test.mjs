@@ -382,6 +382,37 @@ const tests = [
     }
   },
   {
+    name: "openclaw learning keeps production view snapshots even when the article rotated out",
+    run() {
+      const article = state.articles.find((entry) => entry.language === "vi" && entry.topic === "ai");
+      const profile = buildOpenClawLearningProfile({
+        now: "2026-06-16T00:00:00.000Z",
+        articles: [article],
+        platformState: {
+          articleViews: [
+            {
+              article_id: "rotated-out-story",
+              article_href: "/en/news/rotated-out-story",
+              title: "Rotated out story readers still opened",
+              language: "en",
+              views: 9,
+              unique_views: 6,
+              topic: "devices",
+              content_type: "NewsArticle",
+              source_type: "press"
+            }
+          ]
+        },
+        feedback: []
+      });
+
+      assert.equal(profile.topViewedArticles[0].title, "Rotated out story readers still opened");
+      assert.equal(profile.topViewedArticles[0].views, 9);
+      assert.ok(profile.viewInsights.some((insight) => /devices|NewsArticle|press/i.test(insight)));
+      assert.match(profile.lastCycleSummary, /9 top view/);
+    }
+  },
+  {
     name: "newsroom telegram views command lists high-view articles",
     async run() {
       const response = await executeNewsroomCommand("/views", {

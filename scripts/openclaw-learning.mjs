@@ -94,7 +94,7 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
   const comments = Array.isArray(platformState.articleComments) ? platformState.articleComments : [];
   const viewStats = Array.isArray(platformState.articleViews) ? platformState.articleViews : [];
 
-  return articles.map((article) => {
+  const articleSignals = articles.map((article) => {
     const readiness = evaluateArticleReadiness(article);
     const articleReactions = reactions.filter((entry) => matchesArticle(entry, article));
     const articleComments = comments.filter((entry) => matchesArticle(entry, article));
@@ -126,6 +126,34 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
       ownerFeedback
     };
   });
+  const orphanViewSignals = viewStats
+    .filter((entry) => clampInteger(entry?.views, 0, 1_000_000_000, 0) > 0)
+    .filter((entry) => !articles.some((article) => matchesArticle(entry, article)))
+    .map(buildOrphanViewSignal);
+
+  return [...articleSignals, ...orphanViewSignals];
+}
+
+function buildOrphanViewSignal(entry) {
+  const views = clampInteger(entry?.views, 0, 1_000_000_000, 0);
+  const uniqueViews = clampInteger(entry?.unique_views, 0, 1_000_000_000, 0);
+  const viewScore = computeViewScore(views, uniqueViews);
+
+  return {
+    id: normalizeText(entry?.article_id || entry?.article_href),
+    href: normalizeText(entry?.article_href),
+    title: normalizeText(entry?.title || entry?.article_href || "Viewed article"),
+    topic: normalizeTopic(entry?.topic),
+    contentType: normalizeText(entry?.content_type || "NewsArticle"),
+    sourceType: normalizeText(entry?.source_type || "unknown") || "unknown",
+    score: viewScore,
+    views,
+    uniqueViews,
+    signalCount: Math.min(20, Math.max(1, Math.ceil(views / 5))),
+    readiness: { ready: true, missing: [] },
+    ownerFeedback: [],
+    fromViewSnapshot: true
+  };
 }
 
 function buildWeightMap(signals, key, previousWeights = {}) {
