@@ -1187,9 +1187,18 @@ const tests = [
           slug: "clean-title-view-story",
           href: "/en/news/clean-title-view-story",
           title: "Samsung foldables move closer to launch: why this signal is getting harder to ignore"
+        },
+        {
+          ...template,
+          id: "commercial-title-story",
+          cluster_id: "commercial-title-story",
+          slug: "commercial-title-story",
+          href: "/en/news/commercial-title-story",
+          title: "Grab this massive power bank for a dirt-cheap $35"
         }
       ], { now: "2026-06-16T03:00:00.000Z" });
       const article = scenario.articles.find((entry) => entry.id === "clean-title-view-story");
+      const commercialArticle = scenario.articles.find((entry) => entry.id === "commercial-title-story");
       const html = renderArticlePage(scenario, "en", article, [], { client: "", slots: {} }, {
         feedback: {
           views: 1234,
@@ -1202,6 +1211,7 @@ const tests = [
       });
 
       assert.equal(article.title, "Samsung foldables move closer to launch");
+      assert.equal(commercialArticle.title, "Grab this massive power bank for a dirt-cheap $35");
       assert.match(html, /Views: 1,234/);
       assert.doesNotMatch(html, /why this signal is getting harder to ignore/i);
     }

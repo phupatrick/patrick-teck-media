@@ -1992,6 +1992,10 @@ function strengthenEditorialTitle(title, { language, topic, verificationState, c
     return normalized;
   }
 
+  if (hasBlockedTitleTerm(normalized, language)) {
+    return normalized;
+  }
+
   if (isEditorialTitleCompelling(normalized, language)) {
     return normalized;
   }
@@ -2007,6 +2011,13 @@ function strengthenEditorialTitle(title, { language, topic, verificationState, c
 }
 
 function stripBoilerplateEditorialSuffix(value) {
+  const text = String(value || "");
+  const englishCleaned = text.replace(/:\s*why this signal is getting harder to ignore\s*$/i, "");
+
+  if (englishCleaned !== text) {
+    return englishCleaned;
+  }
+
   return String(value || "").replace(
     /:\s*(why this signal is getting harder to ignore|vì sao tín hiệu này đang đậm dần)\s*$/i,
     ""
@@ -3106,12 +3117,18 @@ function extractEditorialPhrases(value) {
 function isEditorialTitleCompelling(title, language) {
   const normalized = title.toLowerCase();
   const hasShape = /[:?!]/.test(title) || title.length >= 35 || /\d/.test(title) || /nhưng|vì sao|what|why|but|how/i.test(normalized);
-  const banned =
+
+  return hasShape && !hasBlockedTitleTerm(title, language);
+}
+
+function hasBlockedTitleTerm(title, language) {
+  const normalized = title.toLowerCase();
+  const blocked =
     language === "vi"
       ? ["mua ngay", "giam gia", "khuyen mai", "hot nhat hom nay"]
       : ["buy now", "limited offer", "best deal", "cheap"];
 
-  return hasShape && !banned.some((term) => normalized.includes(term));
+  return blocked.some((term) => normalized.includes(term));
 }
 
 function normalizeHookText(value) {
