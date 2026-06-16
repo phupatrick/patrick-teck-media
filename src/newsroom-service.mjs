@@ -1981,10 +1981,15 @@ function isGuideLedTipsCandidate(article) {
 }
 
 function strengthenEditorialTitle(title, { language, topic, verificationState, contentType, summary, dek, sections }) {
-  const normalized = stripEditorialTrailingPunctuation(stripBoilerplateEditorialSuffix(title));
+  const titleWithoutBoilerplate = stripBoilerplateEditorialSuffix(title);
+  const normalized = stripEditorialTrailingPunctuation(titleWithoutBoilerplate);
 
   if (!normalized) {
     return "";
+  }
+
+  if (titleWithoutBoilerplate !== String(title || "")) {
+    return normalized;
   }
 
   if (isEditorialTitleCompelling(normalized, language)) {
