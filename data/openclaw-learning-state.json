@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:48:42.764Z",
+  "generated_at": "2026-06-16T22:54:08.693Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-16T20:48:42.764Z",
+    "updated_at": "2026-06-16T22:54:08.693Z",
     "confidence": 0.95,
-    "totalSignals": 327,
+    "totalSignals": 331,
     "dailyFocus": [
       "devices",
       "ai",
       "apps-software",
-      "internet-business-tech",
-      "gaming"
+      "gaming",
+      "internet-business-tech"
     ],
     "topicWeights": {
       "devices": 32,
       "ai": 32,
       "apps-software": 32,
-      "internet-business-tech": 32,
       "gaming": 32,
+      "internet-business-tech": 32,
       "security": 32
     },
     "sourceTypeWeights": {
@@ -59,9 +59,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 326 articles; 0 owner feedback item(s); 327 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 330 articles; 0 owner feedback item(s); 331 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, gaming, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-16T22:54:08.693Z",
+      "totalSignals": 331,
+      "confidence": 0.95,
+      "summary": "Learned from 330 articles; 0 owner feedback item(s); 331 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, gaming, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-16T20:48:42.764Z",
       "totalSignals": 327,
@@ -295,12 +301,6 @@
       "totalSignals": 305,
       "confidence": 0.95,
       "summary": "Learned from 305 articles; 0 owner feedback item(s); 305 signal(s); no view data yet; focus: ai, apps-software, internet-business-tech, devices, gaming"
-    },
-    {
-      "generated_at": "2026-06-12T22:52:50.568Z",
-      "totalSignals": 290,
-      "confidence": 0.95,
-      "summary": "Learned from 290 articles; 0 owner feedback item(s); 290 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
