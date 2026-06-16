@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T19:04:25.150Z",
+  "generated_at": "2026-06-16T19:09:00.117Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-16T19:04:25.150Z",
+    "updated_at": "2026-06-16T19:09:00.117Z",
     "confidence": 0.95,
-    "totalSignals": 331,
+    "totalSignals": 334,
     "dailyFocus": [
       "devices",
       "ai",
@@ -30,22 +30,44 @@
       "official-site": 32,
       "press": 32
     },
-    "topViewedArticles": [],
-    "viewInsights": [],
+    "topViewedArticles": [
+      {
+        "rank": 1,
+        "title": "Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips",
+        "href": "/en/news/apple-s-2028-iphones-to-use-1-4nm-a22-pro-chips",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      }
+    ],
+    "viewInsights": [
+      "Bai view cao dang nghieng ve chu de devices; tang uu tien neu van con tin moi va nguon tot.",
+      "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
+      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
+    ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
-      "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi."
+      "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 331 articles; 0 owner feedback item(s); 331 signal(s); no view data yet; focus: devices, ai, apps-software, gaming, security"
+    "lastCycleSummary": "Learned from 333 articles; 0 owner feedback item(s); 334 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, gaming, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-16T19:09:00.117Z",
+      "totalSignals": 334,
+      "confidence": 0.95,
+      "summary": "Learned from 333 articles; 0 owner feedback item(s); 334 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, gaming, security"
+    },
     {
       "generated_at": "2026-06-16T19:04:25.150Z",
       "totalSignals": 331,
@@ -279,12 +301,6 @@
       "totalSignals": 289,
       "confidence": 0.95,
       "summary": "Learned from 289 articles; 0 owner feedback item(s); 289 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-12T19:30:21.328Z",
-      "totalSignals": 307,
-      "confidence": 0.95,
-      "summary": "Learned from 307 articles; 0 owner feedback item(s); 307 signal(s); no view data yet; focus: devices, ai, apps-software, internet-business-tech, gaming"
     }
   ]
 }
