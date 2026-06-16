@@ -5,6 +5,7 @@ import path from "node:path";
 import { buildNewsroomState, getArticleByRoute } from "../src/newsroom-service.mjs";
 import { renderAuthPage } from "../src/platform-render.mjs";
 import { createPlatformService } from "../src/platform-service.mjs";
+import { mergeArticleViewSnapshots } from "../scripts/platform-view-sync.mjs";
 
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-media-platform-"));
 const statePath = path.join(tempDir, "platform-state.json");
@@ -261,6 +262,55 @@ const tests = [
       assert.equal(entry.daily[0].views, 3);
       assert.equal(entry.rank_label, "Top 1");
       assert.ok(entry.rank_score > 0);
+    }
+  },
+  {
+    name: "merges production view snapshots without inflating repeated syncs",
+    run() {
+      const initialState = {
+        articleViews: [
+          {
+            article_id: "view-sync-story",
+            article_href: "/vi/tin-tuc/view-sync-story",
+            title: "View sync story",
+            language: "vi",
+            topic: "ai",
+            content_type: "NewsArticle",
+            source_type: "official-site",
+            views: 5,
+            unique_views: 3,
+            first_viewed_at: "2026-06-15T01:00:00.000Z",
+            last_viewed_at: "2026-06-15T02:00:00.000Z",
+            daily: [{ date: "2026-06-15", views: 5, unique_views: 3 }]
+          }
+        ]
+      };
+      const snapshot = {
+        article_id: "view-sync-story",
+        article_href: "/vi/tin-tuc/view-sync-story",
+        title: "View sync story updated",
+        language: "vi",
+        topic: "ai",
+        content_type: "NewsArticle",
+        source_type: "official-site",
+        views: 8,
+        unique_views: 4,
+        first_viewed_at: "2026-06-15T01:00:00.000Z",
+        last_viewed_at: "2026-06-16T03:00:00.000Z",
+        daily: [
+          { date: "2026-06-16", views: 8, unique_views: 4 },
+          { date: "2026-06-15", views: 4, unique_views: 2 }
+        ]
+      };
+      const once = mergeArticleViewSnapshots(initialState, [snapshot]);
+      const twice = mergeArticleViewSnapshots(once, [snapshot]);
+      const entry = twice.articleViews[0];
+
+      assert.equal(entry.views, 8);
+      assert.equal(entry.unique_views, 4);
+      assert.equal(entry.daily.find((day) => day.date === "2026-06-15").views, 5);
+      assert.equal(entry.daily.find((day) => day.date === "2026-06-16").views, 8);
+      assert.equal(twice.articleViews.length, 1);
     }
   },
   {

@@ -53,6 +53,13 @@ jobs:
         run: |
           curl --fail --silent --show-error --location --user-agent "github-actions-newsroom-wake" "${SITE_URL%/}/vi/" > /dev/null
 
+      - name: Pull production view snapshot
+        continue-on-error: true
+        env:
+          SITE_URL: https://patricktechmedia.com
+          PLATFORM_STATE_PATH: data/platform-state.json
+        run: npm run platform:views:sync
+
       - name: Run OpenClaw manager
         env:
           NEWSROOM_PULL_URL: ${{ secrets.NEWSROOM_PULL_URL }}

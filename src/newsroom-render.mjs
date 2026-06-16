@@ -1638,7 +1638,7 @@ function buildSeoDescription(article, language) {
     ? `${article.title}. Phân tích và cập nhật từ Patrick Tech Media.`
     : `${article.title}. Analysis and updates from Patrick Tech Media.`;
 
-  return trimMetaDescription(candidates[0] || fallback, 160);
+  return trimMetaDescription(candidates[0] || fallback, 150);
 }
 
 function trimMetaDescription(value, maxLength) {

@@ -11,6 +11,7 @@
     "newsroom:publish": "node scripts/newsroom-publish.mjs",
     "newsroom:refresh": "node scripts/newsroom-refresh.mjs",
     "storage:sync": "node scripts/storage-sync.mjs",
+    "platform:views:sync": "node scripts/platform-view-sync.mjs",
     "seller:import:zalo": "node scripts/seller-import-zalo.mjs",
     "telegram:seller:bot": "node scripts/telegram-seller-bot.mjs",
     "telegram:seller:webhook:set": "node scripts/telegram-seller-webhook.mjs",
