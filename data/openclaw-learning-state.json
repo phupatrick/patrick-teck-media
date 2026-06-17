@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T00:15:08.133Z",
+  "generated_at": "2026-06-17T05:19:55.931Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-17T00:15:08.133Z",
+    "updated_at": "2026-06-17T05:19:55.931Z",
     "confidence": 0.95,
-    "totalSignals": 332,
+    "totalSignals": 331,
     "dailyFocus": [
+      "devices",
       "ai",
       "apps-software",
-      "devices",
-      "internet-business-tech",
-      "security"
+      "security",
+      "internet-business-tech"
     ],
     "topicWeights": {
+      "devices": 32,
       "ai": 32,
       "apps-software": 32,
-      "devices": 32,
-      "internet-business-tech": 32,
       "security": 32,
+      "internet-business-tech": 32,
       "gaming": 32
     },
     "sourceTypeWeights": {
@@ -33,6 +33,36 @@
     "topViewedArticles": [
       {
         "rank": 1,
+        "title": "9 fun questions to try asking Google Photos",
+        "href": "/en/news/9-fun-questions-to-try-asking-google-photos",
+        "views": 2,
+        "uniqueViews": 1,
+        "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 2,
+        "title": "The new era of browsing: Putting Gemini to work in Chrome",
+        "href": "/en/news/the-new-era-of-browsing-putting-gemini-to-work-in-chrome",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 3,
+        "title": "CEO Microsoft: 'AI có thể làm rỗng ruột các ngành công nghiệp'",
+        "href": "/vi/tin-tuc/ceo-microsoft-ai-co-the-lam-rong-ruot-cac-nganh-cong-nghiep",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "internet-business-tech",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 4,
         "title": "Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips",
         "href": "/en/news/apple-s-2028-iphones-to-use-1-4nm-a22-pro-chips",
         "views": 1,
@@ -43,25 +73,32 @@
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de devices; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de apps-software; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
+      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 331 articles; 0 owner feedback item(s); 332 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: ai, apps-software, devices, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 327 articles; 0 owner feedback item(s); 331 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: devices, ai, apps-software, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-17T05:19:55.931Z",
+      "totalSignals": 331,
+      "confidence": 0.95,
+      "summary": "Learned from 327 articles; 0 owner feedback item(s); 331 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: devices, ai, apps-software, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-17T00:15:08.133Z",
       "totalSignals": 332,
@@ -295,12 +332,6 @@
       "totalSignals": 294,
       "confidence": 0.95,
       "summary": "Learned from 294 articles; 0 owner feedback item(s); 294 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-13T05:01:45.453Z",
-      "totalSignals": 292,
-      "confidence": 0.95,
-      "summary": "Learned from 292 articles; 0 owner feedback item(s); 292 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
