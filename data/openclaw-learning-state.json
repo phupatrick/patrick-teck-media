@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T10:15:51.903Z",
+  "generated_at": "2026-06-17T14:04:23.046Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,20 +8,20 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-17T10:15:51.903Z",
+    "updated_at": "2026-06-17T14:04:23.046Z",
     "confidence": 0.95,
-    "totalSignals": 327,
+    "totalSignals": 320,
     "dailyFocus": [
-      "devices",
       "ai",
       "apps-software",
+      "devices",
       "security",
       "internet-business-tech"
     ],
     "topicWeights": {
-      "devices": 32,
       "ai": 32,
       "apps-software": 32,
+      "devices": 32,
       "security": 32,
       "internet-business-tech": 32,
       "gaming": 32
@@ -110,9 +110,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 321 articles; 0 owner feedback item(s); 327 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: devices, ai, apps-software, security, internet-business-tech"
+    "lastCycleSummary": "Learned from 314 articles; 0 owner feedback item(s); 320 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-17T14:04:23.046Z",
+      "totalSignals": 320,
+      "confidence": 0.95,
+      "summary": "Learned from 314 articles; 0 owner feedback item(s); 320 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-17T10:15:51.903Z",
       "totalSignals": 327,
@@ -346,12 +352,6 @@
       "totalSignals": 302,
       "confidence": 0.95,
       "summary": "Learned from 302 articles; 0 owner feedback item(s); 302 signal(s); no view data yet; focus: ai, apps-software, devices, security, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-13T11:01:16.155Z",
-      "totalSignals": 286,
-      "confidence": 0.95,
-      "summary": "Learned from 286 articles; 0 owner feedback item(s); 286 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
