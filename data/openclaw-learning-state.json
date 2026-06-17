@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T14:04:23.046Z",
+  "generated_at": "2026-06-17T15:29:14.526Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-17T14:04:23.046Z",
+    "updated_at": "2026-06-17T15:29:14.526Z",
     "confidence": 0.95,
     "totalSignals": 320,
     "dailyFocus": [
@@ -113,6 +113,12 @@
     "lastCycleSummary": "Learned from 314 articles; 0 owner feedback item(s); 320 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-17T15:29:14.526Z",
+      "totalSignals": 320,
+      "confidence": 0.95,
+      "summary": "Learned from 314 articles; 0 owner feedback item(s); 320 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-17T14:04:23.046Z",
       "totalSignals": 320,
@@ -346,12 +352,6 @@
       "totalSignals": 283,
       "confidence": 0.95,
       "summary": "Learned from 283 articles; 0 owner feedback item(s); 283 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, security"
-    },
-    {
-      "generated_at": "2026-06-13T12:56:00.644Z",
-      "totalSignals": 302,
-      "confidence": 0.95,
-      "summary": "Learned from 302 articles; 0 owner feedback item(s); 302 signal(s); no view data yet; focus: ai, apps-software, devices, security, internet-business-tech"
     }
   ]
 }
