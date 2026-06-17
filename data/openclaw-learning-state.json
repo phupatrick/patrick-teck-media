@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T05:19:55.931Z",
+  "generated_at": "2026-06-17T10:15:51.903Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-17T05:19:55.931Z",
+    "updated_at": "2026-06-17T10:15:51.903Z",
     "confidence": 0.95,
-    "totalSignals": 331,
+    "totalSignals": 327,
     "dailyFocus": [
       "devices",
       "ai",
@@ -53,6 +53,16 @@
       },
       {
         "rank": 3,
+        "title": "iPhone 18 Pro có thể khắc phục sự cố đổi vỏ màu",
+        "href": "/vi/tin-tuc/iphone-18-pro-co-the-khac-phuc-su-co-oi-vo-mau",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 4,
         "title": "CEO Microsoft: 'AI có thể làm rỗng ruột các ngành công nghiệp'",
         "href": "/vi/tin-tuc/ceo-microsoft-ai-co-the-lam-rong-ruot-cac-nganh-cong-nghiep",
         "views": 1,
@@ -62,7 +72,17 @@
         "sourceType": "press"
       },
       {
-        "rank": 4,
+        "rank": 5,
+        "title": "Enjoy new ways to create, search and stream on Google TV",
+        "href": "/en/news/enjoy-new-ways-to-create-search-and-stream-on-google-tv",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 6,
         "title": "Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips",
         "href": "/en/news/apple-s-2028-iphones-to-use-1-4nm-a22-pro-chips",
         "views": 1,
@@ -73,7 +93,7 @@
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de apps-software; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
       "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
@@ -90,9 +110,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 327 articles; 0 owner feedback item(s); 331 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: devices, ai, apps-software, security, internet-business-tech"
+    "lastCycleSummary": "Learned from 321 articles; 0 owner feedback item(s); 327 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: devices, ai, apps-software, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-17T10:15:51.903Z",
+      "totalSignals": 327,
+      "confidence": 0.95,
+      "summary": "Learned from 321 articles; 0 owner feedback item(s); 327 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: devices, ai, apps-software, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-17T05:19:55.931Z",
       "totalSignals": 331,
@@ -326,12 +352,6 @@
       "totalSignals": 286,
       "confidence": 0.95,
       "summary": "Learned from 286 articles; 0 owner feedback item(s); 286 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-13T08:31:40.160Z",
-      "totalSignals": 294,
-      "confidence": 0.95,
-      "summary": "Learned from 294 articles; 0 owner feedback item(s); 294 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
