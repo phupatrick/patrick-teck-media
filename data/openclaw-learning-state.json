@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T17:31:19.190Z",
+  "generated_at": "2026-06-18T18:55:00.717Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,132 +8,136 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-18T17:31:19.190Z",
+    "updated_at": "2026-06-18T18:55:00.717Z",
     "confidence": 0.95,
-    "totalSignals": 336,
+    "totalSignals": 410,
     "dailyFocus": [
       "ai",
       "apps-software",
       "devices",
-      "security",
-      "gaming"
+      "internet-business-tech",
+      "security"
     ],
     "topicWeights": {
       "ai": 32,
       "apps-software": 32,
-      "devices": 32,
-      "security": 32,
-      "gaming": 32,
-      "internet-business-tech": 32
+      "devices": 31,
+      "internet-business-tech": 31,
+      "security": 31,
+      "gaming": 30
     },
     "sourceTypeWeights": {
       "official-site": 32,
-      "press": 32
+      "press": 31
     },
     "topViewedArticles": [
       {
         "rank": 1,
-        "title": "9 fun questions to try asking Google Photos",
-        "href": "/en/news/9-fun-questions-to-try-asking-google-photos",
+        "title": "Galaxy Watch owners report that they can’t get certain apps to open",
+        "href": "/en/news/galaxy-watch-owners-report-that-they-can-t-get-certain-apps-to-open",
         "views": 2,
-        "uniqueViews": 1,
-        "topic": "apps-software",
+        "uniqueViews": 2,
+        "topic": "devices",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 2,
-        "title": "The new era of browsing: Putting Gemini to work in Chrome",
-        "href": "/en/news/the-new-era-of-browsing-putting-gemini-to-work-in-chrome",
+        "title": "This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off",
+        "href": "/en/news/this-foldable-3-in-1-anker-magsafe-charging-cube-is-a-steal-at-65-off",
         "views": 2,
         "uniqueViews": 2,
-        "topic": "ai",
+        "topic": "devices",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 3,
-        "title": "Gói AI nào đang đáng tiền hơn lúc này: Google, Microsoft và OpenAI vừa thêm gì vào cuộc đua",
-        "href": "/vi/so-sanh/goi-ai-nao-dang-dang-tien-hon-luc-nay",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "ai",
-        "contentType": "ComparisonPage",
-        "sourceType": "official-site"
+        "title": "Texas government data breach allowed hackers to steal 3 million driver’s licenses and passports",
+        "href": "/en/news/texas-government-data-breach-allowed-hackers-to-steal-3-million-driver-s-licenses-and-passports",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "security",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
       },
       {
         "rank": 4,
-        "title": "CEO Microsoft: 'AI có thể làm rỗng ruột các ngành công nghiệp'",
-        "href": "/vi/tin-tuc/ceo-microsoft-ai-co-the-lam-rong-ruot-cac-nganh-cong-nghiep",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "internet-business-tech",
+        "title": "Get a Walmart Plus membership for 50% off right now",
+        "href": "/en/news/get-a-walmart-plus-membership-for-50-off-right-now",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "security",
         "contentType": "NewsArticle",
         "sourceType": "press"
       },
       {
         "rank": 5,
-        "title": "Samsung Art Store Brings Art Basel to Homes Worldwide With New Curated Collection",
-        "href": "/en/news/samsung-art-store-brings-art-basel-to-homes-worldwide-with-new-curated-collection",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "devices",
+        "title": "‘Queer Eye’s’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone",
+        "href": "/en/news/queer-eye-s-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "apps-software",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 6,
-        "title": "Save time and grow your business with new Gemini tools",
-        "href": "/en/news/save-time-and-grow-your-business-with-new-gemini-tools",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "ai",
+        "title": "Android 17 update deletes homescreen widgets for some Google Pixel owners",
+        "href": "/en/news/android-17-update-deletes-homescreen-widgets-for-some-google-pixel-owners",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "devices",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 7,
-        "title": "We’re expanding Gemini in Chrome to users in Latin America, Africa, the Middle East and more",
-        "href": "/en/news/we-re-expanding-gemini-in-chrome-to-users-in-latin-america-africa-the-middle-east-and-more",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "ai",
+        "title": "Google Health 5.02 rolling out with return of naps, Hourly activity, & more",
+        "href": "/en/news/google-health-5-02-rolling-out-with-return-of-naps-hourly-activity-more",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "devices",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 8,
-        "title": "Route public traffic to private applications with Cloudflare",
-        "href": "/en/news/route-public-traffic-to-private-applications-with-cloudflare",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "ai",
+        "title": "Android 17's Bubbles Is the Best Thing to Happen to Phone Multitasking",
+        "href": "/en/news/android-17-s-bubbles-is-the-best-thing-to-happen-to-phone-multitasking",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "devices",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de devices; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
-      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 300 articles; 0 owner feedback item(s); 336 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, gaming"
+    "lastCycleSummary": "Learned from 309 articles; 0 owner feedback item(s); 410 signal(s); 2 top view(s): Galaxy Watch owners report that they can’t get certain apps to open; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-18T18:55:00.717Z",
+      "totalSignals": 410,
+      "confidence": 0.95,
+      "summary": "Learned from 309 articles; 0 owner feedback item(s); 410 signal(s); 2 top view(s): Galaxy Watch owners report that they can’t get certain apps to open; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-18T17:31:19.190Z",
       "totalSignals": 336,
@@ -367,12 +371,6 @@
       "totalSignals": 307,
       "confidence": 0.95,
       "summary": "Learned from 307 articles; 0 owner feedback item(s); 307 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, security"
-    },
-    {
-      "generated_at": "2026-06-14T10:03:37.250Z",
-      "totalSignals": 302,
-      "confidence": 0.95,
-      "summary": "Learned from 302 articles; 0 owner feedback item(s); 302 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
