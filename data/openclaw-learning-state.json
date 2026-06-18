@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T01:42:34.480Z",
+  "generated_at": "2026-06-18T06:30:01.284Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-18T01:42:34.480Z",
+    "updated_at": "2026-06-18T06:30:01.284Z",
     "confidence": 0.95,
-    "totalSignals": 321,
+    "totalSignals": 343,
     "dailyFocus": [
       "ai",
       "apps-software",
+      "internet-business-tech",
       "devices",
-      "security",
-      "internet-business-tech"
+      "security"
     ],
     "topicWeights": {
       "ai": 32,
       "apps-software": 32,
+      "internet-business-tech": 32,
       "devices": 32,
       "security": 32,
-      "internet-business-tech": 32,
       "gaming": 32
     },
     "sourceTypeWeights": {
@@ -53,21 +53,21 @@
       },
       {
         "rank": 3,
+        "title": "Gói AI nào đang đáng tiền hơn lúc này: Microsoft, Google, Anthropic và xAI vừa thêm gì vào cuộc đua",
+        "href": "/vi/so-sanh/goi-ai-nao-dang-dang-tien-hon-luc-nay",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "ai",
+        "contentType": "ComparisonPage",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 4,
         "title": "AI cyber warfare startup Twenty raises $100M at $1B valuation",
         "href": "/en/news/ai-cyber-warfare-startup-twenty-raises-100m-at-1b-valuation",
         "views": 1,
         "uniqueViews": 1,
         "topic": "security",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 4,
-        "title": "NYT Connections hints and answers for Thursday, June 18 (game #1103)",
-        "href": "/en/news/nyt-connections-hints-and-answers-for-thursday-june-18-game-1103",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "gaming",
         "contentType": "NewsArticle",
         "sourceType": "press"
       },
@@ -83,16 +83,6 @@
       },
       {
         "rank": 6,
-        "title": "iPhone 18 Pro could cost as much as $1,399 and even Tim Cook can’t avoid the sting",
-        "href": "/en/news/iphone-18-pro-could-cost-as-much-as-1-399-and-even-tim-cook-can-t-avoid-the-sting",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 7,
         "title": "Tim Cook says Apple price increases are 'unavoidable' due to memory crunch",
         "href": "/en/news/tim-cook-says-apple-price-increases-are-unavoidable-due-to-memory-crunch",
         "views": 1,
@@ -102,12 +92,22 @@
         "sourceType": "press"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "The Best Nintendo Switch 2 Games Right Now",
         "href": "/en/news/the-best-nintendo-switch-2-games-right-now",
         "views": 1,
         "uniqueViews": 1,
         "topic": "gaming",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 8,
+        "title": "Pixel Screenshots no longer exclusively uses on-device AI",
+        "href": "/en/news/pixel-screenshots-no-longer-exclusively-uses-on-device-ai",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
       }
@@ -122,6 +122,7 @@
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
+      "Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong.",
       "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
@@ -129,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 303 articles; 0 owner feedback item(s); 321 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
+    "lastCycleSummary": "Learned from 308 articles; 0 owner feedback item(s); 343 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-18T06:30:01.284Z",
+      "totalSignals": 343,
+      "confidence": 0.95,
+      "summary": "Learned from 308 articles; 0 owner feedback item(s); 343 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-18T01:42:34.480Z",
       "totalSignals": 321,
@@ -365,12 +372,6 @@
       "totalSignals": 281,
       "confidence": 0.95,
       "summary": "Learned from 281 articles; 0 owner feedback item(s); 281 signal(s); no view data yet; focus: ai, apps-software, gaming, devices, security"
-    },
-    {
-      "generated_at": "2026-06-13T22:05:24.229Z",
-      "totalSignals": 280,
-      "confidence": 0.95,
-      "summary": "Learned from 280 articles; 0 owner feedback item(s); 280 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, security"
     }
   ]
 }
