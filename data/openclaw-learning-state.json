@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T23:09:17.656Z",
+  "generated_at": "2026-06-18T01:42:34.480Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-17T23:09:17.656Z",
+    "updated_at": "2026-06-18T01:42:34.480Z",
     "confidence": 0.95,
-    "totalSignals": 313,
+    "totalSignals": 321,
     "dailyFocus": [
       "ai",
       "apps-software",
+      "devices",
       "security",
-      "gaming",
-      "devices"
+      "internet-business-tech"
     ],
     "topicWeights": {
       "ai": 32,
       "apps-software": 32,
-      "security": 32,
-      "gaming": 32,
       "devices": 32,
-      "internet-business-tech": 32
+      "security": 32,
+      "internet-business-tech": 32,
+      "gaming": 32
     },
     "sourceTypeWeights": {
       "official-site": 32,
@@ -53,8 +53,8 @@
       },
       {
         "rank": 3,
-        "title": "Apple sẽ chặn hoặc cảnh báo malware khi anh em dán lệnh Terminal \"không rõ nguồn gốc, bây bạ\"",
-        "href": "/vi/tin-tuc/apple-se-chan-hoac-canh-bao-malware-khi-anh-em-dan-lenh-terminal-khong-ro-nguon-goc-bay-ba",
+        "title": "AI cyber warfare startup Twenty raises $100M at $1B valuation",
+        "href": "/en/news/ai-cyber-warfare-startup-twenty-raises-100m-at-1b-valuation",
         "views": 1,
         "uniqueViews": 1,
         "topic": "security",
@@ -63,47 +63,57 @@
       },
       {
         "rank": 4,
-        "title": "iPhone 18 Pro có thể khắc phục sự cố đổi vỏ màu",
-        "href": "/vi/tin-tuc/iphone-18-pro-co-the-khac-phuc-su-co-oi-vo-mau",
+        "title": "NYT Connections hints and answers for Thursday, June 18 (game #1103)",
+        "href": "/en/news/nyt-connections-hints-and-answers-for-thursday-june-18-game-1103",
         "views": 1,
         "uniqueViews": 1,
-        "topic": "devices",
+        "topic": "gaming",
         "contentType": "NewsArticle",
         "sourceType": "press"
       },
       {
         "rank": 5,
-        "title": "CEO Microsoft: 'AI có thể làm rỗng ruột các ngành công nghiệp'",
-        "href": "/vi/tin-tuc/ceo-microsoft-ai-co-the-lam-rong-ruot-cac-nganh-cong-nghiep",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "internet-business-tech",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 6,
-        "title": "Enjoy new ways to create, search and stream on Google TV",
-        "href": "/en/news/enjoy-new-ways-to-create-search-and-stream-on-google-tv",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "ai",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
-      },
-      {
-        "rank": 7,
-        "title": "Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips",
-        "href": "/en/news/apple-s-2028-iphones-to-use-1-4nm-a22-pro-chips",
+        "title": "The iPhone Air could get a second camera and a better chip in spring 2027",
+        "href": "/en/news/the-iphone-air-could-get-a-second-camera-and-a-better-chip-in-spring-2027",
         "views": 1,
         "uniqueViews": 1,
         "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
+      },
+      {
+        "rank": 6,
+        "title": "iPhone 18 Pro could cost as much as $1,399 and even Tim Cook can’t avoid the sting",
+        "href": "/en/news/iphone-18-pro-could-cost-as-much-as-1-399-and-even-tim-cook-can-t-avoid-the-sting",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 7,
+        "title": "Tim Cook says Apple price increases are 'unavoidable' due to memory crunch",
+        "href": "/en/news/tim-cook-says-apple-price-increases-are-unavoidable-due-to-memory-crunch",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 8,
+        "title": "The Best Nintendo Switch 2 Games Right Now",
+        "href": "/en/news/the-best-nintendo-switch-2-games-right-now",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "gaming",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de devices; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
       "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
@@ -112,17 +122,22 @@
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
-      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 306 articles; 0 owner feedback item(s); 313 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, security, gaming, devices"
+    "lastCycleSummary": "Learned from 303 articles; 0 owner feedback item(s); 321 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-18T01:42:34.480Z",
+      "totalSignals": 321,
+      "confidence": 0.95,
+      "summary": "Learned from 303 articles; 0 owner feedback item(s); 321 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-17T23:09:17.656Z",
       "totalSignals": 313,
@@ -356,12 +371,6 @@
       "totalSignals": 280,
       "confidence": 0.95,
       "summary": "Learned from 280 articles; 0 owner feedback item(s); 280 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, security"
-    },
-    {
-      "generated_at": "2026-06-13T20:50:58.032Z",
-      "totalSignals": 279,
-      "confidence": 0.95,
-      "summary": "Learned from 279 articles; 0 owner feedback item(s); 279 signal(s); no view data yet; focus: ai, apps-software, gaming, devices, security"
     }
   ]
 }
