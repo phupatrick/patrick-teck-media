@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T21:51:48.044Z",
+  "generated_at": "2026-06-18T23:44:13.991Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-18T21:51:48.044Z",
+    "updated_at": "2026-06-18T23:44:13.991Z",
     "confidence": 0.95,
-    "totalSignals": 412,
+    "totalSignals": 413,
     "dailyFocus": [
       "ai",
       "apps-software",
       "devices",
       "internet-business-tech",
-      "security"
+      "gaming"
     ],
     "topicWeights": {
       "ai": 32,
       "apps-software": 32,
       "devices": 31,
       "internet-business-tech": 30,
-      "security": 29,
-      "gaming": 28
+      "gaming": 28,
+      "security": 28
     },
     "sourceTypeWeights": {
       "official-site": 32,
@@ -63,16 +63,6 @@
       },
       {
         "rank": 4,
-        "title": "Google Health 5.02 rolling out with return of naps, Hourly activity, & more",
-        "href": "/en/news/google-health-5-02-rolling-out-with-return-of-naps-hourly-activity-more",
-        "views": 2,
-        "uniqueViews": 2,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 5,
         "title": "How pull request limits are cutting down the noise",
         "href": "/en/news/how-pull-request-limits-are-cutting-down-the-noise",
         "views": 2,
@@ -82,7 +72,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "title": "Upgrade to the 200 Hz quantum dot experience for $179",
         "href": "/en/news/upgrade-to-the-200-hz-quantum-dot-experience-for-179",
         "views": 2,
@@ -92,7 +82,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "title": "9 fun questions to try asking Google Photos",
         "href": "/en/news/9-fun-questions-to-try-asking-google-photos",
         "views": 2,
@@ -102,7 +92,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "The new era of browsing: Putting Gemini to work in Chrome",
         "href": "/en/news/the-new-era-of-browsing-putting-gemini-to-work-in-chrome",
         "views": 2,
@@ -110,6 +100,16 @@
         "topic": "ai",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
+      },
+      {
+        "rank": 8,
+        "title": "Google Health 5.02 rolling out with return of naps, Hourly activity, & more",
+        "href": "/en/news/google-health-5-02-rolling-out-with-return-of-naps-hourly-activity-more",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
       }
     ],
     "viewInsights": [
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 308 articles; 0 owner feedback item(s); 412 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 309 articles; 0 owner feedback item(s); 413 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-18T23:44:13.991Z",
+      "totalSignals": 413,
+      "confidence": 0.95,
+      "summary": "Learned from 309 articles; 0 owner feedback item(s); 413 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    },
     {
       "generated_at": "2026-06-18T21:51:48.044Z",
       "totalSignals": 412,
@@ -365,12 +371,6 @@
       "totalSignals": 288,
       "confidence": 0.95,
       "summary": "Learned from 288 articles; 0 owner feedback item(s); 288 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-14T16:12:41.207Z",
-      "totalSignals": 289,
-      "confidence": 0.95,
-      "summary": "Learned from 289 articles; 0 owner feedback item(s); 289 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
     }
   ]
 }
