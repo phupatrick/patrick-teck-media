@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T06:30:01.284Z",
+  "generated_at": "2026-06-18T10:56:34.188Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-18T06:30:01.284Z",
+    "updated_at": "2026-06-18T10:56:34.188Z",
     "confidence": 0.95,
-    "totalSignals": 343,
+    "totalSignals": 342,
     "dailyFocus": [
       "ai",
       "apps-software",
-      "internet-business-tech",
       "devices",
-      "security"
+      "security",
+      "internet-business-tech"
     ],
     "topicWeights": {
       "ai": 32,
       "apps-software": 32,
-      "internet-business-tech": 32,
       "devices": 32,
       "security": 32,
+      "internet-business-tech": 32,
       "gaming": 32
     },
     "sourceTypeWeights": {
@@ -53,7 +53,7 @@
       },
       {
         "rank": 3,
-        "title": "Gói AI nào đang đáng tiền hơn lúc này: Microsoft, Google, Anthropic và xAI vừa thêm gì vào cuộc đua",
+        "title": "Gói AI nào đang đáng tiền hơn lúc này: Google và xAI vừa thêm gì vào cuộc đua",
         "href": "/vi/so-sanh/goi-ai-nao-dang-dang-tien-hon-luc-nay",
         "views": 1,
         "uniqueViews": 1,
@@ -73,16 +73,6 @@
       },
       {
         "rank": 5,
-        "title": "The iPhone Air could get a second camera and a better chip in spring 2027",
-        "href": "/en/news/the-iphone-air-could-get-a-second-camera-and-a-better-chip-in-spring-2027",
-        "views": 1,
-        "uniqueViews": 1,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 6,
         "title": "Tim Cook says Apple price increases are 'unavoidable' due to memory crunch",
         "href": "/en/news/tim-cook-says-apple-price-increases-are-unavoidable-due-to-memory-crunch",
         "views": 1,
@@ -92,7 +82,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "title": "The Best Nintendo Switch 2 Games Right Now",
         "href": "/en/news/the-best-nintendo-switch-2-games-right-now",
         "views": 1,
@@ -102,7 +92,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "Pixel Screenshots no longer exclusively uses on-device AI",
         "href": "/en/news/pixel-screenshots-no-longer-exclusively-uses-on-device-ai",
         "views": 1,
@@ -110,10 +100,20 @@
         "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
+      },
+      {
+        "rank": 8,
+        "title": "Key takeaways from day two of the Databricks Data + AI Summit",
+        "href": "/en/news/key-takeaways-from-day-two-of-the-databricks-data-ai-summit",
+        "views": 1,
+        "uniqueViews": 1,
+        "topic": "internet-business-tech",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de devices; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
       "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 308 articles; 0 owner feedback item(s); 343 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 307 articles; 0 owner feedback item(s); 342 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-18T10:56:34.188Z",
+      "totalSignals": 342,
+      "confidence": 0.95,
+      "summary": "Learned from 307 articles; 0 owner feedback item(s); 342 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-18T06:30:01.284Z",
       "totalSignals": 343,
@@ -366,12 +372,6 @@
       "totalSignals": 303,
       "confidence": 0.95,
       "summary": "Learned from 303 articles; 0 owner feedback item(s); 303 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, security"
-    },
-    {
-      "generated_at": "2026-06-13T23:23:13.157Z",
-      "totalSignals": 281,
-      "confidence": 0.95,
-      "summary": "Learned from 281 articles; 0 owner feedback item(s); 281 signal(s); no view data yet; focus: ai, apps-software, gaming, devices, security"
     }
   ]
 }
