@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T12:32:06.875Z",
+  "generated_at": "2026-06-19T15:54:27.270Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,20 +8,20 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-19T12:32:06.875Z",
+    "updated_at": "2026-06-19T15:54:27.270Z",
     "confidence": 0.95,
-    "totalSignals": 437,
+    "totalSignals": 440,
     "dailyFocus": [
       "ai",
-      "apps-software",
       "devices",
+      "apps-software",
       "internet-business-tech",
       "gaming"
     ],
     "topicWeights": {
       "ai": 32,
-      "apps-software": 31,
       "devices": 31,
+      "apps-software": 31,
       "internet-business-tech": 30,
       "gaming": 28,
       "security": 27
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 324 articles; 0 owner feedback item(s); 437 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 327 articles; 0 owner feedback item(s); 440 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, devices, apps-software, internet-business-tech, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-19T15:54:27.270Z",
+      "totalSignals": 440,
+      "confidence": 0.95,
+      "summary": "Learned from 327 articles; 0 owner feedback item(s); 440 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, devices, apps-software, internet-business-tech, gaming"
+    },
     {
       "generated_at": "2026-06-19T12:32:06.875Z",
       "totalSignals": 437,
@@ -365,12 +371,6 @@
       "totalSignals": 285,
       "confidence": 0.95,
       "summary": "Learned from 285 articles; 0 owner feedback item(s); 285 signal(s); no view data yet; focus: ai, apps-software, internet-business-tech, devices, security"
-    },
-    {
-      "generated_at": "2026-06-14T20:47:56.144Z",
-      "totalSignals": 285,
-      "confidence": 0.95,
-      "summary": "Learned from 285 articles; 0 owner feedback item(s); 285 signal(s); no view data yet; focus: ai, apps-software, devices, security, internet-business-tech"
     }
   ]
 }
