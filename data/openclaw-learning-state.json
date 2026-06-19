@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T19:48:10.405Z",
+  "generated_at": "2026-06-19T21:08:43.955Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-19T19:48:10.405Z",
+    "updated_at": "2026-06-19T21:08:43.955Z",
     "confidence": 0.95,
-    "totalSignals": 457,
+    "totalSignals": 459,
     "dailyFocus": [
       "ai",
       "devices",
@@ -23,7 +23,7 @@
       "devices": 31,
       "apps-software": 30,
       "internet-business-tech": 30,
-      "security": 27,
+      "security": 26,
       "gaming": 25
     },
     "sourceTypeWeights": {
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 328 articles; 0 owner feedback item(s); 457 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 328 articles; 0 owner feedback item(s); 459 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-19T21:08:43.955Z",
+      "totalSignals": 459,
+      "confidence": 0.95,
+      "summary": "Learned from 328 articles; 0 owner feedback item(s); 459 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-19T19:48:10.405Z",
       "totalSignals": 457,
@@ -366,12 +372,6 @@
       "totalSignals": 295,
       "confidence": 0.95,
       "summary": "Learned from 295 articles; 0 owner feedback item(s); 295 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-15T07:39:02.779Z",
-      "totalSignals": 282,
-      "confidence": 0.95,
-      "summary": "Learned from 282 articles; 0 owner feedback item(s); 282 signal(s); no view data yet; focus: devices, ai, apps-software, internet-business-tech, security"
     }
   ]
 }

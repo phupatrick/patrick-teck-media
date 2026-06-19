@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-06-19T19:45:46.546Z",
-    "finishedAt": "2026-06-19T19:48:11.469Z"
+    "startedAt": "2026-06-19T21:07:28.498Z",
+    "finishedAt": "2026-06-19T21:08:45.004Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
@@ -13,7 +13,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 328 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1781898346580-a544b5.json Generated OpenClaw hidden feed with 328 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 328 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1781903248529-acda81.json Generated OpenClaw hidden feed with 328 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -34,7 +34,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 457 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 459 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -49,7 +49,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-06-19T19:48:11.466Z",
+      "reviewedAt": "2026-06-19T21:08:45.002Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
