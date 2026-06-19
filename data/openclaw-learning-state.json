@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T17:55:00.237Z",
+  "generated_at": "2026-06-19T18:52:53.973Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-19T17:55:00.237Z",
+    "updated_at": "2026-06-19T18:52:53.973Z",
     "confidence": 0.95,
     "totalSignals": 442,
     "dailyFocus": [
@@ -16,33 +16,23 @@
       "devices",
       "apps-software",
       "internet-business-tech",
-      "gaming"
+      "security"
     ],
     "topicWeights": {
       "ai": 32,
       "devices": 31,
       "apps-software": 31,
       "internet-business-tech": 30,
-      "gaming": 27,
-      "security": 27
+      "security": 27,
+      "gaming": 26
     },
     "sourceTypeWeights": {
       "official-site": 32,
-      "press": 30
+      "press": 29
     },
     "topViewedArticles": [
       {
         "rank": 1,
-        "title": "Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]",
-        "href": "/en/news/google-will-fix-android-17-bug-that-deletes-homescreen-widgets-for-some-pixel-owners-u",
-        "views": 2,
-        "uniqueViews": 2,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 2,
         "title": "This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off",
         "href": "/en/news/this-foldable-3-in-1-anker-magsafe-charging-cube-is-a-steal-at-65-off",
         "views": 2,
@@ -52,7 +42,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 3,
+        "rank": 2,
         "title": "How pull request limits are cutting down the noise",
         "href": "/en/news/how-pull-request-limits-are-cutting-down-the-noise",
         "views": 2,
@@ -62,7 +52,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "title": "9 fun questions to try asking Google Photos",
         "href": "/en/news/9-fun-questions-to-try-asking-google-photos",
         "views": 2,
@@ -72,7 +62,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "title": "The new era of browsing: Putting Gemini to work in Chrome",
         "href": "/en/news/the-new-era-of-browsing-putting-gemini-to-work-in-chrome",
         "views": 2,
@@ -82,7 +72,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "title": "Google Health 5.02 rolling out with return of naps, Hourly activity, & more",
         "href": "/en/news/google-health-5-02-rolling-out-with-return-of-naps-hourly-activity-more",
         "views": 2,
@@ -92,7 +82,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "title": "Texas government data breach allowed hackers to steal 3 million driver’s licenses and passports",
         "href": "/en/news/texas-government-data-breach-allowed-hackers-to-steal-3-million-driver-s-licenses-and-passports",
         "views": 2,
@@ -102,12 +92,22 @@
         "sourceType": "press"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "‘Queer Eye’s’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone",
         "href": "/en/news/queer-eye-s-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone",
         "views": 2,
         "uniqueViews": 2,
         "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 8,
+        "title": "No more lightbulbs, much more sports: Five predictions for Roku’s future",
+        "href": "/en/news/no-more-lightbulbs-much-more-sports-five-predictions-for-roku-s-future",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
       }
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 329 articles; 0 owner feedback item(s); 442 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, devices, apps-software, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 325 articles; 0 owner feedback item(s); 442 signal(s); 2 top view(s): This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off; focus: ai, devices, apps-software, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-19T18:52:53.973Z",
+      "totalSignals": 442,
+      "confidence": 0.95,
+      "summary": "Learned from 325 articles; 0 owner feedback item(s); 442 signal(s); 2 top view(s): This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off; focus: ai, devices, apps-software, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-19T17:55:00.237Z",
       "totalSignals": 442,
@@ -365,12 +371,6 @@
       "totalSignals": 285,
       "confidence": 0.95,
       "summary": "Learned from 285 articles; 0 owner feedback item(s); 285 signal(s); no view data yet; focus: devices, ai, apps-software, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-14T23:38:30.779Z",
-      "totalSignals": 286,
-      "confidence": 0.95,
-      "summary": "Learned from 286 articles; 0 owner feedback item(s); 286 signal(s); no view data yet; focus: devices, ai, apps-software, gaming, security"
     }
   ]
 }
