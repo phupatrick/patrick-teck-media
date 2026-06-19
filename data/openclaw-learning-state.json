@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T22:14:51.949Z",
+  "generated_at": "2026-06-19T23:17:40.793Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-19T22:14:51.949Z",
+    "updated_at": "2026-06-19T23:17:40.793Z",
     "confidence": 0.95,
-    "totalSignals": 457,
+    "totalSignals": 462,
     "dailyFocus": [
       "ai",
       "devices",
@@ -19,7 +19,7 @@
       "gaming"
     ],
     "topicWeights": {
-      "ai": 32,
+      "ai": 31,
       "devices": 31,
       "apps-software": 30,
       "internet-business-tech": 30,
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 325 articles; 0 owner feedback item(s); 457 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 329 articles; 0 owner feedback item(s); 462 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-19T23:17:40.793Z",
+      "totalSignals": 462,
+      "confidence": 0.95,
+      "summary": "Learned from 329 articles; 0 owner feedback item(s); 462 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, gaming"
+    },
     {
       "generated_at": "2026-06-19T22:14:51.949Z",
       "totalSignals": 457,
@@ -366,12 +372,6 @@
       "totalSignals": 306,
       "confidence": 0.95,
       "summary": "Learned from 306 articles; 0 owner feedback item(s); 306 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-15T17:55:24.268Z",
-      "totalSignals": 307,
-      "confidence": 0.95,
-      "summary": "Learned from 307 articles; 0 owner feedback item(s); 307 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, internet-business-tech"
     }
   ]
 }
