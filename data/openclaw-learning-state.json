@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T08:20:25.084Z",
+  "generated_at": "2026-06-19T12:32:06.875Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-19T08:20:25.084Z",
+    "updated_at": "2026-06-19T12:32:06.875Z",
     "confidence": 0.95,
-    "totalSignals": 420,
+    "totalSignals": 437,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -24,7 +24,7 @@
       "devices": 31,
       "internet-business-tech": 30,
       "gaming": 28,
-      "security": 28
+      "security": 27
     },
     "sourceTypeWeights": {
       "official-site": 32,
@@ -73,16 +73,6 @@
       },
       {
         "rank": 5,
-        "title": "Upgrade to the 200 Hz quantum dot experience for $179",
-        "href": "/en/news/upgrade-to-the-200-hz-quantum-dot-experience-for-179",
-        "views": 2,
-        "uniqueViews": 2,
-        "topic": "gaming",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 6,
         "title": "9 fun questions to try asking Google Photos",
         "href": "/en/news/9-fun-questions-to-try-asking-google-photos",
         "views": 2,
@@ -92,7 +82,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "title": "The new era of browsing: Putting Gemini to work in Chrome",
         "href": "/en/news/the-new-era-of-browsing-putting-gemini-to-work-in-chrome",
         "views": 2,
@@ -102,12 +92,22 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "Google Health 5.02 rolling out with return of naps, Hourly activity, & more",
         "href": "/en/news/google-health-5-02-rolling-out-with-return-of-naps-hourly-activity-more",
         "views": 2,
         "uniqueViews": 2,
         "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 8,
+        "title": "Texas government data breach allowed hackers to steal 3 million driver’s licenses and passports",
+        "href": "/en/news/texas-government-data-breach-allowed-hackers-to-steal-3-million-driver-s-licenses-and-passports",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "security",
         "contentType": "NewsArticle",
         "sourceType": "press"
       }
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 314 articles; 0 owner feedback item(s); 420 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 324 articles; 0 owner feedback item(s); 437 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-19T12:32:06.875Z",
+      "totalSignals": 437,
+      "confidence": 0.95,
+      "summary": "Learned from 324 articles; 0 owner feedback item(s); 437 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    },
     {
       "generated_at": "2026-06-19T08:20:25.084Z",
       "totalSignals": 420,
@@ -365,12 +371,6 @@
       "totalSignals": 285,
       "confidence": 0.95,
       "summary": "Learned from 285 articles; 0 owner feedback item(s); 285 signal(s); no view data yet; focus: ai, apps-software, devices, security, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-14T19:23:23.392Z",
-      "totalSignals": 284,
-      "confidence": 0.95,
-      "summary": "Learned from 284 articles; 0 owner feedback item(s); 284 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
     }
   ]
 }
