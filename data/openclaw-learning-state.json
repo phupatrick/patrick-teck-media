@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T02:34:43.707Z",
+  "generated_at": "2026-06-19T08:20:25.084Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-19T02:34:43.707Z",
+    "updated_at": "2026-06-19T08:20:25.084Z",
     "confidence": 0.95,
-    "totalSignals": 413,
+    "totalSignals": 420,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -53,8 +53,8 @@
       },
       {
         "rank": 3,
-        "title": "‘Queer Eye’s’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone",
-        "href": "/en/news/queer-eye-s-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone",
+        "title": "‘Queer Eye’ life coach Karamo Brown launches Kē, a wellness app featuring his AI digital clone",
+        "href": "/en/news/queer-eye-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone",
         "views": 2,
         "uniqueViews": 2,
         "topic": "apps-software",
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 307 articles; 0 owner feedback item(s); 413 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 314 articles; 0 owner feedback item(s); 420 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-19T08:20:25.084Z",
+      "totalSignals": 420,
+      "confidence": 0.95,
+      "summary": "Learned from 314 articles; 0 owner feedback item(s); 420 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    },
     {
       "generated_at": "2026-06-19T02:34:43.707Z",
       "totalSignals": 413,
@@ -365,12 +371,6 @@
       "totalSignals": 284,
       "confidence": 0.95,
       "summary": "Learned from 284 articles; 0 owner feedback item(s); 284 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-14T18:12:43.527Z",
-      "totalSignals": 288,
-      "confidence": 0.95,
-      "summary": "Learned from 288 articles; 0 owner feedback item(s); 288 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, security"
     }
   ]
 }
