@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T01:36:17.020Z",
+  "generated_at": "2026-06-20T06:04:00.243Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,26 +8,26 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-20T01:36:17.020Z",
+    "updated_at": "2026-06-20T06:04:00.243Z",
     "confidence": 0.95,
-    "totalSignals": 464,
+    "totalSignals": 463,
     "dailyFocus": [
       "ai",
       "devices",
       "apps-software",
       "internet-business-tech",
-      "gaming"
+      "security"
     ],
     "topicWeights": {
       "ai": 31,
       "devices": 31,
       "apps-software": 30,
       "internet-business-tech": 30,
-      "gaming": 25,
-      "security": 25
+      "security": 25,
+      "gaming": 25
     },
     "sourceTypeWeights": {
-      "official-site": 32,
+      "official-site": 31,
       "press": 29
     },
     "topViewedArticles": [
@@ -53,16 +53,6 @@
       },
       {
         "rank": 3,
-        "title": "Hỏi AI đội nào sẽ vô địch World Cup 2026: Không có Bồ Đào Nha",
-        "href": "/vi/tin-tuc/hoi-ai-oi-nao-se-vo-ich-world-cup-2026-khong-co-bo-ao-nha",
-        "views": 2,
-        "uniqueViews": 2,
-        "topic": "internet-business-tech",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 4,
         "title": "Tin công nghệ đáng theo dõi ngay lúc này",
         "href": "/vi/tin-tuc/tin-cong-nghe-ang-theo-doi-ngay-luc-nay",
         "views": 2,
@@ -72,17 +62,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 5,
-        "title": "Thương hiệu Android muốn chinh phục người dùng iPhone",
-        "href": "/vi/tin-tuc/thuong-hieu-android-muon-chinh-phuc-nguoi-dung-iphone",
-        "views": 2,
-        "uniqueViews": 2,
-        "topic": "internet-business-tech",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 6,
+        "rank": 4,
         "title": "This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off",
         "href": "/en/news/this-foldable-3-in-1-anker-magsafe-charging-cube-is-a-steal-at-65-off",
         "views": 2,
@@ -92,7 +72,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 7,
+        "rank": 5,
         "title": "How pull request limits are cutting down the noise",
         "href": "/en/news/how-pull-request-limits-are-cutting-down-the-noise",
         "views": 2,
@@ -102,9 +82,29 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 6,
         "title": "Apple announces changes to iOS in Brazil",
         "href": "/en/news/apple-announces-changes-to-ios-in-brazil",
+        "views": 2,
+        "uniqueViews": 1,
+        "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 7,
+        "title": "AirPods Pro 3 just crashed to an insane $169 ($80 off)",
+        "href": "/en/news/airpods-pro-3-just-crashed-to-an-insane-169-80-off",
+        "views": 2,
+        "uniqueViews": 1,
+        "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 8,
+        "title": "9 fun questions to try asking Google Photos",
+        "href": "/en/news/9-fun-questions-to-try-asking-google-photos",
         "views": 2,
         "uniqueViews": 1,
         "topic": "apps-software",
@@ -122,17 +122,22 @@
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
-      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 331 articles; 0 owner feedback item(s); 464 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 328 articles; 0 owner feedback item(s); 463 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-20T06:04:00.243Z",
+      "totalSignals": 463,
+      "confidence": 0.95,
+      "summary": "Learned from 328 articles; 0 owner feedback item(s); 463 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-20T01:36:17.020Z",
       "totalSignals": 464,
@@ -366,12 +371,6 @@
       "totalSignals": 313,
       "confidence": 0.95,
       "summary": "Learned from 313 articles; 0 owner feedback item(s); 313 signal(s); no view data yet; focus: ai, apps-software, gaming, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-15T21:31:18.389Z",
-      "totalSignals": 314,
-      "confidence": 0.95,
-      "summary": "Learned from 314 articles; 0 owner feedback item(s); 314 signal(s); no view data yet; focus: devices, ai, apps-software, gaming, internet-business-tech"
     }
   ]
 }
