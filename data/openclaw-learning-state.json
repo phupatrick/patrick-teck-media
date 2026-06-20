@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T23:17:40.793Z",
+  "generated_at": "2026-06-20T01:36:17.020Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-19T23:17:40.793Z",
+    "updated_at": "2026-06-20T01:36:17.020Z",
     "confidence": 0.95,
-    "totalSignals": 462,
+    "totalSignals": 464,
     "dailyFocus": [
       "ai",
       "devices",
@@ -63,16 +63,6 @@
       },
       {
         "rank": 4,
-        "title": "Nói gì nữa giờ anh em, gom lúa chuẩn bị pre-order GTA VI đi",
-        "href": "/vi/tin-tuc/noi-gi-nua-gio-anh-em-gom-lua-chuan-bi-pre-order-gta-vi-i",
-        "views": 2,
-        "uniqueViews": 1,
-        "topic": "gaming",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 5,
         "title": "Tin công nghệ đáng theo dõi ngay lúc này",
         "href": "/vi/tin-tuc/tin-cong-nghe-ang-theo-doi-ngay-luc-nay",
         "views": 2,
@@ -82,7 +72,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "title": "Thương hiệu Android muốn chinh phục người dùng iPhone",
         "href": "/vi/tin-tuc/thuong-hieu-android-muon-chinh-phuc-nguoi-dung-iphone",
         "views": 2,
@@ -92,7 +82,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "title": "This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off",
         "href": "/en/news/this-foldable-3-in-1-anker-magsafe-charging-cube-is-a-steal-at-65-off",
         "views": 2,
@@ -102,12 +92,22 @@
         "sourceType": "press"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "How pull request limits are cutting down the noise",
         "href": "/en/news/how-pull-request-limits-are-cutting-down-the-noise",
         "views": 2,
         "uniqueViews": 2,
         "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 8,
+        "title": "Apple announces changes to iOS in Brazil",
+        "href": "/en/news/apple-announces-changes-to-ios-in-brazil",
+        "views": 2,
+        "uniqueViews": 1,
+        "topic": "apps-software",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
       }
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 329 articles; 0 owner feedback item(s); 462 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 331 articles; 0 owner feedback item(s); 464 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-20T01:36:17.020Z",
+      "totalSignals": 464,
+      "confidence": 0.95,
+      "summary": "Learned from 331 articles; 0 owner feedback item(s); 464 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, gaming"
+    },
     {
       "generated_at": "2026-06-19T23:17:40.793Z",
       "totalSignals": 462,
@@ -366,12 +372,6 @@
       "totalSignals": 314,
       "confidence": 0.95,
       "summary": "Learned from 314 articles; 0 owner feedback item(s); 314 signal(s); no view data yet; focus: devices, ai, apps-software, gaming, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-15T18:17:08.402Z",
-      "totalSignals": 306,
-      "confidence": 0.95,
-      "summary": "Learned from 306 articles; 0 owner feedback item(s); 306 signal(s); no view data yet; focus: ai, apps-software, devices, gaming, internet-business-tech"
     }
   ]
 }
