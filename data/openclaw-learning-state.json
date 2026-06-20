@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T19:57:47.138Z",
+  "generated_at": "2026-06-20T21:20:10.313Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-20T19:57:47.138Z",
+    "updated_at": "2026-06-20T21:20:10.313Z",
     "confidence": 0.95,
     "totalSignals": 554,
     "dailyFocus": [
@@ -53,6 +53,16 @@
       },
       {
         "rank": 3,
+        "title": "Trung Quốc phát triển kim cương nhân tạo làm mát chip",
+        "href": "/vi/tin-tuc/trung-quoc-phat-trien-kim-cuong-nhan-tao-lam-mat-chip",
+        "views": 2,
+        "uniqueViews": 1,
+        "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 4,
         "title": "This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off",
         "href": "/en/news/this-foldable-3-in-1-anker-magsafe-charging-cube-is-a-steal-at-65-off",
         "views": 2,
@@ -62,7 +72,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 4,
+        "rank": 5,
         "title": "How pull request limits are cutting down the noise",
         "href": "/en/news/how-pull-request-limits-are-cutting-down-the-noise",
         "views": 2,
@@ -72,7 +82,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 5,
+        "rank": 6,
         "title": "Apple announces changes to iOS in Brazil",
         "href": "/en/news/apple-announces-changes-to-ios-in-brazil",
         "views": 2,
@@ -82,7 +92,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "title": "9 fun questions to try asking Google Photos",
         "href": "/en/news/9-fun-questions-to-try-asking-google-photos",
         "views": 2,
@@ -92,7 +102,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "title": "The new era of browsing: Putting Gemini to work in Chrome",
         "href": "/en/news/the-new-era-of-browsing-putting-gemini-to-work-in-chrome",
         "views": 2,
@@ -100,16 +110,6 @@
         "topic": "ai",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
-      },
-      {
-        "rank": 8,
-        "title": "AirPods Pro 3 just crashed to an insane $169 ($80 off)",
-        "href": "/en/news/airpods-pro-3-just-crashed-to-an-insane-169-80-off",
-        "views": 2,
-        "uniqueViews": 1,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
       }
     ],
     "viewInsights": [
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 324 articles; 0 owner feedback item(s); 554 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 322 articles; 0 owner feedback item(s); 554 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-20T21:20:10.313Z",
+      "totalSignals": 554,
+      "confidence": 0.95,
+      "summary": "Learned from 322 articles; 0 owner feedback item(s); 554 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-20T19:57:47.138Z",
       "totalSignals": 554,
@@ -365,12 +371,6 @@
       "totalSignals": 331,
       "confidence": 0.95,
       "summary": "Learned from 330 articles; 0 owner feedback item(s); 331 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, gaming, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-16T20:48:42.764Z",
-      "totalSignals": 327,
-      "confidence": 0.95,
-      "summary": "Learned from 326 articles; 0 owner feedback item(s); 327 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, internet-business-tech, gaming"
     }
   ]
 }
