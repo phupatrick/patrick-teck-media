@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T06:04:00.243Z",
+  "generated_at": "2026-06-20T09:40:59.422Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,27 +8,27 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-20T06:04:00.243Z",
+    "updated_at": "2026-06-20T09:40:59.422Z",
     "confidence": 0.95,
-    "totalSignals": 463,
+    "totalSignals": 533,
     "dailyFocus": [
       "ai",
-      "devices",
       "apps-software",
+      "devices",
       "internet-business-tech",
       "security"
     ],
     "topicWeights": {
       "ai": 31,
-      "devices": 31,
-      "apps-software": 30,
-      "internet-business-tech": 30,
-      "security": 25,
-      "gaming": 25
+      "apps-software": 29,
+      "devices": 29,
+      "internet-business-tech": 28,
+      "security": 24,
+      "gaming": 24
     },
     "sourceTypeWeights": {
       "official-site": 31,
-      "press": 29
+      "press": 27
     },
     "topViewedArticles": [
       {
@@ -93,21 +93,21 @@
       },
       {
         "rank": 7,
-        "title": "AirPods Pro 3 just crashed to an insane $169 ($80 off)",
-        "href": "/en/news/airpods-pro-3-just-crashed-to-an-insane-169-80-off",
-        "views": 2,
-        "uniqueViews": 1,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 8,
         "title": "9 fun questions to try asking Google Photos",
         "href": "/en/news/9-fun-questions-to-try-asking-google-photos",
         "views": 2,
         "uniqueViews": 1,
         "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 8,
+        "title": "The new era of browsing: Putting Gemini to work in Chrome",
+        "href": "/en/news/the-new-era-of-browsing-putting-gemini-to-work-in-chrome",
+        "views": 2,
+        "uniqueViews": 2,
+        "topic": "ai",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
       }
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 328 articles; 0 owner feedback item(s); 463 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 327 articles; 0 owner feedback item(s); 533 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-20T09:40:59.422Z",
+      "totalSignals": 533,
+      "confidence": 0.95,
+      "summary": "Learned from 327 articles; 0 owner feedback item(s); 533 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-20T06:04:00.243Z",
       "totalSignals": 463,
@@ -365,12 +371,6 @@
       "totalSignals": 312,
       "confidence": 0.95,
       "summary": "Learned from 312 articles; 0 owner feedback item(s); 312 signal(s); no view data yet; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-15T23:22:21.950Z",
-      "totalSignals": 313,
-      "confidence": 0.95,
-      "summary": "Learned from 313 articles; 0 owner feedback item(s); 313 signal(s); no view data yet; focus: ai, apps-software, gaming, devices, internet-business-tech"
     }
   ]
 }
