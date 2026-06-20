@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T18:10:54.268Z",
+  "generated_at": "2026-06-20T19:57:47.138Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-20T18:10:54.268Z",
+    "updated_at": "2026-06-20T19:57:47.138Z",
     "confidence": 0.95,
-    "totalSignals": 553,
+    "totalSignals": 554,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -19,7 +19,7 @@
       "security"
     ],
     "topicWeights": {
-      "ai": 31,
+      "ai": 30,
       "apps-software": 27,
       "devices": 25,
       "internet-business-tech": 25,
@@ -27,7 +27,7 @@
       "gaming": 21
     },
     "sourceTypeWeights": {
-      "official-site": 31,
+      "official-site": 30,
       "press": 23
     },
     "topViewedArticles": [
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 327 articles; 0 owner feedback item(s); 553 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 324 articles; 0 owner feedback item(s); 554 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-20T19:57:47.138Z",
+      "totalSignals": 554,
+      "confidence": 0.95,
+      "summary": "Learned from 324 articles; 0 owner feedback item(s); 554 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-20T18:10:54.268Z",
       "totalSignals": 553,
@@ -365,12 +371,6 @@
       "totalSignals": 327,
       "confidence": 0.95,
       "summary": "Learned from 326 articles; 0 owner feedback item(s); 327 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-16T19:09:00.117Z",
-      "totalSignals": 334,
-      "confidence": 0.95,
-      "summary": "Learned from 333 articles; 0 owner feedback item(s); 334 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, gaming, security"
     }
   ]
 }
