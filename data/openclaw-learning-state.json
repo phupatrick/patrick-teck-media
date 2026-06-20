@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:20:10.313Z",
+  "generated_at": "2026-06-20T22:41:58.260Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-20T21:20:10.313Z",
+    "updated_at": "2026-06-20T22:41:58.260Z",
     "confidence": 0.95,
-    "totalSignals": 554,
+    "totalSignals": 556,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 322 articles; 0 owner feedback item(s); 554 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 324 articles; 0 owner feedback item(s); 556 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-20T22:41:58.260Z",
+      "totalSignals": 556,
+      "confidence": 0.95,
+      "summary": "Learned from 324 articles; 0 owner feedback item(s); 556 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-20T21:20:10.313Z",
       "totalSignals": 554,
@@ -365,12 +371,6 @@
       "totalSignals": 332,
       "confidence": 0.95,
       "summary": "Learned from 331 articles; 0 owner feedback item(s); 332 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: ai, apps-software, devices, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-16T22:54:08.693Z",
-      "totalSignals": 331,
-      "confidence": 0.95,
-      "summary": "Learned from 330 articles; 0 owner feedback item(s); 331 signal(s); 1 top view(s): Apple's 2028 iPhones to Use 1.4nm A22 Pro Chips; focus: devices, ai, apps-software, gaming, internet-business-tech"
     }
   ]
 }
