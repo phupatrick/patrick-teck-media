@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T21:54:10.249Z",
+  "generated_at": "2026-06-21T23:11:19.587Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-21T21:54:10.249Z",
+    "updated_at": "2026-06-21T23:11:19.587Z",
     "confidence": 0.95,
-    "totalSignals": 660,
+    "totalSignals": 666,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -19,7 +19,7 @@
       "gaming"
     ],
     "topicWeights": {
-      "ai": 27,
+      "ai": 26,
       "apps-software": 24,
       "internet-business-tech": 21,
       "devices": 20,
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 298 articles; 0 owner feedback item(s); 660 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, gaming"
+    "lastCycleSummary": "Learned from 299 articles; 0 owner feedback item(s); 666 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-21T23:11:19.587Z",
+      "totalSignals": 666,
+      "confidence": 0.95,
+      "summary": "Learned from 299 articles; 0 owner feedback item(s); 666 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, gaming"
+    },
     {
       "generated_at": "2026-06-21T21:54:10.249Z",
       "totalSignals": 660,
@@ -365,12 +371,6 @@
       "totalSignals": 342,
       "confidence": 0.95,
       "summary": "Learned from 307 articles; 0 owner feedback item(s); 342 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, security, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-18T06:30:01.284Z",
-      "totalSignals": 343,
-      "confidence": 0.95,
-      "summary": "Learned from 308 articles; 0 owner feedback item(s); 343 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
