@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T15:25:52.973Z",
+  "generated_at": "2026-06-21T17:04:34.271Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-21T15:25:52.973Z",
+    "updated_at": "2026-06-21T17:04:34.271Z",
     "confidence": 0.95,
-    "totalSignals": 644,
+    "totalSignals": 642,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -28,7 +28,7 @@
     },
     "sourceTypeWeights": {
       "official-site": 27,
-      "press": 20
+      "press": 19
     },
     "topViewedArticles": [
       {
@@ -63,16 +63,6 @@
       },
       {
         "rank": 4,
-        "title": "This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off",
-        "href": "/en/news/this-foldable-3-in-1-anker-magsafe-charging-cube-is-a-steal-at-65-off",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 5,
         "title": "[Interview] The Future of Screen Experiences ②: From Watching to Understanding With Vision AI Companion",
         "href": "/en/news/interview-the-future-of-screen-experiences-from-watching-to-understanding-with-vision-ai-compani",
         "views": 3,
@@ -82,7 +72,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
         "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
         "views": 3,
@@ -90,6 +80,16 @@
         "topic": "apps-software",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
+      },
+      {
+        "rank": 6,
+        "title": "Hacker 'đánh lừa' AI của Meta, chiếm quyền tài khoản Instagram",
+        "href": "/vi/tin-tuc/hacker-anh-lua-ai-cua-meta-chiem-quyen-tai-khoan-instagram",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "internet-business-tech",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
       },
       {
         "rank": 7,
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 309 articles; 0 owner feedback item(s); 644 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 302 articles; 0 owner feedback item(s); 642 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-21T17:04:34.271Z",
+      "totalSignals": 642,
+      "confidence": 0.95,
+      "summary": "Learned from 302 articles; 0 owner feedback item(s); 642 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-21T15:25:52.973Z",
       "totalSignals": 644,
@@ -365,12 +371,6 @@
       "totalSignals": 311,
       "confidence": 0.95,
       "summary": "Learned from 304 articles; 0 owner feedback item(s); 311 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-17T18:16:17.443Z",
-      "totalSignals": 315,
-      "confidence": 0.95,
-      "summary": "Learned from 308 articles; 0 owner feedback item(s); 315 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, gaming, internet-business-tech"
     }
   ]
 }
