@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:17:22.785Z",
+  "generated_at": "2026-06-21T18:51:58.545Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-21T18:17:22.785Z",
+    "updated_at": "2026-06-21T18:51:58.545Z",
     "confidence": 0.95,
-    "totalSignals": 645,
+    "totalSignals": 648,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 300 articles; 0 owner feedback item(s); 645 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 303 articles; 0 owner feedback item(s); 648 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-21T18:51:58.545Z",
+      "totalSignals": 648,
+      "confidence": 0.95,
+      "summary": "Learned from 303 articles; 0 owner feedback item(s); 648 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-21T18:17:22.785Z",
       "totalSignals": 645,
@@ -365,12 +371,6 @@
       "totalSignals": 313,
       "confidence": 0.95,
       "summary": "Learned from 306 articles; 0 owner feedback item(s); 313 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, security, gaming, devices"
-    },
-    {
-      "generated_at": "2026-06-17T21:36:05.234Z",
-      "totalSignals": 311,
-      "confidence": 0.95,
-      "summary": "Learned from 304 articles; 0 owner feedback item(s); 311 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
