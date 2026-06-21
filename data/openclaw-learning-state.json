@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:27:05.400Z",
+  "generated_at": "2026-06-21T15:25:52.973Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-21T13:27:05.400Z",
+    "updated_at": "2026-06-21T15:25:52.973Z",
     "confidence": 0.95,
-    "totalSignals": 607,
+    "totalSignals": 644,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -19,15 +19,15 @@
       "security"
     ],
     "topicWeights": {
-      "ai": 28,
-      "apps-software": 26,
-      "internet-business-tech": 23,
-      "devices": 22,
-      "security": 21,
+      "ai": 27,
+      "apps-software": 25,
+      "internet-business-tech": 22,
+      "devices": 21,
+      "security": 20,
       "gaming": 19
     },
     "sourceTypeWeights": {
-      "official-site": 28,
+      "official-site": 27,
       "press": 20
     },
     "topViewedArticles": [
@@ -43,6 +43,16 @@
       },
       {
         "rank": 2,
+        "title": "Temporary Cloudflare Accounts for AI agents",
+        "href": "/en/news/temporary-cloudflare-accounts-for-ai-agents",
+        "views": 4,
+        "uniqueViews": 4,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 3,
         "title": "The US says ASML’s top chip tool may be in China, but how",
         "href": "/en/news/the-us-says-asml-s-top-chip-tool-may-be-in-china-but-how",
         "views": 3,
@@ -52,7 +62,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 3,
+        "rank": 4,
         "title": "This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off",
         "href": "/en/news/this-foldable-3-in-1-anker-magsafe-charging-cube-is-a-steal-at-65-off",
         "views": 3,
@@ -62,7 +72,27 @@
         "sourceType": "press"
       },
       {
-        "rank": 4,
+        "rank": 5,
+        "title": "[Interview] The Future of Screen Experiences ②: From Watching to Understanding With Vision AI Companion",
+        "href": "/en/news/interview-the-future-of-screen-experiences-from-watching-to-understanding-with-vision-ai-compani",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 6,
+        "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
+        "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 7,
         "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
         "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
         "views": 3,
@@ -72,50 +102,20 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 5,
-        "title": "Microsoft discovers new lightweight backdoor that steals cryptocurrency",
-        "href": "/en/news/microsoft-discovers-new-lightweight-backdoor-that-steals-cryptocurrency",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 6,
-        "title": "Android 17 appears to have broken 5G for some Pixel owners",
-        "href": "/en/news/android-17-appears-to-have-broken-5g-for-some-pixel-owners",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 7,
-        "title": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
-        "href": "/en/guides/the-practical-tech-tips-worth-saving-right-now",
-        "views": 2,
-        "uniqueViews": 2,
-        "topic": "apps-software",
-        "contentType": "EvergreenGuide",
-        "sourceType": "official-site"
-      },
-      {
         "rank": 8,
-        "title": "Trung Quốc phát triển kim cương nhân tạo làm mát chip",
-        "href": "/vi/tin-tuc/trung-quoc-phat-trien-kim-cuong-nhan-tao-lam-mat-chip",
-        "views": 2,
-        "uniqueViews": 1,
-        "topic": "devices",
+        "title": "Get more done with new vertical tabs and immersive reading mode in Chrome",
+        "href": "/en/news/get-more-done-with-new-vertical-tabs-and-immersive-reading-mode-in-chrome",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "apps-software",
         "contentType": "NewsArticle",
-        "sourceType": "press"
+        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
       "Bai view cao dang nghieng ve chu de devices; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 310 articles; 0 owner feedback item(s); 607 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 309 articles; 0 owner feedback item(s); 644 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-21T15:25:52.973Z",
+      "totalSignals": 644,
+      "confidence": 0.95,
+      "summary": "Learned from 309 articles; 0 owner feedback item(s); 644 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-21T13:27:05.400Z",
       "totalSignals": 607,
@@ -365,12 +371,6 @@
       "totalSignals": 315,
       "confidence": 0.95,
       "summary": "Learned from 308 articles; 0 owner feedback item(s); 315 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, gaming, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-17T17:24:39.276Z",
-      "totalSignals": 314,
-      "confidence": 0.95,
-      "summary": "Learned from 307 articles; 0 owner feedback item(s); 314 signal(s); 2 top view(s): 9 fun questions to try asking Google Photos; focus: ai, apps-software, devices, gaming, security"
     }
   ]
 }
