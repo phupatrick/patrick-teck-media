@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T17:50:34.605Z",
+  "generated_at": "2026-06-22T18:51:35.298Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-22T17:50:34.605Z",
+    "updated_at": "2026-06-22T18:51:35.298Z",
     "confidence": 0.95,
-    "totalSignals": 681,
+    "totalSignals": 682,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -21,7 +21,7 @@
     "topicWeights": {
       "ai": 26,
       "apps-software": 24,
-      "gaming": 20,
+      "gaming": 21,
       "devices": 20,
       "security": 19,
       "internet-business-tech": 19
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 314 articles; 0 owner feedback item(s); 681 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, gaming, devices, security"
+    "lastCycleSummary": "Learned from 315 articles; 0 owner feedback item(s); 682 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, gaming, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-22T18:51:35.298Z",
+      "totalSignals": 682,
+      "confidence": 0.95,
+      "summary": "Learned from 315 articles; 0 owner feedback item(s); 682 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, gaming, devices, security"
+    },
     {
       "generated_at": "2026-06-22T17:50:34.605Z",
       "totalSignals": 681,
@@ -366,12 +372,6 @@
       "totalSignals": 412,
       "confidence": 0.95,
       "summary": "Learned from 308 articles; 0 owner feedback item(s); 412 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-18T19:41:35.712Z",
-      "totalSignals": 411,
-      "confidence": 0.95,
-      "summary": "Learned from 307 articles; 0 owner feedback item(s); 411 signal(s); 2 top view(s): This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off; focus: ai, apps-software, devices, internet-business-tech, security"
     }
   ]
 }
