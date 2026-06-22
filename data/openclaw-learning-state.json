@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T13:09:28.300Z",
+  "generated_at": "2026-06-22T17:50:34.605Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-22T13:09:28.300Z",
+    "updated_at": "2026-06-22T17:50:34.605Z",
     "confidence": 0.95,
-    "totalSignals": 673,
+    "totalSignals": 681,
     "dailyFocus": [
       "ai",
       "apps-software",
+      "gaming",
       "devices",
-      "internet-business-tech",
-      "gaming"
+      "security"
     ],
     "topicWeights": {
       "ai": 26,
       "apps-software": 24,
+      "gaming": 20,
       "devices": 20,
-      "internet-business-tech": 20,
-      "gaming": 19,
-      "security": 19
+      "security": 19,
+      "internet-business-tech": 19
     },
     "sourceTypeWeights": {
       "official-site": 27,
@@ -33,16 +33,6 @@
     "topViewedArticles": [
       {
         "rank": 1,
-        "title": "Yes, the Pixel Launcher search bar is now slightly taller",
-        "href": "/en/news/yes-the-pixel-launcher-search-bar-is-now-slightly-taller",
-        "views": 4,
-        "uniqueViews": 2,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 2,
         "title": "Temporary Cloudflare Accounts for AI agents",
         "href": "/en/news/temporary-cloudflare-accounts-for-ai-agents",
         "views": 4,
@@ -52,17 +42,17 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 3,
-        "title": "The US says ASML’s top chip tool may be in China, but how",
-        "href": "/en/news/the-us-says-asml-s-top-chip-tool-may-be-in-china-but-how",
-        "views": 3,
-        "uniqueViews": 3,
+        "rank": 2,
+        "title": "Yes, the Pixel Launcher search bar is now slightly taller",
+        "href": "/en/news/yes-the-pixel-launcher-search-bar-is-now-slightly-taller",
+        "views": 4,
+        "uniqueViews": 2,
         "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "title": "[Interview] The Future of Screen Experiences ②: From Watching to Understanding With Vision AI Companion",
         "href": "/en/news/interview-the-future-of-screen-experiences-from-watching-to-understanding-with-vision-ai-compani",
         "views": 3,
@@ -72,7 +62,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
         "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
         "views": 3,
@@ -82,7 +72,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "title": "Hacker 'đánh lừa' AI của Meta, chiếm quyền tài khoản Instagram",
         "href": "/vi/tin-tuc/hacker-anh-lua-ai-cua-meta-chiem-quyen-tai-khoan-instagram",
         "views": 3,
@@ -92,7 +82,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
         "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
         "views": 3,
@@ -102,9 +92,19 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "Get more done with new vertical tabs and immersive reading mode in Chrome",
         "href": "/en/news/get-more-done-with-new-vertical-tabs-and-immersive-reading-mode-in-chrome",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 8,
+        "title": "Expanding Chrome’s AI experiences to India, New Zealand and Canada",
+        "href": "/en/news/expanding-chrome-s-ai-experiences-to-india-new-zealand-and-canada",
         "views": 3,
         "uniqueViews": 3,
         "topic": "apps-software",
@@ -113,7 +113,7 @@
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de devices; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de apps-software; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
       "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
@@ -122,16 +122,23 @@
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
+      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 306 articles; 0 owner feedback item(s); 673 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 314 articles; 0 owner feedback item(s); 681 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, gaming, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-22T17:50:34.605Z",
+      "totalSignals": 681,
+      "confidence": 0.95,
+      "summary": "Learned from 314 articles; 0 owner feedback item(s); 681 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, gaming, devices, security"
+    },
     {
       "generated_at": "2026-06-22T13:09:28.300Z",
       "totalSignals": 673,
@@ -365,12 +372,6 @@
       "totalSignals": 411,
       "confidence": 0.95,
       "summary": "Learned from 307 articles; 0 owner feedback item(s); 411 signal(s); 2 top view(s): This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off; focus: ai, apps-software, devices, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-18T18:55:00.717Z",
-      "totalSignals": 410,
-      "confidence": 0.95,
-      "summary": "Learned from 309 articles; 0 owner feedback item(s); 410 signal(s); 2 top view(s): Galaxy Watch owners report that they can’t get certain apps to open; focus: ai, apps-software, devices, internet-business-tech, security"
     }
   ]
 }
