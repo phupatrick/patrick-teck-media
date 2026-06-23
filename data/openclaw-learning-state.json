@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T10:37:03.621Z",
+  "generated_at": "2026-06-23T13:31:56.006Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-23T10:37:03.621Z",
+    "updated_at": "2026-06-23T13:31:56.006Z",
     "confidence": 0.95,
-    "totalSignals": 727,
+    "totalSignals": 740,
     "dailyFocus": [
       "ai",
       "apps-software",
-      "devices",
       "internet-business-tech",
-      "gaming"
+      "devices",
+      "security"
     ],
     "topicWeights": {
       "ai": 26,
-      "apps-software": 24,
+      "apps-software": 23,
+      "internet-business-tech": 20,
       "devices": 19,
-      "internet-business-tech": 19,
-      "gaming": 17,
-      "security": 17
+      "security": 17,
+      "gaming": 17
     },
     "sourceTypeWeights": {
       "official-site": 26,
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 305 articles; 0 owner feedback item(s); 727 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 313 articles; 0 owner feedback item(s); 740 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-23T13:31:56.006Z",
+      "totalSignals": 740,
+      "confidence": 0.95,
+      "summary": "Learned from 313 articles; 0 owner feedback item(s); 740 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-23T10:37:03.621Z",
       "totalSignals": 727,
@@ -365,12 +371,6 @@
       "totalSignals": 442,
       "confidence": 0.95,
       "summary": "Learned from 325 articles; 0 owner feedback item(s); 442 signal(s); 2 top view(s): This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off; focus: ai, devices, apps-software, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-19T17:55:00.237Z",
-      "totalSignals": 442,
-      "confidence": 0.95,
-      "summary": "Learned from 329 articles; 0 owner feedback item(s); 442 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, devices, apps-software, internet-business-tech, gaming"
     }
   ]
 }
