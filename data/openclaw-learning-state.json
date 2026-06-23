@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T13:31:56.006Z",
+  "generated_at": "2026-06-23T16:15:00.195Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,27 +8,27 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-23T13:31:56.006Z",
+    "updated_at": "2026-06-23T16:15:00.195Z",
     "confidence": 0.95,
-    "totalSignals": 740,
+    "totalSignals": 783,
     "dailyFocus": [
       "ai",
       "apps-software",
       "internet-business-tech",
       "devices",
-      "security"
+      "gaming"
     ],
     "topicWeights": {
       "ai": 26,
-      "apps-software": 23,
+      "apps-software": 22,
       "internet-business-tech": 20,
       "devices": 19,
-      "security": 17,
-      "gaming": 17
+      "gaming": 17,
+      "security": 17
     },
     "sourceTypeWeights": {
       "official-site": 26,
-      "press": 18
+      "press": 17
     },
     "topViewedArticles": [
       {
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 313 articles; 0 owner feedback item(s); 740 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 313 articles; 0 owner feedback item(s); 783 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-23T16:15:00.195Z",
+      "totalSignals": 783,
+      "confidence": 0.95,
+      "summary": "Learned from 313 articles; 0 owner feedback item(s); 783 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, gaming"
+    },
     {
       "generated_at": "2026-06-23T13:31:56.006Z",
       "totalSignals": 740,
@@ -365,12 +371,6 @@
       "totalSignals": 457,
       "confidence": 0.95,
       "summary": "Learned from 328 articles; 0 owner feedback item(s); 457 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-19T18:52:53.973Z",
-      "totalSignals": 442,
-      "confidence": 0.95,
-      "summary": "Learned from 325 articles; 0 owner feedback item(s); 442 signal(s); 2 top view(s): This foldable 3-in-1 Anker MagSafe charging cube is a steal at $65 off; focus: ai, devices, apps-software, internet-business-tech, security"
     }
   ]
 }
