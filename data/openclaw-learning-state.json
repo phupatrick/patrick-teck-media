@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T18:03:23.088Z",
+  "generated_at": "2026-06-23T18:17:24.977Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-23T18:03:23.088Z",
+    "updated_at": "2026-06-23T18:17:24.977Z",
     "confidence": 0.95,
-    "totalSignals": 798,
+    "totalSignals": 807,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -24,7 +24,7 @@
       "internet-business-tech": 20,
       "devices": 19,
       "security": 17,
-      "gaming": 17
+      "gaming": 16
     },
     "sourceTypeWeights": {
       "official-site": 26,
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 314 articles; 0 owner feedback item(s); 798 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 312 articles; 0 owner feedback item(s); 807 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-23T18:17:24.977Z",
+      "totalSignals": 807,
+      "confidence": 0.95,
+      "summary": "Learned from 312 articles; 0 owner feedback item(s); 807 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-23T18:03:23.088Z",
       "totalSignals": 798,
@@ -365,12 +371,6 @@
       "totalSignals": 457,
       "confidence": 0.95,
       "summary": "Learned from 325 articles; 0 owner feedback item(s); 457 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-19T21:08:43.955Z",
-      "totalSignals": 459,
-      "confidence": 0.95,
-      "summary": "Learned from 328 articles; 0 owner feedback item(s); 459 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, devices, apps-software, internet-business-tech, security"
     }
   ]
 }
