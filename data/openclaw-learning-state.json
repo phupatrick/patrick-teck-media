@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T23:51:37.192Z",
+  "generated_at": "2026-06-23T02:56:06.282Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-22T23:51:37.192Z",
+    "updated_at": "2026-06-23T02:56:06.282Z",
     "confidence": 0.95,
-    "totalSignals": 731,
+    "totalSignals": 735,
     "dailyFocus": [
       "ai",
       "apps-software",
-      "gaming",
       "devices",
-      "security"
+      "gaming",
+      "internet-business-tech"
     ],
     "topicWeights": {
       "ai": 26,
       "apps-software": 24,
-      "gaming": 20,
       "devices": 19,
-      "security": 19,
-      "internet-business-tech": 18
+      "gaming": 19,
+      "internet-business-tech": 18,
+      "security": 18
     },
     "sourceTypeWeights": {
       "official-site": 26,
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 309 articles; 0 owner feedback item(s); 731 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, gaming, devices, security"
+    "lastCycleSummary": "Learned from 313 articles; 0 owner feedback item(s); 735 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, gaming, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-23T02:56:06.282Z",
+      "totalSignals": 735,
+      "confidence": 0.95,
+      "summary": "Learned from 313 articles; 0 owner feedback item(s); 735 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, gaming, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-22T23:51:37.192Z",
       "totalSignals": 731,
@@ -365,12 +371,6 @@
       "totalSignals": 437,
       "confidence": 0.95,
       "summary": "Learned from 324 articles; 0 owner feedback item(s); 437 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-19T08:20:25.084Z",
-      "totalSignals": 420,
-      "confidence": 0.95,
-      "summary": "Learned from 314 articles; 0 owner feedback item(s); 420 signal(s); 2 top view(s): Google will fix Android 17 bug that deletes homescreen widgets for some Pixel owners [U]; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
