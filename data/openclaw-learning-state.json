@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T21:56:03.782Z",
+  "generated_at": "2026-06-24T22:23:55.808Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-24T21:56:03.782Z",
+    "updated_at": "2026-06-24T22:23:55.808Z",
     "confidence": 0.95,
     "totalSignals": 898,
     "dailyFocus": [
@@ -133,6 +133,12 @@
     "lastCycleSummary": "Learned from 313 articles; 0 owner feedback item(s); 898 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-24T22:23:55.808Z",
+      "totalSignals": 898,
+      "confidence": 0.95,
+      "summary": "Learned from 313 articles; 0 owner feedback item(s); 898 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    },
     {
       "generated_at": "2026-06-24T21:56:03.782Z",
       "totalSignals": 898,
@@ -366,12 +372,6 @@
       "totalSignals": 574,
       "confidence": 0.95,
       "summary": "Learned from 322 articles; 0 owner feedback item(s); 574 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
-    },
-    {
-      "generated_at": "2026-06-20T23:50:57.017Z",
-      "totalSignals": 554,
-      "confidence": 0.95,
-      "summary": "Learned from 322 articles; 0 owner feedback item(s); 554 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
     }
   ]
 }
