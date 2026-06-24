@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T13:55:04.549Z",
+  "generated_at": "2026-06-24T16:19:20.677Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-24T13:55:04.549Z",
+    "updated_at": "2026-06-24T16:19:20.677Z",
     "confidence": 0.95,
-    "totalSignals": 860,
+    "totalSignals": 855,
     "dailyFocus": [
       "ai",
       "apps-software",
-      "internet-business-tech",
       "devices",
-      "security"
+      "security",
+      "internet-business-tech"
     ],
     "topicWeights": {
       "ai": 26,
       "apps-software": 21,
-      "internet-business-tech": 18,
       "devices": 17,
       "security": 17,
+      "internet-business-tech": 17,
       "gaming": 16
     },
     "sourceTypeWeights": {
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 317 articles; 0 owner feedback item(s); 860 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 311 articles; 0 owner feedback item(s); 855 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-24T16:19:20.677Z",
+      "totalSignals": 855,
+      "confidence": 0.95,
+      "summary": "Learned from 311 articles; 0 owner feedback item(s); 855 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-24T13:55:04.549Z",
       "totalSignals": 860,
@@ -366,12 +372,6 @@
       "totalSignals": 553,
       "confidence": 0.95,
       "summary": "Learned from 327 articles; 0 owner feedback item(s); 553 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-20T16:55:04.132Z",
-      "totalSignals": 551,
-      "confidence": 0.95,
-      "summary": "Learned from 330 articles; 0 owner feedback item(s); 551 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
