@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T22:26:05.914Z",
+  "generated_at": "2026-06-24T23:03:20.953Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-24T22:26:05.914Z",
+    "updated_at": "2026-06-24T23:03:20.953Z",
     "confidence": 0.95,
-    "totalSignals": 894,
+    "totalSignals": 899,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -33,6 +33,16 @@
     "topViewedArticles": [
       {
         "rank": 1,
+        "title": "Here’s why Slate changed the battery in its cheap EV truck",
+        "href": "/en/news/here-s-why-slate-changed-the-battery-in-its-cheap-ev-truck",
+        "views": 4,
+        "uniqueViews": 2,
+        "topic": "internet-business-tech",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 2,
         "title": "Temporary Cloudflare Accounts for AI agents",
         "href": "/en/news/temporary-cloudflare-accounts-for-ai-agents",
         "views": 4,
@@ -42,7 +52,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 2,
+        "rank": 3,
         "title": "Yes, the Pixel Launcher search bar is now slightly taller",
         "href": "/en/news/yes-the-pixel-launcher-search-bar-is-now-slightly-taller",
         "views": 4,
@@ -52,7 +62,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 3,
+        "rank": 4,
         "title": "[Interview] The Future of Screen Experiences ②: From Watching to Understanding With Vision AI Companion",
         "href": "/en/news/interview-the-future-of-screen-experiences-from-watching-to-understanding-with-vision-ai-compani",
         "views": 3,
@@ -62,7 +72,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 4,
+        "rank": 5,
         "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
         "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
         "views": 3,
@@ -72,7 +82,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 5,
+        "rank": 6,
         "title": "Hacker 'đánh lừa' AI của Meta, chiếm quyền tài khoản Instagram",
         "href": "/vi/tin-tuc/hacker-anh-lua-ai-cua-meta-chiem-quyen-tai-khoan-instagram",
         "views": 3,
@@ -82,7 +92,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
         "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
         "views": 3,
@@ -92,19 +102,9 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "title": "Get more done with new vertical tabs and immersive reading mode in Chrome",
         "href": "/en/news/get-more-done-with-new-vertical-tabs-and-immersive-reading-mode-in-chrome",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "apps-software",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
-      },
-      {
-        "rank": 8,
-        "title": "Expanding Chrome’s AI experiences to India, New Zealand and Canada",
-        "href": "/en/news/expanding-chrome-s-ai-experiences-to-india-new-zealand-and-canada",
         "views": 3,
         "uniqueViews": 3,
         "topic": "apps-software",
@@ -113,7 +113,7 @@
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de apps-software; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de internet-business-tech; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
       "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 309 articles; 0 owner feedback item(s); 894 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    "lastCycleSummary": "Learned from 305 articles; 0 owner feedback item(s); 899 signal(s); 4 top view(s): Here’s why Slate changed the battery in its cheap EV truck; focus: ai, apps-software, devices, internet-business-tech, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-24T23:03:20.953Z",
+      "totalSignals": 899,
+      "confidence": 0.95,
+      "summary": "Learned from 305 articles; 0 owner feedback item(s); 899 signal(s); 4 top view(s): Here’s why Slate changed the battery in its cheap EV truck; focus: ai, apps-software, devices, internet-business-tech, gaming"
+    },
     {
       "generated_at": "2026-06-24T22:26:05.914Z",
       "totalSignals": 894,
@@ -366,12 +372,6 @@
       "totalSignals": 596,
       "confidence": 0.95,
       "summary": "Learned from 311 articles; 0 owner feedback item(s); 596 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
-    },
-    {
-      "generated_at": "2026-06-21T08:29:13.182Z",
-      "totalSignals": 567,
-      "confidence": 0.95,
-      "summary": "Learned from 314 articles; 0 owner feedback item(s); 567 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
