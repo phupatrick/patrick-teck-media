@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T05:35:40.036Z",
+  "generated_at": "2026-06-24T08:44:31.517Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-24T05:35:40.036Z",
+    "updated_at": "2026-06-24T08:44:31.517Z",
     "confidence": 0.95,
-    "totalSignals": 827,
+    "totalSignals": 830,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 306 articles; 0 owner feedback item(s); 827 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, security"
+    "lastCycleSummary": "Learned from 308 articles; 0 owner feedback item(s); 830 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-24T08:44:31.517Z",
+      "totalSignals": 830,
+      "confidence": 0.95,
+      "summary": "Learned from 308 articles; 0 owner feedback item(s); 830 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-06-24T05:35:40.036Z",
       "totalSignals": 827,
@@ -365,12 +371,6 @@
       "totalSignals": 541,
       "confidence": 0.95,
       "summary": "Learned from 330 articles; 0 owner feedback item(s); 541 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-20T11:36:18.905Z",
-      "totalSignals": 533,
-      "confidence": 0.95,
-      "summary": "Learned from 327 articles; 0 owner feedback item(s); 533 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
     }
   ]
 }
