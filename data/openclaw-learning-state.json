@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T00:23:23.286Z",
+  "generated_at": "2026-06-25T04:45:09.002Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-25T00:23:23.286Z",
+    "updated_at": "2026-06-25T04:45:09.002Z",
     "confidence": 0.95,
-    "totalSignals": 935,
+    "totalSignals": 945,
     "dailyFocus": [
       "ai",
       "apps-software",
       "internet-business-tech",
-      "devices",
-      "gaming"
+      "gaming",
+      "devices"
     ],
     "topicWeights": {
-      "ai": 26,
-      "apps-software": 20,
+      "ai": 25,
+      "apps-software": 19,
       "internet-business-tech": 17,
+      "gaming": 17,
       "devices": 16,
-      "gaming": 16,
       "security": 16
     },
     "sourceTypeWeights": {
@@ -103,11 +103,11 @@
       },
       {
         "rank": 8,
-        "title": "[Interview] The Future of Screen Experiences ②: From Watching to Understanding With Vision AI Companion",
-        "href": "/en/news/interview-the-future-of-screen-experiences-from-watching-to-understanding-with-vision-ai-compani",
+        "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
+        "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
         "views": 3,
         "uniqueViews": 3,
-        "topic": "devices",
+        "topic": "apps-software",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
       }
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 310 articles; 0 owner feedback item(s); 935 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, gaming"
+    "lastCycleSummary": "Learned from 313 articles; 0 owner feedback item(s); 945 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, gaming, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-25T04:45:09.002Z",
+      "totalSignals": 945,
+      "confidence": 0.95,
+      "summary": "Learned from 313 articles; 0 owner feedback item(s); 945 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, gaming, devices"
+    },
     {
       "generated_at": "2026-06-25T00:23:23.286Z",
       "totalSignals": 935,
@@ -366,12 +372,6 @@
       "totalSignals": 644,
       "confidence": 0.95,
       "summary": "Learned from 309 articles; 0 owner feedback item(s); 644 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
-    },
-    {
-      "generated_at": "2026-06-21T13:27:05.400Z",
-      "totalSignals": 607,
-      "confidence": 0.95,
-      "summary": "Learned from 310 articles; 0 owner feedback item(s); 607 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
