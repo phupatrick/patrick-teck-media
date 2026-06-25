@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T08:15:45.012Z",
+  "generated_at": "2026-06-25T11:10:29.217Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,26 +8,26 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-25T08:15:45.012Z",
+    "updated_at": "2026-06-25T11:10:29.217Z",
     "confidence": 0.95,
-    "totalSignals": 969,
+    "totalSignals": 999,
     "dailyFocus": [
       "ai",
       "apps-software",
-      "gaming",
       "internet-business-tech",
-      "devices"
+      "devices",
+      "gaming"
     ],
     "topicWeights": {
-      "ai": 25,
+      "ai": 24,
       "apps-software": 19,
-      "gaming": 17,
       "internet-business-tech": 17,
       "devices": 16,
+      "gaming": 16,
       "security": 16
     },
     "sourceTypeWeights": {
-      "official-site": 25,
+      "official-site": 24,
       "press": 15
     },
     "topViewedArticles": [
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 317 articles; 0 owner feedback item(s); 969 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, gaming, internet-business-tech, devices"
+    "lastCycleSummary": "Learned from 313 articles; 0 owner feedback item(s); 999 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, gaming"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-25T11:10:29.217Z",
+      "totalSignals": 999,
+      "confidence": 0.95,
+      "summary": "Learned from 313 articles; 0 owner feedback item(s); 999 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, gaming"
+    },
     {
       "generated_at": "2026-06-25T08:15:45.012Z",
       "totalSignals": 969,
@@ -366,12 +372,6 @@
       "totalSignals": 645,
       "confidence": 0.95,
       "summary": "Learned from 300 articles; 0 owner feedback item(s); 645 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-06-21T17:04:34.271Z",
-      "totalSignals": 642,
-      "confidence": 0.95,
-      "summary": "Learned from 302 articles; 0 owner feedback item(s); 642 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
