@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T18:26:31.477Z",
+  "generated_at": "2026-06-25T20:37:24.714Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-25T18:26:31.477Z",
+    "updated_at": "2026-06-25T20:37:24.714Z",
     "confidence": 0.95,
-    "totalSignals": 1064,
+    "totalSignals": 1097,
     "dailyFocus": [
       "ai",
       "apps-software",
-      "devices",
+      "internet-business-tech",
       "security",
-      "internet-business-tech"
+      "devices"
     ],
     "topicWeights": {
       "ai": 24,
       "apps-software": 19,
-      "devices": 16,
-      "security": 16,
       "internet-business-tech": 16,
+      "security": 16,
+      "devices": 15,
       "gaming": 15
     },
     "sourceTypeWeights": {
@@ -83,16 +83,6 @@
       },
       {
         "rank": 6,
-        "title": "AI researchers continue to leave Google for its rivals",
-        "href": "/en/news/ai-researchers-continue-to-leave-google-for-its-rivals",
-        "views": 3,
-        "uniqueViews": 2,
-        "topic": "internet-business-tech",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 7,
         "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
         "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
         "views": 3,
@@ -102,12 +92,22 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
         "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
         "views": 3,
         "uniqueViews": 3,
         "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 8,
+        "title": "Get more done with new vertical tabs and immersive reading mode in Chrome",
+        "href": "/en/news/get-more-done-with-new-vertical-tabs-and-immersive-reading-mode-in-chrome",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "apps-software",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
       }
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 315 articles; 0 owner feedback item(s); 1064 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, devices, security, internet-business-tech"
+    "lastCycleSummary": "Learned from 320 articles; 0 owner feedback item(s); 1097 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-25T20:37:24.714Z",
+      "totalSignals": 1097,
+      "confidence": 0.95,
+      "summary": "Learned from 320 articles; 0 owner feedback item(s); 1097 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
+    },
     {
       "generated_at": "2026-06-25T18:26:31.477Z",
       "totalSignals": 1064,
@@ -366,12 +372,6 @@
       "totalSignals": 662,
       "confidence": 0.95,
       "summary": "Learned from 295 articles; 0 owner feedback item(s); 662 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-21T23:11:19.587Z",
-      "totalSignals": 666,
-      "confidence": 0.95,
-      "summary": "Learned from 299 articles; 0 owner feedback item(s); 666 signal(s); 4 top view(s): Yes, the Pixel Launcher search bar is now slightly taller; focus: ai, apps-software, internet-business-tech, devices, gaming"
     }
   ]
 }
