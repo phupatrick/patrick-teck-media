@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T09:52:28.912Z",
+  "generated_at": "2026-06-26T12:09:56.833Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-26T09:52:28.912Z",
+    "updated_at": "2026-06-26T12:09:56.833Z",
     "confidence": 0.95,
-    "totalSignals": 1176,
+    "totalSignals": 1167,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -20,7 +20,7 @@
     ],
     "topicWeights": {
       "ai": 23,
-      "apps-software": 19,
+      "apps-software": 18,
       "internet-business-tech": 16,
       "devices": 15,
       "security": 15,
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 327 articles; 0 owner feedback item(s); 1176 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 318 articles; 0 owner feedback item(s); 1167 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-26T12:09:56.833Z",
+      "totalSignals": 1167,
+      "confidence": 0.95,
+      "summary": "Learned from 318 articles; 0 owner feedback item(s); 1167 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-26T09:52:28.912Z",
       "totalSignals": 1176,
@@ -366,12 +372,6 @@
       "totalSignals": 730,
       "confidence": 0.95,
       "summary": "Learned from 308 articles; 0 owner feedback item(s); 730 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, gaming, devices, security"
-    },
-    {
-      "generated_at": "2026-06-22T20:44:06.129Z",
-      "totalSignals": 733,
-      "confidence": 0.95,
-      "summary": "Learned from 312 articles; 0 owner feedback item(s); 733 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, gaming, devices, internet-business-tech"
     }
   ]
 }
