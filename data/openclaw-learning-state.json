@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T10:32:58.217Z",
+  "generated_at": "2026-06-27T12:02:42.434Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-27T10:32:58.217Z",
+    "updated_at": "2026-06-27T12:02:42.434Z",
     "confidence": 0.95,
-    "totalSignals": 1195,
+    "totalSignals": 1231,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -20,14 +20,14 @@
     ],
     "topicWeights": {
       "ai": 23,
-      "apps-software": 18,
+      "apps-software": 17,
       "internet-business-tech": 15,
       "security": 15,
       "devices": 14,
       "gaming": 14
     },
     "sourceTypeWeights": {
-      "official-site": 24,
+      "official-site": 23,
       "press": 13
     },
     "topViewedArticles": [
@@ -73,6 +73,16 @@
       },
       {
         "rank": 5,
+        "title": "Amid Amazon's Robot Surge, Proteus Charts a New Path Forward",
+        "href": "/en/news/amid-amazon-s-robot-surge-proteus-charts-a-new-path-forward",
+        "views": 3,
+        "uniqueViews": 2,
+        "topic": "devices",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 6,
         "title": "iOS 27 Makes the Shortcuts App Much Less Intimidating",
         "href": "/en/news/ios-27-makes-the-shortcuts-app-much-less-intimidating",
         "views": 3,
@@ -82,7 +92,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "title": "Nhân viên ngành chip 'cao giá' trên thị trường hôn nhân",
         "href": "/vi/tin-tuc/nhan-vien-nganh-chip-cao-gia-tren-thi-truong-hon-nhan",
         "views": 3,
@@ -92,7 +102,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "title": "I can't believe the Beats Solo 4 are half off",
         "href": "/en/news/i-can-t-believe-the-beats-solo-4-are-half-off",
         "views": 3,
@@ -100,16 +110,6 @@
         "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
-      },
-      {
-        "rank": 8,
-        "title": "Here's how Gemini can help you avoid jetlag",
-        "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "ai",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 306 articles; 0 owner feedback item(s); 1195 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
+    "lastCycleSummary": "Learned from 307 articles; 0 owner feedback item(s); 1231 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-27T12:02:42.434Z",
+      "totalSignals": 1231,
+      "confidence": 0.95,
+      "summary": "Learned from 307 articles; 0 owner feedback item(s); 1231 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
+    },
     {
       "generated_at": "2026-06-27T10:32:58.217Z",
       "totalSignals": 1195,
@@ -366,12 +372,6 @@
       "totalSignals": 826,
       "confidence": 0.95,
       "summary": "Learned from 309 articles; 0 owner feedback item(s); 826 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
-    },
-    {
-      "generated_at": "2026-06-23T22:07:19.164Z",
-      "totalSignals": 812,
-      "confidence": 0.95,
-      "summary": "Learned from 313 articles; 0 owner feedback item(s); 812 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
