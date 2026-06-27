@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T18:00:58.857Z",
+  "generated_at": "2026-06-27T19:41:43.306Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,21 +8,21 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-27T18:00:58.857Z",
+    "updated_at": "2026-06-27T19:41:43.306Z",
     "confidence": 0.95,
-    "totalSignals": 1256,
+    "totalSignals": 1260,
     "dailyFocus": [
       "ai",
       "apps-software",
-      "internet-business-tech",
       "security",
+      "internet-business-tech",
       "devices"
     ],
     "topicWeights": {
       "ai": 23,
       "apps-software": 17,
-      "internet-business-tech": 15,
       "security": 15,
+      "internet-business-tech": 15,
       "devices": 14,
       "gaming": 13
     },
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 316 articles; 0 owner feedback item(s); 1256 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
+    "lastCycleSummary": "Learned from 317 articles; 0 owner feedback item(s); 1260 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, internet-business-tech, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-27T19:41:43.306Z",
+      "totalSignals": 1260,
+      "confidence": 0.95,
+      "summary": "Learned from 317 articles; 0 owner feedback item(s); 1260 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, internet-business-tech, devices"
+    },
     {
       "generated_at": "2026-06-27T18:00:58.857Z",
       "totalSignals": 1256,
@@ -366,12 +372,6 @@
       "totalSignals": 855,
       "confidence": 0.95,
       "summary": "Learned from 311 articles; 0 owner feedback item(s); 855 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, security, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-24T13:55:04.549Z",
-      "totalSignals": 860,
-      "confidence": 0.95,
-      "summary": "Learned from 317 articles; 0 owner feedback item(s); 860 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
