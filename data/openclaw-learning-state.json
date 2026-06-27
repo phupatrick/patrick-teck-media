@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T23:36:19.571Z",
+  "generated_at": "2026-06-27T01:35:21.786Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-26T23:36:19.571Z",
+    "updated_at": "2026-06-27T01:35:21.786Z",
     "confidence": 0.95,
-    "totalSignals": 1155,
+    "totalSignals": 1178,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -73,49 +73,49 @@
       },
       {
         "rank": 5,
-        "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
-        "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
+        "title": "The Apple Watch Series 11 is still under $280 on Amazon",
+        "href": "/en/news/the-apple-watch-series-11-is-still-under-280-on-amazon",
         "views": 3,
         "uniqueViews": 3,
         "topic": "apps-software",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 6,
-        "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
-        "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
+        "title": "iOS 27 Makes the Shortcuts App Much Less Intimidating",
+        "href": "/en/news/ios-27-makes-the-shortcuts-app-much-less-intimidating",
         "views": 3,
-        "uniqueViews": 3,
-        "topic": "ai",
+        "uniqueViews": 2,
+        "topic": "apps-software",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 7,
-        "title": "Get more done with new vertical tabs and immersive reading mode in Chrome",
-        "href": "/en/news/get-more-done-with-new-vertical-tabs-and-immersive-reading-mode-in-chrome",
+        "title": "Nhân viên ngành chip 'cao giá' trên thị trường hôn nhân",
+        "href": "/vi/tin-tuc/nhan-vien-nganh-chip-cao-gia-tren-thi-truong-hon-nhan",
         "views": 3,
         "uniqueViews": 3,
-        "topic": "apps-software",
+        "topic": "internet-business-tech",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 8,
-        "title": "Expanding Chrome’s AI experiences to India, New Zealand and Canada",
-        "href": "/en/news/expanding-chrome-s-ai-experiences-to-india-new-zealand-and-canada",
+        "title": "I can't believe the Beats Solo 4 are half off",
+        "href": "/en/news/i-can-t-believe-the-beats-solo-4-are-half-off",
         "views": 3,
         "uniqueViews": 3,
-        "topic": "apps-software",
+        "topic": "devices",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de apps-software; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de internet-business-tech; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 305 articles; 0 owner feedback item(s); 1155 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
+    "lastCycleSummary": "Learned from 306 articles; 0 owner feedback item(s); 1178 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-27T01:35:21.786Z",
+      "totalSignals": 1178,
+      "confidence": 0.95,
+      "summary": "Learned from 306 articles; 0 owner feedback item(s); 1178 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
+    },
     {
       "generated_at": "2026-06-26T23:36:19.571Z",
       "totalSignals": 1155,
@@ -366,12 +372,6 @@
       "totalSignals": 798,
       "confidence": 0.95,
       "summary": "Learned from 314 articles; 0 owner feedback item(s); 798 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, security"
-    },
-    {
-      "generated_at": "2026-06-23T16:15:00.195Z",
-      "totalSignals": 783,
-      "confidence": 0.95,
-      "summary": "Learned from 313 articles; 0 owner feedback item(s); 783 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, internet-business-tech, devices, gaming"
     }
   ]
 }
