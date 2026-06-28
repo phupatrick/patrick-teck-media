@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-28T00:00:19.212Z",
+  "generated_at": "2026-06-28T04:42:15.544Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-28T00:00:19.212Z",
+    "updated_at": "2026-06-28T04:42:15.544Z",
     "confidence": 0.95,
-    "totalSignals": 1296,
+    "totalSignals": 1310,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 311 articles; 0 owner feedback item(s); 1296 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 312 articles; 0 owner feedback item(s); 1310 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-28T04:42:15.544Z",
+      "totalSignals": 1310,
+      "confidence": 0.95,
+      "summary": "Learned from 312 articles; 0 owner feedback item(s); 1310 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-28T00:00:19.212Z",
       "totalSignals": 1296,
@@ -363,12 +369,6 @@
     },
     {
       "generated_at": "2026-06-24T22:23:55.808Z",
-      "totalSignals": 898,
-      "confidence": 0.95,
-      "summary": "Learned from 313 articles; 0 owner feedback item(s); 898 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-24T21:56:03.782Z",
       "totalSignals": 898,
       "confidence": 0.95,
       "summary": "Learned from 313 articles; 0 owner feedback item(s); 898 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, gaming"
