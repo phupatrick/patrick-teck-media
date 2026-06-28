@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-28T08:07:10.658Z",
+  "generated_at": "2026-06-28T10:35:14.059Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-28T08:07:10.658Z",
+    "updated_at": "2026-06-28T10:35:14.059Z",
     "confidence": 0.95,
-    "totalSignals": 1308,
+    "totalSignals": 1307,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 312 articles; 0 owner feedback item(s); 1308 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 310 articles; 0 owner feedback item(s); 1307 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-28T10:35:14.059Z",
+      "totalSignals": 1307,
+      "confidence": 0.95,
+      "summary": "Learned from 310 articles; 0 owner feedback item(s); 1307 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-28T08:07:10.658Z",
       "totalSignals": 1308,
@@ -366,12 +372,6 @@
       "totalSignals": 899,
       "confidence": 0.95,
       "summary": "Learned from 305 articles; 0 owner feedback item(s); 899 signal(s); 4 top view(s): Here’s why Slate changed the battery in its cheap EV truck; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-24T22:26:05.914Z",
-      "totalSignals": 894,
-      "confidence": 0.95,
-      "summary": "Learned from 309 articles; 0 owner feedback item(s); 894 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
