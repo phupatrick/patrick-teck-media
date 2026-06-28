@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-28T10:35:14.059Z",
+  "generated_at": "2026-06-28T12:09:50.604Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-28T10:35:14.059Z",
+    "updated_at": "2026-06-28T12:09:50.604Z",
     "confidence": 0.95,
-    "totalSignals": 1307,
+    "totalSignals": 1310,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 310 articles; 0 owner feedback item(s); 1307 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 311 articles; 0 owner feedback item(s); 1310 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-28T12:09:50.604Z",
+      "totalSignals": 1310,
+      "confidence": 0.95,
+      "summary": "Learned from 311 articles; 0 owner feedback item(s); 1310 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-28T10:35:14.059Z",
       "totalSignals": 1307,
@@ -366,12 +372,6 @@
       "totalSignals": 935,
       "confidence": 0.95,
       "summary": "Learned from 310 articles; 0 owner feedback item(s); 935 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, gaming"
-    },
-    {
-      "generated_at": "2026-06-24T23:03:20.953Z",
-      "totalSignals": 899,
-      "confidence": 0.95,
-      "summary": "Learned from 305 articles; 0 owner feedback item(s); 899 signal(s); 4 top view(s): Here’s why Slate changed the battery in its cheap EV truck; focus: ai, apps-software, devices, internet-business-tech, gaming"
     }
   ]
 }
