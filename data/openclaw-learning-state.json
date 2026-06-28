@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T22:46:44.767Z",
+  "generated_at": "2026-06-28T00:00:19.212Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-27T22:46:44.767Z",
+    "updated_at": "2026-06-28T00:00:19.212Z",
     "confidence": 0.95,
-    "totalSignals": 1301,
+    "totalSignals": 1296,
     "dailyFocus": [
       "ai",
       "apps-software",
       "internet-business-tech",
-      "security",
-      "devices"
+      "devices",
+      "security"
     ],
     "topicWeights": {
       "ai": 23,
       "apps-software": 17,
       "internet-business-tech": 15,
-      "security": 15,
       "devices": 14,
+      "security": 14,
       "gaming": 13
     },
     "sourceTypeWeights": {
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 319 articles; 0 owner feedback item(s); 1301 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, security, devices"
+    "lastCycleSummary": "Learned from 311 articles; 0 owner feedback item(s); 1296 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-28T00:00:19.212Z",
+      "totalSignals": 1296,
+      "confidence": 0.95,
+      "summary": "Learned from 311 articles; 0 owner feedback item(s); 1296 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-06-27T22:46:44.767Z",
       "totalSignals": 1301,
@@ -366,12 +372,6 @@
       "totalSignals": 898,
       "confidence": 0.95,
       "summary": "Learned from 313 articles; 0 owner feedback item(s); 898 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, gaming"
-    },
-    {
-      "generated_at": "2026-06-24T20:17:54.129Z",
-      "totalSignals": 899,
-      "confidence": 0.95,
-      "summary": "Learned from 314 articles; 0 owner feedback item(s); 899 signal(s); 4 top view(s): Temporary Cloudflare Accounts for AI agents; focus: ai, apps-software, devices, internet-business-tech, security"
     }
   ]
 }
