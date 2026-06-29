@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T21:09:02.363Z",
+  "generated_at": "2026-06-29T22:21:20.868Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-29T21:09:02.363Z",
+    "updated_at": "2026-06-29T22:21:20.868Z",
     "confidence": 0.95,
-    "totalSignals": 1323,
+    "totalSignals": 1325,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 325 articles; 0 owner feedback item(s); 1323 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 327 articles; 0 owner feedback item(s); 1325 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-29T22:21:20.868Z",
+      "totalSignals": 1325,
+      "confidence": 0.95,
+      "summary": "Learned from 327 articles; 0 owner feedback item(s); 1325 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-29T21:09:02.363Z",
       "totalSignals": 1323,
@@ -366,12 +372,6 @@
       "totalSignals": 1158,
       "confidence": 0.95,
       "summary": "Learned from 308 articles; 0 owner feedback item(s); 1158 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, security"
-    },
-    {
-      "generated_at": "2026-06-26T17:01:02.723Z",
-      "totalSignals": 1166,
-      "confidence": 0.95,
-      "summary": "Learned from 316 articles; 0 owner feedback item(s); 1166 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
