@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T19:17:13.186Z",
+  "generated_at": "2026-06-29T21:09:02.363Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-29T19:17:13.186Z",
+    "updated_at": "2026-06-29T21:09:02.363Z",
     "confidence": 0.95,
     "totalSignals": 1323,
     "dailyFocus": [
@@ -83,16 +83,6 @@
       },
       {
         "rank": 6,
-        "title": "I can't believe the Beats Solo 4 are half off",
-        "href": "/en/news/i-can-t-believe-the-beats-solo-4-are-half-off",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 7,
         "title": "Here's how Gemini can help you avoid jetlag",
         "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
         "views": 3,
@@ -102,7 +92,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
         "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
         "views": 3,
@@ -110,10 +100,20 @@
         "topic": "apps-software",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
+      },
+      {
+        "rank": 8,
+        "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
+        "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de apps-software; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
       "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 324 articles; 0 owner feedback item(s); 1323 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 325 articles; 0 owner feedback item(s); 1323 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-29T21:09:02.363Z",
+      "totalSignals": 1323,
+      "confidence": 0.95,
+      "summary": "Learned from 325 articles; 0 owner feedback item(s); 1323 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-29T19:17:13.186Z",
       "totalSignals": 1323,
@@ -366,12 +372,6 @@
       "totalSignals": 1166,
       "confidence": 0.95,
       "summary": "Learned from 316 articles; 0 owner feedback item(s); 1166 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, security"
-    },
-    {
-      "generated_at": "2026-06-26T14:50:23.623Z",
-      "totalSignals": 1168,
-      "confidence": 0.95,
-      "summary": "Learned from 319 articles; 0 owner feedback item(s); 1168 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
