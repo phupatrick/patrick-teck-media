@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T09:59:54.375Z",
+  "generated_at": "2026-06-29T14:12:36.554Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-29T09:59:54.375Z",
+    "updated_at": "2026-06-29T14:12:36.554Z",
     "confidence": 0.95,
-    "totalSignals": 1299,
+    "totalSignals": 1312,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -93,16 +93,6 @@
       },
       {
         "rank": 7,
-        "title": "iOS 27 Makes the Shortcuts App Much Less Intimidating",
-        "href": "/en/news/ios-27-makes-the-shortcuts-app-much-less-intimidating",
-        "views": 3,
-        "uniqueViews": 2,
-        "topic": "apps-software",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 8,
         "title": "I can't believe the Beats Solo 4 are half off",
         "href": "/en/news/i-can-t-believe-the-beats-solo-4-are-half-off",
         "views": 3,
@@ -110,6 +100,16 @@
         "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
+      },
+      {
+        "rank": 8,
+        "title": "Here's how Gemini can help you avoid jetlag",
+        "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 302 articles; 0 owner feedback item(s); 1299 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, security, internet-business-tech"
+    "lastCycleSummary": "Learned from 315 articles; 0 owner feedback item(s); 1312 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-29T14:12:36.554Z",
+      "totalSignals": 1312,
+      "confidence": 0.95,
+      "summary": "Learned from 315 articles; 0 owner feedback item(s); 1312 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-29T09:59:54.375Z",
       "totalSignals": 1299,
@@ -366,12 +372,6 @@
       "totalSignals": 1171,
       "confidence": 0.95,
       "summary": "Learned from 324 articles; 0 owner feedback item(s); 1171 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, gaming"
-    },
-    {
-      "generated_at": "2026-06-26T01:54:54.194Z",
-      "totalSignals": 1162,
-      "confidence": 0.95,
-      "summary": "Learned from 319 articles; 0 owner feedback item(s); 1162 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, devices, gaming"
     }
   ]
 }
