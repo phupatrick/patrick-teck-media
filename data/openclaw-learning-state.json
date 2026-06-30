@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T12:19:43.962Z",
+  "generated_at": "2026-06-30T15:10:34.990Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-30T12:19:43.962Z",
+    "updated_at": "2026-06-30T15:10:34.990Z",
     "confidence": 0.95,
-    "totalSignals": 1338,
+    "totalSignals": 1341,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -83,28 +83,28 @@
       },
       {
         "rank": 6,
-        "title": "Watch out, Amazon: The Kobo eReader now has a Goodreads rival",
-        "href": "/en/news/watch-out-amazon-the-kobo-ereader-now-has-a-goodreads-rival",
+        "title": "Here's how Gemini can help you avoid jetlag",
+        "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
         "views": 3,
         "uniqueViews": 3,
-        "topic": "devices",
+        "topic": "ai",
         "contentType": "NewsArticle",
-        "sourceType": "press"
+        "sourceType": "official-site"
       },
       {
         "rank": 7,
-        "title": "Waymo and Uber quietly part ways in Phoenix",
-        "href": "/en/news/waymo-and-uber-quietly-part-ways-in-phoenix",
+        "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
+        "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
         "views": 3,
         "uniqueViews": 3,
-        "topic": "devices",
+        "topic": "apps-software",
         "contentType": "NewsArticle",
-        "sourceType": "press"
+        "sourceType": "official-site"
       },
       {
         "rank": 8,
-        "title": "Here's how Gemini can help you avoid jetlag",
-        "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
+        "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
+        "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
         "views": 3,
         "uniqueViews": 3,
         "topic": "ai",
@@ -113,7 +113,7 @@
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de devices; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
       "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 337 articles; 0 owner feedback item(s); 1338 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 343 articles; 0 owner feedback item(s); 1341 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-30T15:10:34.990Z",
+      "totalSignals": 1341,
+      "confidence": 0.95,
+      "summary": "Learned from 343 articles; 0 owner feedback item(s); 1341 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-06-30T12:19:43.962Z",
       "totalSignals": 1338,
@@ -366,12 +372,6 @@
       "totalSignals": 1182,
       "confidence": 0.95,
       "summary": "Learned from 304 articles; 0 owner feedback item(s); 1182 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
-    },
-    {
-      "generated_at": "2026-06-27T05:40:32.766Z",
-      "totalSignals": 1179,
-      "confidence": 0.95,
-      "summary": "Learned from 307 articles; 0 owner feedback item(s); 1179 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
     }
   ]
 }
