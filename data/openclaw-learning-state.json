@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T06:10:25.511Z",
+  "generated_at": "2026-06-30T10:01:16.749Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-06-30T06:10:25.511Z",
+    "updated_at": "2026-06-30T10:01:16.749Z",
     "confidence": 0.95,
-    "totalSignals": 1336,
+    "totalSignals": 1331,
     "dailyFocus": [
       "ai",
       "apps-software",
       "security",
-      "devices",
-      "internet-business-tech"
+      "internet-business-tech",
+      "devices"
     ],
     "topicWeights": {
       "ai": 23,
       "apps-software": 17,
       "security": 15,
-      "devices": 14,
       "internet-business-tech": 14,
-      "gaming": 12
+      "devices": 14,
+      "gaming": 13
     },
     "sourceTypeWeights": {
       "official-site": 23,
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 335 articles; 0 owner feedback item(s); 1336 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 333 articles; 0 owner feedback item(s); 1331 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, internet-business-tech, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-06-30T10:01:16.749Z",
+      "totalSignals": 1331,
+      "confidence": 0.95,
+      "summary": "Learned from 333 articles; 0 owner feedback item(s); 1331 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, internet-business-tech, devices"
+    },
     {
       "generated_at": "2026-06-30T06:10:25.511Z",
       "totalSignals": 1336,
@@ -366,12 +372,6 @@
       "totalSignals": 1178,
       "confidence": 0.95,
       "summary": "Learned from 306 articles; 0 owner feedback item(s); 1178 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
-    },
-    {
-      "generated_at": "2026-06-26T23:36:19.571Z",
-      "totalSignals": 1155,
-      "confidence": 0.95,
-      "summary": "Learned from 305 articles; 0 owner feedback item(s); 1155 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
     }
   ]
 }
