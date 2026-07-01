@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T18:25:12.977Z",
+  "generated_at": "2026-07-01T20:24:16.496Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-01T18:25:12.977Z",
+    "updated_at": "2026-07-01T20:24:16.496Z",
     "confidence": 0.95,
-    "totalSignals": 1312,
+    "totalSignals": 1315,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -19,7 +19,7 @@
       "internet-business-tech"
     ],
     "topicWeights": {
-      "ai": 23,
+      "ai": 22,
       "apps-software": 17,
       "security": 15,
       "devices": 14,
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 313 articles; 0 owner feedback item(s); 1312 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 316 articles; 0 owner feedback item(s); 1315 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-01T20:24:16.496Z",
+      "totalSignals": 1315,
+      "confidence": 0.95,
+      "summary": "Learned from 316 articles; 0 owner feedback item(s); 1315 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-01T18:25:12.977Z",
       "totalSignals": 1312,
@@ -365,12 +371,6 @@
       "totalSignals": 1310,
       "confidence": 0.95,
       "summary": "Learned from 312 articles; 0 owner feedback item(s); 1310 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
-    },
-    {
-      "generated_at": "2026-06-28T00:00:19.212Z",
-      "totalSignals": 1296,
-      "confidence": 0.95,
-      "summary": "Learned from 311 articles; 0 owner feedback item(s); 1296 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
