@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T13:53:46.276Z",
+  "generated_at": "2026-07-01T16:25:37.117Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-01T13:53:46.276Z",
+    "updated_at": "2026-07-01T16:25:37.117Z",
     "confidence": 0.95,
-    "totalSignals": 1324,
+    "totalSignals": 1317,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -73,16 +73,6 @@
       },
       {
         "rank": 5,
-        "title": "Yes, the Pixel Launcher search bar is now slightly taller",
-        "href": "/en/news/yes-the-pixel-launcher-search-bar-is-now-slightly-taller",
-        "views": 4,
-        "uniqueViews": 2,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 6,
         "title": "Here's how Gemini can help you avoid jetlag",
         "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
         "views": 3,
@@ -92,7 +82,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
         "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
         "views": 3,
@@ -102,7 +92,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
         "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
         "views": 3,
@@ -110,19 +100,28 @@
         "topic": "ai",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
+      },
+      {
+        "rank": 8,
+        "title": "Get more done with new vertical tabs and immersive reading mode in Chrome",
+        "href": "/en/news/get-more-done-with-new-vertical-tabs-and-immersive-reading-mode-in-chrome",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de apps-software; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
       "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
     ],
     "avoidRules": [
@@ -130,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 325 articles; 0 owner feedback item(s); 1324 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 318 articles; 0 owner feedback item(s); 1317 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-01T16:25:37.117Z",
+      "totalSignals": 1317,
+      "confidence": 0.95,
+      "summary": "Learned from 318 articles; 0 owner feedback item(s); 1317 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-01T13:53:46.276Z",
       "totalSignals": 1324,
@@ -366,12 +371,6 @@
       "totalSignals": 1301,
       "confidence": 0.95,
       "summary": "Learned from 319 articles; 0 owner feedback item(s); 1301 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, security, devices"
-    },
-    {
-      "generated_at": "2026-06-27T21:46:08.592Z",
-      "totalSignals": 1283,
-      "confidence": 0.95,
-      "summary": "Learned from 318 articles; 0 owner feedback item(s); 1283 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, internet-business-tech, security, devices"
     }
   ]
 }
