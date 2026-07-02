@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T13:16:51.170Z",
+  "generated_at": "2026-07-02T15:40:54.850Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-02T13:16:51.170Z",
+    "updated_at": "2026-07-02T15:40:54.850Z",
     "confidence": 0.95,
     "totalSignals": 1331,
     "dailyFocus": [
@@ -73,16 +73,6 @@
       },
       {
         "rank": 5,
-        "title": "Tính năng trên Windows nên tắt để giúp máy tính chạy nhanh hơn",
-        "href": "/vi/tin-tuc/tinh-nang-tren-windows-nen-tat-e-giup-may-tinh-chay-nhanh-hon",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "apps-software",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 6,
         "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
         "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
         "views": 3,
@@ -92,7 +82,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "title": "Here's how Gemini can help you avoid jetlag",
         "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
         "views": 3,
@@ -102,7 +92,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
         "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
         "views": 3,
@@ -110,12 +100,22 @@
         "topic": "apps-software",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
+      },
+      {
+        "rank": 8,
+        "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
+        "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de apps-software; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 335 articles; 0 owner feedback item(s); 1331 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 334 articles; 0 owner feedback item(s); 1331 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-02T15:40:54.850Z",
+      "totalSignals": 1331,
+      "confidence": 0.95,
+      "summary": "Learned from 334 articles; 0 owner feedback item(s); 1331 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    },
     {
       "generated_at": "2026-07-02T13:16:51.170Z",
       "totalSignals": 1331,
@@ -365,12 +371,6 @@
       "totalSignals": 1304,
       "confidence": 0.95,
       "summary": "Learned from 305 articles; 0 owner feedback item(s); 1304 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, security, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-28T18:04:13.919Z",
-      "totalSignals": 1303,
-      "confidence": 0.95,
-      "summary": "Learned from 304 articles; 0 owner feedback item(s); 1303 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, security, internet-business-tech"
     }
   ]
 }
