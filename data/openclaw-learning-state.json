@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T01:32:45.376Z",
+  "generated_at": "2026-07-02T05:43:17.419Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,21 +8,21 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-02T01:32:45.376Z",
+    "updated_at": "2026-07-02T05:43:17.419Z",
     "confidence": 0.95,
-    "totalSignals": 1324,
+    "totalSignals": 1323,
     "dailyFocus": [
       "ai",
       "apps-software",
-      "internet-business-tech",
       "devices",
+      "internet-business-tech",
       "security"
     ],
     "topicWeights": {
       "ai": 22,
       "apps-software": 17,
-      "internet-business-tech": 14,
       "devices": 14,
+      "internet-business-tech": 14,
       "security": 14,
       "gaming": 13
     },
@@ -73,6 +73,26 @@
       },
       {
         "rank": 5,
+        "title": "Tính năng \"Hide My Email\" của Apple dính lỗ hổng, làm lộ email thật của người dùng",
+        "href": "/vi/tin-tuc/tinh-nang-hide-my-email-cua-apple-dinh-lo-hong-lam-lo-email-that-cua-nguoi-dung",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "internet-business-tech",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 6,
+        "title": "Tính năng trên Windows nên tắt để giúp máy tính chạy nhanh hơn",
+        "href": "/vi/tin-tuc/tinh-nang-tren-windows-nen-tat-e-giup-may-tinh-chay-nhanh-hon",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 7,
         "title": "Here's how Gemini can help you avoid jetlag",
         "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
         "views": 3,
@@ -82,29 +102,9 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 6,
+        "rank": 8,
         "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
         "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "apps-software",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
-      },
-      {
-        "rank": 7,
-        "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
-        "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "ai",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
-      },
-      {
-        "rank": 8,
-        "title": "Get more done with new vertical tabs and immersive reading mode in Chrome",
-        "href": "/en/news/get-more-done-with-new-vertical-tabs-and-immersive-reading-mode-in-chrome",
         "views": 3,
         "uniqueViews": 3,
         "topic": "apps-software",
@@ -115,7 +115,7 @@
     "viewInsights": [
       "Bai view cao dang nghieng ve chu de apps-software; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
@@ -129,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 326 articles; 0 owner feedback item(s); 1324 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
+    "lastCycleSummary": "Learned from 325 articles; 0 owner feedback item(s); 1323 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-02T05:43:17.419Z",
+      "totalSignals": 1323,
+      "confidence": 0.95,
+      "summary": "Learned from 325 articles; 0 owner feedback item(s); 1323 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-07-02T01:32:45.376Z",
       "totalSignals": 1324,
@@ -365,12 +371,6 @@
       "totalSignals": 1300,
       "confidence": 0.95,
       "summary": "Learned from 303 articles; 0 owner feedback item(s); 1300 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, security, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-28T12:09:50.604Z",
-      "totalSignals": 1310,
-      "confidence": 0.95,
-      "summary": "Learned from 311 articles; 0 owner feedback item(s); 1310 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, devices, security"
     }
   ]
 }
