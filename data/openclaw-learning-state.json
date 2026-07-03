@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T10:18:55.843Z",
+  "generated_at": "2026-07-03T12:25:52.413Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-03T10:18:55.843Z",
+    "updated_at": "2026-07-03T12:25:52.413Z",
     "confidence": 0.95,
-    "totalSignals": 1317,
+    "totalSignals": 1315,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -19,7 +19,7 @@
       "devices"
     ],
     "topicWeights": {
-      "ai": 22,
+      "ai": 21,
       "apps-software": 18,
       "internet-business-tech": 15,
       "security": 15,
@@ -63,26 +63,6 @@
       },
       {
         "rank": 4,
-        "title": "Here’s why Slate changed the battery in its cheap EV truck",
-        "href": "/en/news/here-s-why-slate-changed-the-battery-in-its-cheap-ev-truck",
-        "views": 4,
-        "uniqueViews": 2,
-        "topic": "internet-business-tech",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 5,
-        "title": "iOS 27 có tính năng paste nhanh trên bàn phím rồi, y chang Android luon",
-        "href": "/vi/tin-tuc/ios-27-co-tinh-nang-paste-nhanh-tren-ban-phim-roi-y-chang-android-luon",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 6,
         "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
         "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
         "views": 3,
@@ -92,7 +72,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 7,
+        "rank": 5,
         "title": "Here's how Gemini can help you avoid jetlag",
         "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
         "views": 3,
@@ -102,9 +82,29 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 6,
         "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
         "href": "/en/news/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 7,
+        "title": "Copilot Cowork: From conversation to action across skills, integrations, and devices",
+        "href": "/en/news/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 8,
+        "title": "Get more done with new vertical tabs and immersive reading mode in Chrome",
+        "href": "/en/news/get-more-done-with-new-vertical-tabs-and-immersive-reading-mode-in-chrome",
         "views": 3,
         "uniqueViews": 3,
         "topic": "apps-software",
@@ -115,14 +115,13 @@
     "viewInsights": [
       "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
       "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
     ],
     "avoidRules": [
@@ -130,9 +129,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 319 articles; 0 owner feedback item(s); 1317 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, security, devices"
+    "lastCycleSummary": "Learned from 317 articles; 0 owner feedback item(s); 1315 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, security, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-03T12:25:52.413Z",
+      "totalSignals": 1315,
+      "confidence": 0.95,
+      "summary": "Learned from 317 articles; 0 owner feedback item(s); 1315 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, internet-business-tech, security, devices"
+    },
     {
       "generated_at": "2026-07-03T10:18:55.843Z",
       "totalSignals": 1317,
@@ -366,12 +371,6 @@
       "totalSignals": 1325,
       "confidence": 0.95,
       "summary": "Learned from 327 articles; 0 owner feedback item(s); 1325 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-06-29T21:09:02.363Z",
-      "totalSignals": 1323,
-      "confidence": 0.95,
-      "summary": "Learned from 325 articles; 0 owner feedback item(s); 1323 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
     }
   ]
 }
