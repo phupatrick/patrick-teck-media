@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T18:35:36.777Z",
+  "generated_at": "2026-07-04T19:55:20.674Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-04T18:35:36.777Z",
+    "updated_at": "2026-07-04T19:55:20.674Z",
     "confidence": 0.95,
-    "totalSignals": 1316,
+    "totalSignals": 1307,
     "dailyFocus": [
       "ai",
       "apps-software",
       "security",
-      "internet-business-tech",
-      "devices"
+      "devices",
+      "internet-business-tech"
     ],
     "topicWeights": {
       "ai": 21,
       "apps-software": 18,
       "security": 15,
-      "internet-business-tech": 14,
       "devices": 14,
+      "internet-business-tech": 14,
       "gaming": 13
     },
     "sourceTypeWeights": {
@@ -83,28 +83,28 @@
       },
       {
         "rank": 6,
-        "title": "Amazon updated 2023’s Fire HD 10 tablet with 4GB of RAM",
-        "href": "/en/news/amazon-updated-2023-s-fire-hd-10-tablet-with-4gb-of-ram",
-        "views": 3,
+        "title": "3 things leaders need to know from Microsoft Build 2026",
+        "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
+        "views": 4,
         "uniqueViews": 2,
-        "topic": "devices",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 7,
-        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
-        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
-        "views": 3,
-        "uniqueViews": 3,
         "topic": "ai",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
       },
       {
+        "rank": 7,
+        "title": "How your smartwatch and AI might detect early signs of illness",
+        "href": "/en/news/how-your-smartwatch-and-ai-might-detect-early-signs-of-illness",
+        "views": 3,
+        "uniqueViews": 2,
+        "topic": "apps-software",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
         "rank": 8,
-        "title": "Here's how Gemini can help you avoid jetlag",
-        "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
+        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
+        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
         "views": 3,
         "uniqueViews": 3,
         "topic": "ai",
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 320 articles; 0 owner feedback item(s); 1316 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, internet-business-tech, devices"
+    "lastCycleSummary": "Learned from 311 articles; 0 owner feedback item(s); 1307 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-04T19:55:20.674Z",
+      "totalSignals": 1307,
+      "confidence": 0.95,
+      "summary": "Learned from 311 articles; 0 owner feedback item(s); 1307 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-04T18:35:36.777Z",
       "totalSignals": 1316,
@@ -366,12 +372,6 @@
       "totalSignals": 1326,
       "confidence": 0.95,
       "summary": "Learned from 328 articles; 0 owner feedback item(s); 1326 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-07-01T21:59:57.760Z",
-      "totalSignals": 1318,
-      "confidence": 0.95,
-      "summary": "Learned from 320 articles; 0 owner feedback item(s); 1318 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, devices, internet-business-tech, security"
     }
   ]
 }
