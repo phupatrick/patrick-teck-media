@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T18:35:40.774Z",
+  "generated_at": "2026-07-06T20:34:03.814Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-06T18:35:40.774Z",
+    "updated_at": "2026-07-06T20:34:03.814Z",
     "confidence": 0.95,
-    "totalSignals": 1312,
+    "totalSignals": 1322,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -53,16 +53,6 @@
       },
       {
         "rank": 3,
-        "title": "A technology story worth following right now",
-        "href": "/en/news/a-technology-story-worth-following-right-now",
-        "views": 4,
-        "uniqueViews": 2,
-        "topic": "apps-software",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 4,
         "title": "Block ads & more on 9 devices for life",
         "href": "/en/news/block-ads-more-on-9-devices-for-life",
         "views": 4,
@@ -70,6 +60,16 @@
         "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
+      },
+      {
+        "rank": 4,
+        "title": "3 things leaders need to know from Microsoft Build 2026",
+        "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
+        "views": 4,
+        "uniqueViews": 2,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
       },
       {
         "rank": 5,
@@ -93,20 +93,20 @@
       },
       {
         "rank": 7,
-        "title": "3 things leaders need to know from Microsoft Build 2026",
-        "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
+        "title": "Temporary Cloudflare Accounts for AI agents",
+        "href": "/en/news/temporary-cloudflare-accounts-for-ai-agents",
         "views": 4,
-        "uniqueViews": 2,
+        "uniqueViews": 4,
         "topic": "ai",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
       },
       {
         "rank": 8,
-        "title": "Temporary Cloudflare Accounts for AI agents",
-        "href": "/en/news/temporary-cloudflare-accounts-for-ai-agents",
-        "views": 4,
-        "uniqueViews": 4,
+        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
+        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
+        "views": 3,
+        "uniqueViews": 3,
         "topic": "ai",
         "contentType": "NewsArticle",
         "sourceType": "official-site"
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 314 articles; 0 owner feedback item(s); 1312 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, gaming, devices"
+    "lastCycleSummary": "Learned from 325 articles; 0 owner feedback item(s); 1322 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, gaming, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-06T20:34:03.814Z",
+      "totalSignals": 1322,
+      "confidence": 0.95,
+      "summary": "Learned from 325 articles; 0 owner feedback item(s); 1322 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, gaming, devices"
+    },
     {
       "generated_at": "2026-07-06T18:35:40.774Z",
       "totalSignals": 1312,
@@ -366,12 +372,6 @@
       "totalSignals": 1321,
       "confidence": 0.95,
       "summary": "Learned from 324 articles; 0 owner feedback item(s); 1321 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-07-03T20:39:28.967Z",
-      "totalSignals": 1318,
-      "confidence": 0.95,
-      "summary": "Learned from 320 articles; 0 owner feedback item(s); 1318 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
     }
   ]
 }
