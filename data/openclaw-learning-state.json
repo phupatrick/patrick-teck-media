@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T23:32:24.639Z",
+  "generated_at": "2026-07-07T01:24:23.511Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,21 +8,21 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-06T23:32:24.639Z",
+    "updated_at": "2026-07-07T01:24:23.511Z",
     "confidence": 0.95,
-    "totalSignals": 1317,
+    "totalSignals": 1316,
     "dailyFocus": [
       "ai",
       "apps-software",
-      "gaming",
       "security",
+      "gaming",
       "devices"
     ],
     "topicWeights": {
       "ai": 21,
       "apps-software": 17,
-      "gaming": 15,
       "security": 15,
+      "gaming": 15,
       "devices": 14,
       "internet-business-tech": 14
     },
@@ -53,16 +53,6 @@
       },
       {
         "rank": 3,
-        "title": "3 things leaders need to know from Microsoft Build 2026",
-        "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
-        "views": 4,
-        "uniqueViews": 2,
-        "topic": "ai",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
-      },
-      {
-        "rank": 4,
         "title": "I’ve tested almost every phone released this year",
         "href": "/en/news/i-ve-tested-almost-every-phone-released-this-year",
         "views": 4,
@@ -72,7 +62,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "title": "Bí ẩn hiện tượng đèn LED nhấp nháy trên camera đã có lời giải",
         "href": "/vi/tin-tuc/bi-an-hien-tuong-en-led-nhap-nhay-tren-camera-a-co-loi-giai",
         "views": 4,
@@ -80,6 +70,16 @@
         "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
+      },
+      {
+        "rank": 5,
+        "title": "3 things leaders need to know from Microsoft Build 2026",
+        "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
+        "views": 4,
+        "uniqueViews": 2,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
       },
       {
         "rank": 6,
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 320 articles; 0 owner feedback item(s); 1317 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, gaming, security, devices"
+    "lastCycleSummary": "Learned from 319 articles; 0 owner feedback item(s); 1316 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-07T01:24:23.511Z",
+      "totalSignals": 1316,
+      "confidence": 0.95,
+      "summary": "Learned from 319 articles; 0 owner feedback item(s); 1316 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
+    },
     {
       "generated_at": "2026-07-06T23:32:24.639Z",
       "totalSignals": 1317,
@@ -366,12 +372,6 @@
       "totalSignals": 1316,
       "confidence": 0.95,
       "summary": "Learned from 320 articles; 0 owner feedback item(s); 1316 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-07-03T23:47:09.826Z",
-      "totalSignals": 1313,
-      "confidence": 0.95,
-      "summary": "Learned from 317 articles; 0 owner feedback item(s); 1313 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
     }
   ]
 }
