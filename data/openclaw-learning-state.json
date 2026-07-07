@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T20:55:17.040Z",
+  "generated_at": "2026-07-07T22:10:24.479Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-07T20:55:17.040Z",
+    "updated_at": "2026-07-07T22:10:24.479Z",
     "confidence": 0.95,
-    "totalSignals": 1314,
+    "totalSignals": 1320,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -33,10 +33,10 @@
     "topViewedArticles": [
       {
         "rank": 1,
-        "title": "Which AI plan feels more useful right now: what Google, Microsoft, OpenAI and Anthropic just added to the race",
+        "title": "Which AI plan feels more useful right now: what Google and Microsoft just added to the race",
         "href": "/en/compare/which-ai-plan-feels-more-useful-right-now",
-        "views": 5,
-        "uniqueViews": 5,
+        "views": 19,
+        "uniqueViews": 19,
         "topic": "ai",
         "contentType": "ComparisonPage",
         "sourceType": "official-site"
@@ -131,9 +131,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 318 articles; 0 owner feedback item(s); 1314 signal(s); 5 top view(s): Which AI plan feels more useful right now: what Google, Microsoft, OpenAI and Anthropic just added to the race; focus: ai, apps-software, security, gaming, devices"
+    "lastCycleSummary": "Learned from 321 articles; 0 owner feedback item(s); 1320 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, gaming, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-07T22:10:24.479Z",
+      "totalSignals": 1320,
+      "confidence": 0.95,
+      "summary": "Learned from 321 articles; 0 owner feedback item(s); 1320 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, gaming, devices"
+    },
     {
       "generated_at": "2026-07-07T20:55:17.040Z",
       "totalSignals": 1314,
@@ -367,12 +373,6 @@
       "totalSignals": 1317,
       "confidence": 0.95,
       "summary": "Learned from 321 articles; 0 owner feedback item(s); 1317 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, internet-business-tech, devices"
-    },
-    {
-      "generated_at": "2026-07-04T17:31:01.008Z",
-      "totalSignals": 1316,
-      "confidence": 0.95,
-      "summary": "Learned from 320 articles; 0 owner feedback item(s); 1316 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
     }
   ]
 }
