@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T16:56:24.745Z",
+  "generated_at": "2026-07-07T18:14:59.903Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,20 +8,20 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-07T16:56:24.745Z",
+    "updated_at": "2026-07-07T18:14:59.903Z",
     "confidence": 0.95,
-    "totalSignals": 1325,
+    "totalSignals": 1328,
     "dailyFocus": [
       "ai",
-      "security",
       "apps-software",
+      "security",
       "gaming",
       "devices"
     ],
     "topicWeights": {
       "ai": 21,
-      "security": 18,
       "apps-software": 17,
+      "security": 17,
       "gaming": 15,
       "devices": 14,
       "internet-business-tech": 12
@@ -43,6 +43,16 @@
       },
       {
         "rank": 2,
+        "title": "3 things leaders need to know from Microsoft Build 2026",
+        "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
+        "views": 4,
+        "uniqueViews": 2,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 3,
         "title": "I’ve tested almost every phone released this year",
         "href": "/en/news/i-ve-tested-almost-every-phone-released-this-year",
         "views": 4,
@@ -52,7 +62,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 3,
+        "rank": 4,
         "title": "Bí ẩn hiện tượng đèn LED nhấp nháy trên camera đã có lời giải",
         "href": "/vi/tin-tuc/bi-an-hien-tuong-en-led-nhap-nhay-tren-camera-a-co-loi-giai",
         "views": 4,
@@ -62,7 +72,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 4,
+        "rank": 5,
         "title": "Block ads & more on 9 devices for life",
         "href": "/en/news/block-ads-more-on-9-devices-for-life",
         "views": 4,
@@ -70,16 +80,6 @@
         "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
-      },
-      {
-        "rank": 5,
-        "title": "3 things leaders need to know from Microsoft Build 2026",
-        "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
-        "views": 4,
-        "uniqueViews": 2,
-        "topic": "ai",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
       },
       {
         "rank": 6,
@@ -113,7 +113,7 @@
       }
     ],
     "viewInsights": [
-      "Bai view cao dang nghieng ve chu de devices; tang uu tien neu van con tin moi va nguon tot.",
+      "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
       "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 329 articles; 0 owner feedback item(s); 1325 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, security, apps-software, gaming, devices"
+    "lastCycleSummary": "Learned from 332 articles; 0 owner feedback item(s); 1328 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-07T18:14:59.903Z",
+      "totalSignals": 1328,
+      "confidence": 0.95,
+      "summary": "Learned from 332 articles; 0 owner feedback item(s); 1328 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
+    },
     {
       "generated_at": "2026-07-07T16:56:24.745Z",
       "totalSignals": 1325,
@@ -366,12 +372,6 @@
       "totalSignals": 1316,
       "confidence": 0.95,
       "summary": "Learned from 320 articles; 0 owner feedback item(s); 1316 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-07-04T13:58:06.019Z",
-      "totalSignals": 1315,
-      "confidence": 0.95,
-      "summary": "Learned from 319 articles; 0 owner feedback item(s); 1315 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
     }
   ]
 }
