@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T19:00:34.188Z",
+  "generated_at": "2026-07-07T20:55:17.040Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-07T19:00:34.188Z",
+    "updated_at": "2026-07-07T20:55:17.040Z",
     "confidence": 0.95,
-    "totalSignals": 1324,
+    "totalSignals": 1314,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -22,7 +22,7 @@
       "ai": 21,
       "apps-software": 17,
       "security": 17,
-      "gaming": 15,
+      "gaming": 16,
       "devices": 14,
       "internet-business-tech": 12
     },
@@ -33,6 +33,16 @@
     "topViewedArticles": [
       {
         "rank": 1,
+        "title": "Which AI plan feels more useful right now: what Google, Microsoft, OpenAI and Anthropic just added to the race",
+        "href": "/en/compare/which-ai-plan-feels-more-useful-right-now",
+        "views": 5,
+        "uniqueViews": 5,
+        "topic": "ai",
+        "contentType": "ComparisonPage",
+        "sourceType": "official-site"
+      },
+      {
+        "rank": 2,
         "title": "Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản",
         "href": "/vi/tin-tuc/nguoi-dung-viet-dung-adobe-ban-quyen-van-bi-khoa-tai-khoan",
         "views": 5,
@@ -42,7 +52,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 2,
+        "rank": 3,
         "title": "3 things leaders need to know from Microsoft Build 2026",
         "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
         "views": 4,
@@ -52,7 +62,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 3,
+        "rank": 4,
         "title": "I’ve tested almost every phone released this year",
         "href": "/en/news/i-ve-tested-almost-every-phone-released-this-year",
         "views": 4,
@@ -62,7 +72,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 4,
+        "rank": 5,
         "title": "Bí ẩn hiện tượng đèn LED nhấp nháy trên camera đã có lời giải",
         "href": "/vi/tin-tuc/bi-an-hien-tuong-en-led-nhap-nhay-tren-camera-a-co-loi-giai",
         "views": 4,
@@ -72,7 +82,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 5,
+        "rank": 6,
         "title": "Block ads & more on 9 devices for life",
         "href": "/en/news/block-ads-more-on-9-devices-for-life",
         "views": 4,
@@ -82,7 +92,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "title": "Temporary Cloudflare Accounts for AI agents",
         "href": "/en/news/temporary-cloudflare-accounts-for-ai-agents",
         "views": 4,
@@ -92,7 +102,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "title": "Microsoft is laying off 4,800 employees",
         "href": "/en/news/microsoft-is-laying-off-4-800-employees",
         "views": 3,
@@ -100,16 +110,6 @@
         "topic": "gaming",
         "contentType": "NewsArticle",
         "sourceType": "press"
-      },
-      {
-        "rank": 8,
-        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
-        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "ai",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
@@ -122,6 +122,7 @@
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
+      "Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong.",
       "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
       "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
     ],
@@ -130,9 +131,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 328 articles; 0 owner feedback item(s); 1324 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
+    "lastCycleSummary": "Learned from 318 articles; 0 owner feedback item(s); 1314 signal(s); 5 top view(s): Which AI plan feels more useful right now: what Google, Microsoft, OpenAI and Anthropic just added to the race; focus: ai, apps-software, security, gaming, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-07T20:55:17.040Z",
+      "totalSignals": 1314,
+      "confidence": 0.95,
+      "summary": "Learned from 318 articles; 0 owner feedback item(s); 1314 signal(s); 5 top view(s): Which AI plan feels more useful right now: what Google, Microsoft, OpenAI and Anthropic just added to the race; focus: ai, apps-software, security, gaming, devices"
+    },
     {
       "generated_at": "2026-07-07T19:00:34.188Z",
       "totalSignals": 1324,
@@ -366,12 +373,6 @@
       "totalSignals": 1316,
       "confidence": 0.95,
       "summary": "Learned from 320 articles; 0 owner feedback item(s); 1316 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-07-04T16:16:16.264Z",
-      "totalSignals": 1317,
-      "confidence": 0.95,
-      "summary": "Learned from 321 articles; 0 owner feedback item(s); 1317 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
     }
   ]
 }
