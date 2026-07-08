@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T11:17:30.858Z",
+  "generated_at": "2026-07-08T13:01:47.628Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-08T11:17:30.858Z",
+    "updated_at": "2026-07-08T13:01:47.628Z",
     "confidence": 0.95,
-    "totalSignals": 1328,
+    "totalSignals": 1326,
     "dailyFocus": [
       "ai",
       "apps-software",
       "security",
       "gaming",
-      "devices"
+      "internet-business-tech"
     ],
     "topicWeights": {
       "ai": 21,
       "apps-software": 17,
       "security": 16,
       "gaming": 15,
-      "devices": 14,
-      "internet-business-tech": 13
+      "internet-business-tech": 14,
+      "devices": 14
     },
     "sourceTypeWeights": {
       "official-site": 21,
@@ -131,9 +131,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 329 articles; 0 owner feedback item(s); 1328 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, gaming, devices"
+    "lastCycleSummary": "Learned from 327 articles; 0 owner feedback item(s); 1326 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, gaming, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-08T13:01:47.628Z",
+      "totalSignals": 1326,
+      "confidence": 0.95,
+      "summary": "Learned from 327 articles; 0 owner feedback item(s); 1326 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, gaming, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-08T11:17:30.858Z",
       "totalSignals": 1328,
@@ -367,12 +373,6 @@
       "totalSignals": 1315,
       "confidence": 0.95,
       "summary": "Learned from 319 articles; 0 owner feedback item(s); 1315 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-07-05T00:04:54.486Z",
-      "totalSignals": 1307,
-      "confidence": 0.95,
-      "summary": "Learned from 311 articles; 0 owner feedback item(s); 1307 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
     }
   ]
 }
