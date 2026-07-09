@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T23:47:48.923Z",
+  "generated_at": "2026-07-09T01:16:07.613Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-08T23:47:48.923Z",
+    "updated_at": "2026-07-09T01:16:07.613Z",
     "confidence": 0.95,
-    "totalSignals": 1319,
+    "totalSignals": 1318,
     "dailyFocus": [
       "ai",
       "apps-software",
       "security",
       "devices",
-      "gaming"
+      "internet-business-tech"
     ],
     "topicWeights": {
       "ai": 21,
       "apps-software": 16,
       "security": 16,
       "devices": 14,
-      "gaming": 14,
-      "internet-business-tech": 14
+      "internet-business-tech": 14,
+      "gaming": 14
     },
     "sourceTypeWeights": {
       "official-site": 21,
@@ -43,16 +43,6 @@
       },
       {
         "rank": 2,
-        "title": "Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản",
-        "href": "/vi/tin-tuc/nguoi-dung-viet-dung-adobe-ban-quyen-van-bi-khoa-tai-khoan",
-        "views": 5,
-        "uniqueViews": 5,
-        "topic": "internet-business-tech",
-        "contentType": "NewsArticle",
-        "sourceType": "press"
-      },
-      {
-        "rank": 3,
         "title": "3 things leaders need to know from Microsoft Build 2026",
         "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
         "views": 4,
@@ -62,7 +52,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "title": "I’ve tested almost every phone released this year",
         "href": "/en/news/i-ve-tested-almost-every-phone-released-this-year",
         "views": 4,
@@ -72,7 +62,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "title": "Bí ẩn hiện tượng đèn LED nhấp nháy trên camera đã có lời giải",
         "href": "/vi/tin-tuc/bi-an-hien-tuong-en-led-nhap-nhay-tren-camera-a-co-loi-giai",
         "views": 4,
@@ -82,7 +72,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "title": "Block ads & more on 9 devices for life",
         "href": "/en/news/block-ads-more-on-9-devices-for-life",
         "views": 4,
@@ -92,7 +82,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "title": "Temporary Cloudflare Accounts for AI agents",
         "href": "/en/news/temporary-cloudflare-accounts-for-ai-agents",
         "views": 4,
@@ -102,7 +92,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "title": "Microsoft is laying off 4,800 employees",
         "href": "/en/news/microsoft-is-laying-off-4-800-employees",
         "views": 3,
@@ -110,12 +100,22 @@
         "topic": "gaming",
         "contentType": "NewsArticle",
         "sourceType": "press"
+      },
+      {
+        "rank": 8,
+        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
+        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
       "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
@@ -123,17 +123,22 @@
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
       "Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
-      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 320 articles; 0 owner feedback item(s); 1319 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, gaming"
+    "lastCycleSummary": "Learned from 319 articles; 0 owner feedback item(s); 1318 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-09T01:16:07.613Z",
+      "totalSignals": 1318,
+      "confidence": 0.95,
+      "summary": "Learned from 319 articles; 0 owner feedback item(s); 1318 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-08T23:47:48.923Z",
       "totalSignals": 1319,
@@ -367,12 +372,6 @@
       "totalSignals": 1315,
       "confidence": 0.95,
       "summary": "Learned from 318 articles; 0 owner feedback item(s); 1315 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-07-05T17:07:13.495Z",
-      "totalSignals": 1312,
-      "confidence": 0.95,
-      "summary": "Learned from 315 articles; 0 owner feedback item(s); 1312 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
     }
   ]
 }
