@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T15:48:01.237Z",
+  "generated_at": "2026-07-09T17:54:16.700Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,9 +8,9 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-09T15:48:01.237Z",
+    "updated_at": "2026-07-09T17:54:16.700Z",
     "confidence": 0.95,
-    "totalSignals": 1318,
+    "totalSignals": 1305,
     "dailyFocus": [
       "ai",
       "apps-software",
@@ -24,7 +24,7 @@
       "security": 16,
       "devices": 14,
       "internet-business-tech": 14,
-      "gaming": 14
+      "gaming": 13
     },
     "sourceTypeWeights": {
       "official-site": 21,
@@ -93,18 +93,18 @@
       },
       {
         "rank": 7,
-        "title": "Microsoft is laying off 4,800 employees",
-        "href": "/en/news/microsoft-is-laying-off-4-800-employees",
+        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
+        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
         "views": 3,
         "uniqueViews": 3,
-        "topic": "gaming",
+        "topic": "ai",
         "contentType": "NewsArticle",
-        "sourceType": "press"
+        "sourceType": "official-site"
       },
       {
         "rank": 8,
-        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
-        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
+        "title": "Here's how Gemini can help you avoid jetlag",
+        "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
         "views": 3,
         "uniqueViews": 3,
         "topic": "ai",
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 320 articles; 0 owner feedback item(s); 1318 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 307 articles; 0 owner feedback item(s); 1305 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-09T17:54:16.700Z",
+      "totalSignals": 1305,
+      "confidence": 0.95,
+      "summary": "Learned from 307 articles; 0 owner feedback item(s); 1305 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-09T15:48:01.237Z",
       "totalSignals": 1318,
@@ -366,12 +372,6 @@
       "totalSignals": 1310,
       "confidence": 0.95,
       "summary": "Learned from 313 articles; 0 owner feedback item(s); 1310 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-07-05T23:19:37.001Z",
-      "totalSignals": 1312,
-      "confidence": 0.95,
-      "summary": "Learned from 315 articles; 0 owner feedback item(s); 1312 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, devices, internet-business-tech"
     }
   ]
 }
