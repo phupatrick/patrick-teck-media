@@ -49,6 +49,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run test gate before live data refresh
+        run: npm test
+
       - name: Wake Vercel webhook self-registration
         continue-on-error: true
         env:
@@ -100,6 +103,7 @@ jobs:
           OPENCLAW_GIT_USER_NAME: "github-actions[bot]"
           OPENCLAW_GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
           OPENCLAW_GIT_COMMIT_MESSAGE: "Run OpenClaw manager cycle"
+          OPENCLAW_GIT_SKIP_TESTS: "1"
         run: node scripts/openclaw-git-sync.mjs
 
       - name: Report newsroom status to Telegram
