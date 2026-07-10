@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T10:58:55.652Z",
+  "generated_at": "2026-07-10T12:40:52.920Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-10T10:58:55.652Z",
+    "updated_at": "2026-07-10T12:40:52.920Z",
     "confidence": 0.95,
     "totalSignals": 997,
     "dailyFocus": [
@@ -133,6 +133,12 @@
     "lastCycleSummary": "Learned from 310 articles; 0 owner feedback item(s); 997 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, internet-business-tech, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-10T12:40:52.920Z",
+      "totalSignals": 997,
+      "confidence": 0.95,
+      "summary": "Learned from 310 articles; 0 owner feedback item(s); 997 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, internet-business-tech, devices"
+    },
     {
       "generated_at": "2026-07-10T10:58:55.652Z",
       "totalSignals": 997,
@@ -366,12 +372,6 @@
       "totalSignals": 1316,
       "confidence": 0.95,
       "summary": "Learned from 319 articles; 0 owner feedback item(s); 1316 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
-    },
-    {
-      "generated_at": "2026-07-06T23:32:24.639Z",
-      "totalSignals": 1317,
-      "confidence": 0.95,
-      "summary": "Learned from 320 articles; 0 owner feedback item(s); 1317 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, gaming, security, devices"
     }
   ]
 }
