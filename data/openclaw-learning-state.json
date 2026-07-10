@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T12:40:52.920Z",
+  "generated_at": "2026-07-10T12:53:24.244Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,27 +8,27 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-10T12:40:52.920Z",
+    "updated_at": "2026-07-10T12:53:24.244Z",
     "confidence": 0.95,
-    "totalSignals": 997,
+    "totalSignals": 1003,
     "dailyFocus": [
       "ai",
       "apps-software",
       "security",
-      "internet-business-tech",
-      "devices"
+      "devices",
+      "internet-business-tech"
     ],
     "topicWeights": {
-      "ai": 21,
-      "apps-software": 16,
-      "security": 16,
-      "internet-business-tech": 14,
-      "devices": 14,
-      "gaming": 13
+      "ai": 17,
+      "apps-software": 13,
+      "security": 13,
+      "devices": 12,
+      "internet-business-tech": 12,
+      "gaming": 11
     },
     "sourceTypeWeights": {
-      "official-site": 21,
-      "press": 12
+      "official-site": 17,
+      "press": 10
     },
     "topViewedArticles": [
       {
@@ -73,6 +73,16 @@
       },
       {
         "rank": 5,
+        "title": "A technology story worth following right now",
+        "href": "/en/news/a-technology-story-worth-following-right-now",
+        "views": 4,
+        "uniqueViews": 2,
+        "topic": "internet-business-tech",
+        "contentType": "NewsArticle",
+        "sourceType": "press"
+      },
+      {
+        "rank": 6,
         "title": "Block ads & more on 9 devices for life",
         "href": "/en/news/block-ads-more-on-9-devices-for-life",
         "views": 4,
@@ -82,7 +92,7 @@
         "sourceType": "press"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "title": "Temporary Cloudflare Accounts for AI agents",
         "href": "/en/news/temporary-cloudflare-accounts-for-ai-agents",
         "views": 4,
@@ -92,7 +102,7 @@
         "sourceType": "official-site"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "title": "Microsoft is laying off 4,800 employees",
         "href": "/en/news/microsoft-is-laying-off-4-800-employees",
         "views": 3,
@@ -100,22 +110,12 @@
         "topic": "gaming",
         "contentType": "NewsArticle",
         "sourceType": "press"
-      },
-      {
-        "rank": 8,
-        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
-        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "ai",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
       "Bai view cao dang nghieng ve chu de ai; tang uu tien neu van con tin moi va nguon tot.",
       "Dinh dang hut view nhat hien la NewsArticle; nen tai su dung cach dat tieu de va cau truc cua nhom nay.",
-      "Nguon tao view tot nhat la official-site; uu tien nguon cung loai khi chat luong bai dat chuan."
+      "Nguon tao view tot nhat la press; uu tien nguon cung loai khi chat luong bai dat chuan."
     ],
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
@@ -123,16 +123,23 @@
       "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
       "Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
+      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 310 articles; 0 owner feedback item(s); 997 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, internet-business-tech, devices"
+    "lastCycleSummary": "Learned from 6 articles; 0 owner feedback item(s); 1003 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-10T12:53:24.244Z",
+      "totalSignals": 1003,
+      "confidence": 0.95,
+      "summary": "Learned from 6 articles; 0 owner feedback item(s); 1003 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-10T12:40:52.920Z",
       "totalSignals": 997,
@@ -366,12 +373,6 @@
       "totalSignals": 1321,
       "confidence": 0.95,
       "summary": "Learned from 325 articles; 0 owner feedback item(s); 1321 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
-    },
-    {
-      "generated_at": "2026-07-07T01:24:23.511Z",
-      "totalSignals": 1316,
-      "confidence": 0.95,
-      "summary": "Learned from 319 articles; 0 owner feedback item(s); 1316 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
     }
   ]
 }
