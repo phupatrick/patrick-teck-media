@@ -58,7 +58,7 @@ export function buildOpenClawLearningProfile({ articles = [], platformState = {}
   const articleSignals = buildArticleSignals({ articles, platformState, feedback, now });
   const topicWeights = buildWeightMap(articleSignals, "topic", previousProfile.topicWeights);
   const sourceTypeWeights = buildWeightMap(articleSignals, "sourceType", previousProfile.sourceTypeWeights);
-  const totalSignals = articleSignals.reduce((sum, signal) => sum + signal.signalCount, 0) + feedback.length;
+  const totalSignals = articleSignals.reduce((sum, signal) => sum + (signal.learningSignalCount || 0), 0) + feedback.length;
   const confidence = Math.min(0.95, Math.round((1 - Math.exp(-totalSignals / 26)) * 100) / 100);
   const dailyFocus = rankKeys(topicWeights).slice(0, 5);
   const topViewedArticles = buildTopViewedArticles(articleSignals);
@@ -108,6 +108,7 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
     const views = clampInteger(articleViews.views, 0, 1_000_000_000, 0);
     const uniqueViews = clampInteger(articleViews.unique_views, 0, 1_000_000_000, 0);
     const viewScore = computeViewScore(views, uniqueViews);
+    const engagementSignalCount = Math.min(20, Math.ceil(views / 5)) + positiveReactions + articleComments.length + ownerFeedback.length;
     const score = qualityScore - 78 + readinessScore + freshnessScore + viewScore + positiveReactions * 5 + articleComments.length * 3 + ownerScore;
     const sourceType = normalizeText(article.source_set?.[0]?.source_type || "unknown") || "unknown";
 
@@ -121,7 +122,8 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
       score,
       views,
       uniqueViews,
-      signalCount: 1 + Math.min(20, Math.ceil(views / 5)) + positiveReactions + articleComments.length + ownerFeedback.length,
+      signalCount: 1 + engagementSignalCount,
+      learningSignalCount: engagementSignalCount,
       readiness,
       ownerFeedback
     };
@@ -150,6 +152,7 @@ function buildOrphanViewSignal(entry) {
     views,
     uniqueViews,
     signalCount: Math.min(20, Math.max(1, Math.ceil(views / 5))),
+    learningSignalCount: Math.min(20, Math.max(1, Math.ceil(views / 5))),
     readiness: { ready: true, missing: [] },
     ownerFeedback: [],
     fromViewSnapshot: true
@@ -279,6 +282,22 @@ function buildAvoidRules({ articleSignals, feedback }) {
 
   if (lowReadiness.some((entry) => entry.readiness.missing.includes("sourceBreadth"))) {
     rules.push("Neu bai do nhay cam hoac AI/comparison, can them nguon ho tro truoc khi day len.");
+  }
+
+  if (lowReadiness.some((entry) => entry.readiness.missing.includes("noRepeatedSentences") || entry.readiness.missing.includes("noRepeatedPhrases"))) {
+    rules.push("Khong publish bai lap cau hoac lap cum tu; can viet lai section bi trung truoc khi len trang.");
+  }
+
+  if (lowReadiness.some((entry) => entry.readiness.missing.includes("noGenericPadding"))) {
+    rules.push("Khong dung cau dem chung chung de do dai bai; neu nguon mong thi giu lai cho den khi co them thong tin that.");
+  }
+
+  if (lowReadiness.some((entry) => entry.readiness.missing.includes("specificInformation") || entry.readiness.missing.includes("valueDensity"))) {
+    rules.push("Moi bai can co thong tin cu the: ten san pham/cong ty, con so, rollout/gia/han che/rui ro va nguon xac nhan.");
+  }
+
+  if (lowReadiness.some((entry) => entry.readiness.missing.includes("paragraphShape") || entry.readiness.missing.includes("sectionHeadings"))) {
+    rules.push("Trinh bay moi section nhu mot y rieng: heading ro, than doan du y, tranh mot cau dai keo het ca section.");
   }
 
   return unique(rules).slice(0, 10);

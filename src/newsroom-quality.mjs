@@ -70,6 +70,52 @@ export function isArticlePublishReady(article) {
   return evaluateArticleReadiness(article).ready;
 }
 
+export function evaluateArticleAutopublishReadiness(article) {
+  const base = evaluateArticleReadiness(article);
+  const title = normalizeText(article?.title);
+  const summary = normalizeText(article?.summary);
+  const dek = normalizeText(article?.dek);
+  const hook = normalizeText(article?.hook);
+  const sections = Array.isArray(article?.sections) ? article.sections : [];
+  const sectionHeadings = sections.map((section) => normalizeText(section?.heading)).filter(Boolean);
+  const sectionBodies = sections.map((section) => normalizeText(section?.body)).filter(Boolean);
+  const allCopy = [title, summary, dek, hook, ...sectionHeadings, ...sectionBodies];
+  const leadFieldVariety = new Set([summary, dek, hook].map(makeBodySignature).filter(Boolean));
+  const sourceCount = Array.isArray(article?.source_set) ? article.source_set.length : 0;
+  const topic = String(article?.topic || "").trim();
+  const editorialFocus = Array.isArray(article?.editorial_focus) ? article.editorial_focus : [];
+  const isHighScrutinyArticle =
+    topic === "ai" ||
+    String(article?.content_type || "").trim() === "ComparisonPage" ||
+    String(article?.content_type || "").trim() === "EvergreenGuide" ||
+    editorialFocus.some((entry) => /ai-package|comparison|provider-|workspace|pricing/i.test(String(entry || "")));
+  const checks = {
+    ...base.checks,
+    sectionHeadings: sectionHeadings.length >= Math.min(4, sections.length) && new Set(sectionHeadings.map(makeBodySignature)).size >= Math.min(3, sectionHeadings.length),
+    leadFieldVariety: leadFieldVariety.size >= 2,
+    paragraphShape: hasReadableParagraphShape(sectionBodies),
+    noRepeatedSentences: !hasRepeatedSentences([summary, dek, hook, ...sectionBodies]),
+    noRepeatedPhrases: !hasRepeatedPhraseClusters([summary, dek, hook, ...sectionBodies]),
+    noGenericPadding: !containsGenericPadding(allCopy),
+    sourceNameBalance: hasSourceNameBalance(article, allCopy),
+    specificInformation: hasSpecificInformationDensity({ allCopy, sourceCount, isHighScrutinyArticle })
+  };
+  const missing = Object.entries(checks)
+    .filter(([, passed]) => !passed)
+    .map(([key]) => key);
+  const onlyEncodingNeedsRepair = missing.length === 1 && missing[0] === "cleanEncoding";
+
+  return {
+    ready: missing.length === 0 || onlyEncodingNeedsRepair,
+    missing,
+    checks
+  };
+}
+
+export function isArticleAutopublishReady(article) {
+  return evaluateArticleAutopublishReadiness(article).ready;
+}
+
 export function normalizeText(value) {
   return repairEncodingArtifacts(String(value || ""))
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
@@ -147,6 +193,26 @@ function containsPlaceholderCopy(values) {
   });
 }
 
+function containsGenericPadding(values) {
+  const patterns = [
+    /payload nguon ban dau/i,
+    /source payload is thin/i,
+    /the useful part is the context/i,
+    /reader value is a clearer checklist/i,
+    /what readers should check before acting/i,
+    /what changed, who feels it first/i,
+    /boi canh, tac dong thuc te, chi phi workflow/i,
+    /gia tri nguoi doc nhan duoc la mot checklist/i,
+    /giu bai co ich ngay ca khi/i,
+    /phan huu ich nam o boi canh/i
+  ];
+
+  return values.some((value) => {
+    const text = normalizeText(value).toLowerCase();
+    return patterns.some((pattern) => pattern.test(text));
+  });
+}
+
 function isRemoteImageUrl(value) {
   return typeof value === "string" && /^https?:\/\/.+\.(?:jpg|jpeg|png|webp|gif|avif)(?:\?.*)?$/i.test(value.trim());
 }
@@ -176,6 +242,105 @@ function hasReaderValueDensity({ title, summary, dek, hook, sectionBodies, isHig
   const requiredHits = isHighScrutinyArticle ? 6 : 4;
 
   return hits + numericSignals + sourceSignals >= requiredHits;
+}
+
+function hasReadableParagraphShape(sectionBodies) {
+  if (!sectionBodies.length) {
+    return false;
+  }
+
+  return sectionBodies.every((body) => {
+    const sentences = splitSentences(body).filter((sentence) => sentence.length >= 28);
+    return sentences.length >= 2 || body.length >= 220;
+  });
+}
+
+function hasRepeatedSentences(values) {
+  const seen = new Set();
+
+  for (const value of values) {
+    for (const sentence of splitSentences(value)) {
+      const key = makeSentenceSignature(sentence);
+      if (!key || key.length < 42) {
+        continue;
+      }
+      if (seen.has(key)) {
+        return true;
+      }
+      seen.add(key);
+    }
+  }
+
+  return false;
+}
+
+function hasRepeatedPhraseClusters(values) {
+  const counts = new Map();
+  const text = normalizeText(values.join(" ")).toLowerCase();
+  const words = text
+    .replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/gi, " ")
+    .split(/\s+/)
+    .filter((word) => word.length >= 4);
+
+  for (let index = 0; index <= words.length - 7; index += 1) {
+    const phrase = words.slice(index, index + 7).join(" ");
+    counts.set(phrase, (counts.get(phrase) || 0) + 1);
+    if (counts.get(phrase) >= 3) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function hasSourceNameBalance(article, values) {
+  const sourceNames = Array.isArray(article?.source_set)
+    ? article.source_set.map((source) => normalizeText(source?.source_name)).filter((name) => name.length >= 3)
+    : [];
+
+  if (!sourceNames.length) {
+    return true;
+  }
+
+  const text = normalizeText(values.join(" ")).toLowerCase();
+  return sourceNames.every((name) => {
+    const escaped = escapeRegExp(name.toLowerCase());
+    const mentions = (text.match(new RegExp(`\\b${escaped}\\b`, "g")) || []).length;
+    return mentions <= 6;
+  });
+}
+
+function hasSpecificInformationDensity({ allCopy, sourceCount, isHighScrutinyArticle }) {
+  const text = normalizeText(allCopy.join(" "));
+  const lower = text.toLowerCase();
+  const numbers = (text.match(/\b\d+(?:[.,]\d+)?\s?(?:%|gb|tb|mb|usd|vnd|triá»‡u|trieu|tá»·|ty|ngay|thang|hours?|days?|users?|countries|quoc gia)?\b/gi) || []).length;
+  const namedEntities = new Set(text.match(/\b[A-Z][A-Za-z0-9+.-]{2,}(?:\s+[A-Z][A-Za-z0-9+.-]{2,}){0,3}\b/g) || []);
+  const concreteSignals = [
+    /\b(price|pricing|cost|launch|rollout|availability|limitation|risk|benchmark|security|privacy|subscription|release|update)\b/g,
+    /\b(gia|chi phi|ra mat|trien khai|gioi han|rui ro|bao mat|quyen rieng tu|goi cuoc|cap nhat|phat hanh)\b/g,
+    /\b(according to|said|announced|confirmed|reported|official|nguon|cho biet|cong bo|xac nhan)\b/g
+  ].reduce((sum, pattern) => sum + (lower.match(pattern) || []).length, 0);
+  const required = isHighScrutinyArticle ? 10 : 7;
+
+  return numbers + namedEntities.size + concreteSignals + sourceCount >= required;
+}
+
+function splitSentences(value) {
+  return normalizeText(value)
+    .split(/(?<=[.!?])\s+|[;\n]+/g)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean);
+}
+
+function makeSentenceSignature(value) {
+  return normalizeText(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/gi, " ")
+    .trim();
+}
+
+function escapeRegExp(value) {
+  return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function countMatches(text, pattern) {

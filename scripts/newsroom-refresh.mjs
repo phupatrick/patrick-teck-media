@@ -5,6 +5,12 @@ import { pathToFileURL } from "node:url";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { buildNewsroomState } from "../src/newsroom-service.mjs";
+import {
+  evaluateArticleAutopublishReadiness,
+  evaluateArticleReadiness,
+  isArticleAutopublishReady,
+  isArticlePublishReady
+} from "../src/newsroom-quality.mjs";
 
 // These patterns are referenced by helper functions outside `runNewsroomRefresh`.
 // Keep them at module scope so refresh works in all execution modes (CLI, tests, in-process).
@@ -887,15 +893,27 @@ const SOURCE_TOPIC_HINTS = [
   incomingArticles = prepareArticlesForPublish(incomingArticles, {
     now,
     siteUrl: env.SITE_URL || "https://patricktechmedia.com",
-    storeUrl: env.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app"
+    storeUrl: env.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+    strictQualityGate: isStrictAutopublishQualityGateEnabled(env)
   });
+
+  if (!incomingArticles.length) {
+    return {
+      changed: false,
+      publishedCount: 0,
+      outputPath,
+      sourceLabel,
+      reason: "no-publishable-articles"
+    };
+  }
 
   const result = await publishArticles({
     incomingArticles,
     outputPath,
     replaceMode: sourceLabel !== "telegram-link",
     now,
-    databaseUrl: env.DATABASE_URL || ""
+    databaseUrl: env.DATABASE_URL || "",
+    strictQualityGate: isStrictAutopublishQualityGateEnabled(env)
   });
 
   if (!result.changed) {
@@ -905,7 +923,7 @@ const SOURCE_TOPIC_HINTS = [
   return { ...result, sourceLabel };
 }
 
-function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl }) {
+function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, strictQualityGate = false }) {
   const state = buildNewsroomState({
     siteUrl,
     storeUrl,
@@ -915,7 +933,10 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl })
   });
 
   if (state.articles.length > 0) {
-    return state.articles.map(stripRuntimeArticleFields);
+    const readyArticles = filterPublishReadyArticles(state.articles.map(stripRuntimeArticleFields), "normalized", strictQualityGate);
+    if (readyArticles.length > 0) {
+      return readyArticles;
+    }
   }
 
   const synthesizedArticles = aggregateIncomingDrafts(incomingArticles, now);
@@ -928,10 +949,69 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl })
   });
 
   if (synthesizedState.articles.length > 0) {
-    return synthesizedState.articles.map(stripRuntimeArticleFields);
+    const readyArticles = filterPublishReadyArticles(synthesizedState.articles.map(stripRuntimeArticleFields), "synthesized", strictQualityGate);
+    if (readyArticles.length > 0) {
+      return readyArticles;
+    }
   }
 
-  return incomingArticles.map((article) => forceArticleValueFloor(article, now)).filter(Boolean);
+  const fallbackArticleBuilder = strictQualityGate ? preserveSourceDraft : forceArticleValueFloor;
+  return filterPublishReadyArticles(
+    incomingArticles.map((article) => fallbackArticleBuilder(article, now)).filter(Boolean),
+    "source-draft",
+    strictQualityGate
+  );
+}
+
+function preserveSourceDraft(article, now) {
+  if (!article || typeof article !== "object") {
+    return null;
+  }
+
+  const sourceSet = Array.isArray(article.source_set) ? article.source_set : [];
+  const sections = Array.isArray(article.sections) ? article.sections : [];
+  const cleanedSections = sections.map((section, index) => ({
+    ...section,
+    heading: cleanText(section?.heading) || `Section ${index + 1}`,
+    body: joinValueSentences(cleanText(section?.body))
+  }));
+
+  return {
+    ...article,
+    title: cleanText(article.title),
+    summary: joinValueSentences(cleanText(article.summary)),
+    dek: joinValueSentences(cleanText(article.dek)),
+    hook: joinValueSentences(cleanText(article.hook)),
+    sections: cleanedSections,
+    source_set: sourceSet,
+    published_at: article.published_at || now,
+    updated_at: article.updated_at || article.published_at || now
+  };
+}
+
+function filterPublishReadyArticles(articles, stage, strictQualityGate = false) {
+  const ready = [];
+  const isReady = strictQualityGate ? isArticleAutopublishReady : isArticlePublishReady;
+  const evaluate = strictQualityGate ? evaluateArticleAutopublishReadiness : evaluateArticleReadiness;
+
+  for (const article of articles) {
+    if (isReady(article)) {
+      ready.push(article);
+      continue;
+    }
+
+    const readiness = evaluate(article);
+    const label = cleanText(article?.title || article?.slug || "untitled").slice(0, 120);
+    console.warn(
+      `Holding ${stage} article "${label}" because it failed publish readiness: ${readiness.missing.join(", ")}`
+    );
+  }
+
+  return ready;
+}
+
+function isStrictAutopublishQualityGateEnabled(env = process.env) {
+  return /^(1|true|yes|on)$/i.test(String(env.NEWSROOM_AUTOPUBLISH_STRICT || ""));
 }
 
 function forceArticleValueFloor(article, now) {

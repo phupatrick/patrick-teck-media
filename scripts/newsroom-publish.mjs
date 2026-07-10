@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { isArticlePublishReady } from "../src/newsroom-quality.mjs";
+import { isArticleAutopublishReady, isArticlePublishReady } from "../src/newsroom-quality.mjs";
 import { createNewsroomStore, normalizeNewsroomPayload } from "../src/newsroom-store.mjs";
 
 export async function publishArticles({
@@ -9,7 +9,8 @@ export async function publishArticles({
   outputPath,
   replaceMode = false,
   now = new Date().toISOString(),
-  databaseUrl = process.env.DATABASE_URL || ""
+  databaseUrl = process.env.DATABASE_URL || "",
+  strictQualityGate = isStrictAutopublishQualityGateEnabled(process.env)
 }) {
   if (!Array.isArray(incomingArticles) || incomingArticles.length === 0) {
     throw new Error("No articles found in the input payload.");
@@ -22,8 +23,11 @@ export async function publishArticles({
   const existingPayload = replaceMode ? { articles: [] } : await store.readPayload();
   const existingArticles = normalizeArticles(existingPayload).filter(isArticlePublishReady).sort(sortByDateDesc);
   const articleMap = new Map(existingArticles.map((article) => [articleKey(article), article]));
+  const publishableIncomingArticles = incomingArticles
+    .filter(isArticleLike)
+    .filter(strictQualityGate ? isArticleAutopublishReady : isArticlePublishReady);
 
-  for (const article of incomingArticles.filter(isArticleLike).filter(isArticlePublishReady)) {
+  for (const article of publishableIncomingArticles) {
     const key = articleKey(article);
     const previous = articleMap.get(key) || null;
     const merged = {
@@ -45,7 +49,8 @@ export async function publishArticles({
       changed: false,
       outputPath: store.contentPath,
       storageMode: store.storageMode,
-      publishedCount: incomingArticles.length,
+      publishedCount: publishableIncomingArticles.length,
+      rejectedCount: incomingArticles.length - publishableIncomingArticles.length,
       totalArticles: existingArticles.length
     };
   }
@@ -61,7 +66,8 @@ export async function publishArticles({
     changed: true,
     outputPath: store.contentPath,
     storageMode: store.storageMode,
-    publishedCount: incomingArticles.length,
+    publishedCount: publishableIncomingArticles.length,
+    rejectedCount: incomingArticles.length - publishableIncomingArticles.length,
     totalArticles: articles.length
   };
 }
@@ -88,6 +94,10 @@ export function readJson(filePath) {
 
 function isArticleLike(article) {
   return Boolean(article && typeof article === "object" && article.slug && article.title && article.language && article.content_type);
+}
+
+function isStrictAutopublishQualityGateEnabled(env = process.env) {
+  return /^(1|true|yes|on)$/i.test(String(env.NEWSROOM_AUTOPUBLISH_STRICT || ""));
 }
 
 function articleKey(article) {
