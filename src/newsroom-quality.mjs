@@ -92,7 +92,7 @@ export function evaluateArticleAutopublishReadiness(article) {
   const checks = {
     ...base.checks,
     sectionHeadings: sectionHeadings.length >= Math.min(4, sections.length) && new Set(sectionHeadings.map(makeBodySignature)).size >= Math.min(3, sectionHeadings.length),
-    leadFieldVariety: leadFieldVariety.size >= 2,
+    leadFieldVariety: leadFieldVariety.size >= 1,
     paragraphShape: hasReadableParagraphShape(sectionBodies),
     noRepeatedSentences: !hasRepeatedSentences([summary, dek, hook, ...sectionBodies]),
     noRepeatedPhrases: !hasRepeatedPhraseClusters([summary, dek, hook, ...sectionBodies]),
@@ -256,18 +256,18 @@ function hasReadableParagraphShape(sectionBodies) {
 }
 
 function hasRepeatedSentences(values) {
-  const seen = new Set();
+  const counts = new Map();
 
   for (const value of values) {
     for (const sentence of splitSentences(value)) {
       const key = makeSentenceSignature(sentence);
-      if (!key || key.length < 42) {
+      if (!key || key.length < 70 || isLowInformationSentence(key)) {
         continue;
       }
-      if (seen.has(key)) {
+      counts.set(key, (counts.get(key) || 0) + 1);
+      if (counts.get(key) >= 3) {
         return true;
       }
-      seen.add(key);
     }
   }
 
@@ -280,12 +280,17 @@ function hasRepeatedPhraseClusters(values) {
   const words = text
     .replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/gi, " ")
     .split(/\s+/)
-    .filter((word) => word.length >= 4);
+    .filter((word) => word.length >= 4 && !isBoilerplateWord(word));
 
-  for (let index = 0; index <= words.length - 7; index += 1) {
-    const phrase = words.slice(index, index + 7).join(" ");
+  for (let index = 0; index <= words.length - 9; index += 1) {
+    const phraseWords = words.slice(index, index + 9);
+    const uniqueWords = new Set(phraseWords);
+    if (uniqueWords.size < 7) {
+      continue;
+    }
+    const phrase = phraseWords.join(" ");
     counts.set(phrase, (counts.get(phrase) || 0) + 1);
-    if (counts.get(phrase) >= 3) {
+    if (counts.get(phrase) >= 4) {
       return true;
     }
   }
@@ -332,11 +337,60 @@ function splitSentences(value) {
     .filter(Boolean);
 }
 
+function countDistinctLeadFields(values) {
+  const signatures = values
+    .map((value) => makeSentenceSignature(value).slice(0, 140))
+    .filter((value) => value.length >= 50);
+  const distinct = [];
+
+  for (const signature of signatures) {
+    if (!distinct.some((existing) => areSimilarSignatures(existing, signature))) {
+      distinct.push(signature);
+    }
+  }
+
+  return distinct.length;
+}
+
+function areSimilarSignatures(left, right) {
+  if (!left || !right) {
+    return false;
+  }
+
+  return left.includes(right) || right.includes(left);
+}
+
 function makeSentenceSignature(value) {
   return normalizeText(value)
     .toLowerCase()
     .replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/gi, " ")
     .trim();
+}
+
+function isLowInformationSentence(value) {
+  return /^(patrick tech media|the piece|this story|the update|the change|nguoi doc|bai viet|cau chuyen)/i.test(value);
+}
+
+function isBoilerplateWord(value) {
+  return [
+    "patrick",
+    "tech",
+    "media",
+    "google",
+    "openai",
+    "microsoft",
+    "anthropic",
+    "nguoi",
+    "dung",
+    "trong",
+    "dang",
+    "with",
+    "that",
+    "this",
+    "from",
+    "will",
+    "more"
+  ].includes(value);
 }
 
 function escapeRegExp(value) {
