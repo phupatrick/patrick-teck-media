@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T06:29:37.210Z",
+  "generated_at": "2026-07-10T10:02:17.835Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,22 +8,22 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-10T06:29:37.210Z",
+    "updated_at": "2026-07-10T10:02:17.835Z",
     "confidence": 0.95,
-    "totalSignals": 1300,
+    "totalSignals": 1307,
     "dailyFocus": [
       "ai",
       "apps-software",
       "security",
-      "devices",
-      "internet-business-tech"
+      "internet-business-tech",
+      "devices"
     ],
     "topicWeights": {
       "ai": 21,
       "apps-software": 16,
       "security": 16,
-      "devices": 14,
       "internet-business-tech": 14,
+      "devices": 14,
       "gaming": 13
     },
     "sourceTypeWeights": {
@@ -93,18 +93,18 @@
       },
       {
         "rank": 7,
-        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
-        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
+        "title": "Microsoft is laying off 4,800 employees",
+        "href": "/en/news/microsoft-is-laying-off-4-800-employees",
         "views": 3,
         "uniqueViews": 3,
-        "topic": "ai",
+        "topic": "gaming",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 8,
-        "title": "Here's how Gemini can help you avoid jetlag",
-        "href": "/en/news/here-s-how-gemini-can-help-you-avoid-jetlag",
+        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
+        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
         "views": 3,
         "uniqueViews": 3,
         "topic": "ai",
@@ -130,9 +130,15 @@
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
       "Khong publish neu anh nguon khong lien quan ro voi bai."
     ],
-    "lastCycleSummary": "Learned from 303 articles; 0 owner feedback item(s); 1300 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 310 articles; 0 owner feedback item(s); 1307 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, internet-business-tech, devices"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-10T10:02:17.835Z",
+      "totalSignals": 1307,
+      "confidence": 0.95,
+      "summary": "Learned from 310 articles; 0 owner feedback item(s); 1307 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, internet-business-tech, devices"
+    },
     {
       "generated_at": "2026-07-10T06:29:37.210Z",
       "totalSignals": 1300,
@@ -366,12 +372,6 @@
       "totalSignals": 1315,
       "confidence": 0.95,
       "summary": "Learned from 317 articles; 0 owner feedback item(s); 1315 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, gaming, devices"
-    },
-    {
-      "generated_at": "2026-07-06T20:34:03.814Z",
-      "totalSignals": 1322,
-      "confidence": 0.95,
-      "summary": "Learned from 325 articles; 0 owner feedback item(s); 1322 signal(s); 6 top view(s): Today's NYT Connections Hints, Answers and Help for June 28, #1113; focus: ai, apps-software, security, gaming, devices"
     }
   ]
 }
