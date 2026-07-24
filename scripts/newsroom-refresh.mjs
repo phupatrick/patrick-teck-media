@@ -917,7 +917,10 @@ const SOURCE_TOPIC_HINTS = [
     replaceMode: sourceLabel !== "telegram-link",
     now,
     databaseUrl: env.DATABASE_URL || "",
-    strictQualityGate: isStrictAutopublishQualityGateEnabled(env)
+    // prepareArticlesForPublish already applies the strict gate and the
+    // trusted-source fallback. Re-running only the baseline gate here avoids
+    // discarding an article that was intentionally admitted by that fallback.
+    strictQualityGate: false
   });
 
   if (!result.changed) {
