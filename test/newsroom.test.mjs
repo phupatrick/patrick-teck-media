@@ -347,7 +347,7 @@ const tests = [
   {
     name: "openclaw learning profile turns feedback and reactions into ranking weights",
     run() {
-      const article = state.articles.find((entry) => entry.language === "vi" && entry.topic === "ai");
+      const article = makeReadyLearningArticle();
       const profile = buildOpenClawLearningProfile({
         now: "2026-05-27T00:00:00.000Z",
         articles: [article],
@@ -410,6 +410,42 @@ const tests = [
       assert.equal(profile.topViewedArticles[0].views, 9);
       assert.ok(profile.viewInsights.some((insight) => /devices|NewsArticle|press/i.test(insight)));
       assert.match(profile.lastCycleSummary, /9 top view/);
+    }
+  },
+  {
+    name: "openclaw learning excludes weak articles even when they receive high traffic",
+    run() {
+      const article = makeReadyLearningArticle();
+      const weakArticle = {
+        ...article,
+        id: "weak-high-traffic-story",
+        href: "/vi/tin-tuc/weak-high-traffic-story",
+        topic: "gaming",
+        sections: [{ heading: "Detail", body: "Thin copy." }]
+      };
+      const profile = buildOpenClawLearningProfile({
+        now: "2026-06-16T00:00:00.000Z",
+        articles: [weakArticle],
+        platformState: {
+          articleViews: [{
+            article_id: weakArticle.id,
+            article_href: weakArticle.href,
+            title: weakArticle.title,
+            views: 100000,
+            unique_views: 75000,
+            topic: weakArticle.topic,
+            content_type: weakArticle.content_type,
+            source_type: "press"
+          }]
+        }
+      });
+
+      assert.equal(profile.eligibleArticleCount, 0);
+      assert.equal(profile.excludedArticleCount, 1);
+      assert.equal(profile.totalSignals, 0);
+      assert.equal(profile.confidence, 0);
+      assert.equal(profile.topicWeights.gaming, undefined);
+      assert.equal(profile.topViewedArticles[0].views, 100000);
     }
   },
   {
@@ -2489,6 +2525,30 @@ function buildScenarioState(injectedArticles, options = {}) {
   };
 
   return newsroom;
+}
+
+function makeReadyLearningArticle() {
+  const sections = [
+    ["What changed", "OpenAI introduced clearer workspace controls for teams that manage shared prompts, model access, and spending limits. The change gives an administrator a defined review point before new tools reach sales, support, or research workflows."],
+    ["Why it matters", "The practical impact is a more visible trade-off between monthly AI cost and the time saved on repeat work. Teams can compare a subscription upgrade with the permission burden, audit requirements, and expected volume before expanding access."],
+    ["Who should pay attention", "Operations leads, finance owners, and managers responsible for sensitive documents should review the rollout first. Smaller teams benefit most when the controls remove a real handoff rather than adding another dashboard to monitor."],
+    ["What to watch next", "The next useful signal is whether usage reporting becomes specific enough to compare projects and seats. Clear reporting would let a manager see which workflow creates value, which limit causes friction, and where a pilot should stop."],
+    ["Reader checklist", "Before enabling the feature, define approved user groups, a monthly spending ceiling, the data that must remain restricted, and a fallback process. Recheck the decision after the first thirty days with usage, cost, and error evidence." ]
+  ].map(([heading, body]) => ({ heading, body }));
+
+  return buildScenarioState([
+    makeScenarioArticle({
+      language: "en",
+      topic: "ai",
+      verification_state: "verified",
+      slug: "learning-ready-workspace-controls",
+      title: "Workspace controls give AI teams a clearer operating decision",
+      summary: "OpenAI is adding workspace controls that let team administrators review model access, shared projects, and usage limits before a rollout reaches daily operations. The update gives organisations a concrete checkpoint for balancing cost, access, and accountability.",
+      dek: "The important question is not whether another AI feature exists, but whether its permissions, spending limits, and reporting reduce friction for a real team. Managers can use the rollout to compare expected gains against governance work before buying more seats.",
+      hook: "For readers responsible for AI adoption, the useful next move is to identify the workflow that needs stronger controls, set a budget boundary, and measure whether the change removes a repeated handoff after the first month.",
+      sections
+    })
+  ], { now: "2026-06-16T00:00:00.000Z" }).articles[0];
 }
 
 function buildCoverageArticles() {
