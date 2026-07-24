@@ -2495,6 +2495,10 @@ h3 {
   font-size: 1rem;
 }
 
+.article-section.is-news-article .article-section-heading {
+  display: none;
+}
+
 .feedback-head {
   display: grid;
   gap: 6px;
