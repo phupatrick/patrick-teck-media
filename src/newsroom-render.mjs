@@ -1131,7 +1131,7 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
           <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Viết bài" : "Write"}</a>
           <a class="lang-pill" href="/${language}/login">${language === "vi" ? "Đăng nhập" : "Login"}</a>
           <a class="lang-pill" href="${languageSwitchPath}">${language === "vi" ? "EN" : "VI"}</a>
-          <a class="lang-pill subtle" href="/${language}/store">${copy.storeLabel}</a>
+          <a class="lang-pill subtle" href="https://patricktechmedia.store" rel="noopener noreferrer">${copy.storeLabel}</a>
         </div>
       </header>
 
