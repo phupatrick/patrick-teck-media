@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T17:24:19.372Z",
+  "generated_at": "2026-07-24T17:29:12.977Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-24T17:24:19.372Z",
+    "updated_at": "2026-07-24T17:29:12.977Z",
     "confidence": 0.32,
     "totalSignals": 10,
     "eligibleArticleCount": 6,
@@ -21,7 +21,7 @@
       "internet-business-tech"
     ],
     "topicWeights": {
-      "apps-software": 31,
+      "apps-software": 32,
       "ai": 18,
       "security": 1,
       "devices": 1,
@@ -134,6 +134,12 @@
     "lastCycleSummary": "Learned from 6 eligible article(s); 994 article(s) excluded from learning; 0 owner feedback item(s); 10 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, ai, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-24T17:29:12.977Z",
+      "totalSignals": 10,
+      "confidence": 0.32,
+      "summary": "Learned from 6 eligible article(s); 994 article(s) excluded from learning; 0 owner feedback item(s); 10 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, ai, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-24T17:24:19.372Z",
       "totalSignals": 10,
@@ -367,12 +373,6 @@
       "totalSignals": 1324,
       "confidence": 0.95,
       "summary": "Learned from 328 articles; 0 owner feedback item(s); 1324 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
-    },
-    {
-      "generated_at": "2026-07-07T18:14:59.903Z",
-      "totalSignals": 1328,
-      "confidence": 0.95,
-      "summary": "Learned from 332 articles; 0 owner feedback item(s); 1328 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
     }
   ]
 }
