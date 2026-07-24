@@ -12,8 +12,6 @@ export function renderHomePage(state, language, adsConfig) {
   const heroEyebrow = copy.eyebrow || fallbackCopy.eyebrow || "";
   const heroTitle = copy.heroTitle || fallbackCopy.heroTitle || "";
   const heroText = copy.heroText || fallbackCopy.heroText || "";
-  const founderName = copy.founderName || fallbackCopy.founderName || "";
-  const founderRole = copy.founderRole || fallbackCopy.founderRole || "";
   const path = `/${language}/`;
   const {
     leadFeature,
@@ -49,16 +47,6 @@ export function renderHomePage(state, language, adsConfig) {
           </div>
         </div>
         <aside class="masthead-brief">
-          <div class="masthead-founder">
-            <picture>
-              <source srcset="/founder-thumb.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" media="(max-width: 760px)" />
-              <img src="/founder.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" alt="${escapeHtml(founderName || "Founder")}" loading="lazy" decoding="async" width="68" height="68" />
-            </picture>
-            <div>
-              <strong>${escapeHtml(founderName)}</strong>
-              <span>${escapeHtml(founderRole)}</span>
-            </div>
-          </div>
           <p class="eyebrow">${copy.updateLabel}</p>
           <h2>${copy.updateTitle}</h2>
           <div class="masthead-brief-list">
@@ -176,15 +164,22 @@ function buildHomePageStoryGroups(home) {
   const packageStories = buildStoryPool(home.packageWatch?.length ? home.packageWatch : []);
   const fallbackStory = resolveHomeFallbackStory(home, packageStories, tips);
   const leadStories = selectIllustratedStories([
-    packageStories,
     home.featured,
     home.latest,
     home.trending,
     home.briefing,
-    tips
+    tips,
+    packageStories
   ]);
   const leadFeature = leadStories[0] || fallbackStory;
-  const leadSideStories = selectIllustratedStories([leadStories.slice(1)], [leadFeature], 1);
+  const leadSideStories = selectIllustratedStories([
+    home.latest,
+    home.trending,
+    home.briefing,
+    tips,
+    packageStories,
+    leadStories.slice(1)
+  ], [leadFeature], 1);
   const packageLead = selectIllustratedStories([packageStories, home.briefing], [leadFeature, ...leadSideStories], 1)[0] || null;
   const packageItems = selectIllustratedStories([packageStories, home.latest], [leadFeature, ...leadSideStories, packageLead], 4);
   const ribbonStories = buildBalancedLane(
@@ -1960,11 +1955,44 @@ function renderCsrfInput(token) {
 }
 
 function getRenderCopy(state, language) {
+  const frontpageCopy = state?.site?.frontpageCopy?.[language] || {};
+  const editorialOverride = usesCampaignStyleHero(frontpageCopy.heroTitle)
+    ? getNewsroomFrontpageOverride(language)
+    : {};
+
   return sanitizeRenderCopy({
     ...getCopy(language),
     ...normalizeRenderCopy(language),
-    ...(state?.site?.frontpageCopy?.[language] || {})
+    ...frontpageCopy,
+    ...editorialOverride
   });
+}
+
+function usesCampaignStyleHero(value) {
+  const title = repairMojibakeText(value).toLowerCase();
+  return /\bai plans?\b|gói ai/.test(title);
+}
+
+function getNewsroomFrontpageOverride(language) {
+  if (language === "vi") {
+    return {
+      heroTitle: "Tin công nghệ cần biết hôm nay",
+      heroText: "Các bài được chọn theo nguồn, tác động thực tế và điều người đọc cần kiểm tra tiếp.",
+      badgeSignals: "Có nguồn",
+      badgeAds: "Có tác động",
+      badgeBilingual: "Cần theo dõi",
+      updateTitle: "Tin mới cần biết"
+    };
+  }
+
+  return {
+    heroTitle: "Technology news worth knowing today",
+    heroText: "Stories are selected for source quality, practical impact, and the questions readers should check next.",
+    badgeSignals: "Sourced",
+    badgeAds: "Practical impact",
+    badgeBilingual: "Worth watching",
+    updateTitle: "The latest worth knowing"
+  };
 }
 
 function sanitizeRenderCopy(copy) {
@@ -2016,8 +2044,8 @@ function normalizeRenderCopy(language) {
     return repairCopyObject({
       homeTitle: "Patrick Tech Media | Tin công nghệ Việt Nam và thế giới",
       eyebrow: "Toà soạn song ngữ",
-      heroTitle: "Patrick Tech Media: dự án truyền thông công nghệ của Patrick Tech Co.",
-      heroText: "Patrick Tech Media là dự án của Patrick Tech Co. (2020) do Nguyễn Hoàng Phú (Patrick) sáng lập, chuyên chia sẻ tin công nghệ, AI và xu hướng mới. Bên cạnh toà soạn, Patrick Tech Co. còn cung cấp dịch vụ hỗ trợ các gói trả phí cho website, phần mềm và nền tảng số.",
+      heroTitle: "Tin công nghệ đáng biết, giải thích đủ để quyết định",
+      heroText: "Theo dõi sản phẩm, nền tảng và chính sách công nghệ bằng các bài có nguồn, nêu rõ điều đã xác nhận, tác động thực tế và phần còn cần theo dõi.",
       founderName: "Nguyễn Hoàng Phú (Patrick)",
       founderRole: "Founder · Patrick Tech Co. (2020)",
       heroNotebookLabel: "Điểm đáng đọc",
@@ -2046,8 +2074,8 @@ function normalizeRenderCopy(language) {
       tipsLabel: "Thủ thuật",
       tipsTitle: "Thủ thuật, nhận xét và bài dùng được ngay",
       updateLabel: "Vừa lên",
-      updateTitle: "3 tin mới để bắt nhịp",
-      updateText: "Mở nhanh những bài mới nhất nếu bạn muốn nắm nhịp ngay từ đầu.",
+      updateTitle: "Tin mới cần biết",
+      updateText: "Mở nhanh các cập nhật mới nhất và phần bối cảnh cần đọc trước khi hành động.",
       ecosystemLabel: "Công ty",
       ecosystemTitle: "Patrick Tech Co. VN",
       ecosystemText: "Patrick Tech Media nằm trong hệ sinh thái Patrick Tech Co. VN, nối newsroom với Patrick Tech Store theo một mạch công nghệ thống nhất.",
@@ -2115,9 +2143,9 @@ function normalizeRenderCopy(language) {
   return repairCopyObject({
     homeTitle: "Patrick Tech Media | Technology, AI, and the digital shift",
     eyebrow: "Bilingual newsroom",
-    heroTitle: "Patrick Tech Media: the technology newsroom by Patrick Tech Co.",
+    heroTitle: "Technology news with enough context to make a decision",
     heroText:
-      "Patrick Tech Media is a Patrick Tech Co. (2020) project founded by Nguyen Hoang Phu (Patrick), created to share technology, AI, and emerging digital shifts. Patrick Tech Co. also supports customers with premium plans for websites, software, and digital platforms.",
+      "Follow products, platforms, and technology policy through sourced reporting that separates confirmed facts, practical impact, and the questions still worth watching.",
     founderName: "Nguyen Hoang Phu (Patrick)",
     founderRole: "Founder · Patrick Tech Co. (2020)",
     homeBriefTitle: "Catch the day's rhythm in one pass"

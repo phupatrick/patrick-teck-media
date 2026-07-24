@@ -60,17 +60,13 @@ export function buildEditorialCompanionArticles(articles, now = new Date().toISO
     const aiPackageMembers = selectCompanionMembers(pool, language, isAiPackageStory, 10);
     const tipMembers = selectCompanionMembers(pool, language, isPracticalTechStory, 10);
     const workflowMembers = dedupeCompanionMembers([...aiPackageMembers, ...tipMembers], 12);
+    const workflowTopics = new Set(workflowMembers.map((article) => article.topic).filter(Boolean));
 
     if (aiPackageMembers.length >= 2) {
       localizedCompanions.push(buildAiPackageCompanionStory({ language, members: aiPackageMembers, now }));
-      localizedCompanions.push(buildAiPlanBuyingGuide({ language, members: aiPackageMembers, now }));
-
-      if (aiPackageMembers.length >= 3) {
-        localizedCompanions.push(buildAiPackageUpdateRoundup({ language, members: aiPackageMembers, now }));
-      }
     }
 
-    if (workflowMembers.length >= 4) {
+    if (workflowMembers.length >= 4 && workflowTopics.size >= 2) {
       localizedCompanions.push(buildAiWorkflowPlaybookGuide({ language, members: workflowMembers, now }));
     }
 
@@ -296,7 +292,9 @@ function dedupeCompanionMembers(articles, limit) {
   const picked = [];
 
   for (const article of articles) {
-    const key = article.cluster_id || getPrimarySourceUrl(article) || article.id || article.slug;
+    // A source URL is a better dedupe key here than a broad editorial cluster:
+    // separate reporting on the same provider can add corroboration.
+    const key = getPrimarySourceUrl(article) || article.cluster_id || article.id || article.slug;
 
     if (!key || seen.has(key)) {
       continue;
@@ -364,8 +362,8 @@ function buildAiPackageCompanionStory({ language, members, now }) {
   });
   const title =
     language === "vi"
-      ? `Gói AI nào đang đáng tiền hơn lúc này: ${providerLabel} vừa thêm gì vào cuộc đua?`
-      : `Which AI plan feels more useful right now: what ${providerLabel} just added to the race`;
+      ? "Gói AI nào đang tăng giá trị thực?"
+      : "Which AI plans are adding practical value?";
   const summary = composeParagraph(
     [
       language === "vi"
@@ -661,7 +659,7 @@ function buildAiProviderCompanionArticles(articles, language, now) {
     );
     const sources = dedupeSources(members);
 
-    if (members.length < 2 || sources.length < 2) {
+    if (!members.length || !sources.length) {
       continue;
     }
 
@@ -838,8 +836,8 @@ function buildAiPackageUpdateRoundup({ language, members, now }) {
   });
   const title =
     language === "vi"
-      ? `Tin mới nhất về các gói AI: ${providerLabel} đang tăng giá trị ở đâu`
-      : `The latest AI plan shifts: where ${providerLabel} are adding practical value`;
+      ? "Các gói AI vừa thay đổi gì đáng chú ý?"
+      : "What changed across AI plans this week?";
   const summary = composeParagraph(
     [
       language === "vi"
@@ -974,8 +972,8 @@ function buildAiWorkflowPlaybookGuide({ language, members, now }) {
   });
   const title =
     language === "vi"
-      ? `Dùng gói AI sao cho đỡ mua trùng app: ${providerLabel} nên chia việc ra sao`
-      : `How to use AI plans without stacking duplicate apps: how to split work across ${providerLabel}`;
+      ? "Dùng gói AI sao cho đỡ mua trùng app"
+      : "How to use AI plans without stacking duplicate apps";
   const summary = composeParagraph(
     [
       language === "vi"

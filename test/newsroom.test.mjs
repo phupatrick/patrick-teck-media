@@ -1730,6 +1730,8 @@ const tests = [
 
       assert.match(homeHtml, /data-pull-refresh/);
       assert.match(homeHtml, /frontpage-masthead/);
+      assert.match(homeHtml, /Tin công nghệ đáng biết, giải thích đủ để quyết định/);
+      assert.doesNotMatch(homeHtml, /Founder · Patrick Tech Co/);
       assert.doesNotMatch(homeHtml, /frontpage-kickerbar/);
     }
   },
