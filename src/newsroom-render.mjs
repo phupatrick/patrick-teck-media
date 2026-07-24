@@ -2,7 +2,6 @@
   formatPublishDate,
   getFooterLinks,
   getPrimaryNav,
-  getVerificationMeta
 } from "./newsroom-service.mjs";
 
 export function renderHomePage(state, language, adsConfig) {
@@ -652,7 +651,6 @@ export function renderTopicPage(state, language, topicPage, adsConfig) {
 
 export function renderArticlePage(state, language, article, relatedStories, adsConfig, options = {}) {
   const copy = getRenderCopy(state, language);
-  const verification = getVerificationMeta(article.verification_state, language);
   const shouldShowBadge = Boolean(article.editorial_label);
   const feedback = options.feedback || { reactions: [], comments: [], totalComments: 0, totalReactions: 0 };
   const publicSections = selectPublicArticleSections(article);
@@ -710,10 +708,6 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
             <span>${escapeHtml(article.author.name)}</span>
             <span>${escapeHtml(article.author.role[language])}</span>
           </div>
-          <div class="verification-note">
-            <strong>${escapeHtml(verification.label)}</strong>
-            <span>${escapeHtml(verification.description)}</span>
-          </div>
         </header>
 
         ${renderArticleHero(article)}
@@ -723,9 +717,9 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
             <p class="article-summary">${escapeHtml(article.summary)}</p>
             ${publicSections
               .map(
-                (section, index) => `
+                (section) => `
                   <section class="article-section">
-                    <h2>${escapeHtml(section.heading)}</h2>
+                    ${article.content_type === "NewsArticle" ? "" : `<h2>${escapeHtml(section.heading)}</h2>`}
                     <p>${escapeHtml(section.body)}</p>
                   </section>
                 `
