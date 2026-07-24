@@ -32,7 +32,7 @@ runCommand("git", ["commit", "-m", commitMessage], "Unable to commit OpenClaw-ma
 });
 
 if (autopush) {
-  runCommand("git", ["push", "origin", "HEAD"], "Unable to push OpenClaw-managed files.");
+  pushManagedChanges();
 }
 
 console.log(`OpenClaw git sync completed.${autopush ? " Changes were pushed to origin." : " Changes were committed locally."}`);
@@ -59,6 +59,27 @@ function cleanupTransientTestArtifacts() {
       allowFailure: true
     });
   }
+}
+
+function pushManagedChanges() {
+  const initialPush = runCommand("git", ["push", "origin", "HEAD"], "Unable to push OpenClaw-managed files.", {
+    allowFailure: true
+  });
+
+  if (initialPush.status === 0) {
+    return;
+  }
+
+  const branch = runCommand("git", ["branch", "--show-current"], "Unable to resolve the current branch.").stdout.trim();
+
+  if (!branch) {
+    throw new Error("Unable to retry the OpenClaw push because the current branch is unknown.");
+  }
+
+  console.warn(`OpenClaw push was rejected; rebasing generated changes onto origin/${branch} and retrying.`);
+  runCommand("git", ["fetch", "origin", branch], "Unable to fetch the latest OpenClaw branch.");
+  runCommand("git", ["rebase", `origin/${branch}`], "Unable to rebase OpenClaw-generated changes.");
+  runCommand("git", ["push", "origin", "HEAD"], "Unable to push OpenClaw-managed files after rebasing.");
 }
 
 function runCommand(command, args, errorMessage, options = {}) {
