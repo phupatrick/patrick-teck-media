@@ -117,6 +117,35 @@ export function isArticleAutopublishReady(article) {
   return evaluateArticleAutopublishReadiness(article).ready;
 }
 
+// Official announcements can be timely and well sourced while still using the
+// publisher's own section structure. Keep the baseline editorial safeguards,
+// but do not discard those reports solely for the stricter house-style checks.
+export function evaluateVerifiedOfficialSourceFallbackReadiness(article) {
+  const base = evaluateArticleReadiness(article);
+  const sourceSet = Array.isArray(article?.source_set) ? article.source_set : [];
+  const hasOfficialSource = sourceSet.some(
+    (source) => String(source?.source_type || "").trim() === "official-site"
+  );
+  const checks = {
+    ...base.checks,
+    verified: String(article?.verification_state || "").trim() === "verified",
+    officialSource: hasOfficialSource
+  };
+  const missing = Object.entries(checks)
+    .filter(([, passed]) => !passed)
+    .map(([key]) => key);
+
+  return {
+    ready: missing.length === 0,
+    missing,
+    checks
+  };
+}
+
+export function isVerifiedOfficialSourceFallbackReady(article) {
+  return evaluateVerifiedOfficialSourceFallbackReadiness(article).ready;
+}
+
 export function normalizeText(value) {
   return repairEncodingArtifacts(String(value || ""))
     .replace(/<script[\s\S]*?<\/script>/gi, " ")

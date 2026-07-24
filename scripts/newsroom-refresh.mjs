@@ -9,7 +9,9 @@ import {
   evaluateArticleAutopublishReadiness,
   evaluateArticleReadiness,
   isArticleAutopublishReady,
-  isArticlePublishReady
+  isArticlePublishReady,
+  isVerifiedOfficialSourceFallbackReady,
+  evaluateVerifiedOfficialSourceFallbackReadiness
 } from "../src/newsroom-quality.mjs";
 
 // These patterns are referenced by helper functions outside `runNewsroomRefresh`.
@@ -939,6 +941,16 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
     if (readyArticles.length > 0) {
       return readyArticles;
     }
+
+    if (strictQualityGate) {
+      const verifiedOfficialArticles = filterVerifiedOfficialSourceFallbackArticles(
+        state.articles.map(stripRuntimeArticleFields),
+        "normalized"
+      );
+      if (verifiedOfficialArticles.length > 0) {
+        return verifiedOfficialArticles;
+      }
+    }
   }
 
   const synthesizedArticles = aggregateIncomingDrafts(incomingArticles, now);
@@ -963,6 +975,25 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
     "source-draft",
     strictQualityGate
   );
+}
+
+function filterVerifiedOfficialSourceFallbackArticles(articles, stage) {
+  const ready = [];
+
+  for (const article of articles) {
+    if (isVerifiedOfficialSourceFallbackReady(article)) {
+      ready.push(article);
+      continue;
+    }
+
+    const readiness = evaluateVerifiedOfficialSourceFallbackReadiness(article);
+    const label = cleanText(article?.title || article?.slug || "untitled").slice(0, 120);
+    console.warn(
+      `Holding ${stage} article "${label}" because it failed verified official-source fallback: ${readiness.missing.join(", ")}`
+    );
+  }
+
+  return ready;
 }
 
 function preserveSourceDraft(article, now) {
