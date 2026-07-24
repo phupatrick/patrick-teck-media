@@ -92,6 +92,7 @@ export function evaluateArticleAutopublishReadiness(article) {
   const checks = {
     ...base.checks,
     sectionHeadings: sectionHeadings.length >= Math.min(4, sections.length) && new Set(sectionHeadings.map(makeBodySignature)).size >= Math.min(3, sectionHeadings.length),
+    narrativeFlow: hasEditorialNarrativeFlow(sectionHeadings),
     leadFieldVariety: leadFieldVariety.size >= 1,
     paragraphShape: hasReadableParagraphShape(sectionBodies),
     noRepeatedSentences: !hasRepeatedSentences([summary, dek, hook, ...sectionBodies]),
@@ -253,6 +254,17 @@ function hasReadableParagraphShape(sectionBodies) {
     const sentences = splitSentences(body).filter((sentence) => sentence.length >= 28);
     return sentences.length >= 2 || body.length >= 220;
   });
+}
+
+function hasEditorialNarrativeFlow(sectionHeadings) {
+  const headings = sectionHeadings.map((heading) => normalizeText(heading).toLowerCase());
+  const text = headings.join(" | ");
+
+  const hasContext = /(context|background|what changed|updates? worth|b.{0,5}i c.{0,5}nh|di.{0,5}m m.{0,5}i)/i.test(text);
+  const hasImpact = /(impact|why it matters|changes? in practice|t.{0,5}c .{0,5}ng|th.{0,5}c t.{0,5})/i.test(text);
+  const hasReaderAction = /(watch|who should|readers?|checklist|next step|action|decision|ai n.{0,5}n|theo d.{0,5}i|gia tr.{0,5} ngu.{0,5}i d.{0,5}c)/i.test(text);
+
+  return hasContext && hasImpact && hasReaderAction;
 }
 
 function hasRepeatedSentences(values) {

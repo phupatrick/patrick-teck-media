@@ -2249,7 +2249,82 @@ function buildEditorialSections({ language, topic, verificationState, contentTyp
     }
   }
 
-  return merged;
+  return repairEditorialStructure(merged, context);
+}
+
+function repairEditorialStructure(sections, context) {
+  const headings = getEditorialBlueprint(context.language, context.contentType);
+  const sentenceCounts = new Map();
+
+  for (const value of [context.summary, context.dek, context.hook]) {
+    for (const sentence of splitEditorialSentences(value)) {
+      const signature = makeEditorialSignature(sentence);
+      if (signature) {
+        sentenceCounts.set(signature, (sentenceCounts.get(signature) || 0) + 1);
+      }
+    }
+  }
+
+  return sections.map((section, index) => {
+    const keptSentences = [];
+
+    for (const sentence of splitEditorialSentences(section.body)) {
+      const signature = makeEditorialSignature(sentence);
+      const count = sentenceCounts.get(signature) || 0;
+
+      // The quality gate permits a claim to be introduced and reinforced once.
+      // Drop later copies so generated support text cannot crowd out the article.
+      if (signature && count >= 2) {
+        continue;
+      }
+
+      if (signature) {
+        sentenceCounts.set(signature, count + 1);
+      }
+      keptSentences.push(sentence);
+    }
+
+    return {
+      ...section,
+      heading: isGeneratedEditorialHeading(section.heading) ? (headings[index] || section.heading) : section.heading,
+      body: keptSentences.join(" ").trim() || section.body
+    };
+  });
+}
+
+function getEditorialBlueprint(language, contentType) {
+  const isComparison = contentType === "ComparisonPage";
+  const isGuide = contentType === "EvergreenGuide";
+
+  if (language === "en") {
+    if (isComparison) {
+      return ["Context: the decision", "Why it matters", "Who feels the difference", "Trade-offs to weigh", "How to compare the options", "What remains to watch"];
+    }
+    if (isGuide) {
+      return ["Context: start with the work", "Why it matters in practice", "Who this approach suits", "Trade-offs and limits", "A practical checklist", "What to review next"];
+    }
+    return ["What happened", "Why it matters", "The evidence so far", "Who is affected", "What is still unclear", "What to watch next"];
+  }
+
+  if (isComparison) {
+    return ["Bối cảnh: quyết định cần đưa ra", "Tác động: vì sao điều này quan trọng", "Ai nên cân nhắc đầu tiên", "Đánh đổi cần cân nhắc", "Cách so sánh các lựa chọn", "Điều còn cần theo dõi"];
+  }
+  if (isGuide) {
+    return ["Bối cảnh: bắt đầu từ công việc", "Tác động trong thực tế", "Ai phù hợp với cách này", "Đánh đổi và giới hạn", "Checklist thực hành", "Điều cần xem lại tiếp"];
+  }
+  return ["Điều gì đã xảy ra", "Vì sao điều này quan trọng", "Dữ kiện hiện có", "Ai bị ảnh hưởng", "Điều chưa rõ", "Điều cần theo dõi tiếp"];
+}
+
+function isGeneratedEditorialHeading(value) {
+  const heading = makeEditorialSignature(value);
+  return /^(context|why it matters|who is affected|who it suits|trade offs|how to choose|what to watch|a practical checklist|bối cảnh|tác động|ai bị ảnh hưởng|ai phù hợp|đánh đổi|cách lựa chọn|checklist|điều cần theo dõi)/i.test(heading);
+}
+
+function splitEditorialSentences(value) {
+  const normalized = safeEditorialTrim(value);
+  return (normalized.match(/[^.?!]+[.?!]?/g) || [normalized])
+    .map((sentence) => finalizeEditorialSentence(sentence))
+    .filter(Boolean);
 }
 
 function normalizeEditorialSection(section, index, context) {
@@ -2286,50 +2361,30 @@ function expandEditorialSectionBody(body, index, context) {
 }
 
 function buildGeneratedEditorialSections(context) {
-  const copy = getGeneratedSectionCopy(context.language);
+  const headings = getEditorialBlueprint(context.language, context.contentType);
 
   return [
     {
-      heading: copy.contextHeading,
+      heading: headings[0],
       body: joinEditorialSentences(context.summary, buildContextSentence(context), buildSourceConfidenceSentence(context))
     },
     {
-      heading: copy.impactHeading,
+      heading: headings[1],
       body: joinEditorialSentences(context.dek || context.summary, buildTopicImpactSentence(context), buildReaderActionSentence(context))
     },
     {
-      heading: copy.audienceHeading,
+      heading: headings[2],
       body: joinEditorialSentences(buildAudienceSentence(context), buildTopicWorkflowSentence(context), buildReaderActionSentence(context))
     },
     {
-      heading: copy.watchHeading,
+      heading: headings[3],
       body: joinEditorialSentences(context.hook || context.dek, buildVerificationWatchSentence(context), buildSourceFollowUpSentence(context))
     },
     {
-      heading: copy.readerValueHeading,
+      heading: headings[5],
       body: joinEditorialSentences(buildReaderChecklistSentence(context), buildTopicWorkflowSentence(context), buildReaderActionSentence(context))
     }
   ];
-}
-
-function getGeneratedSectionCopy(language) {
-  if (language === "en") {
-    return {
-      contextHeading: "Context Worth Keeping",
-      impactHeading: "What Changes In Practice",
-      audienceHeading: "Who Should Pay Attention",
-      watchHeading: "What To Watch Next",
-      readerValueHeading: "What Readers Can Use"
-    };
-  }
-
-  return {
-    contextHeading: "Bối cảnh cần giữ",
-    impactHeading: "Tác động thực tế",
-    audienceHeading: "Ai nên để ý",
-    watchHeading: "Điều cần theo dõi tiếp",
-    readerValueHeading: "Giá trị người đọc có thể dùng"
-  };
 }
 
 function buildContextSentence({ language, summary, topic }) {

@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createOpenClawLearningStore, normalizeLearningState } from "../src/openclaw-learning-store.mjs";
-import { evaluateArticleReadiness, normalizeText } from "../src/newsroom-quality.mjs";
+import { evaluateArticleAutopublishReadiness, normalizeText } from "../src/newsroom-quality.mjs";
 
 const rootDir = process.cwd();
 const envFromFile = loadEnvFile(path.join(rootDir, ".env"));
@@ -56,18 +56,21 @@ export async function runOpenClawLearningCycle(options = {}) {
 
 export function buildOpenClawLearningProfile({ articles = [], platformState = {}, feedback = [], previousProfile = {}, now = new Date().toISOString() } = {}) {
   const articleSignals = buildArticleSignals({ articles, platformState, feedback, now });
-  const topicWeights = buildWeightMap(articleSignals, "topic", previousProfile.topicWeights);
-  const sourceTypeWeights = buildWeightMap(articleSignals, "sourceType", previousProfile.sourceTypeWeights);
-  const totalSignals = articleSignals.reduce((sum, signal) => sum + (signal.learningSignalCount || 0), 0) + feedback.length;
+  const learningSignals = articleSignals.filter((signal) => signal.learningEligible);
+  const actionableFeedback = feedback.filter(isActionableFeedback);
+  const topicWeights = buildWeightMap(learningSignals, "topic", previousProfile.topicWeights);
+  const sourceTypeWeights = buildWeightMap(learningSignals, "sourceType", previousProfile.sourceTypeWeights);
+  const totalSignals = learningSignals.reduce((sum, signal) => sum + (signal.learningSignalCount || 0), 0) + actionableFeedback.length;
   const confidence = Math.min(0.95, Math.round((1 - Math.exp(-totalSignals / 26)) * 100) / 100);
   const dailyFocus = rankKeys(topicWeights).slice(0, 5);
   const topViewedArticles = buildTopViewedArticles(articleSignals);
   const viewInsights = buildViewInsights(topViewedArticles);
-  const styleRules = buildStyleRules({ articleSignals, feedback });
-  const avoidRules = buildAvoidRules({ articleSignals, feedback });
+  const styleRules = buildStyleRules({ articleSignals, feedback: actionableFeedback });
+  const avoidRules = buildAvoidRules({ articleSignals, feedback: actionableFeedback });
   const lastCycleSummary = [
-    `Learned from ${articles.length} articles`,
-    `${feedback.length} owner feedback item(s)`,
+    `Learned from ${learningSignals.length} eligible article(s)`,
+    `${articleSignals.filter((signal) => !signal.learningEligible).length} article(s) excluded from learning`,
+    `${actionableFeedback.length} owner feedback item(s)`,
     `${totalSignals} signal(s)`,
     topViewedArticles.length ? `${topViewedArticles[0].views} top view(s): ${topViewedArticles[0].title}` : "no view data yet",
     dailyFocus.length ? `focus: ${dailyFocus.join(", ")}` : "focus: default editorial priorities"
@@ -78,6 +81,8 @@ export function buildOpenClawLearningProfile({ articles = [], platformState = {}
     updated_at: now,
     confidence,
     totalSignals,
+    eligibleArticleCount: learningSignals.length,
+    excludedArticleCount: articleSignals.filter((signal) => !signal.learningEligible).length,
     dailyFocus,
     topicWeights,
     sourceTypeWeights,
@@ -95,7 +100,7 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
   const viewStats = Array.isArray(platformState.articleViews) ? platformState.articleViews : [];
 
   const articleSignals = articles.map((article) => {
-    const readiness = evaluateArticleReadiness(article);
+    const readiness = evaluateArticleAutopublishReadiness(article);
     const articleReactions = reactions.filter((entry) => matchesArticle(entry, article));
     const articleComments = comments.filter((entry) => matchesArticle(entry, article));
     const articleViews = viewStats.find((entry) => matchesArticle(entry, article)) || {};
@@ -108,9 +113,10 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
     const views = clampInteger(articleViews.views, 0, 1_000_000_000, 0);
     const uniqueViews = clampInteger(articleViews.unique_views, 0, 1_000_000_000, 0);
     const viewScore = computeViewScore(views, uniqueViews);
-    const engagementSignalCount = Math.min(20, Math.ceil(views / 5)) + positiveReactions + articleComments.length + ownerFeedback.length;
+    const engagementSignalCount = computeEngagementSignalCount({ views, uniqueViews, positiveReactions, comments: articleComments.length, feedback: ownerFeedback.length });
     const score = qualityScore - 78 + readinessScore + freshnessScore + viewScore + positiveReactions * 5 + articleComments.length * 3 + ownerScore;
     const sourceType = normalizeText(article.source_set?.[0]?.source_type || "unknown") || "unknown";
+    const learningEligible = readiness.ready;
 
     return {
       id: normalizeText(article.id || article.href || article.slug),
@@ -122,8 +128,9 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
       score,
       views,
       uniqueViews,
-      signalCount: 1 + engagementSignalCount,
-      learningSignalCount: engagementSignalCount,
+      signalCount: learningEligible ? 1 + engagementSignalCount : 0,
+      learningSignalCount: learningEligible ? 1 + engagementSignalCount : 0,
+      learningEligible,
       readiness,
       ownerFeedback
     };
@@ -152,7 +159,8 @@ function buildOrphanViewSignal(entry) {
     views,
     uniqueViews,
     signalCount: Math.min(20, Math.max(1, Math.ceil(views / 5))),
-    learningSignalCount: Math.min(20, Math.max(1, Math.ceil(views / 5))),
+    learningSignalCount: 0,
+    learningEligible: false,
     readiness: { ready: true, missing: [] },
     ownerFeedback: [],
     fromViewSnapshot: true
@@ -178,13 +186,24 @@ function buildWeightMap(signals, key, previousWeights = {}) {
     nextWeights[groupKey] = Math.round(clamp(previous * 0.65 + average * 0.35, -24, 32));
   }
 
+  for (const [groupKey, value] of Object.entries(previousWeights || {})) {
+    if (groupKey in nextWeights) {
+      continue;
+    }
+
+    const decayed = Math.round(Number(value || 0) * 0.65);
+    if (Math.abs(decayed) >= 1) {
+      nextWeights[groupKey] = decayed;
+    }
+  }
+
   return Object.fromEntries(Object.entries(nextWeights).sort((left, right) => right[1] - left[1]));
 }
 
 function buildStyleRules({ articleSignals, feedback }) {
   const goodFeedback = feedback.filter((entry) => ["good", "more-depth", "tone"].includes(entry.kind));
-  const highScoring = articleSignals.filter((entry) => entry.score >= 18);
-  const topViewed = articleSignals.filter((entry) => entry.views > 0).sort((left, right) => right.views - left.views).slice(0, 5);
+  const highScoring = articleSignals.filter((entry) => entry.learningEligible && entry.score >= 18);
+  const topViewed = articleSignals.filter((entry) => entry.learningEligible && entry.views > 0).sort((left, right) => right.views - left.views).slice(0, 5);
   const rules = [
     "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
     "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
@@ -343,6 +362,18 @@ function scoreFeedbackKind(kind) {
   };
 
   return scores[kind] || 0;
+}
+
+function isActionableFeedback(entry) {
+  return ["good", "more-depth", "tone", "source", "image", "less-noise", "bad"].includes(String(entry?.kind || "").trim());
+}
+
+function computeEngagementSignalCount({ views, uniqueViews, positiveReactions, comments, feedback }) {
+  const trustedReaders = Math.max(0, Math.min(50_000, Number(uniqueViews) || 0));
+  const viewEvidence = trustedReaders >= 3 ? Math.min(4, 1 + Math.floor(Math.log2(trustedReaders))) : 0;
+  const interactionEvidence = Math.min(4, Math.max(0, Number(positiveReactions) || 0) + Math.max(0, Number(comments) || 0) + Math.max(0, Number(feedback) || 0));
+
+  return viewEvidence + interactionEvidence;
 }
 
 function rankKeys(weights) {
