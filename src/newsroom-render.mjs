@@ -1128,11 +1128,7 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
     <div class="site-shell">
       <header class="topbar">
         <a class="brand-lockup" href="${homePath}" aria-label="${escapeHtml(state.site.name)}">
-          <img class="brand-icon" src="${iconPath}" alt="" aria-hidden="true" />
-          <span class="brand-wordmark" aria-hidden="true">
-            <strong>Patrick</strong>
-            <strong>Tech Media</strong>
-          </span>
+          <img class="brand-mark" src="${logoPath}" alt="${escapeHtml(state.site.name)}" />
         </a>
         <nav class="nav-strip" aria-label="Primary">
           ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}

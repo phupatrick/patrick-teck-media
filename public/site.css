@@ -497,6 +497,14 @@ h3 {
     drop-shadow(0 0 18px rgba(40, 152, 255, 0.14));
 }
 
+.brand-mark {
+  display: block;
+  width: min(248px, 100%);
+  height: auto;
+  max-height: 76px;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.22));
+}
+
 .brand-wordmark {
   display: grid;
   gap: 1px;
@@ -559,8 +567,10 @@ h3 {
 
 .topbar-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
+  min-width: 0;
 }
 
 .lang-pill {
@@ -2356,7 +2366,7 @@ h3 {
 }
 
 .topic-band {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   align-items: start;
 }
 
@@ -3004,6 +3014,7 @@ h3 {
   .nav-strip,
   .topbar-actions {
     justify-content: start;
+    width: 100%;
   }
 
   .brand-lockup {
@@ -3011,9 +3022,9 @@ h3 {
     gap: 12px;
   }
 
-  .brand-icon {
-    width: 64px;
-    height: 64px;
+  .brand-mark {
+    width: min(238px, 100%);
+    max-height: 68px;
   }
 
   .brand-wordmark strong {
