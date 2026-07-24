@@ -32,6 +32,16 @@ const genericPaddingArticle = {
 assert.equal(isArticleAutopublishReady(genericPaddingArticle), false, "generic padding should not publish");
 assert.ok(evaluateArticleAutopublishReadiness(genericPaddingArticle).missing.includes("noGenericPadding"));
 
+const flatNarrativeArticle = {
+  ...readyArticle,
+  sections: readyArticle.sections.map((section, index) => ({
+    ...section,
+    heading: `Detail ${index + 1}`
+  }))
+};
+assert.equal(isArticleAutopublishReady(flatNarrativeArticle), false, "articles without a reader-oriented narrative flow should not publish");
+assert.ok(evaluateArticleAutopublishReadiness(flatNarrativeArticle).missing.includes("narrativeFlow"));
+
 const thinArticle = {
   ...readyArticle,
   sections: readyArticle.sections.slice(0, 2)
