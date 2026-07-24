@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T17:29:12.977Z",
+  "generated_at": "2026-07-24T17:32:01.162Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,11 +8,11 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-24T17:29:12.977Z",
-    "confidence": 0.32,
-    "totalSignals": 10,
-    "eligibleArticleCount": 6,
-    "excludedArticleCount": 994,
+    "updated_at": "2026-07-24T17:32:01.162Z",
+    "confidence": 0,
+    "totalSignals": 0,
+    "eligibleArticleCount": 0,
+    "excludedArticleCount": 1005,
     "dailyFocus": [
       "apps-software",
       "ai",
@@ -21,15 +21,15 @@
       "internet-business-tech"
     ],
     "topicWeights": {
-      "apps-software": 32,
-      "ai": 18,
+      "apps-software": 21,
+      "ai": 12,
       "security": 1,
       "devices": 1,
       "internet-business-tech": 1,
       "gaming": 1
     },
     "sourceTypeWeights": {
-      "official-site": 21,
+      "official-site": 14,
       "press": 1
     },
     "topViewedArticles": [
@@ -122,18 +122,23 @@
     "styleRules": [
       "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
       "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
-      "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
-      "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong."
+      "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
       "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
-      "Khong publish neu anh nguon khong lien quan ro voi bai."
+      "Khong publish neu anh nguon khong lien quan ro voi bai.",
+      "Khong publish bai lap cau hoac lap cum tu; can viet lai section bi trung truoc khi len trang."
     ],
-    "lastCycleSummary": "Learned from 6 eligible article(s); 994 article(s) excluded from learning; 0 owner feedback item(s); 10 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, ai, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 0 eligible article(s); 1005 article(s) excluded from learning; 0 owner feedback item(s); 0 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, ai, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-24T17:32:01.162Z",
+      "totalSignals": 0,
+      "confidence": 0,
+      "summary": "Learned from 0 eligible article(s); 1005 article(s) excluded from learning; 0 owner feedback item(s); 0 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, ai, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-24T17:29:12.977Z",
       "totalSignals": 10,
@@ -367,12 +372,6 @@
       "totalSignals": 1314,
       "confidence": 0.95,
       "summary": "Learned from 318 articles; 0 owner feedback item(s); 1314 signal(s); 5 top view(s): Which AI plan feels more useful right now: what Google, Microsoft, OpenAI and Anthropic just added to the race; focus: ai, apps-software, security, gaming, devices"
-    },
-    {
-      "generated_at": "2026-07-07T19:00:34.188Z",
-      "totalSignals": 1324,
-      "confidence": 0.95,
-      "summary": "Learned from 328 articles; 0 owner feedback item(s); 1324 signal(s); 5 top view(s): Người dùng Việt dùng Adobe bản quyền vẫn bị khoá tài khoản; focus: ai, apps-software, security, gaming, devices"
     }
   ]
 }
