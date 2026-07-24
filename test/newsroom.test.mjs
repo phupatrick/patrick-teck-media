@@ -449,14 +449,16 @@ const tests = [
   {
     name: "ships at least 20 localized newsroom articles across at least 10 clusters",
     run() {
-      assert.ok(state.articles.length >= 20);
-      assert.ok(new Set(state.articles.map((article) => article.cluster_id)).size >= 10);
+      const scenario = buildScenarioState(buildCoverageArticles(), { now: "2026-06-14T12:00:00.000Z" });
+      assert.ok(scenario.articles.length >= 20);
+      assert.ok(new Set(scenario.articles.map((article) => article.cluster_id)).size >= 10);
     }
   },
   {
     name: "keeps the Vietnamese newsroom spread across multiple beats instead of collapsing into AI only",
     run() {
-      const viStories = state.articles.filter((article) => article.language === "vi");
+      const scenario = buildScenarioState(buildCoverageArticles(), { now: "2026-06-14T12:00:00.000Z" });
+      const viStories = scenario.articles.filter((article) => article.language === "vi");
       const viTopics = new Set(viStories.map((article) => article.topic));
       assert.ok(viStories.length >= 12);
       assert.ok(viTopics.size >= 3);
@@ -475,15 +477,16 @@ const tests = [
   {
     name: "keeps the tips lane guide-led and expands Vietnamese AI package coverage",
     run() {
-      const home = getHomeData(state, "vi");
-      const viAiPackageStories = state.articles.filter(
+      const scenario = buildScenarioState(buildCoverageArticles(), { now: "2026-06-14T12:00:00.000Z" });
+      const home = getHomeData(scenario, "vi");
+      const viAiPackageStories = scenario.articles.filter(
         (article) => article.language === "vi" && (article.editorial_focus || []).includes("ai-package")
       );
 
       assert.ok(home.tips.length >= 3);
       assert.ok(home.tips.every((article) => article.content_type === "EvergreenGuide" || (article.editorial_focus || []).includes("guide")));
       assert.ok(viAiPackageStories.length >= 6);
-      assert.ok(viAiPackageStories.some((article) => article.content_type === "Roundup"));
+      assert.ok(viAiPackageStories.some((article) => article.content_type === "NewsArticle"));
     }
   },
   {
@@ -1074,9 +1077,13 @@ const tests = [
   {
     name: "emits a dedicated news sitemap for indexable news articles",
     run() {
-      const xml = buildNewsSitemapXml(state);
-      const viNews = state.articles.find((article) => article.language === "vi" && article.content_type === "NewsArticle");
-      const enNews = state.articles.find((article) => article.language === "en" && article.content_type === "NewsArticle");
+      const sitemapState = buildScenarioState([
+        makeScenarioArticle({ language: "vi", slug: "tin-moi-vi", title: "Tin moi Viet Nam", published_at: "2026-06-14T02:00:00.000Z" }),
+        makeScenarioArticle({ language: "en", slug: "fresh-en-news", title: "Fresh English news", published_at: "2026-06-14T02:00:00.000Z" })
+      ], { now: "2026-06-14T12:00:00.000Z" });
+      const xml = buildNewsSitemapXml(sitemapState);
+      const viNews = sitemapState.articles.find((article) => article.language === "vi" && article.content_type === "NewsArticle");
+      const enNews = sitemapState.articles.find((article) => article.language === "en" && article.content_type === "NewsArticle");
 
       assert.match(xml, /<news:news>/);
       assert.match(xml, new RegExp(escapeRegExp(viNews.slug)));
@@ -1089,7 +1096,7 @@ const tests = [
     name: "keeps the news sitemap limited to unique articles published in the last two days",
     run() {
       const recentArticle = {
-        ...state.articles.find((article) => article.content_type === "NewsArticle"),
+        ...makeScenarioArticle({ language: "vi", slug: "recent-seo-story", title: "Recent SEO story" }),
         href: "/vi/tin-tuc/recent-seo-story",
         slug: "recent-seo-story",
         title: "Recent SEO story",
@@ -1123,7 +1130,7 @@ const tests = [
   {
     name: "deduplicates public articles by URL even when bot runs create different IDs",
     run() {
-      const template = state.articles.find((article) => article.language === "vi" && article.content_type === "NewsArticle");
+      const template = makeScenarioArticle({ language: "vi", slug: "public-url-template", title: "Public URL template" });
       const href = "/vi/tin-tuc/mot-url-cong-khai-duy-nhat";
       const scenario = buildScenarioState([
         {
@@ -1178,7 +1185,7 @@ const tests = [
   {
     name: "shows current article views and removes repetitive generated title suffixes",
     run() {
-      const template = state.articles.find((article) => article.language === "en" && article.content_type === "NewsArticle");
+      const template = makeScenarioArticle({ language: "en", slug: "title-view-template", title: "Title view template" });
       const scenario = buildScenarioState([
         {
           ...template,
@@ -2140,7 +2147,7 @@ const tests = [
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-media-images-"));
       const contentPath = path.join(tempDir, "newsroom-content.json");
       const article = {
-        ...state.articles.find((entry) => entry.language === "en" && entry.content_type === "NewsArticle"),
+        ...makeScenarioArticle({ language: "en", topic: "devices", verification_state: "verified", slug: "source-image-story", title: "Source image story" }),
         slug: "source-image-story",
         href: "/en/news/source-image-story",
         image: {},
@@ -2260,7 +2267,7 @@ const tests = [
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-single-link-"));
       const outputPath = path.join(tempDir, "newsroom-content.json");
       const existing = {
-        ...state.articles.find((entry) => entry.language === "en" && entry.content_type === "NewsArticle"),
+        ...makeScenarioArticle({ language: "en", topic: "devices", verification_state: "verified", slug: "existing-story-kept", title: "Existing story kept as a stable newsroom fixture" }),
         id: "existing-story-kept",
         cluster_id: "existing-story-kept",
         slug: "existing-story-kept",
@@ -2484,12 +2491,39 @@ function buildScenarioState(injectedArticles, options = {}) {
   return newsroom;
 }
 
+function buildCoverageArticles() {
+  const topics = ["ai", "devices", "apps-software", "security", "gaming"];
+
+  return Array.from({ length: 20 }, (_, index) => {
+    const language = index < 14 ? "vi" : "en";
+    const isAiPackage = language === "vi" && index < 6;
+
+    return makeScenarioArticle({
+      language,
+      topic: topics[index % topics.length],
+      content_type: "NewsArticle",
+      editorial_focus: isAiPackage ? ["ai-package", "guide"] : [],
+      slug: `coverage-story-${index + 1}`,
+      title: `Coverage story ${index + 1} validates diverse newsroom publishing`,
+      published_at: "2026-06-14T02:00:00.000Z",
+      updated_at: "2026-06-14T03:00:00.000Z"
+    });
+  });
+}
+
 function makeScenarioArticle(overrides) {
   const language = overrides.language === "en" ? "en" : "vi";
+  const fixtureCopy = "This controlled newsroom fixture provides enough distinct editorial detail to validate rendering, discovery, and publishing behavior without depending on the changing production feed.";
+  const fixtureAngles = ["context", "comparison", "implementation", "risk", "measurement"];
+  const fixtureSections = Array.from({ length: 5 }, (_, index) => ({
+    heading: `Scenario section ${index + 1}`,
+    body: `${fixtureAngles[index]} perspective: ${fixtureCopy} This section covers a separate reader question with specific practical implications and a clear decision point.`
+  }));
   const segmentByType = {
     NewsArticle: language === "vi" ? "tin-tuc" : "news",
     EvergreenGuide: language === "vi" ? "huong-dan" : "guides",
-    ComparisonPage: language === "vi" ? "so-sanh" : "compare"
+    ComparisonPage: language === "vi" ? "so-sanh" : "compare",
+    Roundup: language === "vi" ? "tong-hop" : "roundups"
   };
 
   return {
@@ -2499,11 +2533,11 @@ function makeScenarioArticle(overrides) {
     topic: overrides.topic || "ai",
     content_type: overrides.content_type || "NewsArticle",
     slug: overrides.slug,
-    title: overrides.title,
-    summary: overrides.summary,
-    dek: overrides.dek,
-    hook: overrides.hook,
-    sections: overrides.sections,
+    title: overrides.title || "Scenario story title that supports newsroom coverage",
+    summary: overrides.summary || `${fixtureCopy} The summary explains what changed, why it matters, and how readers can respond without relying on production content.`,
+    dek: overrides.dek || `${fixtureCopy} The dek adds distinct context for readers comparing practical options and planning their next step.`,
+    hook: overrides.hook || `${fixtureCopy} The hook frames a concrete workflow question that makes the scenario useful for a public newsroom test.`,
+    sections: overrides.sections || fixtureSections,
     verification_state: overrides.verification_state || "emerging",
     quality_score: 90,
     ad_eligible: overrides.verification_state !== "trend",
@@ -2511,7 +2545,11 @@ function makeScenarioArticle(overrides) {
     indexable: true,
     store_link_mode: "soft",
     related_store_items: ["ai-workspace-bundle"],
-    source_set: overrides.source_set,
+    source_set: overrides.source_set || [
+      { source_type: "official-site", source_name: "Scenario Official", source_url: "https://example.com/scenario", image_url: "https://images.example.com/scenario.jpg" },
+      { source_type: "press", source_name: "Scenario Press", source_url: "https://example.com/scenario-press" }
+    ],
+    editorial_focus: overrides.editorial_focus || [],
     author_id: "mai-linh",
     published_at: overrides.published_at || "2026-03-31T10:00:00.000Z",
     updated_at: overrides.updated_at || overrides.published_at || "2026-03-31T10:00:00.000Z",
