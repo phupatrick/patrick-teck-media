@@ -3,7 +3,12 @@ import { mkdtemp, rm } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
-import { evaluateArticleAutopublishReadiness, isArticleAutopublishReady } from "../src/newsroom-quality.mjs";
+import {
+  evaluateArticleAutopublishReadiness,
+  evaluateVerifiedOfficialSourceFallbackReadiness,
+  isArticleAutopublishReady,
+  isVerifiedOfficialSourceFallbackReady
+} from "../src/newsroom-quality.mjs";
 
 const readyArticle = buildReadyArticle();
 
@@ -41,6 +46,27 @@ const flatNarrativeArticle = {
 };
 assert.equal(isArticleAutopublishReady(flatNarrativeArticle), false, "articles without a reader-oriented narrative flow should not publish");
 assert.ok(evaluateArticleAutopublishReadiness(flatNarrativeArticle).missing.includes("narrativeFlow"));
+
+const verifiedOfficialFallbackArticle = {
+  ...flatNarrativeArticle,
+  source_set: [readyArticle.source_set[0]]
+};
+assert.equal(isArticleAutopublishReady(verifiedOfficialFallbackArticle), false, "official source fallback should only run after strict checks hold an article");
+assert.equal(isVerifiedOfficialSourceFallbackReady(verifiedOfficialFallbackArticle), true, "verified official reporting that passes baseline quality should remain publishable");
+
+const unverifiedOfficialFallbackArticle = {
+  ...verifiedOfficialFallbackArticle,
+  verification_state: "trend"
+};
+assert.equal(isVerifiedOfficialSourceFallbackReady(unverifiedOfficialFallbackArticle), false, "unverified official drafts must remain held");
+assert.ok(evaluateVerifiedOfficialSourceFallbackReadiness(unverifiedOfficialFallbackArticle).missing.includes("verified"));
+
+const pressOnlyFallbackArticle = {
+  ...verifiedOfficialFallbackArticle,
+  source_set: [readyArticle.source_set[1]]
+};
+assert.equal(isVerifiedOfficialSourceFallbackReady(pressOnlyFallbackArticle), false, "single press-source drafts must not use the fallback");
+assert.ok(evaluateVerifiedOfficialSourceFallbackReadiness(pressOnlyFallbackArticle).missing.includes("officialSource"));
 
 const thinArticle = {
   ...readyArticle,
