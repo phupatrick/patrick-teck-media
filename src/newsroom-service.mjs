@@ -385,8 +385,10 @@ export function getHomeData(state, language) {
   const leadStories = prioritizeFrontPageStories(prioritized.filter(
     (article) => article.content_type === "NewsArticle" && article.verification_state !== "trend"
   ));
-  const packageLeadStories = packageCandidates.filter((article) => article.content_type !== "EvergreenGuide");
-  const sameDayLeadStories = leadStories.filter((article) => isStoryPublishedOnAnchorDay(article, state.runtime.generatedAt));
+  const newestLeadStories = [...leadStories].sort(sortArticlesByDateDesc);
+  const coreLeadStories = newestLeadStories.filter((article) => article.topic !== "gaming");
+  const preferredLeadStories = coreLeadStories.length ? coreLeadStories : newestLeadStories;
+  const sameDayLeadStories = newestLeadStories.filter((article) => isStoryPublishedOnAnchorDay(article, state.runtime.generatedAt));
   const sameDayVerifiedStories = verifiedStories.filter((article) => isStoryPublishedOnAnchorDay(article, state.runtime.generatedAt));
   const sameDayReadyStories = prioritizeFrontPageStories(
     readyPrioritized.filter((article) => isStoryPublishedOnAnchorDay(article, state.runtime.generatedAt))
@@ -401,11 +403,9 @@ export function getHomeData(state, language) {
     sameDayLeadStories.find((article) => isFrontPageReady(article)) ||
     sameDayLeadStories.find((article) => article.hero_image?.kind === "source") ||
     sameDayVerifiedStories.find((article) => isFrontPageReady(article)) ||
-    packageLeadStories.find((article) => article.hero_image?.kind === "source") ||
-    leadStories.find((article) => article.topic === "ai" && article.hero_image?.kind === "source") ||
-    leadStories.find((article) => article.hero_image?.kind === "source") ||
-    packageLeadStories[0] ||
-    leadStories[0] ||
+    preferredLeadStories.find((article) => isFrontPageReady(article)) ||
+    preferredLeadStories.find((article) => article.hero_image?.kind === "source") ||
+    preferredLeadStories[0] ||
     verifiedStories.find((article) => article.hero_image?.kind === "source") ||
     verifiedStories[0] ||
     prioritized[0] ||
@@ -3089,7 +3089,7 @@ function sortByDateDesc(left, right) {
 }
 
 function sortArticlesByDateDesc(left, right) {
-  return new Date(right.published_at || right.updated_at || 0).getTime() - new Date(left.published_at || left.updated_at || 0).getTime();
+  return new Date(right.updated_at || right.published_at || 0).getTime() - new Date(left.updated_at || left.published_at || 0).getTime();
 }
 
 function normalizeSiteUrl(siteUrl) {
