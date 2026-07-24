@@ -5,9 +5,9 @@ import path from "node:path";
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
 import {
   evaluateArticleAutopublishReadiness,
-  evaluateVerifiedOfficialSourceFallbackReadiness,
+  evaluateTrustedSourceFallbackReadiness,
   isArticleAutopublishReady,
-  isVerifiedOfficialSourceFallbackReady
+  isTrustedSourceFallbackReady
 } from "../src/newsroom-quality.mjs";
 
 const readyArticle = buildReadyArticle();
@@ -49,24 +49,31 @@ assert.ok(evaluateArticleAutopublishReadiness(flatNarrativeArticle).missing.incl
 
 const verifiedOfficialFallbackArticle = {
   ...flatNarrativeArticle,
-  source_set: [readyArticle.source_set[0]]
+  source_set: [readyArticle.source_set[0]],
+  quality_score: 92
 };
 assert.equal(isArticleAutopublishReady(verifiedOfficialFallbackArticle), false, "official source fallback should only run after strict checks hold an article");
-assert.equal(isVerifiedOfficialSourceFallbackReady(verifiedOfficialFallbackArticle), true, "verified official reporting that passes baseline quality should remain publishable");
+assert.equal(isTrustedSourceFallbackReady(verifiedOfficialFallbackArticle), true, "high-quality official reporting that passes baseline quality should remain publishable");
 
-const unverifiedOfficialFallbackArticle = {
+const lowQualityOfficialFallbackArticle = {
   ...verifiedOfficialFallbackArticle,
-  verification_state: "trend"
+  quality_score: 80
 };
-assert.equal(isVerifiedOfficialSourceFallbackReady(unverifiedOfficialFallbackArticle), false, "unverified official drafts must remain held");
-assert.ok(evaluateVerifiedOfficialSourceFallbackReadiness(unverifiedOfficialFallbackArticle).missing.includes("verified"));
+assert.equal(isTrustedSourceFallbackReady(lowQualityOfficialFallbackArticle), false, "low-quality official drafts must remain held");
+assert.ok(evaluateTrustedSourceFallbackReadiness(lowQualityOfficialFallbackArticle).missing.includes("sourceQuality"));
 
 const pressOnlyFallbackArticle = {
   ...verifiedOfficialFallbackArticle,
   source_set: [readyArticle.source_set[1]]
 };
-assert.equal(isVerifiedOfficialSourceFallbackReady(pressOnlyFallbackArticle), false, "single press-source drafts must not use the fallback");
-assert.ok(evaluateVerifiedOfficialSourceFallbackReadiness(pressOnlyFallbackArticle).missing.includes("officialSource"));
+assert.equal(isTrustedSourceFallbackReady(pressOnlyFallbackArticle), false, "unclassified press drafts must not use the fallback");
+assert.ok(evaluateTrustedSourceFallbackReadiness(pressOnlyFallbackArticle).missing.includes("trustedSource"));
+
+const establishedPressFallbackArticle = {
+  ...verifiedOfficialFallbackArticle,
+  source_set: [{ ...readyArticle.source_set[1], trust_tier: "established-media" }]
+};
+assert.equal(isTrustedSourceFallbackReady(establishedPressFallbackArticle), true, "high-quality reporting from an established publication should remain publishable");
 
 const thinArticle = {
   ...readyArticle,
