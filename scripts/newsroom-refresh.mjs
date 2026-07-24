@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
-import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
+import { aggregateIncomingDrafts } from "../src/newsroom-synthesis.mjs";
 import { buildNewsroomState } from "../src/newsroom-service.mjs";
 import {
   evaluateArticleAutopublishReadiness,
@@ -1253,9 +1253,40 @@ async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
     }
   }
 
-  const aggregated = aggregateIncomingDrafts(allArticles, timestamp);
-  const companions = buildEditorialCompanionArticles(aggregated, timestamp);
-  return [...aggregated, ...companions];
+  // Preserve source provenance for automatic publication. Aggregated and
+  // companion drafts remain useful editorial inputs, but their synthesized
+  // source records cannot prove the trust tier of a particular report.
+  return selectCuratedSourceDrafts(allArticles, env);
+}
+
+function selectCuratedSourceDrafts(articles, env = process.env) {
+  const limit = clampInteger(env?.NEWSROOM_AUTOPUBLISH_LIMIT, 1, 12, 6);
+  const seenLinks = new Set();
+
+  return articles
+    .filter((article) => {
+      const source = Array.isArray(article?.source_set) ? article.source_set[0] : null;
+      const sourceType = String(source?.source_type || "").trim();
+      const trustTier = String(source?.trust_tier || "").trim();
+      const trusted = sourceType === "official-site" || (sourceType === "press" && trustTier === "established-media");
+      return trusted && Number(article?.quality_score || 0) >= 88;
+    })
+    .sort((left, right) => {
+      const dateDifference = Date.parse(right?.published_at || 0) - Date.parse(left?.published_at || 0);
+      if (Number.isFinite(dateDifference) && dateDifference !== 0) {
+        return dateDifference;
+      }
+      return Number(right?.quality_score || 0) - Number(left?.quality_score || 0);
+    })
+    .filter((article) => {
+      const link = String(article?.source_set?.[0]?.source_url || article?.href || article?.slug || "").trim();
+      if (!link || seenLinks.has(link)) {
+        return false;
+      }
+      seenLinks.add(link);
+      return true;
+    })
+    .slice(0, limit);
 }
 
 function parseFeedItems(xml) {
