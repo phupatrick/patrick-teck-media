@@ -38,6 +38,8 @@ const NON_TECH_PATTERNS = [
   /\b(auto show|roadshow|powertrain|suv|hybrid variant|combustion|kia seltos|kia ev3|sedan|crossover)\b/i
 ];
 
+const DEFAULT_FETCH_TIMEOUT_MS = 12_000;
+
 const SOURCE_TOPIC_HINTS = [
   {
     topic: "gaming",
@@ -850,7 +852,7 @@ const SOURCE_TOPIC_HINTS = [
 
   if (!incomingArticles.length && sourceUrl) {
     try {
-      const response = await fetch(sourceUrl, { headers });
+      const response = await fetchWithTimeout(sourceUrl, { headers }, env);
 
       if (!response.ok) {
         throw new Error(`Failed to fetch newsroom source (${response.status} ${response.statusText})`);
@@ -1189,12 +1191,12 @@ async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
 
   for (const feed of feeds) {
     try {
-      const response = await fetch(feed.url, {
+      const response = await fetchWithTimeout(feed.url, {
         headers: {
           Accept: "application/rss+xml, application/xml, text/xml",
           "User-Agent": "patrick-tech-media-refresh/1.0"
         }
-      });
+      }, env);
 
       if (!response.ok) {
         throw new Error(`Feed ${feed.name} returned ${response.status}`);
@@ -1537,9 +1539,21 @@ function titleCaseHost(host) {
     .join(" ");
 }
 
+async function fetchWithTimeout(url, options = {}, env = process.env) {
+  const controller = new AbortController();
+  const timeoutMs = clampInteger(env?.NEWSROOM_FETCH_TIMEOUT_MS, 2_000, 30_000, DEFAULT_FETCH_TIMEOUT_MS);
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function fetchSourceSnapshot(url) {
   try {
-    const response = await fetch(url, {
+    const response = await fetchWithTimeout(url, {
       headers: {
         Accept: "text/html,application/xhtml+xml",
         "User-Agent": "patrick-tech-media-refresh/1.0"

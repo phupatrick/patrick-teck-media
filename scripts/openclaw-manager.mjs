@@ -22,6 +22,7 @@ const config = {
     envFromFile.OPENCLAW_NEWSROOM_FILE ||
     "data/openclaw-hidden-feed.json",
   managerName: process.env.OPENCLAW_MANAGER_NAME || envFromFile.OPENCLAW_MANAGER_NAME || "OpenClaw",
+  childTimeoutMs: clampInteger(process.env.OPENCLAW_CHILD_TIMEOUT_MS || envFromFile.OPENCLAW_CHILD_TIMEOUT_MS, 60_000, 900_000, 600_000),
   adminEmails: (process.env.ADMIN_GOOGLE_EMAILS || envFromFile.ADMIN_GOOGLE_EMAILS || "")
     .split(",")
     .map((value) => value.trim())
@@ -120,7 +121,8 @@ function ensureHiddenFeedSource() {
       OPENCLAW_NEWSROOM_FILE: hiddenFeedPath,
       NEWSROOM_PULL_FILE: hiddenFeedPath
     },
-    encoding: "utf8"
+    encoding: "utf8",
+    timeout: config.childTimeoutMs
   });
 
   if (result.stdout) {
@@ -157,7 +159,8 @@ function runRefreshCycle(refreshSource = null) {
       ...(refreshSource?.token ? { NEWSROOM_PULL_TOKEN: refreshSource.token } : {}),
       ...(refreshSource?.file ? { NEWSROOM_PULL_FILE: refreshSource.file } : {})
     },
-    encoding: "utf8"
+    encoding: "utf8",
+    timeout: config.childTimeoutMs
   });
 
   if (result.stdout) {
@@ -371,4 +374,14 @@ function loadEnvFile(filePath) {
   } catch {
     return {};
   }
+}
+
+function clampInteger(value, min, max, fallback) {
+  const parsed = Number.parseInt(String(value || ""), 10);
+
+  if (!Number.isFinite(parsed)) {
+    return fallback;
+  }
+
+  return Math.min(max, Math.max(min, parsed));
 }
