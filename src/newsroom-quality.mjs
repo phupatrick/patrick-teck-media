@@ -117,19 +117,22 @@ export function isArticleAutopublishReady(article) {
   return evaluateArticleAutopublishReadiness(article).ready;
 }
 
-// Official announcements can be timely and well sourced while still using the
-// publisher's own section structure. Keep the baseline editorial safeguards,
-// but do not discard those reports solely for the stricter house-style checks.
-export function evaluateVerifiedOfficialSourceFallbackReadiness(article) {
+// Official announcements and established technology reporting can be timely
+// and well sourced while still using the publisher's own section structure.
+// Keep the baseline editorial safeguards, but do not discard those reports
+// solely for the stricter house-style checks.
+export function evaluateTrustedSourceFallbackReadiness(article) {
   const base = evaluateArticleReadiness(article);
   const sourceSet = Array.isArray(article?.source_set) ? article.source_set : [];
-  const hasOfficialSource = sourceSet.some(
-    (source) => String(source?.source_type || "").trim() === "official-site"
-  );
+  const hasTrustedSource = sourceSet.some((source) => {
+    const type = String(source?.source_type || "").trim();
+    const trustTier = String(source?.trust_tier || "").trim();
+    return type === "official-site" || (type === "press" && trustTier === "established-media");
+  });
   const checks = {
     ...base.checks,
-    verified: String(article?.verification_state || "").trim() === "verified",
-    officialSource: hasOfficialSource
+    trustedSource: hasTrustedSource,
+    sourceQuality: Number(article?.quality_score || 0) >= 88
   };
   const missing = Object.entries(checks)
     .filter(([, passed]) => !passed)
@@ -142,8 +145,8 @@ export function evaluateVerifiedOfficialSourceFallbackReadiness(article) {
   };
 }
 
-export function isVerifiedOfficialSourceFallbackReady(article) {
-  return evaluateVerifiedOfficialSourceFallbackReadiness(article).ready;
+export function isTrustedSourceFallbackReady(article) {
+  return evaluateTrustedSourceFallbackReadiness(article).ready;
 }
 
 export function normalizeText(value) {

@@ -10,8 +10,8 @@ import {
   evaluateArticleReadiness,
   isArticleAutopublishReady,
   isArticlePublishReady,
-  isVerifiedOfficialSourceFallbackReady,
-  evaluateVerifiedOfficialSourceFallbackReadiness
+  isTrustedSourceFallbackReady,
+  evaluateTrustedSourceFallbackReadiness
 } from "../src/newsroom-quality.mjs";
 
 // These patterns are referenced by helper functions outside `runNewsroomRefresh`.
@@ -943,12 +943,12 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
     }
 
     if (strictQualityGate) {
-      const verifiedOfficialArticles = filterVerifiedOfficialSourceFallbackArticles(
+      const trustedSourceArticles = filterTrustedSourceFallbackArticles(
         state.articles.map(stripRuntimeArticleFields),
         "normalized"
       );
-      if (verifiedOfficialArticles.length > 0) {
-        return verifiedOfficialArticles;
+      if (trustedSourceArticles.length > 0) {
+        return trustedSourceArticles;
       }
     }
   }
@@ -977,19 +977,19 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
   );
 }
 
-function filterVerifiedOfficialSourceFallbackArticles(articles, stage) {
+function filterTrustedSourceFallbackArticles(articles, stage) {
   const ready = [];
 
   for (const article of articles) {
-    if (isVerifiedOfficialSourceFallbackReady(article)) {
+    if (isTrustedSourceFallbackReady(article)) {
       ready.push(article);
       continue;
     }
 
-    const readiness = evaluateVerifiedOfficialSourceFallbackReadiness(article);
+    const readiness = evaluateTrustedSourceFallbackReadiness(article);
     const label = cleanText(article?.title || article?.slug || "untitled").slice(0, 120);
     console.warn(
-      `Holding ${stage} article "${label}" because it failed verified official-source fallback: ${readiness.missing.join(", ")}`
+      `Holding ${stage} article "${label}" because it failed trusted-source fallback: ${readiness.missing.join(", ")}`
     );
   }
 
