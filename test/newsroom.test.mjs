@@ -2027,6 +2027,9 @@ const tests = [
       assert.ok(output.articles[0].sections.length >= 4);
       assert.equal(output.articles[0].readiness.ready, true);
       assert.equal(output.articles[0].canonicalUrl, undefined);
+      assert.ok(output.articles[0].sections.some((section) => /bối cảnh/i.test(section.heading)));
+      assert.ok(output.articles[0].sections.some((section) => /tác động/i.test(section.heading)));
+      assert.ok(output.articles[0].sections.some((section) => /theo dõi/i.test(section.heading)));
     }
   },
   {
@@ -2085,7 +2088,7 @@ const tests = [
 
       assert.ok(article.sections.length >= 5);
       assert.ok(totalDepth >= 1500);
-      assert.match(articleHtml, /Dieu moi|Vi sao dang doc|Dieu can theo doi/);
+      assert.match(articleHtml, /Bối cảnh: vấn đề cần giải quyết|Tác động và cách đánh giá|Điều cần theo dõi/);
       assert.match(articleHtml, /source-compact/);
       assert.ok((articleHtml.match(/class="article-section"/g) || []).length >= 5);
       assert.doesNotMatch(articleHtml, /feedback-section|store-panel|store-promo-slot/);

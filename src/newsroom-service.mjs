@@ -2249,7 +2249,68 @@ function buildEditorialSections({ language, topic, verificationState, contentTyp
     }
   }
 
-  return merged;
+  return repairEditorialStructure(merged, context);
+}
+
+function repairEditorialStructure(sections, context) {
+  const headings = getNarrativeHeadings(context.language, context.contentType);
+  const sentenceCounts = new Map();
+
+  for (const value of [context.summary, context.dek, context.hook]) {
+    for (const sentence of splitEditorialSentences(value)) {
+      const signature = makeEditorialSignature(sentence);
+      if (signature) {
+        sentenceCounts.set(signature, (sentenceCounts.get(signature) || 0) + 1);
+      }
+    }
+  }
+
+  return sections.map((section, index) => {
+    const keptSentences = [];
+
+    for (const sentence of splitEditorialSentences(section.body)) {
+      const signature = makeEditorialSignature(sentence);
+      const count = sentenceCounts.get(signature) || 0;
+
+      // The quality gate permits a claim to be introduced and reinforced once.
+      // Drop later copies so generated support text cannot crowd out the article.
+      if (signature && count >= 2) {
+        continue;
+      }
+
+      if (signature) {
+        sentenceCounts.set(signature, count + 1);
+      }
+      keptSentences.push(sentence);
+    }
+
+    return {
+      ...section,
+      heading: headings[index] || section.heading,
+      body: keptSentences.join(" ").trim() || section.body
+    };
+  });
+}
+
+function getNarrativeHeadings(language, contentType) {
+  const isComparison = contentType === "ComparisonPage";
+
+  if (language === "en") {
+    return isComparison
+      ? ["Context: what changed", "Why it matters", "Who is affected", "Trade-offs to weigh", "How to choose", "What to watch"]
+      : ["Context: the problem", "Why it matters", "Who it suits", "Trade-offs to weigh", "A practical checklist", "What to watch"];
+  }
+
+  return isComparison
+    ? ["Bối cảnh: điều gì đã thay đổi", "Tác động và lý do quan trọng", "Ai bị ảnh hưởng", "Đánh đổi cần cân nhắc", "Cách lựa chọn", "Điều cần theo dõi"]
+    : ["Bối cảnh: vấn đề cần giải quyết", "Tác động và cách đánh giá", "Ai phù hợp", "Đánh đổi cần cân nhắc", "Checklist thực hành", "Điều cần theo dõi"];
+}
+
+function splitEditorialSentences(value) {
+  const normalized = safeEditorialTrim(value);
+  return (normalized.match(/[^.?!]+[.?!]?/g) || [normalized])
+    .map((sentence) => finalizeEditorialSentence(sentence))
+    .filter(Boolean);
 }
 
 function normalizeEditorialSection(section, index, context) {
