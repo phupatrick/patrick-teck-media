@@ -12,6 +12,8 @@ export function renderHomePage(state, language, adsConfig) {
   const heroEyebrow = copy.eyebrow || fallbackCopy.eyebrow || "";
   const heroTitle = copy.heroTitle || fallbackCopy.heroTitle || "";
   const heroText = copy.heroText || fallbackCopy.heroText || "";
+  const founderName = copy.founderName || fallbackCopy.founderName || "";
+  const founderRole = copy.founderRole || fallbackCopy.founderRole || "";
   const path = `/${language}/`;
   const {
     leadFeature,
@@ -47,6 +49,16 @@ export function renderHomePage(state, language, adsConfig) {
           </div>
         </div>
         <aside class="masthead-brief">
+          <div class="masthead-founder">
+            <picture>
+              <source srcset="/founder-thumb.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" media="(max-width: 760px)" />
+              <img src="/founder.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" alt="${escapeHtml(founderName || "Founder")}" loading="lazy" decoding="async" width="68" height="68" />
+            </picture>
+            <div>
+              <strong>${escapeHtml(founderName)}</strong>
+              <span>${escapeHtml(founderRole)}</span>
+            </div>
+          </div>
           <p class="eyebrow">${copy.updateLabel}</p>
           <h2>${copy.updateTitle}</h2>
           <div class="masthead-brief-list">
