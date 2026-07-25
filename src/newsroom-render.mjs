@@ -1065,7 +1065,7 @@ export function renderNotFoundPage(state, language, adsConfig) {
 }
 
 function renderCategoryMenu(nav, language) {
-  const label = language === "vi" ? "Th? lo?i" : "Categories";
+  const label = language === "vi" ? "Danh m?c" : "Categories";
   return `
         <nav class="nav-strip nav-strip-menu" aria-label="Primary">
           <details class="category-menu">
@@ -1161,9 +1161,7 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
         <a class="brand-lockup" href="${homePath}" aria-label="${escapeHtml(state.site.name)}">
           <img class="brand-mark" src="${logoPath}" alt="${escapeHtml(state.site.name)}" />
         </a>
-        <nav class="nav-strip" aria-label="Primary">
-          ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
-        </nav>
+        ${renderCategoryMenu(nav, language)}
         <div class="topbar-actions">
           <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Viết bài" : "Write"}</a>
           <a class="lang-pill" href="/${language}/login">${language === "vi" ? "Đăng nhập" : "Login"}</a>
@@ -1991,8 +1989,8 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, prom
       <p class="ad-label">${promoLabel}</p>
       <a class="ad-slot placeholder-slot store-promo-slot" href="${promoHref}">
         <span class="store-promo-kicker">Patrick Tech Store</span>
-        <strong>${language === "vi" ? "M? nhanh c?c g?i AI, tool v? ph?n m?m ?ang l?n ?u ??i" : "Open the AI plans, tools, and software currently getting the push"}</strong>
-        <span>${language === "vi" ? "V?o th?ng store ?? xem nh?ng g?i Patrick Tech ?ang ??y m?nh l?c n?y." : "Jump straight into the store to see what Patrick Tech is pushing right now."}</span>
+        <strong>${language === "vi" ? "M? nhanh c?c g?i AI, ph?n m?m v? t?i kho?n s? ?ang c? ?u ??i" : "Open the AI plans, tools, and software currently getting the push"}</strong>
+        <span>${language === "vi" ? "V?o th?ng store ?? xem nh?ng g?i Patrick Tech ?ang ?u ti?n gi?i thi?u l?c n?y." : "Jump straight into the store to see what Patrick Tech is pushing right now."}</span>
       </a>
     </section>
   `;
