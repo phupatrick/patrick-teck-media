@@ -60,7 +60,7 @@ export function buildOpenClawLearningProfile({ articles = [], platformState = {}
   const actionableFeedback = feedback.filter(isActionableFeedback);
   const topicWeights = buildWeightMap(learningSignals, "topic", previousProfile.topicWeights);
   const sourceTypeWeights = buildWeightMap(learningSignals, "sourceType", previousProfile.sourceTypeWeights);
-  const totalSignals = learningSignals.reduce((sum, signal) => sum + (signal.learningSignalCount || 0), 0) + actionableFeedback.length;
+  const totalSignals = articleSignals.reduce((sum, signal) => sum + (signal.learningSignalCount || 0), 0) + actionableFeedback.length;
   const confidence = Math.min(0.95, Math.round((1 - Math.exp(-totalSignals / 26)) * 100) / 100);
   const dailyFocus = rankKeys(topicWeights).slice(0, 5);
   const topViewedArticles = buildTopViewedArticles(articleSignals);

@@ -718,7 +718,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
             ${publicSections
               .map(
                 (section) => `
-                  <section class="article-section${article.content_type === "NewsArticle" ? " is-news-article" : ""}">
+                  <section class="article-section" data-content-type="${escapeHtml(article.content_type)}">
                     <h2 class="article-section-heading">${escapeHtml(section.heading)}</h2>
                     <p>${escapeHtml(section.body)}</p>
                   </section>

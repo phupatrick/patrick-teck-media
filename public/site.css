@@ -2499,11 +2499,11 @@ h3 {
   font-size: 1rem;
 }
 
-.article-section.is-news-article .article-section-heading {
+.article-section[data-content-type="NewsArticle"] .article-section-heading {
   display: none;
 }
 
-.article-section.is-news-article {
+.article-section[data-content-type="NewsArticle"] {
   border-top: 0;
   padding-top: 0;
 }
