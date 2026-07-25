@@ -36,7 +36,7 @@ export function renderHomePage(state, language, adsConfig) {
     title: copy.homeTitle,
     description: state.site.description[language],
     content: `
-      <section class="frontpage-masthead">
+      <section class="frontpage-masthead" data-signal-shell>
         <div class="frontpage-masthead-copy">
           <p class="eyebrow">${escapeHtml(heroEyebrow)}</p>
           <h1>${escapeHtml(heroTitle)}</h1>
@@ -47,7 +47,7 @@ export function renderHomePage(state, language, adsConfig) {
             <span>${copy.badgeBilingual}</span>
           </div>
         </div>
-        <aside class="masthead-brief">
+        <aside class="masthead-brief" data-signal-shell>
           <div class="masthead-founder">
             <picture>
               <source srcset="/founder-thumb.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" media="(max-width: 760px)" />
@@ -72,7 +72,7 @@ export function renderHomePage(state, language, adsConfig) {
           <div class="lead-mini-grid">
             ${leadSideStories.map((article) => renderLeadMini(article, language)).join("")}
           </div>
-          <article class="rail-card hot-card">
+          <article class="rail-card hot-card" data-signal-shell>
             <div class="headline-list">
               ${heroWatchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
             </div>
@@ -92,8 +92,8 @@ export function renderHomePage(state, language, adsConfig) {
         excerptLength: 88
       })}
 
-      <section class="headline-ribbon" id="latest">
-        <div class="headline-ribbon-track">
+      <section class="headline-ribbon" id="latest" data-ribbon-marquee data-signal-shell>
+        <div class="headline-ribbon-track" data-ribbon-track>
           ${ribbonStories.map((article) => renderRibbonItem(article, language)).join("")}
         </div>
       </section>
@@ -141,7 +141,7 @@ export function renderHomePage(state, language, adsConfig) {
         ${home.topicSections
           .map(
             (topic) => `
-              <article class="topic-column" style="--topic-accent:${topic.accent}">
+              <article class="topic-column" style="--topic-accent:${topic.accent}" data-signal-shell>
                 <div class="topic-title-row">
                   <h3><a href="/${language}/topics/${topic.slug}">${escapeHtml(topic.label)}</a></h3>
                   <a class="mini-link" href="/${language}/topics/${topic.slug}">${copy.moreLabel}</a>
@@ -305,7 +305,7 @@ function renderShowcaseSection({
 
   return `
     <section class="${className}"${id ? ` id="${id}"` : ""}>
-      <article class="guide-showcase-lead topic-${lead.topic}">
+      <article class="guide-showcase-lead topic-${lead.topic}" data-signal-shell>
         ${renderStoryImage(lead, "guide-showcase-media")}
         <div class="guide-showcase-copy">
           <div class="story-meta-line">
@@ -1058,6 +1058,19 @@ export function renderNotFoundPage(state, language, adsConfig) {
   });
 }
 
+function renderCategoryMenu(nav, language) {
+  const label = language === "vi" ? "Th? lo?i" : "Categories";
+  return `
+        <nav class="nav-strip nav-strip-menu" aria-label="Primary">
+          <details class="category-menu">
+            <summary>${label}</summary>
+            <div class="category-menu-panel" role="list">
+              ${nav.map((item) => `<a role="listitem" href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
+            </div>
+          </details>
+        </nav>`;
+}
+
 function renderLayout({ state, language, path, alternateHref, adsConfig, title, description, content, schema = null }) {
   const copy = getRenderCopy(state, language);
   const alternateLanguage = language === "vi" ? "en" : "vi";
@@ -1229,7 +1242,7 @@ function renderStoryCard(article, language) {
   const searchIndex = [article.title, article.hook || "", article.summary, article.topic_label, article.verification_state].join(" ").toLowerCase();
   const displayTitle = getDisplayHeadline(article.title, 82);
   return `
-    <article class="story-card topic-${article.topic}" data-story-card data-status="${article.verification_state}" data-topic="${article.topic}" data-search="${escapeHtml(searchIndex)}">
+    <article class="story-card topic-${article.topic}" data-story-card data-signal-shell data-status="${article.verification_state}" data-topic="${article.topic}" data-search="${escapeHtml(searchIndex)}">
       ${renderStoryImage(article, "story-media")}
       <div class="story-meta-line">
         <span class="pill">${escapeHtml(article.content_type_label)}</span>
@@ -1303,7 +1316,7 @@ function renderLeadFeature(article, language, copy) {
 
   const displayTitle = getDisplayHeadline(article.title, 54);
   return `
-    <article class="lead-feature topic-${article.topic}">
+    <article class="lead-feature topic-${article.topic}" data-signal-shell>
       ${renderStoryImage(article, "lead-feature-media", true)}
       <div class="lead-feature-overlay"></div>
       <div class="lead-feature-copy">
@@ -1327,7 +1340,7 @@ function renderLeadFeature(article, language, copy) {
 function renderLeadMini(article, language) {
   const displayTitle = getDisplayHeadline(article.title, 60);
   return `
-      <article class="lead-mini topic-${article.topic}">
+      <article class="lead-mini topic-${article.topic}" data-signal-shell>
         ${renderStoryImage(article, "lead-mini-media")}
         <div class="lead-mini-copy">
           <div class="stack-topline">

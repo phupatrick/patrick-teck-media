@@ -3059,7 +3059,7 @@ function resolveAuthorId(topic, fallback) {
     return "thao-nguyen";
   }
 
-  if (["devices", "gaming", "internet-business-tech"].includes(normalized)) {
+  if (["devices", "chips-ai-infra", "cloud-enterprise", "gaming", "internet-business-tech"].includes(normalized)) {
     return "quang-huy";
   }
 

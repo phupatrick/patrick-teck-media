@@ -446,7 +446,7 @@ function renderPlatformLayout({ state, language, title, description, path, conte
   <body>
     <div class="backdrop"></div>
     <div class="site-shell">
-      <header class="topbar">
+      <header class="topbar platform-topbar">
         <a class="brand-lockup" href="/${language}/" aria-label="${escapeHtml(state.site.name)}">
           <img class="brand-icon" src="${iconPath}" alt="" aria-hidden="true" />
           <span class="brand-wordmark" aria-hidden="true">
@@ -479,6 +479,19 @@ function renderPlatformLayout({ state, language, title, description, path, conte
     </div>
   </body>
 </html>`;
+}
+
+function renderCategoryMenu(nav, language) {
+  const label = language === "vi" ? "Th? lo?i" : "Categories";
+  return `
+        <nav class="nav-strip nav-strip-menu" aria-label="Primary">
+          <details class="category-menu">
+            <summary>${label}</summary>
+            <div class="category-menu-panel" role="list">
+              ${nav.map((item) => `<a role="listitem" href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
+            </div>
+          </details>
+        </nav>`;
 }
 
 function renderCsrfInput(token) {

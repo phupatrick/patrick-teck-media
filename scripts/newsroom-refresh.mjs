@@ -17,18 +17,18 @@ import {
 // These patterns are referenced by helper functions outside `runNewsroomRefresh`.
 // Keep them at module scope so refresh works in all execution modes (CLI, tests, in-process).
 const TECHNOLOGY_STRONG_PATTERNS = [
-  /\b(artificial intelligence|trí tuệ nhân tạo|llm|model|agentic|chatgpt|openai|gemini|claude|copilot|deepseek|midjourney|notebooklm|grok)\b/i,
+  /\b(artificial intelligence|tr? tu? nh?n t?o|llm|model|agentic|chatgpt|openai|gemini|claude|copilot|deepseek|midjourney|notebooklm|grok)\b/i,
   /\b(meta|facebook|instagram|threads|tiktok|youtube|google|apple|microsoft|amazon|nvidia|tesla|bytedance|shopee|oracle|samsung|intel|amd|qualcomm|anthropic|perplexity|xai)\b/i,
-  /\b(chip|gpu|cpu|npu|ram|memory|ssd|device|devices|smartphone|phone|iphone|android|pixel|macbook|ipad|pc|desktop|tablet|router|fiber|wearable|robot)\b/i,
-  /\b(app|apps|software|windows|macos|linux|browser|chrome|edge|photos|workspace|productivity|cloud|startup|platform|social)\b/i,
-  /\b(hack|security|cyber|malware|phishing|ransomware|vulnerability|zero-day|breach|passkey|password|privacy|bảo mật|tấn công)\b/i,
+  /\b(chip|gpu|cpu|npu|ram|memory|ssd|device|devices|smartphone|phone|iphone|android|pixel|macbook|ipad|pc|desktop|tablet|router|fiber|wearable|robot|semiconductor|datacenter|server|foundry)\b/i,
+  /\b(app|apps|software|windows|macos|linux|browser|chrome|edge|photos|workspace|productivity|cloud|startup|platform|social|serverless|database|devops|saas|kubernetes|enterprise)\b/i,
+  /\b(hack|security|cyber|malware|phishing|ransomware|vulnerability|zero-day|breach|passkey|password|privacy|b?o m?t|t?n c?ng)\b/i,
   /\b(gaming|game|steam|playstation|xbox|nintendo|switch ?2|dlss|rockstar|gta|crimson desert|everness)\b/i,
-  /\b(how to|how-to|guide|tips|mẹo|thủ thuật|hướng dẫn|cách dùng|cách làm|thiết lập)\b/i
+  /\b(how to|how-to|guide|tips|m?o|th? thu?t|h??ng d?n|c?ch d?ng|c?ch l?m|thi?t l?p)\b/i
 ];
 
 const TECHNOLOGY_SUPPORT_PATTERNS = [
-  /\b(update|rollout|launch|beta|feature|subscription|creator|social network|messaging|camera|battery|firmware|broadband|5g|wifi|data center)\b/i,
-  /\b(viettel|vnpt|fpt|telecom|cloudflare|anthropic|hugging face|semiconductor|startup|workspace|google one|copilot|notebooklm|gemini advanced)\b/i
+  /\b(update|rollout|launch|beta|feature|subscription|creator|social network|messaging|camera|battery|firmware|broadband|5g|wifi|data center|cloud|serverless|ads|moderation)\b/i,
+  /\b(viettel|vnpt|fpt|telecom|cloudflare|anthropic|hugging face|semiconductor|startup|workspace|google one|copilot|notebooklm|gemini advanced|aws|azure|gcp|github|youtube|threads)\b/i
 ];
 
 const NON_TECH_PATTERNS = [
@@ -51,12 +51,27 @@ const SOURCE_TOPIC_HINTS = [
   {
     topic: "devices",
     score: 8,
-    pattern: /\b(9to5google|android authority|tom's hardware|anandtech|engadget|macrumors)\b/i
+    pattern: /\b(9to5google|android authority|engadget|macrumors|android central|windows central|techradar|macworld|tinhte|sforum)\b/i
+  },
+  {
+    topic: "chips-ai-infra",
+    score: 14,
+    pattern: /\b(tom's hardware|tomshardware|nvidia|anandtech|semiconductor|qualcomm|intel|amd|datacenter)\b/i
+  },
+  {
+    topic: "cloud-enterprise",
+    score: 14,
+    pattern: /\b(aws|azure|cloudflare|serverless|kubernetes|database|enterprise|workspace admin|devops)\b/i
+  },
+  {
+    topic: "social-creator",
+    score: 14,
+    pattern: /\b(meta|facebook|instagram|threads|youtube|creator|social media today)\b/i
   },
   {
     topic: "internet-business-tech",
     score: 8,
-    pattern: /\b(techcrunch|the verge|social media today|the information|reuters|bloomberg)\b/i
+    pattern: /\b(techcrunch|the verge|the information|reuters|bloomberg|wired|siliconangle)\b/i
   },
   {
     topic: "security",
@@ -66,17 +81,7 @@ const SOURCE_TOPIC_HINTS = [
   {
     topic: "ai",
     score: 12,
-    pattern: /\b(openai|google ai blog|microsoft copilot|workspace updates|anthropic|deepmind)\b/i
-  },
-  {
-    topic: "devices",
-    score: 10,
-    pattern: /\b(9to5mac|apple newsroom|android central|windows central|techradar|macworld|samsung newsroom|vnexpress|thanhnien|tuoitre|vietnamnet|tinhte|sforum)\b/i
-  },
-  {
-    topic: "ai",
-    score: 10,
-    pattern: /\b(hugging face|nvidia blog|aws news blog|aws ml blog|azure blog|cloudflare blog|github blog|jetbrains blog)\b/i
+    pattern: /\b(openai|google ai blog|microsoft copilot|anthropic|deepmind|venturebeat ai|technologyreview)\b/i
   }
 ];
 
@@ -382,7 +387,7 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "press",
     trustTier: "specialist",
-    topicHint: "devices",
+    topicHint: "chips-ai-infra",
     limit: 6
   },
   {
@@ -504,7 +509,7 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "official-site",
     trustTier: "official",
-    topicHint: "security",
+    topicHint: "cloud-enterprise",
     limit: 10
   },
   {
@@ -574,7 +579,7 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "official-site",
     trustTier: "official",
-    topicHint: "internet-business-tech",
+    topicHint: "cloud-enterprise",
     limit: 10
   },
   {
@@ -594,7 +599,7 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "official-site",
     trustTier: "official",
-    topicHint: "ai",
+    topicHint: "cloud-enterprise",
     limit: 10
   },
   {
@@ -784,7 +789,7 @@ const fallbackFeeds = [
     region: "Global",
     sourceType: "official-site",
     trustTier: "official",
-    topicHint: "ai",
+    topicHint: "chips-ai-infra",
     limit: 8
   },
   {
@@ -1395,9 +1400,12 @@ async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
 
 function selectCuratedSourceDrafts(articles, env = process.env) {
   const limit = clampInteger(env?.NEWSROOM_AUTOPUBLISH_LIMIT, 1, 12, 6);
+  const topicFloor = ["security", "internet-business-tech", "devices", "apps-software", "gaming"];
   const seenLinks = new Set();
+  const seenTopics = new Map();
+  const maxPerTopic = Math.max(1, Math.ceil(limit * 0.35));
 
-  return articles
+  const eligible = articles
     .filter((article) => {
       const source = Array.isArray(article?.source_set) ? article.source_set[0] : null;
       const sourceType = String(source?.source_type || "").trim();
@@ -1425,8 +1433,53 @@ function selectCuratedSourceDrafts(articles, env = process.env) {
       }
       seenLinks.add(link);
       return true;
-    })
-    .slice(0, limit);
+    });
+
+  const selected = [];
+  const usedIds = new Set();
+
+  for (const topic of topicFloor) {
+    const match = eligible.find((article) => normalizeTopicHint(article?.topic) === topic && !usedIds.has(article.id || article.slug));
+    if (match && selected.length < limit) {
+      selected.push(match);
+      usedIds.add(match.id || match.slug);
+      seenTopics.set(topic, (seenTopics.get(topic) || 0) + 1);
+    }
+  }
+
+  for (const article of eligible) {
+    if (selected.length >= limit) {
+      break;
+    }
+    const key = article.id || article.slug;
+    if (usedIds.has(key)) {
+      continue;
+    }
+    const topic = normalizeTopicHint(article?.topic) || "ai";
+    const topicCount = seenTopics.get(topic) || 0;
+    if (topicCount >= maxPerTopic) {
+      continue;
+    }
+    selected.push(article);
+    usedIds.add(key);
+    seenTopics.set(topic, topicCount + 1);
+  }
+
+  if (selected.length < limit) {
+    for (const article of eligible) {
+      if (selected.length >= limit) {
+        break;
+      }
+      const key = article.id || article.slug;
+      if (usedIds.has(key)) {
+        continue;
+      }
+      selected.push(article);
+      usedIds.add(key);
+    }
+  }
+
+  return selected.slice(0, limit);
 }
 
 function parseFeedItems(xml) {
@@ -2212,6 +2265,9 @@ function inferTopicFromSignals(feed, title, body) {
   const titleHasGamingSignal = hasGamingSignals(titleHaystack);
   const titleHasWorkspaceSignal = hasWorkspaceUtilitySignals(titleHaystack);
   const titleHasBusinessSignal = hasBusinessPlatformSignals(titleHaystack);
+  const titleHasCloudSignal = /\b(cloud|serverless|kubernetes|database|data center|enterprise|aws|azure|gcp|devops|saas|workspace admin)\b/i.test(titleHaystack);
+  const titleHasSocialSignal = /\b(meta|facebook|instagram|threads|youtube|creator|social|tiktok|shorts|reels|ads manager|moderation)\b/i.test(titleHaystack);
+  const titleHasChipSignal = /\b(chip|chips|gpu|cpu|npu|semiconductor|foundry|wafer|datacenter gpu|snapdragon|xeon|ryzen|instinct|blackwell)\b/i.test(titleHaystack);
 
   if ((titleHasStrongAiSignal || titleHasGenericAiSignal) && titleHasAiPackageSignal) {
     return "ai";
@@ -2300,8 +2356,12 @@ function inferTopicFromSignals(feed, title, body) {
     scores.set("gaming", (scores.get("gaming") || 0) - 14);
   }
 
-  if (/(facebook|meta|instagram|threads|tiktok|youtube|twitter|x\.com|whatsapp|social|oracle|shopee|lazada|agency|creator)/i.test(rawHaystack)) {
-    scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) + 20);
+  if (/(facebook|meta|instagram|threads|tiktok|youtube|twitter|x\.com|whatsapp|social|creator|shorts|reels|ads manager|moderation)/i.test(rawHaystack)) {
+    scores.set("social-creator", (scores.get("social-creator") || 0) + 20);
+  }
+
+  if (/(oracle|shopee|lazada|agency|telecom|platform strategy|marketplace)/i.test(rawHaystack)) {
+    scores.set("internet-business-tech", (scores.get("internet-business-tech") || 0) + 18);
   }
 
   if (/(app|software|windows|mac|ios|android app|ứng dụng|phần mềm|workspace|notion|slack|feature|guide|how to|how-to|tips|mẹo|thủ thuật|hướng dẫn)/i.test(rawHaystack)) {
@@ -2608,6 +2668,15 @@ function normalizeTopicHint(topic) {
   if (value === "internet-business") {
     return "internet-business-tech";
   }
+  if (["social", "social-platforms", "creator", "creator-economy"].includes(value)) {
+    return "social-creator";
+  }
+  if (["cloud", "enterprise", "cloud-business"].includes(value)) {
+    return "cloud-enterprise";
+  }
+  if (["chip", "chips", "semiconductor", "semiconductors", "ai-infra", "infrastructure"].includes(value)) {
+    return "chips-ai-infra";
+  }
   return value;
 }
 
@@ -2629,7 +2698,10 @@ function buildEnglishForwardLook(topic, title) {
     ai: "The next thing to watch is whether the change moves quickly into real product use.",
     "apps-software": "What matters next is rollout pace, regional limits, and whether daily behavior actually changes.",
     devices: "The next readout will be price, rollout timing, and whether the hardware feels different in real use.",
+    "chips-ai-infra": "The next readout is real performance, deployment cost, and how quickly this infrastructure shows up in products.",
+    "cloud-enterprise": "What matters next is rollout depth, operating cost, and whether enterprise teams actually change how they work.",
     security: "The next layer to watch is how this changes account safety, sign-in flow, and operating cost.",
+    "social-creator": "The next thing to watch is whether this changes publishing, monetization, or reach for creators.",
     gaming: `The gaming audience will be watching whether ${title.toLowerCase()} becomes a short spike or the start of a broader shift.`,
     "internet-business-tech": "The real follow-up will be whether this turns into measurable user or business impact."
   };
@@ -2702,6 +2774,8 @@ function resolveStoreItems(topic) {
   const byTopic = {
     ai: ["ai-workspace-bundle"],
     "apps-software": ["creator-software-stack"],
+    "cloud-enterprise": ["creator-software-stack"],
+    "social-creator": ["creator-software-stack"],
     security: ["secure-access-kit"],
     gaming: ["gaming-cloud-pass"]
   };
@@ -2714,7 +2788,7 @@ function resolveAuthorId(topic) {
     return "thao-nguyen";
   }
 
-  if (["devices", "gaming", "internet-business-tech"].includes(topic)) {
+  if (["devices", "chips-ai-infra", "cloud-enterprise", "gaming", "internet-business-tech"].includes(topic)) {
     return "quang-huy";
   }
 

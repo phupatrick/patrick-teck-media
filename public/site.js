@@ -1,6 +1,5 @@
 const documentLanguage = document.documentElement.lang === "en" ? "en" : "vi";
 
-initBackdropMotion();
 initStoryBrowser();
 initLiveDesk();
 initAuthTabs();
@@ -8,6 +7,8 @@ initImageFallbacks();
 initPullToRefresh();
 
 function initBackdropMotion() {
+  return;
+
   const backdrop = document.querySelector(".backdrop");
 
   if (!backdrop) {
@@ -459,4 +460,76 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+
+function initEditorialMotion() {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  const animatedCards = [...document.querySelectorAll("[data-signal-shell]")];
+
+  if (!reducedMotion && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.18, rootMargin: "0px 0px -8% 0px" });
+
+    for (const card of animatedCards) {
+      observer.observe(card);
+    }
+  } else {
+    for (const card of animatedCards) {
+      card.classList.add("is-visible");
+    }
+  }
+
+  if (finePointer && !reducedMotion) {
+    for (const card of animatedCards) {
+      let frame = 0;
+      const updateTilt = (clientX, clientY) => {
+        const rect = card.getBoundingClientRect();
+        const relativeX = (clientX - rect.left) / Math.max(rect.width, 1);
+        const relativeY = (clientY - rect.top) / Math.max(rect.height, 1);
+        const rotateY = (relativeX - 0.5) * 1.8;
+        const rotateX = (0.5 - relativeY) * 1.2;
+        card.style.setProperty("--tilt-x", rotateX.toFixed(2) + "deg");
+        card.style.setProperty("--tilt-y", rotateY.toFixed(2) + "deg");
+        card.style.setProperty("--glow-x", (relativeX * 100).toFixed(2) + "%");
+        card.style.setProperty("--glow-y", (relativeY * 100).toFixed(2) + "%");
+      };
+
+      card.addEventListener("pointermove", (event) => {
+        if (frame) cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => updateTilt(event.clientX, event.clientY));
+      }, { passive: true });
+
+      card.addEventListener("pointerenter", () => card.classList.add("is-armed"), { passive: true });
+      card.addEventListener("pointerleave", () => {
+        card.classList.remove("is-armed");
+        card.style.setProperty("--tilt-x", "0deg");
+        card.style.setProperty("--tilt-y", "0deg");
+        card.style.setProperty("--glow-x", "50%");
+        card.style.setProperty("--glow-y", "24%");
+      }, { passive: true });
+    }
+  }
+
+  const marqueeRoot = document.querySelector("[data-ribbon-marquee]");
+  const marqueeTrack = marqueeRoot ? marqueeRoot.querySelector("[data-ribbon-track]") : null;
+
+  if (marqueeRoot && marqueeTrack && !reducedMotion) {
+    const items = [...marqueeTrack.children];
+    if (items.length > 0) {
+      for (const item of items) {
+        marqueeTrack.appendChild(item.cloneNode(true));
+      }
+      marqueeRoot.classList.add("is-marquee-ready");
+      const duration = Math.max(34, items.length * 7);
+      marqueeTrack.style.setProperty("--marquee-duration", duration + "s");
+    }
+  }
 }

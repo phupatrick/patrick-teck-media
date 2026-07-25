@@ -8,20 +8,38 @@ const TOPICS = [
   {
     id: "apps-software",
     accent: "#17c9ff",
-    labels: { vi: "Ứng dụng & Phần mềm", en: "Apps & Software" },
+    labels: { vi: "?ng d?ng & Ph?n m?m", en: "Apps & Software" },
     slugs: { vi: "ung-dung-phan-mem", en: "apps-software" }
   },
   {
     id: "devices",
     accent: "#4e7dff",
-    labels: { vi: "Thiết bị", en: "Devices" },
+    labels: { vi: "Thi?t b?", en: "Devices" },
     slugs: { vi: "thiet-bi", en: "devices" }
+  },
+  {
+    id: "chips-ai-infra",
+    accent: "#7a7dff",
+    labels: { vi: "Chip & H? t?ng AI", en: "Chips & AI Infra" },
+    slugs: { vi: "chip-ha-tang-ai", en: "chips-ai-infra" }
+  },
+  {
+    id: "cloud-enterprise",
+    accent: "#1ad1b3",
+    labels: { vi: "Cloud & Doanh nghi?p", en: "Cloud & Enterprise" },
+    slugs: { vi: "cloud-doanh-nghiep", en: "cloud-enterprise" }
   },
   {
     id: "security",
     accent: "#1de59c",
-    labels: { vi: "Bảo mật", en: "Security" },
+    labels: { vi: "B?o m?t", en: "Security" },
     slugs: { vi: "bao-mat", en: "security" }
+  },
+  {
+    id: "social-creator",
+    accent: "#ff5ea8",
+    labels: { vi: "M?ng x? h?i & Creator", en: "Social & Creator" },
+    slugs: { vi: "mang-xa-hoi-creator", en: "social-creator" }
   },
   {
     id: "gaming",
@@ -32,7 +50,7 @@ const TOPICS = [
   {
     id: "internet-business-tech",
     accent: "#9bff45",
-    labels: { vi: "Internet & Doanh nghiệp số", en: "Internet & Business Tech" },
+    labels: { vi: "Internet & Doanh nghi?p s?", en: "Internet & Business Tech" },
     slugs: { vi: "internet-doanh-nghiep-so", en: "internet-business-tech" }
   }
 ];
