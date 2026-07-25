@@ -207,7 +207,9 @@ function buildStyleRules({ articleSignals, feedback }) {
   const rules = [
     "Mo bai bang tac dong thuc te, chi phi, workflow va ai nen quan tam.",
     "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
-    "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung."
+    "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
+    "Viet theo nhip tin gon nhu newsroom feed: headline ro y, dek ngan, nguon va thoi diem nam sat dau bai.",
+    "Moi bai phai co ly do dang doc trong 2 doan dau: dieu moi, ai bi anh huong, va can theo doi gi tiep."
   ];
 
   if (goodFeedback.some((entry) => /gan gui|de hieu|don gian|than thien/i.test(entry.note))) {

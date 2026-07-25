@@ -379,6 +379,7 @@ const tests = [
       assert.equal(profile.topViewedArticles[0].rank, 1);
       assert.ok(profile.viewInsights.length > 0);
       assert.ok(profile.styleRules.some((rule) => /giong van|workflow|checklist/i.test(rule)));
+      assert.ok(profile.styleRules.some((rule) => /newsroom feed|headline ro y/i.test(rule)));
     }
   },
   {
