@@ -729,21 +729,39 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
           </div>
 
           <aside class="article-rail">
-            <div class="rail-card">
-              <p class="rail-label">${copy.articleRailLabel}</p>
-              <p>${escapeHtml(article.ad_eligible ? copy.adsOn : copy.adsOff)}</p>
-            </div>
-            <div class="rail-card">
-              <p class="rail-label">${copy.languageSwitchLabel}</p>
-              ${article.alternates
-                .map((alternate) => `<a class="text-link" href="${alternate.href}">${alternate.language.toUpperCase()}</a>`)
-                .join("")}
-            </div>
+            ${renderArticleLanguageRail(article, copy)}
           </aside>
         </div>
       </article>
     `
   });
+}
+
+function renderArticleLanguageRail(article, copy) {
+  const alternates = Array.isArray(article.alternates) ? article.alternates : [];
+
+  if (!alternates.length) {
+    return "";
+  }
+
+  return `
+    <div class="rail-card language-rail-card">
+      <p class="rail-label">${copy.languageSwitchLabel}</p>
+      ${alternates
+        .map(
+          (alternate) => `
+            <a class="text-link" href="${alternate.href}">
+              ${escapeHtml(formatLanguageVersionLabel(alternate.language))}
+            </a>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function formatLanguageVersionLabel(language) {
+  return language === "vi" ? "Tiếng Việt" : language === "en" ? "English" : String(language || "").toUpperCase();
 }
 
 export function renderPolicyPage(state, language, page, adsConfig) {

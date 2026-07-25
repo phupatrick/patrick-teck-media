@@ -1833,6 +1833,8 @@ const tests = [
       assert.doesNotMatch(articleHtml, /comment-form/);
       assert.doesNotMatch(articleHtml, /reaction-button/);
       assert.doesNotMatch(articleHtml, /store-panel/);
+      assert.doesNotMatch(articleHtml, /Biên tập & quảng cáo|Editorial and ads/);
+      assert.match(articleHtml, /English/);
 
 
 
