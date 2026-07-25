@@ -303,6 +303,14 @@ function buildAvoidRules({ articleSignals, feedback }) {
     rules.push("Neu bai do nhay cam hoac AI/comparison, can them nguon ho tro truoc khi day len.");
   }
 
+  if (lowReadiness.some((entry) => entry.readiness.missing.includes("narrativeFlow"))) {
+    rules.push("Khong publish bai chi ghep y roi rac; can co mach dien bien, tac dong, hanh dong va dieu can theo doi tiep.");
+  }
+
+  if (lowReadiness.some((entry) => entry.readiness.missing.includes("dek") || entry.readiness.missing.includes("hook"))) {
+    rules.push("Moi bai can co dek va hook rieng: dek tom boi canh, hook noi ro ai bi anh huong va nen lam gi.");
+  }
+
   if (lowReadiness.some((entry) => entry.readiness.missing.includes("noRepeatedSentences") || entry.readiness.missing.includes("noRepeatedPhrases"))) {
     rules.push("Khong publish bai lap cau hoac lap cum tu; can viet lai section bi trung truoc khi len trang.");
   }
@@ -317,6 +325,10 @@ function buildAvoidRules({ articleSignals, feedback }) {
 
   if (lowReadiness.some((entry) => entry.readiness.missing.includes("paragraphShape") || entry.readiness.missing.includes("sectionHeadings"))) {
     rules.push("Trinh bay moi section nhu mot y rieng: heading ro, than doan du y, tranh mot cau dai keo het ca section.");
+  }
+
+  if (lowReadiness.some((entry) => entry.readiness.missing.includes("distinctSections") || entry.readiness.missing.includes("sectionBodies"))) {
+    rules.push("Khong dung cac section giong nhau; moi section phai tra loi mot cau hoi rieng va them thong tin moi.");
   }
 
   return unique(rules).slice(0, 10);

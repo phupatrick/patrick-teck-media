@@ -557,6 +557,7 @@ async function buildLearningText(context) {
     `Tín hiệu học: ${profile.totalSignals || 0}`,
     `Phản hồi của chủ sở hữu: ${summary.feedbackCount || 0}`,
     `Độ tự tin: ${Math.round((profile.confidence || 0) * 100)}%`,
+    summary.storageMode ? `Nguồn hồ sơ: ${summary.storageMode}` : "",
     profile.updated_at ? `Cập nhật: ${formatDate(profile.updated_at)}` : "",
     "",
     topicWeights.length ? `Chủ đề đang ưu tiên: ${topicWeights.map(([key, value]) => `${formatTopicKey(key)} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Chủ đề đang ưu tiên: chưa đủ tín hiệu",

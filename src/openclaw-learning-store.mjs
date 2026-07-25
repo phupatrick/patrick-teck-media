@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import fs from "node:fs";
 import { createDocumentStore } from "./document-store.mjs";
 
 export const DEFAULT_OPENCLAW_LEARNING_STATE = {
@@ -70,10 +71,12 @@ export function createOpenClawLearningStore({ statePath, databaseUrl = process.e
       });
     },
     async getSummary() {
-      const state = normalizeLearningState(await documentStore.read());
+      const storedState = normalizeLearningState(await documentStore.read());
+      const fileState = readProjectLearningState(documentStore.statePath);
+      const state = chooseLearningState(storedState, fileState);
       return {
         generated_at: state.generated_at,
-        storageMode: documentStore.storageMode,
+        storageMode: state === fileState && documentStore.storageMode === "neon-postgres" ? "project-file-fallback" : documentStore.storageMode,
         feedbackCount: state.feedback.length,
         model: state.model,
         profile: state.profile,
@@ -81,6 +84,35 @@ export function createOpenClawLearningStore({ statePath, databaseUrl = process.e
       };
     }
   };
+}
+
+function readProjectLearningState(statePath) {
+  try {
+    return normalizeLearningState(JSON.parse(fs.readFileSync(statePath, "utf8")));
+  } catch {
+    return null;
+  }
+}
+
+function chooseLearningState(primary, fallback) {
+  if (!fallback) {
+    return primary;
+  }
+
+  const primarySignals = Number(primary?.profile?.totalSignals || 0);
+  const fallbackSignals = Number(fallback?.profile?.totalSignals || 0);
+  const primaryTime = Date.parse(primary?.generated_at || primary?.profile?.updated_at || "");
+  const fallbackTime = Date.parse(fallback?.generated_at || fallback?.profile?.updated_at || "");
+
+  if (primarySignals === 0 && fallbackSignals > 0) {
+    return fallback;
+  }
+
+  if (fallbackSignals > primarySignals && (!Number.isFinite(primaryTime) || !Number.isFinite(fallbackTime) || fallbackTime >= primaryTime)) {
+    return fallback;
+  }
+
+  return primary;
 }
 
 export function normalizeLearningState(payload) {
