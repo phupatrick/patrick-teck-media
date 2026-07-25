@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T11:18:28.939Z",
+  "generated_at": "2026-07-25T11:26:34.834Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,28 +8,28 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-25T11:18:28.939Z",
-    "confidence": 0.17,
-    "totalSignals": 5,
+    "updated_at": "2026-07-25T11:26:34.834Z",
+    "confidence": 0.32,
+    "totalSignals": 10,
     "eligibleArticleCount": 1,
-    "excludedArticleCount": 1005,
+    "excludedArticleCount": 1000,
     "dailyFocus": [
-      "apps-software",
       "ai",
+      "apps-software",
       "security",
       "devices",
       "internet-business-tech"
     ],
     "topicWeights": {
-      "apps-software": 14,
-      "ai": 10,
+      "ai": 9,
+      "apps-software": 9,
       "security": 1,
       "devices": 1,
       "internet-business-tech": 1,
       "gaming": 1
     },
     "sourceTypeWeights": {
-      "official-site": 12,
+      "official-site": 10,
       "press": 1
     },
     "topViewedArticles": [
@@ -130,9 +130,15 @@
       "Khong publish neu anh nguon khong lien quan ro voi bai.",
       "Khong publish bai lap cau hoac lap cum tu; can viet lai section bi trung truoc khi len trang."
     ],
-    "lastCycleSummary": "Learned from 1 eligible article(s); 1005 article(s) excluded from learning; 0 owner feedback item(s); 5 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, ai, security, devices, internet-business-tech"
+    "lastCycleSummary": "Learned from 1 eligible article(s); 1000 article(s) excluded from learning; 0 owner feedback item(s); 10 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-25T11:26:34.834Z",
+      "totalSignals": 10,
+      "confidence": 0.32,
+      "summary": "Learned from 1 eligible article(s); 1000 article(s) excluded from learning; 0 owner feedback item(s); 10 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-25T11:18:28.939Z",
       "totalSignals": 5,
@@ -366,12 +372,6 @@
       "totalSignals": 1322,
       "confidence": 0.95,
       "summary": "Learned from 323 articles; 0 owner feedback item(s); 1322 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, gaming, devices"
-    },
-    {
-      "generated_at": "2026-07-07T22:10:24.479Z",
-      "totalSignals": 1320,
-      "confidence": 0.95,
-      "summary": "Learned from 321 articles; 0 owner feedback item(s); 1320 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, gaming, devices"
     }
   ]
 }
