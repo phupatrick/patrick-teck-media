@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-24T17:31:02.960Z",
-    "finishedAt": "2026-07-24T17:32:01.303Z"
+    "startedAt": "2026-07-25T11:17:07.916Z",
+    "finishedAt": "2026-07-25T11:18:29.078Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
@@ -13,8 +13,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1784914263002-a7311d.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Holding normalized article \"Giới sáng tạo nội dung công nghệ nói gì về thế hệ Galaxy Z gập mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"You can’t ignore Google Zero anymore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"BGP ORIGIN attribute manipulation and its impact on the Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"NYC Mayor Takes Aim at AI Slop ‘Housefishing’ in Real Estate Listings\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Meta is making its AI chatbot more like an assistant\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1784978227949-3f849e.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Holding normalized article \"Samsung Electronics and Broadcom Expand Strategic Collaboration Across Memory and Foundry Technologies\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"5 Android phones you should buy instead of the Galaxy Z Fold 8 Ultra\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"The Valve Steam Machine should be the perfect 'couch gaming' PC—but after testing it out, I'm not convinced it's worth t\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Stop scrolling: Light's $299 flip phone and its retro specs could change your life\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Samsung keeps ignoring a hardware flaw with its foldables, and I’m sick of it\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -23,7 +23,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Giới sáng tạo nội dung công nghệ nói gì về thế hệ Galaxy Z gập mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"You can’t ignore Google Zero anymore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"BGP ORIGIN attribute manipulation and its impact on the Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"NYC Mayor Takes Aim at AI Slop ‘Housefishing’ in Real Estate Listings\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Meta is making its AI chatbot more like an assistant\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Holding normalized article \"Samsung Electronics and Broadcom Expand Strategic Collaboration Across Memory and Foundry Technologies\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"5 Android phones you should buy instead of the Galaxy Z Fold 8 Ultra\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"The Valve Steam Machine should be the perfect 'couch gaming' PC—but after testing it out, I'm not convinced it's worth t\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Stop scrolling: Light's $299 flip phone and its retro specs could change your life\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Samsung keeps ignoring a hardware flaw with its foldables, and I’m sick of it\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -34,7 +34,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 0 signal(s), confidence 0.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 5 signal(s), confidence 0.17.",
       "warnings": ""
     },
     "webControl": {
@@ -49,7 +49,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-24T17:32:01.286Z",
+      "reviewedAt": "2026-07-25T11:18:29.061Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
