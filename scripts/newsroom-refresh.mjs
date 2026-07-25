@@ -1105,18 +1105,18 @@ function buildEditorialValueLines({ article, language }) {
 
   return language === "en"
     ? [
-        `${sourcePhrase} needs context first: what changed, when it surfaced, and why this story is worth opening now instead of being treated as another loose headline.`,
-        `The practical impact is the reader's workflow, cost, risk, or buying decision; ${title || "this update"} should be explained through that lens before any broad claim is made.`,
-        "The useful follow-up is whether the current signal turns into a durable rollout, a pricing shift, a product limitation, or only a short-lived update that fades after the news cycle.",
-        "The reader checklist is simple: what changed, who feels it first, what evidence supports it, what risk remains, and what should be watched next.",
-        "That thicker structure keeps the piece useful even when the first source payload is thin, noisy, or written mainly as a quick feed item."
+        `${sourcePhrase} should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.`,
+        `The practical impact sits in workflow, cost, risk, or a buying decision; ${title || "this update"} should be explained through that lens before any broad claim is made.`,
+        "The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+        "For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting.",
+        "A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary."
       ]
     : [
-        `${sourcePhrase} cần được đặt vào bối cảnh trước: chuyện gì vừa đổi, xuất hiện vào thời điểm nào và vì sao người đọc nên mở bài lúc này thay vì xem như một headline rời rạc.`,
-        `Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng của người đọc; ${title || "cập nhật này"} phải được giải thích qua lăng kính đó trước khi kết luận rộng hơn.`,
-        "Điều cần theo dõi là tín hiệu hiện tại có biến thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một cập nhật ngắn hạn sau vòng tin tức.",
-        "Checklist cho người đọc cần rõ: chuyện gì đổi, ai bị chạm trước, bằng chứng nào đang có, rủi ro nào còn lại và nên xem tiếp điểm nào.",
-        "Cấu trúc dày hơn này giữ bài có ích ngay cả khi payload nguồn ban đầu còn mỏng, nhiễu hoặc chỉ giống một mẩu tin feed."
+        `${sourcePhrase} cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay.`,
+        `Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; ${title || "cập nhật này"} nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.`,
+        "Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
+        "Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động.",
+        "Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời."
       ];
 }
 
@@ -2302,10 +2302,10 @@ function buildSections({ title, summary, dek, language, topic, contentType, sour
     return buildAiPackageSections({ title, cleanParagraphs, summary, dek, language, sourceName });
   }
 
-  const intro = language === "vi" ? "Điều đang xảy ra" : "What happened";
-  const details = language === "vi" ? "Chi tiết đáng giữ lại" : "Details worth keeping";
-  const whyItMatters = language === "vi" ? "Vì sao câu chuyện này đáng mở" : "Why this deserves a click";
-  const take = language === "vi" ? "Patrick Tech Media đánh giá" : "Patrick Tech Media take";
+  const intro = language === "vi" ? "Bối cảnh: điều gì đang đổi" : "Context: what is changing";
+  const details = language === "vi" ? "Các nguồn đang khớp nhau ở đâu" : "Where the sources line up";
+  const whyItMatters = language === "vi" ? "Tác động thực tế với người đọc" : "Practical impact for readers";
+  const take = language === "vi" ? "Ai nên chú ý lúc này" : "Who should pay attention now";
   const next = language === "vi" ? "Điều cần theo dõi tiếp" : "What to watch next";
 
   const angleByTopic = {
