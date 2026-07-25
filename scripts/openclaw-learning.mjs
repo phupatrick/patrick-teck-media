@@ -209,7 +209,9 @@ function buildStyleRules({ articleSignals, feedback }) {
     "Moi bai can co boi canh, thong tin lien quan, checklist va dieu can theo doi tiep.",
     "Uu tien nguon official/press co anh nguon dung chu de; khong dung anh chung chung.",
     "Viet theo nhip tin gon nhu newsroom feed: headline ro y, dek ngan, nguon va thoi diem nam sat dau bai.",
-    "Moi bai phai co ly do dang doc trong 2 doan dau: dieu moi, ai bi anh huong, va can theo doi gi tiep."
+    "Moi bai phai co ly do dang doc trong 2 doan dau: dieu moi, ai bi anh huong, va can theo doi gi tiep.",
+    "Uu tien bai co nguon du day: it nhat 3 doan lien quan, co ten san pham/cong ty, con so, rollout, gia, rui ro hoac gioi han cu the.",
+    "Tach ro summary, dek va hook: summary noi fact chinh, dek noi y nghia, hook noi cau hoi tiep theo; khong dung lai cung mot cau."
   ];
 
   if (goodFeedback.some((entry) => /gan gui|de hieu|don gian|than thien/i.test(entry.note))) {
@@ -290,7 +292,9 @@ function buildAvoidRules({ articleSignals, feedback }) {
   const rules = [
     "Khong lap ten nguon qua nhieu lan trong than bai.",
     "Khong dua menu, footer, navigation hoac noi dung quang cao cua nguon vao bai.",
-    "Khong publish neu anh nguon khong lien quan ro voi bai."
+    "Khong publish neu anh nguon khong lien quan ro voi bai.",
+    "Khong co keo dai bai tu nguon mong; neu chi co 1-2 doan lien quan thi giu lai de gom them nguon truoc khi publish.",
+    "Khong de summary, dek, hook va section mo dau lap lai cung mot cau hoac cung cum dien dat."
   ];
 
   if (badFeedback.some((entry) => /ngan|mong|it|thieu/i.test(entry.note))) {

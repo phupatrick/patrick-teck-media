@@ -974,7 +974,7 @@ const SOURCE_TOPIC_HINTS = [
   const result = await publishArticles({
     incomingArticles,
     outputPath,
-    replaceMode: sourceLabel !== "telegram-link",
+    replaceMode: false,
     now,
     databaseUrl: env.DATABASE_URL || "",
     // prepareArticlesForPublish already applies the strict gate and the
