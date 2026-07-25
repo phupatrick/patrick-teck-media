@@ -5229,3 +5229,59 @@ body {
     min-height: 186px;
   }
 }
+
+
+/* Header round 4: compact category trigger in the top corner */
+.topbar {
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.nav-strip.nav-strip-menu {
+  flex: 0 0 auto;
+  margin-left: auto;
+  width: auto;
+}
+
+.category-menu {
+  width: auto;
+}
+
+.category-menu summary {
+  min-height: 34px;
+  padding: 0.42rem 0.82rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.topbar-actions {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .nav-strip.nav-strip-menu {
+    width: auto;
+    margin-left: auto;
+  }
+
+  .category-menu {
+    width: auto;
+  }
+
+  .category-menu summary {
+    width: auto;
+    justify-content: center;
+    min-height: 32px;
+    padding: 0.38rem 0.74rem;
+    font-size: 0.78rem;
+  }
+
+  .topbar-actions {
+    width: 100%;
+  }
+}
