@@ -4,17 +4,17 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-25T18:39:52.669Z",
-    "finishedAt": "2026-07-25T18:41:18.069Z"
+    "startedAt": "2026-07-25T19:56:09.286Z",
+    "finishedAt": "2026-07-25T19:57:16.858Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 9,
+    "totalArticles": 13,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 3 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785004792706-2c30f5.json Generated OpenClaw hidden feed with 3 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop it short of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Bad news for Pixel fans: Google all but confirms higher prices for the Pixel 11 lineup\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"I dug through Reddit to find the ten Windows 11 features people find \"life-changing, \" and the results were fascinating\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Top Stories: 'Apple Upgrade' Program, Apple Music Price Hike, and More\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Back-to-school phone shopping on a tight budget? Here’s the one phone I’d recommend without hesitation\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Storage upgrades cost too much, and we need microSD cards back\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Bad news for Pixel fans: Google all but confirms higher prices for the Pixel 11 lineup\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Top Stories: 'Apple Upgrade' Program, Apple Music Price Hike, and More\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Back-to-school phone shopping on a tight budget? Here’s the one phone I’d recommend without hesitation\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"I dug through Reddit to find the ten Windows 11 features people find \"life-changing, \" and the results were fascinating\" because it failed publish readiness: sourceNameBalance Holding source-draft article \"Storage upgrades cost too much, and we need microSD cards back\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785009369317-b6c508.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"HomeKit Weekly: The Amazon Basics Matter plug delivers Apple Home support for under $10\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"SpaceX eyes tower catch for next Starship after auspicious end to 13th flight\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop it short of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"I dug through Reddit to find the ten Windows 11 features people find \"life-changing, \" and the results were fascinating\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Hà Nội khai mạc Hội nghị KOL & ra mắt CLB Niềm tin số Thủ đô\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cloudflare WAF protects WordPress applications from two high-severity vulnerabilities\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Cloudflare WAF protects WordPress applications from two high-severity vulnerabilities\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"HomeKit Weekly: The Amazon Basics Matter plug delivers Apple Home support for under $10\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"SpaceX eyes tower catch for next Starship after auspicious end to 13th flight\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Hà Nội khai mạc Hội nghị KOL & ra mắt CLB Niềm tin số Thủ đô\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"I dug through Reddit to find the ten Windows 11 features people find \"life-changing, \" and the results were fascinating\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -22,8 +22,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 3 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop it short of\" because it failed publish readiness: narrativeFlow Holding normalized article \"Bad news for Pixel fans: Google all but confirms higher prices for the Pixel 11 lineup\" because it failed publish readiness: narrativeFlow Holding normalized article \"Top Stories: 'Apple Upgrade' Program, Apple Music Price Hike, and More\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Bad news for Pixel fans: Google all but confirms higher prices for the Pixel 11 lineup\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Top Stories: 'Apple Upgrade' Program, Apple Music Price Hike, and More\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"HomeKit Weekly: The Amazon Basics Matter plug delivers Apple Home support for under $10\" because it failed publish readiness: narrativeFlow Holding normalized article \"SpaceX eyes tower catch for next Starship after auspicious end to 13th flight\" because it failed publish readiness: narrativeFlow Holding normalized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop it short of\" because it failed publish readiness: narrativeFlow Holding normalized article \"Hà Nội khai mạc Hội nghị KOL & ra mắt CLB Niềm tin số Thủ đô\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cloudflare WAF protects WordPress applications from two high-severity vulnerabilities\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Cloudflare WAF protects WordPress applications from two high-severity vulnerabilities\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"HomeKit Weekly: The Amazon Basics Matter plug delivers Apple Home support for under $10\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"SpaceX eyes tower catch for next Starship after auspicious end to 13th flight\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Hà Nội khai mạc Hội nghị KOL & ra mắt CLB Niềm tin số Thủ đô\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -34,13 +34,13 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 13 signal(s), confidence 0.39.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 17 signal(s), confidence 0.48.",
       "warnings": ""
     },
     "webControl": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, apps-software, internet-business-tech, devices, security, gaming.",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, apps-software, internet-business-tech, security, devices, gaming.",
       "warnings": ""
     }
   },
@@ -49,7 +49,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-25T18:41:18.051Z",
+      "reviewedAt": "2026-07-25T19:57:16.843Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
