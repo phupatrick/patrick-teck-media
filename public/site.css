@@ -5128,3 +5128,104 @@ body {
     min-width: 104px;
   }
 }
+
+
+/* Homepage balance round 3: reduce outsized lead cards and normalize front-page tiles */
+.frontpage-hero {
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 18px;
+}
+
+.lead-feature {
+  min-height: 420px;
+}
+
+.lead-feature-media,
+.lead-feature-media img {
+  min-height: 420px;
+  max-height: 420px;
+}
+
+.lead-feature-copy {
+  gap: 12px;
+  padding: 22px;
+}
+
+.lead-feature h2 {
+  max-width: 11ch;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.06;
+}
+
+.lead-feature-hook {
+  max-width: 46ch;
+  font-size: 1rem;
+  line-height: 1.58;
+}
+
+.lead-mini-grid {
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.story-card {
+  min-height: 202px;
+  padding: 18px;
+}
+
+.story-media,
+.story-media img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.story-card h3 {
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+
+.story-card .story-hook {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.topic-band {
+  gap: 18px;
+}
+
+.stack-item {
+  min-height: 138px;
+}
+
+@media (max-width: 1100px) {
+  .frontpage-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-feature,
+  .lead-feature-media,
+  .lead-feature-media img {
+    min-height: 360px;
+    max-height: 360px;
+  }
+}
+
+@media (max-width: 900px) {
+  .lead-feature,
+  .lead-feature-media,
+  .lead-feature-media img {
+    min-height: 320px;
+    max-height: 320px;
+  }
+
+  .lead-feature h2 {
+    max-width: 100%;
+    font-size: clamp(1.85rem, 7vw, 2.6rem);
+  }
+
+  .story-card {
+    min-height: 186px;
+  }
+}
