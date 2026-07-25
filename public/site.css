@@ -5386,3 +5386,67 @@ body {
     min-height: 200px;
   }
 }
+
+
+/* Header round 6: remove empty space and lock logo proportions */
+.topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px 14px;
+  padding: 14px 18px;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 168px;
+  min-width: 168px;
+  overflow: hidden;
+}
+
+.brand-mark {
+  display: block;
+  width: 100%;
+  max-width: 168px;
+  height: 34px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.nav-strip.nav-strip-menu {
+  justify-self: end;
+  align-self: start;
+  margin-left: 0;
+}
+
+.topbar-actions {
+  grid-column: 1 / -1;
+  width: auto;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    grid-template-columns: 1fr auto;
+    padding: 12px 16px;
+  }
+
+  .brand-lockup {
+    width: 156px;
+    min-width: 156px;
+  }
+
+  .brand-mark {
+    max-width: 156px;
+    height: 32px;
+  }
+
+  .topbar-actions {
+    grid-column: 1 / -1;
+    width: 100%;
+    gap: 8px;
+  }
+}
