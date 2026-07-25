@@ -1875,17 +1875,17 @@ function buildAiPackageClusterSections({ lead, sources, pool, language, verifica
 function buildNewsSections({ members, lead, sources, pool, language, topic, verificationState }) {
   const headings = language === "vi"
     ? [
-        "Điều đang xảy ra",
+        "Bối cảnh: điều gì đang đổi",
         "Các nguồn đang khớp nhau ở đâu",
-        "Chi tiết đáng giữ lại",
-        "Điểm đáng chú ý nhất",
+        "Tác động thực tế với người đọc",
+        "Ai nên chú ý lúc này",
         "Điều cần theo dõi tiếp"
       ]
     : [
-        "What is happening now",
+        "Context: what is changing",
         "Where the sources line up",
-        "The details worth keeping",
-        "Why this matters most",
+        "Practical impact for readers",
+        "Who should pay attention now",
         "What to watch next"
       ];
 

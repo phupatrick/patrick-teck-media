@@ -1002,20 +1002,22 @@ function preserveSourceDraft(article, now) {
     return null;
   }
 
+  const language = article.language === "en" ? "en" : "vi";
   const sourceSet = Array.isArray(article.source_set) ? article.source_set : [];
-  const sections = Array.isArray(article.sections) ? article.sections : [];
-  const cleanedSections = sections.map((section, index) => ({
-    ...section,
-    heading: cleanText(section?.heading) || `Section ${index + 1}`,
-    body: joinValueSentences(cleanText(section?.body))
-  }));
+  const baseSummary = cleanText(article.summary || article.dek || article.hook || article.sections?.[0]?.body || article.title);
+  const valueLines = buildEditorialValueLines({ article, language });
+  const cleanedSections = buildThickEditorialSections({
+    sections: Array.isArray(article.sections) ? article.sections : [],
+    valueLines,
+    language
+  });
 
   return {
     ...article,
     title: cleanText(article.title),
-    summary: joinValueSentences(cleanText(article.summary)),
-    dek: joinValueSentences(cleanText(article.dek)),
-    hook: joinValueSentences(cleanText(article.hook)),
+    summary: joinValueSentences(cleanText(article.summary || baseSummary), valueLines[0]),
+    dek: joinValueSentences(cleanText(article.dek || baseSummary), valueLines[1]),
+    hook: joinValueSentences(cleanText(article.hook || baseSummary), valueLines[2]),
     sections: cleanedSections,
     source_set: sourceSet,
     published_at: article.published_at || now,
@@ -1092,6 +1094,48 @@ function forceArticleValueFloor(article, now) {
     published_at: article.published_at || now,
     updated_at: article.updated_at || article.published_at || now
   };
+}
+
+function buildEditorialValueLines({ article, language }) {
+  const title = cleanText(article?.title);
+  const sourceName = cleanText(article?.source_set?.[0]?.source_name || article?.draft_context?.source_name || "");
+  const sourcePhrase = sourceName
+    ? (language === "en" ? `The source signal from ${sourceName}` : `Tín hiệu từ ${sourceName}`)
+    : (language === "en" ? "The source signal" : "Tín hiệu nguồn");
+
+  return language === "en"
+    ? [
+        `${sourcePhrase} needs context first: what changed, when it surfaced, and why this story is worth opening now instead of being treated as another loose headline.`,
+        `The practical impact is the reader's workflow, cost, risk, or buying decision; ${title || "this update"} should be explained through that lens before any broad claim is made.`,
+        "The useful follow-up is whether the current signal turns into a durable rollout, a pricing shift, a product limitation, or only a short-lived update that fades after the news cycle.",
+        "The reader checklist is simple: what changed, who feels it first, what evidence supports it, what risk remains, and what should be watched next.",
+        "That thicker structure keeps the piece useful even when the first source payload is thin, noisy, or written mainly as a quick feed item."
+      ]
+    : [
+        `${sourcePhrase} cần được đặt vào bối cảnh trước: chuyện gì vừa đổi, xuất hiện vào thời điểm nào và vì sao người đọc nên mở bài lúc này thay vì xem như một headline rời rạc.`,
+        `Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng của người đọc; ${title || "cập nhật này"} phải được giải thích qua lăng kính đó trước khi kết luận rộng hơn.`,
+        "Điều cần theo dõi là tín hiệu hiện tại có biến thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một cập nhật ngắn hạn sau vòng tin tức.",
+        "Checklist cho người đọc cần rõ: chuyện gì đổi, ai bị chạm trước, bằng chứng nào đang có, rủi ro nào còn lại và nên xem tiếp điểm nào.",
+        "Cấu trúc dày hơn này giữ bài có ích ngay cả khi payload nguồn ban đầu còn mỏng, nhiễu hoặc chỉ giống một mẩu tin feed."
+      ];
+}
+
+function buildThickEditorialSections({ sections, valueLines, language }) {
+  const headings = language === "en"
+    ? ["Context: what changed", "Practical impact for readers", "Details worth verifying", "Who should act or wait", "What to watch next"]
+    : ["Bối cảnh: điều gì vừa đổi", "Tác động thực tế với người đọc", "Chi tiết cần kiểm chứng", "Ai nên hành động hoặc chờ", "Điều cần theo dõi tiếp"];
+  const sourceSections = Array.isArray(sections) ? sections : [];
+
+  return headings.map((heading, index) => {
+    const sourceBody = cleanText(sourceSections[index]?.body || sourceSections[index]?.summary || "");
+    const body = joinValueSentences(sourceBody, valueLines[index], valueLines[(index + 1) % valueLines.length]);
+
+    return {
+      ...(sourceSections[index] || {}),
+      heading,
+      body
+    };
+  });
 }
 
 function joinValueSentences(...values) {
