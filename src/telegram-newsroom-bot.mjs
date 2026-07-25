@@ -737,9 +737,16 @@ async function requestRefresh(context, reasonPrefix = "telegram") {
     });
 
     if (result?.ok) {
-      return reasonPrefix === "telegram-up-more"
-        ? "Đã yêu cầu bot tự động up thêm bài. GitHub Actions đang chạy OpenClaw manager; khi xong bot sẽ báo cáo trên Telegram."
-        : "Đã yêu cầu GitHub Actions chạy OpenClaw manager. Khi xong bot sẽ báo cáo nếu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS đã cấu hình.";
+      if (reasonPrefix === "telegram-up-more") {
+        const requestedAt = new Date().toISOString();
+        return [
+          `Đã bắt đầu yêu cầu quét tin mới lúc ${requestedAt}.`,
+          "GitHub Actions sẽ thu thập nguồn web hiện tại, viết/lọc nội dung và cập nhật kho bài.",
+          "Bot chỉ xác nhận kết quả sau khi chu kỳ xong bằng báo cáo thời gian thực: nguồn, bài quét, bài đạt/giữ lại và bài mới."
+        ].join("\n");
+      }
+
+      return "Đã yêu cầu GitHub Actions chạy OpenClaw manager. Khi xong bot sẽ báo cáo nếu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS đã cấu hình.";
     }
   }
 

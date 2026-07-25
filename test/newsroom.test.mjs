@@ -317,7 +317,8 @@ const tests = [
         }
       });
 
-      assert.match(response.text, /tự động up thêm bài/i);
+      assert.match(response.text, /GitHub Actions/);
+      assert.match(response.text, /b\u00e1o c\u00e1o th\u1eddi gian th\u1ef1c/);
       assert.equal(dispatches.length, 1);
       assert.match(dispatches[0].reason, /telegram-up-more:67890/);
       assert.equal(dispatches[0].articleUrl, undefined);

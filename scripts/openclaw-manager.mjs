@@ -23,6 +23,8 @@ const config = {
     "data/openclaw-hidden-feed.json",
   managerName: process.env.OPENCLAW_MANAGER_NAME || envFromFile.OPENCLAW_MANAGER_NAME || "OpenClaw",
   childTimeoutMs: clampInteger(process.env.OPENCLAW_CHILD_TIMEOUT_MS || envFromFile.OPENCLAW_CHILD_TIMEOUT_MS, 60_000, 900_000, 600_000),
+  runReason: String(process.env.OPENCLAW_RUN_REASON || envFromFile.OPENCLAW_RUN_REASON || "scheduled").trim(),
+  runSource: String(process.env.OPENCLAW_RUN_SOURCE || envFromFile.OPENCLAW_RUN_SOURCE || "schedule").trim(),
   adminEmails: (process.env.ADMIN_GOOGLE_EMAILS || envFromFile.ADMIN_GOOGLE_EMAILS || "")
     .split(",")
     .map((value) => value.trim())
@@ -30,6 +32,7 @@ const config = {
 };
 
 const startedAt = new Date().toISOString();
+const articleCountBefore = getArticleCount(config.contentPath);
 const feedSource = ensureHiddenFeedSource();
 const refresh = runRefreshCycle(feedSource.refreshSource);
 const auditRepair = config.auditRepair ? runAuditRepairCycle() : { ok: true, skipped: true, output: "Audit repair was not requested.", warnings: "" };
@@ -58,7 +61,8 @@ const managerSnapshot = buildManagerSnapshot({
   submissionReview,
   contentPath: config.contentPath,
   platformStatePath: platformService.statePath,
-  webStatePath: config.webStatePath
+  webStatePath: config.webStatePath,
+  articleCountBefore
 });
 
 writeJson(config.managerStatePath, managerSnapshot);
@@ -68,6 +72,11 @@ console.log(
     `${submissionReview.totalSubmissions} submission(s), ${submissionReview.approved} newly approved, ` +
     `${submissionReview.held} held, ${submissionReview.rejected} rejected.`
 );
+
+function getArticleCount(targetPath) {
+  const payload = readJson(targetPath);
+  return Array.isArray(payload?.articles) ? payload.articles.length : 0;
+}
 
 function ensureHiddenFeedSource() {
   const singleUrl = process.env.NEWSROOM_SINGLE_URL || process.env.NEWSROOM_ARTICLE_URL || "";
@@ -288,7 +297,7 @@ function runAuditRepairCycle() {
   };
 }
 
-function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, auditRepair, learning, webControl, ownerBrief, submissionReview, contentPath, platformStatePath, webStatePath }) {
+function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, auditRepair, learning, webControl, ownerBrief, submissionReview, contentPath, platformStatePath, webStatePath, articleCountBefore = 0 }) {
   const payload = readJson(contentPath);
   const articles = Array.isArray(payload?.articles) ? payload.articles : [];
 
@@ -299,11 +308,14 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, audi
       mode: "autonomous",
       briefPath: path.resolve(rootDir, config.ownerBriefPath),
       startedAt,
-      finishedAt
+      finishedAt,
+      trigger: { source: config.runSource, reason: config.runReason }
     },
     newsroom: {
       contentPath: path.resolve(rootDir, contentPath),
       totalArticles: articles.length,
+      articleCountBefore,
+      articleCountDelta: articles.length - articleCountBefore,
       hiddenFeed: {
         type: feedSource.type,
         generated: feedSource.generated,

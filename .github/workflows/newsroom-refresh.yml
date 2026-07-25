@@ -72,6 +72,8 @@ jobs:
           NEWSROOM_PULL_TOKEN: ${{ secrets.NEWSROOM_PULL_TOKEN }}
           NEWSROOM_SINGLE_URL: ${{ github.event.inputs.article_url || '' }}
           NEWSROOM_AUDIT_REPAIR: ${{ github.event.inputs.repair_audit || '' }}
+          OPENCLAW_RUN_SOURCE: ${{ github.event.inputs.source || 'schedule' }}
+          OPENCLAW_RUN_REASON: ${{ github.event.inputs.reason || 'scheduled' }}
           NEWSROOM_AUTOPUBLISH_STRICT: "1"
           OPENCLAW_NEWSROOM_URL: ${{ secrets.OPENCLAW_NEWSROOM_URL }}
           OPENCLAW_NEWSROOM_TOKEN: ${{ secrets.OPENCLAW_NEWSROOM_TOKEN }}
