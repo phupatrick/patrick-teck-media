@@ -1830,9 +1830,9 @@ const tests = [
       assert.match(articleHtml, /article-section/);
       assert.match(articleHtml, /source-compact/);
       assert.ok((articleHtml.match(/class="article-section"/g) || []).length >= 4);
-      assert.doesNotMatch(articleHtml, /feedback-section/);
-      assert.doesNotMatch(articleHtml, /comment-form/);
-      assert.doesNotMatch(articleHtml, /reaction-button/);
+      assert.match(articleHtml, /feedback-section/);
+      assert.match(articleHtml, /comment-form/);
+      assert.match(articleHtml, /reaction-button/);
       assert.doesNotMatch(articleHtml, /store-panel/);
       assert.doesNotMatch(articleHtml, /Biên tập & quảng cáo|Editorial and ads/);
       assert.match(articleHtml, /English/);
@@ -2055,7 +2055,8 @@ const tests = [
       assert.match(articleHtml, /Dieu moi|Vi sao dang doc|Dieu can theo doi/);
       assert.match(articleHtml, /source-compact/);
       assert.ok((articleHtml.match(/class="article-section"/g) || []).length >= 5);
-      assert.doesNotMatch(articleHtml, /feedback-section|store-panel|store-promo-slot/);
+      assert.doesNotMatch(articleHtml, /store-panel|store-promo-slot/);
+      assert.match(articleHtml, /feedback-section/);
     }
   },
   {

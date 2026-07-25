@@ -732,6 +732,12 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
             ${renderArticleLanguageRail(article, copy)}
           </aside>
         </div>
+
+        ${renderArticleCommunity(article, feedback, language, options.viewer, {
+          notice: options.notice,
+          error: options.error,
+          csrf: options.csrf || {}
+        })}
       </article>
     `
   });
