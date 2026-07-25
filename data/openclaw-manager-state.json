@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-25T17:45:38.378Z",
-    "finishedAt": "2026-07-25T17:46:48.452Z"
+    "startedAt": "2026-07-25T18:02:53.735Z",
+    "finishedAt": "2026-07-25T18:04:08.733Z"
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
@@ -13,7 +13,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 3 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785001538413-8b6d8b.json Generated OpenClaw hidden feed with 3 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 3 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785002573763-1803fa.json Generated OpenClaw hidden feed with 3 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop it short of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Bad news for Pixel fans: Google all but confirms higher prices for the Pixel 11 lineup\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"I dug through Reddit to find the ten Windows 11 features people find \"life-changing, \" and the results were fascinating\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Top Stories: 'Apple Upgrade' Program, Apple Music Price Hike, and More\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Back-to-school phone shopping on a tight budget? Here’s the one phone I’d recommend without hesitation\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Storage upgrades cost too much, and we need microSD cards back\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Hori won me back with its Wireless Horipad Turbo for Nintendo Switch 2, but some annoying design quirks stop\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Bad news for Pixel fans: Google all but confirms higher prices for the Pixel 11 lineup\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Top Stories: 'Apple Upgrade' Program, Apple Music Price Hike, and More\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Back-to-school phone shopping on a tight budget? Here’s the one phone I’d recommend without hesitation\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"I dug through Reddit to find the ten Windows 11 features people find \"life-changing, \" and the results were fascinating\" because it failed publish readiness: sourceNameBalance Holding source-draft article \"Storage upgrades cost too much, and we need microSD cards back\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -49,7 +49,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-25T17:46:48.433Z",
+      "reviewedAt": "2026-07-25T18:04:08.722Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
