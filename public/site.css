@@ -5016,3 +5016,15 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Article readability: stronger contrast for body copy on light surfaces */
+.article-dek {
+  color: #38597f;
+}
+
+.article-summary,
+.article-section p,
+.comment-card p {
+  color: #314d73;
+}
