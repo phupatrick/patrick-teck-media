@@ -22,6 +22,28 @@ import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegr
 const state = createState();
 const tests = [
   {
+    name: "newsroom telegram admin can save and list Shopee advertising links",
+    async run() {
+      const saved = [];
+      const response = await executeNewsroomCommand("/shopee https://shopee.vn/product/123/456 | AI plan deal", {
+        isAdmin: true,
+        userId: "admin-1",
+        addShopeeAdLink: async (input) => {
+          saved.push(input);
+          return { id: "ad_1", ...input };
+        }
+      });
+      assert.match(response.text, /Saved Shopee advertising link/);
+      assert.equal(saved[0].title, "AI plan deal");
+
+      const listResponse = await executeNewsroomCommand("/ads", {
+        isAdmin: true,
+        listShopeeAdLinks: async () => [{ id: "ad_1", title: "AI plan deal", url: "https://shopee.vn/product/123/456" }]
+      });
+      assert.match(listResponse.text, /AI plan deal/);
+    }
+  },
+  {
     name: "newsroom telegram audit flags noisy scraped source text",
     async run() {
       const response = await executeNewsroomCommand("/audit", {

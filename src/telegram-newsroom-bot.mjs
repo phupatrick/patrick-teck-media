@@ -11,6 +11,8 @@ const DEFAULT_COMMANDS = [
   { command: "web", description: "Mở liên kết quản lý web" },
   { command: "id", description: "Lấy mã chat và mã người dùng" },
   { command: "submit", description: "Đọc, xác thực và đăng bài từ link" },
+  { command: "shopee", description: "Add a Shopee advertising link" },
+  { command: "ads", description: "List active Shopee advertising links" },
   { command: "up", description: "Tự động up thêm bài mới" },
   { command: "refresh", description: "Yêu cầu làm mới tòa soạn" },
   { command: "jobs", description: "Xem hàng đợi OpenClaw" },
@@ -61,6 +63,8 @@ export function createTelegramNewsroomBot(options = {}) {
   const getArticleViewStats = options.getArticleViewStats;
   const getArticleViewStorageMode = options.getArticleViewStorageMode;
   const addLearningFeedback = options.addLearningFeedback;
+  const addShopeeAdLink = options.addShopeeAdLink;
+  const listShopeeAdLinks = options.listShopeeAdLinks;
   const createControlJob = options.createControlJob;
   const dispatchWorkflow = options.dispatchWorkflow;
   const openClawEnabled = Boolean(options.openClawEnabled);
@@ -152,6 +156,8 @@ export function createTelegramNewsroomBot(options = {}) {
           getArticleViewStats,
           getArticleViewStorageMode,
           addLearningFeedback,
+          addShopeeAdLink,
+          listShopeeAdLinks,
           getWebhookStatus: () => ({ ...webhookStatus }),
           createControlJob,
           dispatchWorkflow,
@@ -208,6 +214,8 @@ export function createTelegramNewsroomBot(options = {}) {
         getArticleViewStats,
         getArticleViewStorageMode,
         addLearningFeedback,
+        addShopeeAdLink,
+        listShopeeAdLinks,
         getWebhookStatus: () => ({ ...webhookStatus }),
         createControlJob,
         dispatchWorkflow,
@@ -372,6 +380,14 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return submitNewsroomLink(linkText, context);
   }
 
+  if (command === "/shopee" || command === "/addad") {
+    return addShopeeAdvertisement(commandText.slice(firstToken.length).trim(), context);
+  }
+
+  if (command === "/ads" || command === "/listads") {
+    return { text: await buildShopeeAdvertisementList(context) };
+  }
+
   if (command === "/up" || command === "/upbai" || command === "/dangbai") {
     if (!context.isAdmin && !context.canSubmitLinks) {
       throw new Error("Chat này chưa được phép yêu cầu bot tự động up bài.");
@@ -439,6 +455,45 @@ export async function submitLearningFeedback(rawText, context = {}) {
       "Chu kỳ OpenClaw tiếp theo sẽ cập nhật hồ sơ học và điều chỉnh ưu tiên bài/nguồn."
     ].filter(Boolean).join("\n")
   };
+}
+
+async function addShopeeAdvertisement(rawText, context = {}) {
+  if (!context.isAdmin) {
+    throw new Error("Only admins can add advertising links.");
+  }
+
+  if (typeof context.addShopeeAdLink !== "function") {
+    return { text: "Shopee advertising storage is not configured." };
+  }
+
+  const [urlPart, ...titleParts] = String(rawText || "").split("|");
+  const url = String(urlPart || "").trim();
+  const title = titleParts.join("|").trim() || "Shopee offer";
+
+  if (!url) {
+    return { text: "Usage: /shopee <shopee_url> | Title" };
+  }
+
+  const link = await context.addShopeeAdLink({ url, title, actor: context.userId || "telegram-admin" });
+  return {
+    text: [
+      "Saved Shopee advertising link.",
+      "Title: " + link.title,
+      "Link: " + link.url,
+      "The media site can now rotate this offer in eligible advertising slots."
+    ].join("\n")
+  };
+}
+
+async function buildShopeeAdvertisementList(context = {}) {
+  if (typeof context.listShopeeAdLinks !== "function") {
+    return "Shopee advertising storage is not configured.";
+  }
+
+  const links = await context.listShopeeAdLinks();
+  return links.length
+    ? ["Active Shopee advertising links", "", ...links.map((entry) => "- " + entry.id + " | " + entry.title + " | " + entry.url)].join("\n")
+    : "No Shopee advertising links yet. Use /shopee <shopee_url> | Title";
 }
 
 export async function submitNewsroomLink(rawText, context = {}) {

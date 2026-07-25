@@ -285,6 +285,12 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
   getArticleViewStats: (input) => platformService.listArticleViewStats(input),
   getArticleViewStorageMode: () => platformService.storageMode,
   addLearningFeedback: (input) => openclawLearningStore.addFeedback(input),
+  addShopeeAdLink: async (input) => {
+    const link = await sellerService.addAdLink(input);
+    await refreshState();
+    return link;
+  },
+  listShopeeAdLinks: () => sellerService.listAdLinks(),
   createControlJob: (job) => openclawControlPlane.createJob(job),
   dispatchWorkflow: dispatchNewsroomWorkflow,
   openClawEnabled: Boolean(config.openclawControlToken)
