@@ -758,6 +758,66 @@ const fallbackFeeds = [
     limit: 12
   },
   {
+    name: "MIT Technology Review",
+    url: "https://www.technologyreview.com/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "ai",
+    limit: 8
+  },
+  {
+    name: "VentureBeat AI",
+    url: "https://venturebeat.com/category/ai/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "ai",
+    limit: 8
+  },
+  {
+    name: "NVIDIA Blog",
+    url: "https://blogs.nvidia.com/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "ai",
+    limit: 8
+  },
+  {
+    name: "Anthropic News",
+    url: "https://www.anthropic.com/news/rss.xml",
+    language: "en",
+    region: "Global",
+    sourceType: "official-site",
+    trustTier: "official",
+    topicHint: "ai",
+    limit: 8
+  },
+  {
+    name: "BleepingComputer",
+    url: "https://www.bleepingcomputer.com/feed/",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "security",
+    limit: 8
+  },
+  {
+    name: "Wired",
+    url: "https://www.wired.com/feed/rss",
+    language: "en",
+    region: "Global",
+    sourceType: "press",
+    trustTier: "established-media",
+    topicHint: "internet-business-tech",
+    limit: 6
+  },
+  {
     name: "SiliconANGLE",
     url: "https://siliconangle.com/feed/",
     language: "en",
@@ -1006,6 +1066,7 @@ function preserveSourceDraft(article, now) {
   const sourceSet = Array.isArray(article.source_set) ? article.source_set : [];
   const baseSummary = cleanText(article.summary || article.dek || article.hook || article.sections?.[0]?.body || article.title);
   const valueLines = buildEditorialValueLines({ article, language });
+  const leadCopy = buildDistinctLeadCopy({ article, baseSummary, valueLines, language });
   const cleanedSections = buildThickEditorialSections({
     sections: Array.isArray(article.sections) ? article.sections : [],
     valueLines,
@@ -1015,14 +1076,38 @@ function preserveSourceDraft(article, now) {
   return {
     ...article,
     title: cleanText(article.title),
-    summary: joinValueSentences(cleanText(article.summary || baseSummary), valueLines[0]),
-    dek: joinValueSentences(cleanText(article.dek || baseSummary), valueLines[1]),
-    hook: joinValueSentences(cleanText(article.hook || baseSummary), valueLines[2]),
+    summary: leadCopy.summary,
+    dek: leadCopy.dek,
+    hook: leadCopy.hook,
     sections: cleanedSections,
     source_set: sourceSet,
     published_at: article.published_at || now,
     updated_at: article.updated_at || article.published_at || now
   };
+}
+
+function buildDistinctLeadCopy({ article, baseSummary, valueLines, language }) {
+  const title = cleanText(article?.title);
+  const sourceFact = firstUsefulSentence(baseSummary || article?.summary || article?.dek || title);
+  const impactLine = valueLines[1] || valueLines[0] || "";
+  const watchLine = valueLines[2] || valueLines[3] || "";
+
+  return {
+    summary: joinValueSentences(sourceFact || title, valueLines[0]).slice(0, 420),
+    dek: language === "en"
+      ? joinValueSentences(`Why it matters: ${impactLine}`)
+      : joinValueSentences(`Điểm đáng chú ý: ${impactLine}`),
+    hook: language === "en"
+      ? joinValueSentences(`What to watch next: ${watchLine}`)
+      : joinValueSentences(`Điều cần theo dõi: ${watchLine}`)
+  };
+}
+
+function firstUsefulSentence(value) {
+  return splitSentences(value)
+    .find((sentence) => cleanText(sentence).length >= 60)
+    || splitSentences(value)[0]
+    || cleanText(value);
 }
 
 function filterPublishReadyArticles(articles, stage, strictQualityGate = false) {
@@ -1128,7 +1213,22 @@ function buildThickEditorialSections({ sections, valueLines, language }) {
 
   return headings.map((heading, index) => {
     const sourceBody = cleanText(sourceSections[index]?.body || sourceSections[index]?.summary || "");
-    const body = joinValueSentences(sourceBody, valueLines[index], valueLines[(index + 1) % valueLines.length]);
+    const sectionRole = language === "en"
+      ? [
+          "This section should establish the confirmed change before moving into interpretation.",
+          "This section should connect the report to reader workflow, spending, security, or product decisions.",
+          "This section should keep only verifiable details and avoid repeating the same source phrasing.",
+          "This section should name the reader group that benefits from acting now or waiting for confirmation.",
+          "This section should close with the next signal worth checking, not another summary of the same fact."
+        ][index]
+      : [
+          "Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định.",
+          "Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc.",
+          "Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn.",
+          "Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận.",
+          "Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
+        ][index];
+    const body = joinValueSentences(sourceBody, valueLines[index], sectionRole);
 
     return {
       ...(sourceSections[index] || {}),
@@ -1303,9 +1403,15 @@ function selectCuratedSourceDrafts(articles, env = process.env) {
       const sourceType = String(source?.source_type || "").trim();
       const trustTier = String(source?.trust_tier || "").trim();
       const trusted = sourceType === "official-site" || (sourceType === "press" && trustTier === "established-media");
-      return trusted && Number(article?.quality_score || 0) >= 88;
+      const sourceDepthScore = Number(article?.draft_context?.source_depth_score || 0);
+      const paragraphCount = Array.isArray(article?.draft_context?.paragraphs) ? article.draft_context.paragraphs.length : 0;
+      return trusted && Number(article?.quality_score || 0) >= 88 && sourceDepthScore >= 58 && paragraphCount >= 3;
     })
     .sort((left, right) => {
+      const depthDifference = Number(right?.draft_context?.source_depth_score || 0) - Number(left?.draft_context?.source_depth_score || 0);
+      if (depthDifference !== 0) {
+        return depthDifference;
+      }
       const dateDifference = Date.parse(right?.published_at || 0) - Date.parse(left?.published_at || 0);
       if (Number.isFinite(dateDifference) && dateDifference !== 0) {
         return dateDifference;
@@ -1412,6 +1518,12 @@ async function mapFeedItem(feed, item, timestamp) {
     return null;
   }
 
+  const sourceDepthScore = calculateSourceDepthScore({
+    title,
+    sourceDescription,
+    paragraphs: editorialParagraphs,
+    rawBody
+  });
   const inferenceText = cleanText([title, sourceDescription, ...editorialParagraphs.slice(0, 4)].join(" "));
   const topic = inferTopicFromSignals(feed, title, inferenceText);
   const contentType = inferContentType(feed, title, inferenceText);
@@ -1461,7 +1573,7 @@ async function mapFeedItem(feed, item, timestamp) {
     hook,
     sections,
     verification_state: feed.sourceType === "official-site" ? "verified" : "emerging",
-    quality_score: calculateQualityScore({ feed, imageUrl, paragraphs: editorialParagraphs, summary, dek, hook }),
+    quality_score: calculateQualityScore({ feed, imageUrl, paragraphs: editorialParagraphs, summary, dek, hook, sourceDepthScore }),
     ad_eligible: true,
     show_editorial_label: false,
     indexable: true,
@@ -1494,6 +1606,8 @@ async function mapFeedItem(feed, item, timestamp) {
       content_type_hint: feed.contentTypeHint || "",
       description: sourceDescription,
       paragraphs: editorialParagraphs.slice(0, 6),
+      source_depth_score: sourceDepthScore,
+      source_depth_reason: buildSourceDepthReason({ sourceDepthScore, paragraphs: editorialParagraphs, rawBody }),
       link
     }
   };
@@ -2548,12 +2662,32 @@ function resolveGuideTakeLine(topic, sourceName, language) {
   return `Phần đáng giữ lại là cách làm nào vẫn đứng vững khi đối chiếu với ${sourceName} và áp dụng vào thao tác hằng ngày.`;
 }
 
-function calculateQualityScore({ feed, imageUrl, paragraphs, summary, dek, hook }) {
+function calculateQualityScore({ feed, imageUrl, paragraphs, summary, dek, hook, sourceDepthScore = 0 }) {
   const base = feed.sourceType === "official-site" ? 86 : 80;
   const paragraphBonus = Math.min(8, (paragraphs?.length || 0) * 2);
   const imageBonus = imageUrl ? 4 : 0;
   const copyBonus = [summary, dek, hook].every((value) => cleanText(value).length >= 80) ? 4 : 0;
-  return Math.min(96, base + paragraphBonus + imageBonus + copyBonus);
+  const depthBonus = Math.max(-8, Math.min(8, Math.round((Number(sourceDepthScore || 0) - 56) / 6)));
+  return Math.min(96, Math.max(0, base + paragraphBonus + imageBonus + copyBonus + depthBonus));
+}
+
+function calculateSourceDepthScore({ title, sourceDescription, paragraphs = [], rawBody = "" }) {
+  const cleanParagraphs = (paragraphs || []).map((entry) => cleanText(entry)).filter(Boolean);
+  const text = cleanText([title, sourceDescription, ...cleanParagraphs, rawBody].join(" "));
+  const words = text.split(/\s+/).filter(Boolean).length;
+  const paragraphScore = Math.min(30, cleanParagraphs.length * 6);
+  const lengthScore = Math.min(24, Math.floor(words / 28));
+  const numberScore = Math.min(12, (text.match(/\b\d+(?:[.,]\d+)?\s?(?:%|gb|tb|mb|usd|vnd|triệu|trieu|tỷ|ty|ngày|ngay|tháng|thang|hours?|days?|users?|countries)?\b/gi) || []).length * 3);
+  const entityScore = Math.min(18, new Set(text.match(/\b[A-Z][A-Za-z0-9+.-]{2,}(?:\s+[A-Z][A-Za-z0-9+.-]{2,}){0,3}\b/g) || []).size * 2);
+  const concreteScore = Math.min(16, (text.match(/\b(launch|rollout|release|pricing|price|cost|subscription|availability|limitation|risk|privacy|security|benchmark|update|ra mắt|triển khai|giá|chi phí|gói|phát hành|giới hạn|rủi ro|bảo mật|quyền riêng tư|cập nhật)\b/gi) || []).length * 2);
+  const thinPenalty = cleanParagraphs.length < 3 || words < 180 ? 14 : 0;
+
+  return Math.max(0, Math.min(100, paragraphScore + lengthScore + numberScore + entityScore + concreteScore - thinPenalty));
+}
+
+function buildSourceDepthReason({ sourceDepthScore, paragraphs = [], rawBody = "" }) {
+  const words = cleanText(rawBody).split(/\s+/).filter(Boolean).length;
+  return `depth=${sourceDepthScore}; paragraphs=${paragraphs.length}; words=${words}`;
 }
 
 function resolveStoreLinkMode(topic, contentType) {
