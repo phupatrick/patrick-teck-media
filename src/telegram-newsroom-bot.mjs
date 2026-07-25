@@ -584,7 +584,7 @@ async function buildLatestText(context) {
 
   return [
     "Bài mới nhất",
-    ...latest.map((article, index) => `${index + 1}. ${article.title}\n${context.siteUrl}${article.href}`)
+    ...latest.map((article, index) => formatTelegramArticleReference(context.siteUrl, article, index + 1))
   ].join("\n\n");
 }
 
@@ -622,7 +622,7 @@ async function buildViewsText(context) {
       `${formatViewRank(entry.rank || index + 1, entry.rank_label)} ${entry.title || entry.article_href}`,
       `Điểm hạng: ${entry.rank_score || 0} | View: ${entry.views} | Unique: ${entry.unique_views}`,
       `Nhóm: ${formatTopicKey(entry.topic)} / ${entry.content_type || "NewsArticle"} / ${formatSourceTypeKey(entry.source_type)}`,
-      `${context.siteUrl}${entry.article_href}`
+      buildPublicArticleUrl(context.siteUrl, entry)
     ].join("\n")),
     storageWarning ? "" : "",
     storageWarning,
@@ -685,7 +685,7 @@ async function buildAuditText(context) {
     ...topIssues.map((entry, index) => [
       `${index + 1}. ${entry.title}`,
       `Vấn đề: ${entry.issues.join(", ")}`,
-      `${context.siteUrl}${entry.href}`
+      buildPublicArticleUrl(context.siteUrl, entry)
     ].join("\n")),
     "",
     "Xử lý tự động:",
@@ -1246,6 +1246,43 @@ function normalizeSiteUrl(value) {
   return String(value || "").trim().replace(/\/+$/, "") || "https://patricktechmedia.com";
 }
 
+export function buildPublicArticleUrl(siteUrl, article = {}) {
+  const href = String(article?.href || article?.article_href || "").trim();
+
+  if (/^https?:\/\//i.test(href)) {
+    return href;
+  }
+
+  if (href.startsWith("/")) {
+    return `${normalizeSiteUrl(siteUrl)}${href}`;
+  }
+
+  const slug = String(article?.slug || "").trim().replace(/^\/+|\/+$/g, "");
+  if (!slug) {
+    return "";
+  }
+
+  const language = String(article?.language || "vi").trim().toLowerCase() === "en" ? "en" : "vi";
+  const fallbackSegments = {
+    NewsArticle: { vi: "tin-tuc", en: "news" },
+    EvergreenGuide: { vi: "huong-dan", en: "guides" },
+    ComparisonPage: { vi: "so-sanh", en: "compare" },
+    Roundup: { vi: "tong-hop", en: "roundups" }
+  };
+  const contentType = String(article?.content_type || "NewsArticle").trim();
+  const segment = String(article?.path_segment || fallbackSegments[contentType]?.[language] || fallbackSegments.NewsArticle[language])
+    .trim()
+    .replace(/^\/+|\/+$/g, "");
+
+  return `${normalizeSiteUrl(siteUrl)}/${language}/${segment}/${slug}`;
+}
+
+export function formatTelegramArticleReference(siteUrl, article = {}, number = null) {
+  const title = String(article?.title || "Untitled article").trim();
+  const prefix = number === null ? "" : `${number}. `;
+  const url = buildPublicArticleUrl(siteUrl, article);
+  return url ? `${prefix}${title}\n${url}` : `${prefix}${title}`;
+}
 function normalizeWebhookUrl(value) {
   const raw = String(value || "").trim();
   if (!raw) {

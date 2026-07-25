@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { sendTelegramMessage } from "../src/telegram-newsroom-bot.mjs";
+import { formatTelegramArticleReference, sendTelegramMessage } from "../src/telegram-newsroom-bot.mjs";
 
 const rootDir = process.cwd();
 const token = String(process.env.TELEGRAM_NEWSROOM_BOT_TOKEN || process.env.TELEGRAM_BOT_TOKEN || "").trim();
@@ -33,7 +33,7 @@ const message = [
   `Bot học: ${learningProfile.totalSignals || 0} tín hiệu, độ tin cậy ${Math.round((learningProfile.confidence || 0) * 100)}%`,
   "",
   "Bài mới:",
-  ...latest.map((article, index) => `${index + 1}. ${article.title}\n${siteUrl}${article.href}`),
+  ...latest.map((article, index) => formatTelegramArticleReference(siteUrl, article, index + 1)),
   "",
   `Trang web: ${siteUrl}/vi/`
 ].join("\n");
