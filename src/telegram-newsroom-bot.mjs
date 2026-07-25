@@ -8,6 +8,7 @@ const DEFAULT_COMMANDS = [
   { command: "learn", description: "Xem hồ sơ học của bot" },
   { command: "feedback", description: "Dạy bot bằng phản hồi của chủ sở hữu" },
   { command: "health", description: "Kiểm tra tình trạng web đang chạy" },
+  { command: "diagnose", description: "Check bot storage and automation readiness" },
   { command: "web", description: "Mở liên kết quản lý web" },
   { command: "id", description: "Lấy mã chat và mã người dùng" },
   { command: "submit", description: "Đọc, xác thực và đăng bài từ link" },
@@ -65,6 +66,7 @@ export function createTelegramNewsroomBot(options = {}) {
   const addLearningFeedback = options.addLearningFeedback;
   const addShopeeAdLink = options.addShopeeAdLink;
   const listShopeeAdLinks = options.listShopeeAdLinks;
+  const getBotDiagnostics = options.getBotDiagnostics;
   const createControlJob = options.createControlJob;
   const dispatchWorkflow = options.dispatchWorkflow;
   const openClawEnabled = Boolean(options.openClawEnabled);
@@ -158,6 +160,7 @@ export function createTelegramNewsroomBot(options = {}) {
           addLearningFeedback,
           addShopeeAdLink,
           listShopeeAdLinks,
+          getBotDiagnostics,
           getWebhookStatus: () => ({ ...webhookStatus }),
           createControlJob,
           dispatchWorkflow,
@@ -216,6 +219,7 @@ export function createTelegramNewsroomBot(options = {}) {
         addLearningFeedback,
         addShopeeAdLink,
         listShopeeAdLinks,
+        getBotDiagnostics,
         getWebhookStatus: () => ({ ...webhookStatus }),
         createControlJob,
         dispatchWorkflow,
@@ -367,6 +371,10 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return { text: await buildHealthText(context) };
   }
 
+  if (command === "/diagnose" || command === "/diag") {
+    return { text: await buildDiagnosticsText(context) };
+  }
+
   if (command === "/web") {
     return { text: buildWebLinksText(context) };
   }
@@ -428,6 +436,9 @@ export async function submitLearningFeedback(rawText, context = {}) {
       ].join("\n")
     };
   }
+
+  const diagnostics = typeof context.getBotDiagnostics === "function" ? await context.getBotDiagnostics().catch(() => null) : null;
+  if (diagnostics && !diagnostics.learningPersistent) return { text: "Feedback was not saved because production learning storage is temporary. Add DATABASE_URL on Vercel before teaching the bot." };
 
   if (typeof context.addLearningFeedback !== "function") {
     return {
@@ -765,6 +776,12 @@ async function buildHealthText(context) {
   ].join("\n");
 }
 
+async function buildDiagnosticsText(context) {
+  const diagnostics = typeof context.getBotDiagnostics === "function" ? await context.getBotDiagnostics().catch(() => null) : null;
+  if (!diagnostics) return "Bot diagnostics are unavailable.";
+  return ["Patrick Tech Media bot diagnostics", "", "Learning storage: " + diagnostics.learningStorageMode, "Persistent learning: " + (diagnostics.learningPersistent ? "ready" : "needs DATABASE_URL"), "View storage: " + diagnostics.viewStorageMode, "Shopee ad storage: " + diagnostics.sellerStorageMode, "GitHub refresh dispatch: " + (diagnostics.workflowDispatchConfigured ? "ready" : "missing token"), "OpenClaw worker: " + (diagnostics.openClawEnabled ? "ready" : "not configured"), "", diagnostics.learningPersistent ? "Persistent learning is ready." : "Action required: add the same DATABASE_URL to Vercel Production and GitHub Actions secrets, then redeploy."].join("\n");
+}
+
 async function buildJobsText(context) {
   const control = await context.getControlSummary?.();
 
@@ -1015,6 +1032,8 @@ function mapCallbackToCommand(action) {
     "newsroom:audit": "/audit",
     "newsroom:learn": "/learn",
     "newsroom:health": "/health",
+    "newsroom:diagnose": "/diagnose",
+    "newsroom:ads": "/ads",
     "newsroom:web": "/web",
     "newsroom:id": "/id",
     "newsroom:setup": "/setup",

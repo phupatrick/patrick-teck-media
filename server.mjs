@@ -291,6 +291,7 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
     return link;
   },
   listShopeeAdLinks: () => sellerService.listAdLinks(),
+  getBotDiagnostics: async () => { const learning = await openclawLearningStore.getSummary(); return { learningStorageMode: learning.storageMode || "unknown", learningPersistent: learning.storageMode === "neon-postgres", viewStorageMode: platformService.storageMode, sellerStorageMode: config.databaseUrl ? "neon-postgres" : "temp-file", workflowDispatchConfigured: Boolean(config.githubWorkflowDispatchToken), openClawEnabled: Boolean(config.openclawControlToken) }; },
   createControlJob: (job) => openclawControlPlane.createJob(job),
   dispatchWorkflow: dispatchNewsroomWorkflow,
   openClawEnabled: Boolean(config.openclawControlToken)
