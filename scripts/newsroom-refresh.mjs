@@ -946,24 +946,11 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
     }
 
     if (strictQualityGate) {
-      const trustedSourceArticles = filterTrustedSourceFallbackArticles(
-        state.articles.map(stripRuntimeArticleFields),
-        "normalized"
-      );
-      if (trustedSourceArticles.length > 0) {
-        return trustedSourceArticles;
-      }
-
-      // The public normalizer can omit source trust metadata used by the
-      // fallback. Re-check the cleaned source drafts so that provenance is
-      // evaluated from the original feed record.
-      const sourceDraftArticles = filterTrustedSourceFallbackArticles(
+      filterTrustedSourceFallbackArticles(state.articles.map(stripRuntimeArticleFields), "normalized");
+      filterTrustedSourceFallbackArticles(
         incomingArticles.map((article) => preserveSourceDraft(article, now)).filter(Boolean),
         "source-draft"
       );
-      if (sourceDraftArticles.length > 0) {
-        return sourceDraftArticles;
-      }
     }
   }
 
