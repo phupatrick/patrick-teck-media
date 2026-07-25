@@ -1220,8 +1220,45 @@ const tests = [
 
       assert.equal(article.title, "Samsung foldables move closer to launch");
       assert.equal(commercialArticle.title, "Grab this massive power bank for a dirt-cheap $35");
-      assert.match(html, /Views: 1,234/);
+      assert.match(html, /Views: \d{1,3}(?:,\d{3})* \| Real views: 1,234/);
       assert.doesNotMatch(html, /why this signal is getting harder to ignore/i);
+    }
+  },
+  {
+    name: "shows public display views separately from admin real views",
+    run() {
+      const article = state.articles[0];
+      const publicHtml = renderArticlePage(state, "vi", article, [], { client: "", slots: {} }, {
+        feedback: {
+          views: 1,
+          uniqueViews: 1,
+          reactions: [],
+          comments: [],
+          totalComments: 0,
+          totalReactions: 0
+        }
+      });
+      const adminHtml = renderArticlePage(state, "vi", article, [], { client: "", slots: {} }, {
+        feedback: {
+          views: 1,
+          uniqueViews: 1,
+          reactions: [],
+          comments: [],
+          totalComments: 0,
+          totalReactions: 0
+        },
+        viewer: {
+          role: "admin",
+          isAdmin: true,
+          name: "Admin"
+        }
+      });
+
+      const publicMeta = publicHtml.match(/<div class="story-meta-line">[\s\S]*?<\/div>/)?.[0] || "";
+      const adminMeta = adminHtml.match(/<div class="story-meta-line">[\s\S]*?<\/div>/)?.[0] || "";
+      assert.match(publicMeta, /<span>[^<]*\d{1,3}(?:\.\d{3})* \| [^<]*: 1<\/span>/);
+      assert.match(adminMeta, /<span>[^<]*: 1<\/span>/);
+      assert.doesNotMatch(adminMeta, /\|/);
     }
   },
   {

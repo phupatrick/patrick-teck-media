@@ -654,6 +654,8 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
   const shouldShowBadge = Boolean(article.editorial_label);
   const feedback = options.feedback || { reactions: [], comments: [], totalComments: 0, totalReactions: 0 };
   const publicSections = selectPublicArticleSections(article);
+  const realViews = Number(feedback.views || 0);
+  const viewMeta = renderArticleViewMeta(language, article, realViews, options.viewer);
   const seoDescription = buildSeoDescription(article, language);
   const schemaType = article.content_type === "NewsArticle" ? "NewsArticle" : "Article";
   const articleSchema = {
@@ -698,7 +700,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
             <span class="pill">${escapeHtml(article.content_type_label)}</span>
             <a href="/${language}/topics/${article.topic_slug}">${escapeHtml(article.topic_label)}</a>
             <span>${escapeHtml(formatPublishDate(language, article.published_at))}</span>
-            <span>${language === "vi" ? "Lượt xem" : "Views"}: ${Number(feedback.views || 0).toLocaleString(language === "vi" ? "vi-VN" : "en-US")}</span>
+            <span>${viewMeta}</span>
           </div>
           ${shouldShowBadge ? `<div class="story-flag">${escapeHtml(article.editorial_label)}</div>` : ""}
           <h1>${escapeHtml(article.title)}</h1>
@@ -1075,6 +1077,39 @@ function renderCategoryMenu(nav, language) {
             </div>
           </details>
         </nav>`;
+}
+
+function renderArticleViewMeta(language, article, realViews, viewer) {
+  const locale = language === "vi" ? "vi-VN" : "en-US";
+  const normalizedRealViews = Number.isFinite(realViews) ? Math.max(0, Math.trunc(realViews)) : 0;
+  const realLabel = language === "vi" ? "Lượt xem thật" : "Real views";
+
+  if (isPrivilegedViewer(viewer)) {
+    return `${realLabel}: ${normalizedRealViews.toLocaleString(locale)}`;
+  }
+
+  const publicLabel = language === "vi" ? "Lượt xem" : "Views";
+  const publicViews = buildPublicDisplayViews(article, normalizedRealViews);
+  return `${publicLabel}: ${publicViews.toLocaleString(locale)} | ${realLabel}: ${normalizedRealViews.toLocaleString(locale)}`;
+}
+
+function isPrivilegedViewer(viewer) {
+  if (!viewer || typeof viewer !== "object") {
+    return false;
+  }
+
+  const role = String(viewer.role || "").toLowerCase();
+  return viewer.isAdmin === true || viewer.isBot === true || role === "admin" || role === "bot" || role === "owner";
+}
+
+function buildPublicDisplayViews(article, realViews) {
+  const seedSource = `${article?.id || ""}|${article?.slug || ""}|${article?.title || ""}`;
+  let hash = 0;
+  for (const char of seedSource) {
+    hash = (hash * 31 + char.charCodeAt(0)) % 1000003;
+  }
+  const baseline = 1000 + (hash % 1001);
+  return Math.max(baseline, realViews + 1000);
 }
 
 function renderLayout({ state, language, path, alternateHref, adsConfig, title, description, content, schema = null }) {
