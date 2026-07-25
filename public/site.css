@@ -5285,3 +5285,14 @@ body {
     width: 100%;
   }
 }
+
+
+/* Lead hot pill: keep the label readable over bright hero images */
+.lead-feature-topline .hot-pill,
+.pill.hot-pill {
+  border-color: rgba(255, 214, 170, 0.82);
+  background: linear-gradient(135deg, rgba(255, 126, 61, 0.96), rgba(255, 90, 41, 0.96));
+  color: #fffdf8;
+  text-shadow: 0 1px 2px rgba(62, 18, 0, 0.28);
+  box-shadow: 0 10px 24px rgba(128, 43, 14, 0.22);
+}
