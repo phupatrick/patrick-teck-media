@@ -99,7 +99,7 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
   const comments = Array.isArray(platformState.articleComments) ? platformState.articleComments : [];
   const viewStats = Array.isArray(platformState.articleViews) ? platformState.articleViews : [];
 
-  const articleSignals = articles.map((article) => {
+  const articleSignals = articles.filter((article) => article && typeof article === "object").map((article) => {
     const readiness = evaluateArticleAutopublishReadiness(article);
     const articleReactions = reactions.filter((entry) => matchesArticle(entry, article));
     const articleComments = comments.filter((entry) => matchesArticle(entry, article));

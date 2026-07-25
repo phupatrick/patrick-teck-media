@@ -1593,10 +1593,6 @@ function selectPublicArticleSections(article) {
       continue;
     }
 
-    if (sourcePattern && countSourceMentions(body, sourcePattern) >= 3) {
-      continue;
-    }
-
     const compactBody = trimArticleBody(body, 760);
     const signature = `${heading.toLowerCase()}::${compactBody.toLowerCase().slice(0, 90)}`;
 

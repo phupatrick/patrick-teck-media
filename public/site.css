@@ -2503,6 +2503,11 @@ h3 {
   display: none;
 }
 
+.article-section.is-news-article {
+  border-top: 0;
+  padding-top: 0;
+}
+
 .feedback-head {
   display: grid;
   gap: 6px;
