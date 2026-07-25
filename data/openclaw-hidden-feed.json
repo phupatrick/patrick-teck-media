@@ -1,11 +1,103 @@
 {
-  "generated_at": "2026-07-25T20:52:38.764Z",
+  "generated_at": "2026-07-25T21:53:32.192Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-179c45c97a8b-en",
+      "cluster_id": "feed-179c45c97a8b",
+      "language": "en",
+      "topic": "security",
+      "content_type": "NewsArticle",
+      "slug": "the-hottest-indie-game-on-steam-just-had-a-malware-scare",
+      "title": "The hottest indie game on Steam just had a malware scare",
+      "summary": "One of Steam’s biggest success stories of 2026 has suddenly found itself at the center of a security scare. The source signal from Digital Trends should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; The hottest indie game on Steam just had a malware scare should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "One of Steam’s biggest success stories of 2026 has suddenly found itself at the center of a security scare. A security researcher has discovered that a community-made Meccha Chameleon Workshop map contained code designed to write files outside the game and launch a hidden PowerShell process that attempted to download an additional payload from an external server. The source signal from Digital Trends should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The investigation, published by security researcher Feint , began after players noticed a Command Prompt window briefly flashing on screen while Steam downloaded a custom Workshop map called Laser Tag Neon. Digging deeper, the researcher found that the map wasn’t hiding an executable file in the traditional sense. Instead, it abused Unreal Engine 5 Blueprint logic to write a batch file into the user’s Documents folder before launching a hidden PowerShell process. The practical impact sits in workflow, cost, risk, or a buying decision; The hottest indie game on Steam just had a malware scare should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Laser Tag Neon on Steam (now unavailable) Steam Community According to the reverse engineering analysis, the script then attempted to download a second-stage batch file from a hardcoded external server and execute it. During testing, however, that download returned a 404 error, meaning the final payload was never retrieved and its intended purpose remains unknown. Even so, the behavior itself — writing executable files outside the game directory and invoking PowerShell — is highly unusual for a Workshop map and strongly suggests malicious intent. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "The researcher stopped short of identifying the final malware family because the second-stage payload was unavailable during analysis. However, they concluded that the Workshop item should be treated as malicious based on multiple indicators, including hidden execution logic, disguised Blueprint assets, and attempts to retrieve external code. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Meccha Chameleon isn’t just another indie game. Since launching last month, the multiplayer hit has sold around 15 million copies, and industry analysts recently reported that it generated the second-highest PC game revenue of the month, behind only Fortnite . That massive audience makes it an attractive target for attackers looking to abuse community-created content. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Digital Trends",
+          "source_url": "https://www.digitaltrends.com/gaming/meccha-chameleon-steam-workshop-malware-custom-map/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-25T21:12:50.000Z",
+          "image_url": "https://www.digitaltrends.com/tachyon/2026/07/MECCHA-CHAMELEON-Gameplay-screenshot.jpg?resize=1200%2C630",
+          "image_caption": "Reference image from Digital Trends.",
+          "image_credit": "Digital Trends"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2026-07-25T21:12:50.000Z",
+      "updated_at": "2026-07-25T21:12:50.000Z",
+      "image": {
+        "src": "https://www.digitaltrends.com/tachyon/2026/07/MECCHA-CHAMELEON-Gameplay-screenshot.jpg?resize=1200%2C630",
+        "caption": "Reference image from Digital Trends.",
+        "credit": "Digital Trends",
+        "source_url": "https://www.digitaltrends.com/gaming/meccha-chameleon-steam-workshop-malware-custom-map/"
+      },
+      "draft_context": {
+        "source_title": "The hottest indie game on Steam just had a malware scare",
+        "source_name": "Digital Trends",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "A malicious Meccha Chameleon Steam Workshop map was found attempting to download malware onto players' PCs. Here's what happened, why it matters, and how to stay safe.",
+        "paragraphs": [
+          "One of Steam’s biggest success stories of 2026 has suddenly found itself at the center of a security scare. A security researcher has discovered that a community-made Meccha Chameleon Workshop map contained code designed to write files outside the game and launch a hidden PowerShell process that attempted to download an additional payload from an external server.",
+          "The investigation, published by security researcher Feint , began after players noticed a Command Prompt window briefly flashing on screen while Steam downloaded a custom Workshop map called Laser Tag Neon. Digging deeper, the researcher found that the map wasn’t hiding an executable file in the traditional sense. Instead, it abused Unreal Engine 5 Blueprint logic to write a batch file into the user’s Documents folder before launching a hidden PowerShell process.",
+          "Laser Tag Neon on Steam (now unavailable) Steam Community According to the reverse engineering analysis, the script then attempted to download a second-stage batch file from a hardcoded external server and execute it. During testing, however, that download returned a 404 error, meaning the final payload was never retrieved and its intended purpose remains unknown. Even so, the behavior itself — writing executable files outside the game directory and invoking PowerShell — is highly unusual for a Workshop map and strongly suggests malicious intent.",
+          "The researcher stopped short of identifying the final malware family because the second-stage payload was unavailable during analysis. However, they concluded that the Workshop item should be treated as malicious based on multiple indicators, including hidden execution logic, disguised Blueprint assets, and attempts to retrieve external code.",
+          "Meccha Chameleon isn’t just another indie game. Since launching last month, the multiplayer hit has sold around 15 million copies, and industry analysts recently reported that it generated the second-highest PC game revenue of the month, behind only Fortnite . That massive audience makes it an attractive target for attackers looking to abuse community-created content.",
+          "lemorion_1224 Unlike installing a traditional mod manually, Workshop content is often downloaded automatically when joining multiplayer lobbies or subscribing to community maps. In this case, the malicious behavior was embedded inside what appeared to be a perfectly normal Unreal Engine asset, making it difficult to spot through a quick inspection."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=392",
+        "link": "https://www.digitaltrends.com/gaming/meccha-chameleon-steam-workshop-malware-custom-map/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-25T21:53:32.192Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-dfec29aeb31c-en",
       "cluster_id": "feed-dfec29aeb31c",
@@ -92,7 +184,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-25T20:52:38.763Z",
+        "generated_at": "2026-07-25T21:53:32.192Z",
         "origin": "local-curated-rss"
       }
     },
@@ -182,7 +274,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-25T20:52:38.763Z",
+        "generated_at": "2026-07-25T21:53:32.192Z",
         "origin": "local-curated-rss"
       }
     },
@@ -273,7 +365,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-25T20:52:38.763Z",
+        "generated_at": "2026-07-25T21:53:32.192Z",
         "origin": "local-curated-rss"
       }
     },
@@ -363,98 +455,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-25T20:52:38.763Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-93a0b2e99873-en",
-      "cluster_id": "feed-93a0b2e99873",
-      "language": "en",
-      "topic": "security",
-      "content_type": "NewsArticle",
-      "slug": "cloudflare-waf-protects-wordpress-applications-from-two-high-severity-vulnerabilities",
-      "title": "Cloudflare WAF protects WordPress applications from two high-severity vulnerabilities",
-      "summary": "Cloudflare has deployed new Web Application Firewall (WAF) protections for two critical vulnerabilities affecting WordPress. The source signal from Cloudflare Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Cloudflare WAF protects WordPress applications from two high-severity vulnerabilities should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
-      "sections": [
-        {
-          "heading": "Context: what changed",
-          "body": "Cloudflare has deployed new Web Application Firewall (WAF) protections for two critical vulnerabilities affecting WordPress. The protections address an Unauthenticated Remote Code Execution (RCE) vulnerability in WordPress's REST API and a related SQL Injection vulnerability. The source signal from Cloudflare Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "The WordPress security team disclosed the vulnerabilities to Cloudflare before public release so that we could prepare protections for customers. Cloudflare has deployed the new rules to protect all customers, including those on free and paid plans, as long as their application traffic is proxied through the Cloudflare WAF. The rules were deployed at 17:03 UTC on July 17 2026. The practical impact sits in workflow, cost, risk, or a buying decision; Cloudflare WAF protects WordPress applications from two high-severity vulnerabilities should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
-        },
-        {
-          "heading": "Details worth verifying",
-          "body": "WAF protections reduce exposure while customers update, but they are not a substitute for patching. WordPress has released fixes in version 7. 0. 2, with backports to affected earlier branches: 6. 9. 5, 6. 8. 6, and 7. 1 Beta 2 ( see release details ). Versions earlier than 6. 8 are not affected. WordPress is treating this as its highest-severity, highest-priority class of issue and is forcing automatic updates to affected sites, so most sites will be updated automatically. We still recommend confirming that you are on a patched release or the backports for your branch and follow the guidance in the official WordPress security release announcement . The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
-        },
-        {
-          "heading": "Who should act or wait",
-          "body": "Cloudflare customers running WordPress sites on Pro, Business, or Enterprise plans should ensure that Cloudflare Managed Rules are enabled. Customers can follow the steps in our WAF Managed Rules documentation . Customers on free plans are automatically protected through the Free Ruleset. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "The new rules are deployed with the default Managed Ruleset action of Block. Customers running WordPress sites should review any ruleset-level overrides, including those that change all rules from Block to Log, and ensure the new rules use the recommended action while they update WordPress. Cloudflare customers should also monitor Security Events for requests matching either rule. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        }
-      ],
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "secure-access-kit"
-      ],
-      "source_set": [
-        {
-          "source_type": "official-site",
-          "source_name": "Cloudflare Blog",
-          "source_url": "https://blog.cloudflare.com/wordpress-vulnerabilities/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-17T21:30:43.000Z",
-          "image_url": "https://blog.cloudflare.com/_emdash/api/media/file/01KXQSKFH096V7DNN9NP8ABG4X.png",
-          "image_caption": "Reference image from Cloudflare Blog.",
-          "image_credit": "Cloudflare Blog"
-        }
-      ],
-      "author_id": "thao-nguyen",
-      "published_at": "2026-07-17T21:30:43.000Z",
-      "updated_at": "2026-07-17T21:30:43.000Z",
-      "image": {
-        "src": "https://blog.cloudflare.com/_emdash/api/media/file/01KXQSKFH096V7DNN9NP8ABG4X.png",
-        "caption": "Reference image from Cloudflare Blog.",
-        "credit": "Cloudflare Blog",
-        "source_url": "https://blog.cloudflare.com/wordpress-vulnerabilities/"
-      },
-      "draft_context": {
-        "source_title": "Cloudflare WAF protects WordPress applications from two high-severity vulnerabilities",
-        "source_name": "Cloudflare Blog",
-        "source_type": "official-site",
-        "trust_tier": "official",
-        "topic_hint": "cloud-enterprise",
-        "content_type_hint": "",
-        "description": "Cloudflare has deployed new Web Application Firewall (WAF) protections for two critical vulnerabilities affecting WordPress. The protections address an Unauthenticated Remote Code Execution (RCE) vulnerability in WordPress's REST API and a related SQL Injection vulnerability. The WordPress security team disclosed the vulnerabilities to Cloudflare before public release so that we could prepare protections for customers. Cloudflare has deployed the new rules to protect all customers, including those on free and paid plans, as long as their application traffic is proxied through the Cloudflare WAF. The rules were deployed at 17:03 UTC on July 17 2026. WAF protections reduce exposure while customers update, but they are not a substitute for patching. WordPress has released fixes in version 7.0.2, with backports to affected earlier branches: 6.9.5, 6.8.6, and 7.1 Beta 2 ( see release details ). Versions earlier than 6.8 are not affected. WordPress is treating this as its highest-severity, highest-priority class of issue and is forcing automatic updates to affected sites, so most sites will be updated automatically. We still recommend confirming that you are on a patched release or the backports for your branch and follow the guidance in the official WordPress security release announcement . What you need to know The vulnerabilities affect different parts of the request path: CVE-2026-60137: SQL injection. A vulnerability in WordPress version 6.8 and later allows crafted input to alter a database query. Rating High. CVE-2026-63030: Unauthenticated remote code execution. A vulnerability in WordPress version 6.9 and later allows an unauthenticated attacker to execute code through the batch endpoint of the REST API when a persistent object cache is not in use. This vulnerability is related to the SQL injection described above. No login or user interaction is required to exploit this vulnerability. Rating Critical. The SQL injection vulnerability is present from version 6.8 onwards, while the RCE only affects versions from 6.9. So 6.8.6 addresses the SQLi only since the RCE isn't present on 6.8, while 6.9.5, 7.0.2, and 7.1 Beta 2 get fixes for both. Cloudflare created two rules to detect requests associated with these vulnerabilities: Cloudflare customers running WordPress sites on Pro, Business, or Enterprise plans should ensure that Cloudflare Managed Rules are enabled. Customers can follow the steps in our WAF Managed Rules documentation . Customers on free plans are automatically protected through the Free Ruleset. The new rules are deployed with the default Managed Ruleset action of Block. Customers running WordPress sites should review any ruleset-level overrides, including those that change all rules from Block to Log, and ensure the new rules use the recommended action while they update WordPress. Cloudflare customers should also monitor Security Events for requests matching either rule. Defense in depth while you patch The SQL injection rule detects crafted parameter values before they reach WordPress. The unauthenticated RCE rule targets requests attempting to reach the remote code execution path. Together, they detect the attack at two different points. These rules reduce risk while organizations update affected systems; they do not fix the underlying vulnerable code. Updating WordPress remains the most effective way to address the vulnerabilities. If an immediate update is not possible, verify that both Cloudflare rules are active with the recommended action and review logs for suspicious requests to the affected REST API endpoint. Looking forward Cloudflare will monitor matching traffic and test the rules against new attack variations, updating detections when needed. We thank the WordPress security team for coordinating with Cloudflare and other infrastructure providers to help protect users before details of the vulnerabilities became public.",
-        "paragraphs": [
-          "Cloudflare has deployed new Web Application Firewall (WAF) protections for two critical vulnerabilities affecting WordPress. The protections address an Unauthenticated Remote Code Execution (RCE) vulnerability in WordPress's REST API and a related SQL Injection vulnerability.",
-          "The WordPress security team disclosed the vulnerabilities to Cloudflare before public release so that we could prepare protections for customers. Cloudflare has deployed the new rules to protect all customers, including those on free and paid plans, as long as their application traffic is proxied through the Cloudflare WAF. The rules were deployed at 17:03 UTC on July 17 2026.",
-          "WAF protections reduce exposure while customers update, but they are not a substitute for patching. WordPress has released fixes in version 7.0.2, with backports to affected earlier branches: 6.9.5, 6.8.6, and 7.1 Beta 2 ( see release details ). Versions earlier than 6.8 are not affected. WordPress is treating this as its highest-severity, highest-priority class of issue and is forcing automatic updates to affected sites, so most sites will be updated automatically. We still recommend confirming that you are on a patched release or the backports for your branch and follow the guidance in the official WordPress security release announcement .",
-          "Cloudflare customers running WordPress sites on Pro, Business, or Enterprise plans should ensure that Cloudflare Managed Rules are enabled. Customers can follow the steps in our WAF Managed Rules documentation . Customers on free plans are automatically protected through the Free Ruleset.",
-          "The new rules are deployed with the default Managed Ruleset action of Block. Customers running WordPress sites should review any ruleset-level overrides, including those that change all rules from Block to Log, and ensure the new rules use the recommended action while they update WordPress. Cloudflare customers should also monitor Security Events for requests matching either rule."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=881",
-        "link": "https://blog.cloudflare.com/wordpress-vulnerabilities/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-07-25T20:52:38.763Z",
+        "generated_at": "2026-07-25T21:53:32.192Z",
         "origin": "local-curated-rss"
       }
     }

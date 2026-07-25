@@ -1,6 +1,78 @@
 {
-  "generated_at": "2026-07-25T20:52:38.828Z",
+  "generated_at": "2026-07-25T21:53:32.249Z",
   "articles": [
+    {
+      "id": "feed-179c45c97a8b-en",
+      "cluster_id": "feed-179c45c97a8b",
+      "language": "en",
+      "topic": "security",
+      "content_type": "NewsArticle",
+      "slug": "the-hottest-indie-game-on-steam-just-had-a-malware-scare",
+      "title": "The hottest indie game on Steam just had a malware scare",
+      "summary": "One of Steam’s biggest success stories of 2026 has suddenly found itself at the center of a security scare. The source signal from Digital Trends should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; The hottest indie game on Steam just had a malware scare should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "One of Steam’s biggest success stories of 2026 has suddenly found itself at the center of a security scare. A security researcher has discovered that a community-made Meccha Chameleon Workshop map contained code designed to write files outside the game and launch a hidden PowerShell process that attempted to download an additional payload from an external server. The source signal from Digital Trends should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The investigation, published by security researcher Feint , began after players noticed a Command Prompt window briefly flashing on screen while Steam downloaded a custom Workshop map called Laser Tag Neon. Digging deeper, the researcher found that the map wasn’t hiding an executable file in the traditional sense. Instead, it abused Unreal Engine 5 Blueprint logic to write a batch file into the user’s Documents folder before launching a hidden PowerShell process. The practical impact sits in workflow, cost, risk, or a buying decision; The hottest indie game on Steam just had a malware scare should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Laser Tag Neon on Steam (now unavailable) Steam Community According to the reverse engineering analysis, the script then attempted to download a second-stage batch file from a hardcoded external server and execute it. During testing, however, that download returned a 404 error, meaning the final payload was never retrieved and its intended purpose remains unknown. Even so, the behavior itself — writing executable files outside the game directory and invoking PowerShell — is highly unusual for a Workshop map and strongly suggests malicious intent. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "The researcher stopped short of identifying the final malware family because the second-stage payload was unavailable during analysis. However, they concluded that the Workshop item should be treated as malicious based on multiple indicators, including hidden execution logic, disguised Blueprint assets, and attempts to retrieve external code. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Meccha Chameleon isn’t just another indie game. Since launching last month, the multiplayer hit has sold around 15 million copies, and industry analysts recently reported that it generated the second-highest PC game revenue of the month, behind only Fortnite . That massive audience makes it an attractive target for attackers looking to abuse community-created content. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Digital Trends",
+          "source_url": "https://www.digitaltrends.com/gaming/meccha-chameleon-steam-workshop-malware-custom-map/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-25T21:12:50.000Z",
+          "image_url": "https://www.digitaltrends.com/tachyon/2026/07/MECCHA-CHAMELEON-Gameplay-screenshot.jpg?resize=1200%2C630",
+          "image_caption": "Reference image from Digital Trends.",
+          "image_credit": "Digital Trends"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2026-07-25T21:12:50.000Z",
+      "updated_at": "2026-07-25T21:12:50.000Z",
+      "image": {
+        "src": "https://www.digitaltrends.com/tachyon/2026/07/MECCHA-CHAMELEON-Gameplay-screenshot.jpg?resize=1200%2C630",
+        "caption": "Reference image from Digital Trends.",
+        "credit": "Digital Trends",
+        "source_url": "https://www.digitaltrends.com/gaming/meccha-chameleon-steam-workshop-malware-custom-map/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-25T21:53:32.192Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-dfec29aeb31c-en",
       "cluster_id": "feed-dfec29aeb31c",
@@ -67,7 +139,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-25T20:52:38.763Z",
+        "generated_at": "2026-07-25T21:53:32.192Z",
         "origin": "local-curated-rss"
       }
     },
@@ -137,7 +209,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-25T20:52:38.763Z",
+        "generated_at": "2026-07-25T21:53:32.192Z",
         "origin": "local-curated-rss"
       }
     },
@@ -209,7 +281,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-25T20:52:38.763Z",
+        "generated_at": "2026-07-25T21:53:32.192Z",
         "origin": "local-curated-rss"
       }
     },
@@ -419,7 +491,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-25T20:52:38.763Z",
+        "generated_at": "2026-07-25T21:53:32.192Z",
         "origin": "local-curated-rss"
       }
     },
