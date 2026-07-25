@@ -1,3 +1,5 @@
+import { repairEncodingArtifacts } from "./text-repair.mjs";
+
 const TOPICS = [
   {
     id: "ai",
@@ -8,37 +10,37 @@ const TOPICS = [
   {
     id: "apps-software",
     accent: "#17c9ff",
-    labels: { vi: "?ng d?ng & Ph?n m?m", en: "Apps & Software" },
+    labels: { vi: "Ứng dụng & Phần mềm", en: "Apps & Software" },
     slugs: { vi: "ung-dung-phan-mem", en: "apps-software" }
   },
   {
     id: "devices",
     accent: "#4e7dff",
-    labels: { vi: "Thi?t b?", en: "Devices" },
+    labels: { vi: "Thiết bị", en: "Devices" },
     slugs: { vi: "thiet-bi", en: "devices" }
   },
   {
     id: "chips-ai-infra",
     accent: "#7a7dff",
-    labels: { vi: "Chip & H? t?ng AI", en: "Chips & AI Infra" },
+    labels: { vi: "Chip & Hạ tầng AI", en: "Chips & AI Infra" },
     slugs: { vi: "chip-ha-tang-ai", en: "chips-ai-infra" }
   },
   {
     id: "cloud-enterprise",
     accent: "#1ad1b3",
-    labels: { vi: "Cloud & Doanh nghi?p", en: "Cloud & Enterprise" },
+    labels: { vi: "Cloud & Doanh nghiệp", en: "Cloud & Enterprise" },
     slugs: { vi: "cloud-doanh-nghiep", en: "cloud-enterprise" }
   },
   {
     id: "security",
     accent: "#1de59c",
-    labels: { vi: "B?o m?t", en: "Security" },
+    labels: { vi: "Bảo mật", en: "Security" },
     slugs: { vi: "bao-mat", en: "security" }
   },
   {
     id: "social-creator",
     accent: "#ff5ea8",
-    labels: { vi: "M?ng x? h?i & Creator", en: "Social & Creator" },
+    labels: { vi: "Mạng xã hội & Creator", en: "Social & Creator" },
     slugs: { vi: "mang-xa-hoi-creator", en: "social-creator" }
   },
   {
@@ -50,7 +52,7 @@ const TOPICS = [
   {
     id: "internet-business-tech",
     accent: "#9bff45",
-    labels: { vi: "Internet & Doanh nghi?p s?", en: "Internet & Business Tech" },
+    labels: { vi: "Internet & Doanh nghiệp số", en: "Internet & Business Tech" },
     slugs: { vi: "internet-doanh-nghiep-so", en: "internet-business-tech" }
   }
 ];
@@ -1300,23 +1302,23 @@ const CLUSTERS = [
 ];
 
 export function getTopics() {
-  return TOPICS.map((topic) => ({ ...topic }));
+  return TOPICS.map((topic) => repairCopyObject({ ...topic }));
 }
 
 export function getAuthors() {
-  return AUTHORS.map((author) => ({ ...author }));
+  return AUTHORS.map((author) => repairCopyObject({ ...author }));
 }
 
 export function getStoreItems() {
-  return STORE_ITEMS.map((item) => ({ ...item }));
+  return STORE_ITEMS.map((item) => repairCopyObject({ ...item }));
 }
 
 export function getPolicyPages() {
-  return POLICY_PAGES.map((page) => ({ ...page }));
+  return POLICY_PAGES.map((page) => repairCopyObject({ ...page }));
 }
 
 export function getContentTypeMeta() {
-  return { ...CONTENT_TYPE_META };
+  return repairCopyObject({ ...CONTENT_TYPE_META });
 }
 
 export function buildArticles() {
@@ -1329,7 +1331,7 @@ function buildLocalizedArticles(cluster) {
     const typeMeta = CONTENT_TYPE_META[cluster.content_type];
     const topic = TOPICS.find((entry) => entry.id === cluster.topic);
 
-    return {
+    return repairCopyObject({
       id: `${cluster.id}-${language}`,
       cluster_id: cluster.id,
       language,
@@ -1357,6 +1359,57 @@ function buildLocalizedArticles(cluster) {
       published_at: cluster.published_at,
       updated_at: cluster.updated_at,
       href: `/${language}/${typeMeta.segments[language]}/${localized.slug}`
-    };
+    });
   });
+}
+
+
+function repairMojibakeText(value) {
+  const text = String(value ?? "");
+  if (!text) {
+    return text;
+  }
+
+  const exactReplacements = new Map([
+    ["?ng d?ng & Ph?n m?m", "Ứng dụng & Phần mềm"],
+    ["Thi?t b?", "Thiết bị"],
+    ["Chip & H? t?ng AI", "Chip & Hạ tầng AI"],
+    ["Cloud & Doanh nghi?p", "Cloud & Doanh nghiệp"],
+    ["B?o m?t", "Bảo mật"],
+    ["M?ng x? h?i & Creator", "Mạng xã hội & Creator"],
+    ["Internet & Doanh nghi?p s?", "Internet & Doanh nghiệp số"]
+  ]);
+  if (exactReplacements.has(text)) {
+    return exactReplacements.get(text);
+  }
+
+  const repairedArtifacts = repairEncodingArtifacts(text);
+  if (repairedArtifacts !== text) {
+    return repairedArtifacts;
+  }
+
+  const markers = ["\u00C3", "\u00C2", "\u00C4", "\u00C5", "\u00C6", "\u00D0", "\u00D1"];
+  if (!markers.some((marker) => text.includes(marker))) {
+    return text;
+  }
+
+  try {
+    const repaired = Buffer.from(text, "latin1").toString("utf8");
+    const countMarkers = (input) => markers.reduce((sum, marker) => sum + (input.split(marker).length - 1), 0);
+    return countMarkers(repaired) < countMarkers(text) ? repaired : text;
+  } catch {
+    return text;
+  }
+}
+
+function repairCopyObject(value) {
+  if (Array.isArray(value)) {
+    return value.map((entry) => repairCopyObject(entry));
+  }
+
+  if (!value || typeof value !== "object") {
+    return typeof value === "string" ? repairMojibakeText(value) : value;
+  }
+
+  return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, repairCopyObject(entry)]));
 }

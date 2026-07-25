@@ -2060,12 +2060,12 @@ h3 {
 .simple-hero::after {
   content: "";
   position: absolute;
-  width: 220px;
-  height: 220px;
-  right: -60px;
-  top: -40px;
+  width: 180px;
+  height: 180px;
+  right: -72px;
+  top: -52px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 138, 61, 0.28), transparent 70%);
+  background: radial-gradient(circle, rgba(93, 146, 224, 0.10), transparent 72%);
   pointer-events: none;
 }
 
@@ -4209,7 +4209,7 @@ body {
 }
 
 .topic-column {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8fc 100%);
 }
 
 .topic-title-row {
