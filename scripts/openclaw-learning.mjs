@@ -56,7 +56,7 @@ export async function runOpenClawLearningCycle(options = {}) {
 
 export function buildOpenClawLearningProfile({ articles = [], platformState = {}, feedback = [], previousProfile = {}, now = new Date().toISOString() } = {}) {
   const articleSignals = buildArticleSignals({ articles, platformState, feedback, now });
-  const learningSignals = articleSignals.filter((signal) => signal.learningEligible);
+  const learningSignals = articleSignals.filter((signal) => signal.learningEligible || signal.signalCount > 1);
   const actionableFeedback = feedback.filter(isActionableFeedback);
   const topicWeights = buildWeightMap(learningSignals, "topic", previousProfile.topicWeights);
   const sourceTypeWeights = buildWeightMap(learningSignals, "sourceType", previousProfile.sourceTypeWeights);
@@ -128,8 +128,8 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
       score,
       views,
       uniqueViews,
-      signalCount: learningEligible ? 1 + engagementSignalCount : 0,
-      learningSignalCount: learningEligible ? 1 + engagementSignalCount : 0,
+      signalCount: 1 + engagementSignalCount,
+      learningSignalCount: 1 + engagementSignalCount,
       learningEligible,
       readiness,
       ownerFeedback
