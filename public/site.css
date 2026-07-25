@@ -3906,7 +3906,7 @@ body {
   margin-bottom: 18px;
   padding: 14px 18px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(245, 249, 253, 0.96);
   backdrop-filter: saturate(150%) blur(18px);
 }
 
@@ -4370,8 +4370,8 @@ body {
 
 /* Bright editorial rebuild */
 :root {
-  --bg: #ffffff;
-  --bg-2: #f8fbff;
+  --bg: #f6f9fd;
+  --bg-2: #eef4fb;
   --ink: #0f2747;
   --muted: #61748f;
   --surface: #ffffff;
@@ -4388,7 +4388,7 @@ body {
 
 html,
 body {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 58%, #f3f8fe 100%);
+  background: linear-gradient(180deg, #f6f9fd 0%, #eef4fb 58%, #e8f0f9 100%);
 }
 
 body {
@@ -4396,7 +4396,7 @@ body {
   background-image:
     radial-gradient(circle at 100% 0%, rgba(77, 137, 229, 0.05), transparent 18%),
     radial-gradient(circle at 0% 16%, rgba(77, 137, 229, 0.035), transparent 16%),
-    linear-gradient(180deg, #ffffff 0%, #f8fbff 58%, #f3f8fe 100%);
+    linear-gradient(180deg, #f6f9fd 0%, #eef4fb 58%, #e8f0f9 100%);
 }
 
 .site-shell {
@@ -4409,7 +4409,7 @@ body {
   padding: 16px 20px;
   border-radius: 26px;
   border-color: rgba(184, 202, 228, 0.72);
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(245, 249, 253, 0.96);
   box-shadow: 0 14px 34px rgba(42, 66, 106, 0.08);
 }
 
