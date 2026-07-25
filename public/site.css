@@ -5028,3 +5028,103 @@ body {
 .comment-card p {
   color: #314d73;
 }
+
+
+/* Homepage cleanup round 2: steadier logo, calmer hero, more even card rhythm */
+.brand-mark {
+  width: auto;
+  max-width: 188px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.frontpage-masthead-copy h1 {
+  max-width: 11ch;
+  font-size: clamp(2.7rem, 5.7vw, 4.85rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.frontpage-masthead-text {
+  max-width: 52ch;
+  font-size: 1.02rem;
+  line-height: 1.68;
+}
+
+.frontpage-hero,
+.topic-band {
+  align-items: stretch;
+}
+
+.lead-feature,
+.story-card,
+.stack-item,
+.store-promo-slot {
+  overflow: hidden;
+}
+
+.story-card {
+  min-height: 100%;
+}
+
+.story-card h3,
+.stack-item h3,
+.stack-item a {
+  font-size: 1rem;
+  line-height: 1.32;
+}
+
+.story-card .story-hook,
+.stack-item p {
+  color: #587394;
+  line-height: 1.62;
+}
+
+.stack-item {
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.stack-media {
+  width: 120px;
+  min-width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+}
+
+.store-promo-slot {
+  background: linear-gradient(135deg, #14304f 0%, #15435a 48%, #1a6f7c 100%);
+}
+
+.store-promo-slot strong {
+  color: #f7fbff;
+  font-size: 1.38rem;
+  line-height: 1.22;
+}
+
+.store-promo-slot span:last-child {
+  color: rgba(232, 244, 255, 0.9);
+}
+
+@media (max-width: 900px) {
+  .brand-mark {
+    max-width: 172px;
+    height: 36px;
+  }
+
+  .frontpage-masthead-copy h1 {
+    max-width: 100%;
+    font-size: clamp(2.35rem, 9vw, 4rem);
+  }
+
+  .stack-item {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .stack-media {
+    width: 104px;
+    min-width: 104px;
+  }
+}

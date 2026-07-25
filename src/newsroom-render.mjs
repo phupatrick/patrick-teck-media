@@ -1067,7 +1067,7 @@ export function renderNotFoundPage(state, language, adsConfig) {
 }
 
 function renderCategoryMenu(nav, language) {
-  const label = language === "vi" ? "Danh m?c" : "Categories";
+  const label = language === "vi" ? "Danh\u0020m\u1ee5c" : "Categories";
   return `
         <nav class="nav-strip nav-strip-menu" aria-label="Primary">
           <details class="category-menu">
@@ -1988,7 +1988,7 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, prom
     return "";
   }
 
-  const adLabel = language === "vi" ? "Khu v?c qu?ng c?o" : "Advertising slot";
+  const adLabel = language === "vi" ? "Khu\u0020v\u1ef1c\u0020qu\u1ea3ng\u0020c\u00e1o" : "Advertising slot";
   const slotId = adsConfig.slots[placement];
 
   if (adsConfig.client && slotId) {
@@ -2001,7 +2001,7 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, prom
     `;
   }
 
-  const promoLabel = language === "vi" ? "?u ??i n?i b?t" : "Featured offer";
+  const promoLabel = language === "vi" ? "\u01afu\u0020\u0111\u00e3i\u0020n\u1ed5i\u0020b\u1eadt" : "Featured offer";
   const shopeeLinks = (state.sellerCatalog?.[language]?.ad_links || []).filter((entry) => entry.status === "active" && /shopee\./i.test(String(entry.url || "")));
   const useShopee = placement === "inline" && shopeeLinks.length > 0;
 
@@ -2012,8 +2012,8 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, prom
         <p class="ad-label">${promoLabel}</p>
         <a class="ad-slot placeholder-slot store-promo-slot" href="${escapeHtml(shopee.url)}" target="_blank" rel="noreferrer">
           <span class="store-promo-kicker">Shopee deal</span>
-          <strong>${escapeHtml(shopee.title || (language === "vi" ? "?u ??i Shopee t? bot Telegram" : "Shopee offer from the Telegram bot"))}</strong>
-          <span>${language === "vi" ? "Slot n?y l?y t? link Shopee b?n g?i qua bot Telegram." : "This slot is filled from the Shopee links sent through the Telegram bot."}</span>
+          <strong>${escapeHtml(shopee.title || (language === "vi" ? "\u01afu\u0020\u0111\u00e3i\u0020Shopee\u0020t\u1eeb\u0020bot\u0020Telegram" : "Shopee offer from the Telegram bot"))}</strong>
+          <span>${language === "vi" ? "Slot\u0020n\u00e0y\u0020l\u1ea5y\u0020t\u1eeb\u0020link\u0020Shopee\u0020b\u1ea1n\u0020g\u1eedi\u0020qua\u0020bot\u0020Telegram." : "This slot is filled from the Shopee links sent through the Telegram bot."}</span>
         </a>
       </section>
     `;
@@ -2024,8 +2024,8 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, prom
       <p class="ad-label">${promoLabel}</p>
       <a class="ad-slot placeholder-slot store-promo-slot" href="${promoHref}">
         <span class="store-promo-kicker">Patrick Tech Store</span>
-        <strong>${language === "vi" ? "M? nhanh c?c g?i AI, ph?n m?m v? t?i kho?n s? ?ang c? ?u ??i" : "Open the AI plans, tools, and software currently getting the push"}</strong>
-        <span>${language === "vi" ? "V?o th?ng store ?? xem nh?ng g?i Patrick Tech ?ang ?u ti?n gi?i thi?u l?c n?y." : "Jump straight into the store to see what Patrick Tech is pushing right now."}</span>
+        <strong>${language === "vi" ? "M\u1edf\u0020nhanh\u0020c\u00e1c\u0020g\u00f3i\u0020AI,\u0020ph\u1ea7n\u0020m\u1ec1m\u0020v\u00e0\u0020t\u00e0i\u0020kho\u1ea3n\u0020s\u1ed1\u0020\u0111ang\u0020c\u00f3\u0020\u01b0u\u0020\u0111\u00e3i" : "Open the AI plans, tools, and software currently getting the push"}</strong>
+        <span>${language === "vi" ? "V\u00e0o\u0020th\u1eb3ng\u0020store\u0020\u0111\u1ec3\u0020xem\u0020nh\u1eefng\u0020g\u00f3i\u0020Patrick\u0020Tech\u0020\u0111ang\u0020\u01b0u\u0020ti\u00ean\u0020gi\u1edbi\u0020thi\u1ec7u\u0020l\u00fac\u0020n\u00e0y." : "Jump straight into the store to see what Patrick Tech is pushing right now."}</span>
       </a>
     </section>
   `;
