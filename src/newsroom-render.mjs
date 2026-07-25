@@ -98,7 +98,7 @@ export function renderHomePage(state, language, adsConfig) {
         </div>
       </section>
 
-      ${renderSlot(adsConfig, { language, pageAllowsAds: true, placement: "hero", promoHref: getStoreLandingHref(language) })}
+      ${renderSlot(state, adsConfig, { language, pageAllowsAds: true, placement: "hero", promoHref: getStoreLandingHref(language) })}
 
       <section class="frontpage-grid">
         <div class="section-block">
@@ -641,7 +641,7 @@ export function renderTopicPage(state, language, topicPage, adsConfig) {
         <h1>${escapeHtml(topicPage.label)}</h1>
         <p>${copy.topicIntro}</p>
       </section>
-      ${renderSlot(adsConfig, { language, pageAllowsAds: true, placement: "inline", promoHref: getStoreLandingHref(language) })}
+      ${renderSlot(state, adsConfig, { language, pageAllowsAds: true, placement: "inline", promoHref: getStoreLandingHref(language) })}
       <section class="story-grid">
         ${topicPage.stories.map((article) => renderStoryCard(article, language)).join("")}
       </section>
@@ -1944,12 +1944,12 @@ function renderStorePanel(state, article, language) {
   `;
 }
 
-function renderSlot(adsConfig, { language, pageAllowsAds, placement, promoHref = getStoreLandingHref(language) }) {
+function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, promoHref = getStoreLandingHref(language) }) {
   if (!pageAllowsAds) {
     return "";
   }
 
-  const adLabel = language === "vi" ? "Khu vực quảng cáo" : "Advertising slot";
+  const adLabel = language === "vi" ? "Khu v?c qu?ng c?o" : "Advertising slot";
   const slotId = adsConfig.slots[placement];
 
   if (adsConfig.client && slotId) {
@@ -1962,14 +1962,31 @@ function renderSlot(adsConfig, { language, pageAllowsAds, placement, promoHref =
     `;
   }
 
-  const promoLabel = language === "vi" ? "Ưu đãi nổi bật" : "Featured offer";
+  const promoLabel = language === "vi" ? "?u ??i n?i b?t" : "Featured offer";
+  const shopeeLinks = (state.sellerCatalog?.[language]?.ad_links || []).filter((entry) => entry.status === "active" && /shopee\./i.test(String(entry.url || "")));
+  const useShopee = placement === "inline" && shopeeLinks.length > 0;
+
+  if (useShopee) {
+    const shopee = shopeeLinks[0];
+    return `
+      <section class="ad-shell placeholder store-promo-shell">
+        <p class="ad-label">${promoLabel}</p>
+        <a class="ad-slot placeholder-slot store-promo-slot" href="${escapeHtml(shopee.url)}" target="_blank" rel="noreferrer">
+          <span class="store-promo-kicker">Shopee deal</span>
+          <strong>${escapeHtml(shopee.title || (language === "vi" ? "?u ??i Shopee t? bot Telegram" : "Shopee offer from the Telegram bot"))}</strong>
+          <span>${language === "vi" ? "Slot n?y l?y t? link Shopee b?n g?i qua bot Telegram." : "This slot is filled from the Shopee links sent through the Telegram bot."}</span>
+        </a>
+      </section>
+    `;
+  }
+
   return `
     <section class="ad-shell placeholder store-promo-shell">
       <p class="ad-label">${promoLabel}</p>
       <a class="ad-slot placeholder-slot store-promo-slot" href="${promoHref}">
-        <span class="store-promo-kicker">${language === "vi" ? "Patrick Tech Store" : "Patrick Tech Store"}</span>
-        <strong>${language === "vi" ? "Mở nhanh các gói AI, tool và phần mềm đang lên ưu đãi" : "Open the AI plans, tools, and software currently getting the push"}</strong>
-        <span>${language === "vi" ? "Vào thẳng store để xem những gói Patrick Tech đang đẩy mạnh lúc này." : "Jump straight into the store to see what Patrick Tech is pushing right now."}</span>
+        <span class="store-promo-kicker">Patrick Tech Store</span>
+        <strong>${language === "vi" ? "M? nhanh c?c g?i AI, tool v? ph?n m?m ?ang l?n ?u ??i" : "Open the AI plans, tools, and software currently getting the push"}</strong>
+        <span>${language === "vi" ? "V?o th?ng store ?? xem nh?ng g?i Patrick Tech ?ang ??y m?nh l?c n?y." : "Jump straight into the store to see what Patrick Tech is pushing right now."}</span>
       </a>
     </section>
   `;

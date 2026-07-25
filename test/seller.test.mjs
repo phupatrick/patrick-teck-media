@@ -109,6 +109,27 @@ const tests = [
     }
   },
   {
+    name: "stores Shopee ad links from bot commands",
+    async run() {
+      const addReply = await executeSellerCommand(
+        "/addad https://shopee.vn/product/123/456 | Shopee AI deal",
+        buildContext()
+      );
+
+      assert.match(addReply.text, /Saved Shopee ad link/);
+      const links = await service.listAdLinks();
+      assert.equal(links.length > 0, true);
+      assert.equal(links[0].platform, "shopee");
+      assert.match(links[0].url, /shopee/i);
+
+      const listReply = await executeSellerCommand("/listads", buildContext());
+      assert.match(listReply.text, /Shopee AI deal/);
+
+      const deleteReply = await executeSellerCommand(`/deletead ${links[0].id}`, buildContext());
+      assert.match(deleteReply.text, /Removed Shopee ad link/);
+    }
+  },
+  {
     name: "blocks non-admin catalog modifications while allowing browsing",
     async run() {
       await assert.rejects(

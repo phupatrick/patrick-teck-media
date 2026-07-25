@@ -4,6 +4,7 @@ const DEFAULT_STATE = {
   categories: [],
   products: [],
   user_preferences: [],
+  ad_links: [],
   audit: []
 };
 
@@ -35,6 +36,7 @@ function normalizeState(state) {
     categories: Array.isArray(state?.categories) ? state.categories : [],
     products: Array.isArray(state?.products) ? state.products : [],
     user_preferences: Array.isArray(state?.user_preferences) ? state.user_preferences : [],
+    ad_links: Array.isArray(state?.ad_links) ? state.ad_links : [],
     audit: Array.isArray(state?.audit) ? state.audit : []
   };
 }

@@ -40,6 +40,9 @@ const COPY = {
     "/addtemp Name | Duration | Warranty | Price | Description | YYYY-MM-DD",
     "/edit <product_id> | name=... | category=... | duration=... | warranty=... | price=... | desc=... | until=... | status=active|inactive",
     "/delete <product_id>",
+    "/addad <shopee_url> | Title",
+    "/listads",
+    "/deletead <ad_link_id>",
     "/summary"
   ].join("\n"),
   summary: "Catalog summary",
@@ -51,7 +54,8 @@ const COPY = {
     `Visible: ${summary.active}`,
     `Pending: ${summary.pending}`,
     `Sold out: ${summary.soldOut}`,
-    `Hidden: ${summary.inactive}`
+    `Hidden: ${summary.inactive}`,
+    `Shopee ad links: ${summary.activeAdLinks || 0}`
   ]
 };
 
@@ -440,6 +444,15 @@ export async function executeSellerCommand(text, context = {}) {
     };
   }
 
+  if (command === "/listads") {
+    const links = await service.listAdLinks();
+    return {
+      text: links.length
+        ? ["Shopee ad links", "", ...links.map((entry) => `- ${entry.id} | ${entry.title} | ${entry.url}`)].join("\n")
+        : "No Shopee ad links yet."
+    };
+  }
+
   if (!isAdminContext(context)) {
     throw new Error(COPY.onlyAdmin);
   }
@@ -535,6 +548,36 @@ export async function executeSellerCommand(text, context = {}) {
 
     const product = await service.updateProduct(productId, updates);
     return { text: `Updated ${product.id}\n${buildProductDetailText(product, { timezone: context.timezone, language: LANGUAGE })}` };
+  }
+
+  if (command === "/addad") {
+    const segments = splitPipeSegments(restText);
+    const url = safeTrim(segments[0]);
+    const title = safeTrim(segments[1]) || "Shopee";
+
+    if (!url) {
+      throw new Error("Usage: /addad <shopee_url> | Title");
+    }
+
+    const link = await service.addAdLink({
+      url,
+      title,
+      actor: context.actor
+    });
+
+    return { text: `Saved Shopee ad link ${link.id}
+${link.title}
+${link.url}` };
+  }
+
+  if (command === "/deletead") {
+    const adLinkId = safeTrim(restText);
+    if (!adLinkId) {
+      throw new Error("Usage: /deletead <ad_link_id>");
+    }
+
+    const link = await service.removeAdLink(adLinkId, { actor: context.actor });
+    return { text: `Removed Shopee ad link ${link.id}` };
   }
 
   if (command === "/delete") {

@@ -401,6 +401,85 @@ export function createSellerService(options = {}) {
 
       return removed.map((entry) => enrichProduct(entry, now, [], resolveLanguage(options.language)));
     },
+    async listAdLinks() {
+      const state = normalizeDraftState(await store.readState());
+      return state.ad_links.filter((entry) => entry.status === "active");
+    },
+    async addAdLink(input = {}) {
+      const actor = safeTrim(input.actor) || "system";
+      const url = safeTrim(input.url);
+      const title = safeTrim(input.title) || "Shopee";
+
+      if (!/^https?:\/\//i.test(url)) {
+        throw new Error("Ad link must be a valid URL.");
+      }
+
+      if (!/shopee\./i.test(url)) {
+        throw new Error("Only Shopee links are allowed here.");
+      }
+
+      let created = null;
+      await store.updateState((draft) => {
+        const state = normalizeDraftState(draft);
+        const existing = state.ad_links.find((entry) => entry.url === url);
+        if (existing) {
+          existing.title = title || existing.title;
+          existing.status = "active";
+          existing.updated_at = new Date().toISOString();
+          existing.updated_by = actor;
+          created = { ...existing };
+        } else {
+          created = normalizeAdLink({
+            id: makeId("ad"),
+            platform: "shopee",
+            url,
+            title,
+            status: "active",
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            created_by: actor,
+            updated_by: actor
+          });
+          state.ad_links.unshift(created);
+        }
+
+        appendAudit(state, {
+          action: "upsert_ad_link",
+          actor,
+          changes: { url, title, platform: "shopee" }
+        });
+        return state;
+      });
+
+      return normalizeAdLink(created);
+    },
+    async removeAdLink(adLinkId, options = {}) {
+      const actor = safeTrim(options.actor) || "system";
+      const normalizedId = safeTrim(adLinkId);
+      let removed = null;
+
+      await store.updateState((draft) => {
+        const state = normalizeDraftState(draft);
+        const link = state.ad_links.find((entry) => entry.id === normalizedId);
+        if (!link) {
+          throw new Error("Ad link not found.");
+        }
+
+        link.status = "inactive";
+        link.updated_at = new Date().toISOString();
+        link.updated_by = actor;
+        removed = { ...link };
+
+        appendAudit(state, {
+          action: "remove_ad_link",
+          actor,
+          changes: { id: link.id, url: link.url }
+        });
+        return state;
+      });
+
+      return normalizeAdLink(removed);
+    },
     async getSummary(options = {}) {
       const state = normalizeState(await store.readState(), options.now, resolveLanguage(options.language));
       const products = state.products;
@@ -413,7 +492,8 @@ export function createSellerService(options = {}) {
         active: products.filter((entry) => entry.status === "active").length,
         pending: products.filter((entry) => entry.status === "pending").length,
         soldOut: products.filter((entry) => entry.status === "sold_out").length,
-        inactive: products.filter((entry) => entry.status === "inactive").length
+        inactive: products.filter((entry) => entry.status === "inactive").length,
+        activeAdLinks: state.ad_links.filter((entry) => entry.status === "active").length
       };
     }
   };
@@ -482,7 +562,21 @@ export function normalizeDateTime(value, timezoneOffset = DEFAULT_TIMEZONE_OFFSE
   return parsed.toISOString();
 }
 
-export function normalizeCategory(category) {
+export function normalizeAdLink(entry) {
+  return {
+    id: safeTrim(entry?.id),
+    platform: safeTrim(entry?.platform) || "shopee",
+    url: safeTrim(entry?.url),
+    title: safeTrim(entry?.title) || "Shopee",
+    status: safeTrim(entry?.status) || "active",
+    created_at: safeTrim(entry?.created_at),
+    updated_at: safeTrim(entry?.updated_at),
+    created_by: safeTrim(entry?.created_by),
+    updated_by: safeTrim(entry?.updated_by)
+  };
+}
+
+function normalizeCategory(category) {
   return {
     id: safeTrim(category?.id),
     name: safeTrim(category?.name),
@@ -736,6 +830,7 @@ function normalizeDraftState(state) {
         updated_by: safeTrim(entry?.updated_by)
       }))
       : [],
+    ad_links: Array.isArray(state?.ad_links) ? state.ad_links.map(normalizeAdLink) : [],
     audit: Array.isArray(state?.audit) ? state.audit : []
   };
 }
