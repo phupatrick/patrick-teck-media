@@ -2003,7 +2003,7 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, prom
 
   const promoLabel = language === "vi" ? "\u01afu\u0020\u0111\u00e3i\u0020n\u1ed5i\u0020b\u1eadt" : "Featured offer";
   const shopeeLinks = (state.sellerCatalog?.[language]?.ad_links || []).filter((entry) => entry.status === "active" && /shopee\./i.test(String(entry.url || "")));
-  const useShopee = placement === "inline" && shopeeLinks.length > 0;
+  const useShopee = shouldShowShopeePromotion(state, { language, placement, shopeeCount: shopeeLinks.length });
 
   if (useShopee) {
     const shopee = shopeeLinks[0];
@@ -2029,6 +2029,21 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, prom
       </a>
     </section>
   `;
+}
+
+function shouldShowShopeePromotion(state, { language, placement, shopeeCount }) {
+  if (!shopeeCount) {
+    return false;
+  }
+
+  // Stable 50/50 rotation prevents one offer from winning every render.
+  const articleCount = Array.isArray(state?.articles) ? state.articles.length : 0;
+  const seed = `${language}:${placement}:${articleCount}`;
+  let hash = 0;
+  for (let index = 0; index < seed.length; index += 1) {
+    hash = ((hash << 5) - hash + seed.charCodeAt(index)) | 0;
+  }
+  return Math.abs(hash) % 2 === 0;
 }
 
 function getStoreLandingHref(language) {

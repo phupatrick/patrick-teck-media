@@ -610,6 +610,9 @@ async function buildLearningText(context) {
   const sourceTypeWeights = Object.entries(profile.sourceTypeWeights || {}).slice(0, 5);
   const topViewed = Array.isArray(profile.topViewedArticles) ? profile.topViewedArticles.slice(0, 3) : [];
   const viewInsights = Array.isArray(profile.viewInsights) ? profile.viewInsights.slice(0, 3) : [];
+  const storageWarning = summary?.storageMode && summary.storageMode !== "neon-postgres"
+    ? "WARNING: learning storage is temporary. Add DATABASE_URL on Vercel before relying on feedback."
+    : "";
 
   if (!summary) {
     return "Chưa có hồ sơ học. Hãy gửi /feedback sau mỗi bài để bot bắt đầu học.";
@@ -624,6 +627,7 @@ async function buildLearningText(context) {
     `Phản hồi của chủ sở hữu: ${summary.feedbackCount || 0}`,
     `Độ tự tin: ${Math.round((profile.confidence || 0) * 100)}%`,
     summary.storageMode ? `Nguồn hồ sơ: ${summary.storageMode}` : "",
+    storageWarning,
     profile.updated_at ? `Cập nhật: ${formatDate(profile.updated_at)}` : "",
     "",
     topicWeights.length ? `Chủ đề đang ưu tiên: ${topicWeights.map(([key, value]) => `${formatTopicKey(key)} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Chủ đề đang ưu tiên: chưa đủ tín hiệu",
@@ -999,8 +1003,12 @@ function buildMenuMarkup(active = "menu") {
         button(selected("jobs", "Hàng đợi"), "newsroom:jobs")
       ],
       [
-        button(selected("learn", "Bot học"), "newsroom:learn"),
-        button(selected("id", "Lấy ID"), "newsroom:id")
+        button(selected("learn", "Bot \u0068\u1ecdc"), "newsroom:learn"),
+        button(selected("diagnose", "Ch\u1ea9n \u0111o\u00e1n"), "newsroom:diagnose")
+      ],
+      [
+        button(selected("ads", "Qu\u1ea3ng c\u00e1o"), "newsroom:ads"),
+        button(selected("id", "L\u1ea5y ID"), "newsroom:id")
       ],
       [
         button(selected("setup", "Cài đặt"), "newsroom:setup"),
