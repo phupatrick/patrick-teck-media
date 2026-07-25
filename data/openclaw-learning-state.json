@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T12:20:15.236Z",
+  "generated_at": "2026-07-25T12:47:25.348Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-25T12:20:15.236Z",
+    "updated_at": "2026-07-25T12:47:25.348Z",
     "confidence": 0.32,
     "totalSignals": 10,
     "eligibleArticleCount": 1,
@@ -136,6 +136,12 @@
     "lastCycleSummary": "Learned from 1 eligible article(s); 1000 article(s) excluded from learning; 0 owner feedback item(s); 10 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-25T12:47:25.348Z",
+      "totalSignals": 10,
+      "confidence": 0.32,
+      "summary": "Learned from 1 eligible article(s); 1000 article(s) excluded from learning; 0 owner feedback item(s); 10 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, devices, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-25T12:20:15.236Z",
       "totalSignals": 10,
@@ -369,12 +375,6 @@
       "totalSignals": 1326,
       "confidence": 0.95,
       "summary": "Learned from 327 articles; 0 owner feedback item(s); 1326 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, gaming, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-07-08T11:17:30.858Z",
-      "totalSignals": 1328,
-      "confidence": 0.95,
-      "summary": "Learned from 329 articles; 0 owner feedback item(s); 1328 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: ai, apps-software, security, gaming, devices"
     }
   ]
 }
