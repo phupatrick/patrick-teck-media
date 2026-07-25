@@ -5296,3 +5296,93 @@ body {
   text-shadow: 0 1px 2px rgba(62, 18, 0, 0.28);
   box-shadow: 0 10px 24px rgba(128, 43, 14, 0.22);
 }
+
+
+/* Homepage balance round 5: make article cards visually consistent across the page */
+.frontpage-hero {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.frontpage-rail {
+  display: grid;
+  gap: 18px;
+  grid-template-rows: 1fr auto;
+}
+
+.lead-mini-grid {
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.lead-feature,
+.story-card,
+.stack-item {
+  min-height: 220px;
+}
+
+.lead-feature {
+  border-radius: 28px;
+}
+
+.lead-feature-media,
+.lead-feature-media img,
+.story-media,
+.story-media img {
+  aspect-ratio: 16 / 10;
+  min-height: 220px;
+  max-height: 220px;
+}
+
+.lead-feature-copy {
+  justify-content: flex-end;
+  min-height: 220px;
+  padding: 18px;
+}
+
+.lead-feature h2,
+.story-card h3,
+.stack-item a {
+  max-width: 100%;
+  font-size: 1.12rem;
+  line-height: 1.28;
+}
+
+.lead-feature-hook,
+.story-card .story-hook,
+.stack-item p {
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
+.story-grid,
+.stack-list {
+  gap: 18px;
+}
+
+.topic-band {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .frontpage-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .lead-feature,
+  .story-card,
+  .stack-item,
+  .lead-feature-media,
+  .lead-feature-media img,
+  .story-media,
+  .story-media img {
+    min-height: 200px;
+    max-height: 200px;
+  }
+
+  .lead-feature-copy {
+    min-height: 200px;
+  }
+}
