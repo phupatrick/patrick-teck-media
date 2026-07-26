@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-26T06:19:51.760Z",
-    "finishedAt": "2026-07-26T06:21:02.831Z",
+    "startedAt": "2026-07-26T08:55:04.825Z",
+    "finishedAt": "2026-07-26T08:56:03.395Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,13 +14,13 @@
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 21,
-    "articleCountBefore": 18,
-    "articleCountDelta": 3,
+    "articleCountBefore": 21,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785046791794-bafcd7.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Điện thoại Galaxy thêm tính năng bảo mật mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Exclusive: 'We want to keep people away from doctors': Why Samsung has gone all-in on AI health, according to its execut\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple's First Water-Resistant iPad to Launch Later This Year\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple's First Water-Resistant iPad to Launch Later This Year\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785056104856-6ba4fc.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Điện thoại Galaxy thêm tính năng bảo mật mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Exclusive: 'We want to keep people away from doctors': Why Samsung has gone all-in on AI health, according to its execut\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple's First Water-Resistant iPad to Launch Later This Year\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple's First Water-Resistant iPad to Launch Later This Year\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-26T06:21:02.814Z",
+      "reviewedAt": "2026-07-26T08:56:03.378Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
