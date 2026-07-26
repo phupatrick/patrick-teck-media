@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-26T13:13:18.778Z",
-    "finishedAt": "2026-07-26T13:14:43.973Z",
+    "startedAt": "2026-07-26T14:44:24.640Z",
+    "finishedAt": "2026-07-26T14:45:37.788Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785071598817-d19c93.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785077064674-c6548e.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Before you blow your student budget, here’s the MacBook that actually suits your major\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Điện thoại Galaxy thêm tính năng bảo mật mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Before you blow your student budget, here’s the MacBook that actually suits your major\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-26T13:14:43.953Z",
+      "reviewedAt": "2026-07-26T14:45:37.771Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
