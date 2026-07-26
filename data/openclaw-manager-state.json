@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-26T21:28:26.430Z",
-    "finishedAt": "2026-07-26T21:29:47.631Z",
+    "startedAt": "2026-07-26T22:31:42.662Z",
+    "finishedAt": "2026-07-26T22:32:51.945Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 25,
-    "articleCountBefore": 24,
+    "totalArticles": 26,
+    "articleCountBefore": 25,
     "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785101306458-a2a274.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"I tested the GameSir G8+ Bluetooth across Android and iOS — iPhone users are getting the roughest deal\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"I tested the GameSir G8+ Bluetooth across Android and iOS\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785105102698-e7c9d8.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"I tested the GameSir G8+ Bluetooth across Android and iOS — iPhone users are getting the roughest deal\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"I tested the GameSir G8+ Bluetooth across Android and iOS\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"I tested the GameSir G8+ Bluetooth across Android and iOS — iPhone users are getting the roughest deal\" because it failed publish readiness: narrativeFlow Holding normalized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow Holding normalized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"I tested the GameSir G8+ Bluetooth across Android and iOS\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Cách các nước giới hạn thời gian trẻ chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow Holding normalized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"I tested the GameSir G8+ Bluetooth across Android and iOS — iPhone users are getting the roughest deal\" because it failed publish readiness: narrativeFlow Holding normalized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow Holding normalized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"I tested the GameSir G8+ Bluetooth across Android and iOS\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"The Best Subscription-Free Home Security Cameras I’ve Tried\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 29 signal(s), confidence 0.67.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 30 signal(s), confidence 0.68.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-26T21:29:47.617Z",
+      "reviewedAt": "2026-07-26T22:32:51.926Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
