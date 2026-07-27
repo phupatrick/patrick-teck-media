@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-27T01:18:29.414Z",
-    "finishedAt": "2026-07-27T01:19:40.844Z",
+    "startedAt": "2026-07-27T05:08:03.385Z",
+    "finishedAt": "2026-07-27T05:09:14.484Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 27,
-    "articleCountBefore": 26,
-    "articleCountDelta": 1,
+    "totalArticles": 29,
+    "articleCountBefore": 27,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785115109448-0e9962.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Các tính năng đáng chú ý của ứng dụng SOS An ninh trật tự - CATP HCM\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Anthropic tăng tốc cuộc đua AI với mô hình giá rẻ\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Anthropic tăng tốc cuộc đua AI với mô hình giá rẻ\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785128883422-fe6e9c.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung’s flagship lineup may grow to 8 phones a year with the Galaxy Z TriFold 2\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iPad sắp có tính năng người dùng chờ đợi suốt nhiều năm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Anthropic tăng tốc cuộc đua AI với mô hình giá rẻ\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Samsung’s flagship lineup may grow to 8 phones a year with the Galaxy Z TriFold 2\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Anthropic tăng tốc cuộc đua AI với mô hình giá rẻ\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Các tính năng đáng chú ý của ứng dụng SOS An ninh trật tự - CATP HCM\" because it failed publish readiness: narrativeFlow Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow Holding normalized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"AI khiến doanh nghiệp tính lại bài toán hạ tầng CNTT\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Samsung’s flagship lineup may grow to 8 phones a year with the Galaxy Z TriFold 2\" because it failed publish readiness: narrativeFlow Holding normalized article \"iPad sắp có tính năng người dùng chờ đợi suốt nhiều năm\" because it failed publish readiness: narrativeFlow Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow Holding normalized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Samsung’s flagship lineup may grow to 8 phones a year with the Galaxy Z TriFold 2\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best Password Manager of 2026: Expert Recommendations for Your Credential Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"6 trình duyệt miễn phí có thể thay thế Chrome và Safari\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 31 signal(s), confidence 0.7.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 33 signal(s), confidence 0.72.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-27T01:19:40.827Z",
+      "reviewedAt": "2026-07-27T05:09:14.464Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
