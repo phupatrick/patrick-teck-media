@@ -1243,7 +1243,8 @@ const tests = [
 
       assert.equal(article.title, "Samsung foldables move closer to launch");
       assert.equal(commercialArticle.title, "Grab this massive power bank for a dirt-cheap $35");
-      assert.match(html, /Views: \d{1,3}(?:,\d{3})* \| Real views: 1,234/);
+      assert.match(html, /Views: \d{1,3}(?:,\d{3})*/);
+      assert.doesNotMatch(html, /Real views: 1,234/);
       assert.doesNotMatch(html, /why this signal is getting harder to ignore/i);
     }
   },
@@ -1279,9 +1280,9 @@ const tests = [
 
       const publicMeta = publicHtml.match(/<div class="story-meta-line">[\s\S]*?<\/div>/)?.[0] || "";
       const adminMeta = adminHtml.match(/<div class="story-meta-line">[\s\S]*?<\/div>/)?.[0] || "";
-      assert.match(publicMeta, /<span>[^<]*\d{1,3}(?:\.\d{3})* \| [^<]*: 1<\/span>/);
-      assert.match(adminMeta, /<span>[^<]*: 1<\/span>/);
-      assert.doesNotMatch(adminMeta, /\|/);
+      assert.match(publicMeta, /<span>[^<]*\d{1,3}(?:\.\d{3})*<\/span>/);
+      assert.doesNotMatch(publicMeta, /L\u01b0\u1ee3t xem th\u1eadt/);
+      assert.match(adminMeta, /<span>[^<]*\d{1,3}(?:\.\d{3})* \| L\u01b0\u1ee3t xem th\u1eadt: 1<\/span>/);
     }
   },
   {

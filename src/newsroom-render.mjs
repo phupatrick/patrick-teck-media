@@ -1082,15 +1082,15 @@ function renderCategoryMenu(nav, language) {
 function renderArticleViewMeta(language, article, realViews, viewer) {
   const locale = language === "vi" ? "vi-VN" : "en-US";
   const normalizedRealViews = Number.isFinite(realViews) ? Math.max(0, Math.trunc(realViews)) : 0;
-  const realLabel = language === "vi" ? "Lượt xem thật" : "Real views";
+  const publicLabel = language === "vi" ? "L\u01b0\u1ee3t xem" : "Views";
+  const publicViews = buildPublicDisplayViews(article, normalizedRealViews);
 
-  if (isPrivilegedViewer(viewer)) {
-    return `${realLabel}: ${normalizedRealViews.toLocaleString(locale)}`;
+  if (!isPrivilegedViewer(viewer)) {
+    return publicLabel + ": " + publicViews.toLocaleString(locale);
   }
 
-  const publicLabel = language === "vi" ? "Lượt xem" : "Views";
-  const publicViews = buildPublicDisplayViews(article, normalizedRealViews);
-  return `${publicLabel}: ${publicViews.toLocaleString(locale)} | ${realLabel}: ${normalizedRealViews.toLocaleString(locale)}`;
+  const realLabel = language === "vi" ? "L\u01b0\u1ee3t xem th\u1eadt" : "Real views";
+  return publicLabel + ": " + publicViews.toLocaleString(locale) + " | " + realLabel + ": " + normalizedRealViews.toLocaleString(locale);
 }
 
 function isPrivilegedViewer(viewer) {
