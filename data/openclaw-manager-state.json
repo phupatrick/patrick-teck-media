@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-27T18:54:10.678Z",
-    "finishedAt": "2026-07-27T18:55:24.673Z",
+    "startedAt": "2026-07-27T20:19:36.106Z",
+    "finishedAt": "2026-07-27T20:20:51.775Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 42,
-    "articleCountBefore": 40,
-    "articleCountDelta": 2,
+    "totalArticles": 43,
+    "articleCountBefore": 42,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785178450714-2349bd.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: fetch failed Holding normalized article \"iOS 26.6 is out now with bug fixes and a preparation for iOS 27\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iOS 26.6 is out now, and it’s quietly preparing your iPhone for the future\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"macOS 26 Tahoe Guide: All the new features in macOS Tahoe, including the latest update\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iOS 26.6 is out now, and it’s quietly preparing your iPhone for the future\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iOS 26.6 is out now with bug fixes and a preparation for iOS 27\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"macOS 26 Tahoe Guide: All the new features in macOS Tahoe, including the latest update\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785183576141-edc365.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"I’ve spent months with the Honor Magic V6, and no other foldable can touch it for durability or battery life\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iOS 26.6 is out now with bug fixes and a preparation for iOS 27\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"YouTube Premium is becoming a streaming bundle by adding Peacock\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"I’ve spent months with the Honor Magic V6, and no other foldable can touch it for durability or battery life\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"iOS 26.6 is out now with bug fixes and a preparation for iOS 27\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"YouTube Premium is becoming a streaming bundle by adding Peacock\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"iOS 26.6 is out now with bug fixes and a preparation for iOS 27\" because it failed publish readiness: narrativeFlow Holding normalized article \"iOS 26.6 is out now, and it’s quietly preparing your iPhone for the future\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"iOS 26.6 is out now, and it’s quietly preparing your iPhone for the future\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Holding normalized article \"I’ve spent months with the Honor Magic V6, and no other foldable can touch it for durability or battery life\" because it failed publish readiness: narrativeFlow Holding normalized article \"iOS 26.6 is out now with bug fixes and a preparation for iOS 27\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"I’ve spent months with the Honor Magic V6, and no other foldable can touch it for durability or battery life\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 46 signal(s), confidence 0.83.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 47 signal(s), confidence 0.84.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-27T18:55:24.654Z",
+      "reviewedAt": "2026-07-27T20:20:51.756Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
