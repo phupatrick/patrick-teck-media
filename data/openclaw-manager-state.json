@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-27T22:41:13.944Z",
-    "finishedAt": "2026-07-27T22:42:26.853Z",
+    "startedAt": "2026-07-27T23:44:56.224Z",
+    "finishedAt": "2026-07-27T23:46:11.087Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 47,
-    "articleCountBefore": 45,
+    "totalArticles": 49,
+    "articleCountBefore": 47,
     "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785192073973-ed923c.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"X Money is finally here, and it’s much more than a digital wallet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Your GTA 6 ‘physical copy’ could expire before you even play it\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iOS and macOS 26.6 arrive today, paving the way for iOS and macOS 27\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Samsung drops a hint about its Android XR smart glasses pricing\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"X Money is finally here, and it’s much more than a digital wallet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iOS and macOS 26.6 arrive today, paving the way for iOS and macOS 27\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Your GTA 6 ‘physical copy’ could expire before you even play it\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Samsung drops a hint about its Android XR smart glasses pricing\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785195896261-a45000.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple's 2026 and 2027 Mac Roadmap: Every Model and When It Ships\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"X Money is finally here, and it’s much more than a digital wallet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"It’s not just you: There’s a major outage impacting T-Mobile (Update: Carrier statement)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Your GTA 6 ‘physical copy’ could expire before you even play it\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"X Money is finally here, and it’s much more than a digital wallet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Your GTA 6 ‘physical copy’ could expire before you even play it\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"It’s not just you: There’s a major outage impacting T-Mobile (Update: Carrier statement)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"X Money is finally here, and it’s much more than a digital wallet\" because it failed publish readiness: narrativeFlow Holding normalized article \"Your GTA 6 ‘physical copy’ could expire before you even play it\" because it failed publish readiness: narrativeFlow Holding normalized article \"iOS and macOS 26.6 arrive today, paving the way for iOS and macOS 27\" because it failed publish readiness: narrativeFlow Holding normalized article \"Samsung drops a hint about its Android XR smart glasses pricing\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"X Money is finally here, and it’s much more than a digital wallet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Your GTA 6 ‘physical copy’ could expire before you even play it\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"Samsung drops a hint about its Android XR smart glasses pricing\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Apple's 2026 and 2027 Mac Roadmap: Every Model and When It Ships\" because it failed publish readiness: narrativeFlow Holding normalized article \"X Money is finally here, and it’s much more than a digital wallet\" because it failed publish readiness: narrativeFlow Holding normalized article \"It’s not just you: There’s a major outage impacting T-Mobile (Update: Carrier statement)\" because it failed publish readiness: narrativeFlow Holding normalized article \"Your GTA 6 ‘physical copy’ could expire before you even play it\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"X Money is finally here, and it’s much more than a digital wallet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"It’s not just you: There’s a major outage impacting T-Mobile (Update: Carrier statement)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Your GTA 6 ‘physical copy’ could expire before you even play it\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,13 +40,13 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 51 signal(s), confidence 0.86.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 53 signal(s), confidence 0.87.",
       "warnings": ""
     },
     "webControl": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for ai, apps-software, internet-business-tech, security, devices, gaming.",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for apps-software, ai, internet-business-tech, security, devices, gaming.",
       "warnings": ""
     }
   },
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-27T22:42:26.838Z",
+      "reviewedAt": "2026-07-27T23:46:11.068Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
