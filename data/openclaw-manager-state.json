@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-27T15:22:23.124Z",
-    "finishedAt": "2026-07-27T15:23:32.109Z",
+    "startedAt": "2026-07-27T17:16:41.969Z",
+    "finishedAt": "2026-07-27T17:18:04.556Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 39,
-    "articleCountBefore": 36,
-    "articleCountDelta": 3,
+    "totalArticles": 40,
+    "articleCountBefore": 39,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785165743162-891e32.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"View supporting calendar delegates in meeting guest list\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Visual screenshots in Google Meet meeting notes will soon be generally available, pre-configure admin settings in advanc\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Best Thunderbolt and USB-C docking stations for your MacBook 2026\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"View supporting calendar delegates in meeting guest list\" because it failed publish readiness: narrativeFlow, paragraphShape Holding synthesized article \"Visual screenshots in Google Meet meeting notes will soon be generally available, pre-configure admin in\" because it failed publish readiness: narrativeFlow, paragraphShape Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best Thunderbolt and USB-C docking stations for your MacBook 2026\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785172601998-6db5bd.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Bad news for your wallet: Qualcomm's chip prices are going up, and your next phone will cost more\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"View supporting calendar delegates in meeting guest list\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Best iPhone to buy in 2026: Every Apple iPhone compared\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"View supporting calendar delegates in meeting guest list\" because it failed publish readiness: narrativeFlow, paragraphShape Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Bad news for your wallet: Qualcomm's chip prices are going up, and your next phone will cost more\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Best iPhone to buy in 2026: Every Apple iPhone compared\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"View supporting calendar delegates in meeting guest list\" because it failed publish readiness: narrativeFlow Holding normalized article \"Visual screenshots in Google Meet meeting notes will soon be generally available, pre-configure admin settings in advanc\" because it failed publish readiness: narrativeFlow Holding normalized article \"Best Thunderbolt and USB-C docking stations for your MacBook 2026\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow Holding synthesized article \"View supporting calendar delegates in meeting guest list\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Visual screenshots in Google Meet meeting notes will soon be generally available, pre-configure admin in\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"Best Thunderbolt and USB-C docking stations for your MacBook 2026\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Bad news for your wallet: Qualcomm's chip prices are going up, and your next phone will cost more\" because it failed publish readiness: narrativeFlow Holding normalized article \"View supporting calendar delegates in meeting guest list\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding normalized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow Holding normalized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow Holding synthesized article \"View supporting calendar delegates in meeting guest list\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"Bad news for your wallet: Qualcomm's chip prices are going up, and your next phone will cost more\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Đề xuất giới hạn trẻ chơi game 60 phút mỗi ngày được ủng hộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 43 signal(s), confidence 0.81.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 44 signal(s), confidence 0.82.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-27T15:23:32.090Z",
+      "reviewedAt": "2026-07-27T17:18:04.541Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
