@@ -4,22 +4,22 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-28T18:54:10.087Z",
-    "finishedAt": "2026-07-28T18:55:53.395Z",
+    "startedAt": "2026-07-28T18:58:02.204Z",
+    "finishedAt": "2026-07-28T18:59:33.438Z",
     "trigger": {
-      "source": "telegram",
-      "reason": "vercel-cron"
+      "source": "schedule",
+      "reason": "scheduled"
     }
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 70,
-    "articleCountBefore": 68,
-    "articleCountDelta": 2,
+    "articleCountBefore": 70,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785264850125-d51b46.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785265082241-794b90.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Market surveillance agent with LangGraph and Strands on AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple’s big Siri AI-powered smart home hub is nearly here\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"The OlmoEarth Platform: Geospatial inference at planetary scale\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Return to Halo Almost 25 Years Later With Xbox Game Pass Now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Market surveillance agent with LangGraph and Strands on AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple’s big Siri AI-powered smart home hub is nearly here\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-28T18:55:53.377Z",
+      "reviewedAt": "2026-07-28T18:59:33.420Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
