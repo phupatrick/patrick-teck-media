@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-28T20:17:39.806Z",
-    "finishedAt": "2026-07-28T20:18:58.514Z",
+    "startedAt": "2026-07-28T21:36:48.809Z",
+    "finishedAt": "2026-07-28T21:38:00.718Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,13 +14,13 @@
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 73,
-    "articleCountBefore": 70,
-    "articleCountDelta": 3,
+    "articleCountBefore": 73,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785269859843-472b02.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map — but how much credit wi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Logitech will pull a Nintendo — only European mice will come with replaceable batteries\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How AgentCore Gateway supports the MCP 2026-07-28 spec\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"How AgentCore Gateway supports the MCP 2026-07-28 spec\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785274608848-66425b.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Logitech will pull a Nintendo — only European mice will come with replaceable batteries\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map — but how much credit wi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"How AgentCore Gateway supports the MCP 2026-07-28 spec\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"How AgentCore Gateway supports the MCP 2026-07-28 spec\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map — but how much credit wi\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Logitech will pull a Nintendo — only European mice will come with replaceable batteries\" because it failed publish readiness: narrativeFlow Holding normalized article \"How AgentCore Gateway supports the MCP 2026-07-28 spec\" because it failed publish readiness: narrativeFlow Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow Holding synthesized article \"How AgentCore Gateway supports the MCP 2026-07-28 spec\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"A technology story worth following right now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Logitech will pull a Nintendo — only European mice will come with replaceable batteries\" because it failed publish readiness: narrativeFlow Holding normalized article \"The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map — but how much credit wi\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"How AgentCore Gateway supports the MCP 2026-07-28 spec\" because it failed publish readiness: narrativeFlow Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow Holding synthesized article \"How AgentCore Gateway supports the MCP 2026-07-28 spec\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"A technology story worth following right now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-28T20:18:58.495Z",
+      "reviewedAt": "2026-07-28T21:38:00.698Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,

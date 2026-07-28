@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T20:18:58.025Z",
+  "generated_at": "2026-07-28T21:38:00.232Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,21 +8,21 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-28T20:18:58.025Z",
+    "updated_at": "2026-07-28T21:38:00.232Z",
     "confidence": 0.95,
     "totalSignals": 77,
     "eligibleArticleCount": 68,
-    "excludedArticleCount": 973,
+    "excludedArticleCount": 963,
     "dailyFocus": [
-      "devices",
       "gaming",
+      "devices",
       "apps-software",
       "security",
       "internet-business-tech"
     ],
     "topicWeights": {
-      "devices": 32,
       "gaming": 32,
+      "devices": 32,
       "apps-software": 32,
       "security": 32,
       "internet-business-tech": 32,
@@ -30,7 +30,7 @@
     },
     "sourceTypeWeights": {
       "press": 32,
-      "official-site": 23
+      "official-site": 24
     },
     "topViewedArticles": [
       {
@@ -127,7 +127,8 @@
       "Moi bai phai co ly do dang doc trong 2 doan dau: dieu moi, ai bi anh huong, va can theo doi gi tiep.",
       "Uu tien bai co nguon du day: it nhat 3 doan lien quan, co ten san pham/cong ty, con so, rollout, gia, rui ro hoac gioi han cu the.",
       "Tach ro summary, dek va hook: summary noi fact chinh, dek noi y nghia, hook noi cau hoi tiep theo; khong dung lai cung mot cau.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
+      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
@@ -138,9 +139,15 @@
       "Khong publish bai chi ghep y roi rac; can co mach dien bien, tac dong, hanh dong va dieu can theo doi tiep.",
       "Khong publish bai lap cau hoac lap cum tu; can viet lai section bi trung truoc khi len trang."
     ],
-    "lastCycleSummary": "Learned from 68 eligible article(s); 973 article(s) excluded from learning; 0 owner feedback item(s); 77 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, gaming, apps-software, security, internet-business-tech"
+    "lastCycleSummary": "Learned from 68 eligible article(s); 963 article(s) excluded from learning; 0 owner feedback item(s); 77 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, apps-software, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-28T21:38:00.232Z",
+      "totalSignals": 77,
+      "confidence": 0.95,
+      "summary": "Learned from 68 eligible article(s); 963 article(s) excluded from learning; 0 owner feedback item(s); 77 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, apps-software, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-07-28T20:18:58.025Z",
       "totalSignals": 77,
@@ -371,12 +378,6 @@
     },
     {
       "generated_at": "2026-07-25T23:58:41.062Z",
-      "totalSignals": 19,
-      "confidence": 0.52,
-      "summary": "Learned from 10 eligible article(s); 1000 article(s) excluded from learning; 0 owner feedback item(s); 19 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, gaming, internet-business-tech, security, ai"
-    },
-    {
-      "generated_at": "2026-07-25T22:58:11.221Z",
       "totalSignals": 19,
       "confidence": 0.52,
       "summary": "Learned from 10 eligible article(s); 1000 article(s) excluded from learning; 0 owner feedback item(s); 19 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, gaming, internet-business-tech, security, ai"
