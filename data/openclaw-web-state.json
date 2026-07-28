@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T01:08:04.124Z",
+  "generated_at": "2026-07-28T04:27:52.167Z",
   "manager": {
     "id": "openclaw",
     "autonomy": "owner-delegated-full"
@@ -33,18 +33,18 @@
   "priorityTopics": [
     "apps-software",
     "ai",
-    "devices",
     "internet-business-tech",
     "security",
+    "devices",
     "gaming"
   ],
   "ranking": {
     "topicWeights": {
       "ai": 110,
       "apps-software": 104,
-      "internet-business-tech": 82,
-      "security": 68,
-      "devices": 55,
+      "internet-business-tech": 85,
+      "security": 70,
+      "devices": 50,
       "gaming": 38
     },
     "sourceTypeWeights": {
@@ -56,14 +56,14 @@
       "community": -12,
       "social-buzz": -14
     },
-    "learningConfidence": 0.87
+    "learningConfidence": 0.89
   },
   "frontpageCopy": {
     "vi": {
       "heroTitle": "Gói AI nào vừa đáng tiền hơn, và hãng nào đang tăng giá trị thật?",
       "badgeSignals": "Ứng dụng & Phần mềm",
       "badgeAds": "AI",
-      "badgeBilingual": "Thiết bị",
+      "badgeBilingual": "Internet & Doanh nghiệp số",
       "hotTitle": "Tiêu điểm đang kéo lượt đọc",
       "editorsTitle": "Nên mở tiếp bài nào",
       "ribbonTitle": "Mới cập nhật",
@@ -86,7 +86,7 @@
       "heroTitle": "Which AI plans just became more useful, and who is adding real value?",
       "badgeSignals": "Apps & Software",
       "badgeAds": "AI",
-      "badgeBilingual": "Devices",
+      "badgeBilingual": "Internet & Business Tech",
       "hotTitle": "The stories pulling readers in",
       "editorsTitle": "What to open next",
       "ribbonTitle": "Fresh updates",
