@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-28T07:13:31.434Z",
-    "finishedAt": "2026-07-28T07:14:45.200Z",
+    "startedAt": "2026-07-28T09:48:55.661Z",
+    "finishedAt": "2026-07-28T09:50:05.523Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 57,
-    "articleCountBefore": 54,
+    "totalArticles": 60,
+    "articleCountBefore": 57,
     "articleCountDelta": 3,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785222811470-288713.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Giá Bitcoin hôm nay 28.7.2026: Sập sâu trước ngày Fed công bố lãi suất\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft dùng con chip gây tranh cãi trên Windows 11 để siết kích hoạt lậu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iOS 26.6 chính thức ra mắt với 3 thay đổi đáng chú ý\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Tuesday, July 28 (game #1646)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft dùng con chip gây tranh cãi trên Windows 11 để siết kích hoạt lậu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785232135698-bccfcc.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Google Clock finally supports Live Updates for stopwatch and timer\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Get Microsoft Office 2024 Professional Plus for $55 with this lifetime license deal\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google Play Services update turns on Pixel Watch Express Pay and refreshes Play Shorts\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox console players now get select Ubisoft PC versions for free via Xbox PC — it's not Xbox Play Anywhere, but hey it's\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google Clock finally supports Live Updates for stopwatch and timer\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google Play Services update turns on Pixel Watch Express Pay and refreshes Play Shorts\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Xbox console players now get select Ubisoft PC versions for free via Xbox PC — it's not Xbox Play Anywhere, but hey it's\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Giá Bitcoin hôm nay 28.7.2026: Sập sâu trước ngày Fed công bố lãi suất\" because it failed publish readiness: narrativeFlow Holding normalized article \"Microsoft dùng con chip gây tranh cãi trên Windows 11 để siết kích hoạt lậu\" because it failed publish readiness: narrativeFlow Holding normalized article \"iOS 26.6 chính thức ra mắt với 3 thay đổi đáng chú ý\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Tuesday, July 28 (game #1646)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"Microsoft dùng con chip gây tranh cãi trên Windows 11 để siết kích hoạt lậu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Tuesday, July 28 (game #1646)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Google Clock finally supports Live Updates for stopwatch and timer\" because it failed publish readiness: narrativeFlow Holding normalized article \"Get Microsoft Office 2024 Professional Plus for $55 with this lifetime license deal\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google Play Services update turns on Pixel Watch Express Pay and refreshes Play Shorts\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"Google Clock finally supports Live Updates for stopwatch and timer\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google Play Services update turns on Pixel Watch Express Pay and refreshes Play Shorts\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 61 signal(s), confidence 0.9.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 64 signal(s), confidence 0.91.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-28T07:14:45.181Z",
+      "reviewedAt": "2026-07-28T09:50:05.504Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
