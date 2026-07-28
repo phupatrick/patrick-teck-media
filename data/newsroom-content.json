@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T17:46:36.907Z",
+  "generated_at": "2026-07-28T18:55:52.651Z",
   "articles": [
     {
       "id": "feed-c9608a3b9633-en",
@@ -69,7 +69,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-28T17:46:36.842Z",
+        "generated_at": "2026-07-28T18:55:52.587Z",
         "origin": "local-curated-rss"
       }
     },
@@ -209,7 +209,79 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-28T17:46:36.842Z",
+        "generated_at": "2026-07-28T18:55:52.587Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-8492f4297543-en",
+      "cluster_id": "feed-8492f4297543",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "the-olmoearth-platform-geospatial-inference-at-planetary-scale",
+      "title": "The OlmoEarth Platform: Geospatial inference at planetary scale",
+      "summary": "Models Datasets Spaces Buckets new Docs Enterprise Pricing Website Tasks HuggingChat Collections Languages Organizations Community Blog Posts Daily Papers Hardware Learn Discord Forum GitHub Solutions Team & Enterprise Hugging Face PRO Enterprise Support Inference Providers Inference Endpoints Storage Buckets --[0--> --]--> Back to Articles a]:hidden\"> The OlmoEarth Platform: Geospatial inference at planetary scale E",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; The OlmoEarth Platform: Geospatial inference at planetary scale should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Models Datasets Spaces Buckets new Docs Enterprise Pricing Website Tasks HuggingChat Collections Languages Organizations Community Blog Posts Daily Papers Hardware Learn Discord Forum GitHub Solutions Team & Enterprise Hugging Face PRO Enterprise Support Inference Providers Inference Endpoints Storage Buckets --[0--> --]--> Back to Articles a]:hidden\"> The OlmoEarth Platform: Geospatial inference at planetary scale Enterprise Article Published July 28, 2026 Upvote 1 Kyle Wiggers Ai2Comms Follow allenai Why satellite inference is challenging The right hardware for the right task One request, hundreds of workers, and thousands of processes Finding and fetching the right pixels Handling failure at scale Where we're headed 🌍 org/olmoearth\" rel=\"nofollow\">https://allenai. org/olmoearth. The source signal from Hugging Face Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The OlmoEarth models are our family of Earth observation foundation models, pretrained on roughly 10 terabytes of multimodal satellite data. Governments, NGOs, and other mission-driven organizations are already adapting OlmoEarth for applications including deforestation monitoring, food security, and wildfire risk. The practical impact sits in workflow, cost, risk, or a buying decision; The OlmoEarth Platform: Geospatial inference at planetary scale should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "At Ai2, we know how to train and release powerful open models, and for organizations with strong engineering teams, an open model is all they need to run with. But most organizations in the environmental space – the ones best placed to apply these models – don't have the infrastructure or engineering teams that can manage the full lifecycle: labeling data, fine-tuning models, and running large-scale inference. We’ve spent more than a decade operating platforms like Skylight and EarthRanger , software that users around the world rely on every day, so it has to work every day. That experience taught us what delivering impact takes: running models cost-effectively at the right time and place, monitoring performance, turning raw outputs into actionable insights, and verifying those outputs drive the outcomes partners want. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "That’s why we built the OlmoEarth Platform : infrastructure for taking geospatial models from fine-tuning and evaluation to large-scale inference. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Inference at this scale presents its own set of challenges. Satellite imagery must be found and accessed across multiple providers, aligned across projections and resolutions, and processed efficiently. Results then have to be stitched into geographically consistent maps while the infrastructure recovers from the routine failures of distributed computing. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Hugging Face Blog",
+          "source_url": "https://huggingface.co/blog/allenai/olmoearth-infrastructure",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-28T16:27:42.000Z",
+          "image_url": "https://cdn-uploads.huggingface.co/production/uploads/638e39b249de7ae552d977b5/N27UuRDvcQy4CvmrzRKAE.png",
+          "image_caption": "Reference image from Hugging Face Blog.",
+          "image_credit": "Hugging Face Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-07-28T16:27:42.000Z",
+      "updated_at": "2026-07-28T16:27:42.000Z",
+      "image": {
+        "src": "https://cdn-uploads.huggingface.co/production/uploads/638e39b249de7ae552d977b5/N27UuRDvcQy4CvmrzRKAE.png",
+        "caption": "Reference image from Hugging Face Blog.",
+        "credit": "Hugging Face Blog",
+        "source_url": "https://huggingface.co/blog/allenai/olmoearth-infrastructure"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-28T18:55:52.587Z",
         "origin": "local-curated-rss"
       }
     },
@@ -280,6 +352,78 @@
       "hidden_feed": {
         "manager": "openclaw",
         "generated_at": "2026-07-28T16:07:25.315Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-83ded7145ae9-en",
+      "cluster_id": "feed-83ded7145ae9",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "slug": "return-to-halo-almost-25-years-later-with-xbox-game-pass-now",
+      "title": "Return to Halo Almost 25 Years Later With Xbox Game Pass Now",
+      "summary": "Bungie released Halo on Xbox in 2001, and it changed gaming and pop culture forever. The source signal from CNET News should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Return to Halo Almost 25 Years Later With Xbox Game Pass Now should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Bungie released Halo on Xbox in 2001, and it changed gaming and pop culture forever. I remember the first time I picked up an energy sword. It felt like I was playing something special. Now, about 25 years later, I can revisit that iconic experience with Xbox Game Pass. The source signal from CNET News should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Xbox Game Pass , a CNET Editors’ Choice award pick, offers a wide selection of games you can play on your Xbox Series X , Xbox Series S, Xbox One and PC or mobile device for as little as $10 a month . And with a subscription to the higher-tiered Game Pass Ultimate ( $23 a month ), you can access hundreds of games, including new ones the day they’re released, each month. The practical impact sits in workflow, cost, risk, or a buying decision; Return to Halo Almost 25 Years Later With Xbox Game Pass Now should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "I’ve seen people post demo videos of this game online, and I’m excited to finally play it. It’s a horror game where you work as a convenience store clerk, but you have to investigate your customers since some of them are monsters in disguise. Let the wrong customer in, and you’ve got to set traps, hide and defend yourself from otherworldly horror. Don’t forget to restock the shelves and take out the trash before you clock out. (The trailer is age-restricted, so I can’t embed it, but you can watch it from behind your sofa here . The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Step into the boots of the legendary Master Chief as he takes on the Covenant and the Flood in the first installment of one of the most well-known gaming franchises in history. This remade version of the iconic Halo: Campaign Evolved includes 4K visuals, updated animations and more. There are also three new missions that take place a year prior to the start of the game. So grab your rocket launcher and some plasma grenades and get ready to take on the Covenant and the Flood for the hundredth — or first — time. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Game Freak is widely known as the developer behind the Pokemon games, but its upcoming game Beast of Reincarnation is a different kind of beast — pun intended. You play as Emma and her trusty dog companion, Koo, as they try to save a post-apocalyptic Japan from corrupted creatures in this role-playing game. This game has real-time and turn-based combat, so it should present an interesting challenge. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [
+        "gaming-cloud-pass"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "CNET News",
+          "source_url": "https://www.cnet.com/tech/gaming/return-to-halo-almost-25-years-later-with-xbox-game-pass-now/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-28T15:19:03.000Z",
+          "image_url": "https://www.cnet.com/wp-content/uploads/sites/2/HALO-CE-Standard-Hero-e854c175faac9c8a2a78-fe4f60d90f4735b5ea1d.jpg",
+          "image_caption": "Reference image from CNET News.",
+          "image_credit": "CNET News"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-07-28T15:19:03.000Z",
+      "updated_at": "2026-07-28T15:19:03.000Z",
+      "image": {
+        "src": "https://www.cnet.com/wp-content/uploads/sites/2/HALO-CE-Standard-Hero-e854c175faac9c8a2a78-fe4f60d90f4735b5ea1d.jpg",
+        "caption": "Reference image from CNET News.",
+        "credit": "CNET News",
+        "source_url": "https://www.cnet.com/tech/gaming/return-to-halo-almost-25-years-later-with-xbox-game-pass-now/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-28T18:55:52.587Z",
         "origin": "local-curated-rss"
       }
     },
@@ -561,7 +705,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-28T17:46:36.842Z",
+        "generated_at": "2026-07-28T18:55:52.587Z",
         "origin": "local-curated-rss"
       }
     },
