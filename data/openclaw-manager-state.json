@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-28T11:54:54.327Z",
-    "finishedAt": "2026-07-28T11:56:04.585Z",
+    "startedAt": "2026-07-28T13:58:07.708Z",
+    "finishedAt": "2026-07-28T13:59:22.380Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 62,
-    "articleCountBefore": 60,
+    "totalArticles": 64,
+    "articleCountBefore": 62,
     "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 3 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785239694364-2a24aa.json Generated OpenClaw hidden feed with 3 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Chuwi CoreBook Air review: A rewarding budget laptop that wants you to cross the brand boundary\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Get Microsoft Office 2024 Professional Plus for $55 with this lifetime license deal\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox console players now get select Ubisoft PC versions for free via Xbox PC — it's not Xbox Play Anywhere, but hey it's\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Amazon Leo vs Starlink: New filings reveal Amazon’s plans to launch over 5,000 satellites\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Chuwi CoreBook Air review: A rewarding budget laptop that wants you to cross the brand boundary\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Amazon Leo vs Starlink: New filings reveal Amazon’s plans to launch over 5,000 satellites\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Xbox console players now get select Ubisoft PC versions for free via Xbox PC — it's not Xbox Play Anywhere, but hey it's\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785247087743-a46bda.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Nông dân Brazil mã hóa bò sữa đưa lên sàn chứng khoán\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple Upgrade Program Will Let You Lease an iPhone Without Sticker Shock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Get Microsoft Office 2024 Professional Plus for $55 with this lifetime license deal\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox console players now get select Ubisoft PC versions for free via Xbox PC — it's not Xbox Play Anywhere, but hey it's\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple Upgrade Program Will Let You Lease an iPhone Without Sticker Shock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Hướng dẫn nhận tick trắng Facebook miễn phí\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Xbox console players now get select Ubisoft PC versions for free via Xbox PC — it's not Xbox Play Anywhere, but hey it's\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 3 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Chuwi CoreBook Air review: A rewarding budget laptop that wants you to cross the brand boundary\" because it failed publish readiness: narrativeFlow Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow Holding normalized article \"Get Microsoft Office 2024 Professional Plus for $55 with this lifetime license deal\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Chuwi CoreBook Air review: A rewarding budget laptop that wants you to cross the brand boundary\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Nông dân Brazil mã hóa bò sữa đưa lên sàn chứng khoán\" because it failed publish readiness: narrativeFlow Holding normalized article \"Apple Upgrade Program Will Let You Lease an iPhone Without Sticker Shock\" because it failed publish readiness: narrativeFlow Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow Holding normalized article \"Get Microsoft Office 2024 Professional Plus for $55 with this lifetime license deal\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Apple Upgrade Program Will Let You Lease an iPhone Without Sticker Shock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 66 signal(s), confidence 0.92.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 68 signal(s), confidence 0.93.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-28T11:56:04.566Z",
+      "reviewedAt": "2026-07-28T13:59:22.361Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
