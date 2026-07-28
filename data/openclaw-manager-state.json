@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-28T22:41:52.690Z",
-    "finishedAt": "2026-07-28T22:43:05.909Z",
+    "startedAt": "2026-07-28T23:41:39.576Z",
+    "finishedAt": "2026-07-28T23:42:57.388Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 75,
-    "articleCountBefore": 73,
-    "articleCountDelta": 2,
+    "totalArticles": 76,
+    "articleCountBefore": 75,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785278512732-fc9181.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung ngừng cập nhật cho ứng dụng định vị Find\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map — but how much credit wi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Xbox Helix and Steam — and why it no longer makes sense\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Người dùng điện thoại Samsung Galaxy cũ chuẩn bị đón tin vui\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"A technology story worth following right now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Người dùng điện thoại Samsung Galaxy cũ chuẩn bị đón tin vui\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785282099609-bf6fec.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Quordle hints and answers for Wednesday, July 29 (game #1647)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Samsung ngừng cập nhật cho ứng dụng định vị Find\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Người dùng điện thoại Samsung Galaxy cũ chuẩn bị đón tin vui\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"We now have a better understanding how OpenAI hacked into Hugging Face\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Người dùng điện thoại Samsung Galaxy cũ chuẩn bị đón tin vui\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: sourceNameBalance Holding source-draft article \"We now have a better understanding how OpenAI hacked into Hugging Face\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Samsung ngừng cập nhật cho ứng dụng định vị Find\" because it failed publish readiness: narrativeFlow Holding normalized article \"The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map — but how much credit wi\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Xbox Helix and Steam — and why it no longer makes sense\" because it failed publish readiness: narrativeFlow Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow Holding normalized article \"Người dùng điện thoại Samsung Galaxy cũ chuẩn bị đón tin vui\" because it failed publish readiness: narrativeFlow Holding synthesized article \"The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"A technology story worth following right now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Người dùng điện thoại Samsung Galaxy cũ chuẩn bị đón tin vui\" because it failed publish readiness: narrativeFlow, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Quordle hints and answers for Wednesday, July 29 (game #1647)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Samsung ngừng cập nhật cho ứng dụng định vị Find\" because it failed publish readiness: narrativeFlow Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow Holding normalized article \"Người dùng điện thoại Samsung Galaxy cũ chuẩn bị đón tin vui\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Quordle hints and answers for Wednesday, July 29 (game #1647)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Người dùng điện thoại Samsung Galaxy cũ chuẩn bị đón tin vui\" because it failed publish readiness: narrativeFlow, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 79 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 80 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-28T22:43:05.891Z",
+      "reviewedAt": "2026-07-28T23:42:57.372Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
