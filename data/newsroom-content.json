@@ -1,6 +1,218 @@
 {
-  "generated_at": "2026-07-28T16:07:25.379Z",
+  "generated_at": "2026-07-28T17:46:36.907Z",
   "articles": [
+    {
+      "id": "feed-c9608a3b9633-en",
+      "cluster_id": "feed-c9608a3b9633",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "market-surveillance-agent-with-langgraph-and-strands-on-agentcore",
+      "title": "Market surveillance agent with LangGraph and Strands on AgentCore",
+      "summary": "As artificial intelligence applications evolve from simple chatbots to sophisticated autonomous systems, organizations face new challenges in orchestrating complex multi-agent workflows that can handle real-world production scenarios. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Market surveillance agent with LangGraph and Strands on AgentCore should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "As artificial intelligence applications evolve from simple chatbots to sophisticated autonomous systems, organizations face new challenges in orchestrating complex multi-agent workflows that can handle real-world production scenarios. Traditional single-agent approaches often fall short when dealing with intricate business processes that require specialized expertise, dynamic decision-making, and robust error recovery mechanisms. The financial services industry exemplifies this challenge. Market surveillance systems must coordinate multiple specialized agents to analyze trading patterns, investigate suspicious activities, and generate comprehensive reports while maintaining strict compliance and reliability standards. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The solution combines two frameworks: LangGraph for macro-level workflow orchestration and Strands for intelligent agent reasoning. LangGraph excels at managing state and directed graphs for multi-agent coordination. It gives you fine-grained control over both workflow execution and state that can be shared between agents. Its central persistence layer supports features critical for production, including human-in-the-loop interactions and robust checkpoint-based recovery from failures. Meanwhile, Strands Agent serves as the reasoning engine within individual workflow nodes. It offers model-agnostic capabilities that integrate with various large language model (LLM) providers while maintaining flexible tool integration and comprehensive observability. The practical impact sits in workflow, cost, risk, or a buying decision; Market surveillance agent with LangGraph and Strands on AgentCore should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "With the release of Amazon Bedrock AgentCore last year, productionizing an agentic solution might be simplified for many use cases. The combination provides a strong foundation for production-ready agentic AI systems that can handle complex use cases while helping to deliver the infrastructure reliability and observability that enterprise applications demand. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "In this post, we demonstrate how to architect and deploy a multi-agent AI system using LangGraph and Strands on AWS infrastructure. You learn how to implement state-driven workflow orchestration with LangGraph’s checkpoint system, integrate Strands agents for specialized reasoning tasks, and use AgentCore for scalable production deployment. The complete solution is available on GitHub . For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Strands Agent operates on a model-agnostic architecture that adapts to your existing infrastructure without imposing architectural constraints. The agent implements an agentic reasoning loop that continuously evaluates tool outputs and makes decisions based on intermediate results, so you can build sophisticated multi-step analysis workflows. The framework includes comprehensive session and state management and multiple conversation managers to keep your context window from overflowing. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/market-surveillance-agent-with-langgraph-and-strands-on-agentcore/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-28T17:24:54.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/24/19945.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-07-28T17:24:54.000Z",
+      "updated_at": "2026-07-28T17:24:54.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/24/19945.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/market-surveillance-agent-with-langgraph-and-strands-on-agentcore/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-28T17:46:36.842Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-4e645363d18b-en",
+      "cluster_id": "feed-4e645363d18b",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "apple-s-nest-hub-rival-may-almost-be-ready-for-prime-time",
+      "title": "Apple’s Nest Hub rival may almost be ready for prime time",
+      "summary": "0 • Dhruv Bhutani / Android Authority format: 2; filter: 2205; fileterIntensity: 1. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Apple’s Nest Hub rival may almost be ready for prime time should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "0 • Dhruv Bhutani / Android Authority format: 2; filter: 2205; fileterIntensity: 1. 0; filterMask: 0; captureOrientation: 90; runfunc: 0; algolist: 0; multi-frame: 1; brp_mask:0; brp_del_th:0. 0000,0. 0000; brp_del_sen:0. 0000; motionR: 1; delta:1; bokeh:1; module: photo;hw-remosaic: false;touch: (-1. 0, -1. 0);sceneMode: 13107200;cct_value: 0;AI_Scene: (-1, -1);aec_lux: 260. 0;aec_lux_index: 0;albedo: ;confidence: ;motionLevel: -1;weatherinfo: weather? null, icon:null, weatherInfo:100;temperature: 27;zeissColor: film; co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Three of Apple’s new smart home products are reportedly nearly ready for release. These products include a hub device built around Siri AI, a new TV set-top box, and a refreshed HomePod mini. The new Apple TV and HomePod mini are expected to launch this fall, while the hub could be released between October and early next year. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Despite its struggles, Apple is taking another stab at challenging Google and Amazon for dominance in the smart home market. This renewed push into the category will see the company release a handful of new products and software. It appears that the first wave in this initiative will be spearheaded by three devices, including Apple’s long-rumored smart display . The practical impact sits in workflow, cost, risk, or a buying decision; Apple’s Nest Hub rival may almost be ready for prime time should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "According to Bloomberg’s Mark Gurman, Apple is preparing to launch a new TV set-top box and a refreshed HomePod mini, in addition to a smart hub device built around Siri AI. It’s reported that the Apple TV, HomePod mini, and smart display are nearly ready for showtime. The new Apple TV and HomePod mini are expected to make their debut this fall, while the hub could be released between October and early next year. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "The new Apple TV and HomePod mini carry the codenames J265 and B525, respectively. These devices will reportedly look the same as their predecessors. However, they will feature faster processors for the purpose of supporting Siri AI. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Meanwhile, there are two versions of the smart display, internally known as J490 and J491. J490 features a screen that’s positioned on a half-dome-shaped base. It’s said that this base resembles a HomePod mini that has been cut in half. J491, on the other hand, is a display that’s designed to be mounted on a wall, using a new magnetic system. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Android Authority",
+          "source_url": "https://www.androidauthority.com/apple-smart-hub-nearly-ready-3692045/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-28T17:21:40.000Z",
+          "image_url": "https://www.androidauthority.com/wp-content/uploads/2026/04/apple-store-london.jpg",
+          "image_caption": "Reference image from Android Authority.",
+          "image_credit": "Android Authority"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-07-28T17:21:40.000Z",
+      "updated_at": "2026-07-28T17:21:40.000Z",
+      "image": {
+        "src": "https://www.androidauthority.com/wp-content/uploads/2026/04/apple-store-london.jpg",
+        "caption": "Reference image from Android Authority.",
+        "credit": "Android Authority",
+        "source_url": "https://www.androidauthority.com/apple-smart-hub-nearly-ready-3692045/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-28T17:46:36.842Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-2c141348e68b-en",
+      "cluster_id": "feed-2c141348e68b",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "apple-s-big-siri-ai-powered-smart-home-hub-is-nearly-here",
+      "title": "Apple’s big Siri AI-powered smart home hub is nearly here",
+      "summary": "Apple has been planning a resurgence into the smart home market for some time. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Apple’s big Siri AI-powered smart home hub is nearly here should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Apple has been planning a resurgence into the smart home market for some time. But, according to multiple reports over the years , Siri has always been the holdup—the initial Apple Intelligence push didn’t deliver, and the company had to rethink its entire “new Siri” approach. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "With the OS 27 updates, we’re getting Siri AI , and it’s finally a modern, useful, smart AI assistant. Apple still has plenty of work to do, but this new Siri finally makes the leap from an old-style phone assistant to a modern multi-device LLM-based AI chatbot. Now that Siri is finally on the right track, Apple is finally able to release some of the smart home products it has been working on for a while. According to a new report from Mark Gurman at Bloomberg , Apple is sitting on three products that are very nearly ready to release. The practical impact sits in workflow, cost, risk, or a buying decision; Apple’s big Siri AI-powered smart home hub is nearly here should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Two are updated versions of existing products: Apple TV and HomePod mini . They are expected to look just like the current versions, but with upgraded processors that can handle Siri AI. There may be other internal adjustments or design changes, but nothing users would notice. Both of these devices are currently set to release in the fall, Gurman says. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "The third device is the most interesting one: A new smart home hub device that has been dubbed HomePad. Meant to be “the centerpiece of the company’s renewed home push,” it will be a new pad device with a 7-inch square-shaped display that runs an entirely new operating system based on the tvOS operating system that powers Apple TV. It is said to look something like a blend between watchOS and iOS, with icons, widgets, and apps. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "This new smart display will feature FaceTime video conferencing (almost certainly with Center Stage), and most of the other features people expect from this sort of device, such as the ability to listen to music, view photos, see your calendar, and control smart home devices. Similar to Apple Watch, there will be a variety of customizable clock faces, but the marquee feature will reportedly be facial recognition. The device will know who is looking at it and their distance, so it can adjust the display preferences and size in real time. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Macworld",
+          "source_url": "https://www.macworld.com/article/3201176/apples-big-siri-ai-powered-smart-home-hub-is-nearly-here.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-28T17:19:47.000Z",
+          "image_url": "https://www.macworld.com/wp-content/uploads/2026/07/Triggering-Siri-on-HomePod-mini.jpg?quality=50&strip=all&w=1024",
+          "image_caption": "Reference image from Macworld.",
+          "image_credit": "Macworld"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-07-28T17:19:47.000Z",
+      "updated_at": "2026-07-28T17:19:47.000Z",
+      "image": {
+        "src": "https://www.macworld.com/wp-content/uploads/2026/07/Triggering-Siri-on-HomePod-mini.jpg?quality=50&strip=all&w=1024",
+        "caption": "Reference image from Macworld.",
+        "credit": "Macworld",
+        "source_url": "https://www.macworld.com/article/3201176/apples-big-siri-ai-powered-smart-home-hub-is-nearly-here.html"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-28T17:46:36.842Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-3b893592705f-en",
       "cluster_id": "feed-3b893592705f",
@@ -349,7 +561,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-28T16:07:25.315Z",
+        "generated_at": "2026-07-28T17:46:36.842Z",
         "origin": "local-curated-rss"
       }
     },
