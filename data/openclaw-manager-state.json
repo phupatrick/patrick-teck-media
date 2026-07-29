@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-29T14:40:11.300Z",
-    "finishedAt": "2026-07-29T14:43:10.175Z",
+    "startedAt": "2026-07-29T16:10:07.914Z",
+    "finishedAt": "2026-07-29T16:11:47.768Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 89,
-    "articleCountBefore": 85,
+    "totalArticles": 93,
+    "articleCountBefore": 89,
     "articleCountDelta": 4,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785336011338-a94e66.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping GenK Apps-Games: fetch failed Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple Upgrade: Is Leasing Your Next iPhone Worth It\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Framework Laptop 13 Pro review: A repairable notebook at the top of the class\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Mac Mini Availability: Long Waits and Higher Prices\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple Upgrade: Is Leasing Your Next iPhone Worth It\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Framework Laptop 13 Pro review: A repairable notebook at the top of the class\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785341407950-3c98a1.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Google Wallet broken on your Pixel? A fix is rolling out now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Deals: M5 MacBook Pro $320 off, base MacBook Air $170 off, AirPods Pro 3, TechWoven case 32% off, Apple cables, more\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Automating customer retention workflows in Amazon Quick\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Automating customer retention workflows in Amazon Quick\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google Wallet broken on your Pixel? A fix is rolling out now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Apple Upgrade: Is Leasing Your Next iPhone Worth It\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding normalized article \"Framework Laptop 13 Pro review: A repairable notebook at the top of the class\" because it failed publish readiness: narrativeFlow Holding normalized article \"Mac Mini Availability: Long Waits and Higher Prices\" because it failed publish readiness: narrativeFlow Holding normalized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow Holding normalized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple Upgrade: Is Leasing Your Next iPhone Worth It\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Framework Laptop 13 Pro review: A repairable notebook at the top of the class\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Holding normalized article \"Google Wallet broken on your Pixel? A fix is rolling out now\" because it failed publish readiness: narrativeFlow Holding normalized article \"Deals: M5 MacBook Pro $320 off, base MacBook Air $170 off, AirPods Pro 3, TechWoven case 32% off, Apple cables, more\" because it failed publish readiness: narrativeFlow Holding normalized article \"Automating customer retention workflows in Amazon Quick\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding normalized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Automating customer retention workflows in Amazon Quick\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google Wallet broken on your Pixel? A fix is rolling out now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 93 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 97 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-29T14:43:10.156Z",
+      "reviewedAt": "2026-07-29T16:11:47.750Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,

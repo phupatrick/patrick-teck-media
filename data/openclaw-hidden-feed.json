@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T14:43:09.212Z",
+  "generated_at": "2026-07-29T16:11:46.811Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -7,36 +7,36 @@
   },
   "articles": [
     {
-      "id": "feed-a5d724e63f72-en",
-      "cluster_id": "feed-a5d724e63f72",
+      "id": "feed-702d1c6769d1-en",
+      "cluster_id": "feed-702d1c6769d1",
       "language": "en",
       "topic": "devices",
       "content_type": "NewsArticle",
-      "slug": "apple-upgrade-is-leasing-your-next-iphone-worth-it",
-      "title": "Apple Upgrade: Is Leasing Your Next iPhone Worth It?",
-      "summary": "We'll use the iPhone 17 Pro with 256GB of storage on a one-year lease as an example. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Apple Upgrade: Is Leasing Your Next iPhone Worth It? should be explained through that lens before any broad claim is made.",
+      "slug": "google-wallet-broken-on-your-pixel-a-fix-is-rolling-out-now",
+      "title": "Google Wallet broken on your Pixel? A fix is rolling out now",
+      "summary": "0 • Edgar Cervantes / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR An Android 17 update caused some Pixel phones to show a “Phone doesn’t meet security requirements” error in Google Wallet. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Google Wallet broken on your Pixel? A fix is rolling out now should be explained through that lens before any broad claim is made.",
       "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
       "sections": [
         {
           "heading": "Context: what changed",
-          "body": "We'll use the iPhone 17 Pro with 256GB of storage on a one-year lease as an example. In the U. S. , the device costs $1,099 upfront, but through Apple Upgrade you can lease it for $45. 99/month for 12 months. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+          "body": "0 • Edgar Cervantes / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR An Android 17 update caused some Pixel phones to show a “Phone doesn’t meet security requirements” error in Google Wallet. The bug blocked contactless payments and card enrollment, even though the affected devices passed Play Integrity checks. Google has rolled out a server-side fix. Users should restart their phone and wait up to 24 hours for it to take effect. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
         },
         {
           "heading": "Practical impact for readers",
-          "body": "For a 12-month lease, your payments would total $551. 88, which is lower than the $1,099 that you would have spent upfront. However, it is not quite that simple, as you have to choose from one of the three following options after your lease ends:. The practical impact sits in workflow, cost, risk, or a buying decision; Apple Upgrade: Is Leasing Your Next iPhone Worth It? should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+          "body": "A recent Android 17 release appears to have left some Pixel owners unable to use Google Wallet . Affected devices began showing a “Phone doesn’t meet security requirements” error, removing payment cards and preventing users from adding new ones. The good news is that Google has now rolled out a fix, although it may take some time before affected devices recover. The practical impact sits in workflow, cost, risk, or a buying decision; Google Wallet broken on your Pixel? A fix is rolling out now should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
         },
         {
           "heading": "Details worth verifying",
-          "body": "If you return the iPhone 17 Pro and simply move on from the Apple Upgrade program, then your total cost to own the device would be $551. 88 after 12 months, plus sales tax if applicable. While that is less than paying $1,099 upfront, the catch is that you are no longer in possession of the device after your lease ends and cannot resell it or trade it in. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+          "body": "The issue was particularly confusing because affected phones still passed Play Integrity checks and remained Play Protect certified. User reports on Google’s Pixel support forum, along with several discussions across Reddit’s Google Pixel and Google Wallet subs, showed that Google Wallet refused to process NFC payments even though the devices appeared fully certified. Some users also reported that apps like Too Good To Go were suddenly marked as incompatible. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
         },
         {
           "heading": "Who should act or wait",
-          "body": "Resale value is a big factor. If you paid $1,099 upfront for the iPhone 17 Pro but resold it for say $650 through a private sale on eBay or Facebook Marketplace after 12 months, then you only spent $450 to own the device for a year, compared to $551 if you leased it through the Apple Upgrade Program for that long. But if you somehow only managed to get $500 for the device in a private sale, then you spent $600 for the device and could have saved a bit of money by opting for the Apple Upgrade program. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+          "body": "The bug appears to have affected the Pixel 10 most frequently, although some Pixel 9 series owners also reported the problem . Everything from clearing Google Play Services data to factory resetting their phones failed to fix the issue. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
         },
         {
           "heading": "What to watch next",
-          "body": "$551. 88 is approximately 50% of the iPhone 17 Pro's price, so Apple is essentially betting that the device will retain more than 50% of its value after one year, in order to ensure that the Apple Upgrade program is profitable. Resale prices for used iPhones can vary significantly, but Apple almost certainly expects to come out ahead. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+          "body": "While Google hasn’t publicly explained what caused the issue, a support representative told one affected user that a server-side fix has been deployed . Some users have speculated that the problem was related to backend device attestation, though Google hasn’t confirmed that explanation. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
         }
       ],
       "verification_state": "emerging",
@@ -49,50 +49,230 @@
       "source_set": [
         {
           "source_type": "press",
-          "source_name": "MacRumors",
-          "source_url": "https://www.macrumors.com/2026/07/29/is-apple-upgrade-program-worth-it/",
+          "source_name": "Android Authority",
+          "source_url": "https://www.androidauthority.com/google-wallet-bug-fix-3692460/",
           "region": "Global",
           "language": "en",
           "trust_tier": "established-media",
-          "published_at": "2026-07-29T14:29:37.000Z",
-          "image_url": "https://images.macrumors.com/t/wzFM5EaPj6Xgn-sCuJOhKnfSIjs=/1600x/article-new/2026/07/Apple-Upgrade-Is-It-Worth-It.jpg",
-          "image_caption": "Reference image from MacRumors.",
-          "image_credit": "MacRumors"
+          "published_at": "2026-07-29T15:49:45.000Z",
+          "image_url": "https://www.androidauthority.com/wp-content/uploads/2023/04/Google-Wallet-logo-on-smartphone-next-to-credit-cards-and-cash-Stock-photo-8.jpg",
+          "image_caption": "Reference image from Android Authority.",
+          "image_credit": "Android Authority"
         }
       ],
       "author_id": "quang-huy",
-      "published_at": "2026-07-29T14:29:37.000Z",
-      "updated_at": "2026-07-29T14:29:37.000Z",
+      "published_at": "2026-07-29T15:49:45.000Z",
+      "updated_at": "2026-07-29T15:49:45.000Z",
       "image": {
-        "src": "https://images.macrumors.com/t/wzFM5EaPj6Xgn-sCuJOhKnfSIjs=/1600x/article-new/2026/07/Apple-Upgrade-Is-It-Worth-It.jpg",
-        "caption": "Reference image from MacRumors.",
-        "credit": "MacRumors",
-        "source_url": "https://www.macrumors.com/2026/07/29/is-apple-upgrade-program-worth-it/"
+        "src": "https://www.androidauthority.com/wp-content/uploads/2023/04/Google-Wallet-logo-on-smartphone-next-to-credit-cards-and-cash-Stock-photo-8.jpg",
+        "caption": "Reference image from Android Authority.",
+        "credit": "Android Authority",
+        "source_url": "https://www.androidauthority.com/google-wallet-bug-fix-3692460/"
       },
       "draft_context": {
-        "source_title": "Apple Upgrade: Is Leasing Your Next iPhone Worth It?",
-        "source_name": "MacRumors",
+        "source_title": "Google Wallet broken on your Pixel? A fix is rolling out now",
+        "source_name": "Android Authority",
         "source_type": "press",
         "trust_tier": "established-media",
         "topic_hint": "devices",
         "content_type_hint": "",
-        "description": "With the new Apple Upgrade program in the U.S., you can now lease an iPhone, but is it worth it? The answer is more complicated than a simple yes or no. We'll use the iPhone 17 Pro with 256GB of storage on a one-year lease as an example. In the U.S., the device costs $1,099 upfront, but through Apple Upgrade you can lease it for $45.99/month for 12 months. For a 12-month lease, your payments would total $551.88, which is lower than the $1,099 that you would have spent upfront. However, it is not quite that simple, as you have to choose from one of the three following options after your lease ends: Return your iPhone. Return your iPhone and upgrade to a newer iPhone. Buy the iPhone outright by paying an amount equal to the device's retail price minus any lease payments made. We dive into each of those options below. Options Returning the iPhone If you return the iPhone 17 Pro and simply move on from the Apple Upgrade program, then your total cost to own the device would be $551.88 after 12 months, plus sales tax if applicable. While that is less than paying $1,099 upfront, the catch is that you are no longer in possession of the device after your lease ends and cannot resell it or trade it in. Resale value is a big factor. If you paid $1,099 upfront for the iPhone 17 Pro but resold it for say $650 through a private sale on eBay or Facebook Marketplace after 12 months, then you only spent $450 to own the device for a year, compared to $551 if you leased it through the Apple Upgrade Program for that long. But if you somehow only managed to get $500 for the device in a private sale, then you spent $600 for the device and could have saved a bit of money by opting for the Apple Upgrade program. $551.88 is approximately 50% of the iPhone 17 Pro's price, so Apple is essentially betting that the device will retain more than 50% of its value after one year, in order to ensure that the Apple Upgrade program is profitable. Resale prices for used iPhones can vary significantly, but Apple almost certainly expects to come out ahead. For instance, Apple's trade-in program currently offers $560 for a used iPhone 16 Pro in good condition, and that device was released nearly two years ago. Yet, Apple is effectively \"giving you back\" only $547.12 on a used iPhone 17 Pro after just one year ($1,099 minus $551.88), so the math unsurprisingly works in Apple's favor. Keep in mind that the Apple Upgrade program is partly about convenience, as you do not have to deal with reselling your iPhone — not everyone likes to deal with eBay or Facebook Marketplace. That alone might sway some customers towards Apple Upgrade, even if they know there is a chance it is not the most financially optimal decision. Upgrading to a New iPhone If you return the iPhone and upgrade to a newer one, the process essentially starts over. For example, if the iPhone 18 Pro with 256GB of storage were to be offered at the same $45.99/month price, you would pay another $551.88 during the following 12 months. That would bring your total cost to $1,103.76 over two years, and you would still need to return the iPhone 18 Pro or make a final payment to keep it. If you had purchased both the iPhone 17 Pro and iPhone 18 Pro upfront for $1,099 each, the total cost would have been $2,198. If you had managed to resell the devices for $650 each, you would have recouped $1300, lowering your final cost to $898, which would have been less than the $1,103.76 cost of leasing the devices after two years. Of course, the resale values we have provided are purely hypothetical. There is no way of knowing what a used iPhone will be worth with certainty, but Apple has surely put a lot of research into its leasing prices to ensure that it makes a profit. Buying the iPhone If you opt to buy the iPhone outright at the end of your 12-month lease, by paying an amount equal to the device's retail price minus the $551.88 in lease payments made, then you simply owe the remaining $547.12 to Apple's financing partner Klarna. This brings your total cost to $1,099, which is the upfront price of the iPhone 17 Pro. In this case, you ultimately just purchased your iPhone 17 Pro with interest-free financing, by spreading out the $1,099 cost over 12 months. Is It Worth It? If you simply want to spend the least amount of money on iPhones over time, buying them upfront and reselling them privately is very likely the best option. However, the Apple Upgrade program can be worth it for customers who value convenience and predictability. If you want a new iPhone every year or two and want to avoid the hassle of selling your existing iPhone through eBay or Facebook Marketplace, then the program is worth considering if the monthly payments fit into your budget. The option to buy out the iPhone at the end of the lease is more straightforward. Since the final payment is equal to the original retail price minus the payments already made, Apple Upgrade effectively becomes a 12-month, interest-free financing plan. In this case, you would not have spent any more than you would have upfront. Tag: Apple Upgrade Program This article, \" Apple Upgrade: Is Leasing Your Next iPhone Worth It? \" first appeared on MacRumors.com Discuss this article in our forums",
+        "description": "TL;DR An Android 17 update caused some Pixel phones to show a “Phone doesn’t meet security requirements” error in Google Wallet. The bug blocked contactless payments and card enrollment, even though the affected devices passed Play Integrity checks. Google has rolled out a server-side fix. Users should restart their phone and wait up to 24 hours for it to take effect. A recent Android 17 release appears to have left some Pixel owners unable to use Google Wallet . Affected devices began showing a “Phone doesn’t meet security requirements” error, removing payment cards and preventing users from adding new ones. The good news is that Google has now rolled out a fix, although it may take some time before affected devices recover. The issue was particularly confusing because affected phones still passed Play Integrity checks and remained Play Protect certified. User reports on Google’s Pixel support forum, along with several discussions across Reddit’s Google Pixel and Google Wallet subs, showed that Google Wallet refused to process NFC payments even though the devices appeared fully certified. Some users also reported that apps like Too Good To Go were suddenly marked as incompatible.",
         "paragraphs": [
-          "We'll use the iPhone 17 Pro with 256GB of storage on a one-year lease as an example. In the U.S., the device costs $1,099 upfront, but through Apple Upgrade you can lease it for $45.99/month for 12 months.",
-          "For a 12-month lease, your payments would total $551.88, which is lower than the $1,099 that you would have spent upfront. However, it is not quite that simple, as you have to choose from one of the three following options after your lease ends:",
-          "If you return the iPhone 17 Pro and simply move on from the Apple Upgrade program, then your total cost to own the device would be $551.88 after 12 months, plus sales tax if applicable. While that is less than paying $1,099 upfront, the catch is that you are no longer in possession of the device after your lease ends and cannot resell it or trade it in.",
-          "Resale value is a big factor. If you paid $1,099 upfront for the iPhone 17 Pro but resold it for say $650 through a private sale on eBay or Facebook Marketplace after 12 months, then you only spent $450 to own the device for a year, compared to $551 if you leased it through the Apple Upgrade Program for that long. But if you somehow only managed to get $500 for the device in a private sale, then you spent $600 for the device and could have saved a bit of money by opting for the Apple Upgrade program.",
-          "$551.88 is approximately 50% of the iPhone 17 Pro's price, so Apple is essentially betting that the device will retain more than 50% of its value after one year, in order to ensure that the Apple Upgrade program is profitable. Resale prices for used iPhones can vary significantly, but Apple almost certainly expects to come out ahead.",
-          "For instance, Apple's trade-in program currently offers $560 for a used iPhone 16 Pro in good condition, and that device was released nearly two years ago. Yet, Apple is effectively \"giving you back\" only $547.12 on a used iPhone 17 Pro after just one year ($1,099 minus $551.88), so the math unsurprisingly works in Apple's favor."
+          "0 • Edgar Cervantes / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR An Android 17 update caused some Pixel phones to show a “Phone doesn’t meet security requirements” error in Google Wallet. The bug blocked contactless payments and card enrollment, even though the affected devices passed Play Integrity checks. Google has rolled out a server-side fix. Users should restart their phone and wait up to 24 hours for it to take effect.",
+          "A recent Android 17 release appears to have left some Pixel owners unable to use Google Wallet . Affected devices began showing a “Phone doesn’t meet security requirements” error, removing payment cards and preventing users from adding new ones. The good news is that Google has now rolled out a fix, although it may take some time before affected devices recover.",
+          "The issue was particularly confusing because affected phones still passed Play Integrity checks and remained Play Protect certified. User reports on Google’s Pixel support forum, along with several discussions across Reddit’s Google Pixel and Google Wallet subs, showed that Google Wallet refused to process NFC payments even though the devices appeared fully certified. Some users also reported that apps like Too Good To Go were suddenly marked as incompatible.",
+          "The bug appears to have affected the Pixel 10 most frequently, although some Pixel 9 series owners also reported the problem . Everything from clearing Google Play Services data to factory resetting their phones failed to fix the issue.",
+          "While Google hasn’t publicly explained what caused the issue, a support representative told one affected user that a server-side fix has been deployed . Some users have speculated that the problem was related to backend device attestation, though Google hasn’t confirmed that explanation."
         ],
         "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=6; words=1304",
-        "link": "https://www.macrumors.com/2026/07/29/is-apple-upgrade-program-worth-it/"
+        "source_depth_reason": "depth=100; paragraphs=5; words=477",
+        "link": "https://www.androidauthority.com/google-wallet-bug-fix-3692460/"
       },
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-29T14:43:09.212Z",
+        "generated_at": "2026-07-29T16:11:46.810Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-a8b8f058bade-en",
+      "cluster_id": "feed-a8b8f058bade",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "deals-m5-macbook-pro-320-off-base-macbook-air-170-off-airpods-pro-3-techwoven-case-32-off-apple",
+      "title": "Deals: M5 MacBook Pro $320 off, base MacBook Air $170 off, AirPods Pro 3, TechWoven case 32% off, Apple cables, more",
+      "summary": "While summer sale pricing continues on AirPods Pro 3 at $50 off , AirPods Max 2 at $100 off , and Apple’s AirTag 2 down at $22 each , today’s 9to5Toys Lunch Break is headlined by this 24GB 14-inch M5 MacBook Pro at $320 off alongside the ongoing $500 price drop on the 2TB M5 Pro MacBook Pro and the most affordable 15-inch M5 MacBook Air with the upgraded Power Adapter at $170 off . The source signal from 9to5Mac shou",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Deals: M5 MacBook Pro $320 off, base MacBook Air $170 off, AirPods Pro 3, TechWoven case 32% off, Apple cables, more should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "While summer sale pricing continues on AirPods Pro 3 at $50 off , AirPods Max 2 at $100 off , and Apple’s AirTag 2 down at $22 each , today’s 9to5Toys Lunch Break is headlined by this 24GB 14-inch M5 MacBook Pro at $320 off alongside the ongoing $500 price drop on the 2TB M5 Pro MacBook Pro and the most affordable 15-inch M5 MacBook Air with the upgraded Power Adapter at $170 off . We also have official Apple USB-C cables from $7. 50 a pop, a deep 32% price drop on Apple’s black iPhone 17 Pro Max TechWoven MagSafe case (Amazon all-time low), and more waiting below. The source signal from 9to5Mac should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The best deal in MacBooks right now is hardly arguable – Amazon is offering the 2TB M5 Pro MacBook Pro at a giant $500 off the new list price. For those interested in the M5 MacBook Air though, we have $200 off this 24GB configuration , and we also spotted a chance to save a sizable $320 off this more affordable pro option – the 24GB model M5 MacBook Pro . The practical impact sits in workflow, cost, risk, or a buying decision; Deals: M5 MacBook Pro $320 off, base MacBook Air $170 off, AirPods Pro 3, TechWoven case 32% off, Apple cables, more should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "B&H is currently offering the most affordable current-generation 24GB MacBook Pro you can buy – the model with 24GB of RAM and the 1TB storage capacity – down at $1,899 shipped . The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "All of this leaves you with a regular price at $2,219 and $320 in savings for the best deal we can find on this machine from a reputable source. For the record, Amazon is charging $2,049 for this same model with the standard 70W charger. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "While we are still tracking a solid $200 off this 24GB M5 MacBook Pro , this morning we spotted a notable deal on the base 15-inch model you can score for $150 less than that – this one is now $170 off the list price . A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "9to5Mac",
+          "source_url": "https://9to5mac.com/2026/07/29/deals-m5-macbook-pro-macbook-air-airpods-techwoven/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-29T15:26:54.000Z",
+          "image_url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/07/Apple-deals-MacBook-Pro-AirPods-TechWoven.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+          "image_caption": "Reference image from 9to5Mac.",
+          "image_credit": "9to5Mac"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-07-29T15:26:54.000Z",
+      "updated_at": "2026-07-29T15:26:54.000Z",
+      "image": {
+        "src": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/07/Apple-deals-MacBook-Pro-AirPods-TechWoven.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+        "caption": "Reference image from 9to5Mac.",
+        "credit": "9to5Mac",
+        "source_url": "https://9to5mac.com/2026/07/29/deals-m5-macbook-pro-macbook-air-airpods-techwoven/"
+      },
+      "draft_context": {
+        "source_title": "Deals: M5 MacBook Pro $320 off, base MacBook Air $170 off, AirPods Pro 3, TechWoven case 32% off, Apple cables, more",
+        "source_name": "9to5Mac",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "While summer sale pricing continues on AirPods Pro 3 at $50 off , AirPods Max 2 at $100 off , and Apple’s AirTag 2 down at $22 each , today’s 9to5Toys Lunch Break is headlined by this 24GB 14-inch M5 MacBook Pro at $320 off alongside the ongoing $500 price drop on the 2TB M5 Pro MacBook Pro and the most affordable 15-inch M5 MacBook Air with the upgraded Power Adapter at $170 off . We also have official Apple USB-C cables from $7.50 a pop, a deep 32% price drop on Apple’s black iPhone 17 Pro Max TechWoven MagSafe case (Amazon all-time low), and more waiting below.",
+        "paragraphs": [
+          "While summer sale pricing continues on AirPods Pro 3 at $50 off , AirPods Max 2 at $100 off , and Apple’s AirTag 2 down at $22 each , today’s 9to5Toys Lunch Break is headlined by this 24GB 14-inch M5 MacBook Pro at $320 off alongside the ongoing $500 price drop on the 2TB M5 Pro MacBook Pro and the most affordable 15-inch M5 MacBook Air with the upgraded Power Adapter at $170 off . We also have official Apple USB-C cables from $7.50 a pop, a deep 32% price drop on Apple’s black iPhone 17 Pro Max TechWoven MagSafe case (Amazon all-time low), and more waiting below.",
+          "The best deal in MacBooks right now is hardly arguable – Amazon is offering the 2TB M5 Pro MacBook Pro at a giant $500 off the new list price. For those interested in the M5 MacBook Air though, we have $200 off this 24GB configuration , and we also spotted a chance to save a sizable $320 off this more affordable pro option – the 24GB model M5 MacBook Pro .",
+          "B&H is currently offering the most affordable current-generation 24GB MacBook Pro you can buy – the model with 24GB of RAM and the 1TB storage capacity – down at $1,899 shipped . ",
+          "All of this leaves you with a regular price at $2,219 and $320 in savings for the best deal we can find on this machine from a reputable source. For the record, Amazon is charging $2,049 for this same model with the standard 70W charger. ",
+          "While we are still tracking a solid $200 off this 24GB M5 MacBook Pro , this morning we spotted a notable deal on the base 15-inch model you can score for $150 less than that – this one is now $170 off the list price . "
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=5; words=410",
+        "link": "https://9to5mac.com/2026/07/29/deals-m5-macbook-pro-macbook-air-airpods-techwoven/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-29T16:11:46.811Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-ab1ed88ff40f-en",
+      "cluster_id": "feed-ab1ed88ff40f",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "automating-customer-retention-workflows-in-amazon-quick",
+      "title": "Automating customer retention workflows in Amazon Quick",
+      "summary": "Automating customer retention workflows in Amazon Quick can turn a five-day churn-response cycle into one that takes minutes. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Automating customer retention workflows in Amazon Quick should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Automating customer retention workflows in Amazon Quick can turn a five-day churn-response cycle into one that takes minutes. Last quarter, a mid-size SaaS company lost 12% of its at-risk accounts because the retention team took five days to identify and contact dissatisfied customers. By the time someone manually reviewed CSAT spreadsheets and call transcripts, those customers had already churned. Amazon Quick shortens that response window from days to minutes. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "This post walks through building an automated retention pipeline in Amazon Quick. The pipeline detects dissatisfied customers from structured data. It analyzes sentiment from call transcripts and scores customers by retention priority. It then generates retention offers tailored to each situation. In this post, you learn how to:. The practical impact sits in workflow, cost, risk, or a buying decision; Automating customer retention workflows in Amazon Quick should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "The retention pipeline connects four Amazon Quick components in sequence. Quick Dashboard monitors contact center KPIs, including CSAT (Customer Satisfaction Score, a 1–5 rating customers give after each call), FCR (First Call Resolution, whether the team resolved the issue in a single call), and AHT (Average Handle Time). It identifies customers with CSAT scores at or below 2. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Quick Chat Agent uses natural language to query structured data and unstructured call transcripts. It combines quantitative scores with qualitative sentiment signals. This surfaces why a customer is at risk, not just that they are. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Amazon Quick Flows turns the repeatable Chat-based analysis into a scheduled or on-demand automation that runs without manual intervention. Its final step formats the results as a structured list of at-risk customers that downstream automation can consume directly. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/automating-customer-retention-workflows-in-amazon-quick/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-29T15:24:21.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/23/21125.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-07-29T15:24:21.000Z",
+      "updated_at": "2026-07-29T15:24:21.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/23/21125.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/automating-customer-retention-workflows-in-amazon-quick/"
+      },
+      "draft_context": {
+        "source_title": "Automating customer retention workflows in Amazon Quick",
+        "source_name": "AWS ML Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "ai",
+        "content_type_hint": "",
+        "description": "Automating customer retention workflows in Amazon Quick can turn a five-day churn-response cycle into one that takes minutes. Last quarter, a mid-size SaaS company lost 12% of its at-risk accounts because the retention team took five days to identify and contact dissatisfied customers. By the time someone manually reviewed CSAT spreadsheets and call transcripts, those customers had already churned. Amazon Quick shortens that response window from days to minutes. This post walks through building an automated retention pipeline in Amazon Quick. The pipeline detects dissatisfied customers from structured data. It analyzes sentiment from call transcripts and scores customers by retention priority. It then generates retention offers tailored to each situation. In this post, you learn how to: Configure a Quick Space with contact center datasets and call transcripts. Create and register a custom MCP Action for customer scoring. Build a Chat Agent that combines quantitative key performance indicators (KPIs) with qualitative transcript analysis. Convert the analysis into a reusable Quick Flow. Orchestrate the full pipeline with Amazon Quick Automate. Solution overview The retention pipeline connects four Amazon Quick components in sequence. Quick Dashboard monitors contact center KPIs, including CSAT (Customer Satisfaction Score, a 1–5 rating customers give after each call), FCR (First Call Resolution, whether the team resolved the issue in a single call), and AHT (Average Handle Time). It identifies customers with CSAT scores at or below 2. Quick Chat Agent uses natural language to query structured data and unstructured call transcripts. It combines quantitative scores with qualitative sentiment signals. This surfaces why a customer is at risk, not just that they are. Amazon Quick Flows turns the repeatable Chat-based analysis into a scheduled or on-demand automation that runs without manual intervention. Its final step formats the results as a structured list of at-risk customers that downstream automation can consume directly. Quick Automate executes a multi-step pipeline. It ingests the structured at-risk customer list that the Flow produces and scores those customers through a custom MCP Action. An MCP Action is a serverless endpoint that extends Quick Automate with custom business logic. Refer to the Quick Automate MCP developer guide for details. The pipeline then ranks customers by priority, generates retention letters, and uploads them to Amazon Simple Storage Service (Amazon S3) for distribution. You run the workflow on AWS infrastructure and can access audit trails, breakpoints, and role-based access controls. Automate pipeline architecture The pipeline executes five sequential steps. It downloads the list of at-risk customers and contact center data from Amazon Simple Storage Service (Amazon S3). A scoring step ranks those customers by retention priority (based on CSAT and how recently each customer had an issue) and picks the top two highest-priority cases. The pipeline then drafts bonus-credit letters that reference each customer’s specific issues, saves them as a PDF, and uploads the finished letters to Amazon S3 for delivery and archival. The following table summarizes each step: Step Action Details 1 Download at-risk customers and contact center dataset Download the at-risk customers file (Negative Sentiment.doc) as well as the structured dataset contact_center_data.csv from Amazon S3. 2 Retention scoring Score each customer on CSAT and issue recency through the custom MCP Action, and pick the top two highest-priority cases. 3 Retention letter generation Draft bonus-credit letters that reference each customer’s specific issues. 4 PDF creation Save the generated letters as a PDF document. 5 Upload to Amazon S3 Store the generated letters in Amazon S3 for delivery and archival. This solution uses Amazon S3, Amazon Quick (Dashboard, Chat, Flows, Automate), and custom MCP Actions. Prerequisites To follow this walkthrough, you need: An AWS account with Amazon Quick activated (Dashboard, Chat, Flows, and Automate) A structured contact center dataset in CSV format named contact_center_data.csv (columns: customer_id, csat_score, call_date, call_reason, team_id). A sample dataset is provided with this post. Call transcript documents named Call_transcripts.docx in PDF or TXT format. An Amazon S3 bucket for pipeline input and output (example: amzn-s3-demo-bucket) Solution walkthrough The following sections walk through the build end to end, from preparing your Quick Space and registering the MCP Action connector to assembling the Chat Agent, Flow, and Automate workflow. Complete them in order, because each step builds on the components created before it. To prepare your Quick Space A Quick Space is the data layer that gives the Chat Agent access to both structured datasets (for filtering and aggregation) and unstructured documents (for sentiment analysis). Creating the Space first helps verify that every downstream component draws from the same source of truth. From the Quick console, select Spaces. Select “Create space”. For Space name , enter ContactSpace. In the screen that follows, select Datasets . Then select Add datasets . Search for and select the checkbox next to your contact_center_data dataset, then choose Add. Select File Uploads, then select Upload Files, and upload your Call_transcripts.docx transcript file, then choose Open. Wait for indexing to complete. The Status column shows Ready for both the dataset and the document. To create the MCP Action connector An MCP Action connector bridges Amazon Quick and your custom business logic. It defines the connector and makes it available as an HTTP endpoint. You write an AWS Lambda function that contains your scoring algorithm wrapped in the MCP protocol, make it available through Amazon API Gateway, and register that endpoint in Amazon Quick. The Model Context Protocol (MCP) is an open standard that lets AI assistants such as Amazon Quick call external tools in a consistent request-and-response format. If you are new to these services, AWS Lambda lets you run code without provisioning servers, and Amazon API Gateway exposes that code as a web address (an HTTP endpoint) that Amazon Quick can call. You first create the Lambda function, then put an API Gateway endpoint in front of it, and finally register that endpoint in Amazon Quick. The following Lambda function implements a minimal MCP server. It handles the three JSON-RPC methods Amazon Quick calls during connection: initialize (the handshake), tools/list (which advertises the score_customers tool so Amazon Quick can discover it), and tools/call (which runs the scoring when the tool is invoked). The tool’s inputSchema follows JSON Schema Draft 7, which Amazon Quick requires at publish time: import json # Tool catalog advertised to Amazon Quick during discovery (tools/list). # inputSchema uses JSON Schema Draft 7 (required is an array at the root). TOOLS = [ { \"name\": \"score_customers\", \"description\": \"Scores contact center customers by retention priority.\", \"inputSchema\": { \"type\": \"object\", \"properties\": { \"customers\": { \"type\": \"array\", \"description\": \"Customer records to score.\", \"items\": { \"type\": \"object\", \"properties\": { \"customer_id\": {\"type\": \"string\"}, \"csat_score\": {\"type\": \"number\"}, \"days_since_last_issue\": {\"type\": \"number\"} }, \"required\": [\"customer_id\"] } } }, \"required\": [\"customers\"] } } ] def score_customers(customers): scored = [] for c in customers: score = 0 # Weight factors: low CSAT = high churn risk score += (5 - c.get(\"csat_score\", 3)) * 20 # Recency: issues in last 7 days score higher score += 30 if c.get(\"days_since_last_issue\", 30) Deploy this function to AWS Lambda: Open the AWS Lambda console and choose Create function. Select Author from scratch. For Function name, enter customer-scoring. For Runtime, choose a recent supported Python version (for example, Python 3.13). Choose Create function. In the Code tab, replace the default code with the function shown earlier, then choose Deploy. With the function deployed, create an API Gateway endpoint in front of it using the following AWS Command Line Interface (AWS CLI) commands. If you prefer, you can perform these same steps in the API Gateway console. Run the commands in order. Each one produces a value (such as the API ID) that you use in the next. Replace the placeholder values (, , , ) with your own: # 1. Create REST API aws apigateway create-rest-api --name customer-scoring-api --endpoint-configuration types=REGIONAL # Note the \"id\" value from the response -> # 2. Get root resource ID aws apigateway get-resources --rest-api-id # Note the \"id\" value -> # 3. Create POST method aws apigateway put-method --rest-api-id --resource-id --http-method POST --authorization-type NONE # 4. Integrate with Lambda aws apigateway put-integration --rest-api-id --resource-id --http-method POST --type AWS_PROXY --integration-http-method POST --uri \"arn:aws:apigateway: :lambda:path/2015-03-31/functions/arn:aws:lambda: : :function: /invocations\" # 5. Allow API Gateway to invoke Lambda aws lambda add-permission --function-name --statement-id apigateway-invoke --action lambda:InvokeFunction --principal apigateway.amazonaws.com --source-arn \"arn:aws:execute-api: : : /*/POST/\" # 6. Deploy aws apigateway create-deployment --rest-api-id --stage-name prod # Your endpoint URL: # https:// .execute-api. .amazonaws.com/prod/mcp The create-deployment command returns a deployment id and timestamp. Construct the endpoint URL yourself using your API ID and Region in the following format: https:// .execute-api. .amazonaws.com/prod/mcp . Note this URL. You use it when registering the connector in Amazon Quick. Production consideration: This walkthrough uses API Gateway directly in front of Lambda for simplicity. For production workloads, consider using Agentcore gateways in front of Lambda, which provide built-in, agent-level authentication, throttling, and observability out of the box. To register the MCP Action connector in Amazon Quick From the Amazon Quick home page, select More , then select Connectors . In the right section, select Create for your team. Select Model Context Protocol . In the screen that follows, Select No, create new . Enter the following values and choose Next : Name : mcp-customer-score. Description : Find score of customers based on aggregated KPIs. MCP server endpoint : paste the endpoint URL https:// .execute-api. .amazonaws.com/prod/mcp . Connection type : Public network. Choose Next . On the Authenticate step, select Service authentication , then open the Auth configuration list and choose None . This endpoint is intentionally open for demonstration purposes. In a production environment, you would typically add an authentication layer, most commonly two-legged OAuth (2LO), to secure the endpoint. Because the scoring endpoint you deployed uses –authorization-type NONE, it accepts unauthenticated requests, so no client ID or secret is required. (Use an OAuth option only if your MCP server is protected by OAuth.) Choose Create and continue . Choose Publish . Wait a few minutes, then choose the new connector in the Available section. Confirm the status shows Ready . To create a custom Chat Agent for contact center analysis A custom Chat Agent connects to your ContactSpace and has access to the MCP Action connector you registered. The system prompt is the critical component. It tells the agent how to interpret the data, what questions to ask of the transcripts, and when to invoke the scoring tool versus answering from the dataset directly. From the Quick home page, select Chat agents, then choose Blank, followed by Skip to create a custom chat agent from scratch. For Agent name , enter Contact Center Strategy Analyst. Under Knowledge Sources , link the ContactSpace. Under Actions , add the mcp-customer-score connector. For the system prompt, enter text similar to the following: You are a Contact Center Strategy Analyst. You have access to: 1. contact_center_data.csv - structured CSAT, call, and team data 2. Call_transcripts.docx - unstructured call transcript documents 3. mcp-customer-score tool - calculates retention priority scores When asked about at-risk customers: - Query the structured dataset for low CSAT scores - Cross-reference with transcripts to identify sentiment and root causes - When asked to score customers, call the mcp-customer-score tool - Always explain WHY a customer is at risk, not just that they are - Format results as tables when showing multiple customers Choose Launch chat agent . To analyze at-risk customers with the Chat Agent The Chat Agent accesses both the structured dataset and unstructured transcripts in your Space. Use it to identify at-risk customers and understand the reasons behind their low satisfaction scores. From the Amazon Quick home page, chat with the new custom chat agent. First, choose the Contact Center Strategy Analyst agent from the list. Enter the following prompt: Show me customers that rated low CSAT (at or below 2) using contact center data The agent returns a table of customer IDs, call dates, CSAT scores, and related metrics. This identifies who is at risk but not why. Enter a follow-up prompt: Using the call transcripts, summarize the main reasons these customers were dissatisfied The agent reads the call transcripts and summarizes its findings. For example, it might identify that Customer 4471 expressed repeated frustration about billing errors across three calls. Customer 8832 had a single intense interaction about a service outage. This distinction matters. Repeated small frustrations require a different retention approach than one major incident. To produce a structured result that downstream automation can consume, enter a final prompt: For the top 20 most at-risk customers, return only a JSON array where each object has customer_id, csat_score, and days_since_last_issue (calculated from the most recent call date). Do not include any other text. The agent returns a structured JSON list of the at-risk customers. Copy this JSON output from the chat response and save it as a file named at_risk_customers.json, then upload it to your Amazon S3 bucket (for example, to the inputs/ prefix). The automation downloads this file from Amazon S3 in a later step. To convert the analysis into a Quick Flow Beyond the one-time analysis, Quick Flows lets you turn a Chat conversation into a reusable automation with a single step, so the same analysis can be re-run on demand or on a schedule. The following steps demonstrate how to convert the conversation you just had into a Flow. In the Chat interface, choose the + on the toolbar, then select Flow. Select Generate new flow, keep the suggested prompt and select Generate. Review the flow then choose Publish. Select Run mode, if required enter any inputs then start the flow. The Flow is now a reusable automation. Share it with your team or schedule it to run weekly to regenerate the analysis whenever you need it. To create the Automate workflow Connectors required: these connectors should be part of the Automation group that we create the Automate in. Amazon S3 (two connections: one for source data, one for output uploads) Custom Agent (with MCP scoring agent created in the MCP action connector step) To create an Automation group On the Amazon Quick home page, choose More, then Automations. In the page that follows, choose the ‘Groups’ tab. Then choose Create Group Choose the required actions, the MCP action and the Amazon S3 action. Then choose Next. On the following page, choose Done To create the Automation project The above group will be used to create the Automation project. Follow the instructions to create the Automation project. On the Amazon Quick home page, choose More, then Automations. On the screen that follows, choose Create Project, then Create Project. Enter a name for the automation, choose the Automation group, then choose Create On the following screen, choose Start building Choose Skip The following screen appears To build the Automation steps For the subsequent steps, follow the instructions shown below and complete the Automation project. Step 1: Load call data from Amazon S3 Choose New step and enter the following inside the chat assistant on the left that says ‘What do you want to automate’. This initial step loads call data from the raw contact center CSV in Amazon S3: Log an info message: \"Starting download of customer contact data from S3\" Download the file \"contact_center_data_complete.csv\" from the S3 bucket contactcenterbucketdemo\". Read the downloaded file as a CSV with headers included and comma delimiter. Store the result as call_data. Log an info message: \"Successfully loaded customer contact data from S3 CSV file\" Have all the above under one step Choose Build Step 1. Choose the close (x) symbol in the top right. The step will be created as shown below. Step 2: Filter high-risk customers Choose the add (+) symbol below the step, then choose Process step. Toggle the mode back to planning. Enter the following in the chat window, then choose the talk symbol. Log an info message: \"Starting to filter call data for known high-risk customers with negative sentiment\" Download the file \"input/NegativeSentiment.docx\" from the S3 bucket \"contactcenterbucketdemo\". Have all the above under one step Step 3: Aggregate customer metrics Repeat the above for step 3 (Aggregate Customer Metrics) with following instruction: Loop through each item in the aggregated metrics result table. For each item, log an info message with this exact format: \"Customer: {item['customer_id']}, Total Calls: {item['total_calls']}, Avg CSAT: {item['avg_csat_score']}, FCR Rate: {item['first_call_resolution_rate']}%, Resolved Rate: {item['resolved_rate']}%, Avg Transfers: {item['avg_transfer_count']}, Avg Hold Time: {item['avg_hold_time_seconds']}s, Complaint Ratio: {item['complaint_ratio']}\" Have all the above under one step These two instructions together will recreate the full Step 3 including its nested sub-step for logging. The main step handles all the calculation logic, and the sub-step handles the per-customer logging output. Step 4: Identify top customers and generate letters Repeat the above for step 4 (Identify Top customers and generate letter) with following instruction: Log an info message: \"Starting customer bonus letter generation process\" Collect all rows from customer_aggregated_metrics into a list called customer_records by looping through the table and appending each row. Use an inline agent in \"pro\" mode with this instruction: \"Analyze the provided customer aggregated metrics data: {customer_records}. This data contains real customer records with actual customer IDs and performance scores. Identify and return the top 2 performing customers based on their aggregated scores from this actual data. Do not generate fictional customer IDs - use only the real customer IDs present in the provided customer records data. Return the actual customer information including the real customer IDs and their corresponding scores from the data.\" Set the output schema to an object with a required property \"top_customers\" which is an array (minContains 2, maxContains 2) of objects. Each object has \"customer_id\" (string, required) and \"score\" (number). Give the agent these tools: python_repl (coding tool) and the configured MCP tools for customer lookup. Log the result: \"top_customers are:\" followed by the top_customers value. Store the top_customers list. Create a helper function called generate_timestamp that returns the current datetime formatted as \"%Y%m%d_%H%M%S\". Call it and store as timestamp. Create an empty list called bonus_letters. For each customer in top_customers: 1. Get the customer_id from the customer object. 2. Create a PDF using create_pdf with the following HTML content: - Style: body with font-family Arial, line-height 1.6, margin 40px, color #333 - A \"header\" div centered with h2 \"Customer Retention Department\" and italic paragraph \"Valued Customer Appreciation Program\" - A \"content\" div containing: - Bold greeting: \"Dear Valued Customer (ID: {customer_id}),\" - Paragraph expressing appreciation for continued partnership - Paragraph acknowledging past service issues and offering heartfelt apologies, mentioning their feedback has been invaluable - A \"highlight\" div (background-color #f0f8ff, padding 15px, border-left 4px solid #007acc, margin 20px 0) containing bold text: \"As a gesture of our commitment to your satisfaction and our appreciation for your loyalty, we are pleased to offer you a $100 bonus credit.\" - Paragraph about the bonus reflecting genuine desire to make things right and mutual success - Paragraph about enhanced service protocols and dedicated customer success team - Paragraph hoping for opportunity to demonstrate renewed commitment - A \"signature\" div with margin-top 40px containing: - \"With sincere regards and appreciation,\" - A line break - Bold \"Customer Retention Team\", then \"Customer Success Department\", then italic \"Dedicated to Your Success\" 3. Upload the PDF to S3 bucket \"contactcenterbucketdemo\" with Key = \"output/\" + customer_id + timestamp + \".pdf\" 4. Append the PDF to the bonus_letters list. After the loop completes, log: \"Successfully generated bonus letters for top 2 customers\" Have all the above under one step To test and deploy the automation Validate the automation end to end, then commit and deploy it so it can run on a schedule. In the canvas, choose Debug (or Test ) to run the automation. It runs on its own, downloading the at-risk customers file from Amazon S3 through the Download file step. Review each step’s output in the logs panel. Confirm the scoring step returns the top two customers, the letters reference the correct customer issues, and the S3 upload completes successfully. When the run is correct, choose Commit to create a version. Choose Deploy , select the committed version, and confirm the required credentials and connections (your Amazon S3 connection and the mcp-customer-score connector). To run the automation on a schedule, on the Deployment page choose Create Trigger , then set the frequency (or a cron expression), start time, and time zone. For more details refer to the following links. https://docs.aws.amazon.com/quick/latest/userguide/testing-automations.html https://docs.aws.amazon.com/quick/latest/userguide/deploying-automations.html Results After deploying this pipeline in a test environment with historical contact center data, the team measured improvements across four dimensions: response time, retention rates, offer acceptance, and time to deploy. Internal testing with sample data produced these results. Your implementation may vary. Response time dropped from days of manual identification and drafting to minutes of automated execution. Retention rates improved among flagged customers compared to the previous reactive approach. Faster outreach, while the experience is still fresh, drove this improvement. Offer acceptance increased when letters referenced the customer’s specific issue rather than offering a generic discount. Time to deploy took less than one day. Business users built the full workflow through natural language and point-and-click screens. Troubleshooting The following table lists common issues and their resolutions. Symptom Cause Resolution Chat Agent returns “No data found” Space indexing incomplete Verify ContactSpace status. Wait for the Ready indicator before running queries. Sentiment analysis is generic Transcripts not indexed Verify call transcript documents are uploaded to the Space Documents section. Automation scores no customers or the wrong ones At-risk JSON not found, or the agent did not receive it Confirm at_risk_customers.json exists at the Amazon S3 path the Download file step references, and that the scoring agent’s instructions reference the downloaded variable. MCP Action returns timeout Endpoint not responding Increase the MCP Action timeout or reduce the dataset scope. Letters are generic or missing customer details Letter agent did not receive the scored results Confirm the letter agent’s prompt references the scoring step’s output variable (inserted with @). Cleaning up To avoid ongoing costs when you no longer need these resources: Delete the Automate workflow. Delete the Flow. Remove input datasets and generated letters from your S3 bucket: aws s3 rm s3://amzn-s3-demo-bucket/inputs/ --recursive aws s3 rm s3://amzn-s3-demo-bucket/output/letters/ --recursive Deregister the custom MCP Action endpoint if it was created specifically for this workflow. Remove uploaded data from ContactSpace if no longer needed. Conclusion This walkthrough demonstrated how to build a customer retention pipeline that goes from raw contact center data to targeted retention actions, without writing application code. The pipeline combines KPI monitoring through Quick Dashboard and AI-powered transcript analysis through the Chat Agent. It adds repeatable automation through Quick Flows and multi-step processing through Quick Automate. After the initial developer setup (Lambda function and API Gateway), business users built and operated the remaining components through natural language and point-and-click interfaces. The MCP Action connector extended the pipeline with custom scoring logic that reflects your organization’s specific retention criteria. Apply this same pattern to adjacent use cases: client account health monitoring, compliance risk escalation, or proactive service recovery. Start by connecting your data to a Quick Space and asking questions through the Chat Agent. Once you have the right analysis, convert it to a Flow and orchestrate the workflow with Automate. For more information, refer to the Amazon Quick documentation . To explore the MCP Action framework, refer to the MCP action framework . About the authors Vaidy Janardhanam Vaidy is a Specialist Solutions Architect for Amazon Quick Suite. He specializes in empowering customers to transform their analytics landscape, unifying traditional business intelligence dashboards with cutting-edge agentic AI workflows that turn insights into automated action. Pegah Ojaghi Pegah is a Generative AI Applied Architect at AWS with a PhD in Computer Science focused on large language models, generative AI, and reinforcement learning. Her expertise spans foundation model development, RLHF techniques, and novel optimization methods for LLMs. She is passionate about translating cutting-edge research into production systems across the healthcare, financial services, and insurance industries. Oyin Oguntoye Oyin is an AWS Solutions Architect in the Amazon Quick team. She is passionate about problem solving particularly in the data, analytics and AI space. Oyin has spent a number of years at Amazon helping implement solutions both internally for Amazon, and also externally for AWS customers.",
+        "paragraphs": [
+          "Automating customer retention workflows in Amazon Quick can turn a five-day churn-response cycle into one that takes minutes. Last quarter, a mid-size SaaS company lost 12% of its at-risk accounts because the retention team took five days to identify and contact dissatisfied customers. By the time someone manually reviewed CSAT spreadsheets and call transcripts, those customers had already churned. Amazon Quick shortens that response window from days to minutes.",
+          "This post walks through building an automated retention pipeline in Amazon Quick. The pipeline detects dissatisfied customers from structured data. It analyzes sentiment from call transcripts and scores customers by retention priority. It then generates retention offers tailored to each situation. In this post, you learn how to:",
+          "The retention pipeline connects four Amazon Quick components in sequence. Quick Dashboard monitors contact center KPIs, including CSAT (Customer Satisfaction Score, a 1–5 rating customers give after each call), FCR (First Call Resolution, whether the team resolved the issue in a single call), and AHT (Average Handle Time). It identifies customers with CSAT scores at or below 2.",
+          "Quick Chat Agent uses natural language to query structured data and unstructured call transcripts. It combines quantitative scores with qualitative sentiment signals. This surfaces why a customer is at risk, not just that they are.",
+          "Amazon Quick Flows turns the repeatable Chat-based analysis into a scheduled or on-demand automation that runs without manual intervention. Its final step formats the results as a structured list of at-risk customers that downstream automation can consume directly.",
+          "Quick Automate executes a multi-step pipeline. It ingests the structured at-risk customer list that the Flow produces and scores those customers through a custom MCP Action. An MCP Action is a serverless endpoint that extends Quick Automate with custom business logic. Refer to the Quick Automate MCP developer guide for details. The pipeline then ranks customers by priority, generates retention letters, and uploads them to Amazon Simple Storage Service (Amazon S3) for distribution."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=4338",
+        "link": "https://aws.amazon.com/blogs/machine-learning/automating-customer-retention-workflows-in-amazon-quick/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-29T16:11:46.811Z",
         "origin": "local-curated-rss"
       }
     },
@@ -184,189 +364,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-29T14:43:09.212Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-b8692ea6acca-en",
-      "cluster_id": "feed-b8692ea6acca",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "slug": "framework-laptop-13-pro-review-a-repairable-notebook-at-the-top-of-the-class",
-      "title": "Framework Laptop 13 Pro review: A repairable notebook at the top of the class",
-      "summary": "Daniel Cooper for Engadget RATING : 8. 9 / 10 Pros Panther Lake performance is superb Whisper-quiet operation More than enough battery life Modular and repairable Cons Have you seen the price of RAM? The source signal from Engadget should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Framework Laptop 13 Pro review: A repairable notebook at the top of the class should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
-      "sections": [
-        {
-          "heading": "Context: what changed",
-          "body": "Daniel Cooper for Engadget RATING : 8. 9 / 10 Pros Panther Lake performance is superb Whisper-quiet operation More than enough battery life Modular and repairable Cons Have you seen the price of RAM? Webcam and speakers need some love No, honestly, have you seen the price of RAM right now? Framework has spent the last six years showing the industry it's possible to build a modular and repairable laptop. But CEO Nirav Patel knows there's a ceiling to its ambitions it needs to smash if it wants to take its place among the giants of the industry. It needs to improve the look and feel of its machines, while boosting performance, to the point where a Framework product isn't seen as a compromise. The source signal from Engadget should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "\"The benchmark for us is the MacBook Pro,\" Patel told me back in April. The Framework Laptop 13 Pro is his attempt to build a laptop as good as that, but for Linux and Windows users. It's one hell of a target, and I'm delighted to tell you that the Framework Laptop 13 Pro is the best Windows laptop I've ever used. It looks good, performs beautifully and feels amazing to touch. There's one downside: It arrived during the RAMpocalypse, which has unfortunately pushed the price far higher than anyone's wallet might want to bear. The practical impact sits in workflow, cost, risk, or a buying decision; Framework Laptop 13 Pro review: A repairable notebook at the top of the class should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
-        },
-        {
-          "heading": "Details worth verifying",
-          "body": "Daniel Cooper for Engadget From the moment you slide the laptop out of its paper sleeve, it's clear Framework is using this launch as a chance to polish its homework. Much as it's bound by the template the original chassis laid down years ago, there's still plenty of room for tweaks. The new machined aluminum body feels so much more solid, and the black (sorry, Graphite ) paint job just suits it. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
-        },
-        {
-          "heading": "Who should act or wait",
-          "body": "As a long-term Framework watcher, it's easier for me to spot the smaller details the company sweated. Gone are the flat angles, replaced with tidy chamfering. The rubber feet are now rounded over rather than squared off. The captive torx screws now have machined heads so their grooves catch the light. There's no visible seam between the input cover and the bottom case, making it look like a single piece of metal. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "Let's be honest, the Framework 13 was never ugly, but its design was always a little more on the agricultural side. The panel gaps and boxiness was a consequence of the choice to focus on making a machine that you could repair and upgrade yourself. Here, the new color, paired with the higher quality materials, puts the Pro in the same league as a ThinkPad or, yes, even a MacBook. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Engadget",
-          "source_url": "https://www.engadget.com/2225931/framework-laptop-13-pro-review/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-07-29T13:00:00.000Z",
-          "image_url": "https://www.engadget.com/img/gallery/framework-laptop-13-pro-review-in-a-class-of-its-own/l-intro-1785328589.jpg",
-          "image_caption": "Reference image from Engadget.",
-          "image_credit": "Engadget"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-07-29T13:00:00.000Z",
-      "updated_at": "2026-07-29T13:00:00.000Z",
-      "image": {
-        "src": "https://www.engadget.com/img/gallery/framework-laptop-13-pro-review-in-a-class-of-its-own/l-intro-1785328589.jpg",
-        "caption": "Reference image from Engadget.",
-        "credit": "Engadget",
-        "source_url": "https://www.engadget.com/2225931/framework-laptop-13-pro-review/"
-      },
-      "draft_context": {
-        "source_title": "Framework Laptop 13 Pro review: A repairable notebook at the top of the class",
-        "source_name": "Engadget",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "The Framework 13 Pro is a class-leading Windows laptop that, right now, is just a little too pricey.",
-        "paragraphs": [
-          "Daniel Cooper for Engadget RATING : 8.9 / 10 Pros Panther Lake performance is superb Whisper-quiet operation More than enough battery life Modular and repairable Cons Have you seen the price of RAM? Webcam and speakers need some love No, honestly, have you seen the price of RAM right now? Framework has spent the last six years showing the industry it's possible to build a modular and repairable laptop. But CEO Nirav Patel knows there's a ceiling to its ambitions it needs to smash if it wants to take its place among the giants of the industry. It needs to improve the look and feel of its machines, while boosting performance, to the point where a Framework product isn't seen as a compromise.",
-          "\"The benchmark for us is the MacBook Pro,\" Patel told me back in April. The Framework Laptop 13 Pro is his attempt to build a laptop as good as that, but for Linux and Windows users. It's one hell of a target, and I'm delighted to tell you that the Framework Laptop 13 Pro is the best Windows laptop I've ever used. It looks good, performs beautifully and feels amazing to touch. There's one downside: It arrived during the RAMpocalypse, which has unfortunately pushed the price far higher than anyone's wallet might want to bear.",
-          "Daniel Cooper for Engadget From the moment you slide the laptop out of its paper sleeve, it's clear Framework is using this launch as a chance to polish its homework. Much as it's bound by the template the original chassis laid down years ago, there's still plenty of room for tweaks. The new machined aluminum body feels so much more solid, and the black (sorry, Graphite ) paint job just suits it.",
-          "As a long-term Framework watcher, it's easier for me to spot the smaller details the company sweated. Gone are the flat angles, replaced with tidy chamfering. The rubber feet are now rounded over rather than squared off. The captive torx screws now have machined heads so their grooves catch the light. There's no visible seam between the input cover and the bottom case, making it look like a single piece of metal.",
-          "Let's be honest, the Framework 13 was never ugly, but its design was always a little more on the agricultural side. The panel gaps and boxiness was a consequence of the choice to focus on making a machine that you could repair and upgrade yourself. Here, the new color, paired with the higher quality materials, puts the Pro in the same league as a ThinkPad or, yes, even a MacBook.",
-          "Daniel Cooper for Engadget Framework's mission was to build a single, 13-inch modular laptop that could be repaired and upgraded over time. The company's product line has grown since then, and the launch of the 13 Pro would be an easy chance to go back on its promise. Instead, it's held true to its principles, with every component more or less interchangeable with what's gone before. It's possible to take an original Framework Laptop 13 from 2021 and drop in the mainboard from 2026's 13 Pro."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=6; words=536",
-        "link": "https://www.engadget.com/2225931/framework-laptop-13-pro-review/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-07-29T14:43:09.212Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-5dd912088d73-en",
-      "cluster_id": "feed-5dd912088d73",
-      "language": "en",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "slug": "mac-mini-availability-long-waits-and-higher-prices",
-      "title": "Mac Mini Availability: Long Waits and Higher Prices",
-      "summary": "Now, while the situation has improved slightly, things are far from normal. The source signal from Wired should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Mac Mini Availability: Long Waits and Higher Prices should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
-      "sections": [
-        {
-          "heading": "Context: what changed",
-          "body": "Now, while the situation has improved slightly, things are far from normal. At its worst, the base configuration of the Mac Mini was completely sold out on Apple’s storefront. This is true at third-party retailers like Amazon or Best Buy. Apple has them back in stock for a while now on Apple. com , but slow shipping times still show how dire the situation is. The source signal from Wired should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "When buying directly from Apple , the cheapest Mac Mini with only 16 GB of RAM ships in three to four weeks. A MacBook Air from Apple with the same 16 GB of RAM configuration has a delivery window of two to three weeks—same as the MacBook Neo with 8 GB of RAM. The practical impact sits in workflow, cost, risk, or a buying decision; Mac Mini Availability: Long Waits and Higher Prices should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
-        },
-        {
-          "heading": "Details worth verifying",
-          "body": "RAM is the primary contributing factor to the delays, as the waits get longer as capacity increases. Mac Mini configurations with 36 GB of RAM have wait times of around a month, while 48 GB of memory will take three months or longer to ship to customers. Meanwhile, a Mac Studio with 48 GB of memory takes an estimated “13 to 14 weeks” to arrive. That's an incredibly long time to wait. These higher-end memory configurations aren't even on offer at Amazon or Best Buy. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
-        },
-        {
-          "heading": "Who should act or wait",
-          "body": "The wait times may put Apple in conflict with its next update of the Mac Mini and Mac Studio. Apple has not updated the Mac Mini since October 2024, but rumors have been pointing to an M5 chip update this fall. That means if you order an M4 Mac Mini right now, you could receive it after the newer model has been announced. That's how far behind Apple has become in meeting demand. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "The fastest way to get a Mac Mini right now is through Amazon. While configuration options are limited, you can buy an M4 Mac Mini with 24 GB of RAM and 512 GB of storage and have it shipped in just a few days. You'll be paying $1,570, which is $471 more than what the Apple Store is charging. You can also get the M4 Pro Mac Mini for $1,570 , which is only $100 more than Apple's prices and delivers within a week and a half. These are really the only models I recommend buying at this point. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "creator-software-stack"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Wired",
-          "source_url": "https://www.wired.com/story/mac-mini-availability/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-07-29T11:00:00.000Z",
-          "image_url": "https://media.wired.com/photos/6a6912ed459e7618649764bc/191:100/w_1280,c_limit/Months-Later,-the-Mac-Mini-Remains-in-Desperately-Short-Supply.jpg",
-          "image_caption": "Reference image from Wired.",
-          "image_credit": "Wired"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-07-29T11:00:00.000Z",
-      "updated_at": "2026-07-29T11:00:00.000Z",
-      "image": {
-        "src": "https://media.wired.com/photos/6a6912ed459e7618649764bc/191:100/w_1280,c_limit/Months-Later,-the-Mac-Mini-Remains-in-Desperately-Short-Supply.jpg",
-        "caption": "Reference image from Wired.",
-        "credit": "Wired",
-        "source_url": "https://www.wired.com/story/mac-mini-availability/"
-      },
-      "draft_context": {
-        "source_title": "Mac Mini Availability: Long Waits and Higher Prices",
-        "source_name": "Wired",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "internet-business-tech",
-        "content_type_hint": "",
-        "description": "Thanks to the surge in local AI processing and the ongoing memory shortage, it’s incredibly difficult to buy a Mac Mini.",
-        "paragraphs": [
-          "Now, while the situation has improved slightly, things are far from normal. At its worst, the base configuration of the Mac Mini was completely sold out on Apple’s storefront. This is true at third-party retailers like Amazon or Best Buy. Apple has them back in stock for a while now on Apple.com , but slow shipping times still show how dire the situation is.",
-          "When buying directly from Apple , the cheapest Mac Mini with only 16 GB of RAM ships in three to four weeks. A MacBook Air from Apple with the same 16 GB of RAM configuration has a delivery window of two to three weeks—same as the MacBook Neo with 8 GB of RAM.",
-          "RAM is the primary contributing factor to the delays, as the waits get longer as capacity increases. Mac Mini configurations with 36 GB of RAM have wait times of around a month, while 48 GB of memory will take three months or longer to ship to customers. Meanwhile, a Mac Studio with 48 GB of memory takes an estimated “13 to 14 weeks” to arrive. That's an incredibly long time to wait. These higher-end memory configurations aren't even on offer at Amazon or Best Buy.",
-          "The wait times may put Apple in conflict with its next update of the Mac Mini and Mac Studio. Apple has not updated the Mac Mini since October 2024, but rumors have been pointing to an M5 chip update this fall. That means if you order an M4 Mac Mini right now, you could receive it after the newer model has been announced. That's how far behind Apple has become in meeting demand.",
-          "The fastest way to get a Mac Mini right now is through Amazon. While configuration options are limited, you can buy an M4 Mac Mini with 24 GB of RAM and 512 GB of storage and have it shipped in just a few days. You'll be paying $1,570, which is $471 more than what the Apple Store is charging. You can also get the M4 Pro Mac Mini for $1,570 , which is only $100 more than Apple's prices and delivers within a week and a half. These are really the only models I recommend buying at this point.",
-          "Prices have increased across the board on all Macs. At the beginning of May, Apple quietly discontinued the starting configuration of the Mac Mini, which used to come with 256 GB of storage and cost $599. This meant the starting price for a Mac Mini immediately jumped to $799."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=6; words=444",
-        "link": "https://www.wired.com/story/mac-mini-availability/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-07-29T14:43:09.212Z",
+        "generated_at": "2026-07-29T16:11:46.811Z",
         "origin": "local-curated-rss"
       }
     },
@@ -458,44 +456,44 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-29T14:43:09.212Z",
+        "generated_at": "2026-07-29T16:11:46.811Z",
         "origin": "local-curated-rss"
       }
     },
     {
-      "id": "feed-92c91a15b9fb-en",
-      "cluster_id": "feed-92c91a15b9fb",
-      "language": "en",
+      "id": "feed-34d417bc44e7-vi",
+      "cluster_id": "feed-34d417bc44e7",
+      "language": "vi",
       "topic": "internet-business-tech",
       "content_type": "NewsArticle",
-      "slug": "evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore",
-      "title": "Evaluating AI Agents: A production blueprint with Strands and AgentCore",
-      "summary": "This post was co-written with Motorway and the AWS Prototyping and AI Customer Engineering (PACE) team. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Evaluating AI Agents: A production blueprint with Strands and AgentCore should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "slug": "doanh-nghiep-nuoc-ngoai-se-uoc-au-tu-ve-tinh-tam-thap-tai-viet-nam",
+      "title": "Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam",
+      "summary": "Bộ TT&TT đang xây dựng cơ chế, chính sách để có thể thúc đẩy phát triển vệ tinh quỹ đạo tầm thấp. Tín hiệu từ VietnamNet Cong Nghe cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay.",
+      "dek": "Điểm đáng chú ý: Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.",
+      "hook": "Điều cần theo dõi: Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
       "sections": [
         {
-          "heading": "Context: what changed",
-          "body": "This post was co-written with Motorway and the AWS Prototyping and AI Customer Engineering (PACE) team. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+          "heading": "Bối cảnh: điều gì vừa đổi",
+          "body": "Bộ TT&TT đang xây dựng cơ chế, chính sách để có thể thúc đẩy phát triển vệ tinh quỹ đạo tầm thấp. Ảnh: TL Trong tờ trình gửi Quốc hội của Phó Thủ tướng Chính phủ Nguyễn Hòa Bình về thí điểm một số chính sách, cơ chế đặc biệt tạo đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số, có đề cập đến thí điểm có kiểm soát triển khai dịch vụ viễn thông sử dụng công nghệ vệ tinh quỹ đạo tầm thấp. Tín hiệu từ VietnamNet Cong Nghe cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay. Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định."
         },
         {
-          "heading": "Practical impact for readers",
-          "body": "Motorway, a UK-based online car marketplace, runs a daily auction where up to 8,000 dealers bid on up to 2,500 vehicles. Motorway worked with AWS Prototyping and AI Customer Engineering (PACE) to build an AI-powered dealer stock search agent that transforms how dealers find vehicles, replacing hours of manual filtering with natural language queries. The practical impact sits in workflow, cost, risk, or a buying decision; Evaluating AI Agents: A production blueprint with Strands and AgentCore should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+          "heading": "Tác động thực tế với người đọc",
+          "body": "Tờ trình nêu rõ: Nghị quyết số 57/NQ-TW yêu cầu phát triển hạ tầng viễn thông, Internet đáp ứng dự phòng, kết nối, an toàn, bền vững, hệ thống truyền dẫn dữ liệu qua vệ tinh, mạng cáp quang băng thông rộng tốc độ cao phủ sóng toàn quốc, mạng thông tin di động 5G, 6G và các thế hệ tiếp theo. Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn. Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc."
         },
         {
-          "heading": "Details worth verifying",
-          "body": "Together, Motorway and AWS built an end-to-end evaluation pipeline that reduced incorrect results from 1 in 8 queries to 1 in 50 and cut issue detection time from few hours to few minutes. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+          "heading": "Chi tiết cần kiểm chứng",
+          "body": "Thực tế công nghệ vệ tinh tầm thấp chủ yếu do một số doanh nghiệp nước ngoài làm chủ và triển khai trên thế giới nên cần có cơ chế, chính sách thí điểm có kiểm soát để thu hút, tạo điều kiện cho các doanh nghiệp nước ngoài đầu tư, đưa công nghệ vệ tinh tầm thấp phát triển tại Việt Nam, trên nguyên tắc đảm bảo quốc phòng, an ninh. Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn. Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn."
         },
         {
-          "heading": "Who should act or wait",
-          "body": "The pipeline combines the Strands Agents SDK with Amazon Bedrock AgentCore, a fully managed service for deploying and operating AI agents at scale. In this post, you will learn how to build this pipeline for your own agents:. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+          "heading": "Ai nên hành động hoặc chờ",
+          "body": "Ngày 19/2, Quốc hội biểu quyết thông qua Nghị quyết về thí điểm một số chính sách, cơ chế đặc biệt tạo đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số . Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động. Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận."
         },
         {
-          "heading": "What to watch next",
-          "body": "A companion repository provides a deployable blueprint that you can adapt for your own agents. Although the blueprint uses AWS services, the core principles are essential and system-agnostic requirements for any production-ready AI agent. These principles include the three-layer evaluation framework and the use of the pass^k metric for consistency. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+          "heading": "Điều cần theo dõi tiếp",
+          "body": "Một trong những nội dung quan trọng của nghị quyết này là cho phép thí điểm có kiểm soát triển khai dịch vụ viễn thông sử dụng công nghệ vệ tinh quỹ đạo tầm thấp. Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời. Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
         }
       ],
-      "verification_state": "verified",
+      "verification_state": "emerging",
       "quality_score": 96,
       "ad_eligible": true,
       "show_editorial_label": false,
@@ -504,50 +502,51 @@
       "related_store_items": [],
       "source_set": [
         {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-23T17:00:20.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/23/ml-20515.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
+          "source_type": "press",
+          "source_name": "VietnamNet Cong Nghe",
+          "source_url": "https://vietnamnet.vn/doanh-nghiep-nuoc-ngoai-se-duoc-dau-tu-ve-tinh-tam-thap-tai-viet-nam-2374565.html",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2025-03-14T07:56:43.000Z",
+          "image_url": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/2/24/doanh-nghiep-nuoc-ngoai-se-duoc-dau-tu-ve-tinh-tam-thap-tai-viet-nam-109617.jpg?width=0&s=ea41vWKAwJ9A9ztJ5SBeeQ",
+          "image_caption": "Ảnh tham khảo từ VietnamNet Cong Nghe.",
+          "image_credit": "VietnamNet Cong Nghe"
         }
       ],
       "author_id": "quang-huy",
-      "published_at": "2026-07-23T17:00:20.000Z",
-      "updated_at": "2026-07-23T17:00:20.000Z",
+      "published_at": "2025-03-14T07:56:43.000Z",
+      "updated_at": "2025-03-14T07:56:43.000Z",
       "image": {
-        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/23/ml-20515.png",
-        "caption": "Reference image from AWS ML Blog.",
-        "credit": "AWS ML Blog",
-        "source_url": "https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/"
+        "src": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/2/24/doanh-nghiep-nuoc-ngoai-se-duoc-dau-tu-ve-tinh-tam-thap-tai-viet-nam-109617.jpg?width=0&s=ea41vWKAwJ9A9ztJ5SBeeQ",
+        "caption": "Ảnh tham khảo từ VietnamNet Cong Nghe.",
+        "credit": "VietnamNet Cong Nghe",
+        "source_url": "https://vietnamnet.vn/doanh-nghiep-nuoc-ngoai-se-duoc-dau-tu-ve-tinh-tam-thap-tai-viet-nam-2374565.html"
       },
       "draft_context": {
-        "source_title": "Evaluating AI Agents: A production blueprint with Strands and AgentCore",
-        "source_name": "AWS ML Blog",
-        "source_type": "official-site",
-        "trust_tier": "official",
-        "topic_hint": "ai",
+        "source_title": "Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam",
+        "source_name": "VietnamNet Cong Nghe",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
         "content_type_hint": "",
-        "description": "This post was co-written with Motorway and the AWS Prototyping and AI Customer Engineering (PACE) team. Motorway, a UK-based online car marketplace, runs a daily auction where up to 8,000 dealers bid on up to 2,500 vehicles. Motorway worked with AWS Prototyping and AI Customer Engineering (PACE) to build an AI-powered dealer stock search agent that transforms how dealers find vehicles, replacing hours of manual filtering with natural language queries. The challenge The agent gives a confident-sounding response, but how do you prove it works reliably with real money on the line? Tool selection errors cause wrong search results, eroding dealer trust. Semantic search misinterpretations return irrelevant results. A query like “Petrol, Hybrid and electric cars up to 5 years old” requires the agent to correctly parse multiple constraints. Context drift in multi-turn conversations loses dealer refinements. Non-deterministic outputs make single-trial testing unreliable. The solution Together, Motorway and AWS built an end-to-end evaluation pipeline that reduced incorrect results from 1 in 8 queries to 1 in 50 and cut issue detection time from few hours to few minutes. The pipeline combines the Strands Agents SDK with Amazon Bedrock AgentCore, a fully managed service for deploying and operating AI agents at scale. In this post, you will learn how to build this pipeline for your own agents: A two-phase evaluation strategy spanning build-time testing with strands-agents-evals (the open source evaluation library for Strands Agents) and production monitoring with Amazon Bedrock AgentCore Evaluations . A three-layer framework for assessing tool usage, reasoning, and output quality. A five-stage deployment pipeline with quality gates that block releases when metrics fall below thresholds. A companion repository provides a deployable blueprint that you can adapt for your own agents. Although the blueprint uses AWS services, the core principles are essential and system-agnostic requirements for any production-ready AI agent. These principles include the three-layer evaluation framework and the use of the pass^k metric for consistency. Prerequisites You must have the following prerequisites to follow along with this post. An AWS account with permissions for Amazon Bedrock , AWS Lambda , Amazon Simple Storage Service (Amazon S3) , Amazon DynamoDB , Amazon EventBridge , Amazon CloudWatch , and Amazon Simple Notification Service (Amazon SNS) . AWS Cloud Development Kit (AWS CDK) v2 installed and bootstrapped. Python 3.14+. Access to Anthropic Claude models and Amazon Titan models through Amazon Bedrock model access . Familiarity with Python, AWS CDK, and agent concepts (tool calling, multi-turn conversations). Time to complete: 30–45 minutes for initial deployment and 2–3 hours to customize for your domain. Estimated costs: Running the sample evaluation suite costs approximately $5–10 in Amazon Bedrock inference charges. Production monitoring costs vary based on sampling rate. Security note: The companion repository implements least-privilege AWS Identity and Access Management (IAM) roles, stores API keys in AWS Systems Manager Parameter Store (not environment variables), and uses typed parameters to help prevent injection attacks. See the repository README for details. The worked example: A dealer stock search agent Motorway built the dealer stock search agent on the Strands Agents SDK and Amazon Bedrock AgentCore . The agent exposes eight tools that combine structured filtering across over 89 vehicle attributes with vector similarity search powered by LanceDB and Amazon Titan Text Embeddings V2 . Dealers typically spent hours browsing through listings using CSVs and rigid filters. By introducing a conversational AI agent, dealers can now talk to the agent: “Find me diesel SUVs under 25k near my dealership” or “something sporty and automatic for a family.” With around 1,500 concurrent users during peak hours, getting agent behavior right isn’t optional. A tool selection error or semantic search misinterpretation directly impacts user trust. Figure 1 shows the end-to-end request flow: dealers submit natural language queries through a web interface, which routes to Amazon Bedrock AgentCore Runtime. The runtime orchestrates calls to eight different tools while using Amazon Bedrock models (Claude for reasoning, Amazon Titan for embeddings). Tool responses flow back through the runtime to generate the final dealer-facing results. Why agent evaluation is different Large language model (LLM) evaluation focuses on text generation quality: coherence, factual accuracy, response relevance. Agent evaluation assesses something fundamentally different. Think of it this way: LLM evaluation examines engine performance. Agent evaluation assesses how the whole car drives in traffic, in rain, or with a backseat full of passengers. Traditional LLM metrics don’t tell you whether the Motorway agent called the right search tool for “Grade 1 Suzuki models.” They don’t reveal if the agent passed correct filter parameters to LanceDB. And they miss whether a dealer refining results from a previous turn gets the right response. Evaluation dimension Why it matters for agents Task completion Agents run multi-step workflows where partial completion is common Tool use correctness Wrong tools or bad parameters can derail entire workflows Reasoning coherence Flawed reasoning leads to unpredictable failures as conditions change Reliability and consistency Non-determinism means the same input can produce different outcomes Safety and compliance Autonomous agents can take actions with real-world consequences Cost and efficiency An agent requiring 50 API calls per task may not be economically viable A precise query like “Volkswagen Golf 7-12 years old” might work perfectly, but a colloquial variant like “I’m looking for an older VW” could fail if the semantic search layer isn’t properly evaluated. Catch issues before deployment with strands-agents-evals The blueprint implements evaluation across two phases that map to the GenAIOps lifecycle . Build-time evaluation catches issues before deployment, and production evaluation catches what synthetic tests miss. The following diagram (Figure 2) shows how the tool usage, reasoning, and output quality layers must pass before deployment. The framework evaluates agents across three layers: Layer 1 (Tool Usage) validates correct tool selection and parameter passing with a greater than 95 percent threshold. Layer 2 (Reasoning) assesses logical decision-making with a greater than 85 percent threshold. Layer 3 (Output Quality) measures response helpfulness and accuracy with a greater than 90 percent threshold. All three layers must pass before deployment proceeds. During development and continuous integration and continuous deployment (CI/CD), the pipeline uses the strands-agents-evals framework to catch issues before deployment. It provides output validation, trajectory evaluation, multi-turn conversation simulation, and automated experiment generation. Each is designed to work natively with agents built on the Strands Agents SDK. The framework provides three primitives: Experiment : A collection of test cases run against the agent. Case : Input query, expected output, and expected tool trajectory. Evaluator : Scoring logic (deterministic or LLM-based). Structure your tests into layers. Layer 1 runs deterministic code-based graders for tool selection accuracy. Layers 2 and 3 use LLM-as-judge evaluators (using an LLM to score agent outputs) for reasoning and output quality. Custom Evaluator subclasses handle domain-specific concerns. For the Motorway agent, these cover data freshness, dealer scoping, and safety guardrails. Your agent will have its own domain constraints. Three types of graders The evaluation framework uses three grader types, each suited to different evaluation needs. Grader type Layer What it measures Trade-off Code-based deterministic Layer 1 Tool selection, parameter passing, trajectory ordering Fast, cheap, reproducible LLM-as-judge (Claude Sonnet 4.6) Layers 2–3 Reasoning quality, output helpfulness, goal success Flexible; non-deterministic (controlled via pass^k) Human review Calibration Edge cases and safety Expensive; used to calibrate LLM judge prompts In practice, grading what the agent produced catches more issues than grading the path it took. You care that the user got relevant results, not which tool the agent called first. Three-layer assessment framework Build-time evaluation operates across three distinct layers, each with specific pass/fail thresholds. Layer 1: Tool Usage (> 95 percent threshold). Did the agent call the right tools with correct parameters? “Diesel vehicles from £7,000 to £20,000” should use search_vehicles with typed filters ( fuel_type=diesel , min_price=7000 , max_price=20000 ). “Modern hatchback with low mileage” should trigger hybrid_search , combining semantic embeddings with structured filters. You measure this deterministically: ToolSelectionGrader checks which tools were called, TrajectoryOrderGrader verifies the call sequence. Layer 2: Reasoning (> 85 percent threshold). Was the decision-making process logical? The HelpfulnessEvaluator and TrajectoryEvaluator from strands-agents-evals use LLM-as-judge scoring to assess whether the agent’s reasoning holds together. An agent that arrives at the right response through illogical reasoning will fail unpredictably as conditions change. Layer 3: Output Quality (> 90 percent threshold). Was the response helpful, accurate, and actionable? The OutputEvaluator and GoalSuccessRateEvaluator from strands-agents-evals use LLM-as-judge evaluation to assess whether the user got a useful, well-formatted response. The three layers must pass before deployment. A failure in a layer blocks the pipeline. Handling non-determinism Because LLM outputs vary between runs, single-trial results can be misleading. The run_all_layers() function in the companion repository accepts a num_trials parameter to address this. Two metrics from the code generation research community help measure reliability: pass@k measures the likelihood of succeeding at least once in k attempts. This metric is useful when finding one correct solution is sufficient. pass^k (pass to the power of k) measures the probability of succeeding in k consecutive trials. This metric is useful when users expect reliable behavior every time. For customer-facing agents, pass^k matters most. An agent with a 75 percent per-trial success rate has only a 42 percent chance of passing three consecutive trials (0.75³). Users expect consistent quality on every interaction. In the companion code, run_all_layers(task_fn, registry, num_trials=5) runs the evaluation layers with multi-trial support and gates deployment on pass^k. See the full implementation . Test case management Test cases are organized by category: Happy path : Common queries that should succeed. Edge cases : Ambiguous queries, slang, multi-turn refinements. Safety/Guardrails : Queries the agent should refuse or redirect. When production monitoring detects an issue, that interaction becomes a new test case. Motorway’s suite grew from an initial 50 cases to 150 in three months, each grounded in real user behavior. Start with 20 to 50 cases and let production data grow the suite. Include negative cases where the agent should not call certain tools. For example, a profile query should call the profile tool, not the search tool. A structured query should use structured search, not a raw SQL fallback. One-sided evals create one-sided optimization. Multi-turn conversation testing Single-turn evaluation misses a critical dimension: conversational coherence. Dealers naturally refine searches across multiple turns: Turn 1: “Find me diesel SUVs.” Turn 2: “Now show me only the automatics.” Turn 3: “What about estates instead?” The strands-agents-evals framework provides ActorSimulator to generate realistic multi-turn interactions and InteractionsEvaluator to score context retention across turns. Multi-turn tests catch context drift, filter accumulation errors, and pronoun resolution failures that single-turn tests miss. Monitor production behavior with AgentCore Evaluations After you deploy your Strands Agent to Amazon Bedrock AgentCore Runtime , AgentCore Evaluations provides continuous monitoring. It integrates with Strands Agents through OpenTelemetry instrumentation (the industry-standard observability framework). Figure 3 illustrates the architecture in production, with observability traces sampled at 1–5 percent and with metrics aggregating to Amazon CloudWatch. Two monitoring approaches AgentCore Evaluations offers two complementary modes: On-demand evaluation analyzes specific agent interactions by selecting spans from Amazon CloudWatch logs. This is useful for debugging issues or validating fixes. Online evaluation automatically samples live traffic and applies evaluators in the background. Configure a sampling rate (1–5 percent is recommended), select up to 10 evaluators, and let it run. Built-in and custom evaluators AgentCore provides pre-configured evaluators for common scenarios. The following table shows the built-in evaluators and what they measure. Evaluator Level What it measures Builtin.Helpfulness TRACE How helpful the agent’s response is (0–1 score across 7 levels) Builtin.GoalSuccessRate SESSION Whether the user’s overall goal was achieved Builtin.ToolSelection TOOL_CALL Whether the agent selected appropriate tools Builtin.Correctness TRACE Factual accuracy of the response For domain-specific requirements, you can create custom evaluators using an LLM-as-a-judge configuration. Every agent has domain constraints that built-in evaluators don’t cover, including data freshness, access scoping, forbidden actions, latency budgets, and cost limits. The companion repository includes five custom Evaluator subclasses you can adapt: Evaluator What it validates DataFreshnessEvaluator Validates auction-cycle timestamps so the agent doesn’t surface stale inventory SafetyGuardrailEvaluator Blocks the agent from attempting automated bidding actions DealerDataScopingEvaluator Enforces dealer-scoped queries for data isolation See the companion repository for LatencyEvaluator and CostEvaluator examples. Key metrics to track The companion repository includes an AWS CDK stack that provisions CloudWatch dashboards and alarms. Track these metrics to monitor agent health. Metric Target Alert threshold Task completion rate >95% Tool selection accuracy >95% Helpfulness score (0-1) >0.83 Response latency P50 / P99 >5s / >15s Hallucination rate >5% Cost per interaction Monitor trend >2x baseline Make quality checks a deployment gate Evaluation should be a quality gate in your deployment pipeline, not an afterthought. Figure 4 shows the deployment pipeline with evaluation gates, spanning build-time evaluation, staging validation, shadow mode, A/B testing, and production rollout, with failures blocking deployment. The deployment pipeline follows five phases: Build-time evaluation : Unit tests, tool correctness ( ToolSelectionGrader >95 percent), trajectory tests, and LLM-as-judge scoring ( HelpfulnessEvaluator >85 percent). Staging validation : On-demand AgentCore evaluation with synthetic traffic against staging data. Shadow mode : Real production traffic processed in parallel without user impact. Run this for at least 4 hours with a 2 percent deviation threshold. A/B testing : 5 percent of live traffic routes to the candidate agent for real outcome measurement. Production rollout : 100 percent traffic with continuous online evaluation and monitoring. You define thresholds for each phase: tool selection accuracy below 95 percent or task completion below 80 percent blocks deployment. For major releases, multi-trial evaluation with num_trials=5 gates on pass^k to catch non-deterministic failures. Shadow mode Between staging and production, run the candidate agent against real queries without affecting users. Shadow mode receives a copy of production traffic, processes it through the candidate in parallel, and compares outcomes. Run shadow mode for at least 4 hours before proceeding to A/B testing. Define a deviation threshold (2 percent is a good starting point) that pauses deployment automatically. Shadow mode catches issues that the other stages miss: Timeout handling under concurrent load. Domain terminology missing from synthetic tests. Tool call ordering that causes latency spikes under real traffic patterns. Getting started: A phased approach Phase 1: Build your test suite. Start with 20–50 test cases drawn from real user queries. Include positive and negative cases. Test what the agent should do and what it should refuse. Phase 2: Configure build-time evaluation. Match grader types to what you’re measuring: deterministic for tool selection, LLM-as-judge for reasoning and output quality. Phase 3: Enable production monitoring. Configure AgentCore Evaluations with a 1–5 percent sampling rate. Start low, then increase once you’ve confirmed evaluator costs are acceptable. Phase 4: Close the feedback loop. Turn production failures into test cases. When failures become regression tests, this feedback loop has consistently improved evaluation quality across teams. Results and impact Before implementing this evaluation pipeline, the agent had an 87% tool selection accuracy- which meant 1 in 8 dealer queries returned wrong results. The team was seeing 12 production incidents per month, and it took an average of 4 hours to detect issues after they started affecting dealers. After implementing the pipeline: Metric Before After Tool selection accuracy 87% 98% Task completion rate 82% 96% Context retention (multi-turn) 71% 94% Production incidents (monthly) 12 2 Mean time to detect issues few hours few minutes The business impact: dealers now complete vehicle searches in minutes instead of few hours, with confidence that results are accurate and current. Troubleshooting See the companion repository README for solutions to common issues including trajectory grader failures, LLM-as-judge variance, empty evaluation results, and cost threshold tuning. Key takeaways Keep these principles in mind when building your evaluation pipeline. Layer your evaluation : Tool usage (>95 percent), reasoning (>85 percent), and output quality (>90 percent) catch different failure modes. Gate on pass^k, not single trials : A 75 percent per-trial success rate means only 42 percent reliability across three consecutive runs. Turn production failures into test cases : Let real user behavior grow your evaluation suite. Shadow mode catches what synthetic tests miss : Real traffic reveals timeout handling, rare terminology, and latency patterns. Start monitoring at 1 percent sampling : Scale gradually to manage evaluator costs. Conclusion You’ve now seen how to build an evaluation pipeline for production AI agents on AWS, using Motorway’s dealer stock search agent as a worked example. The core lesson: a fluent response doesn’t mean the agent did the right thing. You must verify tool selection, parameter correctness, reasoning coherence, and consistency across repeated runs. By combining build-time testing with strands-agents-evals and production monitoring with AgentCore Evaluations, you can deploy agents with evidence that they work as designed. These patterns apply to most multi-tool, customer-facing agents: whether you’re building customer service agents that query knowledge bases and ticketing systems, financial advisory agents that pull portfolio data and market feeds, or healthcare triage agents that access patient records and scheduling tools. To get started: Clone the companion repository: git clone https://github.com/aws-samples/sample-evaluating-agents-on-aws-with-strands-and-agentcore Navigate to the CDK project directory: cd sample-evaluating-agents-on-aws-with-strands-and-agentcore/examples/vehicle-auction-agent/cdk Deploy the sample infrastructure: Follow the repository README deployment steps to deploy the sample infrastructure. After deployment completes, verify the infrastructure by checking that all AWS CloudFormation stacks show CREATE_COMPLETE status in the AWS CloudFormation console. You should see the CloudWatch dashboard and Lambda functions listed in their respective consoles. Run the sample evaluation suite against the included test cases to see the three-layer framework in action. Verify success by confirming: Layer 1 (Tool Usage) shows greater than 95% pass rate, Layer 2 (Reasoning) shows greater than 85% pass rate, and Layer 3 (Output Quality) shows greater than 90% pass rate. If a layer fails, check the CloudWatch logs for detailed error messages. Customize the evaluators for your domain. Start with the DataFreshnessEvaluator and SafetyGuardrailEvaluator as templates. To dive deeper, explore the Amazon Bedrock AgentCore documentation and the Strands Agents SDK on GitHub. Clean up resources To avoid incurring ongoing charges, delete the resources created in this walkthrough: Navigate to the CDK project directory: cd sample-evaluating-agents-on-aws-with-strands-and-agentcore/examples/vehicle-auction-agent/cdk Destroy all deployed stacks: cdk destroy --all Confirm the deletion when prompted. Verify in the AWS Management Console that the cleanup process removed all resources, including Lambda functions, S3 buckets, DynamoDB tables, CloudWatch log groups and dashboards, EventBridge rules, and SNS topics. Note: S3 buckets that contain objects may require manual deletion. Export any evaluation data or logs that you need to retain before running the cleanup. Resources Evaluating AI agents for production: A practical guide to Strands Evals . Strands Agents SDK . strands-agents-evals . Amazon Bedrock AgentCore Evaluations . Evaluating AI agents: Real-world lessons from Amazon . About the authors Amit Deol Amit is a Senior Prototyping Architect at AWS Prototyping and Cloud Engineering (PACE). He partners with AWS customers to experiment with new ideas and build production-ready solutions across generative AI, data and analytics, and real-time streaming. When he’s not prototyping, you’ll find him on long walks through the woods. Hin Yee Liu Hin Yee is a Senior Prototype Engagement Manager at AWS. She leads customer engagements that accelerate the path from AI prototypes to production, helping teams adopt best practices for building and operating generative AI workloads on AWS. Ryan Cormack Ryan Principal Engineer at Motorway and an AWS Community Builder. He leads development of AI-powered tools for dealers and has spoken at AWS Summit London on Motorway’s adoption of agentic AI.",
+        "description": "Hiện công nghệ vệ tinh tầm thấp chủ yếu do một số doanh nghiệp nước ngoài sở hữu và triển khai trên thế giới, nên cần có cơ chế và chính sách thí điểm có kiểm soát khi triển khai tại Việt Nam.",
         "paragraphs": [
-          "This post was co-written with Motorway and the AWS Prototyping and AI Customer Engineering (PACE) team.",
-          "Motorway, a UK-based online car marketplace, runs a daily auction where up to 8,000 dealers bid on up to 2,500 vehicles. Motorway worked with AWS Prototyping and AI Customer Engineering (PACE) to build an AI-powered dealer stock search agent that transforms how dealers find vehicles, replacing hours of manual filtering with natural language queries.",
-          "Together, Motorway and AWS built an end-to-end evaluation pipeline that reduced incorrect results from 1 in 8 queries to 1 in 50 and cut issue detection time from few hours to few minutes.",
-          "The pipeline combines the Strands Agents SDK with Amazon Bedrock AgentCore, a fully managed service for deploying and operating AI agents at scale. In this post, you will learn how to build this pipeline for your own agents:",
-          "A companion repository provides a deployable blueprint that you can adapt for your own agents. Although the blueprint uses AWS services, the core principles are essential and system-agnostic requirements for any production-ready AI agent. These principles include the three-layer evaluation framework and the use of the pass^k metric for consistency."
+          "Bộ TT&TT đang xây dựng cơ chế, chính sách để có thể thúc đẩy phát triển vệ tinh quỹ đạo tầm thấp. Ảnh: TL Trong tờ trình gửi Quốc hội của Phó Thủ tướng Chính phủ Nguyễn Hòa Bình về thí điểm một số chính sách, cơ chế đặc biệt tạo đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số, có đề cập đến thí điểm có kiểm soát triển khai dịch vụ viễn thông sử dụng công nghệ vệ tinh quỹ đạo tầm thấp. ",
+          "Tờ trình nêu rõ: Nghị quyết số 57/NQ-TW yêu cầu phát triển hạ tầng viễn thông, Internet đáp ứng dự phòng, kết nối, an toàn, bền vững, hệ thống truyền dẫn dữ liệu qua vệ tinh, mạng cáp quang băng thông rộng tốc độ cao phủ sóng toàn quốc, mạng thông tin di động 5G, 6G và các thế hệ tiếp theo.",
+          "Thực tế công nghệ vệ tinh tầm thấp chủ yếu do một số doanh nghiệp nước ngoài làm chủ và triển khai trên thế giới nên cần có cơ chế, chính sách thí điểm có kiểm soát để thu hút, tạo điều kiện cho các doanh nghiệp nước ngoài đầu tư, đưa công nghệ vệ tinh tầm thấp phát triển tại Việt Nam, trên nguyên tắc đảm bảo quốc phòng, an ninh. ",
+          "Ngày 19/2, Quốc hội biểu quyết thông qua Nghị quyết về thí điểm một số chính sách, cơ chế đặc biệt tạo đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số .",
+          "Một trong những nội dung quan trọng của nghị quyết này là cho phép thí điểm có kiểm soát triển khai dịch vụ viễn thông sử dụng công nghệ vệ tinh quỹ đạo tầm thấp.    ",
+          "Theo đó, việc thí điểm có kiểm soát đầu tư kinh doanh dịch vụ viễn thông có hạ tầng mạng, loại hình mạng viễn thông vệ tinh sử dụng công nghệ vệ tinh quỹ đạo tầm thấp tại Việt Nam trên nguyên tắc bảo đảm quốc phòng, an ninh, trong đó không giới hạn tỷ lệ sở hữu cổ phần, phần vốn góp hoặc tỷ lệ đóng góp của nhà đầu tư nước ngoài."
         ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=3401",
-        "link": "https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/"
+        "source_depth_score": 98,
+        "source_depth_reason": "depth=98; paragraphs=6; words=417",
+        "link": "https://vietnamnet.vn/doanh-nghiep-nuoc-ngoai-se-duoc-dau-tu-ve-tinh-tam-thap-tai-viet-nam-2374565.html"
       },
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-29T14:43:09.212Z",
+        "generated_at": "2026-07-29T16:11:46.811Z",
         "origin": "local-curated-rss"
       }
     }
