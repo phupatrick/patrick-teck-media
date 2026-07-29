@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-29T04:30:18.317Z",
-    "finishedAt": "2026-07-29T04:31:32.621Z",
+    "startedAt": "2026-07-29T07:30:16.626Z",
+    "finishedAt": "2026-07-29T07:31:26.951Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 79,
-    "articleCountBefore": 76,
-    "articleCountDelta": 3,
+    "totalArticles": 80,
+    "articleCountBefore": 79,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785299418353-1abbf9.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung tự tin iPhone gập không dễ vượt Galaxy Z Fold\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Giá Bitcoin hôm nay 29.7.2026: Lừa đảo tiền số bị phạt tù chung thân ở Myanmar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Wednesday, July 29 (game #1647)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785310216664-10e437.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Việt Nam nghiên cứu triển khai tiền kỹ thuật số quốc gia - CBDC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Samsung tự tin iPhone gập không dễ vượt Galaxy Z Fold\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Wednesday, July 29 (game #1647)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Microsoft’s accessibility push remains the single best part of covering Windows 11\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Samsung tự tin iPhone gập không dễ vượt Galaxy Z Fold\" because it failed publish readiness: narrativeFlow Holding normalized article \"Giá Bitcoin hôm nay 29.7.2026: Lừa đảo tiền số bị phạt tù chung thân ở Myanmar\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Wednesday, July 29 (game #1647)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow Holding normalized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Quordle hints and answers for Wednesday, July 29 (game #1647)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Việt Nam nghiên cứu triển khai tiền kỹ thuật số quốc gia - CBDC\" because it failed publish readiness: narrativeFlow Holding normalized article \"Samsung tự tin iPhone gập không dễ vượt Galaxy Z Fold\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Wednesday, July 29 (game #1647)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow Holding normalized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Evaluating AI Agents: A production blueprint with Strands and AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Quordle hints and answers for Wednesday, July 29 (game #1647)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"It seems like every OS update is loaded with security fixes–here’s why\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 83 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 84 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-29T04:31:32.604Z",
+      "reviewedAt": "2026-07-29T07:31:26.933Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
