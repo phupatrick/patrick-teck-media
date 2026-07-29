@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-29T22:13:04.451Z",
-    "finishedAt": "2026-07-29T22:14:17.554Z",
+    "startedAt": "2026-07-29T23:14:49.638Z",
+    "finishedAt": "2026-07-29T23:16:01.688Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 104,
-    "articleCountBefore": 102,
+    "totalArticles": 106,
+    "articleCountBefore": 104,
     "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785363184490-54cd46.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"'What is that perfect shot?': Inside Apple’s MLS All-Star Game broadcast and the iPhone 17 Pro Max’s search for new angl\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google’s latest Play update has finally fixed that pesky Pixel boot loop problem\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Authenticate with Private Key JWT using Amazon Bedrock AgentCore Identity\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Authenticate with Private Key JWT using Amazon Bedrock AgentCore Identity\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google’s latest Play update has finally fixed that pesky Pixel boot loop problem\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785366889680-217c9a.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Apple Says UK App Store Steering Rules Would Be 'Highly Intrusive'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google’s latest Play update has finally fixed that pesky Pixel boot loop problem\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple Says UK App Store Steering Rules Would Be 'Highly Intrusive'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google’s latest Play update has finally fixed that pesky Pixel boot loop problem\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"'What is that perfect shot?': Inside Apple’s MLS All-Star Game broadcast and the iPhone 17 Pro Max’s search for new angl\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google’s latest Play update has finally fixed that pesky Pixel boot loop problem\" because it failed publish readiness: narrativeFlow Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow Holding normalized article \"Authenticate with Private Key JWT using Amazon Bedrock AgentCore Identity\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Authenticate with Private Key JWT using Amazon Bedrock AgentCore Identity\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"'What is that perfect shot?': Inside Apple’s MLS All-Star Game broadcast and the iPhone 17 Pro Max’s search\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google’s latest Play update has finally fixed that pesky Pixel boot loop problem\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Apple Says UK App Store Steering Rules Would Be 'Highly Intrusive'\" because it failed publish readiness: narrativeFlow Holding normalized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google’s latest Play update has finally fixed that pesky Pixel boot loop problem\" because it failed publish readiness: narrativeFlow Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google’s latest Play update has finally fixed that pesky Pixel boot loop problem\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 108 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 110 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-29T22:14:17.536Z",
+      "reviewedAt": "2026-07-29T23:16:01.670Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
