@@ -1,6 +1,218 @@
 {
-  "generated_at": "2026-07-29T12:22:00.385Z",
+  "generated_at": "2026-07-29T14:43:09.279Z",
   "articles": [
+    {
+      "id": "feed-a5d724e63f72-en",
+      "cluster_id": "feed-a5d724e63f72",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "apple-upgrade-is-leasing-your-next-iphone-worth-it",
+      "title": "Apple Upgrade: Is Leasing Your Next iPhone Worth It?",
+      "summary": "We'll use the iPhone 17 Pro with 256GB of storage on a one-year lease as an example. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Apple Upgrade: Is Leasing Your Next iPhone Worth It? should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "We'll use the iPhone 17 Pro with 256GB of storage on a one-year lease as an example. In the U. S. , the device costs $1,099 upfront, but through Apple Upgrade you can lease it for $45. 99/month for 12 months. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "For a 12-month lease, your payments would total $551. 88, which is lower than the $1,099 that you would have spent upfront. However, it is not quite that simple, as you have to choose from one of the three following options after your lease ends:. The practical impact sits in workflow, cost, risk, or a buying decision; Apple Upgrade: Is Leasing Your Next iPhone Worth It? should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "If you return the iPhone 17 Pro and simply move on from the Apple Upgrade program, then your total cost to own the device would be $551. 88 after 12 months, plus sales tax if applicable. While that is less than paying $1,099 upfront, the catch is that you are no longer in possession of the device after your lease ends and cannot resell it or trade it in. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Resale value is a big factor. If you paid $1,099 upfront for the iPhone 17 Pro but resold it for say $650 through a private sale on eBay or Facebook Marketplace after 12 months, then you only spent $450 to own the device for a year, compared to $551 if you leased it through the Apple Upgrade Program for that long. But if you somehow only managed to get $500 for the device in a private sale, then you spent $600 for the device and could have saved a bit of money by opting for the Apple Upgrade program. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "$551. 88 is approximately 50% of the iPhone 17 Pro's price, so Apple is essentially betting that the device will retain more than 50% of its value after one year, in order to ensure that the Apple Upgrade program is profitable. Resale prices for used iPhones can vary significantly, but Apple almost certainly expects to come out ahead. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "MacRumors",
+          "source_url": "https://www.macrumors.com/2026/07/29/is-apple-upgrade-program-worth-it/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-29T14:29:37.000Z",
+          "image_url": "https://images.macrumors.com/t/wzFM5EaPj6Xgn-sCuJOhKnfSIjs=/1600x/article-new/2026/07/Apple-Upgrade-Is-It-Worth-It.jpg",
+          "image_caption": "Reference image from MacRumors.",
+          "image_credit": "MacRumors"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-07-29T14:29:37.000Z",
+      "updated_at": "2026-07-29T14:29:37.000Z",
+      "image": {
+        "src": "https://images.macrumors.com/t/wzFM5EaPj6Xgn-sCuJOhKnfSIjs=/1600x/article-new/2026/07/Apple-Upgrade-Is-It-Worth-It.jpg",
+        "caption": "Reference image from MacRumors.",
+        "credit": "MacRumors",
+        "source_url": "https://www.macrumors.com/2026/07/29/is-apple-upgrade-program-worth-it/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-29T14:43:09.212Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-1acaaf91c771-en",
+      "cluster_id": "feed-1acaaf91c771",
+      "language": "en",
+      "topic": "security",
+      "content_type": "NewsArticle",
+      "slug": "post-quantum-authentication-to-origins-is-now-supported",
+      "title": "Post-quantum authentication to origins is now supported",
+      "summary": "Cloudflare's Authenticated Origin Pulls and Custom Origin Trust Store now support post-quantum authentication. The source signal from Cloudflare Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Post-quantum authentication to origins is now supported should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Cloudflare's Authenticated Origin Pulls and Custom Origin Trust Store now support post-quantum authentication. The source signal from Cloudflare Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Here we’ll explain how you can configure fully post-quantum secure mutually authenticated TLS connections to your origin server, dive into the engineering details of how we built it, make a shameful confession, and finally explain how this work fits into our overall post-quantum migration roadmap. The practical impact sits in workflow, cost, risk, or a buying decision; Post-quantum authentication to origins is now supported should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Our focus for the past several years has been in deploying post-quantum encryption to protect against harvest-now/decrypt-later attacks, where an attacker quietly stockpiles your encrypted data with the hope of decrypting it in the future with a quantum computer. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "However, recent breakthroughs in quantum computing and cryptanalysis pulled the timelines for upgrading to post-quantum cryptography forward across industry and government and have caused us to shift our attention to deploying post-quantum authentication , to protect against attackers who will soon be able to use quantum computers to break classical credentials and carry out impersonation attacks. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "In a previous post, we announced that Cloudflare is targeting 2029 for full post-quantum security, and laid out several milestones to hit along the way. We have reached the first of those milestones: our Authenticated Origin Pulls and Custom Origin Trust Store products now support post-quantum (PQ) authentication via Module-Lattice-Based Digital Signature Algorithm (ML-DSA) signatures to protect connections between Cloudflare and customer origin servers. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Cloudflare Blog",
+          "source_url": "https://blog.cloudflare.com/post-quantum-authentication-to-origins/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-29T13:00:00.000Z",
+          "image_url": "https://blog.cloudflare.com/_emdash/api/media/file/01KYN5V56B8HHHZ71NTH17JJVV.png",
+          "image_caption": "Reference image from Cloudflare Blog.",
+          "image_credit": "Cloudflare Blog"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2026-07-29T13:00:00.000Z",
+      "updated_at": "2026-07-29T13:00:00.000Z",
+      "image": {
+        "src": "https://blog.cloudflare.com/_emdash/api/media/file/01KYN5V56B8HHHZ71NTH17JJVV.png",
+        "caption": "Reference image from Cloudflare Blog.",
+        "credit": "Cloudflare Blog",
+        "source_url": "https://blog.cloudflare.com/post-quantum-authentication-to-origins/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-29T14:43:09.212Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-b8692ea6acca-en",
+      "cluster_id": "feed-b8692ea6acca",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "framework-laptop-13-pro-review-a-repairable-notebook-at-the-top-of-the-class",
+      "title": "Framework Laptop 13 Pro review: A repairable notebook at the top of the class",
+      "summary": "9 / 10 Pros Panther Lake performance is superb Whisper-quiet operation More than enough battery life Modular and repairable Cons Have you seen the price of RAM? The source signal from Engadget should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Framework Laptop 13 Pro review: A repairable notebook at the top of the class should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Daniel Cooper for Engadget RATING : 8. 9 / 10 Pros Panther Lake performance is superb Whisper-quiet operation More than enough battery life Modular and repairable Cons Have you seen the price of RAM? Webcam and speakers need some love No, honestly, have you seen the price of RAM right now? Framework has spent the last six years showing the industry it's possible to build a modular and repairable laptop. But CEO Nirav Patel knows there's a ceiling to its ambitions it needs to smash if it wants to take its place among the giants of the industry. It needs to improve the look and feel of its machines, while boosting performance, to the point where a Framework product isn't seen as a compromise. The source signal from Engadget should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "\"The benchmark for us is the MacBook Pro,\" Patel told me back in April. The Framework Laptop 13 Pro is his attempt to build a laptop as good as that, but for Linux and Windows users. It's one hell of a target, and I'm delighted to tell you that the Framework Laptop 13 Pro is the best Windows laptop I've ever used. It looks good, performs beautifully and feels amazing to touch. There's one downside: It arrived during the RAMpocalypse, which has unfortunately pushed the price far higher than anyone's wallet might want to bear. The practical impact sits in workflow, cost, risk, or a buying decision; Framework Laptop 13 Pro review: A repairable notebook at the top of the class should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Daniel Cooper for Engadget From the moment you slide the laptop out of its paper sleeve, it's clear Framework is using this launch as a chance to polish its homework. Much as it's bound by the template the original chassis laid down years ago, there's still plenty of room for tweaks. The new machined aluminum body feels so much more solid, and the black (sorry, Graphite ) paint job just suits it. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "As a long-term Framework watcher, it's easier for me to spot the smaller details the company sweated. Gone are the flat angles, replaced with tidy chamfering. The rubber feet are now rounded over rather than squared off. The captive torx screws now have machined heads so their grooves catch the light. There's no visible seam between the input cover and the bottom case, making it look like a single piece of metal. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Let's be honest, the Framework 13 was never ugly, but its design was always a little more on the agricultural side. The panel gaps and boxiness was a consequence of the choice to focus on making a machine that you could repair and upgrade yourself. Here, the new color, paired with the higher quality materials, puts the Pro in the same league as a ThinkPad or, yes, even a MacBook. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Engadget",
+          "source_url": "https://www.engadget.com/2225931/framework-laptop-13-pro-review/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-29T13:00:00.000Z",
+          "image_url": "https://www.engadget.com/img/gallery/framework-laptop-13-pro-review-in-a-class-of-its-own/l-intro-1785328589.jpg",
+          "image_caption": "Reference image from Engadget.",
+          "image_credit": "Engadget"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-07-29T13:00:00.000Z",
+      "updated_at": "2026-07-29T13:00:00.000Z",
+      "image": {
+        "src": "https://www.engadget.com/img/gallery/framework-laptop-13-pro-review-in-a-class-of-its-own/l-intro-1785328589.jpg",
+        "caption": "Reference image from Engadget.",
+        "credit": "Engadget",
+        "source_url": "https://www.engadget.com/2225931/framework-laptop-13-pro-review/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-29T14:43:09.212Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-5dd912088d73-en",
       "cluster_id": "feed-5dd912088d73",
@@ -69,7 +281,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-29T12:22:00.318Z",
+        "generated_at": "2026-07-29T14:43:09.212Z",
         "origin": "local-curated-rss"
       }
     },
@@ -564,6 +776,78 @@
       "hidden_feed": {
         "manager": "openclaw",
         "generated_at": "2026-07-29T04:31:31.732Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-559628ce2c5c-vi",
+      "cluster_id": "feed-559628ce2c5c",
+      "language": "vi",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "slug": "acer-ky-niem-10-nam-acer-day-voi-thong-iep-shift-the-game",
+      "title": "Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”",
+      "summary": "Lễ kỷ niệm năm nay diễn ra đúng vào dịp Acer tròn 50 năm hình thành và phát triển trong lĩnh vực công nghệ, biến năm 2026 trở thành một trong những chương quan trọng nhất trong lịch sử của thương hiệu. Tín hiệu từ GenK Tin ICT cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay.",
+      "dek": "Điểm đáng chú ý: Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME” nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.",
+      "hook": "Điều cần theo dõi: Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
+      "sections": [
+        {
+          "heading": "Bối cảnh: điều gì vừa đổi",
+          "body": "Lễ kỷ niệm năm nay diễn ra đúng vào dịp Acer tròn 50 năm hình thành và phát triển trong lĩnh vực công nghệ, biến năm 2026 trở thành một trong những chương quan trọng nhất trong lịch sử của thương hiệu. Tín hiệu từ GenK Tin ICT cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay. Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định."
+        },
+        {
+          "heading": "Tác động thực tế với người đọc",
+          "body": "\"SHIFT THE GAME\" là tiếng nói của một thế hệ không chấp nhận bị bó buộc bởi những khuôn mẫu cũ. Đây là lời kêu gọi dành cho các nhà sáng tạo, game thủ, những người trẻ tiên phong và bất kỳ ai đang ấp ủ giấc mơ trên khắp khu vực: hãy ngừng chờ đợi sự cho phép, chủ động làm chủ con đường của chính mình và sẵn sàng thách thức những chuẩn mực đang định hình văn hóa, công việc và cách chúng ta tận hưởng cuộc sống. Đó là một tư duy được xây dựng trên nền tảng của sự khác biệt trong suy nghĩ và táo bạo trong hành động. Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME” nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn. Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc."
+        },
+        {
+          "heading": "Chi tiết cần kiểm chứng",
+          "body": "Ông Andrew Hou, Chủ tịch phụ trách khu vực châu Á - Thái Bình Dương (trừ Nhật Bản) của Acer, chia sẻ: \"Acer cam kết mang đến những công nghệ không chỉ theo kịp cách con người học tập, sáng tạo và giải trí, mà còn trao cho họ lợi thế để tiến xa hơn nữa. Thông qua lễ kỷ niệm Acer Day năm nay, Acer đặt đúng công cụ vào tay từng cá nhân, tiếp thêm sức mạnh để họ tự tin thay đổi cuộc chơi. Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn. Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn."
+        },
+        {
+          "heading": "Ai nên hành động hoặc chờ",
+          "body": "Nằm trong chuỗi hoạt động của Acer Day 2026, Acer Fun Run 2026 là sự kiện điểm nhấn do Acer Việt Nam tổ chức nhằm lan tỏa tinh thần sáng tạo, lối sống năng động và kết nối cộng đồng. Không chỉ là một giải chạy phong trào, chương trình còn kết hợp thể thao, công nghệ và những trải nghiệm thương hiệu độc đáo dành cho cộng đồng yêu công nghệ và vận động. Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động. Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận."
+        },
+        {
+          "heading": "Điều cần theo dõi tiếp",
+          "body": "Sự kiện dự kiến diễn ra vào Chủ Nhật, ngày 16/08/2026 tại Thiso Mall Sala, Thành Phố. Hồ Chí Minh, với quy mô khoảng 2. 000 người tham gia và cự ly chạy 5 km. Chương trình bao gồm hoạt động chạy bộ chính, chuỗi thử thách tương tác trên đường chạy, khu vực trải nghiệm sản phẩm Gaming Zone, Lifestyle Zone, cùng các hoạt động trao giải và lucky draw. Sự kiện không chỉ khuyến khích lối sống năng động mà còn mang đến cơ hội kết nối cộng đồng và một trải nghiệm thương hiệu toàn diện cho người tham gia. Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời. Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [
+        "gaming-cloud-pass"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "GenK Tin ICT",
+          "source_url": "https://genk.vn/acer-ky-niem-10-nam-acer-day-voi-thong-diep-shift-the-game-16526072811513942.chn",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-29T01:00:00.000Z",
+          "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/7/28/photo1785140782416-17851407826431425642519-1785214298377451915273.jpg",
+          "image_caption": "Ảnh tham khảo từ GenK Tin ICT.",
+          "image_credit": "GenK Tin ICT"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-07-29T01:00:00.000Z",
+      "updated_at": "2026-07-29T01:00:00.000Z",
+      "image": {
+        "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/7/28/photo1785140782416-17851407826431425642519-1785214298377451915273.jpg",
+        "caption": "Ảnh tham khảo từ GenK Tin ICT.",
+        "credit": "GenK Tin ICT",
+        "source_url": "https://genk.vn/acer-ky-niem-10-nam-acer-day-voi-thong-diep-shift-the-game-16526072811513942.chn"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-29T14:43:09.212Z",
         "origin": "local-curated-rss"
       }
     },
@@ -5519,7 +5803,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-29T12:22:00.318Z",
+        "generated_at": "2026-07-29T14:43:09.212Z",
         "origin": "local-curated-rss"
       }
     },
