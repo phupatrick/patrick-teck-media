@@ -4,22 +4,22 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-30T19:42:36.009Z",
-    "finishedAt": "2026-07-30T19:43:53.864Z",
+    "startedAt": "2026-07-30T19:53:39.273Z",
+    "finishedAt": "2026-07-30T19:54:47.572Z",
     "trigger": {
-      "source": "telegram-audit",
-      "reason": "telegram-audit-fix:7481176582"
+      "source": "schedule",
+      "reason": "scheduled"
     }
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 131,
-    "articleCountBefore": 129,
-    "articleCountDelta": 2,
+    "articleCountBefore": 131,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785440556049-8d5776.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785441219316-3d46ec.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Senators Demand Apple Commit to Not Buying Chinese Memory Chips\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"A Fairphone Gen 6 Plus could be on the way\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Chiếc AI Phone đáp ứng mọi mong mỏi của người dùng đã xuất hiện\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Senators Demand Apple Commit to Not Buying Chinese Memory Chips\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"A Fairphone Gen 6 Plus could be on the way\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -33,8 +33,8 @@
     },
     "auditRepair": {
       "ok": true,
-      "exitCode": 0,
-      "output": "Đã sửa/chuẩn hóa 131 bài trong /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json.",
+      "skipped": true,
+      "output": "Audit repair was not requested.",
       "warnings": ""
     },
     "learning": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-30T19:43:53.846Z",
+      "reviewedAt": "2026-07-30T19:54:47.555Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
