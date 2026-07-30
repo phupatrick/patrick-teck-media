@@ -9,7 +9,7 @@
       "email": "openclaw@patricktechmedia.local",
       "delegated_by": "site-owner",
       "created_at": "2026-03-31T21:28:23.034Z",
-      "updated_at": "2026-07-30T22:19:48.335Z"
+      "updated_at": "2026-07-30T23:33:18.318Z"
     }
   ],
   "submissions": [],
@@ -18,57 +18,47 @@
   "articleReactions": [],
   "articleViews": [
     {
-      "article_id": "feed-a5f8f25a729b-en",
-      "article_href": "/en/news/a-fairphone-gen-6-plus-could-be-on-the-way",
-      "title": "A Fairphone Gen 6 Plus could be on the way",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-30T21:04:10.392Z",
-      "last_viewed_at": "2026-07-30T21:04:10.392Z",
-      "daily": [
-        {
-          "date": "2026-07-30",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-55dff8d983a8-en",
-      "article_href": "/en/news/senators-demand-apple-commit-to-not-buying-chinese-memory-chips",
-      "title": "Senators Demand Apple Commit to Not Buying Chinese Memory Chips",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-30T21:03:57.711Z",
-      "last_viewed_at": "2026-07-30T21:03:57.711Z",
-      "daily": [
-        {
-          "date": "2026-07-30",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-98dd37aabdfb-en",
-      "article_href": "/en/news/thinkpads-from-2008-are-some-of-the-hottest-used-laptops-right-now-here-s-how-and-why-they-re-be",
-      "title": "ThinkPads from 2008 are some of the hottest used laptops right now — Here's how (and why) they're being turned into Windows 11 PCs",
+      "article_id": "feed-9d21379866b1-en",
+      "article_href": "/en/news/ios-26-6-is-out-now-with-bug-fixes-and-a-preparation-for-ios-27",
+      "title": "iOS 26.6 is out now with bug fixes and a preparation for iOS 27",
       "language": "en",
       "topic": "apps-software",
       "content_type": "NewsArticle",
       "source_type": "press",
+      "views": 2,
+      "unique_views": 2,
+      "first_viewed_at": "2026-07-27T20:09:47.198Z",
+      "last_viewed_at": "2026-07-30T23:31:21.375Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-27",
+          "views": 2,
+          "unique_views": 2
+        }
+      ]
+    },
+    {
+      "article_id": "feed-fb487f6b4fde-en",
+      "article_href": "/en/news/here-are-all-the-changes-to-applecare-this-month",
+      "title": "Here Are All the Changes to AppleCare+ This Month",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
       "views": 1,
       "unique_views": 1,
-      "first_viewed_at": "2026-07-30T21:00:31.115Z",
-      "last_viewed_at": "2026-07-30T21:00:31.115Z",
+      "first_viewed_at": "2026-07-30T23:30:54.650Z",
+      "last_viewed_at": "2026-07-30T23:30:54.650Z",
       "daily": [
         {
           "date": "2026-07-30",
@@ -88,7 +78,47 @@
       "views": 1,
       "unique_views": 1,
       "first_viewed_at": "2026-07-30T21:00:31.080Z",
-      "last_viewed_at": "2026-07-30T21:00:31.080Z",
+      "last_viewed_at": "2026-07-30T23:29:31.612Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-44bd61652433-en",
+      "article_href": "/en/news/i-ve-been-waiting-for-the-google-pixel-10-pro-to-get-a-good-discount-ahead-of-the-pixel-11-launc",
+      "title": "I've been waiting for the Google Pixel 10 Pro to get a good discount ahead of the Pixel 11 launch, and Amazon has finally delivered",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:28:07.540Z",
+      "last_viewed_at": "2026-07-30T23:28:07.540Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-0b085f756fa2-en",
+      "article_href": "/en/news/introducing-explicit-prompt-caching-for-openai-gpt-5-6-models-on-amazon-bedrock",
+      "title": "Introducing explicit prompt caching for OpenAI GPT-5.6 models on Amazon Bedrock",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "source_type": "official-site",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:26:44.327Z",
+      "last_viewed_at": "2026-07-30T23:26:44.327Z",
       "daily": [
         {
           "date": "2026-07-30",
@@ -108,10 +138,35 @@
       "views": 1,
       "unique_views": 1,
       "first_viewed_at": "2026-07-30T20:59:51.082Z",
-      "last_viewed_at": "2026-07-30T20:59:51.082Z",
+      "last_viewed_at": "2026-07-30T23:25:20.743Z",
       "daily": [
         {
           "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-5dd912088d73-en",
+      "article_href": "/en/news/mac-mini-availability-long-waits-and-higher-prices",
+      "title": "Mac Mini Availability: Long Waits and Higher Prices",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T14:23:17.396Z",
+      "last_viewed_at": "2026-07-30T23:23:57.101Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
           "views": 1,
           "unique_views": 1
         }
@@ -128,7 +183,847 @@
       "views": 1,
       "unique_views": 1,
       "first_viewed_at": "2026-07-30T20:41:01.322Z",
-      "last_viewed_at": "2026-07-30T20:41:01.322Z",
+      "last_viewed_at": "2026-07-30T23:22:33.297Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-1acaaf91c771-en",
+      "article_href": "/en/news/post-quantum-authentication-to-origins-is-now-supported",
+      "title": "Post-quantum authentication to origins is now supported",
+      "language": "en",
+      "topic": "security",
+      "content_type": "NewsArticle",
+      "source_type": "official-site",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:21:09.881Z",
+      "last_viewed_at": "2026-07-30T23:21:09.881Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-6a0903d2f6b2-en",
+      "article_href": "/en/news/qualcomm-is-raising-phone-chip-prices-starting-september-1st",
+      "title": "Qualcomm is raising phone chip prices starting September 1st",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:19:46.888Z",
+      "last_viewed_at": "2026-07-30T23:19:46.888Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-b2dfcd1e8783-en",
+      "article_href": "/en/news/quordle-hints-and-answers-for-thursday-july-30-game-1648",
+      "title": "Quordle hints and answers for Thursday, July 30 (game #1648)",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:18:22.628Z",
+      "last_viewed_at": "2026-07-30T23:18:22.628Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-b8717ef7d190-en",
+      "article_href": "/en/news/quordle-hints-and-answers-for-wednesday-july-29-game-1647",
+      "title": "Quordle hints and answers for Wednesday, July 29 (game #1647)",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 2,
+      "unique_views": 2,
+      "first_viewed_at": "2026-07-30T22:55:11.667Z",
+      "last_viewed_at": "2026-07-30T23:16:59.578Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 2,
+          "unique_views": 2
+        }
+      ]
+    },
+    {
+      "article_id": "feed-f2befa22f9cf-en",
+      "article_href": "/en/news/razer-s-new-keyboards-drop-the-price-on-powerful-gaming-features",
+      "title": "Razer’s new keyboards drop the price on powerful gaming features",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:15:35.637Z",
+      "last_viewed_at": "2026-07-30T23:15:35.637Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-b13d61c3e241-en",
+      "article_href": "/en/news/samsung-confirms-galaxy-tab-s12-and-s26-fe-are-coming-but-warns-prices-could-go-up",
+      "title": "Samsung confirms Galaxy Tab S12 and S26 FE are coming, but warns prices could go up",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:14:12.037Z",
+      "last_viewed_at": "2026-07-30T23:14:12.037Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-3728ee2ca9b0-en",
+      "article_href": "/en/news/samsung-electronics-announces-second-quarter-2026-results",
+      "title": "Samsung Electronics Announces Second Quarter 2026 Results",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "official-site",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T05:17:04.214Z",
+      "last_viewed_at": "2026-07-30T23:12:48.936Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-4e033c0cdff6-en",
+      "article_href": "/en/news/samsung-s-galaxy-s26-fe-pricing-leaks-and-it-s-bad-news-for-budget-hunters",
+      "title": "Samsung’s Galaxy S26 FE pricing leaks, and it’s bad news for budget hunters",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T20:00:04.453Z",
+      "last_viewed_at": "2026-07-30T23:11:25.474Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-b7416925b565-en",
+      "article_href": "/en/news/samsung-s-july-patch-causes-problems-for-galaxy-s24-s25-ultra-and-users-have-proof",
+      "title": "Samsung's July patch causes problems for Galaxy S24, S25 Ultra, and users have proof",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:10:01.380Z",
+      "last_viewed_at": "2026-07-30T23:10:01.380Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-55dff8d983a8-en",
+      "article_href": "/en/news/senators-demand-apple-commit-to-not-buying-chinese-memory-chips",
+      "title": "Senators Demand Apple Commit to Not Buying Chinese Memory Chips",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T21:03:57.711Z",
+      "last_viewed_at": "2026-07-30T23:08:39.238Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-794d7e4b5479-en",
+      "article_href": "/en/news/snap-will-finally-show-what-its-2-2k-ar-specs-can-really-do",
+      "title": "Snap will finally show what its $2.2K AR Specs can really do",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:07:24.697Z",
+      "last_viewed_at": "2026-07-30T23:07:24.697Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-dafbfb705318-en",
+      "article_href": "/en/news/apple-posts-record-june-quarter-but-higher-prices-loom-large",
+      "title": "Apple posts record June quarter, but higher prices loom large",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:07:03.648Z",
+      "last_viewed_at": "2026-07-30T23:07:03.648Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-0408b2fe85b7-en",
+      "article_href": "/en/news/apple-s-iphone-and-mac-sales-keep-growing-despite-ram-shortages",
+      "title": "Apple’s iPhone and Mac sales keep growing despite RAM shortages",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:05:59.248Z",
+      "last_viewed_at": "2026-07-30T23:05:59.248Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-962fc0ae5876-en",
+      "article_href": "/en/news/sony-and-microsoft-are-destroying-console-and-pc-gaming-here-s-why-the-experts-think-valve-can-s",
+      "title": "Sony and Microsoft are destroying console and PC gaming — here’s why the experts think Valve can save the day with SteamOS",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:05:51.802Z",
+      "last_viewed_at": "2026-07-30T23:05:51.802Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-f384efef3486-en",
+      "article_href": "/en/news/still-on-an-older-windows-license-upgrade-to-11-pro-for-9-97-through-8-2",
+      "title": "Still on an older Windows license? Upgrade to 11 Pro for $9.97 through 8/2",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T19:58:41.294Z",
+      "last_viewed_at": "2026-07-30T23:04:27.480Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-5c600ba8d6a9-en",
+      "article_href": "/en/news/the-new-hp-omen-16-slim-isn-t-actually-that-skinny-but-it-is-a-surprisingly-good-budget-gaming-l",
+      "title": "The new HP Omen 16 Slim isn't actually that skinny, but it is a surprisingly good budget gaming laptop - if you can get it at the right price",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T19:55:54.653Z",
+      "last_viewed_at": "2026-07-30T23:03:04.391Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-98dd37aabdfb-en",
+      "article_href": "/en/news/thinkpads-from-2008-are-some-of-the-hottest-used-laptops-right-now-here-s-how-and-why-they-re-be",
+      "title": "ThinkPads from 2008 are some of the hottest used laptops right now — Here's how (and why) they're being turned into Windows 11 PCs",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T21:00:31.115Z",
+      "last_viewed_at": "2026-07-30T23:01:40.831Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-334c8b80c2b3-en",
+      "article_href": "/en/news/wait-samsung-s-ballie-isn-t-gone-its-app-ui-might-ve-leaked",
+      "title": "Wait—Samsung's Ballie isn't gone? Its app UI might've leaked",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T23:00:17.992Z",
+      "last_viewed_at": "2026-07-30T23:00:17.992Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-d88ba1326ee8-en",
+      "article_href": "/en/news/what-is-that-perfect-shot-inside-apple-s-mls-all-star-game-broadcast-and-the-iphone-17-pro-max-s",
+      "title": "'What is that perfect shot?': Inside Apple’s MLS All-Star Game broadcast and the iPhone 17 Pro Max’s search for new angles",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T22:58:53.814Z",
+      "last_viewed_at": "2026-07-30T22:58:53.814Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-6bf777767cde-en",
+      "article_href": "/en/news/which-of-dyson-s-2026-vacuum-models-is-the-best",
+      "title": "Which of Dyson’s 2026 Vacuum Models Is the Best",
+      "language": "en",
+      "topic": "internet-business-tech",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T22:57:30.199Z",
+      "last_viewed_at": "2026-07-30T22:57:30.199Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-e7eb3ca9753d-en",
+      "article_href": "/en/news/who-wins-and-who-loses-after-us-bans-foreign-robots",
+      "title": "Who wins and who loses after US bans foreign robots",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T23:14:22.211Z",
+      "last_viewed_at": "2026-07-30T22:56:04.401Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-702d1c6769d1-en",
+      "article_href": "/en/news/google-wallet-broken-on-your-pixel-a-fix-is-rolling-out-now",
+      "title": "Google Wallet broken on your Pixel? A fix is rolling out now",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T18:28:55.522Z",
+      "last_viewed_at": "2026-07-30T22:55:07.265Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-559628ce2c5c-vi",
+      "article_href": "/vi/tin-tuc/acer-ky-niem-10-nam-acer-day-voi-thong-iep-shift-the-game",
+      "title": "Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”",
+      "language": "vi",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T17:54:42.071Z",
+      "last_viewed_at": "2026-07-30T22:54:40.668Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-5b6f7ea19542-en",
+      "article_href": "/en/news/ios-26-6-is-out-now-and-it-s-quietly-preparing-your-iphone-for-the-future",
+      "title": "iOS 26.6 is out now, and it’s quietly preparing your iPhone for the future",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 2,
+      "unique_views": 2,
+      "first_viewed_at": "2026-07-27T21:31:05.413Z",
+      "last_viewed_at": "2026-07-30T22:53:31.043Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-27",
+          "views": 2,
+          "unique_views": 2
+        }
+      ]
+    },
+    {
+      "article_id": "feed-aedbf8574239-vi",
+      "article_href": "/vi/tin-tuc/cach-giup-google-maps-giai-phong-hang-gb-bo-nho-ien-thoai",
+      "title": "Cách giúp Google Maps giải phóng hàng GB bộ nhớ điện thoại",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T22:53:17.380Z",
+      "last_viewed_at": "2026-07-30T22:53:17.380Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-16c6e0cff85e-vi",
+      "article_href": "/vi/tin-tuc/chiec-ai-phone-ap-ung-moi-mong-moi-cua-nguoi-dung-a-xuat-hien",
+      "title": "Chiếc AI Phone đáp ứng mọi mong mỏi của người dùng đã xuất hiện",
+      "language": "vi",
+      "topic": "internet-business-tech",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T22:51:54.035Z",
+      "last_viewed_at": "2026-07-30T22:51:54.035Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-fe10e42dae64-en",
+      "article_href": "/en/news/elon-musk-s-age-of-abundance-is-an-ai-pipe-dream-soaked-in-snake-oil-and-i-ve-about-had-it",
+      "title": "Elon Musk's age of abundance is an AI pipe dream soaked in snake oil, and I've about had it",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T23:58:02.824Z",
+      "last_viewed_at": "2026-07-30T22:51:28.094Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-76e16c06c509-vi",
+      "article_href": "/vi/tin-tuc/gia-bitcoin-hom-nay-29-7-2026-lua-ao-tien-so-bi-phat-tu-chung-than-o-myanmar",
+      "title": "Giá Bitcoin hôm nay 29.7.2026: Lừa đảo tiền số bị phạt tù chung thân ở Myanmar",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T19:46:02.081Z",
+      "last_viewed_at": "2026-07-30T22:50:29.355Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-f8794cac7f64-vi",
+      "article_href": "/vi/tin-tuc/gia-bitcoin-hom-nay-30-7-2026-bitcoin-bien-ong-manh-khi-fed-giu-nguyen-lai-suat",
+      "title": "Giá Bitcoin hôm nay 30.7.2026: Bitcoin biến động mạnh khi Fed giữ nguyên lãi suất",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 2,
+      "unique_views": 2,
+      "first_viewed_at": "2026-07-30T05:12:33.581Z",
+      "last_viewed_at": "2026-07-30T22:49:05.581Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 2,
+          "unique_views": 2
+        }
+      ]
+    },
+    {
+      "article_id": "feed-485c47443929-vi",
+      "article_href": "/vi/tin-tuc/he-lo-thoi-iem-ien-thoai-galaxy-cu-uoc-cap-nhat-one-ui-9",
+      "title": "Hé lộ thời điểm điện thoại Galaxy cũ được cập nhật One UI 9",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T18:09:59.895Z",
+      "last_viewed_at": "2026-07-30T22:47:42.153Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-4849ad058f47-vi",
+      "article_href": "/vi/tin-tuc/mat-tien-mua-microsoft-office-nguoi-dung-van-bi-lam-phien-boi-quang-cao",
+      "title": "Mất tiền mua Microsoft Office, người dùng vẫn bị làm phiền bởi quảng cáo",
+      "language": "vi",
+      "topic": "internet-business-tech",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T22:46:18.667Z",
+      "last_viewed_at": "2026-07-30T22:46:18.667Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-aa6bb17163e9-vi",
+      "article_href": "/vi/tin-tuc/nghe-cho-thue-khuon-mat-thoi-ai",
+      "title": "Nghề cho thuê khuôn mặt thời AI: vì sao tín hiệu này đang đậm dần",
+      "language": "vi",
+      "topic": "internet-business-tech",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T22:44:55.925Z",
+      "last_viewed_at": "2026-07-30T22:44:55.925Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-67f01eb8f54d-vi",
+      "article_href": "/vi/tin-tuc/sac-ien-thoai-tu-laptop-co-thuc-su-an-toan",
+      "title": "Sạc điện thoại từ laptop có thực sự an toàn",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T22:43:31.470Z",
+      "last_viewed_at": "2026-07-30T22:43:31.470Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-35d107bed177-vi",
+      "article_href": "/vi/tin-tuc/samsung-ngung-cap-nhat-cho-ung-dung-inh-vi-find",
+      "title": "Samsung ngừng cập nhật cho ứng dụng định vị Find",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T19:37:41.779Z",
+      "last_viewed_at": "2026-07-30T22:42:09.266Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-e628607afc13-vi",
+      "article_href": "/vi/tin-tuc/samsung-tu-tin-iphone-gap-khong-de-vuot-galaxy-z-fold",
+      "title": "Samsung tự tin iPhone gập không dễ vượt Galaxy Z Fold",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T19:36:17.607Z",
+      "last_viewed_at": "2026-07-30T22:40:45.312Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-c9a6c3145219-vi",
+      "article_href": "/vi/tin-tuc/tu-tin-dung-cong-nghe-gen-z-van-bo-quen-bao-mat-thiet-bi-ca-nhan",
+      "title": "Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân",
+      "language": "vi",
+      "topic": "security",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 2,
+      "unique_views": 2,
+      "first_viewed_at": "2026-07-30T05:12:33.566Z",
+      "last_viewed_at": "2026-07-30T22:39:21.634Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 2,
+          "unique_views": 2
+        }
+      ]
+    },
+    {
+      "article_id": "feed-aa8ee4ede46b-vi",
+      "article_href": "/vi/tin-tuc/viet-nam-nghien-cuu-trien-khai-tien-ky-thuat-so-quoc-gia-cbdc",
+      "title": "Việt Nam nghiên cứu triển khai tiền kỹ thuật số quốc gia - CBDC",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-29T09:48:08.380Z",
+      "last_viewed_at": "2026-07-30T22:37:57.816Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        },
+        {
+          "date": "2026-07-29",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-ffb2796699d3-en",
+      "article_href": "/en/news/chuwi-corebook-air-review-a-rewarding-budget-laptop-that-wants-you-to-cross-the-brand-boundary",
+      "title": "Chuwi CoreBook Air review: A rewarding budget laptop that wants you to cross the brand boundary",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T22:31:46.540Z",
+      "last_viewed_at": "2026-07-30T22:31:46.540Z",
+      "daily": [
+        {
+          "date": "2026-07-30",
+          "views": 1,
+          "unique_views": 1
+        }
+      ]
+    },
+    {
+      "article_id": "feed-a5f8f25a729b-en",
+      "article_href": "/en/news/a-fairphone-gen-6-plus-could-be-on-the-way",
+      "title": "A Fairphone Gen 6 Plus could be on the way",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "source_type": "press",
+      "views": 1,
+      "unique_views": 1,
+      "first_viewed_at": "2026-07-30T21:04:10.392Z",
+      "last_viewed_at": "2026-07-30T21:04:10.392Z",
       "daily": [
         {
           "date": "2026-07-30",
@@ -162,26 +1057,6 @@
         },
         {
           "date": "2026-07-27",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-485c47443929-vi",
-      "article_href": "/vi/tin-tuc/he-lo-thoi-iem-ien-thoai-galaxy-cu-uoc-cap-nhat-one-ui-9",
-      "title": "Hé lộ thời điểm điện thoại Galaxy cũ được cập nhật One UI 9",
-      "language": "vi",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-30T18:09:59.895Z",
-      "last_viewed_at": "2026-07-30T18:09:59.895Z",
-      "daily": [
-        {
-          "date": "2026-07-30",
           "views": 1,
           "unique_views": 1
         }
@@ -244,31 +1119,6 @@
       "unique_views": 1,
       "first_viewed_at": "2026-07-29T18:34:37.435Z",
       "last_viewed_at": "2026-07-30T08:44:39.044Z",
-      "daily": [
-        {
-          "date": "2026-07-30",
-          "views": 1,
-          "unique_views": 1
-        },
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-fe10e42dae64-en",
-      "article_href": "/en/news/elon-musk-s-age-of-abundance-is-an-ai-pipe-dream-soaked-in-snake-oil-and-i-ve-about-had-it",
-      "title": "Elon Musk's age of abundance is an AI pipe dream soaked in snake oil, and I've about had it",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T23:58:02.824Z",
-      "last_viewed_at": "2026-07-30T06:03:39.165Z",
       "daily": [
         {
           "date": "2026-07-30",
@@ -393,91 +1243,6 @@
       ]
     },
     {
-      "article_id": "feed-f8794cac7f64-vi",
-      "article_href": "/vi/tin-tuc/gia-bitcoin-hom-nay-30-7-2026-bitcoin-bien-ong-manh-khi-fed-giu-nguyen-lai-suat",
-      "title": "Giá Bitcoin hôm nay 30.7.2026: Bitcoin biến động mạnh khi Fed giữ nguyên lãi suất",
-      "language": "vi",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 2,
-      "unique_views": 2,
-      "first_viewed_at": "2026-07-30T05:12:33.581Z",
-      "last_viewed_at": "2026-07-30T05:19:47.246Z",
-      "daily": [
-        {
-          "date": "2026-07-30",
-          "views": 2,
-          "unique_views": 2
-        }
-      ]
-    },
-    {
-      "article_id": "feed-3728ee2ca9b0-en",
-      "article_href": "/en/news/samsung-electronics-announces-second-quarter-2026-results",
-      "title": "Samsung Electronics Announces Second Quarter 2026 Results",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "official-site",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-30T05:17:04.214Z",
-      "last_viewed_at": "2026-07-30T05:17:04.214Z",
-      "daily": [
-        {
-          "date": "2026-07-30",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-c9a6c3145219-vi",
-      "article_href": "/vi/tin-tuc/tu-tin-dung-cong-nghe-gen-z-van-bo-quen-bao-mat-thiet-bi-ca-nhan",
-      "title": "Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân",
-      "language": "vi",
-      "topic": "security",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 2,
-      "unique_views": 2,
-      "first_viewed_at": "2026-07-30T05:12:33.566Z",
-      "last_viewed_at": "2026-07-30T05:14:58.560Z",
-      "daily": [
-        {
-          "date": "2026-07-30",
-          "views": 2,
-          "unique_views": 2
-        }
-      ]
-    },
-    {
-      "article_id": "feed-559628ce2c5c-vi",
-      "article_href": "/vi/tin-tuc/acer-ky-niem-10-nam-acer-day-voi-thong-iep-shift-the-game",
-      "title": "Acer kỷ niệm 10 năm Acer Day với thông điệp “SHIFT THE GAME”",
-      "language": "vi",
-      "topic": "gaming",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T17:54:42.071Z",
-      "last_viewed_at": "2026-07-30T04:35:35.804Z",
-      "daily": [
-        {
-          "date": "2026-07-30",
-          "views": 1,
-          "unique_views": 1
-        },
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
       "article_id": "feed-71bf696c5cfd-en",
       "article_href": "/en/news/apple-s-2026-and-2027-mac-roadmap-every-model-and-when-it-ships",
       "title": "Apple's 2026 and 2027 Mac Roadmap: Every Model and When It Ships",
@@ -563,91 +1328,6 @@
       ]
     },
     {
-      "article_id": "feed-5b6f7ea19542-en",
-      "article_href": "/en/news/ios-26-6-is-out-now-and-it-s-quietly-preparing-your-iphone-for-the-future",
-      "title": "iOS 26.6 is out now, and it’s quietly preparing your iPhone for the future",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 2,
-      "unique_views": 2,
-      "first_viewed_at": "2026-07-27T21:31:05.413Z",
-      "last_viewed_at": "2026-07-30T00:02:25.686Z",
-      "daily": [
-        {
-          "date": "2026-07-30",
-          "views": 1,
-          "unique_views": 1
-        },
-        {
-          "date": "2026-07-27",
-          "views": 2,
-          "unique_views": 2
-        }
-      ]
-    },
-    {
-      "article_id": "feed-e7eb3ca9753d-en",
-      "article_href": "/en/news/who-wins-and-who-loses-after-us-bans-foreign-robots",
-      "title": "Who wins and who loses after US bans foreign robots",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T23:14:22.211Z",
-      "last_viewed_at": "2026-07-29T23:14:22.211Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-4e033c0cdff6-en",
-      "article_href": "/en/news/samsung-s-galaxy-s26-fe-pricing-leaks-and-it-s-bad-news-for-budget-hunters",
-      "title": "Samsung’s Galaxy S26 FE pricing leaks, and it’s bad news for budget hunters",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T20:00:04.453Z",
-      "last_viewed_at": "2026-07-29T20:00:04.453Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-f384efef3486-en",
-      "article_href": "/en/news/still-on-an-older-windows-license-upgrade-to-11-pro-for-9-97-through-8-2",
-      "title": "Still on an older Windows license? Upgrade to 11 Pro for $9.97 through 8/2",
-      "language": "en",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T19:58:41.294Z",
-      "last_viewed_at": "2026-07-29T19:58:41.294Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
       "article_id": "feed-683737922ac9-en",
       "article_href": "/en/news/the-galaxy-z-fold-8-is-the-modern-day-wild-nokia-phone-and-may-finally-put-foldables-on-the-map",
       "title": "The Galaxy Z Fold 8 is the modern-day wild Nokia phone and may finally put foldables on the map — but how much credit will Samsung get for this enchanting design once the iPhone Ultra arrives",
@@ -667,26 +1347,6 @@
         },
         {
           "date": "2026-07-28",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-5c600ba8d6a9-en",
-      "article_href": "/en/news/the-new-hp-omen-16-slim-isn-t-actually-that-skinny-but-it-is-a-surprisingly-good-budget-gaming-l",
-      "title": "The new HP Omen 16 Slim isn't actually that skinny, but it is a surprisingly good budget gaming laptop - if you can get it at the right price",
-      "language": "en",
-      "topic": "gaming",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T19:55:54.653Z",
-      "last_viewed_at": "2026-07-29T19:55:54.653Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
           "views": 1,
           "unique_views": 1
         }
@@ -782,26 +1442,6 @@
         },
         {
           "date": "2026-07-28",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-76e16c06c509-vi",
-      "article_href": "/vi/tin-tuc/gia-bitcoin-hom-nay-29-7-2026-lua-ao-tien-so-bi-phat-tu-chung-than-o-myanmar",
-      "title": "Giá Bitcoin hôm nay 29.7.2026: Lừa đảo tiền số bị phạt tù chung thân ở Myanmar",
-      "language": "vi",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T19:46:02.081Z",
-      "last_viewed_at": "2026-07-29T19:46:02.081Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
           "views": 1,
           "unique_views": 1
         }
@@ -933,46 +1573,6 @@
       ]
     },
     {
-      "article_id": "feed-35d107bed177-vi",
-      "article_href": "/vi/tin-tuc/samsung-ngung-cap-nhat-cho-ung-dung-inh-vi-find",
-      "title": "Samsung ngừng cập nhật cho ứng dụng định vị Find",
-      "language": "vi",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T19:37:41.779Z",
-      "last_viewed_at": "2026-07-29T19:37:41.779Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-e628607afc13-vi",
-      "article_href": "/vi/tin-tuc/samsung-tu-tin-iphone-gap-khong-de-vuot-galaxy-z-fold",
-      "title": "Samsung tự tin iPhone gập không dễ vượt Galaxy Z Fold",
-      "language": "vi",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T19:36:17.607Z",
-      "last_viewed_at": "2026-07-29T19:36:17.607Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
       "article_id": "feed-2cf738ef4649-en",
       "article_href": "/en/news/bad-news-for-your-wallet-qualcomm-s-chip-prices-are-going-up-and-your-next-phone-will-cost-more",
       "title": "Bad news for your wallet: Qualcomm's chip prices are going up, and your next phone will cost more",
@@ -1058,26 +1658,6 @@
       ]
     },
     {
-      "article_id": "feed-702d1c6769d1-en",
-      "article_href": "/en/news/google-wallet-broken-on-your-pixel-a-fix-is-rolling-out-now",
-      "title": "Google Wallet broken on your Pixel? A fix is rolling out now",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T18:28:55.522Z",
-      "last_viewed_at": "2026-07-29T18:28:55.522Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
       "article_id": "feed-c321cac79842-en",
       "article_href": "/en/news/i-ve-spent-months-with-the-honor-magic-v6-and-no-other-foldable-can-touch-it-for-durability-or-b",
       "title": "I’ve spent months with the Honor Magic V6, and no other foldable can touch it for durability or battery life",
@@ -1094,31 +1674,6 @@
           "date": "2026-07-29",
           "views": 1,
           "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-9d21379866b1-en",
-      "article_href": "/en/news/ios-26-6-is-out-now-with-bug-fixes-and-a-preparation-for-ios-27",
-      "title": "iOS 26.6 is out now with bug fixes and a preparation for iOS 27",
-      "language": "en",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 2,
-      "unique_views": 2,
-      "first_viewed_at": "2026-07-27T20:09:47.198Z",
-      "last_viewed_at": "2026-07-29T18:25:44.334Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        },
-        {
-          "date": "2026-07-27",
-          "views": 2,
-          "unique_views": 2
         }
       ]
     },
@@ -1233,26 +1788,6 @@
       ]
     },
     {
-      "article_id": "feed-5dd912088d73-en",
-      "article_href": "/en/news/mac-mini-availability-long-waits-and-higher-prices",
-      "title": "Mac Mini Availability: Long Waits and Higher Prices",
-      "language": "en",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T14:23:17.396Z",
-      "last_viewed_at": "2026-07-29T14:23:17.396Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
       "article_id": "feed-0485ba1ad399-vi",
       "article_href": "/vi/tin-tuc/ceo-aws-viet-nam-ien-toan-am-may-viet-bung-no-nho-ai",
       "title": "CEO AWS Việt Nam: Điện toán đám mây Việt bùng nổ nhờ AI",
@@ -1277,26 +1812,6 @@
         },
         {
           "date": "2026-07-27",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-aa8ee4ede46b-vi",
-      "article_href": "/vi/tin-tuc/viet-nam-nghien-cuu-trien-khai-tien-ky-thuat-so-quoc-gia-cbdc",
-      "title": "Việt Nam nghiên cứu triển khai tiền kỹ thuật số quốc gia - CBDC",
-      "language": "vi",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-29T09:48:08.380Z",
-      "last_viewed_at": "2026-07-29T09:48:08.380Z",
-      "daily": [
-        {
-          "date": "2026-07-29",
           "views": 1,
           "unique_views": 1
         }
@@ -23989,491 +24504,6 @@
       "unique_views": 1,
       "first_viewed_at": "2026-07-01T18:02:08.176Z",
       "last_viewed_at": "2026-07-01T18:02:08.176Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-68349ab171d2-en",
-      "article_href": "/en/news/ios-27-adds-a-useful-new-copy-and-paste-feature-to-your-iphone",
-      "title": "iOS 27 Adds a Useful New Copy-and-Paste Feature to Your iPhone",
-      "language": "en",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T18:01:49.908Z",
-      "last_viewed_at": "2026-07-01T18:01:49.908Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-4c5aa4f21854-en",
-      "article_href": "/en/news/avast-one-review-outstanding-malware-and-phishing-protection",
-      "title": "Avast One Review: Outstanding malware and phishing protection",
-      "language": "en",
-      "topic": "security",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T18:01:49.588Z",
-      "last_viewed_at": "2026-07-01T18:01:49.588Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-549e1d3e991a-en",
-      "article_href": "/en/news/sony-is-officially-killing-off-physical-playstation-games",
-      "title": "Sony is officially killing off physical PlayStation games",
-      "language": "en",
-      "topic": "gaming",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T18:01:38.678Z",
-      "last_viewed_at": "2026-07-01T18:01:38.678Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-d51131a2631d-en",
-      "article_href": "/en/news/surprise-pixel-phones-are-once-again-having-wi-fi-problems",
-      "title": "Surprise: Pixel phones are once again having Wi-Fi problems",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T18:00:41.973Z",
-      "last_viewed_at": "2026-07-01T18:00:41.973Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-a5b5534bec1f-en",
-      "article_href": "/en/news/microsoft-just-made-a-huge-linux-move-that-developers-and-container-fans-everywhere-will-love",
-      "title": "Microsoft just made a huge Linux move that developers and container fans everywhere will love",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T18:00:35.437Z",
-      "last_viewed_at": "2026-07-01T18:00:35.437Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-797e77bb5efa-en",
-      "article_href": "/en/news/google-health-cli-now-available-to-access-your-data-build-tools",
-      "title": "Google Health CLI now available to access your data & build tools",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T18:00:20.511Z",
-      "last_viewed_at": "2026-07-01T18:00:20.511Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-6e178bec6754-en",
-      "article_href": "/en/news/progress-kemp-loadmaster-pre-auth-rce-flaw-faces-active-exploitation-attempts",
-      "title": "Progress Kemp LoadMaster Pre-Auth RCE Flaw Faces Active Exploitation Attempts",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T17:59:49.054Z",
-      "last_viewed_at": "2026-07-01T17:59:49.054Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-03cafab69aec-vi",
-      "article_href": "/vi/tin-tuc/ai-xoa-hang-chuc-nghin-viec-lam-o-phuong-tay-va-ang-bao-mon-mo-vang-ty-usd-cua-gia-cong-phan-mem",
-      "title": "AI xóa hàng chục nghìn việc làm ở phương Tây và đang bào mòn mỏ vàng tỷ USD của gia công phần mềm Việt Nam",
-      "language": "vi",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 2,
-      "unique_views": 2,
-      "first_viewed_at": "2026-07-01T15:29:02.024Z",
-      "last_viewed_at": "2026-07-01T16:20:44.711Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 2,
-          "unique_views": 2
-        }
-      ]
-    },
-    {
-      "article_id": "feed-8696214fc83c-en",
-      "article_href": "/en/news/simplify-multi-account-access-to-amazon-bedrock-models-with-managed-entitlements",
-      "title": "Simplify multi-account access to Amazon Bedrock models with managed entitlements",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "source_type": "official-site",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T16:20:04.248Z",
-      "last_viewed_at": "2026-07-01T16:20:04.248Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-978d8a3206cb-en",
-      "article_href": "/en/news/stathera-nabs-55m-to-make-vacuum-sealed-silicon-oscillators-for-ai-chips",
-      "title": "Stathera nabs $55M to make vacuum-sealed silicon oscillators for AI chips",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-06-30T23:35:41.434Z",
-      "last_viewed_at": "2026-07-01T16:15:54.541Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        },
-        {
-          "date": "2026-06-30",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-9ed0e66f0577-en",
-      "article_href": "/en/news/take-our-i-o-2026-quiz-vibe-coded-in-google-ai-studio",
-      "title": "Take our I/O 2026 quiz, vibe coded in Google AI Studio",
-      "language": "en",
-      "topic": "ai",
-      "content_type": "NewsArticle",
-      "source_type": "official-site",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-06-21T15:20:23.095Z",
-      "last_viewed_at": "2026-07-01T16:11:43.302Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        },
-        {
-          "date": "2026-06-28",
-          "views": 1,
-          "unique_views": 1
-        },
-        {
-          "date": "2026-06-27",
-          "views": 1,
-          "unique_views": 1
-        },
-        {
-          "date": "2026-06-25",
-          "views": 1,
-          "unique_views": 1
-        },
-        {
-          "date": "2026-06-21",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-b606436865ad-vi",
-      "article_href": "/vi/tin-tuc/windows-11-26h2-bat-au-mo-cac-tinh-nang-moi-thu-nghiem-cho-nguoi-dung-insider",
-      "title": "Windows 11 26H2 bắt đầu mở các tính năng mới thử nghiệm cho người dùng Insider",
-      "language": "vi",
-      "topic": "internet-business-tech",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T16:11:13.917Z",
-      "last_viewed_at": "2026-07-01T16:11:13.917Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-f91929ec0ad3-en",
-      "article_href": "/en/news/the-13-inch-m5-ipad-pro-is-even-cheaper-than-it-was-before-apple-s-price-hike",
-      "title": "The 13-inch M5 iPad Pro is even cheaper than it was before Apple’s price hike",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T16:08:55.544Z",
-      "last_viewed_at": "2026-07-01T16:08:55.544Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-327483d8ef05-en",
-      "article_href": "/en/news/the-bifurcated-laptop-landscape-of-computex-2026",
-      "title": "The bifurcated laptop landscape of Computex 2026",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T16:07:31.998Z",
-      "last_viewed_at": "2026-07-01T16:07:31.998Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-a39ac1e3c1cb-en",
-      "article_href": "/en/news/the-gates-of-oblivion-are-opening-on-nintendo-switch-2-bethesda-confirms-august-11-release-date",
-      "title": "\"The gates of Oblivion are opening on Nintendo Switch 2\": Bethesda confirms August 11 release date",
-      "language": "en",
-      "topic": "gaming",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T16:03:22.020Z",
-      "last_viewed_at": "2026-07-01T16:03:22.020Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-003583650ceb-vi",
-      "article_href": "/vi/tin-tuc/8-tinh-nang-giup-google-drive-tro-thanh-tro-ly-cong-viec-ac-luc",
-      "title": "8 tính năng giúp Google Drive trở thành trợ lý công việc đắc lực",
-      "language": "vi",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 2,
-      "unique_views": 2,
-      "first_viewed_at": "2026-07-01T15:25:40.441Z",
-      "last_viewed_at": "2026-07-01T15:59:45.838Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 2,
-          "unique_views": 2
-        }
-      ]
-    },
-    {
-      "article_id": "feed-b45a7ba92541-en",
-      "article_href": "/en/news/the-ram-crisis-has-made-windows-desktops-almost-unaffordable-but-these-mini-pcs-provide-a-better",
-      "title": "The RAM crisis has made Windows desktops almost unaffordable, but these mini PCs provide a better way to get",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T15:53:36.578Z",
-      "last_viewed_at": "2026-07-01T15:53:36.578Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-ecb910d04270-en",
-      "article_href": "/en/news/the-retroid-pocket-6-now-officially-supports-lineageos",
-      "title": "The Retroid Pocket 6 now officially supports LineageOS",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 2,
-      "unique_views": 2,
-      "first_viewed_at": "2026-07-01T15:50:58.066Z",
-      "last_viewed_at": "2026-07-01T15:52:14.743Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 2,
-          "unique_views": 2
-        }
-      ]
-    },
-    {
-      "article_id": "feed-7620e7d8dd3b-vi",
-      "article_href": "/vi/tin-tuc/giam-oc-cia-vi-ai-tien-tien-nhu-vu-khi-hat-nhan",
-      "title": "Giám đốc CIA ví AI tiên tiến như 'vũ khí hạt nhân'",
-      "language": "vi",
-      "topic": "internet-business-tech",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 2,
-      "unique_views": 2,
-      "first_viewed_at": "2026-07-01T15:27:35.820Z",
-      "last_viewed_at": "2026-07-01T15:50:57.006Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 2,
-          "unique_views": 2
-        }
-      ]
-    },
-    {
-      "article_id": "feed-ee823c050744-en",
-      "article_href": "/en/news/these-new-wireless-earbuds-also-work-over-wi-fi-but-without-qualcomm-s-help",
-      "title": "These new wireless earbuds also work over Wi-Fi, but without Qualcomm’s help",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T15:45:17.230Z",
-      "last_viewed_at": "2026-07-01T15:45:17.230Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-2c1ceec7da3e-en",
-      "article_href": "/en/news/tim-cook-and-eu-tech-chief-hold-constructive-virtual-meeting-over-siri-ai-standoff",
-      "title": "Tim Cook and EU tech chief hold ‘constructive’ virtual meeting over Siri AI standoff",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T15:41:06.468Z",
-      "last_viewed_at": "2026-07-01T15:41:06.468Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-7e5ac09f3a47-vi",
-      "article_href": "/vi/tin-tuc/wps-ai-tren-huawei-matepad-11-5-2026-ai-xuat-hien-ngay-trong-ung-dung-van-phong",
-      "title": "WPS AI trên HUAWEI MatePad 11.5 (2026): AI xuất hiện ngay trong ứng dụng văn phòng",
-      "language": "vi",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T13:50:47.246Z",
-      "last_viewed_at": "2026-07-01T15:39:37.052Z",
-      "daily": [
-        {
-          "date": "2026-07-01",
-          "views": 1,
-          "unique_views": 1
-        }
-      ]
-    },
-    {
-      "article_id": "feed-20abf4b56f78-en",
-      "article_href": "/en/news/us-offers-10-million-to-identify-hackers-targeting-signal-and-whatsapp-users",
-      "title": "US offers $10 million to identify hackers targeting Signal and WhatsApp users",
-      "language": "en",
-      "topic": "internet-business-tech",
-      "content_type": "NewsArticle",
-      "source_type": "press",
-      "views": 1,
-      "unique_views": 1,
-      "first_viewed_at": "2026-07-01T15:31:19.346Z",
-      "last_viewed_at": "2026-07-01T15:31:19.346Z",
       "daily": [
         {
           "date": "2026-07-01",
