@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-30T08:48:38.304Z",
-    "finishedAt": "2026-07-30T08:49:55.851Z",
+    "startedAt": "2026-07-30T11:04:08.144Z",
+    "finishedAt": "2026-07-30T11:05:23.824Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 113,
-    "articleCountBefore": 112,
-    "articleCountDelta": 1,
+    "totalArticles": 117,
+    "articleCountBefore": 113,
+    "articleCountDelta": 4,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785401318345-ca71d4.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung Electronics Announces Second Quarter 2026 Results\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Hé lộ thời điểm điện thoại Galaxy cũ được cập nhật One UI 9\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Mất tiền mua Microsoft Office, người dùng vẫn bị làm phiền bởi quảng cáo\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding source-draft article \"Samsung hé lộ cách khắc phục điểm yếu của pin silicon-carbon\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Samsung hé lộ cách khắc phục điểm yếu của pin silicon-carbon\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785409448181-d08b9f.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"iPhone 18 Pro: Twelve Changes Coming to Apple's Next Flagship\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Sony and Microsoft are destroying console and PC gaming — here’s why the experts think Valve can save the day with Steam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"ThinkPads from 2008 are some of the hottest used laptops right now — Here's how (and why) they're being turned into Wind\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Samsung's July patch causes problems for Galaxy S24, S25 Ultra, and users have proof\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Mất tiền mua Microsoft Office, người dùng vẫn bị làm phiền bởi quảng cáo\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iPhone 18 Pro: Twelve Changes Coming to Apple's Next Flagship\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"ThinkPads from 2008 are some of the hottest used laptops right now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Samsung's July patch causes problems for Galaxy S24, S25 Ultra, and users have proof\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Samsung Electronics Announces Second Quarter 2026 Results\" because it failed publish readiness: narrativeFlow Holding normalized article \"Hé lộ thời điểm điện thoại Galaxy cũ được cập nhật One UI 9\" because it failed publish readiness: narrativeFlow Holding normalized article \"Mất tiền mua Microsoft Office, người dùng vẫn bị làm phiền bởi quảng cáo\" because it failed publish readiness: narrativeFlow Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
+      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"iPhone 18 Pro: Twelve Changes Coming to Apple's Next Flagship\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sony and Microsoft are destroying console and PC gaming — here’s why the experts think Valve can save the day with Steam\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"ThinkPads from 2008 are some of the hottest used laptops right now — Here's how (and why) they're being turned into Wind\" because it failed publish readiness: narrativeFlow Holding normalized article \"Samsung's July patch causes problems for Galaxy S24, S25 Ultra, and users have proof\" because it failed publish readiness: narrativeFlow Holding normalized article \"Mất tiền mua Microsoft Office, người dùng vẫn bị làm phiền bởi quảng cáo\" because it failed publish readiness: narrativeFlow Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow Holding synthesized article \"iPhone 18 Pro: Twelve Changes Coming to Apple's Next Flagship\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sony and Microsoft are destroying console and PC gaming\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Samsung's July patch causes problems for Galaxy S24, S25 Ultra, and users have proof\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 117 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 121 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-30T08:49:55.834Z",
+      "reviewedAt": "2026-07-30T11:05:23.806Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
