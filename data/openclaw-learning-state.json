@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T03:31:22.469Z",
+  "generated_at": "2026-07-30T06:10:09.178Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,29 +8,29 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-07-30T03:31:22.469Z",
+    "updated_at": "2026-07-30T06:10:09.178Z",
     "confidence": 0.95,
-    "totalSignals": 114,
-    "eligibleArticleCount": 105,
-    "excludedArticleCount": 938,
+    "totalSignals": 116,
+    "eligibleArticleCount": 107,
+    "excludedArticleCount": 931,
     "dailyFocus": [
       "devices",
+      "internet-business-tech",
       "security",
       "gaming",
-      "apps-software",
-      "internet-business-tech"
+      "apps-software"
     ],
     "topicWeights": {
       "devices": 32,
+      "internet-business-tech": 32,
       "security": 32,
       "gaming": 32,
       "apps-software": 32,
-      "internet-business-tech": 32,
       "ai": 7
     },
     "sourceTypeWeights": {
       "press": 32,
-      "official-site": 25
+      "official-site": 26
     },
     "topViewedArticles": [
       {
@@ -127,8 +127,7 @@
       "Moi bai phai co ly do dang doc trong 2 doan dau: dieu moi, ai bi anh huong, va can theo doi gi tiep.",
       "Uu tien bai co nguon du day: it nhat 3 doan lien quan, co ten san pham/cong ty, con so, rollout, gia, rui ro hoac gioi han cu the.",
       "Tach ro summary, dek va hook: summary noi fact chinh, dek noi y nghia, hook noi cau hoi tiep theo; khong dung lai cung mot cau.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
-      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
@@ -139,9 +138,15 @@
       "Khong publish bai chi ghep y roi rac; can co mach dien bien, tac dong, hanh dong va dieu can theo doi tiep.",
       "Khong publish bai lap cau hoac lap cum tu; can viet lai section bi trung truoc khi len trang."
     ],
-    "lastCycleSummary": "Learned from 105 eligible article(s); 938 article(s) excluded from learning; 0 owner feedback item(s); 114 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, gaming, apps-software, internet-business-tech"
+    "lastCycleSummary": "Learned from 107 eligible article(s); 931 article(s) excluded from learning; 0 owner feedback item(s); 116 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, internet-business-tech, security, gaming, apps-software"
   },
   "cycles": [
+    {
+      "generated_at": "2026-07-30T06:10:09.178Z",
+      "totalSignals": 116,
+      "confidence": 0.95,
+      "summary": "Learned from 107 eligible article(s); 931 article(s) excluded from learning; 0 owner feedback item(s); 116 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, internet-business-tech, security, gaming, apps-software"
+    },
     {
       "generated_at": "2026-07-30T03:31:22.469Z",
       "totalSignals": 114,
@@ -375,12 +380,6 @@
       "totalSignals": 37,
       "confidence": 0.76,
       "summary": "Learned from 28 eligible article(s); 996 article(s) excluded from learning; 0 owner feedback item(s); 37 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, internet-business-tech, gaming, apps-software"
-    },
-    {
-      "generated_at": "2026-07-27T08:47:37.698Z",
-      "totalSignals": 36,
-      "confidence": 0.75,
-      "summary": "Learned from 27 eligible article(s); 996 article(s) excluded from learning; 0 owner feedback item(s); 36 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, internet-business-tech, gaming, apps-software"
     }
   ]
 }

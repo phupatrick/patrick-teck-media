@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-30T03:30:09.257Z",
-    "finishedAt": "2026-07-30T03:31:23.017Z",
+    "startedAt": "2026-07-30T06:08:50.823Z",
+    "finishedAt": "2026-07-30T06:10:09.807Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 110,
-    "articleCountBefore": 107,
-    "articleCountDelta": 3,
+    "totalArticles": 112,
+    "articleCountBefore": 110,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785382209289-ab0d96.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung Electronics Announces Second Quarter 2026 Results\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Giá Bitcoin hôm nay 30.7.2026: Bitcoin biến động mạnh khi Fed giữ nguyên lãi suất\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Samsung hé lộ cách khắc phục điểm yếu của pin silicon-carbon\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Samsung hé lộ cách khắc phục điểm yếu của pin silicon-carbon\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785391730862-2bb0ea.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung Electronics Announces Second Quarter 2026 Results\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Sạc điện thoại từ laptop có thực sự an toàn\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Mất tiền mua Microsoft Office, người dùng vẫn bị làm phiền bởi quảng cáo\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding source-draft article \"Samsung hé lộ cách khắc phục điểm yếu của pin silicon-carbon\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Samsung hé lộ cách khắc phục điểm yếu của pin silicon-carbon\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Samsung Electronics Announces Second Quarter 2026 Results\" because it failed publish readiness: narrativeFlow Holding normalized article \"Giá Bitcoin hôm nay 30.7.2026: Bitcoin biến động mạnh khi Fed giữ nguyên lãi suất\" because it failed publish readiness: narrativeFlow Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
+      "warnings": "Holding normalized article \"Samsung Electronics Announces Second Quarter 2026 Results\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sạc điện thoại từ laptop có thực sự an toàn\" because it failed publish readiness: narrativeFlow Holding normalized article \"Mất tiền mua Microsoft Office, người dùng vẫn bị làm phiền bởi quảng cáo\" because it failed publish readiness: narrativeFlow Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 114 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 116 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-30T03:31:23.002Z",
+      "reviewedAt": "2026-07-30T06:10:09.790Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
