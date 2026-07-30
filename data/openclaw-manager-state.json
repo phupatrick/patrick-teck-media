@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-30T00:12:45.823Z",
-    "finishedAt": "2026-07-30T00:14:01.746Z",
+    "startedAt": "2026-07-30T03:30:09.257Z",
+    "finishedAt": "2026-07-30T03:31:23.017Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 107,
-    "articleCountBefore": 106,
-    "articleCountDelta": 1,
+    "totalArticles": 110,
+    "articleCountBefore": 107,
+    "articleCountDelta": 3,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785370365862-16fbfa.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"‘Exceptional espresso every time’: The KitchenAid KF3 is a gorgeous fully automatic coffee machine ideal for smaller kit\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Apple Says UK App Store Steering Rules Would Be 'Highly Intrusive'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"‘Exceptional espresso every time’: The KitchenAid KF3 is a gorgeous fully automatic coffee machine ideal for\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Apple Says UK App Store Steering Rules Would Be 'Highly Intrusive'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785382209289-ab0d96.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung Electronics Announces Second Quarter 2026 Results\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Giá Bitcoin hôm nay 30.7.2026: Bitcoin biến động mạnh khi Fed giữ nguyên lãi suất\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Samsung hé lộ cách khắc phục điểm yếu của pin silicon-carbon\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Samsung hé lộ cách khắc phục điểm yếu của pin silicon-carbon\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"‘Exceptional espresso every time’: The KitchenAid KF3 is a gorgeous fully automatic coffee machine ideal for smaller kit\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Apple Says UK App Store Steering Rules Would Be 'Highly Intrusive'\" because it failed publish readiness: narrativeFlow Holding normalized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"‘Exceptional espresso every time’: The KitchenAid KF3 is a gorgeous fully automatic coffee machine ideal for\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Qualcomm is raising phone chip prices starting September 1st\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Samsung Electronics Announces Second Quarter 2026 Results\" because it failed publish readiness: narrativeFlow Holding normalized article \"Giá Bitcoin hôm nay 30.7.2026: Bitcoin biến động mạnh khi Fed giữ nguyên lãi suất\" because it failed publish readiness: narrativeFlow Holding normalized article \"Tự tin dùng công nghệ, Gen Z vẫn bỏ quên bảo mật thiết bị cá nhân\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Which of Dyson’s 2026 Vacuum Models Is the Best\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Quordle hints and answers for Thursday, July 30 (game #1648)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 111 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 114 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-30T00:14:01.728Z",
+      "reviewedAt": "2026-07-30T03:31:23.002Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
