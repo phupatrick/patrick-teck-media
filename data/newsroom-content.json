@@ -1,6 +1,292 @@
 {
-  "generated_at": "2026-07-30T15:09:37.091Z",
+  "generated_at": "2026-07-30T16:50:03.595Z",
   "articles": [
+    {
+      "id": "feed-0b085f756fa2-en",
+      "cluster_id": "feed-0b085f756fa2",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "introducing-explicit-prompt-caching-for-openai-gpt-5-6-models-on-amazon-bedrock",
+      "title": "Introducing explicit prompt caching for OpenAI GPT-5.6 models on Amazon Bedrock",
+      "summary": "6 Sol, Terra, and Luna are now generally available on Amazon Bedrock . The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Introducing explicit prompt caching for OpenAI GPT-5. 6 models on Amazon Bedrock should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "OpenAI GPT-5. 6 Sol, Terra, and Luna are now generally available on Amazon Bedrock . With GPT-5. 6 on Amazon Bedrock, you get the newest generation of OpenAI frontier models with pay-per-token pricing, AWS security and governance controls, and usage that counts toward your existing AWS commitments. The family covers three capability tiers: GPT-5. 6 Sol for the most complex reasoning and agentic coding work, GPT-5. 6 Terra for balanced everyday production workloads, and GPT-5. 6 Luna for fast, high-volume tasks such as classification and summarization. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Alongside the new models, GPT-5. 6 introduces explicit prompt caching on Amazon Bedrock, a new capability that gives you precise control over which portions of your prompt are cached and reused across requests. Cached input is billed at a 90 percent discount (see the Amazon Bedrock pricing page ) and stays available for reuse for 30 minutes. You get the most value from this in agentic workflows, where system instructions, tool definitions, and reference documents repeat across many calls. The practical impact sits in workflow, cost, risk, or a buying decision; Introducing explicit prompt caching for OpenAI GPT-5. 6 models on Amazon Bedrock should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "GPT-5. 6 models are served through the OpenAI-compatible Responses API on the Amazon Bedrock bedrock-mantle endpoint. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "The recommended way to authenticate is with short-term bearer tokens generated from your AWS credentials. Install the token generator alongside the OpenAI SDK:. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "pip install openai aws-bedrock-token-generator Then create a client. The token generator uses the standard AWS credential chain (IAM roles, environment variables, or your CLI profile), so your code stays free of long-lived secrets:. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-explicit-prompt-caching-for-openai-gpt-5-6-models-on-amazon-bedrock/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-30T16:02:32.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/30/ml-21452.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-07-30T16:02:32.000Z",
+      "updated_at": "2026-07-30T16:02:32.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/30/ml-21452.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-explicit-prompt-caching-for-openai-gpt-5-6-models-on-amazon-bedrock/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-30T16:50:03.532Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-01c2fc947007-en",
+      "cluster_id": "feed-01c2fc947007",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "migrate-your-prompts-to-new-models-and-optimize-them-on-amazon-bedrock",
+      "title": "Migrate your prompts to new models and optimize them on Amazon Bedrock",
+      "summary": "Migrating prompts to new models on Amazon Bedrock, or optimizing them for your current model, is still one of the most manual parts of building a generative AI application. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Migrate your prompts to new models and optimize them on Amazon Bedrock should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Migrating prompts to new models on Amazon Bedrock, or optimizing them for your current model, is still one of the most manual parts of building a generative AI application. Say you have built a deployed generative AI application. It works. Your prompts are tuned, your outputs are consistent, and your users are happy. Then a new model becomes available on Amazon Bedrock that is faster, cheaper, and more capable, and you must decide whether to migrate. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Customers spend days to weeks optimizing prompts and re-evaluating responses when they migrate to a new model. The same effort applies when they try to improve performance on their current model. The cycle looks the same every time. Rewrite the prompt, run it against test cases, compare results, tweak, and repeat. Now multiply that work by every prompt template in production and every model candidate worth evaluating. The result is a problem that scales with your ambition. The practical impact sits in workflow, cost, risk, or a buying decision; Migrate your prompts to new models and optimize them on Amazon Bedrock should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Today, Amazon Bedrock introduces Advanced Prompt Optimization , a tool that optimizes prompts for up to 5 models on Bedrock while comparing original and optimized performance. In this post, we show you how to use Amazon Bedrock Advanced Prompt Optimization to migrate and optimize prompts across multiple models in a single job. This approach replaces days of manual iteration with a guided, metrics-driven workflow. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Prompt migration and optimization sit at a critical chokepoint in the generative AI development lifecycle. When this step is slow or manual, you feel it in 4 areas:. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "You need a prompt optimizer with built-in evaluations that test multiple models at once. It should also let you guide how prompts and responses change, grounding the optimization in real use cases and data. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/migrate-your-prompts-to-new-models-and-optimize-them-on-amazon-bedrock/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-30T15:58:32.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/28/20950.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-07-30T15:58:32.000Z",
+      "updated_at": "2026-07-30T15:58:32.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/28/20950.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/migrate-your-prompts-to-new-models-and-optimize-them-on-amazon-bedrock/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-30T16:50:03.532Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-44bd61652433-en",
+      "cluster_id": "feed-44bd61652433",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "i-ve-been-waiting-for-the-google-pixel-10-pro-to-get-a-good-discount-ahead-of-the-pixel-11-launc",
+      "title": "I've been waiting for the Google Pixel 10 Pro to get a good discount ahead of the Pixel 11 launch, and Amazon has finally delivered",
+      "summary": "It's official: Google will be unveiling the Pixel 11 series on August 12th, but if you don't wait to wait, there are plenty of Google Pixel 10 deals worth checking out today. The source signal from Android Central should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; I've been waiting for the Google Pixel 10 Pro to get a good discount ahead of the Pixel 11 launch, and Amazon has finally delivered should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "It's official: Google will be unveiling the Pixel 11 series on August 12th, but if you don't wait to wait, there are plenty of Google Pixel 10 deals worth checking out today. In fact, since so many retailers are trying to clear stock ahead of the 2026 phones' launch, some of the deals on display meet or exceed the offers we saw during the holiday season last year. The source signal from Android Central should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Most of the best offers are coming from wireless carriers, but if you prefer the simplicity of unlocked phones, you're in luck: Amazon is slashing $200 off the Google Pixel 10 and $250 off the Google Pixel 10 Pro , representing the best discounts I've seen since Prime Day in June. Stock appears to be low — the Pixel 10 Pro XL is completely sold out, in fact — so don't wait too long if you're interested: these are likely among the final discounts we'll see for the unlocked devices. The practical impact sits in workflow, cost, risk, or a buying decision; I've been waiting for the Google Pixel 10 Pro to get a good discount ahead of the Pixel 11 launch, and Amazon has finally delivered should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Days before the big Pixel 11 launch on August 12th, Amazon is attempting to clear its remaining Google Pixel 10 stock by slashing a straight $200 off the price of the flagship phone. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Although it's about to reach last-gen status, the Google Pixel 10 remains an excellent device in 2026, with a powerful Tensor processor, long-lasting battery, and a suite of exclusive AI-boosted camera features. It's also the first Google phone to receive full Qi2 magnetic charging support. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "If you need a bit more power, the Google Pixel 10 Pro is the answer. Currently $250 off at Amazon, this feature-packed flagship takes the foundation of the base model Pixel 10 and adds a better display, more RAM, and an upgraded camera system. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Android Central",
+          "source_url": "https://www.androidcentral.com/phones/google-pixel/ive-been-waiting-for-the-google-pixel-10-pro-to-get-a-good-discount-ahead-of-the-pixel-11-launch-and-amazon-has-finally-delivered",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-30T15:51:53.000Z",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/McxfKzMCtgMJP7NUHTYugT-2048-80.jpg",
+          "image_caption": "Reference image from Android Central.",
+          "image_credit": "Android Central"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-07-30T15:51:53.000Z",
+      "updated_at": "2026-07-30T15:51:53.000Z",
+      "image": {
+        "src": "https://cdn.mos.cms.futurecdn.net/McxfKzMCtgMJP7NUHTYugT-2048-80.jpg",
+        "caption": "Reference image from Android Central.",
+        "credit": "Android Central",
+        "source_url": "https://www.androidcentral.com/phones/google-pixel/ive-been-waiting-for-the-google-pixel-10-pro-to-get-a-good-discount-ahead-of-the-pixel-11-launch-and-amazon-has-finally-delivered"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-30T16:50:03.532Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-f2befa22f9cf-en",
+      "cluster_id": "feed-f2befa22f9cf",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "slug": "razer-s-new-keyboards-drop-the-price-on-powerful-gaming-features",
+      "title": "Razer’s new keyboards drop the price on powerful gaming features",
+      "summary": "Razer has insisted that optical keyboard switches are the best choice for competitive esports stars and the sweatiest of try-hards, but it’s now relenting slightly by offering cheaper keyboards with magnetic switches and a similar array of gaming features. The source signal from The Verge should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Razer’s new keyboards drop the price on powerful gaming features should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Razer has insisted that optical keyboard switches are the best choice for competitive esports stars and the sweatiest of try-hards, but it’s now relenting slightly by offering cheaper keyboards with magnetic switches and a similar array of gaming features. The $120 Razer Huntsman V3 HE Magnetic Mini and $140 Huntsman V3 HE Magnetic Tenkeyless, both launching today, are the company’s first keyboards to use Hall effect switches. They’re wired-only boards loaded with gaming-first features, and I’ve had a brief chance to test both and take them for a spin. The source signal from The Verge should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The new Huntsman boards offer the hallmarks found in many other Hall effect mechanical keyboards, like programmable actuation points, faster key releases with Rapid Trigger, and an 8KHz polling rate. Their linear switches have an average latency of 0. 6ms, which is of course very fast but ever-so-slightly slower than the 0. 48ms of optical Huntsman boards like the V3 Pro . Razer can stand by its claim that optical analog boards are faster, but we’re really splitting hairs here. The practical impact sits in workflow, cost, risk, or a buying decision; Razer’s new keyboards drop the price on powerful gaming features should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Next 1 / 2 Full name: Razer Huntsman V3 HE Magnetic Tenkeyless 8kHz. The new magnetic models offer plenty of speed at significantly lower prices, as the optical Huntsman Pro boards start at $220, and they have Razer’s full arsenal of deeply customizable gaming features. This includes things like Snap Tap, which prioritizes your last movement input on the A or W keys and makes for easier counter-strafing (considered cheating by some and banned by Valve ); Snap Flex, for setting up keys to trigger specific actions upon release; and Dual-Keypress Priority, preventing an accidental movement input from interrupting two previously held keys (like diagonal movement). Those last two features are also available on the mid-range optical Huntsman V3 Tenkeyless 8KHz , and coming to the higher-end Huntsman V3 Pros via firmware update. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Do these all sound like pretty niche features for specialized use cases? They are. While these cheaper keyboards are designed to appeal to a wider audience, these kinds of features are designed for the most competitive of online shooters — specifically, games with nuances to their movement techniques, like Counter-Strike 2 . Razer is primarily competing with Wooting , Asus , and SteelSeries in this space, going feature-for-feature to cater to this hardcore subset of gamers. Wooting’s 80HE and 60HE v2 are some of the most praised gaming keyboards around, but Razer’s new HE boards undercut them by about $60. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Next 1 / 6 They look like Razer keyboards. The floating key design also feels a little dated these days, but the company is sticking to its guns. I spent some time testing both the 65-percent and TKL versions of the new HE Huntsman pair, and since my Counter-Strike days are long behind me, these keyboards feel more than fast enough for any speedy inputs my aging fingers can muster. There is obviously not much reason to buy either of these boards unless you primarily care about their deep-in-the-weeds gaming features and making detailed customizations in Razer’s software (especially since entry-level mechanicals have gotten so good ). The Razer Synapse app is as burdensome as ever, but you can also use a web version if you don’t need to make frequent changes or just don’t want to deal with it constantly running. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [
+        "gaming-cloud-pass"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "The Verge",
+          "source_url": "https://www.theverge.com/tech/973027/razer-huntsman-v3-he-magnetic-mechanical-keyboard-snap-tap-price-impressions",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-07-30T14:18:07.000Z",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/268673_Razer_Huntsman_V3_HE_Magnetic_mechanical_keyboards_ADiBenedetto_0001.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+          "image_caption": "Reference image from The Verge.",
+          "image_credit": "The Verge"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-07-30T14:18:07.000Z",
+      "updated_at": "2026-07-30T14:18:07.000Z",
+      "image": {
+        "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/268673_Razer_Huntsman_V3_HE_Magnetic_mechanical_keyboards_ADiBenedetto_0001.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+        "caption": "Reference image from The Verge.",
+        "credit": "The Verge",
+        "source_url": "https://www.theverge.com/tech/973027/razer-huntsman-v3-he-magnetic-mechanical-keyboard-snap-tap-price-impressions"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-07-30T16:50:03.532Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-a1606d1d6dfe-en",
       "cluster_id": "feed-a1606d1d6dfe",
@@ -207,7 +493,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-30T15:09:37.027Z",
+        "generated_at": "2026-07-30T16:50:03.532Z",
         "origin": "local-curated-rss"
       }
     },
@@ -2399,7 +2685,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-07-30T15:09:37.027Z",
+        "generated_at": "2026-07-30T16:50:03.532Z",
         "origin": "local-curated-rss"
       }
     },

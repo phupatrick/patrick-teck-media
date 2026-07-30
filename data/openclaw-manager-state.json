@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-30T15:08:33.843Z",
-    "finishedAt": "2026-07-30T15:09:38.204Z",
+    "startedAt": "2026-07-30T16:48:44.216Z",
+    "finishedAt": "2026-07-30T16:50:04.729Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 122,
-    "articleCountBefore": 120,
-    "articleCountDelta": 2,
+    "totalArticles": 126,
+    "articleCountBefore": 122,
+    "articleCountDelta": 4,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785424113882-b3a9ab.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"AirTag 2 Available for Record Low Price of $89 for 4-Pack\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cách giúp Google Maps giải phóng hàng GB bộ nhớ điện thoại\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Chiếc AI Phone đáp ứng mọi mong mỏi của người dùng đã xuất hiện\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"I tested the DJI Osmo Pocket 4P for a whole month — here’s why adding a second portrait lens to a vlogging camera is as \" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"ThinkPads from 2008 are some of the hottest used laptops right now — Here's how (and why) they're being turned into Wind\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"AirTag 2 Available for Record Low Price of $89 for 4-Pack\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"ThinkPads from 2008 are some of the hottest used laptops right now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785430124254-06ce9e.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Migrate your prompts to new models and optimize them on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"I've been waiting for the Google Pixel 10 Pro to get a good discount ahead of the Pixel 11 launch, and Amazon has finall\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Chiếc AI Phone đáp ứng mọi mong mỏi của người dùng đã xuất hiện\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Migrate your prompts to new models and optimize them on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Introducing explicit prompt caching for OpenAI GPT-5.6 models on Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"I've been waiting for the Google Pixel 10 Pro to get a good discount ahead of the Pixel 11 launch, and has\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Razer’s new keyboards drop the price on powerful gaming features\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"AirTag 2 Available for Record Low Price of $89 for 4-Pack\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cách giúp Google Maps giải phóng hàng GB bộ nhớ điện thoại\" because it failed publish readiness: narrativeFlow Holding normalized article \"Chiếc AI Phone đáp ứng mọi mong mỏi của người dùng đã xuất hiện\" because it failed publish readiness: narrativeFlow Holding normalized article \"I tested the DJI Osmo Pocket 4P for a whole month — here’s why adding a second portrait lens to a vlogging camera is as \" because it failed publish readiness: narrativeFlow Holding normalized article \"ThinkPads from 2008 are some of the hottest used laptops right now — Here's how (and why) they're being turned into Wind\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"AirTag 2 Available for Record Low Price of $89 for 4-Pack\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"I tested the DJI Osmo Pocket 4P for a whole month\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Introducing explicit prompt caching for OpenAI GPT-5.6 models on Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding normalized article \"Migrate your prompts to new models and optimize them on Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding normalized article \"I've been waiting for the Google Pixel 10 Pro to get a good discount ahead of the Pixel 11 launch, and Amazon has finall\" because it failed publish readiness: narrativeFlow Holding normalized article \"Razer’s new keyboards drop the price on powerful gaming features\" because it failed publish readiness: narrativeFlow Holding normalized article \"Chiếc AI Phone đáp ứng mọi mong mỏi của người dùng đã xuất hiện\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Introducing explicit prompt caching for OpenAI GPT-5.6 models on Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Migrate your prompts to new models and optimize them on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"I've been waiting for the Google Pixel 10 Pro to get a good discount ahead of the Pixel 11 launch, and has\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Razer’s new keyboards drop the price on powerful gaming features\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,13 +40,13 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 126 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 130 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for devices, apps-software, ai, internet-business-tech, security, gaming.",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for apps-software, devices, ai, internet-business-tech, security, gaming.",
       "warnings": ""
     }
   },
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-30T15:09:38.185Z",
+      "reviewedAt": "2026-07-30T16:50:04.711Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
