@@ -4,11 +4,11 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-31T12:25:46.479Z",
-    "finishedAt": "2026-07-31T12:27:05.159Z",
+    "startedAt": "2026-07-31T12:27:37.614Z",
+    "finishedAt": "2026-07-31T12:27:39.425Z",
     "trigger": {
-      "source": "schedule",
-      "reason": "scheduled"
+      "source": "telegram-link",
+      "reason": "telegram-link:7481176582"
     }
   },
   "newsroom": {
@@ -17,19 +17,19 @@
     "articleCountBefore": 145,
     "articleCountDelta": 0,
     "hiddenFeed": {
-      "type": "file",
-      "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785500746521-8c526c.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"I asked, you answered: here’s whether you think the Nintendo Switch 2 is a hit or a flop, plus thoughts from industry in\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Nghề cho thuê khuôn mặt thời AI: vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Reviews Recap\" because it failed trusted-source fallback: title Holding source-draft article \"Disney+ just lost 4K and all HDR support in parts of Europe, so you have to ask what the point of a Premium subscription\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Reviews Recap\" because it failed publish readiness: title Holding source-draft article \"Disney+ just lost 4K and all HDR support in parts of Europe, so you have to ask what the point of a Premium subscription\" because it failed publish readiness: sourceBreadth, sourceVariety",
-      "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "url": ""
+      "type": "single-url",
+      "generated": false,
+      "output": "Using Telegram submitted source URL.",
+      "warnings": "",
+      "path": "",
+      "url": "https://www.facebook.com/share/p/1J9nQtNFEJ/?mibextid=wwXIfr"
     },
     "refresh": {
       "ok": true,
       "exitCode": 0,
-      "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"I asked, you answered: here’s whether you think the Nintendo Switch 2 is a hit or a flop, plus thoughts from industry in\" because it failed publish readiness: narrativeFlow Holding normalized article \"Nghề cho thuê khuôn mặt thời AI: vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "mode": "telegram-link",
+      "output": "Newsroom already up to date from telegram-link at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": ""
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-31T12:27:05.141Z",
+      "reviewedAt": "2026-07-31T12:27:39.409Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
