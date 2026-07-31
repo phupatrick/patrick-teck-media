@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-31T04:43:10.737Z",
-    "finishedAt": "2026-07-31T04:44:29.760Z",
+    "startedAt": "2026-07-31T07:36:05.154Z",
+    "finishedAt": "2026-07-31T07:37:18.352Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 140,
-    "articleCountBefore": 138,
-    "articleCountDelta": 2,
+    "totalArticles": 141,
+    "articleCountBefore": 140,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785472990778-9c561f.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"[Interview] [Galaxy Unpacked July 2026] Intelligent Eyewear: The First Step Toward the Next Mobile AI Interface\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Bật chế độ máy bay hay tắt dữ liệu di động giúp tiết kiệm pin hơn\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple Says App Store Changes and Mobile Gaming Softness Affected Services Revenue\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Nghề cho thuê khuôn mặt thời AI: vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785483365187-734a79.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"[Interview] [Galaxy Unpacked July 2026] Intelligent Eyewear: The First Step Toward the Next Mobile AI Interface\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Lý do Google Maps dễ chỉ sai khi dẫn đường ở vùng quê\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple Says App Store Changes and Mobile Gaming Softness Affected Services Revenue\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Nghề cho thuê khuôn mặt thời AI: vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"[Interview] [Galaxy Unpacked July 2026] Intelligent Eyewear: The First Step Toward the Next Mobile AI Interface\" because it failed publish readiness: narrativeFlow Holding normalized article \"Bật chế độ máy bay hay tắt dữ liệu di động giúp tiết kiệm pin hơn\" because it failed publish readiness: narrativeFlow Holding normalized article \"Apple Says App Store Changes and Mobile Gaming Softness Affected Services Revenue\" because it failed publish readiness: narrativeFlow Holding normalized article \"Nghề cho thuê khuôn mặt thời AI: vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Apple Says App Store Changes and Mobile Gaming Softness Affected Services Revenue\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"[Interview] [Galaxy Unpacked July 2026] Intelligent Eyewear: The First Step Toward the Next Mobile AI Interface\" because it failed publish readiness: narrativeFlow Holding normalized article \"Lý do Google Maps dễ chỉ sai khi dẫn đường ở vùng quê\" because it failed publish readiness: narrativeFlow Holding normalized article \"Apple Says App Store Changes and Mobile Gaming Softness Affected Services Revenue\" because it failed publish readiness: narrativeFlow Holding normalized article \"Nghề cho thuê khuôn mặt thời AI: vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Apple Says App Store Changes and Mobile Gaming Softness Affected Services Revenue\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 144 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 145 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-31T04:44:29.741Z",
+      "reviewedAt": "2026-07-31T07:37:18.339Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
