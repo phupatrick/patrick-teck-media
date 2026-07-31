@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-31T22:31:57.889Z",
-    "finishedAt": "2026-07-31T22:33:05.898Z",
+    "startedAt": "2026-07-31T23:41:35.013Z",
+    "finishedAt": "2026-07-31T23:42:54.000Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 156,
+    "totalArticles": 158,
     "articleCountBefore": 156,
-    "articleCountDelta": 0,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785537117930-a3865c.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Android 17 QPR1 Beta 8 just landed with all of Google’s latest fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding source-draft article \"Sony Is Paying Out $7.85M in PlayStation Store Credit. Here’s How to Claim Part of the Settlement\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Claude published malicious code to the Internet and attacked 3 real companies\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Android 17 QPR1 Beta 8 just landed with all of Google’s latest fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Sony Is Paying Out $7.85M in PlayStation Store Credit. Here’s How to Claim Part of the Settlement\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Claude published malicious code to the Internet and attacked 3 real companies\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785541295055-f956ba.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Thói quen mỗi tuần nên thực hiện để điện thoại bền hơn\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Saturday, August 1 (game #1650)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Android 17 QPR1 Beta 8 just landed with all of Google’s latest fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Android 17 QPR1 Beta 8 just landed with all of Google’s latest fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Android 17 QPR1 Beta 8 just landed with all of Google’s latest fixes\" because it failed publish readiness: narrativeFlow Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Android 17 QPR1 Beta 8 just landed with all of Google’s latest fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Thói quen mỗi tuần nên thực hiện để điện thoại bền hơn\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Saturday, August 1 (game #1650)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Android 17 QPR1 Beta 8 just landed with all of Google’s latest fixes\" because it failed publish readiness: narrativeFlow Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Saturday, August 1 (game #1650)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Android 17 QPR1 Beta 8 just landed with all of Google’s latest fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 160 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 162 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-31T22:33:05.882Z",
+      "reviewedAt": "2026-07-31T23:42:53.983Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
