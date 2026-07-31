@@ -4,32 +4,32 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-31T12:27:37.614Z",
-    "finishedAt": "2026-07-31T12:27:39.425Z",
+    "startedAt": "2026-07-31T14:57:46.979Z",
+    "finishedAt": "2026-07-31T14:58:54.331Z",
     "trigger": {
-      "source": "telegram-link",
-      "reason": "telegram-link:7481176582"
+      "source": "schedule",
+      "reason": "scheduled"
     }
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 145,
+    "totalArticles": 148,
     "articleCountBefore": 145,
-    "articleCountDelta": 0,
+    "articleCountDelta": 3,
     "hiddenFeed": {
-      "type": "single-url",
-      "generated": false,
-      "output": "Using Telegram submitted source URL.",
-      "warnings": "",
-      "path": "",
-      "url": "https://www.facebook.com/share/p/1J9nQtNFEJ/?mibextid=wwXIfr"
+      "type": "file",
+      "generated": true,
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785509867020-d5a5d3.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"iPhone Ultra: Apple’s first folding iPhone design, display, and release rumors\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iPhone 18 Pro & Pro Max leaks: All the biggest rumors so far\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Rocket Report: New launch rule may limit environmental regulations, Falcon 9 to hit Moon\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple Says App Store Changes and Mobile Gaming Softness Affected Services Revenue\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Nghề cho thuê khuôn mặt thời AI: vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iPhone Ultra: Apple’s first folding iPhone design, display, and release rumors\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Rocket Report: New launch rule may limit environmental regulations, Falcon 9 to hit Moon\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iPhone 18 Pro & Pro Max leaks: All the biggest rumors so far\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "url": ""
     },
     "refresh": {
       "ok": true,
       "exitCode": 0,
-      "mode": "telegram-link",
-      "output": "Newsroom already up to date from telegram-link at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": ""
+      "mode": "external-feed",
+      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"iPhone Ultra: Apple’s first folding iPhone design, display, and release rumors\" because it failed publish readiness: narrativeFlow Holding normalized article \"iPhone 18 Pro & Pro Max leaks: All the biggest rumors so far\" because it failed publish readiness: narrativeFlow Holding normalized article \"Rocket Report: New launch rule may limit environmental regulations, Falcon 9 to hit Moon\" because it failed publish readiness: narrativeFlow Holding normalized article \"Apple Says App Store Changes and Mobile Gaming Softness Affected Services Revenue\" because it failed publish readiness: narrativeFlow Holding normalized article \"Nghề cho thuê khuôn mặt thời AI: vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"iPhone Ultra: Apple’s first folding iPhone design, display, and release rumors\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"iPhone 18 Pro & Pro Max leaks: All the biggest rumors so far\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Apple Says App Store Changes and Mobile Gaming Softness Affected Services Revenue\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 149 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 152 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-31T12:27:39.409Z",
+      "reviewedAt": "2026-07-31T14:58:54.314Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
