@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-07-31T18:17:29.334Z",
-    "finishedAt": "2026-07-31T18:18:38.556Z",
+    "startedAt": "2026-07-31T20:02:35.209Z",
+    "finishedAt": "2026-07-31T20:03:45.149Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 153,
-    "articleCountBefore": 151,
+    "totalArticles": 155,
+    "articleCountBefore": 153,
     "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785521849378-2f2883.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Google may have a playful new name for the Pixel 11 Pro’s rear light\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Miss your CD collection? This wall-mounted display for Spotify and Apple Music promises to bring back its ‘feeling of co\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"LG’s bonkers 1,000Hz gaming monitor is now available for $1,000\" because it failed publish readiness: narrativeFlow Holding normalized article \"Rocket Report: New launch rule may limit environmental regulations, Falcon 9 to hit Moon\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google may have a playful new name for the Pixel 11 Pro’s rear light\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Miss your CD collection? This wall-mounted display for Spotify and Apple Music promises to bring back its of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Rocket Report: New launch rule may limit environmental regulations, Falcon 9 to hit Moon\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"LG’s bonkers 1,000Hz gaming monitor is now available for $1,000\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785528155252-a4a93e.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Here’s the screen you never want to see: One UI 9 permalocking your phone\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"CMF by Nothing's first OWS earbuds, the Clip Pro, are going to shake up August\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"LG’s bonkers 1,000Hz gaming monitor is now available for $1,000\" because it failed publish readiness: narrativeFlow Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Here’s the screen you never want to see: One UI 9 permalocking your phone\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"CMF by Nothing's first OWS earbuds, the Clip Pro, are going to shake up August\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"LG’s bonkers 1,000Hz gaming monitor is now available for $1,000\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Google may have a playful new name for the Pixel 11 Pro’s rear light\" because it failed publish readiness: narrativeFlow Holding normalized article \"Miss your CD collection? This wall-mounted display for Spotify and Apple Music promises to bring back its ‘feeling of co\" because it failed publish readiness: narrativeFlow Holding normalized article \"LG’s bonkers 1,000Hz gaming monitor is now available for $1,000\" because it failed publish readiness: narrativeFlow Holding normalized article \"Rocket Report: New launch rule may limit environmental regulations, Falcon 9 to hit Moon\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google may have a playful new name for the Pixel 11 Pro’s rear light\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Miss your CD collection? This wall-mounted display for Spotify and Apple Music promises to bring back its of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"LG’s bonkers 1,000Hz gaming monitor is now available for $1,000\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Here’s the screen you never want to see: One UI 9 permalocking your phone\" because it failed publish readiness: narrativeFlow Holding normalized article \"CMF by Nothing's first OWS earbuds, the Clip Pro, are going to shake up August\" because it failed publish readiness: narrativeFlow Holding normalized article \"LG’s bonkers 1,000Hz gaming monitor is now available for $1,000\" because it failed publish readiness: narrativeFlow Holding normalized article \"Wait—Samsung's Ballie isn't gone? Its app UI might've leaked\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Here’s the screen you never want to see: One UI 9 permalocking your phone\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"CMF by Nothing's first OWS earbuds, the Clip Pro, are going to shake up August\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"LG’s bonkers 1,000Hz gaming monitor is now available for $1,000\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 157 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 159 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-07-31T18:18:38.538Z",
+      "reviewedAt": "2026-07-31T20:03:45.133Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
