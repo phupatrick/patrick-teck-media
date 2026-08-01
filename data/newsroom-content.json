@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T17:14:56.116Z",
+  "generated_at": "2026-08-01T18:13:42.428Z",
   "articles": [
     {
       "id": "feed-58e3857462c8-en",
@@ -69,7 +69,77 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-01T17:14:56.064Z",
+        "generated_at": "2026-08-01T18:13:42.363Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-f950cbdde6b2-vi",
+      "cluster_id": "feed-f950cbdde6b2",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "chip-vi-song-giup-truyen-du-lieu-khong-day-an-toan",
+      "title": "Chip vi sóng giúp truyền dữ liệu không dây an toàn",
+      "summary": "Theo bài báo công bố hôm 29/7 trên tạp chí Nature Communications , một năm sau khi ra mắt chip \"não vi sóng\" có thể xử lý đồng thời dữ liệu siêu tốc và tín hiệu không dây, nhóm nghiên cứu đến từ Trường kỹ thuật Duffield thuộc Đại học Cornell mô tả quá trình con chip mã hóa thông tin thành ngôn ngữ riêng. Tín hiệu từ VnExpress So Hoa cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do n",
+      "dek": "Điểm đáng chú ý: Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Chip vi sóng giúp truyền dữ liệu không dây an toàn nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.",
+      "hook": "Điều cần theo dõi: Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
+      "sections": [
+        {
+          "heading": "Bối cảnh: điều gì vừa đổi",
+          "body": "Theo bài báo công bố hôm 29/7 trên tạp chí Nature Communications , một năm sau khi ra mắt chip \"não vi sóng\" có thể xử lý đồng thời dữ liệu siêu tốc và tín hiệu không dây, nhóm nghiên cứu đến từ Trường kỹ thuật Duffield thuộc Đại học Cornell mô tả quá trình con chip mã hóa thông tin thành ngôn ngữ riêng. Công nghệ này hoạt động bằng cách tận dụng cơ chế \"nhúng mã vi sóng\" để xử lý thông tin tức thời với công suất dưới 200 miliwatt, giúp bảo mật cao và tối ưu hóa hiệu suất cho các thiết bị thông minh. Tín hiệu từ VnExpress So Hoa cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay. Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định."
+        },
+        {
+          "heading": "Tác động thực tế với người đọc",
+          "body": "Theo Interesting Engineering , hiện nay, con chip có thể chuyển các luồng dữ liệu thô phức tạp thành nhiều phân đoạn vi sóng chuyên biệt, tương tự cách AI chia văn bản thành token (đơn vị văn bản nhỏ nhất) để hiểu nghĩa. Quá trình thu gọn chuỗi mã máy tính dài thành vài xung vi sóng ngắn mà chip \"não vi sóng\" khác ở đầu thu có thể đọc hiểu ngay lập tức, giúp giảm lượng dữ liệu vệ tinh cần truyền, đồng thời cho phép giao tiếp không dây nhanh chóng và an toàn hơn. Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Chip vi sóng giúp truyền dữ liệu không dây an toàn nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn. Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc."
+        },
+        {
+          "heading": "Chi tiết cần kiểm chứng",
+          "body": "Theo Bal Govind, nghiên cứu sinh tại Đại học Cornell, vì dữ liệu luôn nằm trong miền vi sóng trong suốt quá trình xử lý, một số bước tính toán gắn liền với hệ thống liên lạc truyền thống có thể lược bớt, qua đó hạ thấp yêu cầu về băng thông và mức tiêu thụ năng lượng, giải quyết hai hạn chế lớn đối với vệ tinh, máy bay không người lái và nhiều thiết bị khác. Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn. Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn."
+        },
+        {
+          "heading": "Ai nên hành động hoặc chờ",
+          "body": "Theo Cornell Chronicle , các nhà nghiên cứu sử dụng chip để tái tạo hình ảnh vệ tinh của một cơn bão nhiệt đới. Khả năng tự xử lý bằng ngôn ngữ riêng giúp chip nén dữ liệu nặng xuống 8 lần để truyền về Trái Đất nhanh hơn mà không làm mất chi tiết quan trọng. Kết quả là hình ảnh tái tạo giữ được những đặc điểm chính của cơn bão. Khả năng trên đặc biệt giá trị đối với vệ tinh nhỏ thường gặp khó khăn trong việc gửi tệp ảnh lớn về Trái Đất do hạn chế về năng lượng và quy định băng thông nghiêm ngặt. Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động. Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận."
+        },
+        {
+          "heading": "Điều cần theo dõi tiếp",
+          "body": "Một ưu thế khác của con chip là khả năng bảo mật tuyệt đối. Do ngôn ngữ được định hình bởi các đặc tính vật lý vi mô độc nhất của cấu trúc chip, tín hiệu truyền đi không thể bị hack hoặc giải mã bởi bất kỳ thiết bị nào khác, trừ khi sử dụng con chip có cùng cấu hình chính xác. Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời. Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "VnExpress So Hoa",
+          "source_url": "https://vnexpress.net/chip-vi-song-giup-truyen-du-lieu-khong-day-an-toan-5103726.html",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-01T17:00:00.000Z",
+          "image_url": "https://i2-vnexpress.vnecdn.net/2026/07/31/VNEChip-1785476318-5798-1785476437.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=_Yyo8G7lUtuGD7DB9Bj4-w",
+          "image_caption": "Ảnh tham khảo từ VnExpress So Hoa.",
+          "image_credit": "VnExpress So Hoa"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-01T17:00:00.000Z",
+      "updated_at": "2026-08-01T17:00:00.000Z",
+      "image": {
+        "src": "https://i2-vnexpress.vnecdn.net/2026/07/31/VNEChip-1785476318-5798-1785476437.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=_Yyo8G7lUtuGD7DB9Bj4-w",
+        "caption": "Ảnh tham khảo từ VnExpress So Hoa.",
+        "credit": "VnExpress So Hoa",
+        "source_url": "https://vnexpress.net/chip-vi-song-giup-truyen-du-lieu-khong-day-an-toan-5103726.html"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-01T18:13:42.363Z",
         "origin": "local-curated-rss"
       }
     },
@@ -139,7 +209,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-01T17:14:56.064Z",
+        "generated_at": "2026-08-01T18:13:42.363Z",
         "origin": "local-curated-rss"
       }
     },
@@ -281,7 +351,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-01T17:14:56.064Z",
+        "generated_at": "2026-08-01T18:13:42.363Z",
         "origin": "local-curated-rss"
       }
     },
@@ -16843,7 +16913,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-01T17:14:56.064Z",
+        "generated_at": "2026-08-01T18:13:42.363Z",
         "origin": "local-curated-rss"
       }
     }
