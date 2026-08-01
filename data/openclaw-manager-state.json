@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-01T04:38:58.013Z",
-    "finishedAt": "2026-08-01T04:40:01.230Z",
+    "startedAt": "2026-08-01T07:14:33.131Z",
+    "finishedAt": "2026-08-01T07:15:41.512Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,12 +14,12 @@
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 163,
-    "articleCountBefore": 160,
-    "articleCountDelta": 3,
+    "articleCountBefore": 163,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785559138055-7928d6.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785568473177-c02275.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Galaxy Z Fold8 thu hút người mua trẻ tuổi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cựu kỹ sư Microsoft viết lại Windows Task Manager cho macOS\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Người dùng Galaxy S25 đón tin vui từ One UI 9\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Số lỗi Chrome phát hiện trong một tháng nhiều hơn hai năm cộng lại nhờ AI\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Số lỗi Chrome phát hiện trong một tháng nhiều hơn hai năm cộng lại nhờ AI\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-01T04:40:01.214Z",
+      "reviewedAt": "2026-08-01T07:15:41.495Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
