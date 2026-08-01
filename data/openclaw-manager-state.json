@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-01T09:23:26.830Z",
-    "finishedAt": "2026-08-01T09:24:46.422Z",
+    "startedAt": "2026-08-01T10:56:35.744Z",
+    "finishedAt": "2026-08-01T10:57:39.336Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 165,
-    "articleCountBefore": 163,
-    "articleCountDelta": 2,
+    "totalArticles": 168,
+    "articleCountBefore": 165,
+    "articleCountDelta": 3,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785576206869-19a404.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft tập trung cải thiện hiệu suất Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Garmin Forerunner 170 - smartwatch cá nhân hóa cho người chạy bộ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Người dùng Galaxy S25 đón tin vui từ One UI 9\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to watch Richard E. Grant’s Very Modern Odyssey online for FREE – stream actor's epic travelogue from anywhere\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to watch Richard E. Grant’s Very Modern Odyssey online for FREE – stream actor's epic travelogue from anywhere\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785581795785-9c1954.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"AMD is apparently gearing up to raise GPU prices right after Nvidia’s steep hike\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Ứng dụng công nghệ và dữ liệu để bảo vệ bản quyền số trên internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Alienware 15 Gaming Laptop Review: Hedging Its Bets\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft tập trung cải thiện hiệu suất Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Người dùng Galaxy S25 đón tin vui từ One UI 9\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"AMD is apparently gearing up to raise GPU prices right after Nvidia’s steep hike\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Alienware 15 Gaming Laptop Review: Hedging Its Bets\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Microsoft tập trung cải thiện hiệu suất Windows 11\" because it failed publish readiness: narrativeFlow Holding normalized article \"Garmin Forerunner 170 - smartwatch cá nhân hóa cho người chạy bộ\" because it failed publish readiness: narrativeFlow Holding normalized article \"Người dùng Galaxy S25 đón tin vui từ One UI 9\" because it failed publish readiness: narrativeFlow Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"AMD is apparently gearing up to raise GPU prices right after Nvidia’s steep hike\" because it failed publish readiness: narrativeFlow Holding normalized article \"Ứng dụng công nghệ và dữ liệu để bảo vệ bản quyền số trên internet\" because it failed publish readiness: narrativeFlow Holding normalized article \"Alienware 15 Gaming Laptop Review: Hedging Its Bets\" because it failed publish readiness: narrativeFlow Holding normalized article \"Microsoft tập trung cải thiện hiệu suất Windows 11\" because it failed publish readiness: narrativeFlow Holding normalized article \"Người dùng Galaxy S25 đón tin vui từ One UI 9\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"AMD is apparently gearing up to raise GPU prices right after Nvidia’s steep hike\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Alienware 15 Gaming Laptop Review: Hedging Its Bets\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 169 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 172 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-01T09:24:46.407Z",
+      "reviewedAt": "2026-08-01T10:57:39.320Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
