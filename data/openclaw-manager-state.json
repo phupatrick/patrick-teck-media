@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-02T07:30:07.708Z",
-    "finishedAt": "2026-08-02T07:31:19.296Z",
+    "startedAt": "2026-08-02T09:35:48.707Z",
+    "finishedAt": "2026-08-02T09:37:24.806Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 181,
-    "articleCountBefore": 180,
-    "articleCountDelta": 1,
+    "totalArticles": 185,
+    "articleCountBefore": 181,
+    "articleCountDelta": 4,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785655807751-d1cf29.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Danh tính công ty bí ẩn đứng sau tham vọng chế tạo máy EUV của Trung Quốc\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Giá Bitcoin hôm nay 2.8.2026: Làn sóng sa thải lan khắp thị trường tiền số\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cảnh báo loại ốp lưng có thể khiến điện thoại nhanh xuống cấp\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Your daily coffee is over 90% water, and tap water could be ruining your best beans — experts explain how to choose the \" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed publish readiness: sourceBreadth, sourceVariety, sourceNameBalance Holding source-draft article \"Your daily coffee is over 90% water, and tap water could be ruining your best beans — experts explain how to choose the \" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785663348751-00858c.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Google pulling Nano Banana from Google Earth after one day shows how bad our AI misinformation problem has got\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"CBDC - tiền kỹ thuật số quốc gia Việt Nam nghiên cứu là gì\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Less paper, less hassle — the iScanner App is just $39.99\" because it failed publish readiness: narrativeFlow Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed publish readiness: sourceBreadth, sourceVariety, sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Danh tính công ty bí ẩn đứng sau tham vọng chế tạo máy EUV của Trung Quốc\" because it failed publish readiness: narrativeFlow Holding normalized article \"Ayaneo’s new handheld revives the Game Boy Advance. Nintendo probably wishes it had done it first\" because it failed publish readiness: narrativeFlow Holding normalized article \"Giá Bitcoin hôm nay 2.8.2026: Làn sóng sa thải lan khắp thị trường tiền số\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cảnh báo loại ốp lưng có thể khiến điện thoại nhanh xuống cấp\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Ayaneo’s new handheld revives the Game Boy Advance. Nintendo probably wishes it had done it first\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Google pulling Nano Banana from Google Earth after one day shows how bad our AI misinformation problem has got\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"CBDC - tiền kỹ thuật số quốc gia Việt Nam nghiên cứu là gì\" because it failed publish readiness: narrativeFlow Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow Holding normalized article \"Less paper, less hassle — the iScanner App is just $39.99\" because it failed publish readiness: narrativeFlow Holding normalized article \"Ayaneo’s new handheld revives the Game Boy Advance. Nintendo probably wishes it had done it first\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Ayaneo’s new handheld revives the Game Boy Advance. Nintendo probably wishes it had done it first\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 185 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 189 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-02T07:31:19.278Z",
+      "reviewedAt": "2026-08-02T09:37:24.789Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
