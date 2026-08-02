@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-02T21:52:21.055Z",
-    "finishedAt": "2026-08-02T21:53:25.489Z",
+    "startedAt": "2026-08-02T22:52:57.162Z",
+    "finishedAt": "2026-08-02T22:54:05.027Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 187,
+    "totalArticles": 188,
     "articleCountBefore": 187,
-    "articleCountDelta": 0,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785707541097-ec0cfa.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"CBDC - tiền kỹ thuật số quốc gia Việt Nam nghiên cứu là gì\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Less paper, less hassle — the iScanner App is just $39.99\" because it failed publish readiness: narrativeFlow Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed publish readiness: sourceBreadth, sourceVariety, sourceNameBalance",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785711177191-f4a0a5.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Xbox price hikes in Europe are wild and now I’m worried about Project Helix\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"CBDC - tiền kỹ thuật số quốc gia Việt Nam nghiên cứu là gì\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Less paper, less hassle — the iScanner App is just $39.99\" because it failed publish readiness: narrativeFlow Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Xbox price hikes in Europe are wild and now I’m worried about Project Helix\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed publish readiness: sourceBreadth, sourceVariety, sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow Holding normalized article \"CBDC - tiền kỹ thuật số quốc gia Việt Nam nghiên cứu là gì\" because it failed publish readiness: narrativeFlow Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow Holding normalized article \"Less paper, less hassle — the iScanner App is just $39.99\" because it failed publish readiness: narrativeFlow Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow Holding synthesized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Holding normalized article \"Xbox price hikes in Europe are wild and now I’m worried about Project Helix\" because it failed publish readiness: narrativeFlow Holding normalized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow Holding normalized article \"CBDC - tiền kỹ thuật số quốc gia Việt Nam nghiên cứu là gì\" because it failed publish readiness: narrativeFlow Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow Holding normalized article \"Less paper, less hassle — the iScanner App is just $39.99\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Xbox price hikes in Europe are wild and now I’m worried about Project Helix\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 191 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 192 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-02T21:53:25.471Z",
+      "reviewedAt": "2026-08-02T22:54:05.016Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
