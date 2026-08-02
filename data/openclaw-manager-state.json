@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-02T19:52:30.857Z",
-    "finishedAt": "2026-08-02T19:53:44.666Z",
+    "startedAt": "2026-08-02T20:51:09.381Z",
+    "finishedAt": "2026-08-02T20:52:19.225Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785700350901-33b4ca.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785703869426-c261e5.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of Innovation o\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Less paper, less hassle — the iScanner App is just $39.99\" because it failed publish readiness: narrativeFlow Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed publish readiness: sourceBreadth, sourceVariety, sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-02T19:53:44.649Z",
+      "reviewedAt": "2026-08-02T20:52:19.209Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
