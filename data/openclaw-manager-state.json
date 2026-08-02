@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-02T15:18:35.585Z",
-    "finishedAt": "2026-08-02T15:19:50.102Z",
+    "startedAt": "2026-08-02T16:27:35.139Z",
+    "finishedAt": "2026-08-02T16:28:40.098Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 186,
+    "totalArticles": 187,
     "articleCountBefore": 186,
-    "articleCountDelta": 0,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785683915626-b80d80.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of Innovation o\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Google pulling Nano Banana from Google Earth after one day shows how bad our AI misinformation problem has got\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"CBDC - tiền kỹ thuật số quốc gia Việt Nam nghiên cứu là gì\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Is your home safe this summer? Security tech expert Chris Price shows how to expand a single camera into a budget-friend\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Is your home safe this summer? Security tech expert Chris Price shows how to expand a single camera into a budget-friend\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785688055183-95b11f.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of Innovation o\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Less paper, less hassle — the iScanner App is just $39.99\" because it failed publish readiness: narrativeFlow Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Is your home safe this summer? Security tech expert Chris Price shows how to expand a single camera into a budget-friend\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Is your home safe this summer? Security tech expert Chris Price shows how to expand a single camera into a budget-friend\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of Innovation o\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google pulling Nano Banana from Google Earth after one day shows how bad our AI misinformation problem has got\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"CBDC - tiền kỹ thuật số quốc gia Việt Nam nghiên cứu là gì\" because it failed publish readiness: narrativeFlow Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow Holding synthesized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Holding normalized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow Holding normalized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of Innovation o\" because it failed publish readiness: narrativeFlow Holding normalized article \"5 lý do khiến người dùng 'quay lưng' với Windows 11\" because it failed publish readiness: narrativeFlow Holding normalized article \"Less paper, less hassle — the iScanner App is just $39.99\" because it failed publish readiness: narrativeFlow Holding normalized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow Holding synthesized article \"MacBook Air reportedly facing major supply shortages due to AI-driven memory crisis\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"‘The next major music platform should give people something to do with the music’: Spotify’s former Head of\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Một tựa game Võ Lâm 3D hoàn toàn mới thông báo Alphatest\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 190 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 191 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-02T15:19:50.087Z",
+      "reviewedAt": "2026-08-02T16:28:40.079Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
