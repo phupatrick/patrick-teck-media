@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T11:07:44.717Z",
+  "generated_at": "2026-08-02T12:16:38.978Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-08-02T11:07:44.717Z",
+    "updated_at": "2026-08-02T12:16:38.978Z",
     "confidence": 0.95,
     "totalSignals": 189,
     "eligibleArticleCount": 62,
@@ -141,6 +141,12 @@
     "lastCycleSummary": "Learned from 62 eligible article(s); 979 article(s) excluded from learning; 0 owner feedback item(s); 189 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, devices, internet-business-tech, gaming, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-08-02T12:16:38.978Z",
+      "totalSignals": 189,
+      "confidence": 0.95,
+      "summary": "Learned from 62 eligible article(s); 979 article(s) excluded from learning; 0 owner feedback item(s); 189 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, devices, internet-business-tech, gaming, security"
+    },
     {
       "generated_at": "2026-08-02T11:07:44.717Z",
       "totalSignals": 189,
@@ -374,12 +380,6 @@
       "totalSignals": 135,
       "confidence": 0.95,
       "summary": "Learned from 7 eligible article(s); 1048 article(s) excluded from learning; 0 owner feedback item(s); 135 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, apps-software, internet-business-tech, security"
-    },
-    {
-      "generated_at": "2026-07-30T19:43:53.085Z",
-      "totalSignals": 135,
-      "confidence": 0.95,
-      "summary": "Learned from 1 eligible article(s); 1054 article(s) excluded from learning; 0 owner feedback item(s); 135 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, apps-software, gaming, internet-business-tech"
     }
   ]
 }
