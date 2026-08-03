@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T20:40:15.054Z",
+  "generated_at": "2026-08-03T21:49:03.706Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,23 +8,23 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-08-03T20:40:15.054Z",
+    "updated_at": "2026-08-03T21:49:03.706Z",
     "confidence": 0.95,
-    "totalSignals": 211,
-    "eligibleArticleCount": 84,
-    "excludedArticleCount": 963,
+    "totalSignals": 214,
+    "eligibleArticleCount": 87,
+    "excludedArticleCount": 943,
     "dailyFocus": [
-      "gaming",
-      "internet-business-tech",
       "devices",
       "apps-software",
+      "gaming",
+      "internet-business-tech",
       "security"
     ],
     "topicWeights": {
-      "gaming": 32,
-      "internet-business-tech": 32,
       "devices": 32,
       "apps-software": 32,
+      "gaming": 32,
+      "internet-business-tech": 32,
       "security": 32,
       "ai": 7
     },
@@ -95,16 +95,6 @@
       },
       {
         "rank": 7,
-        "title": "Temporary Cloudflare Accounts for AI agents",
-        "href": "/en/news/temporary-cloudflare-accounts-for-ai-agents",
-        "views": 4,
-        "uniqueViews": 4,
-        "topic": "ai",
-        "contentType": "NewsArticle",
-        "sourceType": "official-site"
-      },
-      {
-        "rank": 8,
         "title": "Microsoft is laying off 4,800 employees",
         "href": "/en/news/microsoft-is-laying-off-4-800-employees",
         "views": 3,
@@ -112,6 +102,16 @@
         "topic": "gaming",
         "contentType": "NewsArticle",
         "sourceType": "press"
+      },
+      {
+        "rank": 8,
+        "title": "Gemini can now take notes in Google Meet for Google AI Pro and Ultra subscribers",
+        "href": "/en/news/gemini-can-now-take-notes-in-google-meet-for-google-ai-pro-and-ultra-subscribers",
+        "views": 3,
+        "uniqueViews": 3,
+        "topic": "ai",
+        "contentType": "NewsArticle",
+        "sourceType": "official-site"
       }
     ],
     "viewInsights": [
@@ -127,8 +127,7 @@
       "Moi bai phai co ly do dang doc trong 2 doan dau: dieu moi, ai bi anh huong, va can theo doi gi tiep.",
       "Uu tien bai co nguon du day: it nhat 3 doan lien quan, co ten san pham/cong ty, con so, rollout, gia, rui ro hoac gioi han cu the.",
       "Tach ro summary, dek va hook: summary noi fact chinh, dek noi y nghia, hook noi cau hoi tiep theo; khong dung lai cung mot cau.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
-      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
@@ -138,9 +137,15 @@
       "Khong de summary, dek, hook va section mo dau lap lai cung mot cau hoac cung cum dien dat.",
       "Khong publish bai chi ghep y roi rac; can co mach dien bien, tac dong, hanh dong va dieu can theo doi tiep."
     ],
-    "lastCycleSummary": "Learned from 84 eligible article(s); 963 article(s) excluded from learning; 0 owner feedback item(s); 211 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, internet-business-tech, devices, apps-software, security"
+    "lastCycleSummary": "Learned from 87 eligible article(s); 943 article(s) excluded from learning; 0 owner feedback item(s); 214 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, apps-software, gaming, internet-business-tech, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-08-03T21:49:03.706Z",
+      "totalSignals": 214,
+      "confidence": 0.95,
+      "summary": "Learned from 87 eligible article(s); 943 article(s) excluded from learning; 0 owner feedback item(s); 214 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, apps-software, gaming, internet-business-tech, security"
+    },
     {
       "generated_at": "2026-08-03T20:40:15.054Z",
       "totalSignals": 211,
@@ -374,12 +379,6 @@
       "totalSignals": 169,
       "confidence": 0.95,
       "summary": "Learned from 42 eligible article(s); 997 article(s) excluded from learning; 0 owner feedback item(s); 169 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, devices, internet-business-tech, gaming, security"
-    },
-    {
-      "generated_at": "2026-08-01T07:15:40.530Z",
-      "totalSignals": 167,
-      "confidence": 0.95,
-      "summary": "Learned from 40 eligible article(s); 997 article(s) excluded from learning; 0 owner feedback item(s); 167 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, apps-software, internet-business-tech, gaming, security"
     }
   ]
 }
