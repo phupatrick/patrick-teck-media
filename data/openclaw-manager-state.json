@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-03T09:57:25.594Z",
-    "finishedAt": "2026-08-03T09:58:33.025Z",
+    "startedAt": "2026-08-03T12:55:22.770Z",
+    "finishedAt": "2026-08-03T12:56:36.446Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 195,
-    "articleCountBefore": 193,
+    "totalArticles": 197,
+    "articleCountBefore": 195,
     "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785751045635-92f913.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung khởi động One UI 9.5, hé lộ những thông tin đầu tiên\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"What's new at Lego for August? 10 new sets to build — including a retro gaming classic, and everyone's favorite extra-te\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Pin silicon-carbon là gì mà cả ngành smartphone đang đua nhau sử dụng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Điểm nghẽn khi đưa AI từ giai đoạn thử nghiệm vào vận hành\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Nothing Ear (3a) Wireless Earbuds Review: Style Meets Value\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Điểm nghẽn khi đưa AI từ giai đoạn thử nghiệm vào vận hành\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed publish readiness: sourceBreadth, sourceVariety, sourceNameBalance Holding source-draft article \"Nothing Ear (3a) Wireless Earbuds Review: Style Meets Value\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 3 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785761722813-4bb3a5.json Generated OpenClaw hidden feed with 3 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Thanks, Qualcomm: This brand-new Android handheld is already getting a price hike\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Want to save $500 on a Studio Display XDR? Check out this Apple refurb\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Điểm nghẽn khi đưa AI từ giai đoạn thử nghiệm vào vận hành\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Google Search Console now lets you track social media and video content — here's how to get it up and running\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Horizon3 hits $2 billion valuation with $250M Series E as AI threats escalate\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Want to save $500 on a Studio Display XDR? Check out this Apple refurb\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Thanks, Qualcomm: This brand-new Android handheld is already getting a price hike\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Điểm nghẽn khi đưa AI từ giai đoạn thử nghiệm vào vận hành\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed publish readiness: sourceBreadth, sourceVariety, sourceNameBalance Holding source-draft article \"Google Search Console now lets you track social media and video content — here's how to get it up and running\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Horizon3 hits $2 billion valuation with $250M Series E as AI threats escalate\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Samsung khởi động One UI 9.5, hé lộ những thông tin đầu tiên\" because it failed publish readiness: narrativeFlow Holding normalized article \"What's new at Lego for August? 10 new sets to build — including a retro gaming classic, and everyone's favorite extra-te\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Pin silicon-carbon là gì mà cả ngành smartphone đang đua nhau sử dụng\" because it failed publish readiness: narrativeFlow Holding normalized article \"Điểm nghẽn khi đưa AI từ giai đoạn thử nghiệm vào vận hành\" because it failed publish readiness: narrativeFlow Holding synthesized article \"What's new at Lego for August? 10 new sets to build\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Điểm nghẽn khi đưa AI từ giai đoạn thử nghiệm vào vận hành\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 3 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Thanks, Qualcomm: This brand-new Android handheld is already getting a price hike\" because it failed publish readiness: narrativeFlow Holding normalized article \"Want to save $500 on a Studio Display XDR? Check out this Apple refurb\" because it failed publish readiness: narrativeFlow Holding normalized article \"Điểm nghẽn khi đưa AI từ giai đoạn thử nghiệm vào vận hành\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Thanks, Qualcomm: This brand-new Android handheld is already getting a price hike\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Want to save $500 on a Studio Display XDR? Check out this Apple refurb\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Điểm nghẽn khi đưa AI từ giai đoạn thử nghiệm vào vận hành\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,13 +40,13 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 199 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 201 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for devices, apps-software, internet-business-tech, ai, security, gaming.",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for devices, apps-software, ai, internet-business-tech, security, gaming.",
       "warnings": ""
     }
   },
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-03T09:58:33.007Z",
+      "reviewedAt": "2026-08-03T12:56:36.429Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
