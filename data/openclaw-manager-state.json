@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-03T21:47:56.298Z",
-    "finishedAt": "2026-08-03T21:49:04.875Z",
+    "startedAt": "2026-08-03T22:56:37.204Z",
+    "finishedAt": "2026-08-03T22:57:53.001Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 210,
-    "articleCountBefore": 207,
-    "articleCountDelta": 3,
+    "totalArticles": 211,
+    "articleCountBefore": 210,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785793676344-387dd4.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Android 17 QPR2 Beta 2 arrives for Pixel 6a and newer devices\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google may start Pixel 11 pre-orders way sooner than expected\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"I used this free Microsoft Edge feature to replace a $29 subscription, here's how it held up\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox may have a surprisingly smart plan for keeping physical games alive\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Android 17 QPR2 Beta 2 arrives for Pixel 6a and newer devices\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Xbox may have a surprisingly smart plan for keeping physical games alive\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google may start Pixel 11 pre-orders way sooner than expected\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785797797249-0b4338.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Let’s swing through the best Spider-Man: Brand New Day toys, collectibles, and gear worth adding to your web\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Android 17 QPR2 Beta 2 arrives for Pixel 6a and newer devices\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"I used this free Microsoft Edge feature to replace a $29 subscription, here's how it held up\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Android 17 QPR2 Beta 2 arrives for Pixel 6a and newer devices\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Android 17 QPR2 Beta 2 arrives for Pixel 6a and newer devices\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google may start Pixel 11 pre-orders way sooner than expected\" because it failed publish readiness: narrativeFlow Holding normalized article \"I used this free Microsoft Edge feature to replace a $29 subscription, here's how it held up\" because it failed publish readiness: narrativeFlow Holding normalized article \"Xbox may have a surprisingly smart plan for keeping physical games alive\" because it failed publish readiness: narrativeFlow Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Android 17 QPR2 Beta 2 arrives for Pixel 6a and newer devices\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google may start Pixel 11 pre-orders way sooner than expected\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Xbox may have a surprisingly smart plan for keeping physical games alive\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Let’s swing through the best Spider-Man: Brand New Day toys, collectibles, and gear worth adding to your web\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow Holding normalized article \"Android 17 QPR2 Beta 2 arrives for Pixel 6a and newer devices\" because it failed publish readiness: narrativeFlow Holding normalized article \"I used this free Microsoft Edge feature to replace a $29 subscription, here's how it held up\" because it failed publish readiness: narrativeFlow Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Let’s swing through the best Spider-Man: Brand New Day toys, collectibles, and gear worth adding to your web\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Android 17 QPR2 Beta 2 arrives for Pixel 6a and newer devices\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 214 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 215 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-03T21:49:04.857Z",
+      "reviewedAt": "2026-08-03T22:57:52.983Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
