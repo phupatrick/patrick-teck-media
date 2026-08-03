@@ -4,23 +4,23 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-03T17:27:58.488Z",
-    "finishedAt": "2026-08-03T17:29:06.799Z",
+    "startedAt": "2026-08-03T18:43:29.610Z",
+    "finishedAt": "2026-08-03T18:44:41.933Z",
     "trigger": {
-      "source": "schedule",
-      "reason": "scheduled"
+      "source": "telegram",
+      "reason": "vercel-cron"
     }
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 205,
-    "articleCountBefore": 201,
-    "articleCountDelta": 4,
+    "totalArticles": 206,
+    "articleCountBefore": 205,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785778078532-211e4d.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"No shade Sony, but Hideo Kojima is celebrating his love of physical discs with a new limited edition version of my favor\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"I tested the Samsung Galaxy Z Fold 8, and it's truly like having an iPad mini or a Kindle in your pocket\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Automated Reasoning policy refinement in Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Automated Reasoning policy refinement in Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"I tested the Samsung Galaxy Z Fold 8, and it's truly like having an iPad mini or a Kindle in your pocket\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding source-draft article \"Windows Hello vs. Enhanced Sign‑in Security: Which sign‑in method actually keeps your Windows 11 PC safer, and what's th\" because it failed publish readiness: sourceBreadth, sourceVariety, sourceNameBalance",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785782609653-91482f.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Apple's iCloud File Sharing Left Ex-Employees With Access to Secret Documents\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"No shade Sony, but Hideo Kojima is celebrating his love of physical discs with a new limited edition version of my favor\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Automated Reasoning policy refinement in Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Automated Reasoning policy refinement in Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple's iCloud File Sharing Left Ex-Employees With Access to Secret Documents\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"No shade Sony, but Hideo Kojima is celebrating his love of physical discs with a new limited edition version of my favor\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow Holding normalized article \"I tested the Samsung Galaxy Z Fold 8, and it's truly like having an iPad mini or a Kindle in your pocket\" because it failed publish readiness: narrativeFlow Holding normalized article \"Automated Reasoning policy refinement in Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Automated Reasoning policy refinement in Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"No shade Sony, but Hideo Kojima is celebrating his love of physical discs with a new limited edition version\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"I tested the Samsung Galaxy Z Fold 8, and it's truly like having an iPad mini or a Kindle in your pocket\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow Holding normalized article \"Apple's iCloud File Sharing Left Ex-Employees With Access to Secret Documents\" because it failed publish readiness: narrativeFlow Holding normalized article \"No shade Sony, but Hideo Kojima is celebrating his love of physical discs with a new limited edition version of my favor\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Automated Reasoning policy refinement in Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Automated Reasoning policy refinement in Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Apple's iCloud File Sharing Left Ex-Employees With Access to Secret Documents\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"No shade Sony, but Hideo Kojima is celebrating his love of physical discs with a new limited edition version\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 209 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 210 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-03T17:29:06.781Z",
+      "reviewedAt": "2026-08-03T18:44:41.915Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
