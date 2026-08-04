@@ -1,11 +1,103 @@
 {
-  "generated_at": "2026-08-04T18:02:58.298Z",
+  "generated_at": "2026-08-04T19:13:01.184Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-21e2ebd6510a-en",
+      "cluster_id": "feed-21e2ebd6510a",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "introducing-web-search-on-amazon-bedrock-for-foundation-model-grounding",
+      "title": "Introducing Web Search on Amazon Bedrock for foundation model grounding",
+      "summary": "When a foundation model needs to answer a question about last week’s earnings call, yesterday’s regulatory change, or this morning’s weather forecast, it needs knowledge it was never trained on. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Introducing Web Search on Amazon Bedrock for foundation model grounding should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "When a foundation model needs to answer a question about last week’s earnings call, yesterday’s regulatory change, or this morning’s weather forecast, it needs knowledge it was never trained on. Grounding the model in current web knowledge closes that gap – whether it’s powering chatbots, coding assistants, CLI tools, or enterprise applications, grounding helps answer questions beyond the model’s training and reduces hallucinations. Traditionally, connecting a model to web knowledge required developers to identify, integrate, and maintain a third-party Web Search provider, a process that delays project timelines and introduces data residency risks and operational overhead. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "At AWS New York Summit 2026, we announced the general availability of Web Search on AgentCore . Today, we are extending it further with the general availability of Web Search on Amazon Bedrock . It is a server-side built-in tool that grounds model responses in current web knowledge. With Web Search, grounding becomes a native capability of Amazon Bedrock, with no third-party vendors to onboard, no external APIs to orchestrate, and no additional third party vendor security reviews to conduct. The practical impact sits in workflow, cost, risk, or a buying decision; Introducing Web Search on Amazon Bedrock for foundation model grounding should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "In this post, we walk through what Web Search on Amazon Bedrock is, why it matters, how to enable it using the OpenAI Responses API, and how to get started with the tool. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Web Search is designed for Amazon Bedrock model inference, with the following differentiators:. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Multi-source grounding approach: Web Search is backed by a web index that Amazon operates, spanning billions of documents and refreshed continually. It combines this index with a built-in knowledge graph that anchors the entities in a domain along with the connections between them. When a question is factual in nature; say, who wrote a particular book or what year an event took place; Web Search uses the knowledge graph to answer with strong confidence, rather than leaving the model to infer the answer from extracted page text. That can help cut down on the small factual inaccuracies that tend to slip in whenever an agent assembles an answer from fragments on its own. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-web-search-on-amazon-bedrock-for-foundation-model-grounding/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-04T18:39:14.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/04/ml-21265.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-04T18:39:14.000Z",
+      "updated_at": "2026-08-04T18:39:14.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/04/ml-21265.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-web-search-on-amazon-bedrock-for-foundation-model-grounding/"
+      },
+      "draft_context": {
+        "source_title": "Introducing Web Search on Amazon Bedrock for foundation model grounding",
+        "source_name": "AWS ML Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "ai",
+        "content_type_hint": "",
+        "description": "When a foundation model needs to answer a question about last week’s earnings call, yesterday’s regulatory change, or this morning’s weather forecast, it needs knowledge it was never trained on. Grounding the model in current web knowledge closes that gap – whether it’s powering chatbots, coding assistants, CLI tools, or enterprise applications, grounding helps answer questions beyond the model’s training and reduces hallucinations. Traditionally, connecting a model to web knowledge required developers to identify, integrate, and maintain a third-party Web Search provider, a process that delays project timelines and introduces data residency risks and operational overhead. At AWS New York Summit 2026, we announced the general availability of Web Search on AgentCore . Today, we are extending it further with the general availability of Web Search on Amazon Bedrock . It is a server-side built-in tool that grounds model responses in current web knowledge. With Web Search, grounding becomes a native capability of Amazon Bedrock, with no third-party vendors to onboard, no external APIs to orchestrate, and no additional third party vendor security reviews to conduct. In this post, we walk through what Web Search on Amazon Bedrock is, why it matters, how to enable it using the OpenAI Responses API, and how to get started with the tool. What Web Search on Amazon Bedrock provides Web Search is designed for Amazon Bedrock model inference, with the following differentiators: Multi-source grounding approach: Web Search is backed by a web index that Amazon operates, spanning billions of documents and refreshed continually. It combines this index with a built-in knowledge graph that anchors the entities in a domain along with the connections between them. When a question is factual in nature; say, who wrote a particular book or what year an event took place; Web Search uses the knowledge graph to answer with strong confidence, rather than leaving the model to infer the answer from extracted page text. That can help cut down on the small factual inaccuracies that tend to slip in whenever an agent assembles an answer from fragments on its own. Context-efficient retrieval. Rather than handing the model a raw page and hoping it finds the relevant part, Web Search performs semantic snippet extraction – pulling the passages from each web page that bear on the query and returning them in a form optimized for the model’s context window. The model sees the parts that matter, with fewer tokens spent on boilerplate. Retrieval is fast, so grounded responses can be delivered with minimal latency. Single-parameter enablement. Web Search becomes a single parameter in your existing OpenAI-compatible API call, removing the need for vendor onboarding, API keys, orchestration layers, and separate SDKs. Helping with enterprise-grade compliance out of the box. By default, Web Search on Bedrock offers zero data egress, so your data never leaves your AWS environment. As we introduce new capabilities, some future features may expose data only at your explicit request. For the latest information, please refer to the Amazon Bedrock documentation . Web Search operates entirely within Amazon Bedrock’s infrastructure, supporting customers’ compliance requirements. How it works When Web Search is enabled in an API call, Bedrock handles the entire search lifecycle server-side. First, the model identifies that a query requires up-to-date web knowledge. Bedrock then formulates a search query, retrieves relevant content from Amazon’s web index and knowledge graph, and injects results – including relevant snippets, source URLs and titles – into the model’s context window. The model reasons over the retrieved content and generates a grounded response with source citations. The API returns the final response with structured citation annotations, including URL and page title for each referenced source. There’s no client-side tool-use loop to build, no external API responses to parse, and no retries or rate limits to manage – a single API call returns a grounded response. Getting started with the OpenAI Responses API The Responses API supports built-in tools natively, so Web Search can be called without defining a function schema or building a client-side loop. Enablement takes three steps: configure AWS credentials, point the OpenAI client at the bedrock-mantle endpoint, and add the Web Search tool to the request. At launch, Web Search is available for OpenAI models served through Amazon Bedrock’s next-generation inference engine. Step 1: Configure authentication and permissions. Web Search uses your existing AWS credentials – there are no separate API keys to provision. The environment must have AWS credentials available through the standard credential chain (an IAM role, the AWS CLI profile, or environment variables), which are used to authenticate requests to the bedrock-mantle endpoint. The calling identity needs two sets of permissions: Inference permissions on Amazon Bedrock, so the model call itself succeeds. Attach the AmazonBedrockMantleInferenceAccess managed policy, or grant the specific inference actions your call requires. Web Search tool permissions, so the model can call the tool during the request. At minimum grant bedrock-websearch:InvokeSearch; add bedrock-websearch:InvokeFetch to let the model read a result’s full page content. Live-web retrieval additionally requires bedrock-websearch:ExternalWebAccess, which is the default request behavior — if your identity doesn’t have it, set external_web_access: false on the tool. If InvokeSearch is denied, Web Search is effectively disabled and the model answers from its training data instead. Requests to the endpoint are authenticated with an AWS-issued bearer token, which you can mint from your existing AWS credentials using the aws-bedrock-token-generator package. This bearer token isn’t a separate API key; it’s a short-lived (up to 12 hours) credential derived from your existing AWS IAM identity via SigV4, packaged in the format the OpenAI client expects for its api_key parameter. No additional key management is required. Start from a standard call. A normal Responses API call, without grounding, looks like this: response = client.responses.create( model=\"openai.gpt-5.4\", input=\"What were the key announcements at AWS re:Invent 2025?\", ) Step 2: Enable Web Search. To ground that same call in web knowledge, add a single tools entry: tools=[{\"type\": \"web_search\", \"external_web_access\": False}] The optional external_web_access field selects where Web Search retrieves from: Amazon’s pre-indexed web corpus, or live content fetched directly from the web. Today only indexed-web retrieval is served; live-web retrieval will be enabled in a future update, and the parameter is already in the API so your code won’t need to change. The default is true, which requires the bedrock-websearch:ExternalWebAccess permission. The examples below set false, which needs no additional permission. Step 3: Read the grounded response with citations. Putting it together, here’s the complete end-to-end example, including how to extract the source citations: from openai import OpenAI from aws_bedrock_token_generator import provide_token REGION = \"us-east-1\" client = OpenAI( base_url=f\"https://bedrock-mantle.{REGION}.api.aws/openai/v1\", api_key=provide_token(region=REGION), ) response = client.responses.create( model=\"openai.gpt-5.4\", input=\"What were the key announcements at AWS re:Invent 2025?\", tools=[{\"type\": \"web_search\", \"external_web_access\": False}], ) searches = [item for item in response.output if item.type == \"web_search_call\"] print(f\"Retrieval steps: {len(searches)}\") for call in searches: if call.action.type == \"search\": print(f\" search: {call.action.queries}\") elif call.action.type == \"open_page\": print(f\" open_page: {call.action.url}\") for item in response.output: if item.type == \"message\": for content in item.content: if content.type == \"output_text\": print(content.text) for citation in content.annotations or []: if citation.type == \"url_citation\": print(f\" [{citation.title}] {citation.url}\") The above code produces the following output (abridged): Retrieval steps: 2 search: ['AWS re:Invent 2025 key announcements official AWS blog keynote recap'] open_page: https://aws.amazon.com/blogs/aws/top-announcements-of-aws-reinvent-2025 The biggest AWS re:Invent 2025 announcements clustered around **AI agents, custom silicon/infrastructure, and developer productivity**. ... [Top announcements of AWS re:Invent 2025 | AWS News Blog] https://aws.amazon.com/... [AWS re:Invent 2025: Amazon announces Nova 2, Trainium3, frontier agents] https://... In this sample, the request includes a Web Search entry in the tools array. Bedrock executes the search server-side and returns the grounded response in a single round-trip – there is no function schema to define and no client-side loop to manage. Each citation is a url_citation object in the message content’s annotations array. Its wire shape: { \"type\": \"url_citation\", \"start_index\": 120, \"end_index\": 303, \"title\": \"Top announcements of AWS re:Invent 2025 | AWS News Blog\", \"url\": \"https://aws.amazon.com/blogs/aws/top-announcements-of-aws-reinvent-2025\" } start_index and end_index are character offsets into output_text, letting you render inline footnotes or highlight the exact span each citation supports. Auditing and observability Web Search is integrated with AWS CloudTrail out of the box. Every call to bedrock-websearch:InvokeSearch and bedrock-websearch:InvokeFetch is recorded as a management event, capturing the calling identity, timestamp, action, source identity (including any forward-access-session originator), and the account and Region context of the request. Access-denied outcomes are always logged, and each AccessDeniedException event includes the specific condition key that caused the denial — which makes IAM misconfigurations easy to diagnose without turning on additional trails. By design, CloudTrail does not record the query text, the URLs returned by search, or the raw page content retrieved by fetch. Query text is treated the same way as an inference prompt and is never exposed in trail events. Combined with in-Region processing and zero data egress, this gives security and compliance teams a full audit trail of who used the tool when, without exposing what end users searched for. Conclusion Web Search on Amazon Bedrock removes the undifferentiated heavy lifting of connecting foundation models to up-to-date web knowledge. It delivers context-efficient, multi-source grounded results with low-latency, and simple enablement through a single API parameter – so developers can add web grounding without managing vendors, orchestration, or compliance reviews. Web Search on Bedrock is generally available in US, with in-region query handling in us-east-1 , us-east-2 and us-west-2 . For pricing details, see the Amazon Bedrock pricing page . To get started, see the Web Search documentation for complete API references and examples. About the authors Anuj Jauhari Anuj is a Senior Product Marketing Manager, Technical at AWS, helping customers realize business outcomes with generative AI. Vadim Omeltchenko Vadim is a Senior AI/ML Solutions Architect who is passionate about helping AWS customers innovate in the cloud. His prior IT experience was predominantly on the ground. Priya Holikatti Priya is a Senior Technical Product Manager at Amazon AGI, building web search capabilities that connect AI agents and models to real-time, trustworthy web knowledge. Rashim Gupta Rashim Gupta is a Senior Manager of Technical Product Management for Amazon Bedrock at AWS, where he leads the team building the features customers use to develop and run production applications on Bedrock. Omar Abdelwahab Omar is a Technical Product Marketing Manager at Amazon Web Services (AWS), Where he focuses on AI products including Agentic AI and Web Search. He holds a Ph.D. in Computer Science and enjoys working at the intersection of AI, technology, and go-to-market strategy to help customers build innovative applications.",
+        "paragraphs": [
+          "When a foundation model needs to answer a question about last week’s earnings call, yesterday’s regulatory change, or this morning’s weather forecast, it needs knowledge it was never trained on. Grounding the model in current web knowledge closes that gap – whether it’s powering chatbots, coding assistants, CLI tools, or enterprise applications, grounding helps answer questions beyond the model’s training and reduces hallucinations.  Traditionally, connecting a model to web knowledge required developers to identify, integrate, and maintain a third-party Web Search provider, a process that delays project timelines and introduces data residency risks and operational overhead.",
+          "At AWS New York Summit 2026, we announced the general availability of Web Search on AgentCore . Today, we are extending it further with the general availability of Web Search on Amazon Bedrock . It is a server-side built-in tool that grounds model responses in current web knowledge. With Web Search, grounding becomes a native capability of Amazon Bedrock, with no third-party vendors to onboard, no external APIs to orchestrate, and no additional third party vendor security reviews to conduct.",
+          "In this post, we walk through what Web Search on Amazon Bedrock is, why it matters, how to enable it using the OpenAI Responses API, and how to get started with the tool.",
+          "Web Search is designed for Amazon Bedrock model inference, with the following differentiators:",
+          "Multi-source grounding approach: Web Search is backed by a web index that Amazon operates, spanning billions of documents and refreshed continually. It combines this index with a built-in knowledge graph that anchors the entities in a domain along with the connections between them. When a question is factual in nature; say, who wrote a particular book or what year an event took place; Web Search uses the knowledge graph to answer with strong confidence, rather than leaving the model to infer the answer from extracted page text. That can help cut down on the small factual inaccuracies that tend to slip in whenever an agent assembles an answer from fragments on its own.",
+          "Single-parameter enablement. Web Search becomes a single parameter in your existing OpenAI-compatible API call, removing the need for vendor onboarding, API keys, orchestration layers, and separate SDKs."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=2103",
+        "link": "https://aws.amazon.com/blogs/machine-learning/introducing-web-search-on-amazon-bedrock-for-foundation-model-grounding/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-04T19:13:01.184Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-dcbed97048ec-en",
       "cluster_id": "feed-dcbed97048ec",
@@ -91,7 +183,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-04T18:02:58.298Z",
+        "generated_at": "2026-08-04T19:13:01.184Z",
         "origin": "local-curated-rss"
       }
     },
@@ -182,98 +274,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-04T18:02:58.298Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-5dc182ff0fa4-en",
-      "cluster_id": "feed-5dc182ff0fa4",
-      "language": "en",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "slug": "automated-web-insight-extraction-with-amazon-bedrock-agentcore",
-      "title": "Automated web insight extraction with Amazon Bedrock AgentCore",
-      "summary": "Extracting insights from dozens of websites often means manually checking each one, a process that quickly becomes overwhelming. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Automated web insight extraction with Amazon Bedrock AgentCore should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
-      "sections": [
-        {
-          "heading": "Context: what changed",
-          "body": "Extracting insights from dozens of websites often means manually checking each one, a process that quickly becomes overwhelming. Design teams need to track competitor products, marketing teams want to monitor content trends, and product managers need to stay on top of market intelligence. But doing this manually means someone has to visit sites, copy content, and organize information before real analysis can begin. Rule-based scrapers offer some automation, but they are tightly coupled to page structure. A site redesign or a migration to a JavaScript-rendered frontend can silently break the pipeline for days before the team notices. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Amazon Bedrock AgentCore is a platform to build, connect, and optimize agents at scale, with any framework or model. The solution in this post uses the AgentCore Browser, a capability of Amazon Bedrock AgentCore. This fully managed browser service renders JavaScript-heavy pages reliably, so your pipeline is more resilient when websites change. The practical impact sits in workflow, cost, risk, or a buying decision; Automated web insight extraction with Amazon Bedrock AgentCore should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
-        },
-        {
-          "heading": "Details worth verifying",
-          "body": "This post demonstrates how to deploy an automated insight extraction solution using Amazon Bedrock AgentCore Browser, Amazon Bedrock for AI-powered analysis, Amazon OpenSearch Serverless for semantic search, and AWS Lambda for orchestration. You build a system that monitors RSS feeds, retrieves web content using the AgentCore managed browser, extracts insights with AI, and makes everything searchable through a web interface. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
-        },
-        {
-          "heading": "Who should act or wait",
-          "body": "This solution was built for design and product teams who need to track industry trends, but the architecture applies to broader scenarios:. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "At the end of this post, you will understand how the event-driven architecture separates content collection from AI processing, how the browser automation in Amazon Bedrock AgentCore handles JavaScript-heavy pages, and how vector embeddings in Amazon OpenSearch Serverless power semantic search across your collected insights. The complete implementation is available in this GitHub repository . A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        }
-      ],
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "creator-software-stack"
-      ],
-      "source_set": [
-        {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/automated-web-insight-extraction-with-amazon-bedrock-agentcore/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-08-04T16:02:21.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/04/ml-20018.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-08-04T16:02:21.000Z",
-      "updated_at": "2026-08-04T16:02:21.000Z",
-      "image": {
-        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/04/ml-20018.png",
-        "caption": "Reference image from AWS ML Blog.",
-        "credit": "AWS ML Blog",
-        "source_url": "https://aws.amazon.com/blogs/machine-learning/automated-web-insight-extraction-with-amazon-bedrock-agentcore/"
-      },
-      "draft_context": {
-        "source_title": "Automated web insight extraction with Amazon Bedrock AgentCore",
-        "source_name": "AWS ML Blog",
-        "source_type": "official-site",
-        "trust_tier": "official",
-        "topic_hint": "ai",
-        "content_type_hint": "",
-        "description": "Extracting insights from dozens of websites often means manually checking each one, a process that quickly becomes overwhelming. Design teams need to track competitor products, marketing teams want to monitor content trends, and product managers need to stay on top of market intelligence. But doing this manually means someone has to visit sites, copy content, and organize information before real analysis can begin. Rule-based scrapers offer some automation, but they are tightly coupled to page structure. A site redesign or a migration to a JavaScript-rendered frontend can silently break the pipeline for days before the team notices. Amazon Bedrock AgentCore is a platform to build, connect, and optimize agents at scale, with any framework or model. The solution in this post uses the AgentCore Browser, a capability of Amazon Bedrock AgentCore. This fully managed browser service renders JavaScript-heavy pages reliably, so your pipeline is more resilient when websites change. This post demonstrates how to deploy an automated insight extraction solution using Amazon Bedrock AgentCore Browser, Amazon Bedrock for AI-powered analysis, Amazon OpenSearch Serverless for semantic search, and AWS Lambda for orchestration. You build a system that monitors RSS feeds, retrieves web content using the AgentCore managed browser, extracts insights with AI, and makes everything searchable through a web interface. Use cases This solution was built for design and product teams who need to track industry trends, but the architecture applies to broader scenarios: Competitive intelligence : Track competitor blogs, product announcements, and press releases. The AI can identify new features, pricing changes, or strategic shifts. Market research : Monitor industry news, analyst reports, and trade publications. Search for emerging trends or technologies relevant to your business. Content curation : Aggregate content from multiple sources and let the AI identify the most relevant pieces for your audience. Compliance monitoring : Watch regulatory websites and news sources for changes that might affect your business. What you will learn At the end of this post, you will understand how the event-driven architecture separates content collection from AI processing, how the browser automation in Amazon Bedrock AgentCore handles JavaScript-heavy pages, and how vector embeddings in Amazon OpenSearch Serverless power semantic search across your collected insights. The complete implementation is available in this GitHub repository . If you are new to the services used in this solution, the following resources provide foundational context: Amazon Bedrock AgentCore Browser Amazon OpenSearch Serverless developer guide Solution architecture The architecture follows an event-driven pattern that separates content collection from processing. The following diagram illustrates the end-to-end system, organized into three functional layers. Figure 1 — Architecture diagram for the automated web insight extraction system How the solution works RSS feed collection: An Amazon EventBridge schedule triggers an AWS Lambda function every 15 minutes to check configured RSS feeds for new articles and deduplicate against Amazon Simple Storage Service (Amazon S3). Browser-based content retrieval: For each new article, the Lambda function opens a browser session through Amazon Bedrock AgentCore and connects to it using Playwright over the Chrome DevTools Protocol (CDP). Unlike standard HTTP requests, the remote browser renders the full page including JavaScript-heavy content, waits for dynamic elements to load, takes a screenshot, and downloads images. This is the step that makes the rest of the pipeline possible: without reliable page rendering, the AI extraction downstream would receive incomplete or broken content. The artifacts are uploaded to Amazon S3 in a structured format. Event-driven processing: Amazon S3 upload events publish messages to an Amazon Simple Queue Service (Amazon SQS) queue, and a second Lambda function extracts clean text from the raw HTML. AI-powered insight extraction: Amazon Bedrock generates summaries, identifies themes and entities, extracts actionable insights, and creates vector embeddings from the cleaned content. Indexing and semantic search: The enriched results are indexed into Amazon OpenSearch Serverless, which supports both keyword and vector search. User and API access: End users authenticate through Amazon Cognito and access a React-based frontend on Amazon Elastic Container Service (Amazon ECS) with AWS Fargate . For programmatic access, a Model Context Protocol (MCP) server on Amazon ECS with Fargate exposes the system through Amazon CloudFront . MCP is an open standard that lets AI assistants and tools connect to external data sources through a unified interface. Solution components The following sections describe the main components of the solution. Content collection and browser automation The RSS sync Lambda function does more than fetch feeds. It parses each RSS feed, filters for articles published within a configurable time window (24 hours by default), and deduplicates using a URL hash as a unique ID in Amazon S3. For new articles, the function opens a remote browser session through Amazon Bedrock AgentCore and connects via Playwright over CDP. This isn’t a headless browser running in Lambda. It is a managed browser service: AgentCore hosts the remote browser, and Playwright controls it through a WebSocket connection. The browser renders the full page, waits for JavaScript to load, and captures the complete rendered output. The function then extracts images from the page, downloads them, and uploads everything to Amazon S3 in a structured format: s3://bucket/ └── example.com/ └── abc123def456/ # URL hash ├── article.html # Full HTML ├── screenshot.png # Page screenshot ├── metadata.json # Article metadata └── images/ # Captured images ├── image1.jpg └── image2.jpg The metadata.json file includes the original URL, title, timestamp, and references to downloaded assets. When the metadata file is uploaded to Amazon S3, it triggers the processing pipeline automatically. This separation means content collection and AI processing scale independently. If you’re monitoring dozens of RSS feeds, the collection Lambda function handles them concurrently while the Amazon SQS queue with a dead-letter queue provides automatic retries for processing failures. AI-powered content analysis The idea extraction Lambda function preprocesses HTML to reduce token consumption, a step that significantly improves the consistency of AI-generated output. When it receives a message from Amazon SQS, it pulls the HTML from Amazon S3 and runs it through a preprocessing step. Large HTML files (over 1 MB) get simplified using html-to-text to avoid token limits. Smaller files use Mozilla’s Readability library, which does a better job of extracting the main content and identifying the primary image. The cleaned content then goes to Amazon Bedrock with a customizable prompt. You can use models supported by Amazon Bedrock. For model availability by AWS Region, refer to Supported models by AWS Region in Amazon Bedrock . The prompt asks the AI to extract: A concise summary. Key themes and topics. Main entities (people, companies, products). Relevant categories. Actionable insights. The Lambda function also generates vector embeddings for semantic search, so you can find related content even when the exact words don’t match. The function writes everything to Amazon OpenSearch Serverless: the original content, AI-extracted metadata, and the embedding vector. The index is configured for both keyword and vector search. A query like “what are emerging design trends” returns relevant results even if those exact words don’t appear in the source content. Responsible AI controls Because this pipeline sends third-party web content to a foundation model and publishes the AI-generated output to your team, production deployments should include safeguards around the extraction step. Amazon Bedrock Guardrails lets you apply these controls without changing the extraction prompt: Content filtering blocks harmful or inappropriate material that may appear in scraped web pages before it reaches your searchable index. Denied topics and word filters keep the extracted insights within the scope your teams expect, which matters when source feeds are outside your control. Contextual grounding checks validate that generated summaries and insights are grounded in the source article, reducing the risk of hallucinated claims being indexed as facts. Because the pipeline ingests content from external websites, treat the scraped text as untrusted input: guardrails act as a control point between raw web content and the insights your organization consumes. Web interface and programmatic access The React-based frontend with Amazon Cognito authentication provides a search interface where teams can browse and explore insights. The MCP server provides an API layer for integration with other AI tools, supporting programmatic search and retrieval through Amazon CloudFront. MCP is an open standard that defines how AI assistants discover and call external tools, so other AI agents in your organization can query the insight database directly. Processing components run within an Amazon Virtual Private Cloud (Amazon VPC), with Amazon CloudWatch providing observability and AWS Identity and Access Management (IAM) enforcing least privilege access. Lessons learned Building a real-world insight extraction pipeline involves more than wiring together managed services. A few architectural decisions had outsized impact on cost, reliability, and output quality, and are worth calling out explicitly. AgentCore Browser sessions are powerful but expensive. In our test, each Playwright render through Amazon Bedrock AgentCore takes 10–30 seconds and costs significantly more than a plain HTTP request. URL hashing for deduplication (checking Amazon S3 before triggering a new AgentCore session) is essential to keep costs manageable at scale. The tradeoff is worth it: AgentCore reliably captures pages that would break a standard scraper, which is the foundation the rest of the pipeline depends on. Raw HTML is a poor input for LLMs. Clean HTML before you send it to Amazon Bedrock to reduce token consumption and improve the consistency of AI-extracted output. This preprocessing step is not an optimization. It’s a prerequisite for reliable results. Semantic search broadens what you can find. A keyword search for “furniture trends” returns exact matches, while vector search surfaces conceptually related content regardless of terminology. For competitive intelligence or market research, embeddings are what make the search interface genuinely useful. SQS decoupling is what makes the pipeline reliable. Without it, a processing failure means the article is never analyzed. An Amazon SQS dead-letter queue between Amazon S3 and the extraction Lambda provides automatic retries, a small architectural change with significant reliability impact. Amazon OpenSearch Serverless has a real cost floor. The service requires minimum capacity units regardless of usage, which suits production workloads with consistent query volume. For lower-volume deployments, Amazon Relational Database Service (Amazon RDS) with pgvector supports the same vector search capabilities at a lower baseline cost and is worth considering as a starting point. See Amazon OpenSearch Serverless pricing details. Clean up To avoid ongoing charges, delete the resources you created. Empty the Amazon S3 content bucket. Run cdk destroy from the project directory (or delete the stack in the AWS CloudFormation console). Conclusion In this post, you learned how to build an automated insight extraction solution that transforms manual web monitoring into a searchable, AI-enriched knowledge base. The event-driven architecture decouples content collection from processing, Amazon Bedrock AgentCore handles JavaScript-heavy websites, and Amazon OpenSearch Serverless with vector embeddings powers semantic search beyond keyword matching. The complete source code, deployment guide, and configuration instructions are available in the GitHub repository . About the authors Louisa Liu Louisa is a Solutions Architect at AWS, where she works directly with customers ranging from startups to established businesses. She helps them understand their business needs and guides projects from early architecture decisions through to production, putting the latest cloud and AI technologies to work in simple, scalable architectures. Jia Ting Jia is a Senior Solutions Architect at AWS Prototyping and AI Customer Engineering (PACE), specializing in big data and agentic AI prototyping solutions across diverse industries, with deep experience in gaming and automotive sectors. Michelle Hong Michelle, PhD, works as a Web3 Industry Solutions Architect at Amazon Web Services, where she helps customers build innovative applications using a variety of AWS components. She demonstrates her expertise in machine learning, particularly in natural language processing and agentic AI, to develop data-driven solutions that optimize business processes and improve customer experiences.",
-        "paragraphs": [
-          "Extracting insights from dozens of websites often means manually checking each one, a process that quickly becomes overwhelming. Design teams need to track competitor products, marketing teams want to monitor content trends, and product managers need to stay on top of market intelligence. But doing this manually means someone has to visit sites, copy content, and organize information before real analysis can begin. Rule-based scrapers offer some automation, but they are tightly coupled to page structure. A site redesign or a migration to a JavaScript-rendered frontend can silently break the pipeline for days before the team notices.",
-          "Amazon Bedrock AgentCore is a platform to build, connect, and optimize agents at scale, with any framework or model. The solution in this post uses the AgentCore Browser, a capability of Amazon Bedrock AgentCore. This fully managed browser service renders JavaScript-heavy pages reliably, so your pipeline is more resilient when websites change.",
-          "This post demonstrates how to deploy an automated insight extraction solution using Amazon Bedrock AgentCore Browser, Amazon Bedrock for AI-powered analysis, Amazon OpenSearch Serverless for semantic search, and AWS Lambda for orchestration. You build a system that monitors RSS feeds, retrieves web content using the AgentCore managed browser, extracts insights with AI, and makes everything searchable through a web interface.",
-          "This solution was built for design and product teams who need to track industry trends, but the architecture applies to broader scenarios:",
-          "At the end of this post, you will understand how the event-driven architecture separates content collection from AI processing, how the browser automation in Amazon Bedrock AgentCore handles JavaScript-heavy pages, and how vector embeddings in Amazon OpenSearch Serverless power semantic search across your collected insights. The complete implementation is available in this GitHub repository ."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=2227",
-        "link": "https://aws.amazon.com/blogs/machine-learning/automated-web-insight-extraction-with-amazon-bedrock-agentcore/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-08-04T18:02:58.298Z",
+        "generated_at": "2026-08-04T19:13:01.184Z",
         "origin": "local-curated-rss"
       }
     },
@@ -365,7 +366,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-04T18:02:58.298Z",
+        "generated_at": "2026-08-04T19:13:01.184Z",
         "origin": "local-curated-rss"
       }
     },
@@ -455,7 +456,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-04T18:02:58.298Z",
+        "generated_at": "2026-08-04T19:13:01.184Z",
         "origin": "local-curated-rss"
       }
     }

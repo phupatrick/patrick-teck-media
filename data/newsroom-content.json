@@ -1,6 +1,78 @@
 {
-  "generated_at": "2026-08-04T18:02:58.365Z",
+  "generated_at": "2026-08-04T19:13:01.253Z",
   "articles": [
+    {
+      "id": "feed-21e2ebd6510a-en",
+      "cluster_id": "feed-21e2ebd6510a",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "introducing-web-search-on-amazon-bedrock-for-foundation-model-grounding",
+      "title": "Introducing Web Search on Amazon Bedrock for foundation model grounding",
+      "summary": "When a foundation model needs to answer a question about last week’s earnings call, yesterday’s regulatory change, or this morning’s weather forecast, it needs knowledge it was never trained on. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Introducing Web Search on Amazon Bedrock for foundation model grounding should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "When a foundation model needs to answer a question about last week’s earnings call, yesterday’s regulatory change, or this morning’s weather forecast, it needs knowledge it was never trained on. Grounding the model in current web knowledge closes that gap – whether it’s powering chatbots, coding assistants, CLI tools, or enterprise applications, grounding helps answer questions beyond the model’s training and reduces hallucinations. Traditionally, connecting a model to web knowledge required developers to identify, integrate, and maintain a third-party Web Search provider, a process that delays project timelines and introduces data residency risks and operational overhead. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "At AWS New York Summit 2026, we announced the general availability of Web Search on AgentCore . Today, we are extending it further with the general availability of Web Search on Amazon Bedrock . It is a server-side built-in tool that grounds model responses in current web knowledge. With Web Search, grounding becomes a native capability of Amazon Bedrock, with no third-party vendors to onboard, no external APIs to orchestrate, and no additional third party vendor security reviews to conduct. The practical impact sits in workflow, cost, risk, or a buying decision; Introducing Web Search on Amazon Bedrock for foundation model grounding should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "In this post, we walk through what Web Search on Amazon Bedrock is, why it matters, how to enable it using the OpenAI Responses API, and how to get started with the tool. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Web Search is designed for Amazon Bedrock model inference, with the following differentiators:. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Multi-source grounding approach: Web Search is backed by a web index that Amazon operates, spanning billions of documents and refreshed continually. It combines this index with a built-in knowledge graph that anchors the entities in a domain along with the connections between them. When a question is factual in nature; say, who wrote a particular book or what year an event took place; Web Search uses the knowledge graph to answer with strong confidence, rather than leaving the model to infer the answer from extracted page text. That can help cut down on the small factual inaccuracies that tend to slip in whenever an agent assembles an answer from fragments on its own. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-web-search-on-amazon-bedrock-for-foundation-model-grounding/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-04T18:39:14.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/04/ml-21265.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-04T18:39:14.000Z",
+      "updated_at": "2026-08-04T18:39:14.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/04/ml-21265.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-web-search-on-amazon-bedrock-for-foundation-model-grounding/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-04T19:13:01.184Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-dcbed97048ec-en",
       "cluster_id": "feed-dcbed97048ec",
@@ -67,7 +139,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-04T18:02:58.298Z",
+        "generated_at": "2026-08-04T19:13:01.184Z",
         "origin": "local-curated-rss"
       }
     },
@@ -139,7 +211,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-04T18:02:58.298Z",
+        "generated_at": "2026-08-04T19:13:01.184Z",
         "origin": "local-curated-rss"
       }
     },
@@ -495,7 +567,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-04T18:02:58.298Z",
+        "generated_at": "2026-08-04T19:13:01.184Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1237,7 +1309,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-04T18:02:58.298Z",
+        "generated_at": "2026-08-04T19:13:01.184Z",
         "origin": "local-curated-rss"
       }
     },
