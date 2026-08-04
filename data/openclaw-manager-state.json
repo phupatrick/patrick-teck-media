@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-04T00:09:01.213Z",
-    "finishedAt": "2026-08-04T00:10:13.922Z",
+    "startedAt": "2026-08-04T03:35:25.084Z",
+    "finishedAt": "2026-08-04T03:36:37.440Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 212,
-    "articleCountBefore": 211,
-    "articleCountDelta": 1,
+    "totalArticles": 216,
+    "articleCountBefore": 212,
+    "articleCountDelta": 4,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785802141257-132387.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Công ty Trung Quốc sắp tung bộ nhớ DRAM LPDDR6\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Let’s swing through the best Spider-Man: Brand New Day toys, collectibles, and gear worth adding to your web\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"I used this free Microsoft Edge feature to replace a $29 subscription, here's how it held up\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785814525128-8c6d77.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung Launches World’s First HDR10+ ADVANCED Streaming Experience on Prime Video\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Microsoft sắp giúp Windows 11 vẫn mượt mà dù chỉ với RAM 8 GB\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Telegram biến mất khỏi App Store toàn cầu, Apple và Telegram đều im lặng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Telegram biến mất khỏi App Store toàn cầu, Apple và Telegram đều im lặng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Công ty Trung Quốc sắp tung bộ nhớ DRAM LPDDR6\" because it failed publish readiness: narrativeFlow Holding normalized article \"Let’s swing through the best Spider-Man: Brand New Day toys, collectibles, and gear worth adding to your web\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow Holding normalized article \"I used this free Microsoft Edge feature to replace a $29 subscription, here's how it held up\" because it failed publish readiness: narrativeFlow Holding normalized article \"Bluesky’s new CEO wants a big tent, not a bubble\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Let’s swing through the best Spider-Man: Brand New Day toys, collectibles, and gear worth adding to your web\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Samsung Launches World’s First HDR10+ ADVANCED Streaming Experience on Prime Video\" because it failed publish readiness: narrativeFlow Holding normalized article \"Microsoft sắp giúp Windows 11 vẫn mượt mà dù chỉ với RAM 8 GB\" because it failed publish readiness: narrativeFlow Holding normalized article \"Telegram biến mất khỏi App Store toàn cầu, Apple và Telegram đều im lặng\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Telegram biến mất khỏi App Store toàn cầu, Apple và Telegram đều im lặng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 216 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 220 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-04T00:10:13.904Z",
+      "reviewedAt": "2026-08-04T03:36:37.423Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
