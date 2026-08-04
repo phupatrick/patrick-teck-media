@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-04T15:53:37.574Z",
-    "finishedAt": "2026-08-04T15:55:22.106Z",
+    "startedAt": "2026-08-04T17:44:03.899Z",
+    "finishedAt": "2026-08-04T17:45:14.978Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 227,
-    "articleCountBefore": 223,
-    "articleCountDelta": 4,
+    "totalArticles": 230,
+    "articleCountBefore": 227,
+    "articleCountDelta": 3,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785858817602-c0b994.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Amnezia VPN now supports human rights defenders with free premium VPN subscriptions\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Pixel 11 Pro Fold leak adds support for new notification light’s name\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"ESET HOME Security Ultimate Review: Great VPN, strong Mac protection\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Best USB-C hubs and adapters for Mac 2026\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"ESET HOME Security Ultimate Review: Great VPN, strong Mac protection\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best USB-C hubs and adapters for Mac 2026\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Pixel 11 Pro Fold leak adds support for new notification light’s name\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785865443943-01819e.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft delivered plenty of Windows 11 updates in July — and I'm highlighting the most important changes for your PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Best Antivirus for Mac (2026): Tested & ranked by experts\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Automated web insight extraction with Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Automated web insight extraction with Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Microsoft delivered plenty of Windows 11 updates in July\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best Antivirus for Mac (2026): Tested & ranked by experts\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Amnezia VPN now supports human rights defenders with free premium VPN subscriptions\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Pixel 11 Pro Fold leak adds support for new notification light’s name\" because it failed publish readiness: narrativeFlow Holding normalized article \"ESET HOME Security Ultimate Review: Great VPN, strong Mac protection\" because it failed publish readiness: narrativeFlow Holding normalized article \"The next Xbox may be backward compatible with every past Xbox generation, if publishers agree\" because it failed publish readiness: narrativeFlow Holding normalized article \"Best USB-C hubs and adapters for Mac 2026\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Amnezia VPN now supports human rights defenders with free premium VPN subscriptions\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Pixel 11 Pro Fold leak adds support for new notification light’s name\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"ESET HOME Security Ultimate Review: Great VPN, strong Mac protection\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"The next Xbox may be backward compatible with every past Xbox generation, if publishers agree\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Microsoft delivered plenty of Windows 11 updates in July — and I'm highlighting the most important changes for your PC\" because it failed publish readiness: narrativeFlow Holding normalized article \"Best Antivirus for Mac (2026): Tested & ranked by experts\" because it failed publish readiness: narrativeFlow Holding normalized article \"Automated web insight extraction with Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow Holding normalized article \"The next Xbox may be backward compatible with every past Xbox generation, if publishers agree\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Automated web insight extraction with Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft delivered plenty of Windows 11 updates in July\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"The next Xbox may be backward compatible with every past Xbox generation, if publishers agree\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 231 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 234 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-04T15:55:22.096Z",
+      "reviewedAt": "2026-08-04T17:45:14.961Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
