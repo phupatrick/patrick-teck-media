@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-04T09:19:22.176Z",
-    "finishedAt": "2026-08-04T09:20:30.999Z",
+    "startedAt": "2026-08-04T11:38:08.126Z",
+    "finishedAt": "2026-08-04T11:39:14.535Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 219,
-    "articleCountBefore": 217,
-    "articleCountDelta": 2,
+    "totalArticles": 222,
+    "articleCountBefore": 219,
+    "articleCountDelta": 3,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785835162221-86e86f.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Google vá một lỗi giúp người dùng Gmail tránh tình huống khó xử\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Samsung Launches World’s First HDR10+ ADVANCED Streaming Experience on Prime Video\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Rào cản khiến công nghệ QD-OLED chưa thể xuất hiện trên smartphone\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785843488170-e47878.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Best USB-C hubs and adapters for Mac 2026\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Tin đồn giá iPhone 18 Pro gây hoài nghi trước ngày ra mắt\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google vá một lỗi giúp người dùng Gmail tránh tình huống khó xử\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best USB-C hubs and adapters for Mac 2026\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Xbox 360 games are reportedly coming to PC as well\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Google vá một lỗi giúp người dùng Gmail tránh tình huống khó xử\" because it failed publish readiness: narrativeFlow Holding normalized article \"Samsung Launches World’s First HDR10+ ADVANCED Streaming Experience on Prime Video\" because it failed publish readiness: narrativeFlow Holding normalized article \"Rào cản khiến công nghệ QD-OLED chưa thể xuất hiện trên smartphone\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow Holding normalized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Microsoft is bringing Xbox 360 games to PC\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Best USB-C hubs and adapters for Mac 2026\" because it failed publish readiness: narrativeFlow Holding normalized article \"Tin đồn giá iPhone 18 Pro gây hoài nghi trước ngày ra mắt\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google vá một lỗi giúp người dùng Gmail tránh tình huống khó xử\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow Holding normalized article \"Xbox 360 games are reportedly coming to PC as well\" because it failed publish readiness: narrativeFlow Holding normalized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Post-quantum authentication to origins is now supported\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Xbox 360 games are reportedly coming to PC as well\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 223 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 226 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-04T09:20:30.982Z",
+      "reviewedAt": "2026-08-04T11:39:14.518Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
