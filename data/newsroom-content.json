@@ -1,6 +1,150 @@
 {
-  "generated_at": "2026-08-05T18:02:51.967Z",
+  "generated_at": "2026-08-05T18:50:58.368Z",
   "articles": [
+    {
+      "id": "feed-4d0a208a7f31-en",
+      "cluster_id": "feed-4d0a208a7f31",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "how-lendingtree-built-a-multi-agent-mortgage-assistant-on-amazon-bedrock",
+      "title": "How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock",
+      "summary": "Buying a home is one of the biggest financial decisions most people face, and LendingTree built a multi-agent mortgage assistant on Amazon Bedrock to make the process more straightforward. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Buying a home is one of the biggest financial decisions most people face, and LendingTree built a multi-agent mortgage assistant on Amazon Bedrock to make the process more straightforward. The assistant educates borrowers, understands their situation, and provides tailored options in a natural conversation. Borrowers must weigh purchase or refinance, conventional or government-backed, 15-year or 30-year terms, and fixed or adjustable rates. On top of that, there’s jargon like “discount points,” “origination fees,” and “debt-to-income ratio. ” It’s no wonder many people feel lost before they even start. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "LendingTree has been helping consumers sort through these choices for over 25 years, connecting millions of people with lenders to find competitive mortgage offers. The company was built on a belief that everyone deserves the tools and knowledge to make confident financial decisions. The AI-powered mortgage assistant is that next step. The practical impact sits in workflow, cost, risk, or a buying decision; How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "The solution had to meet the same standards that have guided LendingTree from day one: accurate information, transparent guidance, and rigorous protection of user data. Operating within the regulatory requirements of the mortgage industry means content filtering, personally identifiable information (PII) protection, and compliance oversight aren’t optional features. They’re non-negotiable. That made Amazon Bedrock and its built-in guardrails the right foundation. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "“Our goal was to be a trusted partner in the home-buying journey, a guide that educates consumers, understands their situation, and matches them with the right offer. The foundation models and built-in guardrails in Amazon Bedrock let us deliver that with security and compliance from the start. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Many companies in the industry have added chatbots for basic questions. LendingTree wanted to go further, answering the hard questions and matching borrowers with competitive offers. That took more than one agent. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/how-lendingtree-built-a-multi-agent-mortgage-assistant-on-amazon-bedrock/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-05T18:50:02.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/31/ML-21123-featured-image.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-05T18:50:02.000Z",
+      "updated_at": "2026-08-05T18:50:02.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/31/ML-21123-featured-image.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/how-lendingtree-built-a-multi-agent-mortgage-assistant-on-amazon-bedrock/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-05T18:50:58.301Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-3349ce35a6fb-en",
+      "cluster_id": "feed-3349ce35a6fb",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "how-mobileye-transformed-support-operations-using-amazon-bedrock-agentcore",
+      "title": "How Mobileye transformed support operations using Amazon Bedrock AgentCore",
+      "summary": "What if deploying production-grade AI agents required zero infrastructure management, came with enterprise observability built-in, and worked easily with your existing on-premises systems? The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; How Mobileye transformed support operations using Amazon Bedrock AgentCore should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "What if deploying production-grade AI agents required zero infrastructure management, came with enterprise observability built-in, and worked easily with your existing on-premises systems? The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Mobileye , the autonomous driving pioneer with more than 230 million EyeQ system-on-chips deployed across roughly 1,200 vehicle models worldwide, saw an opportunity to free skilled engineers from routine internal ticket status inquiries. The practical impact sits in workflow, cost, risk, or a buying decision; How Mobileye transformed support operations using Amazon Bedrock AgentCore should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Mobileye’s Data Collection Processing pipeline ingests thousands of drive-recording sessions daily, generating a constant stream of status inquiries from engineers and data teams. Each inquiry previously required manual steps across multiple systems – identifying sessions, cross-referencing visualization tools, validating outputs, and reviewing logs – before composing a response. Using Amazon Bedrock AgentCore, Mobileye deployed an AI Support Agent that cut response times by 90% and exceeded 95% accuracy targets, with zero infrastructure overhead. The results were so compelling that Mobileye transformed AgentCore into a self-service platform for teams across the company to deploy their own AI agents. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "In this post, we’ll explore how Mobileye deployed an AI support agentic solution on Amazon Bedrock AgentCore – from the support bottleneck that sparked the idea, through the proof of concept that validated it, to the hybrid architecture that bridges on-premises systems with AWS cloud services. This approach is relevant for enterprises struggling to scale AI Agents while maintaining enterprise grade governance and security standards. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "As Mobileye’s Data Collection pipeline scaled, 66% of support tickets became routine status inquiries requiring engineers to manually navigate 15 clicks across multiple backend systems. This time-consuming process diverted skilled engineers from complex issues while internal users faced longer wait times. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/how-mobileye-transformed-support-operations-using-amazon-bedrock-agentcore/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-05T18:09:03.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/06/23/20254.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-05T18:09:03.000Z",
+      "updated_at": "2026-08-05T18:09:03.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/06/23/20254.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/how-mobileye-transformed-support-operations-using-amazon-bedrock-agentcore/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-05T18:50:58.301Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-87075dd8cc4f-en",
       "cluster_id": "feed-87075dd8cc4f",
@@ -139,7 +283,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T18:02:51.895Z",
+        "generated_at": "2026-08-05T18:50:58.301Z",
         "origin": "local-curated-rss"
       }
     },
@@ -18479,7 +18623,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T18:02:51.895Z",
+        "generated_at": "2026-08-05T18:50:58.301Z",
         "origin": "local-curated-rss"
       }
     },
