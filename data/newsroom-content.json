@@ -1,6 +1,148 @@
 {
-  "generated_at": "2026-08-05T17:05:06.531Z",
+  "generated_at": "2026-08-05T18:02:51.967Z",
   "articles": [
+    {
+      "id": "feed-87075dd8cc4f-en",
+      "cluster_id": "feed-87075dd8cc4f",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "run-production-ai-agents-in-n8n-with-amazon-bedrock-agentcore-harness",
+      "title": "Run production AI agents in n8n with Amazon Bedrock AgentCore harness",
+      "summary": "If you build and automate workflows in n8n without writing much code, you’ve probably used its AI Agent node to add a model call to a workflow. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Run production AI agents in n8n with Amazon Bedrock AgentCore harness should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "If you build and automate workflows in n8n without writing much code, you’ve probably used its AI Agent node to add a model call to a workflow. It’s a great start. But a production agent needs more than a single model call: memory that lasts beyond one run, tools it can actually use like a browser or a code sandbox, and room to work through longer tasks. Building that scaffolding yourself is the hard part. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Amazon Bedrock AgentCore is a platform to build, connect, and optimize agents at scale, with any framework or model. AgentCore harness, a capability of Amazon Bedrock AgentCore, is now generally available and provides that scaffolding for you. A new open-source community node brings it into n8n’s visual editor. You get production agents with persistent memory, real tools, and the model provider of your choice, without writing infrastructure or agent code. You’re not tied to one model either. The node works with Amazon Bedrock, OpenAI, Google Gemini, and LiteLLM-supported providers, and you can switch providers between turns of the same conversation. The practical impact sits in workflow, cost, risk, or a buying decision; Run production AI agents in n8n with Amazon Bedrock AgentCore harness should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "In this post, you will install the node, @aws/n8n-nodes-agentcore , and build agents step by step in the n8n editor. You will start with an agent that remembers a conversation, scope memory to individual users, add a code interpreter tool, give the agent skills, and finish by running an agent privately in your own virtual private cloud (VPC). The node is open source under the MIT license, and AgentCore harness is powered by Strands Agents , the open source agent framework from AWS. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "An agent is more than a model. The model reasons, but the harness does the work around it: it runs the orchestration loop, calls tools, manages the context window, keeps state across turns, recovers from failures, and isolates each session. Building that layer is where most teams spend their time. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "AgentCore harness gives you that layer as a managed capability. You define an agent in configuration, including the model it uses, the tools it calls, the skills it has access to, and the instructions it follows, and AgentCore assembles and runs the loop for you. Each session runs in its own isolated environment with a filesystem and shell, memory across sessions, and web browsing. When configuration isn’t enough, you can export the harness to Strands code and keep running on the same system. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/run-production-ai-agents-in-n8n-with-amazon-bedrock-agentcore-harness/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-05T18:00:57.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/27/21089.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-05T18:00:57.000Z",
+      "updated_at": "2026-08-05T18:00:57.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/27/21089.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/run-production-ai-agents-in-n8n-with-amazon-bedrock-agentcore-harness/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-05T18:02:51.895Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-06a956718b6a-en",
+      "cluster_id": "feed-06a956718b6a",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "verizon-s-apple-music-perk-won-t-dodge-the-price-hike-here-s-what-you-ll-pay",
+      "title": "Verizon’s Apple Music perk won’t dodge the price hike — here’s what you’ll pay",
+      "summary": "0 • Taylor Kerns / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Verizon has confirmed it will increase the prices of some Apple Music-related perks starting September 1. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Verizon’s Apple Music perk won’t dodge the price hike — here’s what you’ll pay should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "0 • Taylor Kerns / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Verizon has confirmed it will increase the prices of some Apple Music-related perks starting September 1. Some legacy plans may be exempt from the price bumps, with the company’s support page confirming a $10. 99/month cost for some individual plans. This comes on the heels of Apple Music raising the prices of its Individual, Student, and Family plans in July. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Apple Music recently bumped the prices of its Student and Individual plans by $1/month, while the Family plan witnessed a $3/month increase. This marked the first price hike for the streaming service in nearly four years. Now, in a move that should come as no surprise to anyone, Verizon has announced a price hike for its Apple Music perk. The practical impact sits in workflow, cost, risk, or a buying decision; Verizon’s Apple Music perk won’t dodge the price hike — here’s what you’ll pay should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "A statement on Verizon’s support page for Apple Music details the increased perk rates that will go into effect on September 1. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Meanwhile, eligible users can also claim Verizon’s “Apple Music on us” with certain legacy/grandfathered plans, which unlocks six months of free access. Verizon notes that subscribers will pay $10. 99/month after six months. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "While these price hikes will come as a bitter disappointment to subscribers, Apple Music still remains cheaper than Spotify. However, Apple Music’s updated Individual subscription price of $11. 99 is now on par with YouTube Music, while its $19. 99/month Family plan costs $1 more than YouTube Music’s plan. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Android Authority",
+          "source_url": "https://www.androidauthority.com/verizon-apple-music-perk-price-hike-3694904/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-05T17:33:16.000Z",
+          "image_url": "https://www.androidauthority.com/wp-content/uploads/2026/05/motorola-moto-g-stylus-2026-apple-music.jpg",
+          "image_caption": "Reference image from Android Authority.",
+          "image_credit": "Android Authority"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-05T17:33:16.000Z",
+      "updated_at": "2026-08-05T17:33:16.000Z",
+      "image": {
+        "src": "https://www.androidauthority.com/wp-content/uploads/2026/05/motorola-moto-g-stylus-2026-apple-music.jpg",
+        "caption": "Reference image from Android Authority.",
+        "credit": "Android Authority",
+        "source_url": "https://www.androidauthority.com/verizon-apple-music-perk-price-hike-3694904/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-05T18:02:51.895Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-a4b30dc31910-en",
       "cluster_id": "feed-a4b30dc31910",
@@ -983,7 +1125,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T17:05:06.465Z",
+        "generated_at": "2026-08-05T18:02:51.895Z",
         "origin": "local-curated-rss"
       }
     },
@@ -18258,7 +18400,7 @@
       "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security should be explained through that lens before any broad claim is made.",
       "sections": [
         {
-          "heading": "What happened",
+          "heading": "Context: what changed",
           "body": "Open source software is a critical pillar of the global economy. It underpins cloud computing, financial services, manufacturing, telecommunications, government and internet services by making technology accessible and observable to communities of experts. The source signal from NVIDIA Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
         },
         {
@@ -18274,17 +18416,12 @@
           "body": "The world needs both closed and open models . For cybersecurity, open models and open harnesses are essential because they democratize defensive capabilities, increase transparency for defenders, enable cyber defense while protecting data, and complement frontier closed models with customizable, localized controls. Open source enables massively distributed community-driven and self-controlled defense – with no single point of failure. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
         },
         {
-          "heading": "What is still unclear",
+          "heading": "What to watch next",
           "body": "The recent Hugging Face security incident delivered a clear reminder: cyber defenders need open, frontier agentic systems for self-defense. When closed AI tools — unable to distinguish attackers from defenders — blocked essential forensic analysis, Hugging Face ran the open-weight GLM 5. 2 model on its own infrastructure to analyze more than 17,000 actions and contain the intrusion. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        },
-        {
-          "heading": "What happened",
-          "body": "In security coverage, the meaningful part is not just the flaw or the patch itself, but the operational risk and protection it changes. The floor is firmer here because the story is anchored by an official source, not only by second-hand reaction."
         }
       ],
       "image": {
-        "src": "https://blogs.nvidia.com/wp-content/uploads/2026/07/osaia-logo-garden_press-kit_1920x1080_V4.png",
-        "alt": "",
+        "src": "https://blogs.nvidia.com/wp-content/uploads/2026/08/osaia-logo-garden_press-kit_1920x1080_84_use.png",
         "caption": "Reference image from NVIDIA Blog.",
         "credit": "NVIDIA Blog",
         "source_url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/"
@@ -18308,7 +18445,7 @@
           "language": "en",
           "trust_tier": "official",
           "published_at": "2026-07-27T09:00:07.000Z",
-          "image_url": "https://blogs.nvidia.com/wp-content/uploads/2026/07/osaia-logo-garden_press-kit_1920x1080_V4.png",
+          "image_url": "https://blogs.nvidia.com/wp-content/uploads/2026/08/osaia-logo-garden_press-kit_1920x1080_84_use.png",
           "image_caption": "Reference image from NVIDIA Blog.",
           "image_credit": "NVIDIA Blog"
         }
@@ -18338,6 +18475,12 @@
           "noPlaceholderCopy": true,
           "cleanEncoding": true
         }
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-05T18:02:51.895Z",
+        "origin": "local-curated-rss"
       }
     },
     {
