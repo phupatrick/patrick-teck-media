@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-05T13:12:24.625Z",
-    "finishedAt": "2026-08-05T13:13:29.662Z",
+    "startedAt": "2026-08-05T15:28:33.605Z",
+    "finishedAt": "2026-08-05T15:29:49.660Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 249,
-    "articleCountBefore": 246,
-    "articleCountDelta": 3,
+    "totalArticles": 251,
+    "articleCountBefore": 249,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 3 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785935544672-8c2a49.json Generated OpenClaw hidden feed with 3 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"The Agent Access Model: the device shift worth noticing\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"WriteGuard: fine-grained controls for MCP Servers\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding source-draft article \"The Agent Access Model\" because it failed trusted-source fallback: title Holding synthesized article \"A technology story worth following right now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"WriteGuard: fine-grained controls for MCP Servers\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Pushing the limits: Infinite Machine's Olto is barely a bicycle\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding source-draft article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: sourceNameBalance Holding source-draft article \"The Agent Access Model\" because it failed publish readiness: title Holding source-draft article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite?\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785943713649-5cee12.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Hugging Face Blog: Feed Hugging Face Blog returned 429 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"When is Apple’s next event? Dates, rumors, and what to expect\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Best earbuds for iPhone 2026: Top picks for sound, comfort & value\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"When is Apple’s next event? Dates, rumors, and what to expect\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Best earbuds for iPhone 2026: Top picks for sound, comfort & value\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: sourceNameBalance Holding source-draft article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite?\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 3 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"WriteGuard: fine-grained controls for MCP Servers\" because it failed publish readiness: narrativeFlow Holding normalized article \"Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình\" because it failed publish readiness: narrativeFlow Holding normalized article \"Pushing the limits: Infinite Machine's Olto is barely a bicycle\" because it failed publish readiness: narrativeFlow Holding synthesized article \"WriteGuard: fine-grained controls for MCP Servers\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"When is Apple’s next event? Dates, rumors, and what to expect\" because it failed publish readiness: narrativeFlow Holding normalized article \"Best earbuds for iPhone 2026: Top picks for sound, comfort & value\" because it failed publish readiness: narrativeFlow Holding normalized article \"Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow Holding synthesized article \"When is Apple’s next event? Dates, rumors, and what to expect\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Best earbuds for iPhone 2026: Top picks for sound, comfort & value\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 253 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 255 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-05T13:13:29.645Z",
+      "reviewedAt": "2026-08-05T15:29:49.646Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
