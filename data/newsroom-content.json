@@ -1,6 +1,76 @@
 {
-  "generated_at": "2026-08-05T18:50:58.368Z",
+  "generated_at": "2026-08-05T20:24:52.646Z",
   "articles": [
+    {
+      "id": "feed-cfed0ea77ea8-en",
+      "cluster_id": "feed-cfed0ea77ea8",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "sunbird-s-imessage-for-android-app-returns-to-the-google-play-store",
+      "title": "Sunbird's iMessage for Android App Returns to the Google Play Store",
+      "summary": "Sunbird was previously available from late 2022 through late 2023, but the company shut it down due to security concerns. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Sunbird's iMessage for Android App Returns to the Google Play Store should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Sunbird was previously available from late 2022 through late 2023, but the company shut it down due to security concerns. The app was sending a user's Apple ID credentials to a Sunbird server to function, with the information sent unencrypted over HTTP. An attacker could intercept all Sunbird messages and media attachments, and Sunbird employees had access to a platform that stored all message content. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The app returned in an invite-only beta in April 2024, but it hasn't been publicly available until now. The practical impact sits in workflow, cost, risk, or a buying decision; Sunbird's iMessage for Android App Returns to the Google Play Store should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Sunbird says messages are encrypted on-device and in transit, and are not stored on Sunbird servers. An &zwnj;Apple ID&zwnj; is required to use Sunbird, and the company claims passwords are used once to set up a session and are then destroyed. More security information is available on Sunbird's website . The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Back when Sunbird launched, it promised features Android users didn't have, like typing indicators, read receipts, and higher-quality media. Those features are now available for Android to iPhone chats because Apple has adopted &zwnj;RCS&zwnj;, so Sunbird is mostly offering a different bubble color. iMessage through Sunbird does not register a phone number, and users will appear to contacts by email address. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Android users can try the app free for 14 days. A subscription is priced at $2. 99 per month or $24. 99 per year. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "MacRumors",
+          "source_url": "https://www.macrumors.com/2026/08/05/sunbird-imessage-for-android/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-05T19:43:28.000Z",
+          "image_url": "https://images.macrumors.com/t/wBwVDaSW3Ve9bByDwFb7yXuy5Ks=/1600x/article-new/2026/08/sunbird-app.jpg",
+          "image_caption": "Reference image from MacRumors.",
+          "image_credit": "MacRumors"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-05T19:43:28.000Z",
+      "updated_at": "2026-08-05T19:43:28.000Z",
+      "image": {
+        "src": "https://images.macrumors.com/t/wBwVDaSW3Ve9bByDwFb7yXuy5Ks=/1600x/article-new/2026/08/sunbird-app.jpg",
+        "caption": "Reference image from MacRumors.",
+        "credit": "MacRumors",
+        "source_url": "https://www.macrumors.com/2026/08/05/sunbird-imessage-for-android/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-05T20:24:52.582Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-4d0a208a7f31-en",
       "cluster_id": "feed-4d0a208a7f31",
@@ -69,7 +139,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T18:50:58.301Z",
+        "generated_at": "2026-08-05T20:24:52.582Z",
         "origin": "local-curated-rss"
       }
     },
@@ -141,7 +211,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T18:50:58.301Z",
+        "generated_at": "2026-08-05T20:24:52.582Z",
         "origin": "local-curated-rss"
       }
     },
@@ -18623,7 +18693,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T18:50:58.301Z",
+        "generated_at": "2026-08-05T20:24:52.582Z",
         "origin": "local-curated-rss"
       }
     },

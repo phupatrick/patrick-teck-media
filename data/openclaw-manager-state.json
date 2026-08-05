@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-05T18:49:53.345Z",
-    "finishedAt": "2026-08-05T18:51:00.339Z",
+    "startedAt": "2026-08-05T20:23:42.763Z",
+    "finishedAt": "2026-08-05T20:24:54.591Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 257,
-    "articleCountBefore": 255,
-    "articleCountDelta": 2,
+    "totalArticles": 258,
+    "articleCountBefore": 257,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785955793394-fa80bb.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How Mobileye transformed support operations using Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Verizon’s Apple Music perk won’t dodge the price hike — here’s what you’ll pay\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"How Mobileye transformed support operations using Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Verizon’s Apple Music perk won’t dodge the price hike\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite?\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785961422809-802435.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Sunbird's iMessage for Android App Returns to the Google Play Store\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How Mobileye transformed support operations using Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"How Mobileye transformed support operations using Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Sunbird's iMessage for Android App Returns to the Google Play Store\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite?\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding normalized article \"How Mobileye transformed support operations using Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow Holding normalized article \"Verizon’s Apple Music perk won’t dodge the price hike — here’s what you’ll pay\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding synthesized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"How Mobileye transformed support operations using Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"Verizon’s Apple Music perk won’t dodge the price hike\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Sunbird's iMessage for Android App Returns to the Google Play Store\" because it failed publish readiness: narrativeFlow Holding normalized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding normalized article \"How Mobileye transformed support operations using Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding synthesized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"How Mobileye transformed support operations using Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"Sunbird's iMessage for Android App Returns to the Google Play Store\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 261 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 262 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-05T18:51:00.322Z",
+      "reviewedAt": "2026-08-05T20:24:54.575Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,

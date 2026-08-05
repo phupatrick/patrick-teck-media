@@ -1,11 +1,100 @@
 {
-  "generated_at": "2026-08-05T18:50:58.301Z",
+  "generated_at": "2026-08-05T20:24:52.582Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-cfed0ea77ea8-en",
+      "cluster_id": "feed-cfed0ea77ea8",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "sunbird-s-imessage-for-android-app-returns-to-the-google-play-store",
+      "title": "Sunbird's iMessage for Android App Returns to the Google Play Store",
+      "summary": "Sunbird was previously available from late 2022 through late 2023, but the company shut it down due to security concerns. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Sunbird's iMessage for Android App Returns to the Google Play Store should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Sunbird was previously available from late 2022 through late 2023, but the company shut it down due to security concerns. The app was sending a user's Apple ID credentials to a Sunbird server to function, with the information sent unencrypted over HTTP. An attacker could intercept all Sunbird messages and media attachments, and Sunbird employees had access to a platform that stored all message content. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The app returned in an invite-only beta in April 2024, but it hasn't been publicly available until now. The practical impact sits in workflow, cost, risk, or a buying decision; Sunbird's iMessage for Android App Returns to the Google Play Store should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Sunbird says messages are encrypted on-device and in transit, and are not stored on Sunbird servers. An &zwnj;Apple ID&zwnj; is required to use Sunbird, and the company claims passwords are used once to set up a session and are then destroyed. More security information is available on Sunbird's website . The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Back when Sunbird launched, it promised features Android users didn't have, like typing indicators, read receipts, and higher-quality media. Those features are now available for Android to iPhone chats because Apple has adopted &zwnj;RCS&zwnj;, so Sunbird is mostly offering a different bubble color. iMessage through Sunbird does not register a phone number, and users will appear to contacts by email address. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Android users can try the app free for 14 days. A subscription is priced at $2. 99 per month or $24. 99 per year. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "MacRumors",
+          "source_url": "https://www.macrumors.com/2026/08/05/sunbird-imessage-for-android/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-05T19:43:28.000Z",
+          "image_url": "https://images.macrumors.com/t/wBwVDaSW3Ve9bByDwFb7yXuy5Ks=/1600x/article-new/2026/08/sunbird-app.jpg",
+          "image_caption": "Reference image from MacRumors.",
+          "image_credit": "MacRumors"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-05T19:43:28.000Z",
+      "updated_at": "2026-08-05T19:43:28.000Z",
+      "image": {
+        "src": "https://images.macrumors.com/t/wBwVDaSW3Ve9bByDwFb7yXuy5Ks=/1600x/article-new/2026/08/sunbird-app.jpg",
+        "caption": "Reference image from MacRumors.",
+        "credit": "MacRumors",
+        "source_url": "https://www.macrumors.com/2026/08/05/sunbird-imessage-for-android/"
+      },
+      "draft_context": {
+        "source_title": "Sunbird's iMessage for Android App Returns to the Google Play Store",
+        "source_name": "MacRumors",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "Sunbird Messaging today reintroduced its app that brings iMessage to Android users. Sunbird is now available on the Google Play Store following an early access testing period. The app allows Android users to send \"blue bubble\" messages to iPhone users instead of the standard green bubbles. It incorporates iMessage, RCS , and SMS/MMS messages in one app. Sunbird was previously available from late 2022 through late 2023, but the company shut it down due to security concerns. The app was sending a user's Apple ID credentials to a Sunbird server to function, with the information sent unencrypted over HTTP. An attacker could intercept all Sunbird messages and media attachments, and Sunbird employees had access to a platform that stored all message content. The app returned in an invite-only beta in April 2024, but it hasn't been publicly available until now. Sunbird says messages are encrypted on-device and in transit, and are not stored on Sunbird servers. An &zwnj;Apple ID&zwnj; is required to use Sunbird, and the company claims passwords are used once to set up a session and are then destroyed. More security information is available on Sunbird's website . Back when Sunbird launched, it promised features Android users didn't have, like typing indicators, read receipts, and higher-quality media. Those features are now available for Android to iPhone chats because Apple has adopted &zwnj;RCS&zwnj;, so Sunbird is mostly offering a different bubble color. iMessage through Sunbird does not register a phone number, and users will appear to contacts by email address. Android users can try the app free for 14 days. A subscription is priced at $2.99 per month or $24.99 per year. Tags: Android , Google This article, \" Sunbird's iMessage for Android App Returns to the Google Play Store \" first appeared on MacRumors.com Discuss this article in our forums",
+        "paragraphs": [
+          "Sunbird was previously available from late 2022 through late 2023, but the company shut it down due to security concerns. The app was sending a user's Apple ID credentials to a Sunbird server to function, with the information sent unencrypted over HTTP. An attacker could intercept all Sunbird messages and media attachments, and Sunbird employees had access to a platform that stored all message content.",
+          "The app returned in an invite-only beta in April 2024, but it hasn't been publicly available until now.",
+          "Sunbird says messages are encrypted on-device and in transit, and are not stored on Sunbird servers. An &zwnj;Apple ID&zwnj; is required to use Sunbird, and the company claims passwords are used once to set up a session and are then destroyed. More security information is available on Sunbird's website .",
+          "Back when Sunbird launched, it promised features Android users didn't have, like typing indicators, read receipts, and higher-quality media. Those features are now available for Android to iPhone chats because Apple has adopted &zwnj;RCS&zwnj;, so Sunbird is mostly offering a different bubble color. iMessage through Sunbird does not register a phone number, and users will appear to contacts by email address.",
+          "Android users can try the app free for 14 days. A subscription is priced at $2.99 per month or $24.99 per year."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=5; words=518",
+        "link": "https://www.macrumors.com/2026/08/05/sunbird-imessage-for-android/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-05T20:24:52.582Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-4d0a208a7f31-en",
       "cluster_id": "feed-4d0a208a7f31",
@@ -94,7 +183,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T18:50:58.301Z",
+        "generated_at": "2026-08-05T20:24:52.582Z",
         "origin": "local-curated-rss"
       }
     },
@@ -186,96 +275,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T18:50:58.301Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-06a956718b6a-en",
-      "cluster_id": "feed-06a956718b6a",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "slug": "verizon-s-apple-music-perk-won-t-dodge-the-price-hike-here-s-what-you-ll-pay",
-      "title": "Verizon’s Apple Music perk won’t dodge the price hike — here’s what you’ll pay",
-      "summary": "0 • Taylor Kerns / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Verizon has confirmed it will increase the prices of some Apple Music-related perks starting September 1. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Verizon’s Apple Music perk won’t dodge the price hike — here’s what you’ll pay should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
-      "sections": [
-        {
-          "heading": "Context: what changed",
-          "body": "0 • Taylor Kerns / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Verizon has confirmed it will increase the prices of some Apple Music-related perks starting September 1. Some legacy plans may be exempt from the price bumps, with the company’s support page confirming a $10. 99/month cost for some individual plans. This comes on the heels of Apple Music raising the prices of its Individual, Student, and Family plans in July. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Apple Music recently bumped the prices of its Student and Individual plans by $1/month, while the Family plan witnessed a $3/month increase. This marked the first price hike for the streaming service in nearly four years. Now, in a move that should come as no surprise to anyone, Verizon has announced a price hike for its Apple Music perk. The practical impact sits in workflow, cost, risk, or a buying decision; Verizon’s Apple Music perk won’t dodge the price hike — here’s what you’ll pay should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
-        },
-        {
-          "heading": "Details worth verifying",
-          "body": "A statement on Verizon’s support page for Apple Music details the increased perk rates that will go into effect on September 1. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
-        },
-        {
-          "heading": "Who should act or wait",
-          "body": "Meanwhile, eligible users can also claim Verizon’s “Apple Music on us” with certain legacy/grandfathered plans, which unlocks six months of free access. Verizon notes that subscribers will pay $10. 99/month after six months. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "While these price hikes will come as a bitter disappointment to subscribers, Apple Music still remains cheaper than Spotify. However, Apple Music’s updated Individual subscription price of $11. 99 is now on par with YouTube Music, while its $19. 99/month Family plan costs $1 more than YouTube Music’s plan. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Android Authority",
-          "source_url": "https://www.androidauthority.com/verizon-apple-music-perk-price-hike-3694904/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-05T17:33:16.000Z",
-          "image_url": "https://www.androidauthority.com/wp-content/uploads/2026/05/motorola-moto-g-stylus-2026-apple-music.jpg",
-          "image_caption": "Reference image from Android Authority.",
-          "image_credit": "Android Authority"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-05T17:33:16.000Z",
-      "updated_at": "2026-08-05T17:33:16.000Z",
-      "image": {
-        "src": "https://www.androidauthority.com/wp-content/uploads/2026/05/motorola-moto-g-stylus-2026-apple-music.jpg",
-        "caption": "Reference image from Android Authority.",
-        "credit": "Android Authority",
-        "source_url": "https://www.androidauthority.com/verizon-apple-music-perk-price-hike-3694904/"
-      },
-      "draft_context": {
-        "source_title": "Verizon’s Apple Music perk won’t dodge the price hike — here’s what you’ll pay",
-        "source_name": "Android Authority",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "TL;DR Verizon has confirmed it will increase the prices of some Apple Music-related perks starting September 1. Some legacy plans may be exempt from the price bumps, with the company’s support page confirming a $10.99/month cost for some individual plans. This comes on the heels of Apple Music raising the prices of its Individual, Student, and Family plans in July. Apple Music recently bumped the prices of its Student and Individual plans by $1/month, while the Family plan witnessed a $3/month increase. This marked the first price hike for the streaming service in nearly four years. Now, in a move that should come as no surprise to anyone, Verizon has announced a price hike for its Apple Music perk. A statement on Verizon’s support page for Apple Music details the increased perk rates that will go into effect on September 1.",
-        "paragraphs": [
-          "0 • Taylor Kerns / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Verizon has confirmed it will increase the prices of some Apple Music-related perks starting September 1. Some legacy plans may be exempt from the price bumps, with the company’s support page confirming a $10.99/month cost for some individual plans. This comes on the heels of Apple Music raising the prices of its Individual, Student, and Family plans in July.",
-          "Apple Music recently bumped the prices of its Student and Individual plans by $1/month, while the Family plan witnessed a $3/month increase. This marked the first price hike for the streaming service in nearly four years. Now, in a move that should come as no surprise to anyone, Verizon has announced a price hike for its Apple Music perk.",
-          "A statement on Verizon’s support page for Apple Music details the increased perk rates that will go into effect on September 1.",
-          "Meanwhile, eligible users can also claim Verizon’s “Apple Music on us” with certain legacy/grandfathered plans, which unlocks six months of free access. Verizon notes that subscribers will pay $10.99/month after six months.",
-          "While these price hikes will come as a bitter disappointment to subscribers, Apple Music still remains cheaper than Spotify. However, Apple Music’s updated Individual subscription price of $11.99 is now on par with YouTube Music, while its $19.99/month Family plan costs $1 more than YouTube Music’s plan."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=374",
-        "link": "https://www.androidauthority.com/verizon-apple-music-perk-price-hike-3694904/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-08-05T18:50:58.301Z",
+        "generated_at": "2026-08-05T20:24:52.582Z",
         "origin": "local-curated-rss"
       }
     },
@@ -366,7 +366,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T18:50:58.301Z",
+        "generated_at": "2026-08-05T20:24:52.582Z",
         "origin": "local-curated-rss"
       }
     }
