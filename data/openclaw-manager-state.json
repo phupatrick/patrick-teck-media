@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-05T09:05:09.841Z",
-    "finishedAt": "2026-08-05T09:06:16.502Z",
+    "startedAt": "2026-08-05T11:28:22.657Z",
+    "finishedAt": "2026-08-05T11:29:43.655Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 244,
-    "articleCountBefore": 242,
+    "totalArticles": 246,
+    "articleCountBefore": 244,
     "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785920709886-aade65.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"I spent two months cleaning with the Samsung Jet 95S stick vacuum and I’m shocked at how well it performs — and for a go\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Điểm mặt những màu iPhone tồn tại đúng một thế hệ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"I spent two months cleaning with the Samsung Jet 95S stick vacuum and I’m shocked at how well it performs\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785929302702-dde77f.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Iniu P63 Cougar 25K (100W) Power Bank review: Smallest 25K power bank\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Pixel Tag pricing leak sets up a direct showdown with Apple AirTag\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Iniu P63 Cougar 25K (100W) Power Bank review: Smallest 25K power bank\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Pixel Tag pricing leak sets up a direct showdown with Apple AirTag\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"I spent two months cleaning with the Samsung Jet 95S stick vacuum and I’m shocked at how well it performs — and for a go\" because it failed publish readiness: narrativeFlow Holding normalized article \"Điểm mặt những màu iPhone tồn tại đúng một thế hệ\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow Holding normalized article \"If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow Holding synthesized article \"I spent two months cleaning with the Samsung Jet 95S stick vacuum and I’m shocked at how well it performs\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Iniu P63 Cougar 25K (100W) Power Bank review: Smallest 25K power bank\" because it failed publish readiness: narrativeFlow Holding normalized article \"Pixel Tag pricing leak sets up a direct showdown with Apple AirTag\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow Holding normalized article \"If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Iniu P63 Cougar 25K (100W) Power Bank review: Smallest 25K power bank\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Pixel Tag pricing leak sets up a direct showdown with Apple AirTag\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 248 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 250 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-05T09:06:16.486Z",
+      "reviewedAt": "2026-08-05T11:29:43.639Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
