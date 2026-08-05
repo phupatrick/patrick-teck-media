@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-05T22:44:28.224Z",
-    "finishedAt": "2026-08-05T22:45:47.569Z",
+    "startedAt": "2026-08-05T23:40:42.175Z",
+    "finishedAt": "2026-08-05T23:41:51.030Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 259,
-    "articleCountBefore": 258,
-    "articleCountDelta": 1,
+    "totalArticles": 261,
+    "articleCountBefore": 259,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 3 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785969868271-66437c.json Generated OpenClaw hidden feed with 3 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"SpaceX Plans Starlink Mobile Service to Compete With Verizon, AT&T and T-Mobile\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Your Gemini for Home timers and alarms are getting smarter and more reliable\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"SpaceX Plans Starlink Mobile Service to Compete With Verizon, AT&T and T-Mobile\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite?\" because it failed publish readiness: sourceNameBalance Holding source-draft article \"Your Gemini for Home timers and alarms are getting smarter and more reliable\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785973242223-09eb6b.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Cloudflare is the only vendor named a Visionary in 2026 SASE and SSE reports\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Thursday, August 6 (game #1655)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"SpaceX Plans Starlink Mobile Service to Compete With Verizon, AT&T and T-Mobile\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"OpenAI’s Browser Could Be Hijacked to Spam Your WhatsApp Contacts\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Cloudflare is the only vendor named a Visionary in 2026 SASE and SSE reports\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"SpaceX Plans Starlink Mobile Service to Compete With Verizon, AT&T and T-Mobile\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"OpenAI’s Browser Could Be Hijacked to Spam Your WhatsApp Contacts\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 3 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"SpaceX Plans Starlink Mobile Service to Compete With Verizon, AT&T and T-Mobile\" because it failed publish readiness: narrativeFlow Holding normalized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding normalized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow Holding synthesized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"SpaceX Plans Starlink Mobile Service to Compete With Verizon, AT&T and T-Mobile\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Cloudflare is the only vendor named a Visionary in 2026 SASE and SSE reports\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Thursday, August 6 (game #1655)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"SpaceX Plans Starlink Mobile Service to Compete With Verizon, AT&T and T-Mobile\" because it failed publish readiness: narrativeFlow Holding normalized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Cloudflare is the only vendor named a Visionary in 2026 SASE and SSE reports\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Quordle hints and answers for Thursday, August 6 (game #1655)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"SpaceX Plans Starlink Mobile Service to Compete With Verizon, AT&T and T-Mobile\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 263 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 265 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-05T22:45:47.552Z",
+      "reviewedAt": "2026-08-05T23:41:51.014Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
