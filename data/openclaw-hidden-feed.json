@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T11:29:41.683Z",
+  "generated_at": "2026-08-05T13:13:27.689Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -7,214 +7,217 @@
   },
   "articles": [
     {
-      "id": "feed-923e559f4053-en",
-      "cluster_id": "feed-923e559f4053",
+      "id": "feed-33ab66305a3a-en",
+      "cluster_id": "feed-33ab66305a3a",
       "language": "en",
-      "topic": "devices",
+      "topic": "cloud-enterprise",
       "content_type": "NewsArticle",
-      "slug": "iniu-p63-cougar-25k-100w-power-bank-review-smallest-25k-power-bank",
-      "title": "Iniu P63 Cougar 25K (100W) Power Bank review: Smallest 25K power bank",
-      "summary": "We loved the diminutive Iniu P62 that offered a 20K battery in the smallest possible form, and cooed over the 140W/25K P64. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Iniu P63 Cougar 25K (100W) Power Bank review: Smallest 25K power bank should be explained through that lens before any broad claim is made.",
+      "slug": "writeguard-fine-grained-controls-for-mcp-servers",
+      "title": "WriteGuard: fine-grained controls for MCP Servers",
+      "summary": "Joe moved a few tickets to Done, and Joe is having a productive afternoon. The source signal from Cloudflare Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; WriteGuard: fine-grained controls for MCP Servers should be explained through that lens before any broad claim is made.",
       "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
       "sections": [
         {
           "heading": "Context: what changed",
-          "body": "We loved the diminutive Iniu P62 that offered a 20K battery in the smallest possible form, and cooed over the 140W/25K P64. Now the 100W/25K P63 looks like the sweet spot between compact size and recharging power both in terms of capacity and output. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+          "body": "The bug tickets start closing at noon. Nobody thinks much of it. Joe moved a few tickets to Done, and Joe is having a productive afternoon. Then the pace picks up. By 4 p. m. , thousands of tickets have been closed, all by Joe. The source signal from Cloudflare Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
         },
         {
           "heading": "Practical impact for readers",
-          "body": "Who shouldn’t buy it? 16-inch MacBook Pro owners are better served by the 140W PD P64 power bank. The practical impact sits in workflow, cost, risk, or a buying decision; Iniu P63 Cougar 25K (100W) Power Bank review: Smallest 25K power bank should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+          "body": "Once we’ve stopped the agent, we need to repair the state of the ticketing system. Joe has also been legitimately closing tickets by hand that afternoon. The system records all those changes under Joe regardless of whether it was him or his agent, and the network logs do not distinguish one agent session from another. From the outside, the actions look identical. The practical impact sits in workflow, cost, risk, or a buying decision; WriteGuard: fine-grained controls for MCP Servers should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
         },
         {
           "heading": "Details worth verifying",
-          "body": "Power purists will scoff and tell me off for judging a power bank on anything other than milliamp hours and total wattage output, but as a Mac user I do reserve some aesthetic disposition. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+          "body": "The example above is relatively low-stakes, but we can all imagine, or read about , much more destructive cases. An agent with access to contract software could amend an agreement. An agent wreaking havoc in a support queue could send hundreds of replies to customers. An agent with database access could drop entire tables. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
         },
         {
           "heading": "Who should act or wait",
-          "body": "In among the best laptop power banks we’ve tested are a selection from Iniu, which dares to be different and serves up some portable chargers that are as cute as they are powerful. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+          "body": "At Cloudflare, we knew we could not depend on every employee to configure every agent perfectly or watch every tool call. So before expanding write access across our own internal MCP servers, we built WriteGuard. We are now bringing those controls to Cloudflare MCP server portals through a private beta. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
         },
         {
           "heading": "What to watch next",
-          "body": "We have already reviewed two of Iniu’s power banks, this review looks at the third in comparison. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+          "body": "Before explaining WriteGuard, let’s review what an MCP server is and how it works with AI agents. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
         }
       ],
-      "verification_state": "emerging",
+      "verification_state": "verified",
       "quality_score": 96,
       "ad_eligible": true,
       "show_editorial_label": false,
       "indexable": true,
       "store_link_mode": "off",
-      "related_store_items": [],
+      "related_store_items": [
+        "creator-software-stack"
+      ],
       "source_set": [
         {
-          "source_type": "press",
-          "source_name": "Macworld",
-          "source_url": "https://www.macworld.com/article/3202918/iniu-p63-cougar-25k-100w-power-bank-review.html",
+          "source_type": "official-site",
+          "source_name": "Cloudflare Blog",
+          "source_url": "https://blog.cloudflare.com/mcp-portal-writeguard-private-beta/",
           "region": "Global",
           "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-05T11:08:47.000Z",
-          "image_url": "https://www.macworld.com/wp-content/uploads/2026/08/Iniu-P63-Laptop-Power-Bank-red-black-3.jpg?quality=50&strip=all&w=1024",
-          "image_caption": "Reference image from Macworld.",
-          "image_credit": "Macworld"
+          "trust_tier": "official",
+          "published_at": "2026-08-05T13:00:00.000Z",
+          "image_url": "https://blog.cloudflare.com/_emdash/api/media/file/01KZ7CJ0PAJ9DD5ZYV1W5948C9.png",
+          "image_caption": "Reference image from Cloudflare Blog.",
+          "image_credit": "Cloudflare Blog"
         }
       ],
       "author_id": "quang-huy",
-      "published_at": "2026-08-05T11:08:47.000Z",
-      "updated_at": "2026-08-05T11:08:47.000Z",
+      "published_at": "2026-08-05T13:00:00.000Z",
+      "updated_at": "2026-08-05T13:00:00.000Z",
       "image": {
-        "src": "https://www.macworld.com/wp-content/uploads/2026/08/Iniu-P63-Laptop-Power-Bank-red-black-3.jpg?quality=50&strip=all&w=1024",
-        "caption": "Reference image from Macworld.",
-        "credit": "Macworld",
-        "source_url": "https://www.macworld.com/article/3202918/iniu-p63-cougar-25k-100w-power-bank-review.html"
+        "src": "https://blog.cloudflare.com/_emdash/api/media/file/01KZ7CJ0PAJ9DD5ZYV1W5948C9.png",
+        "caption": "Reference image from Cloudflare Blog.",
+        "credit": "Cloudflare Blog",
+        "source_url": "https://blog.cloudflare.com/mcp-portal-writeguard-private-beta/"
       },
       "draft_context": {
-        "source_title": "Iniu P63 Cougar 25K (100W) Power Bank review: Smallest 25K power bank",
-        "source_name": "Macworld",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
+        "source_title": "WriteGuard: fine-grained controls for MCP Servers",
+        "source_name": "Cloudflare Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "cloud-enterprise",
         "content_type_hint": "",
-        "description": "Macworld At a glance Expert's Rating Pros Smallest 25K power bank High battery capacity 100W max output USB-C cable handle Enticing colors Cons P64 better for 16-inch MacBook Pro Our Verdict We loved the diminutive Iniu P62 that offered a 20K battery in the smallest possible form, and cooed over the 140W/25K P64. Now the 100W/25K P63 looks like the sweet spot between compact size and recharging power both in terms of capacity and output. Price When Reviewed This value will show the geolocated pricing text for product undefined Best Pricing Today Price When Reviewed $69.99 Best Prices Today: INIU Cougar P63 25000mAh (100W) Power Bank Retailer Price $66.99 View Deal Price comparison from over 24,000 stores worldwide Product Price Price comparison from Backmarket What it is: A high-capacity portable charger in a unique compact form. Who is it best for? MacBook owners with the need to recharge their devices on the move. Who shouldn’t buy it? 16-inch MacBook Pro owners are better served by the 140W PD P64 power bank. Even magnetic wireless power banks are starting to look ordinary these days, and—as shiny as pillar-shaped laptop power banks can be—it’s difficult to get too excited about one on looks alone. Power purists will scoff and tell me off for judging a power bank on anything other than milliamp hours and total wattage output, but as a Mac user I do reserve some aesthetic disposition. In among the best laptop power banks we’ve tested are a selection from Iniu, which dares to be different and serves up some portable chargers that are as cute as they are powerful. How the Iniu P63 compares with the P62 and P64 We have already reviewed two of Iniu’s power banks, this review looks at the third in comparison. P62: Best for MacBook Air owners and anyone who wants the smallest, most affordable laptop power bank. (See our review of the P62 ) P63: Best for 13- and 15-inch MacBook Air and 14-inch MacBook Pro owners, and a great choice for 16-inch Pro users who don’t need maximum charging speed. P64: Best for 16-inch MacBook Pro owners who want full-speed 140W USB-C PD 3.1 fast charging. (See our review of the P64 ) The 20000mAh Iniu P62 can be bought in a stunning orange version, while the 25000mAh P64 is available in standout white and red colorways. Iniu clearly doesn’t carry over its unique design skills into its product-naming process. The only downside to the 20K P62 is its maximum 65W total power output. It has three ports, a removable USB-C cable, and enough power to keep a medium-sized MacBook going all day. In our recharge tests the P62 repowered a 14-inch MacBook Pro from 0% to 87%. The P64 on the other hand can output the full 140W that a 16-inch MacBook Pro requires for Apple-certified fast-charging (PD 3.1). Its 25K battery pack scored 119% in our real-world tests. There’s a middle-ground Iniu laptop power bank that’s as cute as the P62 and nearly as powerful as the P64. You won’t be surprised to know that Iniu calls it the P63. From left to right: Iniu P64, P62, P63, Simon Jary Iniu Power bank specs compared Iniu P62 Battery capacity: 20000mAh (65Wh) Fastest Power Output: 65W Total Power Output: 65W Power Input: 45W USB ports: 1x USB-C (65W PD 3.0); 1x USB-C (35W); 1x USB-A (18W). Dimensions: 4.3 x 2.8 x 1.1 inches (110 x 71 x 29mm) Weight: 11.4oz (324g) Macworld Test Score: 87% Iniu P63 Battery capacity: 25000mAh (90Wh) Fastest Power Output: 100W Total Power Output: 110W Power Input: 65W USB ports: 1x USB-C (100W PD 3.0); 1x USB-C (45W); 1x USB-A (18W). Dimensions: 4.3 x 2.7 x 1.4 inches (110 x 70 x 36mm) Weight: 13.8oz (392g) Macworld Test Score: 109% Iniu P64 Battery capacity: 25000mAh (92.5Wh) Fastest Power Output: 140W Total Power Output: 145W Power Input: 80W USB ports: 1x USB-C (140W PD 3.1); 1x USB-C (45W); 1x USB-A (18W). Dimensions: 6.3 x 3.2 x 1 inches (159 x 81 x 25mm) Weight: 17.5oz (496g) Macworld Test Score: 119% In our real-world testing, the Iniu P63 achieved a Macworld Test Score of 109%, delivering substantially more usable power than the P62’s 87% thanks to its larger 25K battery and higher efficiency. While it doesn’t quite match the P64’s 119% score, it comes surprisingly close despite costing less and being considerably smaller and lighter. In practical terms, that means the P63 offers enough power to comfortably recharge every MacBook model on the go, making it an excellent all-round performer unless you specifically need the P64’s faster 140W charging for a 16-inch MacBook Pro. The Iniu P62 is the best choice if your priorities are the smallest size and lowest price, making it ideal for lighter MacBook users. The P63 is the sweet spot of the range, combining a larger 25K battery, faster 100W charging and only a modest increase in size, giving it the best balance of portability, capacity and value. The P64 is the premium option, worth paying extra for only if you specifically need 140W USB-C PD 3.1 charging to fast-charge a 16-inch MacBook Pro at its maximum supported speed. Which power bank has the highest capacity? 25000mAh power banks such as the Iniu P63 and P64 are at the high end of the portable charger capacity scale. Manufacturers are keen to keep the rated watt-hour (Wh) below 100Wh as that is the maximum allowed on board a plane, even in your hand luggage. Ratings in milliamp hours (mAh) are fine to compare power banks at a glance, but the Wh rating is more important, and accurate. Both the P63 and P64 are labelled 25000mAh power banks but the P64’s 92.5Wh capacity is marginally more than the P63’s 90Wh. The highest we’ve seen is 99.9Wh from the ReelCharge ReelPro and Sandberg Survivor, both labelled as 27000mAh. Anything with a battery capacity over 100Wh, we have reviewed in our tests of the best portable power stations . Our real-world tests bear this out. The P64 scored a little higher (8% in relative terms) than the P63 despite both being labelled as 25000mAh. Simon Jary Which is the smallest laptop power bank? You could charge a MacBook using any PD (Power Delivery) power bank, even one meant for an iPhone Air. However, we class a laptop power bank as one of at least 20000mAh. At 4.3 x 2.8 x 1.1 inches (110 x 71 x 29mm) the Iniu P62 is the smallest laptop power bank we have tested. However, the P63 really isn’t that much bigger despite its 38% larger battery capacity. It measures 4.3 x 2.7 x 1.4 inches (110 x 70 x 36mm), so it’s a little deeper but otherwise the same. Iniu claims that this size reduction is made possible by use of a high-density TinyCell and innovative HyperStack circuit technology, but every premium power bank manufacturer claims its technology is the smallest and safest. In the case of making a small power bank, Iniu’s claim can be taken at face value. Which power bank is best for each MacBook? Starting with the MacBook Neo , its required 20W PD makes it happy to work with any power bank. In its case, even a 10K power bank might suffice for its smaller (36.5Wh) battery capacity but the P62 is ample. The 13-inch MacBook Air has a battery capacity of around 52WH and the 15-inch Air is 66.5Wh. 14-inch MacBook Pro batteries are around 72Wh and the 16-inch is 99.6Wh—any higher and you might not be permitted to take it with you on a flight. If you do own a 16-inch MacBook Pro , the P64 is your choice as it boasts the 140W power output that laptop demands to charge the fastest. While the P63 suits the MacBook Air, 14-inch MacBook Pro owners should look to the P63. That power bank is also fine for the 16-inch if you don’t mind the slower charging speed. Want to know the exact battery capacity of your laptop? Read our MacBook battery capacities compared list. INIU Scoring high on the cute-o-meter Iniu’s P-series power banks have a more compact, curvaceous shape than most laptop power banks, eschewing the standard pillar shape. The company also offers a range of colors to choose from, differing from the regulation gray/silver tone seen everywhere else. P62: Black, Metallic Silver, Metallic Coffee, Metallic Black P63: Black, Metallic Silver, Metallic Coffee, Metallic Black, Red and Yellow. P64: Black, White We had seen the P62 in blue, red, orange, yellow and white colors, so you might need to buy now if you want the brightest colors. Also check the listings on Amazon , where you might find extra colors. INIU Which ports are found on the power banks? If all you want to charge is your MacBook, a USB-C port is what’s required. But most high-capacity power banks offer a set, including extra USB-C and a legacy USB-A port, and some include one or more integrated cables. The Ugreen Nexode Pro Laptop Power Bank (25K) has two built-in cables. P62: 65W USB-C, 36W USB-C, 18W USB-A P63: 100W USB-C, 45W USB-C, 18W USB-A P64: 140W USB-C, 45W USB-C, 18W USB-A 110W output is possible, using the P63’s two USB-C ports together at 65W+45W. But note that, as with most power banks, total power output dips when using more than two ports. In the case of the P63, the first USB-C port can handle 65W while 15W is shared by the other two ports. Both the smaller power banks ship with a detachable 100W USB-C GoCord Cable, while the P64 comes with a non-attachable 240W USB-C to USB-C cable. Simon Jary How much does the Iniu P63 power bank cost? The mid-range Iniu P63 power bank is priced at $69.99 / £66.99 at Amazon but is sometimes cheaper direct from Iniu. This is an affordable price for such a high-capacity power bank. In comparison, the P62 costs $50.99 / £58.99 , and the P64 $94.99 / £89.99 . Check the links as discounts are frequent. Should you buy the Iniu P63 power bank? The Iniu P63 hits the sweet spot in the company’s laptop power bank lineup. It packs a generous 25K battery and fast 100W charging into a remarkably compact design that’s only slightly larger than the 20K P62, while costing significantly less than the 140W P64. Unless you own a 16-inch MacBook Pro and need Apple’s fastest charging speeds, the P63 delivers the best balance of size, capacity, performance and value.",
+        "description": "Let’s imagine the Case of the Endlessly Closing Tickets. The bug tickets start closing at noon. Nobody thinks much of it. Joe moved a few tickets to Done, and Joe is having a productive afternoon. Then the pace picks up. By 4 p.m., thousands of tickets have been closed, all by Joe. Joe is a good engineer. Joe is not a thousand-tickets-an-hour engineer. We learn that he has several background agents running across three concurrent sessions. It takes half an hour to find the one at fault: a cleanup task with a prompt that was a little too broad. Once we’ve stopped the agent, we need to repair the state of the ticketing system. Joe has also been legitimately closing tickets by hand that afternoon. The system records all those changes under Joe regardless of whether it was him or his agent, and the network logs do not distinguish one agent session from another. From the outside, the actions look identical. The example above is relatively low-stakes, but we can all imagine, or read about , much more destructive cases. An agent with access to contract software could amend an agreement. An agent wreaking havoc in a support queue could send hundreds of replies to customers. An agent with database access could drop entire tables. At Cloudflare, we knew we could not depend on every employee to configure every agent perfectly or watch every tool call. So before expanding write access across our own internal MCP servers, we built WriteGuard. We are now bringing those controls to Cloudflare MCP server portals through a private beta. MCP Fundamentals Before explaining WriteGuard, let’s review what an MCP server is and how it works with AI agents. MCP stands for Model Context Protocol , a popular standard for connecting AI applications to external tools and data sources. MCP servers provide tools that connected clients can use. Each tool has a name, a description, an input schema, and a handler that performs the work. When an agent selects a tool, the MCP client sends the tool call to the server, which then interacts with the downstream application. MCPs at Cloudflare MCP is a critical piece of the infrastructure powering Cloudflare's internal agents. Those agents use MCP through local clients such as OpenCode and Cloudflare OS , as well as through long-running agentic services. We run the servers behind Cloudflare Access and connect to them through a single internal MCP server portal . When we described our internal AI engineering stack in April, our portal connected 13 MCP servers. Today, it connects 27, with teams shipping more servers every month. They all began as read-only servers, allowing teams to search Jira, GitLab, our wiki, and operational systems without changing them. Read-only was a good starting point. As models improved and teams gained experience with AI, people across engineering, product, design, sales, and customer success began asking for tools that could take action. To avoid our own case of the endlessly closing tickets, we wanted centralized control over the write actions agents could perform, agent labels to appear in downstream applications, and an audit trail that made agent activity easy to investigate. We could not count on client-side controls such as skills or elicitation prompts. Their behavior varies by harness, and users can disable them. So we built WriteGuard. Introducing WriteGuard WriteGuard is a shared policy, attribution, and auditing layer. It uses each tool’s configuration and the request context to determine what happens. WriteGuard can pass a call through unchanged, enrich supported writes with agent attribution and produce a scrubbed audit event, or block an action before its handler runs. The diagram below shows where WriteGuard sits in our current internal MCP architecture. WriteGuard combines tool policy with human and agent identity, downstream attribution, and centralized auditing. It gives us one place to control agent actions and preserve the context needed to understand them. Beyond callable tools to governable actions WriteGuard lets us define policy alongside each tool without changing the underlying MCP server. Every tool gets a risk tier, an enabled or disabled state, and a labeling configuration. Risk tiers determine whether the action is logged and whether the tool call is permitted, and the tiers allow for querying the audit log by risk. We support labeling so that we can insert agent attribution labeling and use the best text format for the downstream application, without any code changes needed in the MCP server itself. Today, we define this configuration in TypeScript in our internal MCP monorepo. As private beta access rolls out in the coming months, server owners will be able to configure the same policies through Cloudflare MCP server portals. Every MCP server will have a baseline Access policy along with WriteGuard controls for individual tools. Keep the person, add the agent Our internal MCP servers use Cloudflare Access and OAuth to identify the user. Agents using those servers therefore operate with that employee’s permissions. If Joe cannot close a particular issue, Joe’s agent cannot close it either. We kept that model instead of introducing standalone agent accounts. Agent accounts would create a second set of permissions to manage and make the connection to the person responsible for the agent less clear. The tradeoff with that decision, however, is that downstream applications see Joe’s credentials but nothing identifying the agent behind the action. WriteGuard adds MCP client and session context to the human identity, identifying each write as an agent session acting on behalf of a particular person. Notably, that attribution is extremely useful even when nothing goes wrong. It helps humans and other agents interpret changes and decide how to respond. Make machine-speed activity queryable Visible labels explain individual actions and provide helpful context in the downstream application, but they don’t provide a fleet-wide view. Because an agent can repeat an action much faster than a person, we also needed central auditing across every MCP server. WriteGuard classifies each invocation as successful, failed, or blocked, then asynchronously sends a scrubbed event to an internal audit Worker. The event omits values for keys considered secret or sensitive. It includes the server, tool, risk tier, outcome, user, client, and duration. This makes agentic activity queryable across all of our MCP-enabled systems. The dashboard complements the request logs provided by MCP server portals . Portal logs show tool invocations, while WriteGuard adds semantic tool classifications, agent context, and outcomes from the backing servers. We made audit logging asynchronous, so it adds no latency to the response the agent is waiting for. WriteGuard in Action: GitLab Earlier in this post, we mentioned three tools from our GitLab MCP server: get_merge_request, create_mr_note, and merge_mr. Let’s follow each one through WriteGuard. Reading a merge request Suppose an engineer asks an agent to summarize a proposed code change and the agent calls the get_merge_request tool. WriteGuard classifies the tool as READ_ONLY and WriteGuard allows the call to pass through unchanged. Adding a note to a merge request Now the engineer asks the agent to leave comments on a merge request (MR), and the agent calls the create_mr_note tool. The tool is classified as CONTAINED_WRITE. WriteGuard adds agent attribution to the configured note field using a format GitLab supports, then invokes the tool handler. It also asynchronously records a scrubbed audit event containing the user, tool, outcome, and agent identity context. Merging the code Suppose an engineer asks an agent to help review a merge request. Trying to be helpful, the agent goes beyond the request and calls the merge_mr tool without being asked. Because merges at Cloudflare typically trigger deployment pipelines, we require a human in the loop. We therefore classify the merge_mr tool as CRITICAL risk tier and configure the tool disabled in WriteGuard. If called, WriteGuard will block the request before its handler runs and record the attempt. Beyond the single server example These tools use the same server, identity flow, and downstream API, but WriteGuard handles each one differently before its code runs. For GitLab alone, we could have built these controls directly into the server. But we needed the same capabilities for Jira, our internal wiki, Google Workspace, and every new MCP server we added. Reimplementing them in each server would take more work and produce inconsistent behavior. Instead, we built WriteGuard as a shared layer that needs only per-tool configuration and works across every MCP server connected through the portal. From internal rollout to private beta We built WriteGuard for Cloudflare's own MCP servers because we needed to move beyond read-only tools without losing control of the writes that followed. The private beta brings that architecture to MCP server portals, providing a way to classify write tools, block tools before execution, add agent attribution, and inspect write activity across connected servers. The beta will start small and expand over time, leading up to general availability. We want to validate how the risk model maps to customer tools, which downstream applications need attribution formats, and what audit delivery guarantees customers require before making WriteGuard broadly available. If your organization is adding write tools to MCP servers and wants to test these controls with us, sign up for the WriteGuard private beta .",
         "paragraphs": [
-          "We loved the diminutive Iniu P62 that offered a 20K battery in the smallest possible form, and cooed over the 140W/25K P64. Now the 100W/25K P63 looks like the sweet spot between compact size and recharging power both in terms of capacity and output.",
-          "Who shouldn’t buy it?  16-inch MacBook Pro owners are better served by the 140W PD P64 power bank.",
-          "Power purists will scoff and tell me off for judging a power bank on anything other than milliamp hours and total wattage output, but as a Mac user I do reserve some aesthetic disposition.",
-          "In among the best laptop power banks we’ve tested are a selection from Iniu, which dares to be different and serves up some portable chargers that are as cute as they are powerful.",
-          "We have already reviewed two of Iniu’s power banks, this review looks at the third in comparison."
+          "The bug tickets start closing at noon. Nobody thinks much of it. Joe moved a few tickets to Done, and Joe is having a productive afternoon. Then the pace picks up. By 4 p.m., thousands of tickets have been closed, all by Joe.",
+          "Once we’ve stopped the agent, we need to repair the state of the ticketing system. Joe has also been legitimately closing tickets by hand that afternoon. The system records all those changes under Joe regardless of whether it was him or his agent, and the network logs do not distinguish one agent session from another. From the outside, the actions look identical.",
+          "The example above is relatively low-stakes, but we can all imagine, or read about , much more destructive cases. An agent with access to contract software could amend an agreement. An agent wreaking havoc in a support queue could send hundreds of replies to customers. An agent with database access could drop entire tables.",
+          "At Cloudflare, we knew we could not depend on every employee to configure every agent perfectly or watch every tool call. So before expanding write access across our own internal MCP servers, we built WriteGuard. We are now bringing those controls to Cloudflare MCP server portals through a private beta.",
+          "Before explaining WriteGuard, let’s review what an MCP server is and how it works with AI agents."
         ],
         "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=1902",
-        "link": "https://www.macworld.com/article/3202918/iniu-p63-cougar-25k-100w-power-bank-review.html"
+        "source_depth_reason": "depth=100; paragraphs=5; words=1753",
+        "link": "https://blog.cloudflare.com/mcp-portal-writeguard-private-beta/"
       },
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T11:29:41.683Z",
+        "generated_at": "2026-08-05T13:13:27.689Z",
         "origin": "local-curated-rss"
       }
     },
     {
-      "id": "feed-e94b6176d030-en",
-      "cluster_id": "feed-e94b6176d030",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "slug": "pixel-tag-pricing-leak-sets-up-a-direct-showdown-with-apple-airtag",
-      "title": "Pixel Tag pricing leak sets up a direct showdown with Apple AirTag",
-      "summary": "0 • 9to5Google co/AAGooglePreferredSource\"> Add us as preferred source TL;DR A new leak suggests the Pixel Tag will launch in Europe for €34. 90, positioning it directly against the €35 Apple AirTag. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Pixel Tag pricing leak sets up a direct showdown with Apple AirTag should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
-      "sections": [
-        {
-          "heading": "Context: what changed",
-          "body": "0 • 9to5Google co/AAGooglePreferredSource\"> Add us as preferred source TL;DR A new leak suggests the Pixel Tag will launch in Europe for €34. 90, positioning it directly against the €35 Apple AirTag. The Pixel Tag is also said to launch on August 12, 2026, which is when Google will host its Made By Google event to unveil the Pixel 11 and Pixel Watch 5. If Google continues to maintain competitive pricing against the Apple AirTag, the Pixel Tag could end up costing $29 in the US. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Google’s long-rumored entry into the Bluetooth tracker market is finally coming into focus with the newly rumored Pixel Tag , its first official tracker designed specifically for Android’s Find My Device network. Leaked renders reveal a compact puck-style design featuring a bottom grille for a built-in loudspeaker. If you’re wondering how much the Pixel Tag would cost and when you could buy it, a new leak is now sharing these crucial details ahead of the official Made By Google product launch event . The practical impact sits in workflow, cost, risk, or a buying decision; Pixel Tag pricing leak sets up a direct showdown with Apple AirTag should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
-        },
-        {
-          "heading": "Details worth verifying",
-          "body": "A new report by Dealabs suggests the Pixel Tag will land in Europe for just €34. 90. For reference, the Apple AirTag sells for €35 in Europe, so Google is likely pitching the Pixel Tag as a direct competitor. If we are allowed to extrapolate, Google could maintain competitive pricing with the Apple AirTag in the US as well, which would bring the Pixel Tag’s US price to $29. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
-        },
-        {
-          "heading": "Who should act or wait",
-          "body": "The report notes that the Pixel Tag will launch on August 12, 2026, at the same Made By Google event where the company will unveil the Pixel 11 series and the Pixel Watch 5. However, it’s not immediately known when the device will go on open sale. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "The Pixel Tag hardware, identified under model number GA12506, is expected to debut in at least one colorway dubbed “Fog Light. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Android Authority",
-          "source_url": "https://www.androidauthority.com/google-pixel-tag-price-launch-leak-3694724/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-05T10:41:56.000Z",
-          "image_url": "https://www.androidauthority.com/wp-content/uploads/2026/08/Google-Pixel-Tag-leak.jpg",
-          "image_caption": "Reference image from Android Authority.",
-          "image_credit": "Android Authority"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-05T10:41:56.000Z",
-      "updated_at": "2026-08-05T10:41:56.000Z",
-      "image": {
-        "src": "https://www.androidauthority.com/wp-content/uploads/2026/08/Google-Pixel-Tag-leak.jpg",
-        "caption": "Reference image from Android Authority.",
-        "credit": "Android Authority",
-        "source_url": "https://www.androidauthority.com/google-pixel-tag-price-launch-leak-3694724/"
-      },
-      "draft_context": {
-        "source_title": "Pixel Tag pricing leak sets up a direct showdown with Apple AirTag",
-        "source_name": "Android Authority",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "Credit: 9to5Google TL;DR A new leak suggests the Pixel Tag will launch in Europe for €34.90, positioning it directly against the €35 Apple AirTag. The Pixel Tag is also said to launch on August 12, 2026, which is when Google will host its Made By Google event to unveil the Pixel 11 and Pixel Watch 5. If Google continues to maintain competitive pricing against the Apple AirTag, the Pixel Tag could end up costing $29 in the US. Google’s long-rumored entry into the Bluetooth tracker market is finally coming into focus with the newly rumored Pixel Tag , its first official tracker designed specifically for Android’s Find My Device network. Leaked renders reveal a compact puck-style design featuring a bottom grille for a built-in loudspeaker. If you’re wondering how much the Pixel Tag would cost and when you could buy it, a new leak is now sharing these crucial details ahead of the official Made By Google product launch event . A new report by Dealabs suggests the Pixel Tag will land in Europe for just €34.90. For reference, the Apple AirTag sells for €35 in Europe, so Google is likely pitching the Pixel Tag as a direct competitor. If we are allowed to extrapolate, Google could maintain competitive pricing with the Apple AirTag in the US as well, which would bring the Pixel Tag’s US price to $29.",
-        "paragraphs": [
-          "0 • 9to5Google co/AAGooglePreferredSource\"> Add us as preferred source TL;DR A new leak suggests the Pixel Tag will launch in Europe for €34.90, positioning it directly against the €35 Apple AirTag. The Pixel Tag is also said to launch on August 12, 2026, which is when Google will host its Made By Google event to unveil the Pixel 11 and Pixel Watch 5. If Google continues to maintain competitive pricing against the Apple AirTag, the Pixel Tag could end up costing $29 in the US.",
-          "Google’s long-rumored entry into the Bluetooth tracker market is finally coming into focus with the newly rumored Pixel Tag , its first official tracker designed specifically for Android’s Find My Device network. Leaked renders reveal a compact puck-style design featuring a bottom grille for a built-in loudspeaker. If you’re wondering how much the Pixel Tag would cost and when you could buy it, a new leak is now sharing these crucial details ahead of the official Made By Google product launch event .",
-          "A new report by Dealabs suggests the Pixel Tag will land in Europe for just €34.90. For reference, the Apple AirTag sells for €35 in Europe, so Google is likely pitching the Pixel Tag as a direct competitor. If we are allowed to extrapolate, Google could maintain competitive pricing with the Apple AirTag in the US as well, which would bring the Pixel Tag’s US price to $29.",
-          "The report notes that the Pixel Tag will launch on August 12, 2026, at the same Made By Google event where the company will unveil the Pixel 11 series and the Pixel Watch 5. However, it’s not immediately known when the device will go on open sale.",
-          "The Pixel Tag hardware, identified under model number GA12506, is expected to debut in at least one colorway dubbed “Fog Light.”"
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=533",
-        "link": "https://www.androidauthority.com/google-pixel-tag-price-launch-leak-3694724/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-08-05T11:29:41.683Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-a3c35bea9b05-vi",
-      "cluster_id": "feed-a3c35bea9b05",
+      "id": "feed-337ade89670b-vi",
+      "cluster_id": "feed-337ade89670b",
       "language": "vi",
-      "topic": "apps-software",
+      "topic": "internet-business-tech",
       "content_type": "NewsArticle",
-      "slug": "sap-ra-mat-ien-thoai-poco-pin-3-ngay-hua-hen-cap-nhat-phan-mem-en-2032-gia-chua-en-7-trieu",
-      "title": "Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu",
-      "summary": "Poco vừa chính thức giới thiệu M8 Power, mẫu smartphone mới thuộc dòng Poco M8 bên cạnh các phiên bản Poco M8, Poco M8 Pro và Poco M8s. Tín hiệu từ GenK Mobile cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay.",
-      "dek": "Điểm đáng chú ý: Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.",
+      "slug": "innovative-choice-awards-2026-mo-hang-muc-cho-oi-moi-so-tu-san-pham-en-mo-hinh",
+      "title": "Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình",
+      "summary": "Ngày 5/8, Better Choice Awards 2026 chính thức được VCCorp và Trung tâm Đổi mới sáng tạo Quốc gia (NIC) công bố khởi động tại Hà Nội. Tín hiệu từ GenK Tin ICT cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay.",
+      "dek": "Điểm đáng chú ý: Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.",
       "hook": "Điều cần theo dõi: Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
       "sections": [
         {
           "heading": "Bối cảnh: điều gì vừa đổi",
-          "body": "Poco vừa chính thức giới thiệu M8 Power, mẫu smartphone mới thuộc dòng Poco M8 bên cạnh các phiên bản Poco M8, Poco M8 Pro và Poco M8s. Điểm đáng chú ý nhất của thiết bị là viên pin 8. 000mAh, lớn nhất trong toàn bộ dòng sản phẩm. Tín hiệu từ GenK Mobile cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay. Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định."
+          "body": "Ngày 5/8, Better Choice Awards 2026 chính thức được VCCorp và Trung tâm Đổi mới sáng tạo Quốc gia (NIC) công bố khởi động tại Hà Nội. Bước sang mùa giải mới, chương trình tiếp tục mở rộng quy mô với bốn nhóm giải thưởng, trong đó Innovative Choice Awards là hạng mục hướng tới các giải pháp, sáng kiến và thương hiệu đổi mới trải nghiệm người dùng. Tín hiệu từ GenK Tin ICT cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay. Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định."
         },
         {
           "heading": "Tác động thực tế với người đọc",
-          "body": "Poco M8 Power sở hữu màn hình AMOLED kích thước 6,99 inch, độ phân giải 2. 396 x 1. 080 pixel, tần số quét 120Hz và tần số lấy mẫu cảm ứng 240Hz. Màn hình được bảo vệ bằng kính cường lực Gorilla Glass 7i, sử dụng thiết kế đục lỗ chứa camera trước. Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn. Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc."
+          "body": "Ông Phạm Xuân Hà: Giám đốc Sự kiện cấp cao - Giám đốc mảng Nội dung Công nghệ và Xe VCCorp, Trưởng ban tổ chức Better Choice Awards phát biểu tại sự kiện khởi động. Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn. Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc."
         },
         {
           "heading": "Chi tiết cần kiểm chứng",
-          "body": "Hệ thống camera gồm cảm biến chính 50MP ở mặt sau và camera trước 8MP phục vụ nhu cầu chụp selfie và gọi video. Máy được cài sẵn Android 16 khi bán ra. Poco cam kết cung cấp 4 bản nâng cấp hệ điều hành và 6 năm cập nhật bảo mật, đồng nghĩa thiết bị sẽ được hỗ trợ lên tới Android 20 và nhận bản vá bảo mật đến năm 2032. Ngoài ra, Poco M8 Power hỗ trợ hai SIM, Bluetooth 5. 1, cảm biến vân tay trong màn hình nhưng đã loại bỏ cổng tai nghe 3,5mm. Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn. Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn."
+          "body": "Trong bối cảnh chuyển đổi số diễn ra trên nhiều lĩnh vực, đổi mới không còn chỉ được đo bằng một sản phẩm công nghệ hay một ứng dụng mới. Giá trị sáng tạo có thể đến từ nền tảng số, dịch vụ ứng dụng AI, mô hình kinh doanh hoặc cách doanh nghiệp nâng cao trải nghiệm người dùng. Vì vậy, Innovative Choice Awards được xây dựng với phạm vi ghi nhận linh hoạt, tạo cơ hội cho nhiều mô hình đổi mới cùng tham gia và được đánh giá trên những giá trị thực tiễn mà chúng mang lại. Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn. Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn."
         },
         {
           "heading": "Ai nên hành động hoặc chờ",
-          "body": "Viên pin 8. 000mAh là điểm nhấn lớn nhất trên Poco M8 Power. Theo công bố của nhà sản xuất, máy có thể hoạt động liên tục tới 3 ngày sau mỗi lần sạc đầy. Thiết bị hỗ trợ sạc nhanh có dây 45W và sạc ngược có dây 22,5W. Củ sạc cũng được tặng kèm trong hộp. Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động. Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận."
+          "body": "Thay vì chỉ tập trung vào các sản phẩm công nghệ tiêu dùng, Innovative Choice Awards mở rộng phạm vi ghi nhận tới nhiều mô hình đổi mới khác nhau. Doanh nghiệp có thể tham gia với sản phẩm số, nền tảng dịch vụ, giải pháp ứng dụng AI, dữ liệu hoặc các công nghệ mới, cũng như những mô hình kinh doanh mang lại hiệu quả rõ rệt cho người dùng và thị trường. Cách tiếp cận này giúp giải thưởng có thể bao quát bức tranh đổi mới đang diễn ra ở nhiều ngành nghề, thay vì giới hạn trong một nhóm sản phẩm nhất định. Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động. Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận."
         },
         {
           "heading": "Điều cần theo dõi tiếp",
-          "body": "Poco M8 Power có ba màu gồm Blaze Orange, Green và Black, đều sử dụng bề mặt hoàn thiện nhám và đạt chuẩn kháng bụi, kháng nước IP65. Máy sẽ mở bán trên Flipkart từ ngày 7/8. Phiên bản 6GB RAM có giá 24. 999 Rupee (khoảng 6,6 triệu đồng), trong khi phiên bản 8GB RAM có giá 27. 999 Rupee (khoảng 7,4 triệu đồng). Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời. Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
+          "body": "Việc mở rộng phạm vi đánh giá cũng phản ánh thực tế hệ sinh thái đổi mới sáng tạo tại Việt Nam đang phát triển mạnh mẽ. Những ý tưởng tạo tác động không chỉ đến từ các tập đoàn công nghệ lớn mà còn xuất hiện ngày càng nhiều trong cộng đồng startup, doanh nghiệp vừa và nhỏ hay các nhóm phát triển sản phẩm. Nhiều giải pháp dù mới ra mắt nhưng đã chứng minh được khả năng giải quyết những bài toán thực tế của doanh nghiệp và người dùng, từ tối ưu vận hành, nâng cao trải nghiệm khách hàng đến thúc đẩy chuyển đổi số trong các lĩnh vực truyền thống. Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời. Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "GenK Tin ICT",
+          "source_url": "https://genk.vn/innovative-choice-awards-2026-mo-hang-muc-cho-doi-moi-so-tu-san-pham-den-mo-hinh-165260805161612805.chn",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-05T12:35:00.000Z",
+          "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/5/avatar1785921244143-17859212448601872741426.jpg",
+          "image_caption": "Ảnh tham khảo từ GenK Tin ICT.",
+          "image_credit": "GenK Tin ICT"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-05T12:35:00.000Z",
+      "updated_at": "2026-08-05T12:35:00.000Z",
+      "image": {
+        "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/5/avatar1785921244143-17859212448601872741426.jpg",
+        "caption": "Ảnh tham khảo từ GenK Tin ICT.",
+        "credit": "GenK Tin ICT",
+        "source_url": "https://genk.vn/innovative-choice-awards-2026-mo-hang-muc-cho-doi-moi-so-tu-san-pham-den-mo-hinh-165260805161612805.chn"
+      },
+      "draft_context": {
+        "source_title": "Innovative Choice Awards 2026 mở hạng mục cho đổi mới số từ sản phẩm đến mô hình",
+        "source_name": "GenK Tin ICT",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "internet-business-tech",
+        "content_type_hint": "",
+        "description": "Điểm mới năm nay là tỷ lệ đề cử riêng cho startup, tạo thêm cơ hội cho các sản phẩm mới tham gia giải thưởng.",
+        "paragraphs": [
+          "Ngày 5/8, Better Choice Awards 2026 chính thức được VCCorp và Trung tâm Đổi mới sáng tạo Quốc gia (NIC) công bố khởi động tại Hà Nội. Bước sang mùa giải mới, chương trình tiếp tục mở rộng quy mô với bốn nhóm giải thưởng, trong đó Innovative Choice Awards là hạng mục hướng tới các giải pháp, sáng kiến và thương hiệu đổi mới trải nghiệm người dùng.",
+          "Ông Phạm Xuân Hà: Giám đốc Sự kiện cấp cao - Giám đốc mảng Nội dung Công nghệ và Xe VCCorp, Trưởng ban tổ chức Better Choice Awards phát biểu tại sự kiện khởi động",
+          "Trong bối cảnh chuyển đổi số diễn ra trên nhiều lĩnh vực, đổi mới không còn chỉ được đo bằng một sản phẩm công nghệ hay một ứng dụng mới. Giá trị sáng tạo có thể đến từ nền tảng số, dịch vụ ứng dụng AI, mô hình kinh doanh hoặc cách doanh nghiệp nâng cao trải nghiệm người dùng. Vì vậy, Innovative Choice Awards được xây dựng với phạm vi ghi nhận linh hoạt, tạo cơ hội cho nhiều mô hình đổi mới cùng tham gia và được đánh giá trên những giá trị thực tiễn mà chúng mang lại.",
+          "Thay vì chỉ tập trung vào các sản phẩm công nghệ tiêu dùng, Innovative Choice Awards mở rộng phạm vi ghi nhận tới nhiều mô hình đổi mới khác nhau. Doanh nghiệp có thể tham gia với sản phẩm số, nền tảng dịch vụ, giải pháp ứng dụng AI, dữ liệu hoặc các công nghệ mới, cũng như những mô hình kinh doanh mang lại hiệu quả rõ rệt cho người dùng và thị trường. Cách tiếp cận này giúp giải thưởng có thể bao quát bức tranh đổi mới đang diễn ra ở nhiều ngành nghề, thay vì giới hạn trong một nhóm sản phẩm nhất định.",
+          "Việc mở rộng phạm vi đánh giá cũng phản ánh thực tế hệ sinh thái đổi mới sáng tạo tại Việt Nam đang phát triển mạnh mẽ. Những ý tưởng tạo tác động không chỉ đến từ các tập đoàn công nghệ lớn mà còn xuất hiện ngày càng nhiều trong cộng đồng startup, doanh nghiệp vừa và nhỏ hay các nhóm phát triển sản phẩm. Nhiều giải pháp dù mới ra mắt nhưng đã chứng minh được khả năng giải quyết những bài toán thực tế của doanh nghiệp và người dùng, từ tối ưu vận hành, nâng cao trải nghiệm khách hàng đến thúc đẩy chuyển đổi số trong các lĩnh vực truyền thống.",
+          "Một điểm đáng chú ý của Innovative Choice Awards 2026 là cơ chế tạo điều kiện cho các startup và doanh nghiệp trẻ. Theo Ban tổ chức, giải thưởng sẽ dành tỷ lệ đề cử riêng cho nhóm startup, giúp các sản phẩm mới có thêm cơ hội xuất hiện trước hội đồng chuyên gia và cộng đồng người dùng ngay cả khi chưa sở hữu thị phần lớn hoặc mức độ nhận diện thương hiệu cao. Đây được xem là một bước đi nhằm khuyến khích những ý tưởng mới mạnh dạn tham gia sân chơi đổi mới sáng tạo ở quy mô quốc gia."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=560",
+        "link": "https://genk.vn/innovative-choice-awards-2026-mo-hang-muc-cho-doi-moi-so-tu-san-pham-den-mo-hinh-165260805161612805.chn"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-05T13:13:27.689Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-2c53cfa03515-en",
+      "cluster_id": "feed-2c53cfa03515",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "pushing-the-limits-infinite-machine-s-olto-is-barely-a-bicycle",
+      "title": "Pushing the limits: Infinite Machine's Olto is barely a bicycle",
+      "summary": "The Infinite Machine Olto is a great electric scooter, one with an overall layout that echoes the classic Vespa. The source signal from Ars Technica should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Pushing the limits: Infinite Machine's Olto is barely a bicycle should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "The Infinite Machine Olto is a great electric scooter, one with an overall layout that echoes the classic Vespa. It’s comfortable, and it accelerates well, handles nicely, and has a capacious battery. It has a rugged design that seems capable of handling a lot of abuse, but it also comes with thoughtful touches and security features that mean you can park it anywhere with confidence. And it provides all that at less than half the cost of its full-featured stablemate, the P1 scooter. The source signal from Ars Technica should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "This may technically be a bicycle, but it’s not one you’d ever want to pedal. While you can set it to operate as either a Class 2 or Class 3 e-bike, it works best when the pedals are both locked in a forward position, acting as footrests. The Olto was designed to provide riders with the experience of a scooter while still allowing them to take advantage of the growing bike lane networks in many urban areas across the country. The practical impact sits in workflow, cost, risk, or a buying decision; Pushing the limits: Infinite Machine's Olto is barely a bicycle should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "We talked a bit with the Olto’s designers at Infinite Machine, who are cyclists based in New York City, about what they were trying to accomplish with the design. They described a local scene familiar to anyone who has visited NYC in recent years: ubiquitous bike lanes with a steady stream of traffic, almost all of it electric, and much of it not pedaled. If so many people were already riding their bikes as scooters, the designers reasoned, why not give them the benefits of a true scooter experience while still staying within the legal definition of a bicycle? The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "So the Olto has pedals. And you can hypothetically pedal it, though I couldn’t find a way to do so without the electric assist. Using the phone app, you can switch between Class 2 (assist or throttle up to 20 mph/32kmph) or Class 3 (no throttle, assist up to 28 mph/45 kmph). But the seat is low relative to the pedals, and it’s so wide that there’s no way to rotate your legs without your thighs slamming into it. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Instead, it’s meant to be kept in Class 2 mode and operated with a twist throttle. In this mode, you might as well stow the pedals. That involves reaching under the cranks to click a switch that disconnects the cranks from the drive system and then pulling the right crank away from the machine, at which point it will rotate freely. Two pegs can be extended from the Olto’s body to hold the pedals in their furthest forward position, where they serve as footrests. The maneuver is somewhat fiddly, but it can be done in less than a minute once you’re used to the process. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
         }
       ],
       "verification_state": "emerging",
@@ -229,229 +232,49 @@
       "source_set": [
         {
           "source_type": "press",
-          "source_name": "GenK Mobile",
-          "source_url": "https://genk.vn/sap-ra-mat-dien-thoai-poco-pin-3-ngay-hua-hen-cap-nhat-phan-mem-den-2032-gia-chua-den-7-trieu-165260805012507079.chn",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-05T02:16:00.000Z",
-          "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/4/avatar1785867677669-17858676781652118645010.jpg",
-          "image_caption": "Ảnh tham khảo từ GenK Mobile.",
-          "image_credit": "GenK Mobile"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-08-05T02:16:00.000Z",
-      "updated_at": "2026-08-05T02:16:00.000Z",
-      "image": {
-        "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/4/avatar1785867677669-17858676781652118645010.jpg",
-        "caption": "Ảnh tham khảo từ GenK Mobile.",
-        "credit": "GenK Mobile",
-        "source_url": "https://genk.vn/sap-ra-mat-dien-thoai-poco-pin-3-ngay-hua-hen-cap-nhat-phan-mem-den-2032-gia-chua-den-7-trieu-165260805012507079.chn"
-      },
-      "draft_context": {
-        "source_title": "Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu",
-        "source_name": "GenK Mobile",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "Poco vừa bổ sung M8 Power vào dòng M8 với viên pin 8.000mAh, màn hình AMOLED 120Hz và chip Snapdragon 4 Gen 4. Máy cũng được cam kết cập nhật Android trong 4 năm và vá bảo mật suốt 6 năm.",
-        "paragraphs": [
-          "Poco vừa chính thức giới thiệu M8 Power, mẫu smartphone mới thuộc dòng Poco M8 bên cạnh các phiên bản Poco M8, Poco M8 Pro và Poco M8s. Điểm đáng chú ý nhất của thiết bị là viên pin 8.000mAh, lớn nhất trong toàn bộ dòng sản phẩm.",
-          "Poco M8 Power sở hữu màn hình AMOLED kích thước 6,99 inch, độ phân giải 2.396 x 1.080 pixel, tần số quét 120Hz và tần số lấy mẫu cảm ứng 240Hz. Màn hình được bảo vệ bằng kính cường lực Gorilla Glass 7i, sử dụng thiết kế đục lỗ chứa camera trước.",
-          "Hệ thống camera gồm cảm biến chính 50MP ở mặt sau và camera trước 8MP phục vụ nhu cầu chụp selfie và gọi video. Máy được cài sẵn Android 16 khi bán ra. Poco cam kết cung cấp 4 bản nâng cấp hệ điều hành và 6 năm cập nhật bảo mật, đồng nghĩa thiết bị sẽ được hỗ trợ lên tới Android 20 và nhận bản vá bảo mật đến năm 2032. Ngoài ra, Poco M8 Power hỗ trợ hai SIM, Bluetooth 5.1, cảm biến vân tay trong màn hình nhưng đã loại bỏ cổng tai nghe 3,5mm.",
-          "Viên pin 8.000mAh là điểm nhấn lớn nhất trên Poco M8 Power. Theo công bố của nhà sản xuất, máy có thể hoạt động liên tục tới 3 ngày sau mỗi lần sạc đầy. Thiết bị hỗ trợ sạc nhanh có dây 45W và sạc ngược có dây 22,5W. Củ sạc cũng được tặng kèm trong hộp.",
-          "Poco M8 Power có ba màu gồm Blaze Orange, Green và Black, đều sử dụng bề mặt hoàn thiện nhám và đạt chuẩn kháng bụi, kháng nước IP65. Máy sẽ mở bán trên Flipkart từ ngày 7/8. Phiên bản 6GB RAM có giá 24.999 Rupee (khoảng 6,6 triệu đồng), trong khi phiên bản 8GB RAM có giá 27.999 Rupee (khoảng 7,4 triệu đồng)."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=360",
-        "link": "https://genk.vn/sap-ra-mat-dien-thoai-poco-pin-3-ngay-hua-hen-cap-nhat-phan-mem-den-2032-gia-chua-den-7-trieu-165260805012507079.chn"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-08-05T11:29:41.683Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-d49fbc312ef2-en",
-      "cluster_id": "feed-d49fbc312ef2",
-      "language": "en",
-      "topic": "gaming",
-      "content_type": "NewsArticle",
-      "slug": "if-you-use-the-xbox-app-on-windows-11-with-non-xbox-games-then-you-absolutely-need-to-use-this-g",
-      "title": "If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget",
-      "summary": "I use SteamGridDB religiously on my Steam Deck and now it's making my Xbox app look pretty as well. The source signal from Windows Central should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
-      "sections": [
-        {
-          "heading": "Context: what changed",
-          "body": "I use SteamGridDB religiously on my Steam Deck and now it's making my Xbox app look pretty as well. The source signal from Windows Central should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Now, though, SteamGridDB is also on Windows 11. We first covered SteamGridDB for Windows 11 a while ago, but until recently I hadn't really given it much notice. The practical impact sits in workflow, cost, risk, or a buying decision; If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
-        },
-        {
-          "heading": "Details worth verifying",
-          "body": "I've started using the Xbox App on Windows 11 as my go-to launcher since I'm in there a lot for Game Pass games, anyway. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
-        },
-        {
-          "heading": "Who should act or wait",
-          "body": "But while it's convenient having the Xbox App launch games also from Steam, Epic Games, Ubisoft, etc. , one thing made me twitch; the artwork pulled in was awful. Low-res icons mostly rather than full artwork. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "But while it's convenient having the Xbox App launch games also from Steam, Epic Games, Ubisoft, etc. , one thing made me twitch; the artwork pulled in was awful. Low-res icons mostly rather than full artwork. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [
-        "gaming-cloud-pass"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Windows Central",
-          "source_url": "https://www.windowscentral.com/gaming/xbox/if-you-use-the-xbox-app-on-windows-11-with-non-xbox-games-then-you-absolutely-need-to-use-this-game-bar-widget",
+          "source_name": "Ars Technica",
+          "source_url": "https://arstechnica.com/cars/2026/08/pushing-the-limits-infinite-machines-olto-is-barely-a-bicycle/",
           "region": "Global",
           "language": "en",
           "trust_tier": "established-media",
-          "published_at": "2026-08-04T15:42:15.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/s9iyikb7S9zGpUEU5VPkTL-2560-80.jpg",
-          "image_caption": "Reference image from Windows Central.",
-          "image_credit": "Windows Central"
+          "published_at": "2026-08-05T11:00:26.000Z",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/IMG_1971-2560x1440-1785165294.jpeg",
+          "image_caption": "Reference image from Ars Technica.",
+          "image_credit": "Ars Technica"
         }
       ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-04T15:42:15.000Z",
-      "updated_at": "2026-08-04T15:42:15.000Z",
+      "author_id": "mai-linh",
+      "published_at": "2026-08-05T11:00:26.000Z",
+      "updated_at": "2026-08-05T11:00:26.000Z",
       "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/s9iyikb7S9zGpUEU5VPkTL-2560-80.jpg",
-        "caption": "Reference image from Windows Central.",
-        "credit": "Windows Central",
-        "source_url": "https://www.windowscentral.com/gaming/xbox/if-you-use-the-xbox-app-on-windows-11-with-non-xbox-games-then-you-absolutely-need-to-use-this-game-bar-widget"
+        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/IMG_1971-2560x1440-1785165294.jpeg",
+        "caption": "Reference image from Ars Technica.",
+        "credit": "Ars Technica",
+        "source_url": "https://arstechnica.com/cars/2026/08/pushing-the-limits-infinite-machines-olto-is-barely-a-bicycle/"
       },
       "draft_context": {
-        "source_title": "If you use the Xbox App on Windows 11 with non-Xbox games then you absolutely need to use this Game Bar widget",
-        "source_name": "Windows Central",
+        "source_title": "Pushing the limits: Infinite Machine's Olto is barely a bicycle",
+        "source_name": "Ars Technica",
         "source_type": "press",
         "trust_tier": "established-media",
-        "topic_hint": "devices",
+        "topic_hint": "",
         "content_type_hint": "",
-        "description": "If you use a Steam Deck, then the first thing I would always recommend is to install Decky Loader . From there, one of the first plugins I'd recommend is SteamGridDB, because let's face it, the box art isn't always the best artwork you can have in your games library. Now, though, SteamGridDB is also on Windows 11. We first covered SteamGridDB for Windows 11 a while ago, but until recently I hadn't really given it much notice. I've started using the Xbox App on Windows 11 as my go-to launcher since I'm in there a lot for Game Pass games, anyway. But while it's convenient having the Xbox App launch games also from Steam, Epic Games, Ubisoft, etc., one thing made me twitch; the artwork pulled in was awful. Low-res icons mostly rather than full artwork. This is where SteamGridDB comes in. Just as on the Steam Deck, you can use it to select custom art for your games, and in this case, bring your non-Xbox titles up to the standard of those you're getting directly through the app. Even older games will have at least something better than the stock icon. (Image credit: Windows Central) SteamGridDB is not an app, as such, but instead a Game Bar widget. So to make your changes you have to go through Game Bar, but I actually think I prefer it this way. It can't hook into the Xbox App like it can hook into SteamOS, so it's probably the next best thing this way. These days you can get it directly from the Microsoft Store , and once it's installed, you may just need to launch it from the Widgets Menu on the Game Bar. But it's as simple as selecting a game, hitting the search icon, and compatible artwork will show up. The selections in my experience aren't quite as plentiful as they are on SteamOS, but there's not been a game I've come across where there isn't something that's a whole heck of a lot better than a crummy low-res icon. Before: Terrible looking icons. Windows Central After: Glorious artwork! Windows Central Once you choose your artwork, the next time you go to your library in the Xbox App, it'll have been applied, and it won't make your eyes bleed any longer. I'm using it on my desktop PC, but it's particularly useful if you're on a handheld gaming PC such as the Xbox Ally or Lenovo Legion Go series. Clean library, clean mind! Game Bar is one of those features I use a lot without really exploring what it can do, and SteamGridDB is now a permanently pinned widget. It only takes seconds to make a change, and it's so worth it. It's a must-have if, like me, you're using the Xbox App to launch games from elsewhere. Join us on Reddit at r/WindowsCentral to share your insights and discuss our latest news, reviews, and more. ]]>",
+        "description": "The Infinite Machine Olto is a great electric scooter, one with an overall layout that echoes the classic Vespa. It's comfortable, and it accelerates well, handles nicely, and has a capacious battery. It has a rugged design that seems capable of handling a lot of abuse, but it also comes with thoughtful touches and security features that mean you can park it anywhere with confidence. And it provides all that at less than half the cost of its full-featured stablemate, the P1 scooter. The reason is that the Olto is also a bicycle. Sort of. This may technically be a bicycle, but it's not one you ever want to pedal. While you can set it to operate as either a Class 2 or Class 3 e-bike, it works best when the pedals are both locked in a forward position, acting as footrests. The Olto was designed to provide riders with the experience of a scooter while still allowing them to take advantage of the growing bike lane networks in many urban areas across the country. Read full article Comments ]]>",
         "paragraphs": [
-          "I use SteamGridDB religiously on my Steam Deck and now it's making my Xbox app look pretty as well.",
-          "Now, though, SteamGridDB is also on Windows 11. We first covered SteamGridDB for Windows 11 a while ago, but until recently I hadn't really given it much notice.",
-          "I've started using the Xbox App on Windows 11 as my go-to launcher since I'm in there a lot for Game Pass games, anyway.",
-          "But while it's convenient having the Xbox App launch games also from Steam, Epic Games, Ubisoft, etc., one thing made me twitch; the artwork pulled in was awful. Low-res icons mostly rather than full artwork."
-        ],
-        "source_depth_score": 94,
-        "source_depth_reason": "depth=94; paragraphs=4; words=595",
-        "link": "https://www.windowscentral.com/gaming/xbox/if-you-use-the-xbox-app-on-windows-11-with-non-xbox-games-then-you-absolutely-need-to-use-this-game-bar-widget"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-08-05T11:29:41.683Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-48f2a0750c34-vi",
-      "cluster_id": "feed-48f2a0750c34",
-      "language": "vi",
-      "topic": "internet-business-tech",
-      "content_type": "NewsArticle",
-      "slug": "google-bat-tay-zalo-80-trieu-nguoi-dung-viet-nam-huong-loi",
-      "title": "Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi",
-      "summary": "Trong khuôn khổ hợp tác, hai bên ra mắt Trang thông tin Trung tâm an toàn nhằm hưởng ứng Ngày An ninh mạng Việt Nam 06/08. Tín hiệu từ GenK Tin ICT cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay.",
-      "dek": "Điểm đáng chú ý: Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.",
-      "hook": "Điều cần theo dõi: Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
-      "sections": [
-        {
-          "heading": "Bối cảnh: điều gì vừa đổi",
-          "body": "Trong khuôn khổ hợp tác, hai bên ra mắt Trang thông tin Trung tâm an toàn nhằm hưởng ứng Ngày An ninh mạng Việt Nam 06/08. Mục đích của Trang thông tin hướng đến việc tổng hợp kiến thức, công cụ và hướng dẫn người dùng chủ động nhận diện, phòng tránh các hình thức lừa đảo trực tuyến ngày càng tinh vi. Tín hiệu từ GenK Tin ICT cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay. Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định."
-        },
-        {
-          "heading": "Tác động thực tế với người đọc",
-          "body": "Kết hợp sức mạnh công nghệ từ hệ sinh thái Google và khả năng tiếp cận hơn 80 triệu người Việt của Zalo, Trung tâm an toàn được xây dựng như một cẩm nang an toàn số dành cho người Việt. Không chỉ cung cấp kiến thức nền tảng, trang thông tin hướng đến việc nâng cao nhận thức giúp hình thành thói quen bảo vệ bản thân và gia đình. Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn. Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc."
-        },
-        {
-          "heading": "Chi tiết cần kiểm chứng",
-          "body": "Bên cạnh đó, chiến dịch còn giới thiệu hệ thống giải pháp bảo mật đến từ cả Google và Zalo nhằm hỗ trợ người dùng chủ động phòng vệ trong các hoạt động hàng ngày trên môi trường Internet. Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn. Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn."
-        },
-        {
-          "heading": "Ai nên hành động hoặc chờ",
-          "body": "Được thiết kế với nội dung trực quan, ngôn ngữ gần gũi và dễ tiếp cận, trang Trung tâm an toàn hệ thống lại các hình thức lừa đảo phổ biến hiện nay. Từ đó, hướng dẫn cách nhận diện, xử lý và áp dụng các biện pháp bảo mật phù hợp. Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động. Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận."
-        },
-        {
-          "heading": "Điều cần theo dõi tiếp",
-          "body": "Các kịch bản và quy trình lừa đảo trực tuyến phổ biến như lừa đảo tình cảm, đầu tư; mạo danh cơ quan nhà nước hay gửi tập tin, link có chứa mã độc để tấn công người dùng được trình bày sinh động và dễ hiểu, giúp người dùng có thể nắm bắt thông tin nhanh chóng. Với mỗi hình thức lừa đảo, Trung tâm an toàn còn đưa ra các gợi ý hành động để người dùng có thể nhận diện các “bẫy” điển hình, chủ động bảo vệ cho bản thân và gia đình tốt hơn. Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời. Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "GenK Tin ICT",
-          "source_url": "https://genk.vn/google-bat-tay-zalo-80-trieu-nguoi-dung-viet-nam-huong-loi-165260804072325936.chn",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-04T00:59:00.000Z",
-          "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/4/avatar1785802976679-178580297710335748450.jpg",
-          "image_caption": "Ảnh tham khảo từ GenK Tin ICT.",
-          "image_credit": "GenK Tin ICT"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-04T00:59:00.000Z",
-      "updated_at": "2026-08-04T00:59:00.000Z",
-      "image": {
-        "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/4/avatar1785802976679-178580297710335748450.jpg",
-        "caption": "Ảnh tham khảo từ GenK Tin ICT.",
-        "credit": "GenK Tin ICT",
-        "source_url": "https://genk.vn/google-bat-tay-zalo-80-trieu-nguoi-dung-viet-nam-huong-loi-165260804072325936.chn"
-      },
-      "draft_context": {
-        "source_title": "Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi",
-        "source_name": "GenK Tin ICT",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "internet-business-tech",
-        "content_type_hint": "",
-        "description": "Với mục tiêu tăng cường nhận thức và trang bị kỹ năng an toàn số cho cộng đồng, Zalo và Google chính thức công bố chiến dịch hợp tác “Chung tay phòng, chống lừa đảo trực tuyến”. Theo đó, người dùng sẽ được bảo vệ tốt hơn trên môi trường số.",
-        "paragraphs": [
-          "Trong khuôn khổ hợp tác, hai bên ra mắt Trang thông tin Trung tâm an toàn nhằm hưởng ứng Ngày An ninh mạng Việt Nam 06/08. Mục đích của Trang thông tin hướng đến việc tổng hợp kiến thức, công cụ và hướng dẫn người dùng chủ động nhận diện, phòng tránh các hình thức lừa đảo trực tuyến ngày càng tinh vi.",
-          "Kết hợp sức mạnh công nghệ từ hệ sinh thái Google và khả năng tiếp cận hơn 80 triệu người Việt của Zalo, Trung tâm an toàn được xây dựng như một cẩm nang an toàn số dành cho người Việt. Không chỉ cung cấp kiến thức nền tảng, trang thông tin hướng đến việc nâng cao nhận thức giúp hình thành thói quen bảo vệ bản thân và gia đình.",
-          "Bên cạnh đó, chiến dịch còn giới thiệu hệ thống giải pháp bảo mật đến từ cả Google và Zalo nhằm hỗ trợ người dùng chủ động phòng vệ trong các hoạt động hàng ngày trên môi trường Internet.",
-          "Được thiết kế với nội dung trực quan, ngôn ngữ gần gũi và dễ tiếp cận, trang Trung tâm an toàn hệ thống lại các hình thức lừa đảo phổ biến hiện nay. Từ đó, hướng dẫn cách nhận diện, xử lý và áp dụng các biện pháp bảo mật phù hợp.",
-          "Các kịch bản và quy trình lừa đảo trực tuyến phổ biến như lừa đảo tình cảm, đầu tư; mạo danh cơ quan nhà nước hay gửi tập tin, link có chứa mã độc để tấn công người dùng được trình bày sinh động và dễ hiểu, giúp người dùng có thể nắm bắt thông tin nhanh chóng. Với mỗi hình thức lừa đảo, Trung tâm an toàn còn đưa ra các gợi ý hành động để người dùng có thể nhận diện các “bẫy” điển hình, chủ động bảo vệ cho bản thân và gia đình tốt hơn.",
-          "Bên cạnh đó, Trung tâm an toàn khuyến nghị người dùng ghi nhớ ba nguyên tắc cốt lõi để giảm thiểu rủi ro trên không gian mạng: cảnh giác khi giao tiếp với người lạ, không cung cấp thông tin cá nhân dù qua tin nhắn hay cuộc gọi; cẩn trọng khi giao dịch chuyển tiền trên các nền tảng chưa được xác thực; luôn xác minh thông tin bằng cách gọi đến đường dây nóng của cơ quan nhà nước gần nhất hoặc gọi video cho người thân."
+          "The Infinite Machine Olto is a great electric scooter, one with an overall layout that echoes the classic Vespa. It’s comfortable, and it accelerates well, handles nicely, and has a capacious battery. It has a rugged design that seems capable of handling a lot of abuse, but it also comes with thoughtful touches and security features that mean you can park it anywhere with confidence. And it provides all that at less than half the cost of its full-featured stablemate, the P1 scooter.",
+          "This may technically be a bicycle, but it’s not one you’d ever want to pedal. While you can set it to operate as either a Class 2 or Class 3 e-bike, it works best when the pedals are both locked in a forward position, acting as footrests. The Olto was designed to provide riders with the experience of a scooter while still allowing them to take advantage of the growing bike lane networks in many urban areas across the country.",
+          "We talked a bit with the Olto’s designers at Infinite Machine, who are cyclists based in New York City, about what they were trying to accomplish with the design. They described a local scene familiar to anyone who has visited NYC in recent years: ubiquitous bike lanes with a steady stream of traffic, almost all of it electric, and much of it not pedaled. If so many people were already riding their bikes as scooters, the designers reasoned, why not give them the benefits of a true scooter experience while still staying within the legal definition of a bicycle?",
+          "So the Olto has pedals. And you can hypothetically pedal it, though I couldn’t find a way to do so without the electric assist. Using the phone app, you can switch between Class 2 (assist or throttle up to 20 mph/32kmph) or Class 3 (no throttle, assist up to 28 mph/45 kmph). But the seat is low relative to the pedals, and it’s so wide that there’s no way to rotate your legs without your thighs slamming into it.",
+          "Instead, it’s meant to be kept in Class 2 mode and operated with a twist throttle. In this mode, you might as well stow the pedals. That involves reaching under the cranks to click a switch that disconnects the cranks from the drive system and then pulling the right crank away from the machine, at which point it will rotate freely. Two pegs can be extended from the Olto’s body to hold the pedals in their furthest forward position, where they serve as footrests. The maneuver is somewhat fiddly, but it can be done in less than a minute once you’re used to the process."
         ],
         "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=6; words=464",
-        "link": "https://genk.vn/google-bat-tay-zalo-80-trieu-nguoi-dung-viet-nam-huong-loi-165260804072325936.chn"
+        "source_depth_reason": "depth=100; paragraphs=5; words=626",
+        "link": "https://arstechnica.com/cars/2026/08/pushing-the-limits-infinite-machines-olto-is-barely-a-bicycle/"
       },
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-05T11:29:41.683Z",
+        "generated_at": "2026-08-05T13:13:27.689Z",
         "origin": "local-curated-rss"
       }
     }

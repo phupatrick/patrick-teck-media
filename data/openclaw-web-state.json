@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T11:29:43.625Z",
+  "generated_at": "2026-08-05T13:13:29.631Z",
   "manager": {
     "id": "openclaw",
     "autonomy": "owner-delegated-full"
@@ -36,7 +36,8 @@
     "ai",
     "internet-business-tech",
     "security",
-    "gaming"
+    "gaming",
+    "cloud-enterprise"
   ],
   "ranking": {
     "topicWeights": {
@@ -45,7 +46,8 @@
       "internet-business-tech": 82,
       "security": 68,
       "devices": 66,
-      "gaming": 38
+      "gaming": 38,
+      "cloud-enterprise": 13
     },
     "sourceTypeWeights": {
       "official-site": 45,
