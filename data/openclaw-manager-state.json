@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-05T03:35:37.161Z",
-    "finishedAt": "2026-08-05T03:36:48.260Z",
+    "startedAt": "2026-08-05T06:11:47.069Z",
+    "finishedAt": "2026-08-05T06:13:23.377Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 240,
-    "articleCountBefore": 237,
-    "articleCountDelta": 3,
+    "totalArticles": 242,
+    "articleCountBefore": 240,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785900937207-83a309.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Motherboards may be the next PC component to get a massive price increase\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cổng USB-C trên điện thoại: Giống bên ngoài, khác hoàn toàn bên trong\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Quordle hints and answers for Wednesday, August 5 (game #1654)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Motherboards may be the next PC component to get a massive price increase\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1785910307117-c53729.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"I spent two months cleaning with the Samsung Jet 95S stick vacuum and I’m shocked at how well it performs — and for a go\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Meta Quest Promo Codes and Coupons for August 2026\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Wednesday, August 5 (game #1654)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding source-draft article \"NordVPN Coupons: 75% Off, Plus 3 Months Free in August 2026\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"I spent two months cleaning with the Samsung Jet 95S stick vacuum and I’m shocked at how well it performs\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding source-draft article \"Microsoft pays security researchers $20M following AI-backed surge in bug reports\" because it failed publish readiness: sourceNameBalance Holding source-draft article \"NordVPN Coupons: 75% Off, Plus 3 Months Free in August 2026\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Motherboards may be the next PC component to get a massive price increase\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cổng USB-C trên điện thoại: Giống bên ngoài, khác hoàn toàn bên trong\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Wednesday, August 5 (game #1654)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Motherboards may be the next PC component to get a massive price increase\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Wednesday, August 5 (game #1654)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"Google bắt tay Zalo, 80 triệu người dùng Việt Nam hưởng lợi\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"I spent two months cleaning with the Samsung Jet 95S stick vacuum and I’m shocked at how well it performs — and for a go\" because it failed publish readiness: narrativeFlow Holding normalized article \"Meta Quest Promo Codes and Coupons for August 2026\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Wednesday, August 5 (game #1654)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"I spent two months cleaning with the Samsung Jet 95S stick vacuum and I’m shocked at how well it performs\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sắp ra mắt điện thoại POCO pin 3 ngày, hứa hẹn cập nhật phần mềm đến 2032, giá chưa đến 7 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Wednesday, August 5 (game #1654)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 244 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 246 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-05T03:36:48.245Z",
+      "reviewedAt": "2026-08-05T06:13:23.360Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
