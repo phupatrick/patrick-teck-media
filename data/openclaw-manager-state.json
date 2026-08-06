@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-06T10:07:36.452Z",
-    "finishedAt": "2026-08-06T10:08:45.250Z",
+    "startedAt": "2026-08-06T12:18:04.284Z",
+    "finishedAt": "2026-08-06T12:19:16.007Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 270,
-    "articleCountBefore": 266,
-    "articleCountDelta": 4,
+    "totalArticles": 272,
+    "articleCountBefore": 270,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786010856497-e4e018.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"LG ra mắt điều hòa ARTCOOL AI Air tại Việt Nam: Thiết kế như một món nội thất, AI cá nhân hóa trải nghiệm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"How open-source malware is re-targeting UK supply chains\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"The SteelSeries Arctis Nova Pro Omni offers a souped-up, 2026 upgrade for my beloved Nova Pro Wireless and is perfect fo\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Điều gì xảy ra nếu máy tính liên tục bỏ qua cập nhật Windows\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cảnh báo tình trạng mua phần mềm Adobe giá rẻ khiến doanh nghiệp 'mất trắng' dữ liệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"How open-source malware is re-targeting UK supply chains\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"LG ra mắt điều hòa ARTCOOL AI Air tại Việt Nam: Thiết kế như một món nội thất, AI cá nhân hóa trải nghiệm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Cảnh báo tình trạng mua phần mềm Adobe giá rẻ khiến doanh nghiệp 'mất trắng' dữ liệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite?\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786018684335-75d384.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 405 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Garmin Cirqa review: sorry Fitbit, but this is 2026's best screenless smart band\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Vì sao kết nối mạng thường trở nên chậm chạp vào buổi tối\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Is the pro Mac dead: why this signal is getting harder to ignore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How open-source malware is re-targeting UK supply chains\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cảnh báo tình trạng mua phần mềm Adobe giá rẻ khiến doanh nghiệp 'mất trắng' dữ liệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding source-draft article \"Is the pro Mac dead?\" because it failed trusted-source fallback: title Holding synthesized article \"How open-source malware is re-targeting UK supply chains\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Garmin Cirqa review: sorry Fitbit, but this is 2026's best screenless smart band\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Cảnh báo tình trạng mua phần mềm Adobe giá rẻ khiến doanh nghiệp 'mất trắng' dữ liệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Is the pro Mac dead?\" because it failed publish readiness: title Holding source-draft article \"Xbox has made some amazing special edition consoles over the last 25 years, so which one is your favorite?\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"LG ra mắt điều hòa ARTCOOL AI Air tại Việt Nam: Thiết kế như một món nội thất, AI cá nhân hóa trải nghiệm\" because it failed publish readiness: narrativeFlow Holding normalized article \"How open-source malware is re-targeting UK supply chains\" because it failed publish readiness: narrativeFlow Holding normalized article \"The SteelSeries Arctis Nova Pro Omni offers a souped-up, 2026 upgrade for my beloved Nova Pro Wireless and is perfect fo\" because it failed publish readiness: narrativeFlow Holding normalized article \"Điều gì xảy ra nếu máy tính liên tục bỏ qua cập nhật Windows\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cảnh báo tình trạng mua phần mềm Adobe giá rẻ khiến doanh nghiệp 'mất trắng' dữ liệu\" because it failed publish readiness: narrativeFlow Holding synthesized article \"LG ra mắt điều hòa ARTCOOL AI Air tại Việt Nam: Thiết kế như một món nội thất, AI cá nhân hóa trải nghiệm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"How open-source malware is re-targeting UK supply chains\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Cảnh báo tình trạng mua phần mềm Adobe giá rẻ khiến doanh nghiệp 'mất trắng' dữ liệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Garmin Cirqa review: sorry Fitbit, but this is 2026's best screenless smart band\" because it failed publish readiness: narrativeFlow Holding normalized article \"Vì sao kết nối mạng thường trở nên chậm chạp vào buổi tối\" because it failed publish readiness: narrativeFlow Holding normalized article \"How open-source malware is re-targeting UK supply chains\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cảnh báo tình trạng mua phần mềm Adobe giá rẻ khiến doanh nghiệp 'mất trắng' dữ liệu\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Garmin Cirqa review: sorry Fitbit, but this is 2026's best screenless smart band\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"How open-source malware is re-targeting UK supply chains\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Cảnh báo tình trạng mua phần mềm Adobe giá rẻ khiến doanh nghiệp 'mất trắng' dữ liệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 274 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 276 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-06T10:08:45.237Z",
+      "reviewedAt": "2026-08-06T12:19:15.992Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
