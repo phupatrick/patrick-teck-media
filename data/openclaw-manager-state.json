@@ -4,32 +4,32 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-07T05:53:01.997Z",
-    "finishedAt": "2026-08-07T05:53:04.446Z",
+    "startedAt": "2026-08-07T06:33:27.391Z",
+    "finishedAt": "2026-08-07T06:34:49.229Z",
     "trigger": {
-      "source": "telegram-link",
-      "reason": "telegram-link:7481176582"
+      "source": "schedule",
+      "reason": "scheduled"
     }
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 284,
+    "totalArticles": 285,
     "articleCountBefore": 284,
-    "articleCountDelta": 0,
+    "articleCountDelta": 1,
     "hiddenFeed": {
-      "type": "single-url",
-      "generated": false,
-      "output": "Using Telegram submitted source URL.",
-      "warnings": "",
-      "path": "",
-      "url": "https://www.facebook.com/share/p/14kYSP447VC/?mibextid=wwXIfr"
+      "type": "file",
+      "generated": true,
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786084407427-a03aaa.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Hugging Face Blog: Feed Hugging Face Blog returned 429 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Khủng hoảng RAM leo thang: Microsoft ngầm 'quay xe', Apple bế tắc nguồn cung\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Dell’s first Googlebook could borrow one of its most iconic laptop brands\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới rước về đượ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Giải pháp liên lạc khi tài khoản điện thoại hết tiền, hết dung lượng data\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cảnh báo khẩn đến người dùng hàng nghìn thiết bị mạng TP-Link\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Dell’s first Googlebook could borrow one of its most iconic laptop brands\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "url": ""
     },
     "refresh": {
       "ok": true,
       "exitCode": 0,
-      "mode": "telegram-link",
-      "output": "Newsroom already up to date from telegram-link at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": ""
+      "mode": "external-feed",
+      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Khủng hoảng RAM leo thang: Microsoft ngầm 'quay xe', Apple bế tắc nguồn cung\" because it failed publish readiness: narrativeFlow Holding normalized article \"Dell’s first Googlebook could borrow one of its most iconic laptop brands\" because it failed publish readiness: narrativeFlow Holding normalized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới rước về đượ\" because it failed publish readiness: narrativeFlow Holding normalized article \"Giải pháp liên lạc khi tài khoản điện thoại hết tiền, hết dung lượng data\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cảnh báo khẩn đến người dùng hàng nghìn thiết bị mạng TP-Link\" because it failed publish readiness: narrativeFlow Holding normalized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow Holding synthesized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Dell’s first Googlebook could borrow one of its most iconic laptop brands\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 290 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 291 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-07T05:53:04.434Z",
+      "reviewedAt": "2026-08-07T06:34:49.218Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
