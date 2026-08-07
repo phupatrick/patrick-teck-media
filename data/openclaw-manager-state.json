@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-07T11:05:59.621Z",
-    "finishedAt": "2026-08-07T11:07:13.711Z",
+    "startedAt": "2026-08-07T11:56:12.819Z",
+    "finishedAt": "2026-08-07T11:57:40.401Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 290,
-    "articleCountBefore": 289,
-    "articleCountDelta": 1,
+    "totalArticles": 293,
+    "articleCountBefore": 290,
+    "articleCountDelta": 3,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786100759660-c3f58d.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"I trained Siri AI to answer my messages. It actually worked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới rước về đượ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"Google Maps nâng cấp với AI Gemini, không còn chỉ để dẫn đường\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"I trained Siri AI to answer my messages. It actually worked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Google Maps nâng cấp với AI Gemini, không còn chỉ để dẫn đường\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786103772856-3d8f9d.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Tổng thống Nga Vladimir Putin ký đạo luật lịch sử về tiền mã hóa\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"The M6 MacBook Pro is coming. Is it worth waiting for\" because it failed publish readiness: narrativeFlow Holding normalized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"The M6 MacBook Pro is coming. Is it worth waiting for\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"I trained Siri AI to answer my messages. It actually worked\" because it failed publish readiness: narrativeFlow Holding normalized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow Holding normalized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới rước về đượ\" because it failed publish readiness: narrativeFlow Holding synthesized article \"I trained Siri AI to answer my messages. It actually worked\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"GHS Wireless InfinitePlay isn’t just a marketing name — I’ve used this Glorious gaming headset for weeks and the battery\" because it failed publish readiness: narrativeFlow Holding normalized article \"Tổng thống Nga Vladimir Putin ký đạo luật lịch sử về tiền mã hóa\" because it failed publish readiness: narrativeFlow Holding normalized article \"The M6 MacBook Pro is coming. Is it worth waiting for\" because it failed publish readiness: narrativeFlow Holding normalized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"GHS Wireless InfinitePlay isn’t just a marketing name\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"The M6 MacBook Pro is coming. Is it worth waiting for\" because it failed publish readiness: narrativeFlow, sourceNameBalance Holding synthesized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 296 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 299 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-07T11:07:13.699Z",
+      "reviewedAt": "2026-08-07T11:57:40.390Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
