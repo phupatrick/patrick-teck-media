@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-07T18:10:03.300Z",
-    "finishedAt": "2026-08-07T18:11:23.130Z",
+    "startedAt": "2026-08-07T19:14:00.741Z",
+    "finishedAt": "2026-08-07T19:15:22.700Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 304,
-    "articleCountBefore": 303,
-    "articleCountDelta": 1,
+    "totalArticles": 306,
+    "articleCountBefore": 304,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786126203352-7878eb.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple Arcade in August: Four new games added to the service this month\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Wondering why GTA 6 is a code in a box? Take-Two CEO says it’s because gaming is now ‘well over 90% digital’\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"The only instant cameras worth your money\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple Arcade in August: Four new games added to the service this month\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"The only instant cameras worth your money\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786130040790-5209a6.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple Rumored to Launch Three New 'Ultra' Products by Early Next Year\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New official 30th anniversary Quake mission pack adds new maps and mechanics\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"The only instant cameras worth your money\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple Rumored to Launch Three New 'Ultra' Products by Early Next Year\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"The only instant cameras worth your money\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Apple Arcade in August: Four new games added to the service this month\" because it failed publish readiness: narrativeFlow Holding normalized article \"Wondering why GTA 6 is a code in a box? Take-Two CEO says it’s because gaming is now ‘well over 90% digital’\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Apple Arcade in August: Four new games added to the service this month\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Apple Rumored to Launch Three New 'Ultra' Products by Early Next Year\" because it failed publish readiness: narrativeFlow Holding normalized article \"New official 30th anniversary Quake mission pack adds new maps and mechanics\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Apple Rumored to Launch Three New 'Ultra' Products by Early Next Year\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"New official 30th anniversary Quake mission pack adds new maps and mechanics\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 310 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 312 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-07T18:11:23.113Z",
+      "reviewedAt": "2026-08-07T19:15:22.686Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
