@@ -1,6 +1,76 @@
 {
-  "generated_at": "2026-08-07T06:34:47.651Z",
+  "generated_at": "2026-08-07T07:59:47.291Z",
   "articles": [
+    {
+      "id": "feed-7ecab77d03d4-en",
+      "cluster_id": "feed-7ecab77d03d4",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "google-is-bringing-back-native-app-lock-for-android-but-not-for-everyone-yet",
+      "title": "Google is bringing back native app lock for Android, but not for everyone yet",
+      "summary": "Scott Brown / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR We’ve discovered the App lock feature in the latest Android Canary release. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Google is bringing back native app lock for Android, but not for everyone yet should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "0 • C. Scott Brown / Android Authority co/AAGooglePreferredSource\"> Add us as preferred source TL;DR We’ve discovered the App lock feature in the latest Android Canary release. This comes a while after we first discovered evidence of this feature in older Android builds. The new Android release lets you lock multiple apps at once for maximum convenience. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Google Pixel phones have lacked a native app lock solution for years now. We previously uncovered evidence of the feature via older Android Canary builds and the sixth Android 17 QPR1 beta, but it’s now present in the latest Android Canary release. The practical impact sits in workflow, cost, risk, or a buying decision; Google is bringing back native app lock for Android, but not for everyone yet should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "You’re reading an Authority Insights story. Authority Insights brings you all the latest exclusive reports, app teardowns, leaks, and in-depth tech coverage from the Android Authority team that you won’t find anywhere else. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "From here, you’ll need to tap the “Add screen lock” option if your Pixel doesn’t already have a PIN, pattern, or password. Google also cautions that locked apps will no longer display notification content, while their widgets and shortcuts will be removed. However, AI agents and services can still access the locked app’s data if you’ve previously granted it. Google also gives you directions to hide apps via Private Space instead of locking them. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Once you’ve entered the main App lock screen, you’ll get a list view of your locked and unlocked apps. You can choose to have the locked apps at the top of the list, or arrange the apps by “recent” or “All. ” Interestingly, locking specific apps (like Files by Google) will result in a pop-up notification that other apps still have access to your photos. This notification will also show which apps have access to your images. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Android Authority",
+          "source_url": "https://www.androidauthority.com/google-android-pixel-app-lock-3695632/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-07T06:51:27.000Z",
+          "image_url": "https://www.androidauthority.com/wp-content/uploads/2024/08/Google-Pixel-9-app-drawer-with-new-Screenshots-Pixel-Studio-and-Weather-apps.jpg",
+          "image_caption": "Reference image from Android Authority.",
+          "image_credit": "Android Authority"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-07T06:51:27.000Z",
+      "updated_at": "2026-08-07T06:51:27.000Z",
+      "image": {
+        "src": "https://www.androidauthority.com/wp-content/uploads/2024/08/Google-Pixel-9-app-drawer-with-new-Screenshots-Pixel-Studio-and-Weather-apps.jpg",
+        "caption": "Reference image from Android Authority.",
+        "credit": "Android Authority",
+        "source_url": "https://www.androidauthority.com/google-android-pixel-app-lock-3695632/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-07T07:59:47.228Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-806deb038edf-vi",
       "cluster_id": "feed-806deb038edf",
@@ -273,7 +343,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-07T06:34:47.600Z",
+        "generated_at": "2026-08-07T07:59:47.229Z",
         "origin": "local-curated-rss"
       }
     },
@@ -377,7 +447,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-07T06:34:47.600Z",
+        "generated_at": "2026-08-07T07:59:47.229Z",
         "origin": "local-curated-rss"
       }
     },
@@ -479,7 +549,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-07T06:34:47.600Z",
+        "generated_at": "2026-08-07T07:59:47.229Z",
         "origin": "local-curated-rss"
       }
     },
@@ -993,7 +1063,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-07T06:34:47.600Z",
+        "generated_at": "2026-08-07T07:59:47.229Z",
         "origin": "local-curated-rss"
       }
     },
