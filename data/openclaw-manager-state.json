@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-07T13:00:12.477Z",
-    "finishedAt": "2026-08-07T13:01:25.378Z",
+    "startedAt": "2026-08-07T14:16:20.352Z",
+    "finishedAt": "2026-08-07T14:17:43.289Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 295,
-    "articleCountBefore": 293,
+    "totalArticles": 297,
+    "articleCountBefore": 295,
     "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786107612521-bc5678.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Mac Pro Turns 20 Today, Five Months After Apple Killed It\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones ar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Tổng thống Nga Vladimir Putin ký đạo luật lịch sử về tiền mã hóa\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"ChatGPT cho phép trò chuyện văn bản miễn phí không giới hạn\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Mac Pro Turns 20 Today, Five Months After Apple Killed It\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"ChatGPT cho phép trò chuyện văn bản miễn phí không giới hạn\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786112180403-f90995.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping VnExpress So Hoa: Feed VnExpress So Hoa returned 503 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Exclusive: Turbo VPN releases emergency Windows update after TechRadar uncovers persistent IP leaks\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones ar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Tổng thống Nga Vladimir Putin ký đạo luật lịch sử về tiền mã hóa\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"ON1 Photo RAW (2026) review\" because it failed trusted-source fallback: title Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"ON1 Photo RAW (2026) review\" because it failed publish readiness: title",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Mac Pro Turns 20 Today, Five Months After Apple Killed It\" because it failed publish readiness: narrativeFlow Holding normalized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones ar\" because it failed publish readiness: narrativeFlow Holding normalized article \"Tổng thống Nga Vladimir Putin ký đạo luật lịch sử về tiền mã hóa\" because it failed publish readiness: narrativeFlow Holding normalized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow Holding synthesized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Security Bite Podcast: Why scammers love FaceTime now\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"Exclusive: Turbo VPN releases emergency Windows update after TechRadar uncovers persistent IP leaks\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding normalized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones ar\" because it failed publish readiness: narrativeFlow Holding normalized article \"Tổng thống Nga Vladimir Putin ký đạo luật lịch sử về tiền mã hóa\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 301 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 303 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-07T13:01:25.366Z",
+      "reviewedAt": "2026-08-07T14:17:43.274Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
