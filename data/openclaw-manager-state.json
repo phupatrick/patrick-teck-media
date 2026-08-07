@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-07T07:58:43.190Z",
-    "finishedAt": "2026-08-07T07:59:49.451Z",
+    "startedAt": "2026-08-07T09:06:04.408Z",
+    "finishedAt": "2026-08-07T09:07:26.161Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 286,
-    "articleCountBefore": 285,
+    "totalArticles": 287,
+    "articleCountBefore": 286,
     "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786089523237-3c0a83.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 405 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Google is bringing back native app lock for Android, but not for everyone yet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới rước về đượ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Giải pháp liên lạc khi tài khoản điện thoại hết tiền, hết dung lượng data\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cảnh báo khẩn đến người dùng hàng nghìn thiết bị mạng TP-Link\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"OpenAI 'cởi trói' người dùng ChatGPT miễn phí, tạo áp lực lớn lên Gemini\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google is bringing back native app lock for Android, but not for everyone yet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"OpenAI 'cởi trói' người dùng ChatGPT miễn phí, tạo áp lực lớn lên Gemini\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786093564455-bc00d1.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 405 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Khủng hoảng RAM leo thang: Microsoft ngầm 'quay xe', Apple bế tắc nguồn cung\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới rước về đượ\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cảnh báo khẩn đến người dùng hàng nghìn thiết bị mạng TP-Link\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Mẹo giải quyết tình trạng sóng yếu của điện thoại\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Mẹo giải quyết tình trạng sóng yếu của điện thoại\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Google is bringing back native app lock for Android, but not for everyone yet\" because it failed publish readiness: narrativeFlow Holding normalized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới rước về đượ\" because it failed publish readiness: narrativeFlow Holding normalized article \"Giải pháp liên lạc khi tài khoản điện thoại hết tiền, hết dung lượng data\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cảnh báo khẩn đến người dùng hàng nghìn thiết bị mạng TP-Link\" because it failed publish readiness: narrativeFlow Holding normalized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow Holding synthesized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google is bringing back native app lock for Android, but not for everyone yet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow Holding normalized article \"Khủng hoảng RAM leo thang: Microsoft ngầm 'quay xe', Apple bế tắc nguồn cung\" because it failed publish readiness: narrativeFlow Holding normalized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới rước về đượ\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cảnh báo khẩn đến người dùng hàng nghìn thiết bị mạng TP-Link\" because it failed publish readiness: narrativeFlow Holding normalized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow Holding synthesized article \"How we took malware advisories beyond npm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Laptop gaming mạnh nhất lịch sử ROG chính thức bán tại Việt Nam: Đem SH350i ra đổi vẫn phải bù thêm tiền mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 292 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 293 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-07T07:59:49.437Z",
+      "reviewedAt": "2026-08-07T09:07:26.147Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
