@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T15:24:57.376Z",
+  "generated_at": "2026-08-07T16:23:56.717Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -7,272 +7,273 @@
   },
   "articles": [
     {
-      "id": "feed-d71ce58aaf89-en",
-      "cluster_id": "feed-d71ce58aaf89",
+      "id": "feed-e303cae7d760-en",
+      "cluster_id": "feed-e303cae7d760",
       "language": "en",
-      "topic": "devices",
+      "topic": "ai",
       "content_type": "NewsArticle",
-      "slug": "leak-spills-the-beans-on-the-sony-wh-1000xm4-revival",
-      "title": "Leak spills the beans on the Sony WH-1000XM4 revival",
-      "summary": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR A new leak has spilled the beans on Sony’s upcoming WH-1000XM4C headphones, a spinoff of the now-discontinued WH-1000XM4. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Leak spills the beans on the Sony WH-1000XM4 revival should be explained through that lens before any broad claim is made.",
+      "slug": "how-trends-automates-root-cause-analysis-with-amazon-bedrock",
+      "title": "How TReNDS automates root-cause analysis with Amazon Bedrock",
+      "summary": "This is a guest post co-written with Vitaly Omelchenko from the TReNDS Center at Georgia State University. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; How TReNDS automates root-cause analysis with Amazon Bedrock should be explained through that lens before any broad claim is made.",
       "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
       "sections": [
         {
           "heading": "Context: what changed",
-          "body": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR A new leak has spilled the beans on Sony’s upcoming WH-1000XM4C headphones, a spinoff of the now-discontinued WH-1000XM4. These headphones will reportedly retain a bulk of the hardware used in the original, but with a shorter battery life. Sony is expected to release the new headphones early next month in Black, Silver, and Lavender colors. The source signal from Android Authority should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+          "body": "This is a guest post co-written with Vitaly Omelchenko from the TReNDS Center at Georgia State University. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
         },
         {
           "heading": "Practical impact for readers",
-          "body": "The Sony WH-1000XM4 headphones set the benchmark for what wireless headphones should be. While it has since been replaced with a couple of newer variants, the WH-1000XM4 holds a special place in audiophiles’ hearts. It now looks like Sony’s classic pair of headphones could be making a comeback soon, but not in the way you’re thinking. The practical impact sits in workflow, cost, risk, or a buying decision; Leak spills the beans on the Sony WH-1000XM4 revival should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+          "body": "At the Center for Translational Research in Neuroimaging and Data Science (TReNDS) , a joint center of Georgia State University, Georgia Institute of Technology, and Emory University, we develop and apply advanced analytical methods and neuroinformatics tools for brain health research. We’ve been running our infrastructure on Amazon Web Services (AWS) since 2019, and over the years we’ve built a diverse set of applications, including research tools and APIs, all running on Amazon Elastic Kubernetes Service (Amazon EKS) with logs shipped to Amazon CloudWatch using FluentBit . The practical impact sits in workflow, cost, risk, or a buying decision; How TReNDS automates root-cause analysis with Amazon Bedrock should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
         },
         {
           "heading": "Details worth verifying",
-          "body": "Prominent leaker Roland Quandt first revealed the existence of this supposed revival of the fan-favorite WH-1000XM4, claiming it would be known as the WH-1000XM4C . We’re now learning about the headphones’ possible hardware attributes, available colors, launch date, and expected pricing, courtesy of the folks at Dealabs . The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+          "body": "In this post, we share the architecture we built and use in production at TReNDS. It combines Amazon CloudWatch subscription filters , AWS Lambda , the Strands Agents SDK , and Amazon Bedrock to detect errors in real time, enrich them with log context and source code from GitHub, and deliver AI-powered root-cause analysis to our team. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
         },
         {
           "heading": "Who should act or wait",
-          "body": "The publication claims that the Sony WH-1000XM4C will feature identical hardware to the original, including the same QN1 HD noise-canceling processor, plus features like multi-point audio and Personalized Spatial Audio. However, this upcoming model will reportedly offer just 34 hours of battery life, compared to the WH-1000XM4’s 38 hours. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+          "body": "The architecture and recommendations in this post reflect our team’s experience at the TReNDS Center and do not represent official guidance from Georgia State University, Georgia Institute of Technology, or Emory University. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
         },
         {
           "heading": "What to watch next",
-          "body": "Meanwhile, the upcoming headphones will reportedly be available in Silver/Platinum Silver, Lavender, and Black colorways. Sony has previously released additional color variants of the WH-1000XM4 in some markets, so it wouldn’t be the first time the manufacturer strayed from the classic black and silver options for its premium pair of headphones. Since there are no images available, it’s unclear whether the WH-1000XM4C will differ from the original in terms of design. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+          "body": "Like many teams, we had alerting and monitoring in place. We knew when things broke. However, knowing that something failed and understanding why it failed are different things. Our engineers still had to open Amazon CloudWatch Logs, read through stack traces, find the relevant source files, and mentally trace the execution path. For straightforward errors, this took 15–30 minutes. For complex issues spanning multiple services, much longer. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
         }
       ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Android Authority",
-          "source_url": "https://www.androidauthority.com/sony-wh-1000xm4c-leak-price-launch-3695933/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-07T14:46:05.000Z",
-          "image_url": "https://www.androidauthority.com/wp-content/uploads/2022/04/Sony-WH-1000XM4-2-of-10.jpg",
-          "image_caption": "Reference image from Android Authority.",
-          "image_credit": "Android Authority"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-07T14:46:05.000Z",
-      "updated_at": "2026-08-07T14:46:05.000Z",
-      "image": {
-        "src": "https://www.androidauthority.com/wp-content/uploads/2022/04/Sony-WH-1000XM4-2-of-10.jpg",
-        "caption": "Reference image from Android Authority.",
-        "credit": "Android Authority",
-        "source_url": "https://www.androidauthority.com/sony-wh-1000xm4c-leak-price-launch-3695933/"
-      },
-      "draft_context": {
-        "source_title": "Leak spills the beans on the Sony WH-1000XM4 revival",
-        "source_name": "Android Authority",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "TL;DR A new leak has spilled the beans on Sony’s upcoming WH-1000XM4C headphones, a spinoff of the now-discontinued WH-1000XM4. These headphones will reportedly retain a bulk of the hardware used in the original, but with a shorter battery life. Sony is expected to release the new headphones early next month in Black, Silver, and Lavender colors. The Sony WH-1000XM4 headphones set the benchmark for what wireless headphones should be. While it has since been replaced with a couple of newer variants, the WH-1000XM4 holds a special place in audiophiles’ hearts. It now looks like Sony’s classic pair of headphones could be making a comeback soon, but not in the way you’re thinking. Prominent leaker Roland Quandt first revealed the existence of this supposed revival of the fan-favorite WH-1000XM4, claiming it would be known as the WH-1000XM4C . We’re now learning about the headphones’ possible hardware attributes, available colors, launch date, and expected pricing, courtesy of the folks at Dealabs .",
-        "paragraphs": [
-          "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR A new leak has spilled the beans on Sony’s upcoming WH-1000XM4C headphones, a spinoff of the now-discontinued WH-1000XM4. These headphones will reportedly retain a bulk of the hardware used in the original, but with a shorter battery life. Sony is expected to release the new headphones early next month in Black, Silver, and Lavender colors.",
-          "The Sony WH-1000XM4 headphones set the benchmark for what wireless headphones should be. While it has since been replaced with a couple of newer variants, the WH-1000XM4 holds a special place in audiophiles’ hearts. It now looks like Sony’s classic pair of headphones could be making a comeback soon, but not in the way you’re thinking.",
-          "Prominent leaker Roland Quandt first revealed the existence of this supposed revival of the fan-favorite WH-1000XM4, claiming it would be known as the WH-1000XM4C . We’re now learning about the headphones’ possible hardware attributes, available colors, launch date, and expected pricing, courtesy of the folks at Dealabs .",
-          "The publication claims that the Sony WH-1000XM4C will feature identical hardware to the original, including the same QN1 HD noise-canceling processor, plus features like multi-point audio and Personalized Spatial Audio. However, this upcoming model will reportedly offer just 34 hours of battery life, compared to the WH-1000XM4’s 38 hours.",
-          "Meanwhile, the upcoming headphones will reportedly be available in Silver/Platinum Silver, Lavender, and Black colorways. Sony has previously released additional color variants of the WH-1000XM4 in some markets, so it wouldn’t be the first time the manufacturer strayed from the classic black and silver options for its premium pair of headphones. Since there are no images available, it’s unclear whether the WH-1000XM4C will differ from the original in terms of design."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=448",
-        "link": "https://www.androidauthority.com/sony-wh-1000xm4c-leak-price-launch-3695933/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-08-07T15:24:57.375Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-1cab1df53257-en",
-      "cluster_id": "feed-1cab1df53257",
-      "language": "en",
-      "topic": "devices",
-      "content_type": "NewsArticle",
-      "slug": "apple-captures-65-of-global-premium-smartphone-market",
-      "title": "Apple Captures 65% of Global Premium Smartphone Market",
-      "summary": "That's according to Counterpoint Research's Handset Model Sales Tracker , which tracks smartphones with a wholesale average selling price of $600 or more. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Apple Captures 65% of Global Premium Smartphone Market should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
-      "sections": [
-        {
-          "heading": "Context: what changed",
-          "body": "That's according to Counterpoint Research's Handset Model Sales Tracker , which tracks smartphones with a wholesale average selling price of $600 or more. Apple's premium segment revenue grew 9% year-over-year in the first half of 2026, which Counterpoint attributed to strong sales of the iPhone 17 lineup, particularly the base model. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Even with that growth, Apple's share of the premium segment has slipped from 74% in the first half of 2022. Counterpoint pins the decline on intensifying competition in China, the largest premium smartphone market, where Huawei, Xiaomi, OPPO, and vivo have all sharpened their flagship offerings, pulling more Chinese consumers toward domestic premium brands. The practical impact sits in workflow, cost, risk, or a buying decision; Apple Captures 65% of Global Premium Smartphone Market should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
-        },
-        {
-          "heading": "Details worth verifying",
-          "body": "Across the broader premium segment, unit sales grew 5% year-over-year in the first half of 2026, with the segment's overall market share up from 25% in the first half of 2025 and 20% in the first half of 2022. Counterpoint says the latest gains stem largely from rising memory and component costs, which have hit low- and mid-tier phones harder than flagship models. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
-        },
-        {
-          "heading": "Who should act or wait",
-          "body": "Premium brands, including Apple, were better positioned to absorb the higher costs through wider margins and fewer promotions, helping sustain demand even as the broader market grew more challenging. The share gains between the first half of 2022 and the first half of 2025, by contrast, were driven mainly by a broader premiumization trend as consumers traded up to higher-end devices. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "Counterpoint Research said the narrowing price gap between mid-tier and premium phones is accelerating that shift, making flagship devices, including older or discounted iPhones, a more attractive upgrade for consumers:. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "MacRumors",
-          "source_url": "https://www.macrumors.com/2026/08/07/apple-captures-65-percent-of-global-premium-market/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-07T14:32:54.000Z",
-          "image_url": "https://images.macrumors.com/t/27rwto9hhr6B9flb5UbS1LnAuNA=/2500x/article-new/2025/09/iPhone-17-Pro-and-Air-Feature.jpg",
-          "image_caption": "Reference image from MacRumors.",
-          "image_credit": "MacRumors"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-07T14:32:54.000Z",
-      "updated_at": "2026-08-07T14:32:54.000Z",
-      "image": {
-        "src": "https://images.macrumors.com/t/27rwto9hhr6B9flb5UbS1LnAuNA=/2500x/article-new/2025/09/iPhone-17-Pro-and-Air-Feature.jpg",
-        "caption": "Reference image from MacRumors.",
-        "credit": "MacRumors",
-        "source_url": "https://www.macrumors.com/2026/08/07/apple-captures-65-percent-of-global-premium-market/"
-      },
-      "draft_context": {
-        "source_title": "Apple Captures 65% of Global Premium Smartphone Market",
-        "source_name": "MacRumors",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "Apple captured 65% of the global premium smartphone market in the first half of 2026, as the wider premium segment's share of overall smartphone sales climbed to a record 29%. That's according to Counterpoint Research's Handset Model Sales Tracker , which tracks smartphones with a wholesale average selling price of $600 or more. Apple's premium segment revenue grew 9% year-over-year in the first half of 2026, which Counterpoint attributed to strong sales of the iPhone 17 lineup, particularly the base model. Even with that growth, Apple's share of the premium segment has slipped from 74% in the first half of 2022. Counterpoint pins the decline on intensifying competition in China, the largest premium smartphone market, where Huawei, Xiaomi, OPPO, and vivo have all sharpened their flagship offerings, pulling more Chinese consumers toward domestic premium brands. Across the broader premium segment, unit sales grew 5% year-over-year in the first half of 2026, with the segment's overall market share up from 25% in the first half of 2025 and 20% in the first half of 2022. Counterpoint says the latest gains stem largely from rising memory and component costs, which have hit low- and mid-tier phones harder than flagship models. Premium brands, including Apple, were better positioned to absorb the higher costs through wider margins and fewer promotions, helping sustain demand even as the broader market grew more challenging. The share gains between the first half of 2022 and the first half of 2025, by contrast, were driven mainly by a broader premiumization trend as consumers traded up to higher-end devices. Counterpoint Research said the narrowing price gap between mid-tier and premium phones is accelerating that shift, making flagship devices, including older or discounted iPhones, a more attractive upgrade for consumers: As mid-segment Android smartphone prices rise, the price gap with premium devices, especially older or discounted flagship models, is narrowing. This trend makes flagship smartphones a better upgrade option for consumers. To support this shift, OEMs are expanding financing, trade-in and buyback programs to improve affordability. Samsung has also expanded its Galaxy Forever program to several markets to make flagship devices more accessible. Samsung remains the only other brand in Apple's league, holding 19% of the premium segment after 3% year-over-year growth, despite a later launch for the Galaxy S26 series. Behind the two leaders, Chinese brands showed the sharpest growth off a much smaller base: OPPO grew 69% on the strength of its Find X9 series, while vivo grew 20% as the X300 series outperformed its predecessor. Counterpoint expects Apple to keep its lead alongside Samsung, citing Apple's strength in developed markets, its integrated ecosystem, and its brand value, even as Huawei and Xiaomi are seen as well positioned to keep gaining share in China. Counterpoint added that premiumization \"will be the key strategy in the smartphone industry as the focus shifts from shipment volumes to value and profit maximization.\" Tag: Counterpoint This article, \" Apple Captures 65% of Global Premium Smartphone Market \" first appeared on MacRumors.com Discuss this article in our forums",
-        "paragraphs": [
-          "That's according to Counterpoint Research's Handset Model Sales Tracker , which tracks smartphones with a wholesale average selling price of $600 or more. Apple's premium segment revenue grew 9% year-over-year in the first half of 2026, which Counterpoint attributed to strong sales of the iPhone 17 lineup, particularly the base model.",
-          "Even with that growth, Apple's share of the premium segment has slipped from 74% in the first half of 2022. Counterpoint pins the decline on intensifying competition in China, the largest premium smartphone market, where Huawei, Xiaomi, OPPO, and vivo have all sharpened their flagship offerings, pulling more Chinese consumers toward domestic premium brands.",
-          "Across the broader premium segment, unit sales grew 5% year-over-year in the first half of 2026, with the segment's overall market share up from 25% in the first half of 2025 and 20% in the first half of 2022. Counterpoint says the latest gains stem largely from rising memory and component costs, which have hit low- and mid-tier phones harder than flagship models.",
-          "Premium brands, including Apple, were better positioned to absorb the higher costs through wider margins and fewer promotions, helping sustain demand even as the broader market grew more challenging. The share gains between the first half of 2022 and the first half of 2025, by contrast, were driven mainly by a broader premiumization trend as consumers traded up to higher-end devices.",
-          "Counterpoint Research said the narrowing price gap between mid-tier and premium phones is accelerating that shift, making flagship devices, including older or discounted iPhones, a more attractive upgrade for consumers:",
-          "As mid-segment Android smartphone prices rise, the price gap with premium devices, especially older or discounted flagship models, is narrowing. This trend makes flagship smartphones a better upgrade option for consumers. To support this shift, OEMs are expanding financing, trade-in and buyback programs to improve affordability. Samsung has also expanded its Galaxy Forever program to several markets to make flagship devices more accessible."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=6; words=826",
-        "link": "https://www.macrumors.com/2026/08/07/apple-captures-65-percent-of-global-premium-market/"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-08-07T15:24:57.376Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-c42f04b67146-en",
-      "cluster_id": "feed-c42f04b67146",
-      "language": "en",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "slug": "exclusive-turbo-vpn-releases-emergency-windows-update-after-techradar-uncovers-persistent-ip-lea",
-      "title": "Exclusive: Turbo VPN releases emergency Windows update after TechRadar uncovers persistent IP leaks",
-      "summary": "Screenshot showing IPv4 leaks with Turbo VPN connected during our initial tests on version 3. 5. 2. 0. The source signal from TechRadar should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Exclusive: Turbo VPN releases emergency Windows update after TechRadar uncovers persistent IP leaks should be explained through that lens before any broad claim is made.",
-      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
-      "sections": [
-        {
-          "heading": "Context: what changed",
-          "body": "Screenshot showing IPv4 leaks with Turbo VPN connected during our initial tests on version 3. 5. 2. 0. The source signal from TechRadar should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Screenshot showing IPv4 and IPv6 route table while connected to Turbo VPN's Lepus protocol on version 3. 6. 0. The practical impact sits in workflow, cost, risk, or a buying decision; Exclusive: Turbo VPN releases emergency Windows update after TechRadar uncovers persistent IP leaks should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
-        },
-        {
-          "heading": "Details worth verifying",
-          "body": "Get full access to premium articles, exclusive features and a growing list of member rewards. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
-        },
-        {
-          "heading": "Who should act or wait",
-          "body": "Despite issuing a patch earlier this week, the app continued leaking IPv6 addresses across all protocols until a second update was deployed today. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
-        },
-        {
-          "heading": "What to watch next",
-          "body": "Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz. Patrick Tech Media will keep checking TechRadar to see whether the value holds once the rollout broadens. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
-        }
-      ],
-      "verification_state": "emerging",
+      "verification_state": "verified",
       "quality_score": 96,
       "ad_eligible": true,
       "show_editorial_label": false,
       "indexable": true,
       "store_link_mode": "soft",
       "related_store_items": [
-        "creator-software-stack"
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-07T16:22:50.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-07T16:22:50.000Z",
+      "updated_at": "2026-08-07T16:22:50.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/"
+      },
+      "draft_context": {
+        "source_title": "How TReNDS automates root-cause analysis with Amazon Bedrock",
+        "source_name": "AWS ML Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "ai",
+        "content_type_hint": "",
+        "description": "This is a guest post co-written with Vitaly Omelchenko from the TReNDS Center at Georgia State University. At the Center for Translational Research in Neuroimaging and Data Science (TReNDS) , a joint center of Georgia State University, Georgia Institute of Technology, and Emory University, we develop and apply advanced analytical methods and neuroinformatics tools for brain health research. We’ve been running our infrastructure on Amazon Web Services (AWS) since 2019, and over the years we’ve built a diverse set of applications, including research tools and APIs, all running on Amazon Elastic Kubernetes Service (Amazon EKS) with logs shipped to Amazon CloudWatch using FluentBit . As our application grew, so did the volume of errors we needed to investigate. When we started exploring Amazon Bedrock , we saw an opportunity we had wanted for a long time. We could automate the most time-consuming part of incident response, the root-cause investigation itself. In this post, we share the architecture we built and use in production at TReNDS. It combines Amazon CloudWatch subscription filters , AWS Lambda , the Strands Agents SDK , and Amazon Bedrock to detect errors in real time, enrich them with log context and source code from GitHub, and deliver AI-powered root-cause analysis to our team. The architecture and recommendations in this post reflect our team’s experience at the TReNDS Center and do not represent official guidance from Georgia State University, Georgia Institute of Technology, or Emory University. The problem we wanted to solve Like many teams, we had alerting and monitoring in place. We knew when things broke. However, knowing that something failed and understanding why it failed are different things. Our engineers still had to open Amazon CloudWatch Logs, read through stack traces, find the relevant source files, and mentally trace the execution path. For straightforward errors, this took 15–30 minutes. For complex issues spanning multiple services, much longer. We realized that this investigation process is exactly the kind of work a foundation model with the right tools can do. The model does more than summarize the error message. It investigates the error by pulling the surrounding log context, reading the source code, and producing a structured analysis. That is what we set out to build. Architecture Here’s the architecture we arrived at: Figure 1 — Architecture for automated root-cause analysis Our applications on EKS send logs to CloudWatch using FluentBit. A CloudWatch subscription filter watches for error-level patterns ( ERROR , Exception , FATAL , CRITICAL ) and invokes a Lambda function when a match occurs. The Lambda runs a Strands Agent powered by Amazon Bedrock that investigates the error, then publishes the analysis to an Amazon Simple Notification Service (Amazon SNS) topic for delivery to our team. The core of the system is Amazon Bedrock. The foundation model (FM) does the actual reasoning about errors, code, and root causes. We use the Strands Agents SDK on top of Amazon Bedrock to handle tool-use orchestration. We define what tools are available, and the model decides when and how to call them. Given a stack trace, the agent might fetch the relevant source file, realize it needs more context, search for related error handling, and produce a structured analysis, without us hardcoding that investigation path. Because TReNDS works with health-related research data, data residency and compliance are important considerations. Amazon Bedrock processes requests within our AWS account, so log data and source code stay within the same environment as the rest of our application. The AI analysis doesn’t require sending data to external endpoints. This keeps data flows within boundaries we already manage. This is particularly important for our work, because TReNDS handles health-related research data that might fall under HIPAA requirements. For more on Health Insurance Portability and Accountability Act (HIPAA)-eligible AWS services, see the AWS HIPAA Eligible Services Reference . While our setup uses EKS and FluentBit, this pattern works with other applications that send logs to CloudWatch, including ECS, Lambda, EC2, or on-premises workloads using the CloudWatch Agent. Prerequisites To implement this solution, you need the following: An AWS account with access to Amazon Bedrock (specifically Anthropic Claude Sonnet). An Amazon EKS cluster with applications sending logs to CloudWatch through FluentBit. CloudWatch log groups configured with subscription filters. A GitHub repository containing your application source code. The Strands Agents SDK installed (available through the official Lambda layer). Familiarity with Python. An Amazon SNS topic configured for notifications. An AWS Lambda function with appropriate IAM permissions to access Amazon Bedrock, CloudWatch Logs, AWS Secrets Manager, and SNS. Building tools with Strands Agents SDK The agent’s capabilities come from the tools we give it. Of all the tools we built, source code retrieval is the most critical. Stack traces reference file paths and line numbers, but without access to the actual implementation, the agent would be limited to log pattern matching. By giving the agent the ability to read source files, it can trace execution paths and identify the specific code that caused the failure. With the Strands Agents SDK, you define a custom tool by decorating a Python function with @tool . Here’s the tool we built to fetch source code from our GitHub repositories: import base64 import boto3 import requests from strands import Agent, tool # Retrieve the GitHub token from AWS Secrets Manager secrets_client = boto3.client(\"secretsmanager\") github_token = secrets_client.get_secret_value( SecretId=\"trends/github-token\" )[\"SecretString\"] @tool def fetch_source_code(file_path: str, repo: str) -> str: \"\"\"Fetch a source file from a GitHub repository. Args: file_path: Path to the file in the repository repo: Repository in 'owner/repo' format \"\"\" response = requests.get( f\"https://api.github.com/repos/{repo}/contents/{file_path}\", headers={\"Authorization\": f\"token {github_token}\"} ) if response.status_code != 200: return f\"Could not fetch {file_path} from {repo}: HTTP {response.status_code}\" content = base64.b64decode(response.json()[\"content\"]) return content.decode(\"utf-8\") The docstring and type hints matter. Strands uses them to tell the model what the tool does and what parameters it expects. The model then decides when to call this tool based on what it finds in the error. See the custom tools documentation for more patterns. For deployment, we use the Strands Agents official Lambda layer . There’s no need to bundle the SDK manually. How the pipeline works When an error occurs in one of our applications, the pipeline moves through four stages automatically. First, CloudWatch detects the error pattern and invokes our Lambda function with the compressed log data. The Lambda decodes the event, and the Strands Agent takes over from there. The agent fetches additional log context from the same container, retrieves relevant source code from GitHub, and reasons through the root cause. Finally, it publishes a structured analysis to SNS for delivery to our team. The following sections walk through each stage in detail. Receiving and decoding CloudWatch events CloudWatch subscription filters send base64-encoded, gzip-compressed log events to Lambda. Each invocation contains one or more log events that matched the filter pattern within a short time window. The Lambda handler decodes the information, extracts the log group name and matching events, and passes them to the agent for analysis. See the CloudWatch Logs subscription filter documentation for the standard decoding pattern. Fetching extended context The subscription filter delivers the matching log line, but a single line is rarely enough. The CloudWatch event information includes the logStream, which identifies the specific container that produced the error. We built a second @tool that fetches surrounding logs from the same stream. This gives the agent the full stacktrace and the request context that led to the failure, without noise from other concurrent requests: @tool def fetch_log_context(log_group: str, log_stream: str, timestamp: int, window_seconds: int = 30) -> str: \"\"\"Fetch log lines from the same log stream surrounding an error. Args: log_group: CloudWatch Log Group name log_stream: Log stream that produced the error timestamp: Error event timestamp in milliseconds window_seconds: Time window before and after the error \"\"\" response = logs_client.filter_log_events( logGroupName=log_group, logStreamNames=[log_stream], startTime=timestamp - (window_seconds * 1000), endTime=timestamp + (window_seconds * 1000), ) events = response.get(\"events\", []) if not events: return f\"No log events found in {log_stream} within {window_seconds}s of the error.\" return \"\\n\".join(e[\"message\"] for e in events) By scoping to the log stream, we get a clean, chronological sequence of events from the same container. This includes the request that triggered the error, preceding warnings, and the full exception trace. Agent analysis The agent receives the error plus context, then autonomously decides what to investigate. Unlike a rule-based system that follows predefined decision trees, the agent interprets the error message, identifies file paths and class names in the stack trace, and determines which source files to retrieve. If the initial code review reveals that the error originates in a dependency or a shared utility, the agent follows that chain without additional prompting from us. We shaped the output format through the system prompt: SYSTEM_PROMPT = \"\"\"You are a senior Site Reliability Engineer analyzing production errors. Given an error and its surrounding log context: 1. Identify the root cause by analyzing the stacktrace 2. Use fetch_source_code to read the relevant source files 3. Provide a structured analysis with: - Severity (CRITICAL/HIGH/MEDIUM/LOW) - Root cause explanation - Relevant source code context - Suggested fix - Related areas that may be affected \"\"\" The system prompt defines a structured output format but leaves the investigation strategy to the model. The agent decides which tools to call based on what it finds in the error. A stack trace with clear file paths triggers fetch_source_code calls. An error without a stack trace might lead the agent to search the code base for the error message string. This flexibility is the core value of the agentic approach. We did not need to anticipate every type of error our applications can produce. The Lambda handler ties everything together: agent = Agent( model=BedrockModel(model_id=\"us.anthropic.claude-sonnet-4-20250514\"), system_prompt=SYSTEM_PROMPT, tools=[fetch_source_code, search_github_code, fetch_log_context] ) result = agent( f\"Analyze this error from {log_group}:\\n\\n{error_message}\" ) The handler creates an Agent instance with our chosen Amazon Bedrock model, the system prompt that defines the output format, and the list of available tools. It then passes the error message along with the log group name to the agent, which triggers the autonomous investigation loop. Delivering results After the agent completes its analysis, we publish the result to an Amazon SNS topic and fan out to email and Slack. Here’s what a typical notification looks like: Error Analysis — order-service Severity: HIGH Error: NullPointerException at OrderService.java:142 Root Cause: The method processPayment() calls paymentGateway.charge() which can return null on gateway timeout, but line 142 accesses response.getTransactionId() without a null check. Source Context (OrderService.java:138-148): [relevant code shown] Suggested Fix: Add null check for gateway response before accessing fields. Consider retry mechanism for gateway timeouts. Related: Similar pattern in RefundService.java:89 The agent autonomously investigated this error without human guidance. It read the relevant source code, identified the null check gap, and even flagged a similar pattern in another file. This demonstrates the value of the agentic approach. Rather than following a fixed checklist, the agent adapts its investigation strategy based on what it discovers at each step, much like an experienced engineer would. Results Since deploying this system, we have seen a clear impact on how our team handles production errors. The most immediate change is speed. Investigation time dropped from 15 to 30 minutes down to under 60 seconds. Because the agent’s analysis includes a suggested fix, our engineers often receive a ready solution in their inbox. They can go straight to implementing the fix instead of spending time on diagnosis. The cost of running this system is negligible. Each analysis incurs only minimal Amazon Bedrock inference charges, typically involving two to three tool-use rounds per error. For our workload, this is a fraction of what the equivalent engineer time would cost. Our developers receive the agent’s analysis by email, and the feedback has been consistently positive. The analyses provide a clear starting point for resolution, even for errors the engineer has not encountered before. Engineers can quickly understand what happened and what to do about it without additional investigation. After a release, the same code path can produce repeated errors. Our deduplication, which uses Amazon DynamoDB, makes sure that only the first occurrence triggers an analysis. The rest are silently filtered, keeping inboxes clean and Amazon Bedrock costs low. Choosing the right Amazon Bedrock model Amazon Bedrock gives us access to a range of foundation models through a single API. We tested several to find the best fit for our error analysis use case, evaluating reasoning quality (understanding code and errors), tool use reliability (calling our GitHub and CloudWatch tools), latency, and cost per analysis. Model Best For Tool Use Latency Relative Cost Anthropic Claude Sonnet Complex multi-file reasoning, subtle code issues Reliable Fast Medium Anthropic Claude Haiku Straightforward errors, high-volume triage Good Fastest Low Anthropic Claude Opus Deep cross-service investigations Reliable Moderate High Amazon Nova Pro General-purpose analysis, cost-effective Good Fast Low Amazon Nova Lite Simple error classification, budget workloads Good Fastest Lowest We selected Claude Sonnet as our primary model. In our testing, it consistently produced the most accurate root-cause analyses. It can trace through multi-file call chains, identify subtle issues like missing null checks, and reason about concurrency problems. For teams with different cost or latency requirements, the other models in the table are strong alternatives for simpler error patterns. Switching models with Strands is a one-line change, which made our evaluation straightforward: # We tested multiple models by changing this single line. # Check Amazon Bedrock documentation for the latest available model IDs. model = BedrockModel(model_id=\"us.anthropic.claude-sonnet-4-20250514\") Note: Model IDs are updated regularly. See the Amazon Bedrock supported models documentation for current model IDs. Next steps We are exploring several extensions to this system. The first priority is connecting Retrieval Augmented Generation (RAG) with our internal runbooks. By integrating Amazon Bedrock Knowledge Bases with our internal runbooks and past incident reports, the agent will be able to reference TReNDS-specific procedures in its analysis. We also plan to implement a tiered model strategy. Simple, known error patterns would route to Haiku for fast, low-cost triage, while complex or novel errors would escalate to Sonnet for deep analysis. This would optimize both cost and response time across our error volume. Finally, we are working toward automated GitHub issue and pull request creation. When the agent identifies a potential fix, it would automatically create a GitHub issue with the analysis and open a pull request with the suggested code change, reducing the manual steps between diagnosis and resolution. As we scale this further, we’re also looking at Amazon Bedrock AgentCore for managed agent runtime, observability, and identity management. See the Strands Agents examples for multi-agent and deployment patterns. Conclusion We built this system at TReNDS because we wanted every error in our application to get an instant, structured investigation instead of only an alert. Amazon Bedrock and the Strands Agents SDK made it straightforward to implement. We defined a few tools and wrote a system prompt. Now, we have an agent that reasons through production errors the same way an experienced engineer would. It delivers results in seconds. Adding a new capability means writing another @tool function and a few lines of Python. Whether the need is a Jira integration, a GitHub PR with a suggested fix, or a tool that connects to a running pod for deeper investigation, the pattern is the same. The foundation model handles the reasoning and orchestration, and we connect it to the systems it needs. About the authors Vitaly Omelchenko Vitaly is a Full Stack Developer and DevOps Engineer at the Center for Translational Research in Neuroimaging and Data Science (TReNDS), where he designs and operates the cloud and AI infrastructure supporting large-scale neuroimaging and brain health research. He has been building production systems on AWS since 2019, and his current work centers on agentic AI – applying foundation models on Amazon Bedrock to automate software operations and accelerate research computing. Chris Riddle Chris is a senior solutions architect at Amazon Web Services (AWS) and supports R1 university customers. With 20-plus years of experience in technology and a decade in higher education, Chris helps researchers use AWS for their artificial intelligence/machine learning (AI/ML) and high performance computing (HPC) workloads. Devin Hicks Devin is a Solutions Architect at Amazon Web Services (AWS) supporting the University System of Georgia’s member institutions. With nearly a decade of experience in technology, Devin guides higher education customers towards scalable, secure, and cost-effective cloud solutions. Vadim Omeltchenko Vadim is a Sr. Amazon Bedrock Go-to-Market Solutions Architect who is passionate about helping AWS customers innovate in the cloud.",
+        "paragraphs": [
+          "This is a guest post co-written with Vitaly Omelchenko from the TReNDS Center at Georgia State University.",
+          "At the Center for Translational Research in Neuroimaging and Data Science (TReNDS) , a joint center of Georgia State University, Georgia Institute of Technology, and Emory University, we develop and apply advanced analytical methods and neuroinformatics tools for brain health research. We’ve been running our infrastructure on Amazon Web Services (AWS) since 2019, and over the years we’ve built a diverse set of applications, including research tools and APIs, all running on Amazon Elastic Kubernetes Service (Amazon EKS) with logs shipped to Amazon CloudWatch using FluentBit .",
+          "As our application grew, so did the volume of errors we needed to investigate. When we started exploring Amazon Bedrock , we saw an opportunity we had wanted for a long time. We could automate the most time-consuming part of incident response, the root-cause investigation itself.",
+          "In this post, we share the architecture we built and use in production at TReNDS. It combines Amazon CloudWatch subscription filters , AWS Lambda , the Strands Agents SDK , and Amazon Bedrock to detect errors in real time, enrich them with log context and source code from GitHub, and deliver AI-powered root-cause analysis to our team.",
+          "The architecture and recommendations in this post reflect our team’s experience at the TReNDS Center and do not represent official guidance from Georgia State University, Georgia Institute of Technology, or Emory University.",
+          "Like many teams, we had alerting and monitoring in place. We knew when things broke. However, knowing that something failed and understanding why it failed are different things. Our engineers still had to open Amazon CloudWatch Logs, read through stack traces, find the relevant source files, and mentally trace the execution path. For straightforward errors, this took 15–30 minutes. For complex issues spanning multiple services, much longer."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=3050",
+        "link": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-07T16:23:56.716Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-41fed80dff95-en",
+      "cluster_id": "feed-41fed80dff95",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "slug": "wondering-why-gta-6-is-a-code-in-a-box-take-two-ceo-says-it-s-because-gaming-is-now-well-over-90",
+      "title": "Wondering why GTA 6 is a code in a box? Take-Two CEO says it’s because gaming is now ‘well over 90% digital’",
+      "summary": "Tech Radar Tech Radar Pro Tech Radar Gaming Open menu Close main menu TechRadar Game-changing stories US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3. org/2000/svg\"> View Profile Sign out Search Search TechRadar News Features Reviews How To Deals ",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Wondering why GTA 6 is a code in a box? Take-Two CEO says it’s because gaming is now ‘well over 90% digital’ should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Tech Radar Tech Radar Pro Tech Radar Gaming Open menu Close main menu TechRadar Game-changing stories US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3. org/2000/svg\"> View Profile Sign out Search Search TechRadar News Features Reviews How To Deals Switch 2 Tech Radar Get daily insight, inspiration and deals in your inbox. The source signal from TechRadar should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "During an investor Q&A session, Zelnick was asked to comment on Sony 's plan to end production of game discs in January 2028. While the CEO didn't directly address the matter, he did suggest that a physical edition of GTA 6 won't matter because its business is over 90% digital (via Jason Schreier ). The practical impact sits in workflow, cost, risk, or a buying decision; Wondering why GTA 6 is a code in a box? Take-Two CEO says it’s because gaming is now ‘well over 90% digital’ should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "\"Our business is well over 90% digitally distributed,\" Zelnick said. \"It's already a digital business. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "When Rockstar Games finally announced the price of GTA 6 , it also confirmed that physical copies won't come with a disc , but a code instead which stirred up a bit of controversy. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "When Rockstar Games finally announced the price of GTA 6 , it also confirmed that physical copies won't come with a disc , but a code instead which stirred up a bit of controversy. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [
+        "gaming-cloud-pass"
       ],
       "source_set": [
         {
           "source_type": "press",
           "source_name": "TechRadar",
-          "source_url": "https://www.techradar.com/vpn/vpn-services/exclusive-turbo-vpn-releases-emergency-windows-update-after-techradar-uncovers-persistent-ip-leaks",
+          "source_url": "https://www.techradar.com/gaming/wondering-why-gta-6-is-a-code-in-a-box-take-two-ceo-says-its-because-gaming-is-now-well-over-90-percent-digital",
           "region": "Global",
           "language": "en",
           "trust_tier": "established-media",
-          "published_at": "2026-08-07T13:30:41.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/t24fSBkNjqMaMhT5McWe34-1575-80.jpg",
+          "published_at": "2026-08-07T16:20:33.000Z",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/AesQG7K8CckccV3bwGhhH8-2560-80.jpg",
           "image_caption": "Reference image from TechRadar.",
           "image_credit": "TechRadar"
         }
       ],
-      "author_id": "mai-linh",
-      "published_at": "2026-08-07T13:30:41.000Z",
-      "updated_at": "2026-08-07T13:30:41.000Z",
+      "author_id": "quang-huy",
+      "published_at": "2026-08-07T16:20:33.000Z",
+      "updated_at": "2026-08-07T16:20:33.000Z",
       "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/t24fSBkNjqMaMhT5McWe34-1575-80.jpg",
+        "src": "https://cdn.mos.cms.futurecdn.net/AesQG7K8CckccV3bwGhhH8-2560-80.jpg",
         "caption": "Reference image from TechRadar.",
         "credit": "TechRadar",
-        "source_url": "https://www.techradar.com/vpn/vpn-services/exclusive-turbo-vpn-releases-emergency-windows-update-after-techradar-uncovers-persistent-ip-leaks"
+        "source_url": "https://www.techradar.com/gaming/wondering-why-gta-6-is-a-code-in-a-box-take-two-ceo-says-its-because-gaming-is-now-well-over-90-percent-digital"
       },
       "draft_context": {
-        "source_title": "Exclusive: Turbo VPN releases emergency Windows update after TechRadar uncovers persistent IP leaks",
+        "source_title": "Wondering why GTA 6 is a code in a box? Take-Two CEO says it’s because gaming is now ‘well over 90% digital’",
         "source_name": "TechRadar",
         "source_type": "press",
         "trust_tier": "established-media",
         "topic_hint": "devices",
         "content_type_hint": "",
-        "description": "During our latest tests of Turbo VPN's Windows client, we identified active IP leaks and misconfigured protocols that put users' privacy at risk. Owned by Singapore-based Innovative Connecting Pte. Limited, Turbo VPN boasts over 500 million downloads on Android . Although the provider issued a patch after receiving our initial technical findings earlier this week, version 3.6.0.0 continued to leak IPv6 addresses across its proprietary protocols (Lepus and LinkSentinel) as well as standard OpenVPN connections. Following further technical evidence provided by TechRadar, Turbo VPN has deployed a second update (version 3.7.0.0) for Windows to patch the persistent IPv6 leaks. Our testing confirms that this latest build now successfully blocks unencrypted IPv6 traffic. However, information regarding the app's proprietary protocols remains scarce, and one protocol (V2Ray) was quietly removed during the recent updates. When asked about its removal, the company told TechRadar it is \"still checking\" the protocol. Intermittent IP leaks Concealing your IP address is a VPN's primary objective. However, when we began testing Turbo VPN's proprietary protocols earlier this week on an IPv4-only connection, we found that our real IP address wasn't being hidden at all. Despite the app displaying that we were \"connected,\" every online IP lookup test we ran showed our real IPv4 address. We rebooted our machine, reinstalled the app, and used multiple independent lookup tools, but the issues persisted. Screenshot showing IPv4 leaks with Turbo VPN connected during our initial tests on version 3.5.2.0 (Image credit: Future) To confirm our findings, we installed the app on a second machine on a separate dual-stack IPv4/IPv6 network. Testing on this setup revealed a distinct failure: while our IPv4 address was masked, our genuine IPv6 address remained exposed. Subsequent follow-up tests on our IPv4-only connection also saw IPv4 masking stabilize, which highlights the intermittent nature of the initial build. After we shared these technical findings with the team, Turbo VPN issued an update (version 3.6.0.0). In our testing of this build, the app successfully masked IPv4 addresses consistently but IPv6 addresses remained exposed on proprietary protocols and standard OpenVPN connections. Given that most modern operating systems and web browsers favor IPv6 connections over IPv4, failing to tunnel or block this traffic left users on dual-stack connections exposed by default. Following a subsequent update issued today, the Windows app is now blocking unencrypted IPv6 traffic while masking IPv4 addresses consistently. Screenshot showing IPv6 leaks on Turbo VPN version 3.6.0.0 (Image credit: Future) Lepus: a VPN or Shadowsocks proxy? Lepus is listed alongside Turbo VPN's standard VPN protocols. It is described as providing \"excellent camouflage with equally outstanding speed and stability built for highly restricted networks.\" However, during our initial tests Lepus operated in ways distinct from standard VPN protocols. Rather than creating a system-wide encrypted tunnel, it executed a local ShadowsocksR (ssr.exe) process that toggles Windows settings (ProxyEnable: 1) to run a local proxy on port 46288. That means any non-browser data sent from your device — including background OS traffic, desktop messaging apps, and command-line utilities — did not benefit from an encrypted tunnel and was instead routed over a standard connection. We asked the team at Turbo VPN how long this behavior may have been present for, but they did not reply to that specific question. In our subsequent tests, version 3.6.0.0 successfully protected all outbound traffic in an encrypted tunnel and successfully operated as a system-wide tunnel for IPv4 traffic. However, its configuration still allowed for IPv6 leaks, which means users on a dual-stack connection were left exposed. This is because the app did not enable any IPv6 virtual interfaces, assigned zero IPv6 gateway routes, and set no firewall rules to block outbound IPv6 traffic as shown below. Screenshot showing IPv4 and IPv6 route table while connected to Turbo VPN's Lepus protocol on version 3.6.0.0. (Image credit: Future) The official response, and what comes next After sharing multiple rounds of technical feedback with Turbo VPN, the Windows app (version 3.7.0.0) appears to have fixed the remaining IPv6 leak issues. Rather than attempting to create a full IPv6 infrastructure, the latest version appears to have implemented IPv6 blocking at the client level. This forces all web traffic down the encrypted IPv4 tunnel. However, detailed information about the proprietary protocols remains conspicuously absent both within the app and on Turbo VPN's website — a search of the company's official website yields no results for Lepus or LinkSentinel. Beyond a brief descriptor on the protocol-selection tab, users are given no technical context about how these protocols route traffic or what security mechanisms they employ. Combined with the silent removal of V2Ray, users are left with little information on how best to secure their connection. The company did not respond to questions about the lack of information regarding the app's proprietary protocols. In response to our initial findings, the company said: \"The behavior observed in the Windows client arose only under certain network configurations, appearing to occur in a limited number of network environments. \"Following the points you raised, our technical team carried out a thorough review and implemented the necessary improvements in the latest Windows build within a short timeframe.\" We will continue to test the product and update our full review in the coming weeks. ]]>",
+        "description": "Take-Two CEO Strauss Zelnick has explained why physical copies of Grand Theft Auto 6 come with a code in a box Zelnick said the company's business is \"well over 90% digital\" He adds that Rockstar priced the Standard and Ultimate Editions well and that \"the pre-orders have been exceptional\" Take-Two CEO Strauss Zelnick has defended the publisher's decision to release physical editions of Grand Theft Auto 6 with just a digital download code in the box rather than a game disc. During an investor Q&A session, Zelnick was asked to comment on Sony's plan to end production of game discs in January 2028. While the CEO didn't directly address the matter, he did suggest that a physical edition of GTA 6 won't matter because its business is over 90% digital (via Jason Schreier ). \"Our business is well over 90% digitally distributed,\" Zelnick said. \"It's already a digital business.\" When Rockstar Games finally announced the price of GTA 6 , it also confirmed that physical copies won't come with a disc , but a code instead which stirred up a bit of controversy. Until now, Take-Two hasn't addressed the situation, but it seems that the publisher's decision to forgo discs is down to digital sales being more lucrative for the company. Speaking separately with The Game Business about the same matter, the outlet mentioned that retail has been a key marketing channel for games such as GTA , which Zelnick said was \"a good point\" and \"is why we offer code-in-a-box,\" and once again mentioned that its business \"is well over 90% digital.\" Take-Two also revealed (via Variety ) that it earned $1.39 billion from GTA 6 pre-orders in just five days with what Zelnick called \"unprecedented and astonishing\" sales. Players have the option to choose between a $79.99 / £69.99 Standard Edition and a $99.99 / £89.99 Ultimate Edition , the latter of which comes with an exclusive collection of additional content, which has also rubbed some fans the wrong way. But according to Zelnick, Rockstar priced the editions just right. \"I think that Rockstar got it right in terms of the pricing of this standard edition and the pricing of the deluxe edition [Ultimate Edition], and I think there’s no doubt that consumers are really excited about both,” Zelnick said. \"And I think depending on your own ability to pay and how avid a consumer you are, you can choose between them. But the pre-orders have been exceptional, and we’re happy with the mix as well.\" GTA 6 launches on November 19 for PS5 , Xbox Series X , and Series S . A new look at the game, titled 'Grand Theft Auto 6: An Extended Look,' will premiere on Netflix on August 27. ]]>",
         "paragraphs": [
-          "Screenshot showing IPv4 leaks with Turbo VPN connected during our initial tests on version 3.5.2.0",
-          "Screenshot showing IPv4 and IPv6 route table while connected to Turbo VPN's Lepus protocol on version 3.6.0.0.",
-          "Open menu TechRadar the technology experts US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3.org/2000/svg\"> View Profile Sign out Search Search TechRadar Phones Popular Phone Brands iPhone Samsung Galaxy Google Pixel Nothing Motorola OnePlus Xiaomi Honor Oppo Huawei Operating Systems Android iOS More from Phones Network Carriers Phone Accessories Phone Reviews Phone Buying Guides Phone Deals Phone Coupons Phone News Computing Laptops Chromebooks MacBooks Windows Laptops Gaming Laptops PCs Desktop PCs Macs Gaming PCs Software & Security Windows macOS Windows 10 End of Life Antivirus Cyber Security Components CPUs GPUs Storage Nvidia Intel Internet Websites & Apps Wi-Fi & Broadband Social Media Wordle Tablets eReaders iPad VR & AR Peripherals Monitors Keyboards Webcams Mice Popular Computing Brands Dell HP Lenovo Acer More from Computing Computing Reviews Computing Buying Guides Computing Deals Computing Coupons Computing News AI AI Platforms & Assistants OpenAI ChatGPT Gemini Apple Intelligence Claude TVs TV Insights TV Reviews TV Buying Guides TV Deals TV News TVs & home theater coupons TV size finder More for your TV Home Theatre Soundbars Streaming Devices Projectors Blu-ray Streaming Entertainment Netflix Prime Video Disney+ Apple TV HBO Max Hulu Paramount+ How to Watch Streaming coupons Fitness Fitness Smartwatches Fitness Trackers Exercise Equipment Fitness Headphones Fitness Apps Smart Rings Watch Brands Apple Watch Fitbit Garmin Google Pixel Watch Samsung Galaxy Watch Wellbeing Sleep Oral Health More from Fitness Fitness News Fitness Reviews Fitness Buying Guides Fitness Deals Fitness coupons Audio Headphones Earbuds & AirPods Wireless Headphones Speakers Wireless Speakers Sonos Hi-Fi Turntables Portable Players DACs Audio Streaming Spotify Apple Music More from Audio Audio News Audio Reviews Audio Buying Guides Audio Deals Audio coupons VPN VPN Services VPN Security ExpressVPN NordVPN Cameras Camera Types Mirrorless DSLRs Compact Action Video Drones 360 Cameras Dash Cams Camera Brands Canon DJI Fujifilm Nikon GoPro Insta360 More from Cameras Camera Accessories Camera Lenses Camera Reviews Camera Buying Guides Camera Deals Camera News Photography Camera coupons Home Smart Home Home Security Smart Speakers Smart Lights Smart Scales Smart Thermostats Amazon Echo Small Appliances Air Fryers Air Quality Coffee Machines Hair Care Vacuums Robot Vacuums Home Brands Dyson Philips Hue Ring Shark Ninja More from Home Home Reviews Home Buying Guides Home Deals Home News Mattress coupons Home & appliances coupons EVs Browse By Type News Best Reviews Deals Versus How To Opinion Coupons Collections Popular Brands Samsung Sony Microsoft Apple More Tech Radar Pro Tech Radar Gaming Phones View Phones Popular Phone Brands iPhone Samsung Galaxy Google Pixel Nothing Motorola OnePlus Xiaomi Honor Oppo Huawei Operating Systems Android iOS More from Phones Network Carriers Phone Accessories Phone Reviews Phone Buying Guides Phone Deals Phone Coupons Phone News Computing View Computing Laptops View Laptops Chromebooks MacBooks Windows Laptops Gaming Laptops PCs Desktop PCs Macs Gaming PCs Software & Security View Software & Security Windows macOS Windows 10 End of Life Antivirus Cyber Security Components View Components CPUs GPUs Storage Nvidia Intel Internet View Internet Websites & Apps Wi-Fi & Broadband Social Media Wordle Tablets View Tablets eReaders iPad VR & AR Peripherals View Peripherals Monitors Keyboards Webcams Mice Popular Computing Brands Dell HP Lenovo Acer More from Computing Computing Reviews Computing Buying Guides Computing Deals Computing Coupons Computing News AI View AI AI Platforms & Assistants OpenAI ChatGPT Gemini Apple Intelligence Claude TVs View TVs TV Insights TV Reviews TV Buying Guides TV Deals TV News TVs & home theater coupons TV size finder More for your TV Home Theatre Soundbars Streaming Devices Projectors Blu-ray Streaming View Streaming Entertainment Netflix Prime Video Disney+ Apple TV HBO Max Hulu Paramount+ How to Watch Streaming coupons Fitness View Fitness Fitness Smartwatches Fitness Trackers Exercise Equipment Fitness Headphones Fitness Apps Smart Rings Watch Brands Apple Watch Fitbit Garmin Google Pixel Watch Samsung Galaxy Watch Wellbeing Sleep Oral Health More from Fitness Fitness News Fitness Reviews Fitness Buying Guides Fitness Deals Fitness coupons Audio View Audio Headphones View Headphones Earbuds & AirPods Wireless Headphones Speakers View Speakers Wireless Speakers Sonos Hi-Fi View Hi-Fi Turntables Portable Players DACs Audio Streaming View Audio Streaming Spotify Apple Music More from Audio Audio News Audio Reviews Audio Buying Guides Audio Deals Audio coupons VPN View VPN VPN Services VPN Security ExpressVPN NordVPN Cameras View Cameras Camera Types Mirrorless DSLRs Compact Action Video Drones 360 Cameras Dash Cams Camera Brands Canon DJI Fujifilm Nikon GoPro Insta360 More from Cameras Camera Accessories Camera Lenses Camera Reviews Camera Buying Guides Camera Deals Camera News Photography Camera coupons Home View Home Smart Home View Smart Home Home Security Smart Speakers Smart Lights Smart Scales Smart Thermostats Amazon Echo Small Appliances View Small Appliances Air Fryers Air Quality Coffee Machines Hair Care Vacuums Robot Vacuums Home Brands Dyson Philips Hue Ring Shark Ninja More from Home Home Reviews Home Buying Guides Home Deals Home News Mattress coupons Home & appliances coupons EVs Browse View Browse By Type News Best Reviews Deals Versus How To Opinion Coupons Collections Popular Brands Samsung Sony Microsoft Apple Tech Radar Pro Tech Radar Gaming Tech Radar Get daily insight, inspiration and deals in your inbox",
-          "Get full access to premium articles, exclusive features and a growing list of member rewards.",
-          "Despite issuing a patch earlier this week, the app continued leaking IPv6 addresses across all protocols until a second update was deployed today"
+          "Tech Radar Tech Radar Pro Tech Radar Gaming Open menu Close main menu TechRadar Game-changing stories US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3.org/2000/svg\"> View Profile Sign out Search Search TechRadar News Features Reviews How To Deals Switch 2 Tech Radar Get daily insight, inspiration and deals in your inbox",
+          "During an investor Q&A session, Zelnick was asked to comment on Sony 's plan to end production of game discs in January 2028. While the CEO didn't directly address the matter, he did suggest that a physical edition of GTA 6 won't matter because its business is over 90% digital (via Jason Schreier ).",
+          "\"Our business is well over 90% digitally distributed,\" Zelnick said. \"It's already a digital business.\"",
+          "When Rockstar Games finally announced the price of GTA 6 , it also confirmed that physical copies won't come with a disc , but a code instead which stirred up a bit of controversy."
         ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=1797",
-        "link": "https://www.techradar.com/vpn/vpn-services/exclusive-turbo-vpn-releases-emergency-windows-update-after-techradar-uncovers-persistent-ip-leaks"
+        "source_depth_score": 94,
+        "source_depth_reason": "depth=94; paragraphs=4; words=631",
+        "link": "https://www.techradar.com/gaming/wondering-why-gta-6-is-a-code-in-a-box-take-two-ceo-says-its-because-gaming-is-now-well-over-90-percent-digital"
       },
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-07T15:24:57.376Z",
+        "generated_at": "2026-08-07T16:23:56.716Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-22f602292ebd-en",
+      "cluster_id": "feed-22f602292ebd",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "my-whole-family-used-the-runstar-4e-body-scale-and-this-affordable-scale-is-great-for-weight-but",
+      "title": "My whole family used the RunStar 4e Body Scale, and this affordable scale is great for weight — but let down by inaccurate body composition",
+      "summary": "(Image credit: &copy; Future / Paul Hatton) TechRadar Verdict The RunStar 4E delivers accurate and reliable measurements of weight, BMI, and metabolic age. The source signal from TechRadar should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; My whole family used the RunStar 4e Body Scale, and this affordable scale is great for weight — but let down by inaccurate body composition should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "(Image credit: &copy; Future / Paul Hatton) TechRadar Verdict The RunStar 4E delivers accurate and reliable measurements of weight, BMI, and metabolic age. Unfortunately, other metrics related to body fat and muscle were far less accurate, with some measurements deviating up to 30% compared to the RunStar 8E SmartScan Pro. That said, the scale does measure consistently with itself and so can be relied upon for tracking weight loss. Not bad for one of the most budget-friendly smart scales on the market. The source signal from TechRadar should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Why you can trust TechRadar We spend hours testing every product or service we review, so you can be sure you're buying the best. Find out more about how we test. The practical impact sits in workflow, cost, risk, or a buying decision; My whole family used the RunStar 4e Body Scale, and this affordable scale is great for weight — but let down by inaccurate body composition should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Jump To: One minute review Price and availability Design Features Performance Scorecard Should I buy? Also consider How I tested RunStar 4E Body Scale: One minute review The RunStar 4E is an affordable smart scale that costs little more than a standard set of electrical scales. Considering it measures more than 20 different body composition metrics, the low price becomes even more impressive. As you’d expect at this price, there are limitations though, with the inability to measure composition accurately (fat-to-muscle ratios and so on) being the most glaring one. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Despite these shortcomings, everything, from app setup to using the scales, is smooth, straightforward, and wonderfully intuitive. Connecting the scales to the companion app is quick and easy thanks to a robust Bluetooth signal, and the option to create multiple users within the app is a nice touch for a family of my size and stage. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "The weight measurement consistently measured around 0. 4% more than the pricier RunStar 8E SmartScan Pro, which isn’t a massive deviation. For almost all the other measurements, the RunStar 4E adopts a bioelectrical impedance analysis (BIA) measuring method through four metal sensors located on the top panel of the scale. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechRadar",
+          "source_url": "https://www.techradar.com/home/smart-scales/runstar-4e-body-scale-review",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-07T15:58:24.000Z",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/2cZCYZJ7YUKsqEWQmch5PN-2560-80.jpg",
+          "image_caption": "Reference image from TechRadar.",
+          "image_credit": "TechRadar"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-07T15:58:24.000Z",
+      "updated_at": "2026-08-07T15:58:24.000Z",
+      "image": {
+        "src": "https://cdn.mos.cms.futurecdn.net/2cZCYZJ7YUKsqEWQmch5PN-2560-80.jpg",
+        "caption": "Reference image from TechRadar.",
+        "credit": "TechRadar",
+        "source_url": "https://www.techradar.com/home/smart-scales/runstar-4e-body-scale-review"
+      },
+      "draft_context": {
+        "source_title": "My whole family used the RunStar 4e Body Scale, and this affordable scale is great for weight — but let down by inaccurate body composition",
+        "source_name": "TechRadar",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "RunStar 4E Body Scale: One minute review The RunStar 4E is an affordable smart scale that costs little more than a standard set of electrical scales. Considering it measures more than 20 different body composition metrics, the low price becomes even more impressive. As you’d expect at this price, there are limitations though, with the inability to measure composition accurately (fat-to-muscle ratios and so on) being the most glaring one. Despite these shortcomings, everything, from app setup to using the scales, is smooth, straightforward, and wonderfully intuitive. Connecting the scales to the companion app is quick and easy thanks to a robust Bluetooth signal, and the option to create multiple users within the app is a nice touch for a family of my size and stage. The weight measurement consistently measured around 0.4% more than the pricier RunStar 8E SmartScan Pro, which isn’t a massive deviation. For almost all the other measurements, the RunStar 4E adopts a bioelectrical impedance analysis (BIA) measuring method through four metal sensors located on the top panel of the scale. BMI measurements were almost identical every single time compared to the 8E SmartScan Pro (probably because it's a mathematical calculation not dependent on the electrodes), but almost all other composition measurements offered up a deviation of between 3 and 30%. For these reasons, it’s not likely to make it into our best smart scales guide. That said, for the price, the RunStar 4E is a respectable set of scales for weight and quick BMI calculation. (Image credit: Future / Paul Hatton) RunStar 4E Body Scale: Specifications Component RunStar 4E Body Scale Price $33.54 / £31.00 Dimensions 11.02 x 11.02 x 0.78 inches Weight 3.17 pounds Material 6 mm tempered glass Display LCD Battery 3x AAA Connection Bluetooth (Image credit: Future / Paul Hatton) RunStar 4E Body Scale: Price and availability $33.54 / £31.00 Not available in Australia Budget-friendly smart scale At $33.54 USD / £31.00 GBP, the RunStar 4E Body Scale is incredibly affordable as far as smart scales go. It might lack full body measurements for fat loss and fitness and muscle gain, but for that pleasure you’ll have to part with a lot more money and shoot for something like the RunStar 8E SmartScan Pro, Withings Body Scan series, or Wyze Scale X. A comparable option in terms of price and features would be the Vitafit Smart Bathroom Scale , which scored a respectable four stars in our testing. Positives included the easy connection, extremely fast results, and the comprehensive app. Our reviewer had some concerns over accuracy, but overall it’s a solid choice. The scales are FSA and HSA eligible, which means US users are able to use them in conjunction with designating pre-tax money to be taken from pay and put towards paying medical expenses. Value score 4.5/5 Future / Paul Hatton Future / Paul Hatton Future / Paul Hatton RunStar 4E Body Scale: Design LCD display with color graphics Compact and lightweight design Powered by 3x AAA batteries At the heart of the RunStar 4E is a bright LCD display that provides an easy-to-access readout of six metrics: weight, body fat, BMI, muscle mass, body water, and bone mass. The display cycles through these with a few seconds given over to each stat. Unfortunately there’s no way to move to a specific metric using on-device controls, although the full list is available in the accompanying app. At 11.02 x 11.02 x 0.78 inches and 3.17 pounds, the smart scale is both compact and lightweight. As a result, finding a suitable spot for it in a bathroom or bedroom shouldn’t be a problem. It can also be easily stowed on its side in a cupboard while not in use. The scale is covered in 6mm tempered glass, which protects against scratches and cracks, neither of which I suffered despite my children doing their accidental best to inflict a dent or two. Underneath you’ll find four anti-slip silicone feet. Quick and effortless connectivity is via Bluetooth, and power is delivered courtesy of three AAA batteries. USB-C charging would have been better for the environment, but with minimal power required, I don’t envisage getting through too many batteries. Design Score: 4/5 (Image credit: Future / Paul Hatton) RunStar 4E Body Scale: Features 22 reportable metrics including weight, BMI, and muscle mass App supports multiple users The RunStar 4E boasts an impressive feature set for such an affordable scale, or at least it would be if the extras were more impressive. At its core, the scale is capable of measuring over 20 metrics, including weight, BMI, body fat percentage, body mass, muscle mass, body water rate, bone mass, and visceral fat. Six of these are visible on the smart scale itself, while the full set is reported in the Starfit RunStar app. To accommodate families, the Starfit app enables users to set up multiple profiles, one for each family member. By entering the height and target weight of each person, the app is able to provide more accurate and informed reporting. The app also tracks measurements over time and plots them on a chart for trend analysis. Features Score: 4/5 (Image credit: Future / Paul Hatton) RunStar 4E Body Scale: Performance Quick results on-device and in-app Accurate weight, BMI, and metabolic age Some inaccuracies consistently reported The first thing to note is that the RunStar 4E is quick. In a matter of seconds the scale is able to measure over 20 different body composition metrics and display them instantly in the app. There’s no waiting around for calculations to be made and zero lag when the display is cycling through the six core metrics. Weight, as you’d expect, is measured prior to all the body composition elements. Having measured myself hundreds of times, I found that the 4E regularly mismeasured my weight by around 0.4% compared to the RunStar 8E SmartScan Pro and, indeed, my rudimentary pair of digital weight scales. It would be unfair to judge the scales too harshly for this small deviation, especially given the price. According to research published in the Journal of Medical Internet Research , one study conducted on smart scales shows a median margin of error of around 0.3kgs, so I can forgive it some small deviation. That said, if you’re requiring absolute accuracy, you’ll need to look elsewhere. BMI was also consistently measured more or less accurately, with deviations of only 0.5%. If you’re only concerned with quick measurements such as weight and BMI, then the RunStar 4E won’t cause you any problems. (Image credit: Future / Paul Hatton) Getting into the specifics, musculoskeletal-related measurements using BIA include muscle, muscle mass, and skeletal muscle rates. The first two measured around a 3% deviation from the 8E SmartScan Pro, but it was the skeletal muscle rate which was most concerning, measuring a deviation of nearly 15%. Unfortunately variable results continue with fat-related metrics. Compared to the SmartScan Pro, body fat percentage, subcutaneous fat, and body fat mass all reported a massive 30% deviation. Despite comparably poor results on some metrics, it’s worth remembering that most of these are specialized measurements, and to expect too much from a smart scale that costs $33.54 / £31.00 might be a little unreasonable. That said, it would be preferable for consumers if smart scale manufacturers would only include metrics that they could report on accurately. The RunStar 4E also measures consistently with itself, which means it can still be trusted as a weight loss tool assuming you allow for the margin of error. Performance score: 3.5/5 RunStar 4E Body Scale: Scorecard Category Comment Score Value An impressive smart scale given its budget-friendly price point. 4.5/5 Design A compact and lightweight smart scale with a bright LCD display. 4/5 Features Over 20 body composition metrics with the RunStar app providing a reasonable level of trend analysis. 4/5 Performance Weight and BMI are accurate, but other measurements are subject to sizable deviations. 3.5/5 RunStar 4E Body Scale: Should I buy? Buy it if... You’re looking for a decent affordable smart scale A surprisingly solid set of features for such a cheap scale. You only care about working towards a healthier BMI As well as weight, the RunStar 4E delivers accurate BMI calculations. Don't buy it if... You want to be able to sync results with health apps The RunStar isn’t capable of linking in with any sort of wider ecosystem. Also consider Vitafit Smart Bathroom Scale A similarly priced smart scale with a comparable set of features. Boasts a slightly larger display and a more comprehensive app experience. Vitafit Smart Bathroom Scale View Deal RunStar 8E SmartScan Pro A superior, and pricier, smart scale capable of measuring more metrics and breaking them down into specific parts of the body. View Deal How I tested My family (two adults and three children) has been using the RunStar 4E for three months. We’ve used it to measure and track all types of metrics, including weight, BMI, and muscle mass. I carried out comparison tests with the more premium RunStar 8E SmartScan Pro. In addition, I’ve used every feature of the app to give the smart scales a thorough testing. First reviewed: July 2026 ]]>",
+        "paragraphs": [
+          "(Image credit: &copy; Future / Paul Hatton) TechRadar Verdict The RunStar 4E delivers accurate and reliable measurements of weight, BMI, and metabolic age. Unfortunately, other metrics related to body fat and muscle were far less accurate, with some measurements deviating up to 30% compared to the RunStar 8E SmartScan Pro. That said, the scale does measure consistently with itself and so can be relied upon for tracking weight loss. Not bad for one of the most budget-friendly smart scales on the market.",
+          "Why you can trust TechRadar We spend hours testing every product or service we review, so you can be sure you're buying the best. Find out more about how we test.",
+          "Jump To: One minute review Price and availability Design Features Performance Scorecard Should I buy? Also consider How I tested RunStar 4E Body Scale: One minute review The RunStar 4E is an affordable smart scale that costs little more than a standard set of electrical scales. Considering it measures more than 20 different body composition metrics, the low price becomes even more impressive. As you’d expect at this price, there are limitations though, with the inability to measure composition accurately (fat-to-muscle ratios and so on) being the most glaring one.",
+          "Despite these shortcomings, everything, from app setup to using the scales, is smooth, straightforward, and wonderfully intuitive. Connecting the scales to the companion app is quick and easy thanks to a robust Bluetooth signal, and the option to create multiple users within the app is a nice touch for a family of my size and stage.",
+          "The weight measurement consistently measured around 0.4% more than the pricier RunStar 8E SmartScan Pro, which isn’t a massive deviation. For almost all the other measurements, the RunStar 4E adopts a bioelectrical impedance analysis (BIA) measuring method through four metal sensors located on the top panel of the scale."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=5; words=1837",
+        "link": "https://www.techradar.com/home/smart-scales/runstar-4e-body-scale-review"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-07T16:23:56.716Z",
         "origin": "local-curated-rss"
       }
     },
@@ -363,41 +364,41 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-07T15:24:57.376Z",
+        "generated_at": "2026-08-07T16:23:56.716Z",
         "origin": "local-curated-rss"
       }
     },
     {
-      "id": "feed-9feeb3b7017b-en",
-      "cluster_id": "feed-9feeb3b7017b",
+      "id": "feed-c31879efeba2-en",
+      "cluster_id": "feed-c31879efeba2",
       "language": "en",
-      "topic": "gaming",
+      "topic": "apps-software",
       "content_type": "NewsArticle",
-      "slug": "we-warned-you-prices-would-skyrocket-now-seagate-xbox-expansion-cards-are-out-of-stock-or-over-3",
-      "title": "We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones are still available",
-      "summary": "You can skip game file management and space issues with the Seagate Storage Expansion Card for Xbox. The source signal from Windows Central should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
-      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones are still available should be explained through that lens before any broad claim is made.",
+      "slug": "terramaster-f4-425-pro-nas-review-very-fast-with-backup-surveillance-and-media-streaming-galore",
+      "title": "TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore",
+      "summary": "TerraMaster’s F4-425 is a fast, versatile, four-bay storage, backup and media streaming NAS box that’s every bit as good as, if not better than similar units from QNAP and Synology. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore should be explained through that lens before any broad claim is made.",
       "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
       "sections": [
         {
           "heading": "Context: what changed",
-          "body": "You can skip game file management and space issues with the Seagate Storage Expansion Card for Xbox. The source signal from Windows Central should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+          "body": "TerraMaster’s F4-425 is a fast, versatile, four-bay storage, backup and media streaming NAS box that’s every bit as good as, if not better than similar units from QNAP and Synology. Especially as the company doesn’t gouge you for IP cam licenses. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
         },
         {
           "heading": "Practical impact for readers",
-          "body": "Xbox storage stock is collapsing across major retailers, leaving buyers with inflated prices or empty shelves. The practical impact sits in workflow, cost, risk, or a buying decision; We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones are still available should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+          "body": "I’m always surprised how few people own a NAS (Network Attached Storage) box such as the highly capable F4-425 Pro reviewed here. NAS requires a bit more tech savvy than cloud services and storage, plus some upfront cost, but there’s one particular reason it’s worth it: complete and private control of the apps, services, and most importantly –the data you store on it. The practical impact sits in workflow, cost, risk, or a buying decision; TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
         },
         {
           "heading": "Details worth verifying",
-          "body": "But the Seagate Xbox Expansion Card is running out of stock. Scanning the web shows retail listings with warnings of low stock or a lack of stock at all. Other stores have the cards but at inflated prices. If you want to get a Seagate Xbox Expansion Card, you need to act quickly. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+          "body": "Internet outage? Doesn’t affect your NAS. Online data breech? Monthly payments? Only to your power company. Simply put, NAS is fantastic for data backup and streaming media about the house and can also serve as the engine for a home surveillance network. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
         },
         {
           "heading": "Who should act or wait",
-          "body": "Below, I'll list all places I've found the card in stock. It's now difficult to find them at all, let alone at a good price. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+          "body": "We like NAS, and TerraMaster has quickly become one of our favorite consumer flavors thanks to excellent hardware and apps, a newly faster OS, and the lack of surcharges vendors such as QNAP and Synology hit you up with for things such as additional IP cam licenses. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
         },
         {
           "heading": "What to watch next",
-          "body": "Below, I'll list all places I've found the card in stock. It's now difficult to find them at all, let alone at a good price. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+          "body": "The F4-425 Pro is a silver and black hued, mostly metal, four-bay NAS box with quick swap, non-locking 3. 5-inch drive trays. It measures approximately 7. 1-inches wide by 8. 6-inches deep, by 5. 9-inches tall and weighs around 6. 5 pounds bare. That will of course increase as you add drives. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
         }
       ],
       "verification_state": "emerging",
@@ -405,55 +406,56 @@
       "ad_eligible": true,
       "show_editorial_label": false,
       "indexable": true,
-      "store_link_mode": "off",
+      "store_link_mode": "soft",
       "related_store_items": [
-        "gaming-cloud-pass"
+        "creator-software-stack"
       ],
       "source_set": [
         {
           "source_type": "press",
-          "source_name": "Windows Central",
-          "source_url": "https://www.windowscentral.com/hardware/storage/we-warned-you-prices-would-skyrocket-now-seagate-xbox-expansion-cards-are-out-of-stock-or-over-usd300-but-these-ones-are-still-available",
+          "source_name": "Macworld",
+          "source_url": "https://www.macworld.com/article/3150956/terramaster-f4-425-pro-nas-review-very-fast-with-backup-surveillance-and-media-streaming-galore.html",
           "region": "Global",
           "language": "en",
           "trust_tier": "established-media",
-          "published_at": "2026-08-07T12:32:43.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/mG62Us4GNMxqhDDWPtYZMb-2048-80.jpg",
-          "image_caption": "Reference image from Windows Central.",
-          "image_credit": "Windows Central"
+          "published_at": "2026-08-07T08:32:00.000Z",
+          "image_url": "https://www.macworld.com/wp-content/uploads/2026/08/F4-425-Pro-hero.jpg?quality=50&strip=all&w=1024",
+          "image_caption": "Reference image from Macworld.",
+          "image_credit": "Macworld"
         }
       ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-07T12:32:43.000Z",
-      "updated_at": "2026-08-07T12:32:43.000Z",
+      "author_id": "mai-linh",
+      "published_at": "2026-08-07T08:32:00.000Z",
+      "updated_at": "2026-08-07T08:32:00.000Z",
       "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/mG62Us4GNMxqhDDWPtYZMb-2048-80.jpg",
-        "caption": "Reference image from Windows Central.",
-        "credit": "Windows Central",
-        "source_url": "https://www.windowscentral.com/hardware/storage/we-warned-you-prices-would-skyrocket-now-seagate-xbox-expansion-cards-are-out-of-stock-or-over-usd300-but-these-ones-are-still-available"
+        "src": "https://www.macworld.com/wp-content/uploads/2026/08/F4-425-Pro-hero.jpg?quality=50&strip=all&w=1024",
+        "caption": "Reference image from Macworld.",
+        "credit": "Macworld",
+        "source_url": "https://www.macworld.com/article/3150956/terramaster-f4-425-pro-nas-review-very-fast-with-backup-surveillance-and-media-streaming-galore.html"
       },
       "draft_context": {
-        "source_title": "We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones are still available",
-        "source_name": "Windows Central",
+        "source_title": "TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore",
+        "source_name": "Macworld",
         "source_type": "press",
         "trust_tier": "established-media",
         "topic_hint": "devices",
         "content_type_hint": "",
-        "description": "The Seagate Xbox Expansion Card is a must-have accessory for the Xbox Series X and Xbox Series S . It's a plug-and-play drive with quick enough speeds to play games right from the card. But the Seagate Xbox Expansion Card is running out of stock. Scanning the web shows retail listings with warnings of low stock or a lack of stock at all. Other stores have the cards but at inflated prices. If you want to get a Seagate Xbox Expansion Card, you need to act quickly. Below, I'll list all places I've found the card in stock. It's now difficult to find them at all, let alone at a good price. This card allows you to expand the storage of your Xbox Series X or Xbox Series S. Stock is extremely limited. 1TB at GameStop for $199.99 2TB at Walmart for $299 2TB at GameStop for $299.99 2TB at Adorama for $349.99 1TB at Newegg for $362.01 Windows Central review :⭐⭐⭐⭐ View Deal Is it a good time to buy a Seagate Expansion Card? You can skip game file management and space issues with the Seagate Storage Expansion Card for Xbox. (Image credit: Windows Central) Right now is a good time to buy a Seagate Xbox Expansion Card for three reasons. First, the card is below its launch price at certain retailers. Second, the card is running out of stock, so if you want one you need to act quickly. Third, games like GTA 6 and Call of Duty: Black Ops 7 will take up a lot of space, so you'll need more storage. Gaming prices are out of control right now. RAM and storage seem to get more costly each month. There aren't signs of the market correcting any time soon, either. The most pressing factor here is that stock of the Seagate Xbox Expansion Card is running out. Literally as I wrote this article, Best Buy marked the card as unavailable. Newegg and Amazon have the card in stock but at wildly inflated prices. The only Seagate Xbox Expansion Cards I've found in stock are the ones listed above, including the 2TB model at Walmart . If you spot a model in stock, please flag it and I'll update this piece. Join us on Reddit at r/WindowsCentral to share your insights and discuss our latest news, reviews, and more. ]]>",
+        "description": "Macworld At a glance Expert's Rating Pros Affordable for four bays Dual 5Gbe connections Tons of apps and capabilities Excellent performance Unlimited IP cams in surveillance app Cons Drive trays don’t lock Requires mail address during initialization TOS 7 still slightly buggy Our Verdict TerraMaster’s F4-425 is a fast, versatile, four-bay storage, backup and media streaming NAS box that’s every bit as good as, if not better than similar units from QNAP and Synology. Especially as the company doesn’t gouge you for IP cam licenses. Price When Reviewed This value will show the geolocated pricing text for product undefined Best Pricing Today Price When Reviewed $639 Best Prices Today: TerraMaster F4-425 Pro Retailer Price $699.99 View Deal TerraMaster $800 View Deal Price comparison from over 24,000 stores worldwide Product Price Price comparison from Backmarket I’m always surprised how few people own a NAS (Network Attached Storage) box such as the highly capable F4-425 Pro reviewed here. NAS requires a bit more tech savvy than cloud services and storage, plus some upfront cost, but there’s one particular reason it’s worth it: complete and private control of the apps, services, and most importantly –the data you store on it. Internet outage? Doesn’t affect your NAS. Online data breech? Doesn’t affect your NAS. Monthly payments? Only to your power company. Simply put, NAS is fantastic for data backup and streaming media about the house and can also serve as the engine for a home surveillance network. We like NAS, and TerraMaster has quickly become one of our favorite consumer flavors thanks to excellent hardware and apps, a newly faster OS, and the lack of surcharges vendors such as QNAP and Synology hit you up with for things such as additional IP cam licenses. That said, there was the occasional immaturity in the apps and operating system. What are the F4-425 Pro’s features? The F4-425 Pro is a silver and black hued, mostly metal, four-bay NAS box with quick swap, non-locking 3.5-inch drive trays. It measures approximately 7.1-inches wide by 8.6-inches deep, by 5.9-inches tall and weighs around 6.5 pounds bare. That will of course increase as you add drives. If you remove the four screws on the bottom holding the aluminum body to the chassis, you’ll find three PCIe 3.0 NVMe M.2 slots that accept NVMe SSDs. There’s enough space for heat sinks, which would be a good idea to prolong SSD life. Note that you can use PCIe 4.0/5.0 SSDs but they’ll be limited to PCIe 3.0 speed. The front of the unit provides access to the four drive bays, as well as the power button and a single 10Gbps USB Type-A port. The back is home to an additional pair of 10Gbps Type-A USB ports, twin 5Gbe Ethernet ports, and HDMI port (console use only), and a single Type-C port for diagnostics and the like. There’s also the power jack, a pinhole reset button, and a rather massive exhaust fan. The back of the F4-425 Pro with its dual 2.5Gbpe and 10GBps Type-A ports. There’s a Type-C port but it’s only for diagnostics. The HDMI port is for console (command prompt) use only. The processor inside of our test unit was a capable 8-core Intel N350 with a substantial 16GB of DDR5 onboard. That’s plenty of power for advanced tasks like virtual machines and Docker. TerraMaster also provides several apps for backup up mobile devices, and even controlling the box. The TNAS mobile app on install and first use. TerraMaster provides 2-year warranty on the F4-425 Pro. And thankfully, the company now also provides a downloadable PDF user’s guide. How is the F4-425 Pro’s setup? Adding drives to the tool-less trays is largely painless: slide them out, pop out the side rails, slip in the 3.5-inch HDD and replace the side rails. Screws are provided for 2.5-inch hard drives or SATA SSDs. As described above, you’ll need to remove the outer shell to access the three PCIe 3.0 NVMe slots. lWhen you first boot the F4-425 (and most TerraMaster NAS) it presents a dialog asking for your email address to receive a code. That’s of course after you find its IP address (E.g. 192/168.1.110) and visit with your browser. Below the email field, in very light lettering, is the ability to bypass this step. If you choose, you can activate your online presence with TerraMaster during setup. Alas, you still have to enter your email. I don’t like sending info to a company until I’m very familiar with the hardware and said company. I wish TerraMaster would abandon this practice ad to be blunt–it’s none of their darn business. To be fair, you can put the F4-425 Pro into “Security Isolation Mode” (Control Panel / Security/ Security Isolation Mode) after setup, to prevent any further traffic outside of your local network. The F4-425 also features a highly configurable firewall if that’s too drastic a measure for you. What is the F4-425 Pro’s operating system and software like? The F4-425 Pro delivered our first look at the latest version 7 of TOS (TerraMaster Operating System), a substantially feature-equivalent but far better-performing version of the operating system (version 6) than I tested with the F2-425 . Especially in regards multitasking. Beyond that, it appeared to me to be more evolutionary than revolutionary, despite heralding itself as the first AI-enabled NAS OS. It does allow you to install OpenCLAW which enables normal language access to various features. TerraMaster says OpenCLAW makes things easier, but the real issue with most new NAS users is that they don’t know what to ask, let alone how to ask it. Actually, thinking about it, that’s the issue with just about any AI system. Note also that the minute I opened OpenCLAW, the F4-425 Pro’s fan kicked into high gear. It takes some juice. That said, I quite like TOS, it’s as well laid out as the QNAP and Synology equivalents, and perhaps a bit more intuitive. However, I found version 7 a bit buggy. Rough around the edges, as it were. I stuck with TOS 7 as it’s so much quicker at everything than version 6 but there were some annoyances such as the inability to include spaces in a backup job name, and not automatically resuming jobs that were not completed in the last session. I’d also be careful doing searches and deleting the results with the file manager. There are also tons of apps for backup, surveillance, development, and multimedia streaming. Below is my favorite: Centralized Backup, which can back up from numerous sources (SMB, FTP, etc.) without the need to install clients on every machine. Simply share the folders or files you want across the network, locate them and create a job to back them up. I love Centralized Backup’s ability to back up my shared folders without me having to install client software on the involved computers. Centralized Backup, along with CloudSync (back up to a host of online services) are my favorite TOS backup apps, but there are quite a few others (Duple Vault, Elephant Drive, etc.) as well as TerraMaster’s own client-based, portal driven TerraSync. There’s also a handy folder mirroring utility (TFM) that you can use across volumes. eAll the backup and sync options offered by TOS 7. Want to keep tabs on your house? TerraMaster includes Surveillance Manager (shown below), which offers support for unlimited cameras. This is in distinct contrast to Synology and QNAP which limit you to one or two cameras so they can sell you more licenses. This is one of the best reasons to opt for a TerraMaster NAS box, however, note that you’ll have to configure your router to reach the app remotely. The Surveillance Manager opens in a separate tab and allows up to tk IP cams. While I use TOS’s DLNA Multimedia Server to stream movies to my TV, TerraMaster also includes the extremely popular Plex (shown below), as well as Jellyfin and Emby for fans of those systems. The extremely popular Plex Media Server is present in TOS 7. TRAID is TerraMaster’s hybrid RAID solution (all NAS vendors have one these days) that combines mirroring (RAID 1) and parity (RAID 5). It allows you to combine drives of different sizes while using more of their capacity than standard RAID modes do. Generally speaking, most RAID modes allow you to use only the capacity of each drive in the array equal to that of the smallest drive in the array. Combine a 4TB HDD and an 8TB HDD in RAID 0 (striping) or RAID 1 (mirroring), and only 4TB of the 8TB drive is used, while the rest just sits there. TRAID and similar solutions let you employ the otherwise wasted capacity as another volume, or part of one. How much is the F4-425? The F4-425 Pro with the Intel N350 retails for $799, but was on sale at TerraMaster’s site for $639 at the time of this writing. From TerraMaster’s Amazon store make that $699. There’s a cheaper $569 Intel N305/8GB version of the F4-425 Pro available, as well as less endowed $599 F4-425 Plus (Intel N150 processor, 16GB), and $429 F4-425 (quad-core, 4GB) models if the Pro is too pricey for you, or you don’t need to run VMs, Docker, etc. The Plus and plain versions were discounted to $480 and $344 respectively at the time of this writing. All use the same operating system and offer the same applications. The F4-425 Pro’s price is roughly on par for a NAS box with this grade of processor, 16GB of memory and NVMe slots, but as always — shop around, though we’re fairly sure you’d be happiest with the TerraMaster. How does the F4-425 perform? The F4-425 Pro features dual 5Gbpe (Multi-gig) so it’s capable of nearly 600MBps when using that protocol, and around 1GBps if you aggregate the two 5Gbps Ethernet adapters. At 2.5Gbps, expect around 290MBps, and on gigabit, around 140Mbps. There’s no Wi-Fi, but that’s not the best way to use a NAS box. You can with some (and an add-in card), but commonly NAS is connected via Ethernet directly to a router or switch. I populated the F4-425 with a single 1.92GB Seagate IronWolf SATA SSD and two Crucial T710 PCIe 5.0 NVMe SSDs (running at PCIe 3.0 speed) and formatted with the Btrfs file system. All those SSDs are massively faster than 5Gbpe or even 10Gbpe. The test network consisted of my M4 Max Studio, an EnGenius ECS2512FP 12-port switch (8 x 2.5Gbe/4 x 10Gbe), and PCWorld’s 10Gbe Intel testbed. I tested with both a single 5Gbe Ethernet connection and both 5Gbe Ethernet ports bonded using TOS 7. However, there was so little improvement with the ports bonded, I’m showing only the 5Gbe results. As to that… Disk Speed Test was quite complimentary of the F4-425’s throughput, and more so than AmorphousDiskMark. Disk Speed Test was complimentary of the F4-425’s throughput, and more so than AmorphousDiskMark. AmorphousDiskMark writes more data at a time than Disk Speed Test, which may be the reason for the lower write number. That said, CrystalDiskMark on the PC showed even greater performance that Disk Speed Test — 587MBps reading and 580GBps writing. AmorphousDiskMark writes more data at a time than Disk Speed Test, which may be the reason for the lower write number. That said, CrystalDiskMark on the PC showed even greater performance that Disk Speed Test — 587MBps reading and 470GBps writing. ATTO was more in line with Disk Speed Test than AmorphousDiskMark. ATTO was more in line with Disk Speed Test than AmorphousDiskMark. As to sprightlyness, I banged on the interface and apps pretty hard. The F4-425 Pro was extremely responsive. Tasks completely quickly, including firmware updates and reboots. The latter were far faster than what I’m used to with my older NAS boxes. Multi-tasking, which I complained about with TOS 6 on the F2-425 was light years better. Thank you TOS 7! And of course, more memory and a faster processor. TerraMaster’s advertising teases over 1GBps performance. However, that’s simply totaling two separate 500GBps connections working separately. Expect what you see above. Note also that there is a list of compatible NVMe SSDs found here . I’ve had issues with the F8 SSD Plus with some that weren’t supported, though the F4-425 seems fine with the same SSDs. I also found that some software required re-enabling after reboots or shutdowns in TOS 7. Should I buy the F4-425 Pro? If you need a very fast 4-Bay NAS box, the TerraMaster F4-425 fits the bill. Though you should expect a couple of software glitches here and there with TOS 7 that QNAP and Synology don’t suffer. That said, for creating a surveillance system, the lack of additional fees makes it top dog in that department.",
         "paragraphs": [
-          "You can skip game file management and space issues with the Seagate Storage Expansion Card for Xbox.",
-          "Xbox storage stock is collapsing across major retailers, leaving buyers with inflated prices or empty shelves.",
-          "But the Seagate Xbox Expansion Card is running out of stock. Scanning the web shows retail listings with warnings of low stock or a lack of stock at all. Other stores have the cards but at inflated prices. If you want to get a Seagate Xbox Expansion Card, you need to act quickly.",
-          "Below, I'll list all places I've found the card in stock. It's now difficult to find them at all, let alone at a good price."
+          "TerraMaster’s F4-425 is a fast, versatile, four-bay storage, backup and media streaming NAS box that’s every bit as good as, if not better than similar units from QNAP and Synology. Especially as the company doesn’t gouge you for IP cam licenses.",
+          "I’m always surprised how few people own a NAS (Network Attached Storage) box such as the highly capable F4-425 Pro reviewed here. NAS requires a bit more tech savvy than cloud services and storage, plus some upfront cost, but there’s one particular reason it’s worth it: complete and private control of the apps, services, and most importantly –the data you store on it.",
+          "Internet outage? Doesn’t affect your NAS. Online data breech? Doesn’t affect your NAS. Monthly payments? Only to your power company. Simply put, NAS is fantastic for data backup and streaming media about the house and can also serve as the engine for a home surveillance network.",
+          "We like NAS, and TerraMaster has quickly become one of our favorite consumer flavors thanks to excellent hardware and apps, a newly faster OS, and the lack of surcharges vendors such as QNAP and Synology hit you up with for things such as additional IP cam licenses.",
+          "The F4-425 Pro is a silver and black hued, mostly metal, four-bay NAS box with quick swap, non-locking 3.5-inch drive trays. It measures approximately 7.1-inches wide by 8.6-inches deep, by 5.9-inches tall and weighs around 6.5 pounds bare. That will of course increase as you add drives."
         ],
-        "source_depth_score": 94,
-        "source_depth_reason": "depth=94; paragraphs=4; words=504",
-        "link": "https://www.windowscentral.com/hardware/storage/we-warned-you-prices-would-skyrocket-now-seagate-xbox-expansion-cards-are-out-of-stock-or-over-usd300-but-these-ones-are-still-available"
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=5; words=2369",
+        "link": "https://www.macworld.com/article/3150956/terramaster-f4-425-pro-nas-review-very-fast-with-backup-surveillance-and-media-streaming-galore.html"
       },
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-07T15:24:57.376Z",
+        "generated_at": "2026-08-07T16:23:56.716Z",
         "origin": "local-curated-rss"
       }
     }

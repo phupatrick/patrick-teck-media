@@ -1,6 +1,220 @@
 {
-  "generated_at": "2026-08-07T15:24:57.446Z",
+  "generated_at": "2026-08-07T16:23:56.783Z",
   "articles": [
+    {
+      "id": "feed-e303cae7d760-en",
+      "cluster_id": "feed-e303cae7d760",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "how-trends-automates-root-cause-analysis-with-amazon-bedrock",
+      "title": "How TReNDS automates root-cause analysis with Amazon Bedrock",
+      "summary": "This is a guest post co-written with Vitaly Omelchenko from the TReNDS Center at Georgia State University. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; How TReNDS automates root-cause analysis with Amazon Bedrock should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "This is a guest post co-written with Vitaly Omelchenko from the TReNDS Center at Georgia State University. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "At the Center for Translational Research in Neuroimaging and Data Science (TReNDS) , a joint center of Georgia State University, Georgia Institute of Technology, and Emory University, we develop and apply advanced analytical methods and neuroinformatics tools for brain health research. We’ve been running our infrastructure on Amazon Web Services (AWS) since 2019, and over the years we’ve built a diverse set of applications, including research tools and APIs, all running on Amazon Elastic Kubernetes Service (Amazon EKS) with logs shipped to Amazon CloudWatch using FluentBit . The practical impact sits in workflow, cost, risk, or a buying decision; How TReNDS automates root-cause analysis with Amazon Bedrock should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "In this post, we share the architecture we built and use in production at TReNDS. It combines Amazon CloudWatch subscription filters , AWS Lambda , the Strands Agents SDK , and Amazon Bedrock to detect errors in real time, enrich them with log context and source code from GitHub, and deliver AI-powered root-cause analysis to our team. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "The architecture and recommendations in this post reflect our team’s experience at the TReNDS Center and do not represent official guidance from Georgia State University, Georgia Institute of Technology, or Emory University. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Like many teams, we had alerting and monitoring in place. We knew when things broke. However, knowing that something failed and understanding why it failed are different things. Our engineers still had to open Amazon CloudWatch Logs, read through stack traces, find the relevant source files, and mentally trace the execution path. For straightforward errors, this took 15–30 minutes. For complex issues spanning multiple services, much longer. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-07T16:22:50.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-07T16:22:50.000Z",
+      "updated_at": "2026-08-07T16:22:50.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-07T16:23:56.716Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-41fed80dff95-en",
+      "cluster_id": "feed-41fed80dff95",
+      "language": "en",
+      "topic": "gaming",
+      "content_type": "NewsArticle",
+      "slug": "wondering-why-gta-6-is-a-code-in-a-box-take-two-ceo-says-it-s-because-gaming-is-now-well-over-90",
+      "title": "Wondering why GTA 6 is a code in a box? Take-Two CEO says it’s because gaming is now ‘well over 90% digital’",
+      "summary": "Tech Radar Tech Radar Pro Tech Radar Gaming Open menu Close main menu TechRadar Game-changing stories US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3. The source signal from TechRadar should be placed in context first: the timing, the confirmed de",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Wondering why GTA 6 is a code in a box? Take-Two CEO says it’s because gaming is now ‘well over 90% digital’ should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Tech Radar Tech Radar Pro Tech Radar Gaming Open menu Close main menu TechRadar Game-changing stories US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3. org/2000/svg\"> View Profile Sign out Search Search TechRadar News Features Reviews How To Deals Switch 2 Tech Radar Get daily insight, inspiration and deals in your inbox. The source signal from TechRadar should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "During an investor Q&A session, Zelnick was asked to comment on Sony 's plan to end production of game discs in January 2028. While the CEO didn't directly address the matter, he did suggest that a physical edition of GTA 6 won't matter because its business is over 90% digital (via Jason Schreier ). The practical impact sits in workflow, cost, risk, or a buying decision; Wondering why GTA 6 is a code in a box? Take-Two CEO says it’s because gaming is now ‘well over 90% digital’ should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "\"Our business is well over 90% digitally distributed,\" Zelnick said. \"It's already a digital business. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "When Rockstar Games finally announced the price of GTA 6 , it also confirmed that physical copies won't come with a disc , but a code instead which stirred up a bit of controversy. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "When Rockstar Games finally announced the price of GTA 6 , it also confirmed that physical copies won't come with a disc , but a code instead which stirred up a bit of controversy. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [
+        "gaming-cloud-pass"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechRadar",
+          "source_url": "https://www.techradar.com/gaming/wondering-why-gta-6-is-a-code-in-a-box-take-two-ceo-says-its-because-gaming-is-now-well-over-90-percent-digital",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-07T16:20:33.000Z",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/AesQG7K8CckccV3bwGhhH8-2560-80.jpg",
+          "image_caption": "Reference image from TechRadar.",
+          "image_credit": "TechRadar"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-07T16:20:33.000Z",
+      "updated_at": "2026-08-07T16:20:33.000Z",
+      "image": {
+        "src": "https://cdn.mos.cms.futurecdn.net/AesQG7K8CckccV3bwGhhH8-2560-80.jpg",
+        "caption": "Reference image from TechRadar.",
+        "credit": "TechRadar",
+        "source_url": "https://www.techradar.com/gaming/wondering-why-gta-6-is-a-code-in-a-box-take-two-ceo-says-its-because-gaming-is-now-well-over-90-percent-digital"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-07T16:23:56.716Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-22f602292ebd-en",
+      "cluster_id": "feed-22f602292ebd",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "my-whole-family-used-the-runstar-4e-body-scale-and-this-affordable-scale-is-great-for-weight-but",
+      "title": "My whole family used the RunStar 4e Body Scale, and this affordable scale is great for weight — but let down by inaccurate body composition",
+      "summary": "(Image credit: &copy; Future / Paul Hatton) TechRadar Verdict The RunStar 4E delivers accurate and reliable measurements of weight, BMI, and metabolic age. The source signal from TechRadar should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; My whole family used the RunStar 4e Body Scale, and this affordable scale is great for weight — but let down by inaccurate body composition should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "(Image credit: &copy; Future / Paul Hatton) TechRadar Verdict The RunStar 4E delivers accurate and reliable measurements of weight, BMI, and metabolic age. Unfortunately, other metrics related to body fat and muscle were far less accurate, with some measurements deviating up to 30% compared to the RunStar 8E SmartScan Pro. That said, the scale does measure consistently with itself and so can be relied upon for tracking weight loss. Not bad for one of the most budget-friendly smart scales on the market. The source signal from TechRadar should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Why you can trust TechRadar We spend hours testing every product or service we review, so you can be sure you're buying the best. Find out more about how we test. The practical impact sits in workflow, cost, risk, or a buying decision; My whole family used the RunStar 4e Body Scale, and this affordable scale is great for weight — but let down by inaccurate body composition should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Jump To: One minute review Price and availability Design Features Performance Scorecard Should I buy? Also consider How I tested RunStar 4E Body Scale: One minute review The RunStar 4E is an affordable smart scale that costs little more than a standard set of electrical scales. Considering it measures more than 20 different body composition metrics, the low price becomes even more impressive. As you’d expect at this price, there are limitations though, with the inability to measure composition accurately (fat-to-muscle ratios and so on) being the most glaring one. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Despite these shortcomings, everything, from app setup to using the scales, is smooth, straightforward, and wonderfully intuitive. Connecting the scales to the companion app is quick and easy thanks to a robust Bluetooth signal, and the option to create multiple users within the app is a nice touch for a family of my size and stage. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "The weight measurement consistently measured around 0. 4% more than the pricier RunStar 8E SmartScan Pro, which isn’t a massive deviation. For almost all the other measurements, the RunStar 4E adopts a bioelectrical impedance analysis (BIA) measuring method through four metal sensors located on the top panel of the scale. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechRadar",
+          "source_url": "https://www.techradar.com/home/smart-scales/runstar-4e-body-scale-review",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-07T15:58:24.000Z",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/2cZCYZJ7YUKsqEWQmch5PN-2560-80.jpg",
+          "image_caption": "Reference image from TechRadar.",
+          "image_credit": "TechRadar"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-07T15:58:24.000Z",
+      "updated_at": "2026-08-07T15:58:24.000Z",
+      "image": {
+        "src": "https://cdn.mos.cms.futurecdn.net/2cZCYZJ7YUKsqEWQmch5PN-2560-80.jpg",
+        "caption": "Reference image from TechRadar.",
+        "credit": "TechRadar",
+        "source_url": "https://www.techradar.com/home/smart-scales/runstar-4e-body-scale-review"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-07T16:23:56.716Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-d71ce58aaf89-en",
       "cluster_id": "feed-d71ce58aaf89",
@@ -281,7 +495,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-07T15:24:57.376Z",
+        "generated_at": "2026-08-07T16:23:56.716Z",
         "origin": "local-curated-rss"
       }
     },
@@ -921,7 +1135,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-07T11:57:38.745Z",
+        "generated_at": "2026-08-07T16:23:56.716Z",
         "origin": "local-curated-rss"
       }
     },
