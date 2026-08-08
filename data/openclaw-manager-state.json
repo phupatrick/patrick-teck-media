@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-08T20:57:59.372Z",
-    "finishedAt": "2026-08-08T20:59:18.547Z",
+    "startedAt": "2026-08-08T21:33:37.021Z",
+    "finishedAt": "2026-08-08T21:34:49.832Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786222679408-4d7113.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786224817071-905c83.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"‘A capable controller with plenty of adjustments’: while this Nintendo Switch 2 and PC gamepad looks like an Xbox contro\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google Drive sắp ngừng tính năng sao lưu hình ảnh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Google is making it easier to add new sources to Gemini Notebook\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Google is making it easier to add new sources to Gemini Notebook\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-08T20:59:18.536Z",
+      "reviewedAt": "2026-08-08T21:34:49.816Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
