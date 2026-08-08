@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-08T17:25:57.680Z",
-    "finishedAt": "2026-08-08T17:27:05.017Z",
+    "startedAt": "2026-08-08T17:57:09.309Z",
+    "finishedAt": "2026-08-08T17:58:23.567Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,13 +14,13 @@
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 325,
-    "articleCountBefore": 324,
-    "articleCountDelta": 1,
+    "articleCountBefore": 325,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786209957731-f9dffb.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"‘A capable controller with plenty of adjustments’: while this Nintendo Switch 2 and PC gamepad looks like an Xbox contro\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Có nên mua điện thoại BlackBerry huyền thoại ở thời điểm hiện tại\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Supernatural's head of fitness on rebooting the VR exercise app after leaving Meta\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google Drive sắp ngừng tính năng sao lưu hình ảnh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786211829360-db1e3d.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"‘A capable controller with plenty of adjustments’: while this Nintendo Switch 2 and PC gamepad looks like an Xbox contro\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Có nên mua điện thoại BlackBerry huyền thoại ở thời điểm hiện tại\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google Drive sắp ngừng tính năng sao lưu hình ảnh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"‘A capable controller with plenty of adjustments’: while this Nintendo Switch 2 and PC gamepad looks like an Xbox contro\" because it failed publish readiness: narrativeFlow Holding normalized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow Holding normalized article \"Có nên mua điện thoại BlackBerry huyền thoại ở thời điểm hiện tại\" because it failed publish readiness: narrativeFlow Holding normalized article \"Supernatural's head of fitness on rebooting the VR exercise app after leaving Meta\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google Drive sắp ngừng tính năng sao lưu hình ảnh\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"‘A capable controller with plenty of adjustments’: while this Nintendo Switch 2 and PC gamepad looks like an\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "warnings": "Holding normalized article \"‘A capable controller with plenty of adjustments’: while this Nintendo Switch 2 and PC gamepad looks like an Xbox contro\" because it failed publish readiness: narrativeFlow Holding normalized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow Holding normalized article \"Có nên mua điện thoại BlackBerry huyền thoại ở thời điểm hiện tại\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google Drive sắp ngừng tính năng sao lưu hình ảnh\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"‘A capable controller with plenty of adjustments’: while this Nintendo Switch 2 and PC gamepad looks like an\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-08T17:27:05.001Z",
+      "reviewedAt": "2026-08-08T17:58:23.551Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
