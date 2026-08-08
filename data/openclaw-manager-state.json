@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-08T16:02:19.189Z",
-    "finishedAt": "2026-08-08T16:03:22.813Z",
+    "startedAt": "2026-08-08T16:50:56.438Z",
+    "finishedAt": "2026-08-08T16:52:06.694Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786204939239-fdfdfc.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786207856493-4c6360.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Có nên mua điện thoại BlackBerry huyền thoại ở thời điểm hiện tại\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Supernatural's head of fitness on rebooting the VR exercise app after leaving Meta\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google Drive sắp ngừng tính năng sao lưu hình ảnh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones ar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Apple @ Work: What IDC’s latest shipments mean for the MacBook Neo and Air in the enterprise\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-08T16:03:22.797Z",
+      "reviewedAt": "2026-08-08T16:52:06.679Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
