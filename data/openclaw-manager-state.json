@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-07T23:47:26.582Z",
-    "finishedAt": "2026-08-07T23:48:47.282Z",
+    "startedAt": "2026-08-08T01:18:09.532Z",
+    "finishedAt": "2026-08-08T01:19:22.619Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 307,
-    "articleCountBefore": 306,
+    "totalArticles": 308,
+    "articleCountBefore": 307,
     "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786146446629-d5d5e8.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"iPhone 18 Pro có thể phải 'nằm chờ sản xuất' trước ngày mở bán\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New official 30th anniversary Quake mission pack adds new maps and mechanics\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"OpenAI Delays Next Major AI Model 'Astra' Over Critical Hacking Concerns\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"OpenAI Delays Next Major AI Model 'Astra' Over Critical Hacking Concerns\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786151889580-df8343.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung hé lộ nâng cấp đáng giá nhất trên Galaxy S27 Ultra\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iPhone 18 Pro có thể phải 'nằm chờ sản xuất' trước ngày mở bán\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New official 30th anniversary Quake mission pack adds new maps and mechanics\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to get a free pair of Ray-Ban Meta glasses (Gen 2) with an AT&T internet plan — yes, it's real\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"iPhone 18 Pro có thể phải 'nằm chờ sản xuất' trước ngày mở bán\" because it failed publish readiness: narrativeFlow Holding normalized article \"New official 30th anniversary Quake mission pack adds new maps and mechanics\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"New official 30th anniversary Quake mission pack adds new maps and mechanics\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Samsung hé lộ nâng cấp đáng giá nhất trên Galaxy S27 Ultra\" because it failed publish readiness: narrativeFlow Holding normalized article \"iPhone 18 Pro có thể phải 'nằm chờ sản xuất' trước ngày mở bán\" because it failed publish readiness: narrativeFlow Holding normalized article \"New official 30th anniversary Quake mission pack adds new maps and mechanics\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"New official 30th anniversary Quake mission pack adds new maps and mechanics\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 313 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 314 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-07T23:48:47.268Z",
+      "reviewedAt": "2026-08-08T01:19:22.605Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
