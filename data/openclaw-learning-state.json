@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T21:34:48.078Z",
+  "generated_at": "2026-08-08T22:02:35.650Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,11 +8,11 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-08-08T21:34:48.078Z",
+    "updated_at": "2026-08-08T22:02:35.650Z",
     "confidence": 0.95,
     "totalSignals": 331,
     "eligibleArticleCount": 48,
-    "excludedArticleCount": 999,
+    "excludedArticleCount": 995,
     "dailyFocus": [
       "gaming",
       "devices",
@@ -25,7 +25,7 @@
       "devices": 32,
       "internet-business-tech": 32,
       "security": 32,
-      "apps-software": 29,
+      "apps-software": 30,
       "ai": 14,
       "cloud-enterprise": 1
     },
@@ -46,71 +46,71 @@
       },
       {
         "rank": 2,
-        "title": "Giải pháp liên lạc khi tài khoản điện thoại hết tiền, hết dung lượng data",
-        "href": "/vi/tin-tuc/giai-phap-lien-lac-khi-tai-khoan-ien-thoai-het-tien-het-dung-luong-data",
-        "views": 4,
-        "uniqueViews": 3,
-        "topic": "apps-software",
+        "title": "Có nên mua điện thoại BlackBerry huyền thoại ở thời điểm hiện tại?",
+        "href": "",
+        "views": 6,
+        "uniqueViews": 1,
+        "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
       },
       {
         "rank": 3,
-        "title": "3 things leaders need to know from Microsoft Build 2026",
-        "href": "/en/news/3-things-leaders-need-to-know-from-microsoft-build-2026",
-        "views": 4,
-        "uniqueViews": 2,
-        "topic": "ai",
+        "title": "Người Việt chi bộn cho smartphone gập",
+        "href": "",
+        "views": 6,
+        "uniqueViews": 1,
+        "topic": "devices",
         "contentType": "NewsArticle",
-        "sourceType": "official-site"
+        "sourceType": "press"
       },
       {
         "rank": 4,
-        "title": "I’ve tested almost every phone released this year",
-        "href": "/en/news/i-ve-tested-almost-every-phone-released-this-year",
-        "views": 4,
-        "uniqueViews": 3,
-        "topic": "devices",
+        "title": "Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm",
+        "href": "",
+        "views": 6,
+        "uniqueViews": 1,
+        "topic": "internet-business-tech",
         "contentType": "NewsArticle",
         "sourceType": "press"
       },
       {
         "rank": 5,
-        "title": "Bí ẩn hiện tượng đèn LED nhấp nháy trên camera đã có lời giải",
-        "href": "/vi/tin-tuc/bi-an-hien-tuong-en-led-nhap-nhay-tren-camera-a-co-loi-giai",
-        "views": 4,
-        "uniqueViews": 4,
-        "topic": "devices",
+        "title": "Google Drive sắp ngừng tính năng sao lưu hình ảnh",
+        "href": "",
+        "views": 6,
+        "uniqueViews": 1,
+        "topic": "apps-software",
         "contentType": "NewsArticle",
         "sourceType": "press"
       },
       {
         "rank": 6,
-        "title": "A technology story worth following right now",
-        "href": "/en/news/a-technology-story-worth-following-right-now",
-        "views": 4,
-        "uniqueViews": 2,
+        "title": "Vì sao hàng triệu người dùng vẫn 'trung thành' với Windows 10?",
+        "href": "",
+        "views": 6,
+        "uniqueViews": 1,
         "topic": "internet-business-tech",
         "contentType": "NewsArticle",
         "sourceType": "press"
       },
       {
         "rank": 7,
-        "title": "Block ads & more on 9 devices for life",
-        "href": "/en/news/block-ads-more-on-9-devices-for-life",
-        "views": 4,
-        "uniqueViews": 4,
-        "topic": "devices",
+        "title": "Giải pháp liên lạc khi tài khoản điện thoại hết tiền, hết dung lượng data",
+        "href": "/vi/tin-tuc/giai-phap-lien-lac-khi-tai-khoan-ien-thoai-het-tien-het-dung-luong-data",
+        "views": 6,
+        "uniqueViews": 3,
+        "topic": "apps-software",
         "contentType": "NewsArticle",
         "sourceType": "press"
       },
       {
         "rank": 8,
-        "title": "Microsoft is laying off 4,800 employees",
-        "href": "/en/news/microsoft-is-laying-off-4-800-employees",
-        "views": 3,
-        "uniqueViews": 3,
-        "topic": "gaming",
+        "title": "Cách xử lý một số vấn đề của tai nghe không dây",
+        "href": "",
+        "views": 5,
+        "uniqueViews": 1,
+        "topic": "devices",
         "contentType": "NewsArticle",
         "sourceType": "press"
       }
@@ -140,9 +140,15 @@
       "Khong de summary, dek, hook va section mo dau lap lai cung mot cau hoac cung cum dien dat.",
       "Khong publish bai chi ghep y roi rac; can co mach dien bien, tac dong, hanh dong va dieu can theo doi tiep."
     ],
-    "lastCycleSummary": "Learned from 48 eligible article(s); 999 article(s) excluded from learning; 0 owner feedback item(s); 331 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, internet-business-tech, security, apps-software"
+    "lastCycleSummary": "Learned from 48 eligible article(s); 995 article(s) excluded from learning; 0 owner feedback item(s); 331 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, internet-business-tech, security, apps-software"
   },
   "cycles": [
+    {
+      "generated_at": "2026-08-08T22:02:35.650Z",
+      "totalSignals": 331,
+      "confidence": 0.95,
+      "summary": "Learned from 48 eligible article(s); 995 article(s) excluded from learning; 0 owner feedback item(s); 331 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, internet-business-tech, security, apps-software"
+    },
     {
       "generated_at": "2026-08-08T21:34:48.078Z",
       "totalSignals": 331,
@@ -376,12 +382,6 @@
       "totalSignals": 308,
       "confidence": 0.95,
       "summary": "Learned from 25 eligible article(s); 1039 article(s) excluded from learning; 0 owner feedback item(s); 308 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, security, internet-business-tech, apps-software"
-    },
-    {
-      "generated_at": "2026-08-07T15:24:58.092Z",
-      "totalSignals": 305,
-      "confidence": 0.95,
-      "summary": "Learned from 22 eligible article(s); 1039 article(s) excluded from learning; 0 owner feedback item(s); 305 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, gaming, internet-business-tech, apps-software"
     }
   ]
 }
