@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-09T10:31:16.877Z",
-    "finishedAt": "2026-08-09T10:32:19.316Z",
+    "startedAt": "2026-08-09T11:06:00.571Z",
+    "finishedAt": "2026-08-09T11:07:11.800Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,12 +14,12 @@
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 335,
-    "articleCountBefore": 334,
-    "articleCountDelta": 1,
+    "articleCountBefore": 335,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786271476926-360251.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786273560608-959087.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Xiaomi is aiming right at JBL with this dishy yet durable Bluetooth speaker — but after hours of testing, I need more de\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Vì sao không nên tự dán kính cường lực cho điện thoại gập\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Giá Bitcoin hôm nay 9.8.2026: Thị trường hồi phục bất chấp vụ hack ví lạnh Coldcard\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300 — but these ones ar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Xiaomi is aiming right at JBL with this dishy yet durable Bluetooth speaker\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"We warned you prices would skyrocket; now Seagate Xbox Expansion Cards are out of stock or over $300\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-09T10:32:19.302Z",
+      "reviewedAt": "2026-08-09T11:07:11.788Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
