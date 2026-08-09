@@ -1,6 +1,146 @@
 {
-  "generated_at": "2026-08-09T11:07:09.966Z",
+  "generated_at": "2026-08-09T11:45:22.641Z",
   "articles": [
+    {
+      "id": "feed-e142fb75db10-vi",
+      "cluster_id": "feed-e142fb75db10",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "cach-trung-quoc-thue-chip-my-ma-khong-can-mua",
+      "title": "Cách Trung Quốc \"thuê\" chip Mỹ mà không cần mua",
+      "summary": "Ngày 7/8, Bloomberg đưa tin Cục Công nghiệp và An ninh (BIS) thuộc Bộ Thương mại Mỹ, cơ quan phụ trách thực thi kiểm soát xuất khẩu chip, đang rà soát cách các công ty AI Trung Quốc tiếp cận chip Nvidia đặt ở nước ngoài. Tín hiệu từ GenK AI cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay.",
+      "dek": "Điểm đáng chú ý: Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Cách Trung Quốc \"thuê\" chip Mỹ mà không cần mua nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.",
+      "hook": "Điều cần theo dõi: Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
+      "sections": [
+        {
+          "heading": "Bối cảnh: điều gì vừa đổi",
+          "body": "Ngày 7/8, Bloomberg đưa tin Cục Công nghiệp và An ninh (BIS) thuộc Bộ Thương mại Mỹ, cơ quan phụ trách thực thi kiểm soát xuất khẩu chip, đang rà soát cách các công ty AI Trung Quốc tiếp cận chip Nvidia đặt ở nước ngoài. Theo Bloomberg, BIS đang lập hai danh sách song song. Danh sách thứ nhất gồm các nước tồn tại thị trường chợ đen đưa chip Nvidia bị hạn chế vào lãnh thổ Trung Quốc bằng đường vật lý, thuộc đúng phạm vi thực thi thông thường của cơ quan này. Danh sách thứ hai, mang tính bất thường hơn, liệt kê các nước nơi doanh nghiệp Trung Quốc truy cập chip từ xa mà không cần đưa phần cứng qua biên giới. Với cách này, chip vẫn nằm nguyên tại chỗ, chỉ có khối lượng công việc tính toán di chuyển qua mạng. Tín hiệu từ GenK AI cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay. Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định."
+        },
+        {
+          "heading": "Tác động thực tế với người đọc",
+          "body": "Nguyên nhân trực tiếp khiến BIS mở đợt rà soát là sự xuất hiện của Kimi K3, mô hình AI mã nguồn mở lớn nhất từng được phát hành, do công ty Trung Quốc Moonshot AI ra mắt ngày 17/7. Kimi K3 có 2. 800 tỷ tham số, đạt điểm số gần ngang các hệ thống hàng đầu của Anthropic và OpenAI trên nhiều bài đo hiệu năng. Ngày 22/7, Michael Kratsios, Giám đốc Văn phòng Chính sách Khoa học và Công nghệ Nhà Trắng, viết trên mạng xã hội X rằng Moonshot AI đã mua các máy chủ trang bị chip GB300 thuộc dòng Blackwell của Nvidia, dòng chip bị cấm bán cho Trung Quốc, đồng thời truy cập từ xa các máy chủ GB300 đặt tại Thái Lan để huấn luyện mô hình. Michael Kratsios cũng cáo buộc Moonshot AI vận hành một nền tảng nội bộ để chưng cất dữ liệu quy mô lớn từ mô hình Fable của Anthropic, luân phiên nhiều cách truy cập khác nhau nhằm tránh bị phát hiện. Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; Cách Trung Quốc \"thuê\" chip Mỹ mà không cần mua nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn. Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc."
+        },
+        {
+          "heading": "Chi tiết cần kiểm chứng",
+          "body": "Cần phân biệt cáo buộc trên với phần lớn năng lực tính toán thực tế của Kimi K3. Theo Bloomberg, phần chính cụm máy chủ huấn luyện các mô hình Kimi sử dụng khoảng 20. 000 chip Nvidia dòng H200 thuộc thế hệ Hopper, do Alibaba, cổ đông nắm khoảng 36% cổ phần Moonshot AI theo báo cáo thường niên chính Alibaba công bố, cung cấp qua dịch vụ điện toán đám mây. H200 là dòng chip được phép bán cho khách hàng Trung Quốc đã qua thẩm định kèm mức thuế nhập khẩu 25%, khác hoàn toàn với chip GB300 Blackwell bị cấm tuyệt đối mà Michael Kratsios cáo buộc Moonshot AI tiếp cận trái phép tại Thái Lan. Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn. Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn."
+        },
+        {
+          "heading": "Ai nên hành động hoặc chờ",
+          "body": "Cách thức né lệnh cấm không chỉ dừng ở Moonshot AI. Bloomberg dẫn tài liệu cho thấy Alibaba tiếp cận chip Nvidia đặt tại Malaysia thông qua Megaspeed, công ty có trụ sở Singapore đang bị Mỹ điều tra vì nghi ngờ chuyển hướng chip trái phép. Hai bên không giao dịch trực tiếp mà thông qua một công ty vỏ bọc tại Singapore, do một pháp nhân đăng ký tại quần đảo Cayman và cuối cùng thuộc sở hữu của Alibaba kiểm soát. Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động. Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận."
+        },
+        {
+          "heading": "Điều cần theo dõi tiếp",
+          "body": "Về mặt pháp lý, quyền hạn của BIS từ trước đến nay được xây dựng để kiểm soát việc di chuyển hàng hóa vật lý, nên chưa rõ cơ quan này có đủ thẩm quyền giám sát các giao dịch điện toán đám mây hay không. Hạ viện Mỹ đã thông qua một dự luật lưỡng đảng nhằm trao thêm thẩm quyền này cho BIS, nhưng dự luật vẫn cần vượt qua Thượng viện. Ngay cả khi luật được thông qua, Nvidia và các hãng chip khác nhiều khả năng sẽ phản đối bất kỳ giới hạn nào áp lên hoạt động truy cập trung tâm dữ liệu ở nước ngoài. Nvidia từng tuyên bố các lệnh kiểm soát xuất khẩu khiến hãng mất thị trường thương mại lớn thứ hai thế giới vào tay đối thủ nước ngoài, và cảnh báo nước Mỹ không thể để mất luôn cả châu Á. Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời. Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "GenK AI",
+          "source_url": "https://genk.vn/cach-trung-quoc-thue-chip-my-ma-khong-can-mua-165260809183829369.chn",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-09T11:38:00.000Z",
+          "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/9/gpu-server-clusters-southeast-asian-data-center-indoneo-78839-1200x675-0-59-675-1139-crop-17862753854461020926505.jpg",
+          "image_caption": "Ảnh tham khảo từ GenK AI.",
+          "image_credit": "GenK AI"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-09T11:38:00.000Z",
+      "updated_at": "2026-08-09T11:38:00.000Z",
+      "image": {
+        "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/9/gpu-server-clusters-southeast-asian-data-center-indoneo-78839-1200x675-0-59-675-1139-crop-17862753854461020926505.jpg",
+        "caption": "Ảnh tham khảo từ GenK AI.",
+        "credit": "GenK AI",
+        "source_url": "https://genk.vn/cach-trung-quoc-thue-chip-my-ma-khong-can-mua-165260809183829369.chn"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-09T11:45:22.574Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-93993013738e-vi",
+      "cluster_id": "feed-93993013738e",
+      "language": "vi",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "one-ui-9-beta-sap-phu-song-tren-hang-loat-thiet-bi-galaxy",
+      "title": "One UI 9 Beta sắp phủ sóng trên hàng loạt thiết bị Galaxy",
+      "summary": "Bình luận mới được duyệt Xem tất cả Thông tin tài khoản Đổi mật khẩu Tin đã lưu Tin đã xem Đăng xuất Chính trị Chính trị Thời sự Thời sự Thế giới Thế giới Kinh tế Kinh tế Đời sống Đời sống Sức khỏe Sức khỏe Giới trẻ Giới trẻ Giáo dục Giáo dục Du lịch Du lịch Văn hóa Văn hóa Giải trí Giải trí Thể thao Thể thao Công nghệ Công nghệ - Game Xe Xe Video Video Tiêu dùng Tiêu dùng Thời trang trẻ Thời trang trẻ Đóng menu Chào",
+      "dek": "Điểm đáng chú ý: Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; One UI 9 Beta sắp phủ sóng trên hàng loạt thiết bị Galaxy nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.",
+      "hook": "Điều cần theo dõi: Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
+      "sections": [
+        {
+          "heading": "Bối cảnh: điều gì vừa đổi",
+          "body": "Bình luận mới được duyệt Xem tất cả Thông tin tài khoản Đổi mật khẩu Tin đã lưu Tin đã xem Đăng xuất Chính trị Chính trị Thời sự Thời sự Thế giới Thế giới Kinh tế Kinh tế Đời sống Đời sống Sức khỏe Sức khỏe Giới trẻ Giới trẻ Giáo dục Giáo dục Du lịch Du lịch Văn hóa Văn hóa Giải trí Giải trí Thể thao Thể thao Công nghệ Công nghệ - Game Xe Xe Video Video Tiêu dùng Tiêu dùng Thời trang trẻ Thời trang trẻ Đóng menu Chào ngày mới Tin 24h Tin thị trường Tin 360 Video Magazine Tiện ích Bạn cần biết Liên hệ Thông tin toà soạn Liên hệ quảng cáo Công nghệ Tin tức công nghệ One UI 9 Beta sắp phủ sóng trên hàng loạt thiết bị Galaxy Phong Đỗ 09/08/2026 18:26 GMT+7 Chia sẻ Chọn Báo Thanh Niên làm nguồn ưu tiên trên Google tìm kiếm. Xem hướng dẫn. BƯỚC 1 Nhấp vào nút \"Thêm Thanh Niên trên Google\" hoặc mở trực tiếp đường dẫn này: https://www. google. com/preferences/source? q=thanhnien. vn BƯỚC 2 Tại trang vừa mở, tìm dòng \"Báo Thanh Niên \" và bấm vào ô vuông bên phải. Khi ô vuông chuyển thành dấu tích xanh là bạn đã thành công rồi! LƯU Ý NHỎ: Nếu muốn kiểm tra xem cài đặt còn hiệu lực không, bạn chỉ cần mở lại link trên là thấy ngay dấu tích xanh vẫn đang hiển thị. Chúc bạn đọc báo vui vẻ! --> Tin vui cho người dùng Galaxy khi nhiều mẫu máy sắp chính thức được trải nghiệm One UI 9 Beta. Tín hiệu từ Thanh Nien Cong Nghe cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay. Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định."
+        },
+        {
+          "heading": "Tác động thực tế với người đọc",
+          "body": "Chương trình One UI 9 Beta của Samsung có thể sớm mở rộng sang nhiều dòng thiết bị Galaxy hơn trong thời gian tới. Sau nhiều tháng tập trung thử nghiệm trên dòng Galaxy S26, gã khổng lồ công nghệ Hàn Quốc có vẻ đã sẵn sàng cho bước tiếp theo. Bản cập nhật One UI 9 Beta thứ 5 được xác nhận sẽ ra mắt trong khoảng từ ngày 10 đến 15. 8. Việc trì hoãn bản cập nhật này nhằm giúp đội ngũ phát triển có thêm thời gian rà soát và kiểm tra chất lượng lần cuối. Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; One UI 9 Beta sắp phủ sóng trên hàng loạt thiết bị Galaxy nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn. Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc."
+        },
+        {
+          "heading": "Chi tiết cần kiểm chứng",
+          "body": "Động thái kiểm tra kỹ lưỡng này được xem là bước đi quan trọng hướng tới việc đưa One UI 9 Beta lên các mẫu Galaxy đời cũ . Trên cộng đồng Samsung Members, công ty đã âm thầm khởi tạo các chuyên mục Chương trình Beta (Beta Program) mới cho Galaxy S25, S25+ và S25 Ultra. Ngoài ra, các bản dựng phần mềm nội bộ dành cho Galaxy S25 Ultra cũng đã bắt đầu xuất hiện. Những dữ liệu này cho thấy ngày phát hành bản beta công khai đang đến gần với người dùng. Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn. Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn."
+        },
+        {
+          "heading": "Ai nên hành động hoặc chờ",
+          "body": "Không chỉ dòng S, các mẫu điện thoại gập mới như Galaxy Z Fold7 và Galaxy Z Flip7 dự kiến cũng sẽ sớm tham gia thử nghiệm. Sự xuất hiện của chúng trong các hoạt động liên quan đến bản beta càng củng cố khả năng đợt mở rộng sẽ sớm diễn ra. Đáng chú ý, Samsung cũng đã trình làng phiên bản One UI 9 chính thức cùng với các mẫu điện thoại gập mới nhất. Điều này cho thấy hãng đang đẩy nhanh tiến độ phủ sóng giao diện mới trên toàn bộ dải sản phẩm. Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động. Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận."
+        },
+        {
+          "heading": "Điều cần theo dõi tiếp",
+          "body": "Đối với chủ sở hữu Galaxy S25 series cùng các mẫu điện thoại gập thế hệ mới, những ngày tới sẽ rất quan trọng. Dù Samsung chưa chính thức công bố ngày ra mắt bản beta cụ thể, các tín hiệu hiện tại đều chỉ ra đợt mở rộng đang đến gần. Nếu bản Galaxy S26 Beta 5 cập bến đúng hẹn vào tuần tới, cửa thử nghiệm cho các thiết bị khác sẽ sớm mở ra. Người dùng hoàn toàn có thể trông chờ vào những thông báo chính thức tiếp theo từ hãng. Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời. Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Thanh Nien Cong Nghe",
+          "source_url": "https://thanhnien.vn/one-ui-9-beta-sap-phu-song-tren-hang-loat-thiet-bi-galaxy-185260809132636985.htm",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-09T11:26:00.000Z",
+          "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/8/9/oneui93-software-update-17862568928171289297497-12-0-640-1200-crop-17862569326781365086688.jpg",
+          "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+          "image_credit": "Thanh Nien Cong Nghe"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-09T11:26:00.000Z",
+      "updated_at": "2026-08-09T11:26:00.000Z",
+      "image": {
+        "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/8/9/oneui93-software-update-17862568928171289297497-12-0-640-1200-crop-17862569326781365086688.jpg",
+        "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+        "credit": "Thanh Nien Cong Nghe",
+        "source_url": "https://thanhnien.vn/one-ui-9-beta-sap-phu-song-tren-hang-loat-thiet-bi-galaxy-185260809132636985.htm"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-09T11:45:22.574Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-49e3642aa01b-en",
       "cluster_id": "feed-49e3642aa01b",
@@ -349,7 +489,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-09T11:07:09.919Z",
+        "generated_at": "2026-08-09T11:45:22.574Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1475,7 +1615,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-09T11:07:09.919Z",
+        "generated_at": "2026-08-09T11:45:22.574Z",
         "origin": "local-curated-rss"
       }
     },
@@ -2963,7 +3103,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-09T11:07:09.919Z",
+        "generated_at": "2026-08-09T11:45:22.574Z",
         "origin": "local-curated-rss"
       }
     },
@@ -3459,7 +3599,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-09T11:07:09.919Z",
+        "generated_at": "2026-08-09T11:45:22.574Z",
         "origin": "local-curated-rss"
       }
     },
