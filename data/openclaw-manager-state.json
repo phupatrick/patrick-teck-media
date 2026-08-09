@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-09T09:10:34.413Z",
-    "finishedAt": "2026-08-09T09:11:43.167Z",
+    "startedAt": "2026-08-09T09:55:26.671Z",
+    "finishedAt": "2026-08-09T09:56:31.569Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,12 +14,12 @@
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 334,
-    "articleCountBefore": 333,
-    "articleCountDelta": 1,
+    "articleCountBefore": 334,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786266634463-31e813.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786269326725-4b78ba.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Vì sao không nên tự dán kính cường lực cho điện thoại gập\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Giá Bitcoin hôm nay 9.8.2026: Thị trường hồi phục bất chấp vụ hack ví lạnh Coldcard\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"NYT Strands hints and answers for Sunday, August 9 (game #889)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"OpenAI lo ngại về mô hình của chính mình\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"OpenAI lo ngại về mô hình của chính mình\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-09T09:11:43.153Z",
+      "reviewedAt": "2026-08-09T09:56:31.555Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
