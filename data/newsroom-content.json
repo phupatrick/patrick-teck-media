@@ -1,6 +1,148 @@
 {
-  "generated_at": "2026-08-10T16:33:34.063Z",
+  "generated_at": "2026-08-10T17:37:05.881Z",
   "articles": [
+    {
+      "id": "feed-14bb27890c60-en",
+      "cluster_id": "feed-14bb27890c60",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "what-to-expect-from-google-s-2026-pixel-hardware-launch-event",
+      "title": "What to expect from Google’s 2026 Pixel hardware launch event",
+      "summary": "It’s that time of year: On Wednesday, Google is set to host its annual Made by Google hardware launch event for Pixel gadgets. The source signal from The Verge should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; What to expect from Google’s 2026 Pixel hardware launch event should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "It’s that time of year: On Wednesday, Google is set to host its annual Made by Google hardware launch event for Pixel gadgets. Google itself has already teased new slab-style and foldable Pixel smartphones, but leaks also indicate that the company could announce updated watches, a new color for familiar earbuds, and perhaps a brand new AirTag-like item tracker. The source signal from The Verge should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "However, unusually, Google’s event is taking place in the evening: It kicks off on Wednesday at 6PM ET / 3PM PT instead of in the early afternoon or mid-morning, like many other tech events. And this time it has a celebrity host in Trevor Noah . The practical impact sits in workflow, cost, risk, or a buying decision; What to expect from Google’s 2026 Pixel hardware launch event should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Even more strange: As noted by 9to5Google , the Google Store homepage has a Pixel 11 preorder countdown that will end at 10AM ET on Wednesday — which is many hours earlier than the launch event itself. That could mean that all of the details about Google’s new devices will be officially revealed long before the company hosts the formal launch event. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Here’s what we expect to see Google announce this week. If you want to watch the event live, you can catch it on YouTube . For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Google has already hinted at its new phones while promoting the event, including shadowy glimpses of updated Pro and foldable phones. But the new smartphones could be largely iterative updates. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "The Verge",
+          "source_url": "https://www.theverge.com/tech/977448/made-by-google-2026-pixel-hardware-launch-event",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-10T17:28:24.000Z",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/videoframe_17597.png?quality=90&strip=all&crop=0%2C3.4613147178592%2C100%2C93.077370564282&w=1200",
+          "image_caption": "Reference image from The Verge.",
+          "image_credit": "The Verge"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-10T17:28:24.000Z",
+      "updated_at": "2026-08-10T17:28:24.000Z",
+      "image": {
+        "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/videoframe_17597.png?quality=90&strip=all&crop=0%2C3.4613147178592%2C100%2C93.077370564282&w=1200",
+        "caption": "Reference image from The Verge.",
+        "credit": "The Verge",
+        "source_url": "https://www.theverge.com/tech/977448/made-by-google-2026-pixel-hardware-launch-event"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-10T17:37:05.814Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-a1ed4bd20f88-en",
+      "cluster_id": "feed-a1ed4bd20f88",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "run-interactive-ides-on-amazon-eks-with-sagemaker-ai-to-power-up-your-ai-workflows",
+      "title": "Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows",
+      "summary": "To power up AI workflows on Amazon Elastic Kubernetes Service (Amazon EKS) , data scientists need interactive IDEs like JupyterLab and Code Editor. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "To power up AI workflows on Amazon Elastic Kubernetes Service (Amazon EKS) , data scientists need interactive IDEs like JupyterLab and Code Editor. Yet running those IDEs usually means leaving the cluster that hosts their pipelines, moving to a standalone JupyterHub deployment or a local laptop. That switch leaves them without the GPU nodes, shared storage, and AWS Identity and Access Management (IAM) roles their pipelines depend on. The Amazon SageMaker AI Spaces add-on for Amazon EKS closes that gap. It runs managed JupyterLab and Code Editor environments on the cluster that you already operate. Standing up a standalone JupyterHub environment with GPU access, storage, and authentication typically takes a platform team 3–5 days. With the add-on, a data scientist launches a fully configured Space in about 5 minutes. The source signal from AWS ML Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "In this post, you install the SageMaker AI Spaces add-on on an Amazon EKS cluster. You set up the supporting add-ons and IAM roles, deploy the AWS Load Balancer Controller , request a TLS certificate, and create an AWS Key Management System (AWS KMS) encryption key. You then create your first Space and reach it through a presigned URL in the browser and from VS Code over SSH-over-SSM. Finally, you review how to move your team to OpenID Connect (OIDC) sign-in with Amazon Cognito. The practical impact sits in workflow, cost, risk, or a buying decision; Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "To follow along, you need an AWS account with the AWS Command Line Interface (AWS CLI) 2. x or later configured for your target AWS Region, plus kubectl 1. 30 or later and Helm v3 . You also need a Route 53 public hosted zone for a domain you own, referenced as throughout this post, and IAM permissions to create roles, policies, EKS add-ons, access entries, Pod Identity associations, ACM certificates, and KMS keys. The Spaces add-on must be version 0. 1. 4 or later, because earlier versions supported Amazon SageMaker HyperPod only. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "export CLUSTER_NAME= export REGION= export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text) Every IAM role in this post is assumed by a Kubernetes service account through EKS Pod Identity, so they all share one trust policy. Save it once and reuse it:. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "cat > pod-identity-trust. json <<'EOF' { \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Allow\", \"Principal\": { \"Service\": \"pods. eks. amazonaws. com\" }, \"Action\": [\"sts:AssumeRole\", \"sts:TagSession\"] }] } EOF Note: This walkthrough creates resources that incur AWS charges: an internet-facing ALB, EBS volumes, and an EKS cluster. SSM advanced-instances tier adds about $0. 00695/hr per Space pod. Follow the Cleanup section when you finish. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/run-interactive-ides-on-amazon-eks-with-sagemaker-ai-to-power-up-your-ai-workflows/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-10T16:34:37.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/06/ML-20787-featured-image.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-10T16:34:37.000Z",
+      "updated_at": "2026-08-10T16:34:37.000Z",
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/06/ML-20787-featured-image.png",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/run-interactive-ides-on-amazon-eks-with-sagemaker-ai-to-power-up-your-ai-workflows/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-10T17:37:05.814Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-fd4629d8021a-en",
       "cluster_id": "feed-fd4629d8021a",
@@ -349,7 +491,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-10T16:33:33.999Z",
+        "generated_at": "2026-08-10T17:37:05.814Z",
         "origin": "local-curated-rss"
       }
     },
@@ -421,7 +563,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-10T16:33:33.999Z",
+        "generated_at": "2026-08-10T17:37:05.814Z",
         "origin": "local-curated-rss"
       }
     },
@@ -937,7 +1079,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-10T16:33:33.999Z",
+        "generated_at": "2026-08-10T17:37:05.814Z",
         "origin": "local-curated-rss"
       }
     },

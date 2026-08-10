@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-10T16:32:21.189Z",
-    "finishedAt": "2026-08-10T16:33:36.807Z",
+    "startedAt": "2026-08-10T17:35:35.476Z",
+    "finishedAt": "2026-08-10T17:37:08.626Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 365,
-    "articleCountBefore": 363,
+    "totalArticles": 367,
+    "articleCountBefore": 365,
     "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786379541241-7b8611.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"How nOps shipped FinOps agents 75% faster with Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"What happens to Bose when headphones become AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Fairphone 6 Plus leaks reveal first images, specs, and pricing\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Chỉ số người dùng smartphone nên quan tâm hơn số lần sạc\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"How nOps shipped FinOps agents 75% faster with Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"A researcher bought noreply.net. Companies started sending him secrets\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"What happens to Bose when headphones become AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786383335532-f8ee3a.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"What to expect from Google’s 2026 Pixel hardware launch event\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Loạt AI 'nổi loạn': vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Fairphone 6 Plus leaks reveal first images, specs, and pricing\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed trusted-source fallback: title Holding synthesized article \"Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows\" because it failed publish readiness: narrativeFlow Holding synthesized article \"A researcher bought noreply.net. Companies started sending him secrets\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"What to expect from Google’s 2026 Pixel hardware launch event\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed publish readiness: title",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"How nOps shipped FinOps agents 75% faster with Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow Holding normalized article \"What happens to Bose when headphones become AI\" because it failed publish readiness: narrativeFlow Holding normalized article \"Fairphone 6 Plus leaks reveal first images, specs, and pricing\" because it failed publish readiness: narrativeFlow Holding normalized article \"A researcher bought noreply.net. Companies started sending him secrets\" because it failed publish readiness: narrativeFlow Holding normalized article \"Chỉ số người dùng smartphone nên quan tâm hơn số lần sạc\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow Holding synthesized article \"How nOps shipped FinOps agents 75% faster with Amazon Bedrock AgentCore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"What happens to Bose when headphones become AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"A researcher bought noreply.net. Companies started sending him secrets\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"What to expect from Google’s 2026 Pixel hardware launch event\" because it failed publish readiness: narrativeFlow Holding normalized article \"Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows\" because it failed publish readiness: narrativeFlow Holding normalized article \"Fairphone 6 Plus leaks reveal first images, specs, and pricing\" because it failed publish readiness: narrativeFlow Holding normalized article \"A researcher bought noreply.net. Companies started sending him secrets\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"What to expect from Google’s 2026 Pixel hardware launch event\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"A researcher bought noreply.net. Companies started sending him secrets\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 371 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 373 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-10T16:33:36.792Z",
+      "reviewedAt": "2026-08-10T17:37:08.608Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
