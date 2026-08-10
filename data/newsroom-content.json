@@ -1,6 +1,150 @@
 {
-  "generated_at": "2026-08-10T18:34:20.926Z",
+  "generated_at": "2026-08-10T19:42:33.689Z",
   "articles": [
+    {
+      "id": "feed-b4a6942c6e1b-en",
+      "cluster_id": "feed-b4a6942c6e1b",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "using-the-github-copilot-sdk-for-java",
+      "title": "Using the GitHub Copilot SDK for Java",
+      "summary": "Ed Burns is a Principal Software Engineer working to bring Java idiomatic experiences to Microsoft and GitHub technologies. The source signal from GitHub Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Using the GitHub Copilot SDK for Java should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Ed Burns is a Principal Software Engineer working to bring Java idiomatic experiences to Microsoft and GitHub technologies. Ed's been working with Java since 1997 in all aspects from client to server to cloud and AI. The source signal from GitHub Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "At Microsoft Build 2026, GitHub introduced new tools, updates, and surfaces so agents can work the way you already work. The practical impact sits in workflow, cost, risk, or a buying decision; Using the GitHub Copilot SDK for Java should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Go beyond chat in the GitHub Copilot app with these slash commands. They’ll help you plan, collaborate, automate, and customize your dev workflow. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Instead of one huge, un-reviewable pull request, teach coding agents to decompose work into a clean, ordered stack with GitHub stacked pull requests. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "GitHub Universe 2026 Join us October 28-29 in San Francisco or online for GitHub Universe, our flagship developer event uniting people, agents, and the world’s code. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "GitHub Blog",
+          "source_url": "https://github.blog/engineering/using-the-github-copilot-sdk-for-java/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-10T19:30:00.000Z",
+          "image_url": "https://github.blog/wp-content/uploads/2026/08/figure-01-app-flow-diagram.png?resize=1024%2C173",
+          "image_caption": "Reference image from GitHub Blog.",
+          "image_credit": "GitHub Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-10T19:30:00.000Z",
+      "updated_at": "2026-08-10T19:30:00.000Z",
+      "image": {
+        "src": "https://github.blog/wp-content/uploads/2026/08/figure-01-app-flow-diagram.png?resize=1024%2C173",
+        "caption": "Reference image from GitHub Blog.",
+        "credit": "GitHub Blog",
+        "source_url": "https://github.blog/engineering/using-the-github-copilot-sdk-for-java/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-10T19:42:33.629Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-63ac6ed4aa84-en",
+      "cluster_id": "feed-63ac6ed4aa84",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "ios-27-beta-5-is-out-now-with-further-refinements-and-fixes",
+      "title": "iOS 27 beta 5 is out now with further refinements and fixes",
+      "summary": "On the first day of the WWDC developer conference, Apple released the first developer beta of its new operating system. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; iOS 27 beta 5 is out now with further refinements and fixes should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "On the first day of the WWDC developer conference, Apple released the first developer beta of its new operating system. This year, that means that the first release of iOS 27 outside Cupertino came on June 8, 2026. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The pattern goes like this: Apple releases developer-only betas for the first month or so, and then starts releasing the same build for both developers and public beta testers. Based on historical precedent, we expect the third or fourth beta to be the first one to go out to public beta testers rather than just developers. The practical impact sits in workflow, cost, risk, or a buying decision; iOS 27 beta 5 is out now with further refinements and fixes should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "If you want to try out the new OS 27 updates and provide feedback, check out our article on how to become a beta tester . It’s easy. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Updated August 10, 2026: The fifth beta of iOS 27 is now available to developers, and should be released to public beta testers in the next day or two. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "For a more complete breakdown of all the new features and changes, check out our iOS 27 guide . A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Macworld",
+          "source_url": "https://www.macworld.com/article/3172166/ios-27-beta-updates-features-release-date.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-10T18:58:37.000Z",
+          "image_url": "https://www.macworld.com/wp-content/uploads/2026/08/ios_27_hero-3.jpg?quality=50&strip=all&w=1024",
+          "image_caption": "Reference image from Macworld.",
+          "image_credit": "Macworld"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-10T18:58:37.000Z",
+      "updated_at": "2026-08-10T18:58:37.000Z",
+      "image": {
+        "src": "https://www.macworld.com/wp-content/uploads/2026/08/ios_27_hero-3.jpg?quality=50&strip=all&w=1024",
+        "caption": "Reference image from Macworld.",
+        "credit": "Macworld",
+        "source_url": "https://www.macworld.com/article/3172166/ios-27-beta-updates-features-release-date.html"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-10T19:42:33.629Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-27b16a18df26-en",
       "cluster_id": "feed-27b16a18df26",
@@ -67,7 +211,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-10T18:34:20.860Z",
+        "generated_at": "2026-08-10T19:42:33.629Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1149,7 +1293,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-10T18:34:20.861Z",
+        "generated_at": "2026-08-10T19:42:33.629Z",
         "origin": "local-curated-rss"
       }
     },
@@ -7041,7 +7185,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-10T18:34:20.861Z",
+        "generated_at": "2026-08-10T19:42:33.629Z",
         "origin": "local-curated-rss"
       }
     },

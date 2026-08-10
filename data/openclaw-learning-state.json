@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T18:34:21.723Z",
+  "generated_at": "2026-08-10T19:42:34.476Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,11 +8,11 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-08-10T18:34:21.723Z",
+    "updated_at": "2026-08-10T19:42:34.476Z",
     "confidence": 0.95,
-    "totalSignals": 374,
-    "eligibleArticleCount": 18,
-    "excludedArticleCount": 1016,
+    "totalSignals": 376,
+    "eligibleArticleCount": 20,
+    "excludedArticleCount": 1014,
     "dailyFocus": [
       "devices",
       "security",
@@ -25,13 +25,13 @@
       "security": 32,
       "internet-business-tech": 32,
       "gaming": 32,
-      "apps-software": 18,
-      "ai": 14,
+      "apps-software": 20,
+      "ai": 16,
       "cloud-enterprise": 1
     },
     "sourceTypeWeights": {
-      "press": 31,
-      "official-site": 21
+      "press": 32,
+      "official-site": 22
     },
     "topViewedArticles": [
       {
@@ -129,8 +129,7 @@
       "Uu tien bai co nguon du day: it nhat 3 doan lien quan, co ten san pham/cong ty, con so, rollout, gia, rui ro hoac gioi han cu the.",
       "Tach ro summary, dek va hook: summary noi fact chinh, dek noi y nghia, hook noi cau hoi tiep theo; khong dung lai cung mot cau.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
-      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
@@ -140,9 +139,15 @@
       "Khong de summary, dek, hook va section mo dau lap lai cung mot cau hoac cung cum dien dat.",
       "Khong publish bai chi ghep y roi rac; can co mach dien bien, tac dong, hanh dong va dieu can theo doi tiep."
     ],
-    "lastCycleSummary": "Learned from 18 eligible article(s); 1016 article(s) excluded from learning; 0 owner feedback item(s); 374 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, internet-business-tech, gaming, apps-software"
+    "lastCycleSummary": "Learned from 20 eligible article(s); 1014 article(s) excluded from learning; 0 owner feedback item(s); 376 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, internet-business-tech, gaming, apps-software"
   },
   "cycles": [
+    {
+      "generated_at": "2026-08-10T19:42:34.476Z",
+      "totalSignals": 376,
+      "confidence": 0.95,
+      "summary": "Learned from 20 eligible article(s); 1014 article(s) excluded from learning; 0 owner feedback item(s); 376 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, internet-business-tech, gaming, apps-software"
+    },
     {
       "generated_at": "2026-08-10T18:34:21.723Z",
       "totalSignals": 374,
@@ -376,12 +381,6 @@
       "totalSignals": 341,
       "confidence": 0.95,
       "summary": "Learned from 58 eligible article(s); 986 article(s) excluded from learning; 0 owner feedback item(s); 341 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, gaming, internet-business-tech, apps-software"
-    },
-    {
-      "generated_at": "2026-08-09T09:56:29.783Z",
-      "totalSignals": 340,
-      "confidence": 0.95,
-      "summary": "Learned from 57 eligible article(s); 988 article(s) excluded from learning; 0 owner feedback item(s); 340 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, security, gaming, internet-business-tech, apps-software"
     }
   ]
 }

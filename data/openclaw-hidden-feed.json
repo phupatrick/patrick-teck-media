@@ -1,11 +1,195 @@
 {
-  "generated_at": "2026-08-10T18:34:20.861Z",
+  "generated_at": "2026-08-10T19:42:33.629Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-b4a6942c6e1b-en",
+      "cluster_id": "feed-b4a6942c6e1b",
+      "language": "en",
+      "topic": "ai",
+      "content_type": "NewsArticle",
+      "slug": "using-the-github-copilot-sdk-for-java",
+      "title": "Using the GitHub Copilot SDK for Java",
+      "summary": "Ed Burns is a Principal Software Engineer working to bring Java idiomatic experiences to Microsoft and GitHub technologies. The source signal from GitHub Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Using the GitHub Copilot SDK for Java should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Ed Burns is a Principal Software Engineer working to bring Java idiomatic experiences to Microsoft and GitHub technologies. Ed's been working with Java since 1997 in all aspects from client to server to cloud and AI. The source signal from GitHub Blog should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "At Microsoft Build 2026, GitHub introduced new tools, updates, and surfaces so agents can work the way you already work. The practical impact sits in workflow, cost, risk, or a buying decision; Using the GitHub Copilot SDK for Java should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Go beyond chat in the GitHub Copilot app with these slash commands. They’ll help you plan, collaborate, automate, and customize your dev workflow. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Instead of one huge, un-reviewable pull request, teach coding agents to decompose work into a clean, ordered stack with GitHub stacked pull requests. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "GitHub Universe 2026 Join us October 28-29 in San Francisco or online for GitHub Universe, our flagship developer event uniting people, agents, and the world’s code. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "GitHub Blog",
+          "source_url": "https://github.blog/engineering/using-the-github-copilot-sdk-for-java/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-10T19:30:00.000Z",
+          "image_url": "https://github.blog/wp-content/uploads/2026/08/figure-01-app-flow-diagram.png?resize=1024%2C173",
+          "image_caption": "Reference image from GitHub Blog.",
+          "image_credit": "GitHub Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-10T19:30:00.000Z",
+      "updated_at": "2026-08-10T19:30:00.000Z",
+      "image": {
+        "src": "https://github.blog/wp-content/uploads/2026/08/figure-01-app-flow-diagram.png?resize=1024%2C173",
+        "caption": "Reference image from GitHub Blog.",
+        "credit": "GitHub Blog",
+        "source_url": "https://github.blog/engineering/using-the-github-copilot-sdk-for-java/"
+      },
+      "draft_context": {
+        "source_title": "Using the GitHub Copilot SDK for Java",
+        "source_name": "GitHub Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "apps-software",
+        "content_type_hint": "",
+        "description": "Java developers no longer have to rely on Java framework-specific approaches to drive AI from their enterprise apps. While it is true that Langchain4j empowered developers by disintermediating specific AI vendors, you still had a dependency on Langchain4j. And with Spring AI, well, of course you had a dependency on design choices made by Spring, if not on Spring itself. Now, GitHub Copilot SDK for Java is the first truly framework agnostic way to drive AI from Java. And with its BYOK support, GitHub Copilot SDK for Java is also AI vendor neutral. 💡 Even though it’s called GitHub Copilot SDK, you can use it with any direct model provider, such as OpenAI, Azure, Anthropic, or OpenAI-compatible endpoints, by passing a provider / ProviderConfig with your own baseUrl + apiKey (or bearer token). No Copilot subscription required. The GitHub Copilot SDK for Java is a client library that empowers your server-side Java code to create Copilot agent sessions, register tools, send prompts, and receive structured responses—all programmatically. It works in server environments, including Jakarta EE and Spring. If you’ve been building enterprise Java for any length of time, this SDK will feel like home: CompletableFuture , annotations, lambdas, virtual threads, it’s all here. This post shows you how to use the SDK, walks through a complete Jakarta EE 11 sample application, and leaves you with concrete next steps to try it yourself. I chose Jakarta EE 11 for my demo because I was the lead release coordinator for that release. I believe in open standards as the best way to empower developers. For more on Jakarta EE 11 see this InfoQ article . This sample app is an agent harness using Jakarta EE 11. But, of course, developers can build their own agent harness using the well-known Java frameworks and libraries of their choice. Clone the sample app and try it yourself > Where to get it The SDK is available as a Maven dependency: com.github copilot-sdk-java 1.0.7-preview.1 com.github copilot-sdk-java 1.0.7-preview.1 \" tabindex=\"0\" role=\"button\"> Prerequisites: JDK 17 or 25 (25 recommended — unlocks virtual threads and other modern features) Maven 3.9+ A GitHub account with an active Copilot subscription The Copilot CLI installed locally at version 1.0.71 or later. Walk through the sample app The best way to see the SDK in action is to run this sample application . Get the code git clone https://github.com/microsoft/Build26-BRK206-your-agent-anywhere-multiclient-multidevice-with-github-copilot-sdk.git cd Build26-BRK206-your-agent-anywhere-multiclient-multidevice-with-github-copilot-sdk/src/java-agent-orchestrator mvn clean package liberty:run # Open http://localhost:9080/index.xhtml The Java demo is built on: Concern Technology Runtime Open Liberty 26.0.0.5 Platform Jakarta EE 11 (Faces 4.1, CDI 4.1, WebSocket 2.2, Data 1.0, Persistence 3.2) UI PrimeFaces 15.0.16 AI orchestration Copilot SDK for Java 1.0.7-preview.1 Database H2 in-memory (10 seed property listings) What the app does The application is a real-estate lead-management agent pipeline. A customer submits an enquiry (“I’m looking for a 3-bedroom house in London under &pound;800,000”), and the system spins up an isolated Copilot Agent on a virtual thread to process it through a pipeline: The architecture uses Jakarta WebSocket to push real-time status updates from the server to the browser, so you can watch agents progress through phases as the model calls tools: Submit multiple inquiries simultaneously to see concurrent virtual-thread agents in action. Each one processes independently with its own Copilot session. SDK features in action Let’s walk through the key SDK features as they appear in the sample code. Defining tools with @CopilotTool This is the headline API. If you’ve ever written a @GET endpoint in JAX-RS or an @MessageDriven bean, this will feel instantly familiar: @CopilotTool(value = \"Sets the current phase of the agent. Use this to report progress.\", name = \"set_current_phase\") public String setCurrentPhase( @CopilotToolParam(\"The phase to transition to (VALIDATING, SEARCHING, \" + \"WRITING_REPORT, REJECTED_GARBAGE, REJECTED_NO_MATCHES, or DONE)\") String phaseName) { phase = Phase.valueOf(phaseName.trim().toUpperCase(Locale.ROOT)); notifyUi(); return \"Phase set to \" + phase.getLabel(); } The @CopilotTool annotation declares the method as a tool the model can call. The @CopilotToolParam annotation describes each parameter so the model knows what to pass. The SDK handles all the JSON Schema generation, argument parsing, and dispatch. You just write a normal Java method. Two build prerequisites for @CopilotTool . The annotation-based tool API is currently an experimental feature of the SDK, so you need to configure two things in your Maven build: Enable experimental APIs : pass -Acopilot.experimental.allowed=true to the compiler. Without this flag, the annotation processor will refuse to generate the tool metadata. For more details on the experimental APIs see Copilot SDK documentation . Register the annotation processor : add the SDK as an annotationProcessorPath so the compiler can find the @CopilotTool processor and generate the $$CopilotToolMeta classes at compile time. Both are configured in the maven-compiler-plugin : org.apache.maven.plugins maven-compiler-plugin 3.15.0 -Acopilot.experimental.allowed=true com.github copilot-sdk-java 1.0.7-preview.1 org.apache.maven.plugins maven-compiler-plugin 3.15.0 -Acopilot.experimental.allowed=true com.github copilot-sdk-java 1.0.7-preview.1 \" tabindex=\"0\" role=\"button\"> To register all annotated tools from an object: List annotatedTools = ToolDefinition.fromObject(this); annotatedTools = ToolDefinition.fromObject(this);\" tabindex=\"0\" role=\"button\"> Inline lambda tools with ToolDefinition.from(...) When you want a tool defined at the call site without a dedicated method, use the lambda style: ToolDefinition reportIntentTool = ToolDefinition .from(\"report_intent\", \"Reports the current intent of the agent\", Param.of(String.class, \"intent\", \"Intent in max 4 words\"), (String intent) -> { currentIntent = intent; addEvent(Instant.now(), \"intent\", \"Intent updated\", intent); notifyUi(); return \"ok\"; }) .overridesBuiltInTool(true); { currentIntent = intent; addEvent(Instant.now(), \"intent\", \"Intent updated\", intent); notifyUi(); return \"ok\"; }) .overridesBuiltInTool(true);' tabindex=\"0\" role=\"button\"> Notice .overridesBuiltInTool(true) . This tells the SDK that our report_intent tool deliberately replaces a built-in tool of the same name. This is useful when you need custom behaviour for a tool the model already knows about. Cross-class tool scanning Tools don’t have to live in the same class as your agent logic. Here’s searchProperties defined in a separate CDI bean: @ApplicationScoped public class PropertyDatabase { @CopilotTool(value = \"Searches the real estate listings database. \" + \"Returns up to 10 matching properties.\", name = \"search_properties\") public List searchProperties( @CopilotToolParam(\"Property type substring (e.g. 'flat', 'house')\") String type, @CopilotToolParam(\"City substring (e.g. 'London', 'Bristol')\") String city, @CopilotToolParam(\"Minimum number of bedrooms (0 for no minimum)\") int minBedrooms, @CopilotToolParam(\"Maximum price in GBP (0 for no maximum)\") double maxPriceGbp) { // ... filter and return matching properties ... } } searchProperties( @CopilotToolParam(\"Property type substring (e.g. 'flat', 'house')\") String type, @CopilotToolParam(\"City substring (e.g. 'London', 'Bristol')\") String city, @CopilotToolParam(\"Minimum number of bedrooms (0 for no minimum)\") int minBedrooms, @CopilotToolParam(\"Maximum price in GBP (0 for no maximum)\") double maxPriceGbp) { // ... filter and return matching properties ... } }\" tabindex=\"0\" role=\"button\"> You would normally register these with ToolDefinition.fromObject(propertyDatabase) . In the sample app, we use a lambda wrapper instead, because CDI client proxies can obscure the annotation metadata. Customizing the system message The SDK gives you fine-grained control over the system message. Use SystemMessageMode.CUSTOMIZE to replace specific sections while preserving the rest: SystemMessageConfig systemMessage = new SystemMessageConfig() .setMode(SystemMessageMode.CUSTOMIZE) .setSections(Map.of(SystemMessageSections.IDENTITY, new SectionOverride() .setAction(SectionOverrideAction.REPLACE) .setContent(\"\"\" You are part of a real estate recommendation system. You will receive enquiries from customers, and you must carry out the following workflow... \"\"\"))); The text block ( \"\"\"...\"\"\" ) makes multi-line prompts readable without string concatenation. The IDENTITY section override replaces only the model’s self-description while leaving safety guardrails intact. If you prefer a simpler approach, SystemMessageMode.APPEND adds your content after the default system message without replacing anything. The agentic loop: sendAndWait(...) One line kicks off the full agentic loop: session = client.createSession(sessionConfig).get(); // ... AssistantMessageEvent result = session.sendAndWait(escapedEnquiry).get(); Behind .get() , the model reasons, calls your tools (potentially multiple times), and returns its final response. On a virtual thread, .get() is cheap. No platform thread is consumed while waiting. The SDK dispatches tool calls to your registered handlers automatically and feeds results back to the model until it’s done. Real-time event handling with session.on(...) Subscribe to session events to build responsive UIs: sessionSubscription = session.on(event -> { captureSessionEvent(event); uiUpdateSocket.pushDetailUpdate(id); }); { captureSessionEvent(event); uiUpdateSocket.pushDetailUpdate(id); });\" tabindex=\"0\" role=\"button\"> Every tool call, every result, every assistant message fires an event. The sample app captures these events and pushes them to the browser via Jakarta WebSocket, so the pipeline dashboard updates in real time. You can use pattern matching to handle specific event types: if (event instanceof AssistantMessageEvent msg) { finalReport = msg.getData().content(); } else if (event instanceof ToolExecutionStartEvent start) { // Tool is being invoked... } Headless client and permission handling The client is configured for server-side operation: copilotClient = new CopilotClient( new CopilotClientOptions() .setMode(CopilotClientMode.EMPTY) .setCopilotHome(copilotHome) .setExecutor(contextualVirtualThreadExecutor)); CopilotClientMode.EMPTY means no IDE integration — the client talks directly to the Copilot CLI. The custom Executor (discussed below) ensures tool callbacks run with container context. For permission handling, the sample uses: sessionConfig.setOnPermissionRequest(PermissionHandler.APPROVE_ALL); APPROVE_ALL is appropriate for demos and development. In production, implement a real permission policy that validates which tools the model is allowed to invoke. Jakarta EE integration patterns The SDK is not a framework island. It composes naturally with Jakarta EE — and of course also with proprietary frameworks such as Spring. The Executor parameter is the key integration point. Jakarta Concurrency (&sect;5.2 in the 3.1 spec) requires that application-created threads be obtained from a ManagedThreadFactory so the container can: Track the thread for lifecycle shutdown ( @PreDestroy / server stop) Apply concurrency constraints and policies Propagate context automatically (without needing manual contextualRunnable ) Open Liberty 26.x supports virtual-thread ManagedThreadFactory via the virtual attribute in server.xml . ' tabindex=\"0\" role=\"button\"> Then, in AppState.java we inject the factory: @Resource(lookup = \"concurrent/virtualThreadFactory\") private ManagedThreadFactory virtualThreadFactory; And use it to create the Executor we pass to the Copilot SDK. // The ManagedThreadFactory (virtual=true) creates container-managed virtual // threads that automatically propagate CDI, JNDI, and transaction context. Executor managedVirtualExecutor = runnable -> virtualThreadFactory.newThread(runnable).start() String copilotHome = Path.of(System.getProperty(\"user.home\"), \".copilot\").toString(); CopilotClientOptions copilotClientOptions = new CopilotClientOptions() .setMode(CopilotClientMode.EMPTY) .setCopilotHome(copilotHome) .setExecutor(managedVirtualExecutor); copilotClient = new CopilotClient(copilotClientOptions); virtualThreadFactory.newThread(runnable).start() String copilotHome = Path.of(System.getProperty(\"user.home\"), \".copilot\").toString(); CopilotClientOptions copilotClientOptions = new CopilotClientOptions() .setMode(CopilotClientMode.EMPTY) .setCopilotHome(copilotHome) .setExecutor(managedVirtualExecutor); copilotClient = new CopilotClient(copilotClientOptions);' tabindex=\"0\" role=\"button\"> This creates virtual threads that carry the container’s context. When the SDK dispatches a tool call to searchProperties() , that method can @Inject a JPA repository and query the database, because the container context is present on the callback thread. Other integration patterns in the sample: CDI @ApplicationScoped for the singleton CopilotClient (one client per application lifecycle). Jakarta Faces f:websocket push for real-time browser updates via PushContext . Jakarta Data @Repository for type-safe database queries without raw JPA boilerplate. Fine-grained tool access control with ToolSet . The SessionConfig lets you specify exactly which tools each session can access: sessionConfig.setAvailableTools(new ToolSet() .addCustom(\"*\") // all registered custom tools .addBuiltIn(\"web_fetch\")); // only the web_fetch built-in This is an important production concern. Rather than exposing every built-in tool (file system access, shell execution, etc.), you explicitly opt in to only what the agent needs. In the sample app, we allow all custom tools plus web_fetch so the agent can look up real-time property information during the Search phase. Summary Here’s what we covered: Java-native API : CompletableFuture , annotations, lambdas, and virtual threads make the SDK feel like idiomatic Java, not a ported-from-another-language afterthought. Three tool-definition styles : annotations for enterprise patterns, lambdas for inline convenience, JSON Schema for full control. System message customization : section-level overrides give you precise control over agent behaviour. The agentic loop in one line : sendAndWait(...) handles the full tool-calling loop automatically. Real-time event streaming : session.on(...) enables responsive UIs and observability. Headless server-side operation : no IDE required; runs anywhere the Copilot CLI is available. Natural composition with Jakarta EE : CDI, JPA, WebSocket, and virtual threads all work together through the Executor integration point. What to try next Explore the BYOK support. The GitHub Copilot SDK can be used directly against model providers, for example OpenAI, Azure, Anthropic, or OpenAI-compatible endpoints, by passing a provider / ProviderConfig with your own baseUrl + apiKey (or bearer token). No Copilot subscription required. Clone the sample app and run it locally. Submit multiple enquiries simultaneously to see virtual threads in action. Swap the model. Try session.setModel(...) to experiment with different Copilot models. Add your own tool. Define a new @CopilotTool method (a mortgage calculator, a school-district lookup) and watch the agent discover and use it. Deploy to Azure. Open Liberty runs great on Azure App Service, AKS, or Azure Container Apps. See the Jakarta EE on Azure guidance at https://aka.ms/java/ee . The Copilot SDK for Java puts the full power of GitHub Copilot behind your Java code with no IDE required and no framework lock-in. Clone the sample app and try it yourself > The post Using the GitHub Copilot SDK for Java appeared first on The GitHub Blog .",
+        "paragraphs": [
+          "Ed Burns is a Principal Software Engineer working to bring Java idiomatic experiences to Microsoft and GitHub technologies. Ed's been working with Java since 1997 in all aspects from client to server to cloud and AI.",
+          "At Microsoft Build 2026, GitHub introduced new tools, updates, and surfaces so agents can work the way you already work.",
+          "Learn how to integrate the Copilot SDK into a React Native app to generate AI-powered issue summaries, with production patterns for graceful degradation and caching.",
+          "Go beyond chat in the GitHub Copilot app with these slash commands. They’ll help you plan, collaborate, automate, and customize your dev workflow.",
+          "Instead of one huge, un-reviewable pull request, teach coding agents to decompose work into a clean, ordered stack with GitHub stacked pull requests.",
+          "GitHub Universe 2026 Join us October 28-29 in San Francisco or online for GitHub Universe, our flagship developer event uniting people, agents, and the world’s code."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=2231",
+        "link": "https://github.blog/engineering/using-the-github-copilot-sdk-for-java/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-10T19:42:33.629Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-63ac6ed4aa84-en",
+      "cluster_id": "feed-63ac6ed4aa84",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "ios-27-beta-5-is-out-now-with-further-refinements-and-fixes",
+      "title": "iOS 27 beta 5 is out now with further refinements and fixes",
+      "summary": "On the first day of the WWDC developer conference, Apple released the first developer beta of its new operating system. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; iOS 27 beta 5 is out now with further refinements and fixes should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "On the first day of the WWDC developer conference, Apple released the first developer beta of its new operating system. This year, that means that the first release of iOS 27 outside Cupertino came on June 8, 2026. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The pattern goes like this: Apple releases developer-only betas for the first month or so, and then starts releasing the same build for both developers and public beta testers. Based on historical precedent, we expect the third or fourth beta to be the first one to go out to public beta testers rather than just developers. The practical impact sits in workflow, cost, risk, or a buying decision; iOS 27 beta 5 is out now with further refinements and fixes should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "If you want to try out the new OS 27 updates and provide feedback, check out our article on how to become a beta tester . It’s easy. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Updated August 10, 2026: The fifth beta of iOS 27 is now available to developers, and should be released to public beta testers in the next day or two. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "For a more complete breakdown of all the new features and changes, check out our iOS 27 guide . A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Macworld",
+          "source_url": "https://www.macworld.com/article/3172166/ios-27-beta-updates-features-release-date.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-10T18:58:37.000Z",
+          "image_url": "https://www.macworld.com/wp-content/uploads/2026/08/ios_27_hero-3.jpg?quality=50&strip=all&w=1024",
+          "image_caption": "Reference image from Macworld.",
+          "image_credit": "Macworld"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-10T18:58:37.000Z",
+      "updated_at": "2026-08-10T18:58:37.000Z",
+      "image": {
+        "src": "https://www.macworld.com/wp-content/uploads/2026/08/ios_27_hero-3.jpg?quality=50&strip=all&w=1024",
+        "caption": "Reference image from Macworld.",
+        "credit": "Macworld",
+        "source_url": "https://www.macworld.com/article/3172166/ios-27-beta-updates-features-release-date.html"
+      },
+      "draft_context": {
+        "source_title": "iOS 27 beta 5 is out now with further refinements and fixes",
+        "source_name": "Macworld",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "Macworld On the first day of the WWDC developer conference, Apple released the first developer beta of its new operating system. This year, that means that the first release of iOS 27 outside Cupertino came on June 8, 2026. The pattern goes like this: Apple releases developer-only betas for the first month or so, and then starts releasing the same build for both developers and public beta testers. Based on historical precedent, we expect the third or fourth beta to be the first one to go out to public beta testers rather than just developers. If you want to try out the new OS 27 updates and provide feedback, check out our article on how to become a beta tester . It’s easy. Updated August 10, 2026: The fifth beta of iOS 27 is now available to developers, and should be released to public beta testers in the next day or two. What’s new in iOS 27 The big iOS 27 release this year is focused on three main areas: Trust and Safety – New parental controls to keep kids safe and control screen time. Performance and refinement – Speeding everything up, improving efficiency, tweaking interfaces, and addressing dozens of small user requests. Apple Intelligence and Siri – Entirely new Apple Intelligence models improve AI throughout the system, and a brand-new Siri is vastly more capable than ever before. For a more complete breakdown of all the new features and changes, check out our iOS 27 guide . Beta 5 brings the following changes, in addition to bug fixes and performance improvements: Updated icons for several apps including Safari, Siri, Remote, and Freeform. Siri’s enhanced voice now supports British English. An adjustment in Search Settings for how many app suggests and such should be on Home Screen search suggestions. iOS 27: How to install the developer beta You’ll need to be registered as an Apple Developer, but a free developer account will do. You can get one via Xcode or the Apple Developer app in iOS. Here’s how to do it via the Apple Developer app: Download the Apple Developer App from the App Store. Open the app. Tap on Account. Sign in using your usual Apple ID. Once you have a free developer account, just follow the same instructions as with the public beta: Open Settings . Tap General , then Software Update . Make sure the Beta Updates selection is set to iOS 27 Developer Beta . Follow the on-screen instructions. iOS 27: How to install the public beta The first iOS 27 public beta is not available yet but is expected to arrive in July. When it lands, you can follow these steps to test it out even if you’re not a developer: Click Sign Up on the Apple Beta page and register with your Apple ID. Log in to the Beta Software Program. Click Enroll your iOS device. Open the Settings app, tap General, then Software Update. In the Beta Updates section, select the iOS 27 Public Beta. It may take a few moments after registering for the beta option to appear in Software Update. If you want to uninstall the iOS 27 beta read: How to remove an iOS beta from your iPhone.",
+        "paragraphs": [
+          "On the first day of the WWDC developer conference, Apple released the first developer beta of its new operating system. This year, that means that the first release of iOS 27 outside Cupertino came on June 8, 2026.",
+          "The pattern goes like this: Apple releases developer-only betas for the first month or so, and then starts releasing the same build for both developers and public beta testers. Based on historical precedent, we expect the third or fourth beta to be the first one to go out to public beta testers rather than just developers.",
+          "If you want to try out the new OS 27 updates and provide feedback, check out our article on how to become a beta tester . It’s easy.",
+          "Updated August 10, 2026: The fifth beta of iOS 27 is now available to developers, and should be released to public beta testers in the next day or two.",
+          "For a more complete breakdown of all the new features and changes, check out our iOS 27 guide .",
+          "Beta 5 brings the following changes, in addition to bug fixes and performance improvements:"
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=722",
+        "link": "https://www.macworld.com/article/3172166/ios-27-beta-updates-features-release-date.html"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-10T19:42:33.629Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-27b16a18df26-en",
       "cluster_id": "feed-27b16a18df26",
@@ -91,7 +275,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-10T18:34:20.860Z",
+        "generated_at": "2026-08-10T19:42:33.629Z",
         "origin": "local-curated-rss"
       }
     },
@@ -183,99 +367,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-10T18:34:20.861Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-948d5ace8256-vi",
-      "cluster_id": "feed-948d5ace8256",
-      "language": "vi",
-      "topic": "apps-software",
-      "content_type": "NewsArticle",
-      "slug": "4-trinh-duyet-web-co-suc-manh-vuot-ca-google-chrome",
-      "title": "4 trình duyệt web có sức mạnh vượt cả Google Chrome",
-      "summary": "Đặt báo Đăng nhập Bình luận mới được duyệt Xem tất cả Thông tin tài khoản Đổi mật khẩu Tin đã lưu Tin đã xem Đăng xuất Chính trị Chính trị Thời sự Thời sự Thế giới Thế giới Kinh tế Kinh tế Đời sống Đời sống Sức khỏe Sức khỏe Giới trẻ Giới trẻ Giáo dục Giáo dục Du lịch Du lịch Văn hóa Văn hóa Giải trí Giải trí Thể thao Thể thao Công nghệ Công nghệ - Game Xe Xe Video Video Tiêu dùng Tiêu dùng Thời trang trẻ Thời trang ",
-      "dek": "Điểm đáng chú ý: Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; 4 trình duyệt web có sức mạnh vượt cả Google Chrome nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.",
-      "hook": "Điều cần theo dõi: Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
-      "sections": [
-        {
-          "heading": "Bối cảnh: điều gì vừa đổi",
-          "body": "Đặt báo Đăng nhập Bình luận mới được duyệt Xem tất cả Thông tin tài khoản Đổi mật khẩu Tin đã lưu Tin đã xem Đăng xuất Chính trị Chính trị Thời sự Thời sự Thế giới Thế giới Kinh tế Kinh tế Đời sống Đời sống Sức khỏe Sức khỏe Giới trẻ Giới trẻ Giáo dục Giáo dục Du lịch Du lịch Văn hóa Văn hóa Giải trí Giải trí Thể thao Thể thao Công nghệ Công nghệ - Game Xe Xe Video Video Tiêu dùng Tiêu dùng Thời trang trẻ Thời trang trẻ Đóng menu Chào ngày mới Tin 24h Tin thị trường Tin 360 Video Magazine Tiện ích Bạn cần biết Liên hệ Thông tin toà soạn Liên hệ quảng cáo Công nghệ Thủ thuật 4 trình duyệt web có sức mạnh vượt cả Google Chrome Phong Đỗ 10/08/2026 16:04 GMT+7 Chia sẻ Chọn Báo Thanh Niên làm nguồn ưu tiên trên Google tìm kiếm. Xem hướng dẫn. BƯỚC 1 Nhấp vào nút \"Thêm Thanh Niên trên Google\" hoặc mở trực tiếp đường dẫn này: https://www. google. com/preferences/source? q=thanhnien. vn BƯỚC 2 Tại trang vừa mở, tìm dòng \"Báo Thanh Niên \" và bấm vào ô vuông bên phải. Khi ô vuông chuyển thành dấu tích xanh là bạn đã thành công rồi! LƯU Ý NHỎ: Nếu muốn kiểm tra xem cài đặt còn hiệu lực không, bạn chỉ cần mở lại link trên là thấy ngay dấu tích xanh vẫn đang hiển thị. Chúc bạn đọc báo vui vẻ! --> Vì sao người dùng chuyển sang 4 trình duyệt này thay vì dùng Google Chrome? Tín hiệu từ Thanh Nien Cong Nghe cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay. Phần này cần dựng lại thay đổi đã có cơ sở trước khi chuyển sang nhận định."
-        },
-        {
-          "heading": "Tác động thực tế với người đọc",
-          "body": "Mặc dù Google Chrome phổ biến nhờ hệ sinh thái đa dạng, nó vẫn thiếu hụt nhiều tính năng chuyên sâu. Những người dùng tìm kiếm sự linh hoạt, bảo mật cao hay tùy biến sâu thường sẽ cảm thấy giao diện tối giản của Chrome là chưa đủ. Dưới đây là 4 lựa chọn trình duyệt thay thế sở hữu nhiều tính năng vượt trội so với Chrome, sẵn sàng mang đến trải nghiệm duyệt web hoàn toàn mới. Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; 4 trình duyệt web có sức mạnh vượt cả Google Chrome nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn. Phần này cần nối câu chuyện với workflow, chi phí, bảo mật hoặc quyết định dùng/mua của người đọc."
-        },
-        {
-          "heading": "Chi tiết cần kiểm chứng",
-          "body": "Người dùng cũng có thể đưa các trang web yêu thích vào danh sách cho phép để hỗ trợ họ bằng cách xem quảng cáo. Trình duyệt còn tích hợp sẵn dịch vụ VPN cao cấp và khả năng tạo danh sách phát phương tiện ngoại tuyến. Nhờ khả năng bảo vệ dữ liệu nghiêm ngặt, Brave đánh bại Chrome ngay trên nền tảng mã nguồn mở. Ứng dụng hiện hỗ trợ đầy đủ trên các hệ điều hành iOS, Android, Linux, macOS và Windows. Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn. Phần này chỉ giữ chi tiết có thể kiểm chứng và tránh lặp lại nguyên văn cách diễn đạt của nguồn."
-        },
-        {
-          "heading": "Ai nên hành động hoặc chờ",
-          "body": "Vivaldi là lựa chọn phù hợp cho những ai yêu thích việc cá nhân hóa và tùy chỉnh giao diện trình duyệt không giới hạn. Người dùng có thể tự do thay đổi màu sắc, hình nền, vị trí thanh tab hoặc tải về các chủ đề do cộng đồng thiết kế. Trình duyệt này tích hợp sẵn dịch vụ Proton VPN uy tín, công cụ ghi chú, chụp ảnh màn hình và chế độ Picture-in-picture. Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động. Phần này cần gọi đúng nhóm độc giả nên hành động ngay hoặc nên chờ thêm xác nhận."
-        },
-        {
-          "heading": "Điều cần theo dõi tiếp",
-          "body": "Về mặt hỗ trợ công việc, Vivaldi cung cấp tính năng Quick Commands và Command Chains giúp thực hiện nhiều thao tác chỉ bằng một lần click. Trình duyệt cũng sở hữu khả năng xếp chồng tab, tạo không gian làm việc và tích hợp trình đọc RSS tương tự Brave. Đây là công cụ hoàn hảo để thay thế Chrome cho những người dùng cần xử lý khối lượng công việc lớn. Vivaldi có sẵn trên cả nền tảng di động lẫn máy tính để người dùng dễ dàng trải nghiệm. Một bài tốt cần tách rõ sự kiện từ nguồn, tác động với người đọc và câu hỏi theo dõi để không giống bản tóm tắt link rời. Phần này nên khép lại bằng tín hiệu cần kiểm tra tiếp, không tóm tắt lại cùng một ý."
-        }
-      ],
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "creator-software-stack"
-      ],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Thanh Nien Cong Nghe",
-          "source_url": "https://thanhnien.vn/4-trinh-duyet-web-co-suc-manh-vuot-ca-google-chrome-185260810132940673.htm",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-10T09:04:00.000Z",
-          "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/8/10/chrome-1769482610070-17694826107411296443089-0-2-380-728-crop-17863439925342081669304.jpg",
-          "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-          "image_credit": "Thanh Nien Cong Nghe"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-08-10T09:04:00.000Z",
-      "updated_at": "2026-08-10T09:04:00.000Z",
-      "image": {
-        "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/8/10/chrome-1769482610070-17694826107411296443089-0-2-380-728-crop-17863439925342081669304.jpg",
-        "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-        "credit": "Thanh Nien Cong Nghe",
-        "source_url": "https://thanhnien.vn/4-trinh-duyet-web-co-suc-manh-vuot-ca-google-chrome-185260810132940673.htm"
-      },
-      "draft_context": {
-        "source_title": "4 trình duyệt web có sức mạnh vượt cả Google Chrome",
-        "source_name": "Thanh Nien Cong Nghe",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "Vì sao người dùng chuyển sang 4 trình duyệt này thay vì dùng Google Chrome?",
-        "paragraphs": [
-          "Đặt báo Đăng nhập Bình luận mới được duyệt Xem tất cả Thông tin tài khoản Đổi mật khẩu Tin đã lưu Tin đã xem Đăng xuất Chính trị Chính trị Thời sự Thời sự Thế giới Thế giới Kinh tế Kinh tế Đời sống Đời sống Sức khỏe Sức khỏe Giới trẻ Giới trẻ Giáo dục Giáo dục Du lịch Du lịch Văn hóa Văn hóa Giải trí Giải trí Thể thao Thể thao Công nghệ Công nghệ - Game Xe Xe Video Video Tiêu dùng Tiêu dùng Thời trang trẻ Thời trang trẻ Đóng menu Chào ngày mới Tin 24h Tin thị trường Tin 360 Video Magazine Tiện ích Bạn cần biết Liên hệ Thông tin toà soạn Liên hệ quảng cáo Công nghệ Thủ thuật 4 trình duyệt web có sức mạnh vượt cả Google Chrome Phong Đỗ 10/08/2026 16:04 GMT+7 Chia sẻ Chọn Báo Thanh Niên làm nguồn ưu tiên trên Google tìm kiếm. Xem hướng dẫn. BƯỚC 1 Nhấp vào nút \"Thêm Thanh Niên trên Google\" hoặc mở trực tiếp đường dẫn này: https://www.google.com/preferences/source?q=thanhnien.vn BƯỚC 2 Tại trang vừa mở, tìm dòng \"Báo Thanh Niên \" và bấm vào ô vuông bên phải. Khi ô vuông chuyển thành dấu tích xanh là bạn đã thành công rồi! LƯU Ý NHỎ: Nếu muốn kiểm tra xem cài đặt còn hiệu lực không, bạn chỉ cần mở lại link trên là thấy ngay dấu tích xanh vẫn đang hiển thị. Chúc bạn đọc báo vui vẻ! --> Vì sao người dùng chuyển sang 4 trình duyệt này thay vì dùng Google Chrome?",
-          "Mặc dù Google Chrome  phổ biến nhờ hệ sinh thái đa dạng, nó vẫn thiếu hụt nhiều tính năng chuyên sâu. Những người dùng tìm kiếm sự linh hoạt, bảo mật cao hay tùy biến sâu thường sẽ cảm thấy giao diện tối giản của Chrome là chưa đủ. Dưới đây là 4 lựa chọn trình duyệt thay thế sở hữu nhiều tính năng vượt trội so với Chrome, sẵn sàng mang đến trải nghiệm duyệt web hoàn toàn mới.",
-          "Người dùng cũng có thể đưa các trang web yêu thích vào danh sách cho phép để hỗ trợ họ bằng cách xem quảng cáo. Trình duyệt còn tích hợp sẵn dịch vụ VPN cao cấp và khả năng tạo danh sách phát phương tiện ngoại tuyến. Nhờ khả năng bảo vệ dữ liệu nghiêm ngặt, Brave đánh bại Chrome ngay trên nền tảng mã nguồn mở. Ứng dụng hiện hỗ trợ đầy đủ trên các hệ điều hành iOS, Android, Linux, macOS và Windows.",
-          "Vivaldi là lựa chọn phù hợp cho những ai yêu thích việc cá nhân hóa và tùy chỉnh giao diện trình duyệt không giới hạn. Người dùng có thể tự do thay đổi màu sắc, hình nền, vị trí thanh tab hoặc tải về các chủ đề do cộng đồng thiết kế. Trình duyệt này tích hợp sẵn dịch vụ Proton VPN uy tín, công cụ ghi chú, chụp ảnh màn hình và chế độ Picture-in-picture.",
-          "Về mặt hỗ trợ công việc, Vivaldi cung cấp tính năng Quick Commands và Command Chains giúp thực hiện nhiều thao tác chỉ bằng một lần click. Trình duyệt cũng sở hữu khả năng xếp chồng tab, tạo không gian làm việc và tích hợp trình đọc RSS tương tự Brave. Đây là công cụ hoàn hảo để thay thế Chrome cho những người dùng cần xử lý khối lượng công việc lớn. Vivaldi có sẵn trên cả nền tảng di động lẫn máy tính để người dùng dễ dàng trải nghiệm.",
-          "Trình duyệt này còn tích hợp sẵn công cụ đọc và chỉnh sửa tệp PDF tiện lợi cho công việc văn phòng. Chế độ đọc của Firefox cũng linh hoạt hơn khi loại bỏ toàn bộ quảng cáo, hình ảnh thừa thãi để tối ưu hiển thị. Đặc biệt, Firefox cho phép cài đặt các tiện ích mở rộng ngay trên ứng dụng di động Android . Dịch vụ VPN tích hợp cùng khả năng đồng bộ đa nền tảng giúp Firefox ghi điểm tuyệt đối."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=6; words=699",
-        "link": "https://thanhnien.vn/4-trinh-duyet-web-co-suc-manh-vuot-ca-google-chrome-185260810132940673.htm"
-      },
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-08-10T18:34:20.861Z",
+        "generated_at": "2026-08-10T19:42:33.629Z",
         "origin": "local-curated-rss"
       }
     },
@@ -366,7 +458,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-10T18:34:20.861Z",
+        "generated_at": "2026-08-10T19:42:33.629Z",
         "origin": "local-curated-rss"
       }
     }
