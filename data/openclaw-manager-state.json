@@ -4,23 +4,23 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-10T06:52:54.426Z",
-    "finishedAt": "2026-08-10T06:54:00.416Z",
+    "startedAt": "2026-08-10T07:25:34.772Z",
+    "finishedAt": "2026-08-10T07:26:44.370Z",
     "trigger": {
-      "source": "telegram-audit",
-      "reason": "telegram-audit-fix:7481176582"
+      "source": "schedule",
+      "reason": "scheduled"
     }
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 346,
+    "totalArticles": 347,
     "articleCountBefore": 346,
-    "articleCountDelta": 0,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786344774477-5ef644.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"FPT phát triển AI cho UAV điện hai rotor nghiêng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to watch European Athletics Championships 2026 for FREE: Live Streams, TV Channels & Schedule\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"I've always disliked running, but here's how Gemini and Garmin made me actually enjoy it for the first time\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"FPT phát triển AI cho UAV điện hai rotor nghiêng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to watch European Athletics Championships 2026 for FREE: Live Streams, TV Channels & Schedule\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"I've always disliked running, but here's how Gemini and Garmin made me actually enjoy it for the first time\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786346734822-64bde5.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"YouTube’s new autoplay behavior is already triggering thousands of users\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"FPT phát triển AI cho UAV điện hai rotor nghiêng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to watch European Athletics Championships 2026 for FREE: Live Streams, TV Channels & Schedule\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"YouTube’s new autoplay behavior is already triggering thousands of users\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"FPT phát triển AI cho UAV điện hai rotor nghiêng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to watch European Athletics Championships 2026 for FREE: Live Streams, TV Channels & Schedule\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,19 +28,19 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"FPT phát triển AI cho UAV điện hai rotor nghiêng\" because it failed publish readiness: narrativeFlow Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"FPT phát triển AI cho UAV điện hai rotor nghiêng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"YouTube’s new autoplay behavior is already triggering thousands of users\" because it failed publish readiness: narrativeFlow Holding normalized article \"FPT phát triển AI cho UAV điện hai rotor nghiêng\" because it failed publish readiness: narrativeFlow Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"YouTube’s new autoplay behavior is already triggering thousands of users\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"FPT phát triển AI cho UAV điện hai rotor nghiêng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
-      "exitCode": 0,
-      "output": "Đã sửa/chuẩn hóa 346 bài trong /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json.",
+      "skipped": true,
+      "output": "Audit repair was not requested.",
       "warnings": ""
     },
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 352 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 353 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-10T06:54:00.401Z",
+      "reviewedAt": "2026-08-10T07:26:44.356Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,

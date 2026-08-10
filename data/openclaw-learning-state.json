@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T06:53:58.496Z",
+  "generated_at": "2026-08-10T07:26:42.511Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,30 +8,30 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-08-10T06:53:58.496Z",
+    "updated_at": "2026-08-10T07:26:42.511Z",
     "confidence": 0.95,
-    "totalSignals": 352,
-    "eligibleArticleCount": 3,
-    "excludedArticleCount": 1023,
+    "totalSignals": 353,
+    "eligibleArticleCount": 8,
+    "excludedArticleCount": 1019,
     "dailyFocus": [
-      "apps-software",
+      "gaming",
       "devices",
       "internet-business-tech",
-      "gaming",
-      "security"
+      "security",
+      "apps-software"
     ],
     "topicWeights": {
-      "apps-software": 22,
-      "devices": 21,
-      "internet-business-tech": 21,
-      "gaming": 21,
-      "security": 21,
-      "ai": 13,
+      "gaming": 29,
+      "devices": 27,
+      "internet-business-tech": 26,
+      "security": 26,
+      "apps-software": 17,
+      "ai": 12,
       "cloud-enterprise": 1
     },
     "sourceTypeWeights": {
-      "press": 23,
-      "official-site": 17
+      "press": 24,
+      "official-site": 16
     },
     "topViewedArticles": [
       {
@@ -129,7 +129,8 @@
       "Uu tien bai co nguon du day: it nhat 3 doan lien quan, co ten san pham/cong ty, con so, rollout, gia, rui ro hoac gioi han cu the.",
       "Tach ro summary, dek va hook: summary noi fact chinh, dek noi y nghia, hook noi cau hoi tiep theo; khong dung lai cung mot cau.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong."
+      "Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong.",
+      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
@@ -139,9 +140,15 @@
       "Khong de summary, dek, hook va section mo dau lap lai cung mot cau hoac cung cum dien dat.",
       "Khong publish bai chi ghep y roi rac; can co mach dien bien, tac dong, hanh dong va dieu can theo doi tiep."
     ],
-    "lastCycleSummary": "Learned from 3 eligible article(s); 1023 article(s) excluded from learning; 0 owner feedback item(s); 352 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, devices, internet-business-tech, gaming, security"
+    "lastCycleSummary": "Learned from 8 eligible article(s); 1019 article(s) excluded from learning; 0 owner feedback item(s); 353 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, internet-business-tech, security, apps-software"
   },
   "cycles": [
+    {
+      "generated_at": "2026-08-10T07:26:42.511Z",
+      "totalSignals": 353,
+      "confidence": 0.95,
+      "summary": "Learned from 8 eligible article(s); 1019 article(s) excluded from learning; 0 owner feedback item(s); 353 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, internet-business-tech, security, apps-software"
+    },
     {
       "generated_at": "2026-08-10T06:53:58.496Z",
       "totalSignals": 352,
@@ -375,12 +382,6 @@
       "totalSignals": 331,
       "confidence": 0.95,
       "summary": "Learned from 48 eligible article(s); 995 article(s) excluded from learning; 0 owner feedback item(s); 331 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, internet-business-tech, security, apps-software"
-    },
-    {
-      "generated_at": "2026-08-08T21:34:48.078Z",
-      "totalSignals": 331,
-      "confidence": 0.95,
-      "summary": "Learned from 48 eligible article(s); 999 article(s) excluded from learning; 0 owner feedback item(s); 331 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, internet-business-tech, security, apps-software"
     }
   ]
 }
