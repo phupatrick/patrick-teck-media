@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-10T21:10:49.626Z",
-    "finishedAt": "2026-08-10T21:12:03.515Z",
+    "startedAt": "2026-08-10T21:57:11.596Z",
+    "finishedAt": "2026-08-10T21:58:25.029Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 370,
+    "totalArticles": 371,
     "articleCountBefore": 370,
-    "articleCountDelta": 0,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786396249673-2f17d7.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Using the GitHub Copilot SDK for Java\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow Holding normalized article \"Loạt AI 'nổi loạn': vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed trusted-source fallback: title Holding synthesized article \"Using the GitHub Copilot SDK for Java\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed publish readiness: title",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786399031651-e3fb05.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Should you wait for the Google Pixel 11? Here's everything you should consider and how I'd spend my money\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Loạt AI 'nổi loạn': vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed trusted-source fallback: title Holding source-draft article \"Got an ASUS laptop? You might be sitting on a free Google AI Pro or Plus subscription\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Should you wait for the Google Pixel 11? Here's everything you should consider and how I'd spend my money\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed publish readiness: title Holding source-draft article \"Got an ASUS laptop? You might be sitting on a free Google AI Pro or Plus subscription\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Using the GitHub Copilot SDK for Java\" because it failed publish readiness: narrativeFlow Holding normalized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Using the GitHub Copilot SDK for Java\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow Holding normalized article \"Should you wait for the Google Pixel 11? Here's everything you should consider and how I'd spend my money\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Should you wait for the Google Pixel 11? Here's everything you should consider and how I'd spend my money\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 376 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 377 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-10T21:12:03.502Z",
+      "reviewedAt": "2026-08-10T21:58:25.014Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
