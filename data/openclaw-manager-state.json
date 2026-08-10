@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-10T19:41:23.266Z",
-    "finishedAt": "2026-08-10T19:42:36.550Z",
+    "startedAt": "2026-08-10T20:22:27.595Z",
+    "finishedAt": "2026-08-10T20:23:44.179Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,13 +14,13 @@
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 370,
-    "articleCountBefore": 368,
-    "articleCountDelta": 2,
+    "articleCountBefore": 370,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786390883319-fb3fca.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping The Verge: Feed The Verge returned 404 Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Using the GitHub Copilot SDK for Java\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow Holding normalized article \"Loạt AI 'nổi loạn': vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed trusted-source fallback: title Holding synthesized article \"Using the GitHub Copilot SDK for Java\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed publish readiness: title",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786393347647-72080f.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Using the GitHub Copilot SDK for Java\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow Holding normalized article \"Loạt AI 'nổi loạn': vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed trusted-source fallback: title Holding synthesized article \"Using the GitHub Copilot SDK for Java\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iOS 27 beta 5 is out now with further refinements and fixes\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed publish readiness: title",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-10T19:42:36.535Z",
+      "reviewedAt": "2026-08-10T20:23:44.164Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
