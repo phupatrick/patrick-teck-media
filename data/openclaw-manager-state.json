@@ -4,23 +4,23 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-10T12:10:32.561Z",
-    "finishedAt": "2026-08-10T12:11:42.467Z",
+    "startedAt": "2026-08-10T13:04:44.000Z",
+    "finishedAt": "2026-08-10T13:06:02.400Z",
     "trigger": {
-      "source": "schedule",
-      "reason": "scheduled"
+      "source": "telegram-audit",
+      "reason": "telegram-audit-fix:7481176582"
     }
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 355,
-    "articleCountBefore": 353,
-    "articleCountDelta": 2,
+    "totalArticles": 356,
+    "articleCountBefore": 355,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786363832614-ef6291.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"OLED iMac Panel Could Include Extra Layer to Fight Screen Burn-In\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"4 trình duyệt web có sức mạnh vượt cả Google Chrome\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Klarna member? You can now get a free NordVPN subscription — here's how\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"OLED iMac Panel Could Include Extra Layer to Fight Screen Burn-In\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Klarna member? You can now get a free NordVPN subscription — here's how\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786367084055-5b3917.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Dell XPS 13 (2026) review: A MacBook Neo alternative that needs more RAM\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Apple Briefly Posts China Guide for Connecting Siri to Qwen AI\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding source-draft article \"The Download: AI agents for science, and the “censorship-industrial complex”\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Apple Briefly Posts China Guide for Connecting Siri to Qwen AI\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"The Download: AI agents for science, and the “censorship-industrial complex”\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,19 +28,19 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"OLED iMac Panel Could Include Extra Layer to Fight Screen Burn-In\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow Holding normalized article \"4 trình duyệt web có sức mạnh vượt cả Google Chrome\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"OLED iMac Panel Could Include Extra Layer to Fight Screen Burn-In\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Dell XPS 13 (2026) review: A MacBook Neo alternative that needs more RAM\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
-      "skipped": true,
-      "output": "Audit repair was not requested.",
+      "exitCode": 0,
+      "output": "Đã sửa/chuẩn hóa 356 bài trong /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json.",
       "warnings": ""
     },
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 361 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 362 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-10T12:11:42.451Z",
+      "reviewedAt": "2026-08-10T13:06:02.385Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
