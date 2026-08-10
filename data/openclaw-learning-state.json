@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T05:55:22.704Z",
+  "generated_at": "2026-08-10T06:53:58.496Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,30 +8,30 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-08-10T05:55:22.704Z",
+    "updated_at": "2026-08-10T06:53:58.496Z",
     "confidence": 0.95,
     "totalSignals": 352,
-    "eligibleArticleCount": 69,
-    "excludedArticleCount": 957,
+    "eligibleArticleCount": 3,
+    "excludedArticleCount": 1023,
     "dailyFocus": [
+      "apps-software",
       "devices",
       "internet-business-tech",
       "gaming",
-      "security",
-      "apps-software"
+      "security"
     ],
     "topicWeights": {
-      "devices": 32,
-      "internet-business-tech": 32,
-      "gaming": 32,
-      "security": 32,
-      "apps-software": 30,
-      "ai": 14,
+      "apps-software": 22,
+      "devices": 21,
+      "internet-business-tech": 21,
+      "gaming": 21,
+      "security": 21,
+      "ai": 13,
       "cloud-enterprise": 1
     },
     "sourceTypeWeights": {
-      "press": 32,
-      "official-site": 20
+      "press": 23,
+      "official-site": 17
     },
     "topViewedArticles": [
       {
@@ -46,8 +46,8 @@
       },
       {
         "rank": 2,
-        "title": "Có nên mua điện thoại BlackBerry huyền thoại ở thời điểm hiện tại?",
-        "href": "",
+        "title": "Có nên mua điện thoại BlackBerry huyền thoại ở thời điểm hiện tại",
+        "href": "/vi/tin-tuc/co-nen-mua-ien-thoai-blackberry-huyen-thoai-o-thoi-iem-hien-tai",
         "views": 6,
         "uniqueViews": 1,
         "topic": "devices",
@@ -57,7 +57,7 @@
       {
         "rank": 3,
         "title": "Người Việt chi bộn cho smartphone gập",
-        "href": "",
+        "href": "/vi/tin-tuc/nguoi-viet-chi-bon-cho-smartphone-gap",
         "views": 6,
         "uniqueViews": 1,
         "topic": "devices",
@@ -67,7 +67,7 @@
       {
         "rank": 4,
         "title": "Sàn TMĐT gửi sai doanh thu, hóa đơn của người bán cho cơ quan thuế: Ai sai - người đó chịu trách nhiệm",
-        "href": "",
+        "href": "/vi/tin-tuc/san-tm-t-gui-sai-doanh-thu-hoa-on-cua-nguoi-ban-cho-co-quan-thue-ai-sai-nguoi-o-chiu-trach-nhiem",
         "views": 6,
         "uniqueViews": 1,
         "topic": "internet-business-tech",
@@ -77,7 +77,7 @@
       {
         "rank": 5,
         "title": "Google Drive sắp ngừng tính năng sao lưu hình ảnh",
-        "href": "",
+        "href": "/vi/tin-tuc/google-drive-sap-ngung-tinh-nang-sao-luu-hinh-anh",
         "views": 6,
         "uniqueViews": 1,
         "topic": "apps-software",
@@ -86,8 +86,8 @@
       },
       {
         "rank": 6,
-        "title": "Vì sao hàng triệu người dùng vẫn 'trung thành' với Windows 10?",
-        "href": "",
+        "title": "Vì sao hàng triệu người dùng vẫn 'trung thành' với Windows 10",
+        "href": "/vi/tin-tuc/vi-sao-hang-trieu-nguoi-dung-van-trung-thanh-voi-windows-10",
         "views": 6,
         "uniqueViews": 1,
         "topic": "internet-business-tech",
@@ -107,7 +107,7 @@
       {
         "rank": 8,
         "title": "Cách xử lý một số vấn đề của tai nghe không dây",
-        "href": "",
+        "href": "/vi/tin-tuc/cach-xu-ly-mot-so-van-e-cua-tai-nghe-khong-day",
         "views": 5,
         "uniqueViews": 1,
         "topic": "devices",
@@ -129,8 +129,7 @@
       "Uu tien bai co nguon du day: it nhat 3 doan lien quan, co ten san pham/cong ty, con so, rollout, gia, rui ro hoac gioi han cu the.",
       "Tach ro summary, dek va hook: summary noi fact chinh, dek noi y nghia, hook noi cau hoi tiep theo; khong dung lai cung mot cau.",
       "Voi bai AI, so sanh gia tri su dung that thay vi chi ke tinh nang moi.",
-      "Voi bai thiet bi, noi ro gia, trai nghiem dung that, do ben, nhiet, pin va ly do nen/khong nen mua.",
-      "Voi bai nen tang/kinh doanh, noi ro tac dong den nguoi dung, creator, doanh thu hoac chi phi van hanh."
+      "Nhan rong format co gia tri dai han: tieu de ro loi ich, so sanh lua chon, checklist va buoc hanh dong."
     ],
     "avoidRules": [
       "Khong lap ten nguon qua nhieu lan trong than bai.",
@@ -140,9 +139,15 @@
       "Khong de summary, dek, hook va section mo dau lap lai cung mot cau hoac cung cum dien dat.",
       "Khong publish bai chi ghep y roi rac; can co mach dien bien, tac dong, hanh dong va dieu can theo doi tiep."
     ],
-    "lastCycleSummary": "Learned from 69 eligible article(s); 957 article(s) excluded from learning; 0 owner feedback item(s); 352 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, internet-business-tech, gaming, security, apps-software"
+    "lastCycleSummary": "Learned from 3 eligible article(s); 1023 article(s) excluded from learning; 0 owner feedback item(s); 352 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, devices, internet-business-tech, gaming, security"
   },
   "cycles": [
+    {
+      "generated_at": "2026-08-10T06:53:58.496Z",
+      "totalSignals": 352,
+      "confidence": 0.95,
+      "summary": "Learned from 3 eligible article(s); 1023 article(s) excluded from learning; 0 owner feedback item(s); 352 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: apps-software, devices, internet-business-tech, gaming, security"
+    },
     {
       "generated_at": "2026-08-10T05:55:22.704Z",
       "totalSignals": 352,
@@ -373,12 +378,6 @@
     },
     {
       "generated_at": "2026-08-08T21:34:48.078Z",
-      "totalSignals": 331,
-      "confidence": 0.95,
-      "summary": "Learned from 48 eligible article(s); 999 article(s) excluded from learning; 0 owner feedback item(s); 331 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, internet-business-tech, security, apps-software"
-    },
-    {
-      "generated_at": "2026-08-08T20:59:17.313Z",
       "totalSignals": 331,
       "confidence": 0.95,
       "summary": "Learned from 48 eligible article(s); 999 article(s) excluded from learning; 0 owner feedback item(s); 331 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: gaming, devices, internet-business-tech, security, apps-software"
