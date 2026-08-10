@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-10T08:57:00.023Z",
-    "finishedAt": "2026-08-10T08:58:15.096Z",
+    "startedAt": "2026-08-10T10:16:54.053Z",
+    "finishedAt": "2026-08-10T10:18:05.393Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 348,
-    "articleCountBefore": 347,
-    "articleCountDelta": 1,
+    "totalArticles": 350,
+    "articleCountBefore": 348,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786352220074-3520b9.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Lý do Apple từ bỏ màu trắng từng được yêu thích trên MacBook\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube’s new autoplay behavior is already triggering thousands of users\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"How to watch European Athletics Championships 2026 for FREE: Live Streams, TV Channels & Schedule\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"YouTube’s new autoplay behavior is already triggering thousands of users\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding source-draft article \"How to watch European Athletics Championships 2026 for FREE: Live Streams, TV Channels & Schedule\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786357014093-51acc1.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Amnezia VPN strengthens its blocking capabilities with 'mandatory update' for Premium and Free users\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"4 trình duyệt web có sức mạnh vượt cả Google Chrome\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"NYT Strands hints and answers for Monday, August 10 (game #890)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"These startups are chasing the next big thing in LLMs\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"These startups are chasing the next big thing in LLMs\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Lý do Apple từ bỏ màu trắng từng được yêu thích trên MacBook\" because it failed publish readiness: narrativeFlow Holding normalized article \"YouTube’s new autoplay behavior is already triggering thousands of users\" because it failed publish readiness: narrativeFlow Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"YouTube’s new autoplay behavior is already triggering thousands of users\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
+      "warnings": "Holding normalized article \"Amnezia VPN strengthens its blocking capabilities with 'mandatory update' for Premium and Free users\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"4 trình duyệt web có sức mạnh vượt cả Google Chrome\" because it failed publish readiness: narrativeFlow Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow Holding normalized article \"NYT Strands hints and answers for Monday, August 10 (game #890)\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Amnezia VPN strengthens its blocking capabilities with 'mandatory update' for Premium and Free users\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding synthesized article \"NYT Strands hints and answers for Monday, August 10 (game #890)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 354 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 356 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-10T08:58:15.080Z",
+      "reviewedAt": "2026-08-10T10:18:05.382Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
