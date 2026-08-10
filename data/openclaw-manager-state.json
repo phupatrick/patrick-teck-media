@@ -4,23 +4,23 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-10T17:35:35.476Z",
-    "finishedAt": "2026-08-10T17:37:08.626Z",
+    "startedAt": "2026-08-10T18:22:57.023Z",
+    "finishedAt": "2026-08-10T18:24:06.414Z",
     "trigger": {
-      "source": "schedule",
-      "reason": "scheduled"
+      "source": "telegram",
+      "reason": "vercel-cron"
     }
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 367,
-    "articleCountBefore": 365,
-    "articleCountDelta": 2,
+    "totalArticles": 368,
+    "articleCountBefore": 367,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786383335532-f8ee3a.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"What to expect from Google’s 2026 Pixel hardware launch event\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Loạt AI 'nổi loạn': vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Fairphone 6 Plus leaks reveal first images, specs, and pricing\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed trusted-source fallback: title Holding synthesized article \"Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows\" because it failed publish readiness: narrativeFlow Holding synthesized article \"A researcher bought noreply.net. Companies started sending him secrets\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"What to expect from Google’s 2026 Pixel hardware launch event\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed publish readiness: title",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786386177073-13c172.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow Holding normalized article \"Loạt AI 'nổi loạn': vì sao tín hiệu này đang đậm dần\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"4 trình duyệt web có sức mạnh vượt cả Google Chrome\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed trusted-source fallback: title Holding source-draft article \"T-Mobile Shifts to 3-Year Phone Installments with New ‘2.0’ Mobile Plans\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Loạt AI 'nổi loạn'\" because it failed publish readiness: title Holding source-draft article \"T-Mobile Shifts to 3-Year Phone Installments with New ‘2.0’ Mobile Plans\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"What to expect from Google’s 2026 Pixel hardware launch event\" because it failed publish readiness: narrativeFlow Holding normalized article \"Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows\" because it failed publish readiness: narrativeFlow Holding normalized article \"Fairphone 6 Plus leaks reveal first images, specs, and pricing\" because it failed publish readiness: narrativeFlow Holding normalized article \"A researcher bought noreply.net. Companies started sending him secrets\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"What to expect from Google’s 2026 Pixel hardware launch event\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"A researcher bought noreply.net. Companies started sending him secrets\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow Holding normalized article \"Sự thật đằng sau độ bền trăm triệu lần click của chuột chơi game\" because it failed publish readiness: narrativeFlow Holding normalized article \"4 trình duyệt web có sức mạnh vượt cả Google Chrome\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Google is turning things up to 11 in latest Pixel 11 Pro teaser\" because it failed publish readiness: narrativeFlow, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 373 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 374 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-10T17:37:08.608Z",
+      "reviewedAt": "2026-08-10T18:24:06.400Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
