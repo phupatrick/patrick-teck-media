@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-10T02:33:31.394Z",
-    "finishedAt": "2026-08-10T02:34:36.850Z",
+    "startedAt": "2026-08-10T04:18:09.260Z",
+    "finishedAt": "2026-08-10T04:19:15.721Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 344,
-    "articleCountBefore": 341,
-    "articleCountDelta": 3,
+    "totalArticles": 345,
+    "articleCountBefore": 344,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786329211446-38bb47.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Vì sao một số điện thoại Android không còn chạy được ứng dụng YouTube\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Có nên chọn miếng dán màn hình nhám chống chói\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Giá Bitcoin hôm nay 9.8.2026: Thị trường hồi phục bất chấp vụ hack ví lạnh Coldcard\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Vì sao một số điện thoại Android không còn chạy được ứng dụng YouTube\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786335489310-a64195.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Vì sao một số điện thoại Android không còn chạy được ứng dụng YouTube\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"NYT Strands hints and answers for Monday, August 10 (game #890)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"I've always disliked running, but here's how Gemini and Garmin made me actually enjoy it for the first time\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Vì sao một số điện thoại Android không còn chạy được ứng dụng YouTube\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"I've always disliked running, but here's how Gemini and Garmin made me actually enjoy it for the first time\" because it failed publish readiness: sourceBreadth, sourceVariety",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow Holding normalized article \"Vì sao một số điện thoại Android không còn chạy được ứng dụng YouTube\" because it failed publish readiness: narrativeFlow Holding normalized article \"Có nên chọn miếng dán màn hình nhám chống chói\" because it failed publish readiness: narrativeFlow Holding normalized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Giá Bitcoin hôm nay 9.8.2026: Thị trường hồi phục bất chấp vụ hack ví lạnh Coldcard\" because it failed publish readiness: narrativeFlow Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Vì sao một số điện thoại Android không còn chạy được ứng dụng YouTube\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Quordle hints and answers for Monday, August 10 (game #1659)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Galaxy Z Fold8 có gì khiến người dùng điện thoại quyết định lên đời ngay\" because it failed publish readiness: narrativeFlow Holding normalized article \"Vì sao một số điện thoại Android không còn chạy được ứng dụng YouTube\" because it failed publish readiness: narrativeFlow Holding normalized article \"NYT Strands hints and answers for Monday, August 10 (game #890)\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding normalized article \"TerraMaster F4-425 Pro NAS review: Very fast, with backup, surveillance, and media streaming galore\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Vì sao một số điện thoại Android không còn chạy được ứng dụng YouTube\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"NYT Strands hints and answers for Monday, August 10 (game #890)\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 350 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 351 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-10T02:34:36.835Z",
+      "reviewedAt": "2026-08-10T04:19:15.706Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
