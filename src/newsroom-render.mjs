@@ -80,6 +80,8 @@ export function renderHomePage(state, language, adsConfig) {
         </aside>
       </section>
 
+      ${renderSlot(state, adsConfig, { language, pageAllowsAds: true, placement: "hero", adIndex: 0, promoHref: getStoreLandingHref(language) })}
+
       ${renderShowcaseSection({
         id: "ai-packages",
         className: "guide-showcase package-showcase",
@@ -97,8 +99,6 @@ export function renderHomePage(state, language, adsConfig) {
           ${ribbonStories.map((article) => renderRibbonItem(article, language)).join("")}
         </div>
       </section>
-
-      ${renderSlot(state, adsConfig, { language, pageAllowsAds: true, placement: "hero", promoHref: getStoreLandingHref(language) })}
 
       <section class="frontpage-grid">
         <div class="section-block">
@@ -124,6 +124,8 @@ export function renderHomePage(state, language, adsConfig) {
           }
         </aside>
       </section>
+
+      ${renderSlot(state, adsConfig, { language, pageAllowsAds: true, placement: "mid", adIndex: 1, promoHref: getStoreLandingHref(language) })}
 
       ${renderShowcaseSection({
         id: "tips",
@@ -1987,7 +1989,7 @@ function renderStorePanel(state, article, language) {
   `;
 }
 
-function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, promoHref = getStoreLandingHref(language) }) {
+function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, adIndex = 0, promoHref = getStoreLandingHref(language) }) {
   if (!pageAllowsAds) {
     return "";
   }
@@ -2010,7 +2012,7 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, prom
   const useShopee = shouldShowShopeePromotion(state, { language, placement, shopeeCount: shopeeLinks.length });
 
   if (useShopee) {
-    const shopee = shopeeLinks[0];
+    const shopee = shopeeLinks[adIndex % shopeeLinks.length];
     return `
       <section class="ad-shell placeholder store-promo-shell">
         <p class="ad-label">${promoLabel}</p>
@@ -2040,14 +2042,7 @@ function shouldShowShopeePromotion(state, { language, placement, shopeeCount }) 
     return false;
   }
 
-  // Stable 50/50 rotation prevents one offer from winning every render.
-  const articleCount = Array.isArray(state?.articles) ? state.articles.length : 0;
-  const seed = `${language}:${placement}:${articleCount}`;
-  let hash = 0;
-  for (let index = 0; index < seed.length; index += 1) {
-    hash = ((hash << 5) - hash + seed.charCodeAt(index)) | 0;
-  }
-  return Math.abs(hash) % 2 === 0;
+  return true;
 }
 
 function getStoreLandingHref(language) {

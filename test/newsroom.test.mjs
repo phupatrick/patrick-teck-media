@@ -1064,14 +1064,40 @@ const tests = [
     }
   },
   {
-    name: "links every fallback Patrick Tech Store promotion to the public store domain",
+    name: "renders two fallback promotions on the homepage",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
       const storeHtml = renderStorePage(state, "vi", { client: "", slots: {} });
 
+      assert.equal((homeHtml.match(/class="ad-shell/g) || []).length, 2);
+      assert.equal((homeHtml.match(/store-promo-slot/g) || []).length, 2);
       assert.match(homeHtml, /store-promo-slot\" href=\"https:\/\/patricktechmedia\.store\/\" target=\"_blank\" rel=\"noopener noreferrer\"/);
       assert.match(storeHtml, /Patrick Tech Store/);
       assert.match(storeHtml, /patricktechstore\.vercel\.app\/\?ref=patricktechmedia&entry=/);
+    }
+  },
+  {
+    name: "shows active Shopee bot links in both homepage ad slots",
+    run() {
+      const stateWithShopee = {
+        ...state,
+        sellerCatalog: {
+          vi: {
+            ad_links: [
+              { status: "active", title: "AI deal one", url: "https://shopee.vn/product/one" },
+              { status: "active", title: "AI deal two", url: "https://shopee.vn/product/two" }
+            ]
+          }
+        }
+      };
+      const homeHtml = renderHomePage(stateWithShopee, "vi", { client: "", slots: {} });
+
+      assert.equal((homeHtml.match(/class="ad-shell/g) || []).length, 2);
+      assert.match(homeHtml, /AI deal one/);
+      assert.match(homeHtml, /AI deal two/);
+      assert.match(homeHtml, /https:\/\/shopee\.vn\/product\/one/);
+      assert.match(homeHtml, /https:\/\/shopee\.vn\/product\/two/);
+      assert.doesNotMatch(homeHtml, /Patrick Tech Store/);
     }
   },
   {
