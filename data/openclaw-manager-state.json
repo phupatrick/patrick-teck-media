@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-11T22:03:30.914Z",
-    "finishedAt": "2026-08-11T22:04:38.660Z",
+    "startedAt": "2026-08-11T23:01:40.917Z",
+    "finishedAt": "2026-08-11T23:03:03.591Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,13 +14,13 @@
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 261,
-    "articleCountBefore": 260,
-    "articleCountDelta": 1,
+    "articleCountBefore": 261,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 2 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786485810960-e2bc3c.json Generated OpenClaw hidden feed with 2 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Atlus is interested in remaking the PlayStation One-era Persona games, something that, after waiting for many years, I h\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Scammers are using fake Odyssey pirate downloads to spread malware that's more dangerous than the Cyclops and Circe comb\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Refreshed 1 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786489300965-2786ee.json Generated OpenClaw hidden feed with 1 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Scammers are using fake Odyssey pirate downloads to spread malware that's more dangerous than the Cyclops and Circe comb\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,7 +28,7 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 2 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "output": "Newsroom already up to date from external-feed at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
       "warnings": ""
     },
     "auditRepair": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-11T22:04:38.643Z",
+      "reviewedAt": "2026-08-11T23:03:03.576Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
