@@ -1064,12 +1064,12 @@ const tests = [
     }
   },
   {
-    name: "keeps fallback promo slots on internal store landing pages instead of hardcoded external links",
+    name: "links every fallback Patrick Tech Store promotion to the public store domain",
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
       const storeHtml = renderStorePage(state, "vi", { client: "", slots: {} });
 
-      assert.match(homeHtml, /store-promo-slot\" href=\"\/vi\/store\"/);
+      assert.match(homeHtml, /store-promo-slot\" href=\"https:\/\/patricktechmedia\.store\/\" target=\"_blank\" rel=\"noopener noreferrer\"/);
       assert.match(storeHtml, /Patrick Tech Store/);
       assert.match(storeHtml, /patricktechstore\.vercel\.app\/\?ref=patricktechmedia&entry=/);
     }

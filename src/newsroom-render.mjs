@@ -2026,7 +2026,7 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, prom
   return `
     <section class="ad-shell placeholder store-promo-shell">
       <p class="ad-label">${promoLabel}</p>
-      <a class="ad-slot placeholder-slot store-promo-slot" href="${promoHref}">
+      <a class="ad-slot placeholder-slot store-promo-slot" href="${escapeHtml(promoHref)}" target="_blank" rel="noopener noreferrer">
         <span class="store-promo-kicker">Patrick Tech Store</span>
         <strong>${language === "vi" ? "M\u1edf\u0020nhanh\u0020c\u00e1c\u0020g\u00f3i\u0020AI,\u0020ph\u1ea7n\u0020m\u1ec1m\u0020v\u00e0\u0020t\u00e0i\u0020kho\u1ea3n\u0020s\u1ed1\u0020\u0111ang\u0020c\u00f3\u0020\u01b0u\u0020\u0111\u00e3i" : "Open the AI plans, tools, and software currently getting the push"}</strong>
         <span>${language === "vi" ? "V\u00e0o\u0020th\u1eb3ng\u0020store\u0020\u0111\u1ec3\u0020xem\u0020nh\u1eefng\u0020g\u00f3i\u0020Patrick\u0020Tech\u0020\u0111ang\u0020\u01b0u\u0020ti\u00ean\u0020gi\u1edbi\u0020thi\u1ec7u\u0020l\u00fac\u0020n\u00e0y." : "Jump straight into the store to see what Patrick Tech is pushing right now."}</span>
@@ -2051,7 +2051,7 @@ function shouldShowShopeePromotion(state, { language, placement, shopeeCount }) 
 }
 
 function getStoreLandingHref(language) {
-  return `/${language === "en" ? "en" : "vi"}/store`;
+  return "https://patricktechmedia.store/";
 }
 
 function renderCsrfInput(token) {
