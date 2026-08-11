@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T16:59:30.964Z",
+  "generated_at": "2026-08-11T18:00:16.813Z",
   "articles": [
     {
       "id": "feed-b2e5cc20cf3f-en",
@@ -69,7 +69,149 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-11T16:59:30.897Z",
+        "generated_at": "2026-08-11T18:00:16.585Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-a1399a6f67b9-en",
+      "cluster_id": "feed-a1399a6f67b9",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "third-ios-27-and-ipados-27-public-betas-now-available",
+      "title": "Third iOS 27 and iPadOS 27 Public Betas Now Available",
+      "summary": "You can get started by signing up on Apple's beta website and then opting in to the public beta by going to Settings > General > Software Update and choosing the &zwnj;iOS 27&zwnj; or &zwnj;iPadOS 27&zwnj; Public Beta option. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Third iOS 27 and iPadOS 27 Public Betas Now Available should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "You can get started by signing up on Apple's beta website and then opting in to the public beta by going to Settings > General > Software Update and choosing the &zwnj;iOS 27&zwnj; or &zwnj;iPadOS 27&zwnj; Public Beta option. The source signal from MacRumors should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "&zwnj;iOS 27&zwnj; introduces Siri AI, a more capable version of &zwnj;Siri&zwnj; that can search the web, access your personal information, see what's on your screen, and take actions in and across apps. &zwnj;Siri&zwnj; in &zwnj;iOS 27&zwnj; is more similar to Claude or ChatGPT than the prior version of &zwnj;Siri&zwnj;, with a dedicated &zwnj;Siri&zwnj; app for back-and-forth conversations. You can use &zwnj;Siri&zwnj; AI if you have a device that supports Apple Intelligence . The practical impact sits in workflow, cost, risk, or a buying decision; Third iOS 27 and iPadOS 27 Public Betas Now Available should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "Apple updated the Liquid Glass design that debuted last year, adding a slider to adjust the transparency level and refining its look. There are new AI features in many of Apple's apps. Visual Intelligence moved to the Camera app and supports new features like getting the nutritional information for a meal or splitting a bill, and &zwnj;Siri&zwnj; is able to generate text for you or help you refine your writing with Write with &zwnj;Siri&zwnj;. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "There are new AI photo editing tools in the Photos app, Safari can organize your tabs automatically, and you can create Shortcuts and Safari extensions using natural language commands. AirPods have custom EQ, the Home app supports 4K video cameras, and there are new child safety controls for parents. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "Apple made dozens of improvements to device performance, and everything feels faster, even on older iPhones. Apps launch quicker, AirDrop transfers are faster, the keyboard loads quicker, and more. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "MacRumors",
+          "source_url": "https://www.macrumors.com/2026/08/11/apple-releases-ios-27-public-beta-3/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-11T17:22:29.000Z",
+          "image_url": "https://images.macrumors.com/t/1NjEBYIkMMwyq5jqMfdPxw9c_cY=/2500x/article-new/2026/07/iOS-27-Feature-Cool.jpg",
+          "image_caption": "Reference image from MacRumors.",
+          "image_credit": "MacRumors"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-11T17:22:29.000Z",
+      "updated_at": "2026-08-11T17:22:29.000Z",
+      "image": {
+        "src": "https://images.macrumors.com/t/1NjEBYIkMMwyq5jqMfdPxw9c_cY=/2500x/article-new/2026/07/iOS-27-Feature-Cool.jpg",
+        "caption": "Reference image from MacRumors.",
+        "credit": "MacRumors",
+        "source_url": "https://www.macrumors.com/2026/08/11/apple-releases-ios-27-public-beta-3/"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-11T18:00:16.585Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-5664c19eb0dc-en",
+      "cluster_id": "feed-5664c19eb0dc",
+      "language": "en",
+      "topic": "devices",
+      "content_type": "NewsArticle",
+      "slug": "google-s-upcoming-pixel-phones-are-for-the-fans-even-if-its-launch-event-isn-t",
+      "title": "Google’s upcoming Pixel phones are for the fans, even if its launch event isn’t",
+      "summary": "Last year’s Made by Google event for the Pixel 10 resembled a late night talk show , complete with Jimmy Fallon as host, and it aired an hour after the phones were revealed. The source signal from The Verge should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; Google’s upcoming Pixel phones are for the fans, even if its launch event isn’t should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "Last year’s Made by Google event for the Pixel 10 resembled a late night talk show , complete with Jimmy Fallon as host, and it aired an hour after the phones were revealed. Spec dives and executive appearances were replaced with celebrity cameos and awkward skits, to the confusion of many diehard Pixel fans. But it served its purpose in reaching a broader audience: Last year’s stream racked up 8. 4 million viewers on YouTube; the launch the year before only managed 1. 4 million. The source signal from The Verge should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "This year, Google has only escalated matters. For tomorrow evening’s livestream, Fallon has been replaced by Trevor Noah , who will lead a “stacked” lineup of celebrities including basketball star Stephen Curry, podcaster Alex Cooper, and DJ Peggy Gou. What the event won’t have is many surprises. While the launch event kicks off at 6PM ET, the Google Store ’s preorder countdown is set to end eight hours earlier, presumably when the phones will be revealed in full. The practical impact sits in workflow, cost, risk, or a buying decision; Google’s upcoming Pixel phones are for the fans, even if its launch event isn’t should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "By the time Google’s stream starts, its most avid fans will know exactly what’s coming. Then again, for the most part, they already do. In a world where almost every spec leaks ahead of time, it makes sense that Google’s celeb-centric launch event won’t be targeted at Pixel power users. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "Google’s been one of the most adaptive companies when it comes to the modern proliferation of phone leaks. Last year it took the unusual step of simply revealing the Pixel 10 de This year it’s only showed glimpses of the Pixel 11 series, but in the process has revealed something that should excite most power users more than the launch itself: a notification light. For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "The light is built into the camera island of the Pixel 11 Pro (though perhaps not the regular model ), where the flash normally is, suggesting that it serves as the flash and flashlight too. It’s a small feature, but a surprisingly big part of Google’s smartphone heritage. The majority of Google’s Nexus phones included hardware notification LEDs, and Google was one of the last manufacturers to drop the feature, which saw a brief resurgence in 2017’s Pixel 2 before Google binned it off again — we thought for good. The RGB lights could be used to show the phone’s charging status, flash when notifications come in, and activate in different colors. Open-source Android skins like CyanogenMod and apps like Light Flow gave even more flexibility, letting users set specific colors and blink rates for specific apps or contacts. A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "The Verge",
+          "source_url": "https://www.theverge.com/tech/977844/made-by-google-pixel-11-launch-power-users-notification-led",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-11T16:49:31.000Z",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/videoframe_16661.png?quality=90&strip=all&crop=0,3.4249563699826,100,93.150087260035",
+          "image_caption": "Reference image from The Verge.",
+          "image_credit": "The Verge"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-11T16:49:31.000Z",
+      "updated_at": "2026-08-11T16:49:31.000Z",
+      "image": {
+        "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/videoframe_16661.png?quality=90&strip=all&crop=0,3.4249563699826,100,93.150087260035",
+        "caption": "Reference image from The Verge.",
+        "credit": "The Verge",
+        "source_url": "https://www.theverge.com/tech/977844/made-by-google-pixel-11-launch-power-users-notification-led"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-11T18:00:16.585Z",
         "origin": "local-curated-rss"
       }
     },
@@ -211,7 +353,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-11T16:59:30.897Z",
+        "generated_at": "2026-08-11T18:00:16.585Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1765,7 +1907,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-11T16:59:30.897Z",
+        "generated_at": "2026-08-11T18:00:16.585Z",
         "origin": "local-curated-rss"
       }
     },
@@ -8953,7 +9095,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-11T16:59:30.897Z",
+        "generated_at": "2026-08-11T18:00:16.585Z",
         "origin": "local-curated-rss"
       }
     },
