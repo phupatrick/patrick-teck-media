@@ -1194,7 +1194,11 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
     <div class="site-shell">
       <header class="topbar">
         <a class="brand-lockup" href="${homePath}" aria-label="${escapeHtml(state.site.name)}">
-          <img class="brand-mark" src="${logoPath}" alt="${escapeHtml(state.site.name)}" />
+          <img class="brand-icon" src="${iconPath}" alt="" aria-hidden="true" />
+          <span class="brand-wordmark" aria-hidden="true">
+            <strong>Patrick</strong>
+            <strong>Tech Media</strong>
+          </span>
         </a>
         ${renderCategoryMenu(nav, language)}
         <div class="topbar-actions">

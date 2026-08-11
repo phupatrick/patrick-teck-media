@@ -5450,3 +5450,139 @@ body {
     gap: 8px;
   }
 }
+
+
+/* Final desktop polish: keep the header compact and preserve the full wordmark. */
+.topbar {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px 14px;
+  min-height: 64px;
+  padding: 10px 16px;
+}
+
+.brand-lockup {
+  width: auto;
+  min-width: 0;
+  gap: 10px;
+  overflow: visible;
+}
+
+.topbar .brand-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+}
+
+.topbar .brand-wordmark {
+  gap: 0;
+}
+
+.topbar .brand-wordmark strong {
+  font-size: 0.98rem;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.nav-strip.nav-strip-menu {
+  grid-column: auto;
+  justify-self: start;
+  align-self: center;
+  width: auto;
+  margin-left: 0;
+}
+
+.category-menu summary {
+  min-height: 36px;
+  padding: 0.5rem 0.86rem;
+  font-size: 0.84rem;
+}
+
+.topbar-actions {
+  grid-column: auto;
+  width: auto;
+  justify-content: flex-end;
+  gap: 6px;
+  overflow: visible;
+}
+
+.read-link:not(.inverted),
+.text-link,
+.mini-link {
+  color: #1f5cc7;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 3px;
+}
+
+.read-link:not(.inverted):hover,
+.text-link:hover,
+.mini-link:hover {
+  color: #123f91;
+}
+
+.story-card {
+  min-height: 0;
+}
+
+.frontpage-rail {
+  grid-template-rows: auto auto;
+}
+
+.lead-mini-grid {
+  grid-auto-rows: auto;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .brand-lockup {
+    width: auto;
+    min-width: 0;
+  }
+
+  .topbar .brand-icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .nav-strip.nav-strip-menu {
+    grid-column: auto;
+    width: auto;
+    justify-self: end;
+  }
+
+  .category-menu {
+    width: auto;
+  }
+
+  .category-menu summary {
+    width: auto;
+    justify-content: center;
+  }
+
+  .topbar-actions {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-strip.nav-strip-menu {
+    justify-self: stretch;
+  }
+
+  .category-menu,
+  .category-menu summary {
+    width: 100%;
+  }
+}
