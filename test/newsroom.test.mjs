@@ -1101,6 +1101,24 @@ const tests = [
     }
   },
   {
+    name: "keeps the homepage latest lane focused with a three-story reveal",
+    run() {
+      for (const [language, label] of [["vi", "Xem thêm"], ["en", "See more"]]) {
+        const homeHtml = renderHomePage(state, language, { client: "", slots: {} });
+        const primaryStart = homeHtml.indexOf('class="story-grid latest-primary-grid"');
+        const moreStart = homeHtml.indexOf('class="latest-more"');
+        const detailsEnd = homeHtml.indexOf("</details>", moreStart);
+
+        assert.ok(primaryStart >= 0);
+        assert.ok(moreStart > primaryStart);
+        assert.ok(detailsEnd > moreStart);
+        assert.equal((homeHtml.slice(primaryStart, moreStart).match(/data-story-card/g) || []).length, 3);
+        assert.ok((homeHtml.slice(moreStart, detailsEnd).match(/data-story-card/g) || []).length > 0);
+        assert.match(homeHtml.slice(moreStart, detailsEnd), new RegExp(`<summary>${label}</summary>`));
+      }
+    }
+  },
+  {
     name: "keeps topic pages language-specific",
     run() {
       const page = getTopicPage(state, "vi", "ai");

@@ -27,6 +27,9 @@ export function renderHomePage(state, language, adsConfig) {
     safeGuideStories,
     briefingStory
   } = buildHomePageStoryGroups(home);
+  const latestPrimaryStories = safeLatestStories.slice(0, 3);
+  const latestMoreStories = safeLatestStories.slice(3);
+  const latestMoreLabel = language === "vi" ? "Xem thêm" : "See more";
 
   return renderLayout({
     state,
@@ -106,9 +109,19 @@ export function renderHomePage(state, language, adsConfig) {
             <p class="eyebrow">${copy.latestLabel}</p>
             <h2>${copy.latestTitle}</h2>
           </div>
-          <div class="story-grid">
-            ${safeLatestStories.map((article) => renderStoryCard(article, language)).join("")}
+          <div class="story-grid latest-primary-grid">
+            ${latestPrimaryStories.map((article) => renderStoryCard(article, language)).join("")}
           </div>
+          ${
+            latestMoreStories.length
+              ? `<details class="latest-more">
+            <summary>${latestMoreLabel}</summary>
+            <div class="story-grid latest-more-grid">
+              ${latestMoreStories.map((article) => renderStoryCard(article, language)).join("")}
+            </div>
+          </details>`
+              : ""
+          }
         </div>
         <aside class="section-block editors-block">
           <div class="stack-list">
@@ -204,7 +217,7 @@ function buildHomePageStoryGroups(home) {
   const safeLatestStories = excludeStories(
     dedupeStories(buildStoryPool(home.latest, home.trending, fallbackStory)),
     [leadFeature, ...leadSideStories, packageLead]
-  ).slice(0, 4);
+  );
   const safeWatchStories = buildBalancedLane(
     [packageStories, home.trending, home.briefing, home.latest],
     [leadFeature, ...leadSideStories, packageLead],
