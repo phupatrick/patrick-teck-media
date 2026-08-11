@@ -528,6 +528,10 @@ function renderSelect(name, label, options) {
 }
 
 function renderGoogleAuthCard(copy, language, googleConfigured) {
+  if (!googleConfigured) {
+    return "";
+  }
+
   const loginHref = `/auth/google/start?lang=${language}`;
 
   return `
@@ -537,11 +541,7 @@ function renderGoogleAuthCard(copy, language, googleConfigured) {
         <h3>${copy.adminTitle}</h3>
         <p>${copy.adminText}</p>
       </div>
-      ${
-        googleConfigured
-          ? `<a class="google-auth-button" href="${loginHref}"><span class="google-auth-mark" aria-hidden="true">G</span><span>${copy.googleLoginLabel}</span></a>`
-          : `<p class="auth-provider-muted">${copy.googleMissingText}</p>`
-      }
+      <a class="google-auth-button" href="${loginHref}"><span class="google-auth-mark" aria-hidden="true">G</span><span>${copy.googleLoginLabel}</span></a>
     </div>
   `;
 }

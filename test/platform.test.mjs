@@ -358,9 +358,13 @@ const tests = [
       assert.doesNotMatch(defaultHtml, /hphumail@gmail\.com/);
       assert.doesNotMatch(defaultHtml, /phupunpin@gmail\.com/);
       assert.doesNotMatch(defaultHtml, /hoangphupatrick@gmail\.com/);
+      assert.doesNotMatch(defaultHtml, /auth-provider-card/);
       assert.doesNotMatch(defaultHtml, /\/auth\/google\/start\?lang=vi/);
+      assert.doesNotMatch(defaultHtml, /GOOGLE_CLIENT_ID/);
+      assert.doesNotMatch(defaultHtml, /GOOGLE_CLIENT_SECRET/);
       assert.match(defaultHtml, /\/site\.css\?v=/);
       assert.match(defaultHtml, /\/site\.js\?v=/);
+      assert.match(googleHtml, /auth-provider-card/);
       assert.match(googleHtml, /google-auth-button/);
       assert.match(googleHtml, /\/auth\/google\/start\?lang=vi/);
       assert.doesNotMatch(googleHtml, /hphumail@gmail\.com/);
