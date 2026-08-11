@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T21:04:36.547Z",
+  "generated_at": "2026-08-11T22:04:36.516Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -111,7 +111,114 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-11T21:04:36.547Z",
+        "generated_at": "2026-08-11T22:04:36.516Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-1cc010f35eb4-en",
+      "cluster_id": "feed-1cc010f35eb4",
+      "language": "en",
+      "topic_label": "Devices",
+      "topic_slug": "devices",
+      "topic_accent": "#4e7dff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "over-500-000-toyota-camrys-recalled-over-a-blank-digital-dashboard",
+      "title": "Over 500,000 Toyota Camrys recalled over a blank digital dashboard",
+      "hook": "According to NHTSA documents , Toyota is recalling 508,354 Camry Hybrids in the US after discovering that the digital instrument cluster can go blank and hide critical information.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Remember when everyone said some things are better left analog? Well, digital dashboards are now making a pretty convincing case.",
+      "dek": "Remember when everyone said some things are better left analog? Well, digital dashboards are now making a pretty convincing case. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "According to NHTSA documents , Toyota is recalling 508,354 Camry Hybrids in the US after discovering that the digital instrument cluster can go blank and hide critical information. The issue affects certain 2025 and 2026 Camry models, although the fix is thankfully less dramatic: Toyota says a software update should sort it out."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "The problem affects Camrys equipped with a 7-inch digital combination meter. Under certain conditions, the display may remain blank when the vehicle is started, preventing drivers from seeing important information such as warning indicators, seat-belt reminders, turn signals and hazard-light status."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Toyota That creates a genuine safety concern. A driver could miss a warning that would normally appear on the instrument cluster, while other motorists may also be unable to tell when the Camry is signaling a turn or warning of a hazard. NHTSA says the malfunction therefore increases the risk of a crash or injury."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Fortunately, affected owners won’t need a new dashboard. Toyota plans to fix the issue with a free software update at authorized dealerships, with US recall notices expected to start arriving on September 21. The wider recall affects around 655,000 Camrys globally, including vehicles built between December 2023 and July 2026 in the US, Japan and Thailand."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Toyota The recall also highlights a growing issue with modern cars: digital dashboards are essentially computers , and software problems can affect information drivers rely on for safety. In this case, a software update should resolve the fault, but a blank screen can still mean missing warnings and indicators at a crucial moment."
+        }
+      ],
+      "image": {
+        "src": "https://www.digitaltrends.com/tachyon/2026/08/Toyota-Camry-2026-interiors-dashboard-featured.jpg?resize=1200%2C630",
+        "alt": "",
+        "caption": "Reference image from Digital Trends.",
+        "credit": "Digital Trends",
+        "source_url": "https://www.digitaltrends.com/cars/toyota-camry-recall-508354-blank-digital-display/"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Digital Trends",
+          "source_url": "https://www.digitaltrends.com/cars/toyota-camry-recall-508354-blank-digital-display/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-11T21:21:16.000Z",
+          "image_url": "https://www.digitaltrends.com/tachyon/2026/08/Toyota-Camry-2026-interiors-dashboard-featured.jpg?resize=1200%2C630",
+          "image_caption": "Reference image from Digital Trends.",
+          "image_credit": "Digital Trends"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-11T21:21:16.000Z",
+      "updated_at": "2026-08-11T21:21:16.000Z",
+      "href": "/en/news/over-500-000-toyota-camrys-recalled-over-a-blank-digital-dashboard",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/over-500-000-toyota-camrys-recalled-over-a-blank-digital-dashboard",
+      "storeUrl": "https://patricktechstore.vercel.app",
+      "editorial_label": null,
+      "topic": "devices",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-11T22:04:36.516Z",
         "origin": "local-curated-rss"
       }
     }
