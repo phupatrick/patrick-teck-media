@@ -5498,6 +5498,14 @@ body {
   font-size: 0.84rem;
 }
 
+.topbar .category-menu-panel {
+  right: 0;
+  left: auto;
+  width: min(520px, calc(100vw - 32px));
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .topbar-actions {
   grid-column: auto;
   width: auto;
