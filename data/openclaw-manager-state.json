@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-11T12:24:21.935Z",
-    "finishedAt": "2026-08-11T12:25:28.414Z",
+    "startedAt": "2026-08-11T13:52:27.287Z",
+    "finishedAt": "2026-08-11T13:53:33.784Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 387,
-    "articleCountBefore": 384,
-    "articleCountDelta": 3,
+    "totalArticles": 389,
+    "articleCountBefore": 387,
+    "articleCountDelta": 2,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786451061988-150e1c.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Amazon's Back to School sale has some incredible deals on Android tech — see my TOP 20+ discounts before they're gone\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Take-Two CEO defends timed Netflix exclusive GTA 6 extended look, says it's 'part of Rockstar Games' marketing strategy'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iPad Air OLED Panel Orders Could Be Split With BOE in 2027\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"iOS 27 may be free, but the AI bill won’t be\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Amazon's Back to School sale has some incredible deals on Android tech\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"iOS 27 may be free, but the AI bill won’t be\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Take-Two CEO defends timed Netflix exclusive GTA 6 extended look, says it's 'part of Rockstar Games'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786456347344-0191fd.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a new wave\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Xbox CTO shares an explanation of Xbox Live's recent down time, in a refreshing display of transparency\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Garmin Cirqa versus Fitbit Air: How these two fitness trackers compare\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Garmin Cirqa versus Fitbit Air: How these two fitness trackers compare\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Xbox CTO shares an explanation of Xbox Live's recent down time, in a refreshing display of transparency\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Amazon's Back to School sale has some incredible deals on Android tech — see my TOP 20+ discounts before they're gone\" because it failed publish readiness: narrativeFlow Holding normalized article \"Take-Two CEO defends timed Netflix exclusive GTA 6 extended look, says it's 'part of Rockstar Games' marketing strategy'\" because it failed publish readiness: narrativeFlow Holding normalized article \"iPad Air OLED Panel Orders Could Be Split With BOE in 2027\" because it failed publish readiness: narrativeFlow Holding normalized article \"iOS 27 may be free, but the AI bill won’t be\" because it failed publish readiness: narrativeFlow Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Amazon's Back to School sale has some incredible deals on Android tech\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Take-Two CEO defends timed Netflix exclusive GTA 6 extended look, says it's 'part of Rockstar Games'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a new wave\" because it failed publish readiness: narrativeFlow Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 393 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 395 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-11T12:25:28.398Z",
+      "reviewedAt": "2026-08-11T13:53:33.767Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
