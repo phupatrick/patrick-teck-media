@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-11T10:33:31.327Z",
-    "finishedAt": "2026-08-11T10:34:38.795Z",
+    "startedAt": "2026-08-11T11:30:10.966Z",
+    "finishedAt": "2026-08-11T11:31:17.289Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 381,
-    "articleCountBefore": 380,
-    "articleCountDelta": 1,
+    "totalArticles": 384,
+    "articleCountBefore": 381,
+    "articleCountDelta": 3,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786444411382-b7ea4f.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"iOS 27 may be free, but the AI bill won’t be\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple bất ngờ 'khai tử' iPhone toàn kính\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Xbox CTO shares an explanation of Xbox Live's recent down time, in a refreshing display of transparency\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"OpenAI gives Daybreak partners access to a more powerful cybersecurity model\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iOS 27 may be free, but the AI bill won’t be\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Xbox CTO shares an explanation of Xbox Live's recent down time, in a refreshing display of transparency\" because it failed publish readiness: sourceNameBalance Holding source-draft article \"OpenAI gives Daybreak partners access to a more powerful cybersecurity model\" because it failed publish readiness: sourceBreadth, sourceVariety",
+      "output": "Refreshed 6 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786447811018-0c3001.json Generated OpenClaw hidden feed with 6 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"GTA 6 Ultimate Edition is selling more than Standard, says Take-Two CEO, despite the price controversy: 'The most avid c\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"iOS 27 beta confirms Apple’s full iPhone 18 roadmap with 6 new models\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Microsoft Teams will now let you really show off how good you are at your job — but it might make your co-workers cringe\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"iOS 27 may be free, but the AI bill won’t be\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"iOS 27 beta confirms Apple’s full iPhone 18 roadmap with 6 new models\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"iOS 27 may be free, but the AI bill won’t be\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Microsoft Teams will now let you really show off how good you are at your job\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"iOS 27 may be free, but the AI bill won’t be\" because it failed publish readiness: narrativeFlow Holding normalized article \"Apple bất ngờ 'khai tử' iPhone toàn kính\" because it failed publish readiness: narrativeFlow Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 6 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"GTA 6 Ultimate Edition is selling more than Standard, says Take-Two CEO, despite the price controversy: 'The most avid c\" because it failed publish readiness: narrativeFlow Holding normalized article \"iOS 27 beta confirms Apple’s full iPhone 18 roadmap with 6 new models\" because it failed publish readiness: narrativeFlow Holding normalized article \"Microsoft Teams will now let you really show off how good you are at your job — but it might make your co-workers cringe\" because it failed publish readiness: narrativeFlow Holding normalized article \"iOS 27 may be free, but the AI bill won’t be\" because it failed publish readiness: narrativeFlow Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"iOS 27 beta confirms Apple’s full iPhone 18 roadmap with 6 new models\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Microsoft Teams will now let you really show off how good you are at your job\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 387 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 390 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-11T10:34:38.779Z",
+      "reviewedAt": "2026-08-11T11:31:17.273Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
