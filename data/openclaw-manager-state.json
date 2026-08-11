@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-11T13:52:27.287Z",
-    "finishedAt": "2026-08-11T13:53:33.784Z",
+    "startedAt": "2026-08-11T14:54:21.201Z",
+    "finishedAt": "2026-08-11T14:55:32.440Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 389,
-    "articleCountBefore": 387,
-    "articleCountDelta": 2,
+    "totalArticles": 392,
+    "articleCountBefore": 389,
+    "articleCountDelta": 3,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Refreshed 4 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786456347344-0191fd.json Generated OpenClaw hidden feed with 4 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a new wave\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Xbox CTO shares an explanation of Xbox Live's recent down time, in a refreshing display of transparency\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Garmin Cirqa versus Fitbit Air: How these two fitness trackers compare\" because it failed trusted-source fallback: sourceBreadth, sourceVariety Holding synthesized article \"Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Garmin Cirqa versus Fitbit Air: How these two fitness trackers compare\" because it failed publish readiness: sourceBreadth, sourceVariety Holding source-draft article \"Xbox CTO shares an explanation of Xbox Live's recent down time, in a refreshing display of transparency\" because it failed publish readiness: sourceNameBalance",
+      "output": "Refreshed 5 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786460061254-55c26a.json Generated OpenClaw hidden feed with 5 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Digital Trends: Feed Digital Trends returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung’s Hearing Aid Feature on Galaxy Buds Cleared by FDA\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Amazfit’s five-star fitness tracker just got a new way to take on Garmin’s best smartwatches, and it just got even bette\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Apple Arcade levels up with Block Blast!+ and Art of Fauna: Cozy Puzzles+\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Xbox CTO shares an explanation of Xbox Live's recent down time, in a refreshing display of transparency\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding source-draft article \"Xbox CTO shares an explanation of Xbox Live's recent down time, in a refreshing display of transparency\" because it failed publish readiness: sourceNameBalance",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI\" because it failed publish readiness: narrativeFlow Holding normalized article \"Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a new wave\" because it failed publish readiness: narrativeFlow Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance"
+      "output": "Refreshed 5 article(s) from external-feed into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Holding normalized article \"Samsung’s Hearing Aid Feature on Galaxy Buds Cleared by FDA\" because it failed publish readiness: narrativeFlow Holding normalized article \"Amazfit’s five-star fitness tracker just got a new way to take on Garmin’s best smartwatches, and it just got even bette\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Apple Arcade levels up with Block Blast!+ and Art of Fauna: Cozy Puzzles+\" because it failed publish readiness: narrativeFlow Holding normalized article \"With new open models, Meta pitches another reboot of its struggling AI strategy\" because it failed publish readiness: narrativeFlow Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow Holding synthesized article \"Samsung’s Hearing Aid Feature on Galaxy Buds Cleared by FDA\" because it failed publish readiness: narrativeFlow, noRepeatedPhrases Holding synthesized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, sourceNameBalance Holding synthesized article \"Amazfit’s five-star fitness tracker just got a new way to take on Garmin’s best smartwatches, and it just\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance"
     },
     "auditRepair": {
       "ok": true,
@@ -40,7 +40,7 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 395 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 398 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-11T13:53:33.767Z",
+      "reviewedAt": "2026-08-11T14:55:32.424Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
