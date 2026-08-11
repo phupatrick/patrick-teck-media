@@ -5,6 +5,7 @@ import { pathToFileURL } from "node:url";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
 import { aggregateIncomingDrafts } from "../src/newsroom-synthesis.mjs";
 import { buildNewsroomState } from "../src/newsroom-service.mjs";
+import { isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
 import {
   evaluateArticleAutopublishReadiness,
   evaluateArticleReadiness,
@@ -982,9 +983,8 @@ const SOURCE_TOPIC_HINTS = [
     replaceMode: false,
     now,
     databaseUrl: env.DATABASE_URL || "",
-    // prepareArticlesForPublish already applies the strict gate and the
-    // trusted-source fallback. Re-running only the baseline gate here avoids
-    // discarding an article that was intentionally admitted by that fallback.
+    // prepareArticlesForPublish already applies the strict gate. The baseline
+    // check here only protects storage invariants before writing.
     strictQualityGate: false
   });
 
@@ -1001,7 +1001,8 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
     storeUrl,
     externalArticles: incomingArticles,
     now,
-    webControl: {}
+    webControl: {},
+    expandEditorialCopy: false
   });
 
   if (state.articles.length > 0) {
@@ -1010,13 +1011,6 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
       return readyArticles;
     }
 
-    if (strictQualityGate) {
-      filterTrustedSourceFallbackArticles(state.articles.map(stripRuntimeArticleFields), "normalized");
-      filterTrustedSourceFallbackArticles(
-        incomingArticles.map((article) => preserveSourceDraft(article, now)).filter(Boolean),
-        "source-draft"
-      );
-    }
   }
 
   const synthesizedArticles = aggregateIncomingDrafts(incomingArticles, now);
@@ -1025,7 +1019,8 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
     storeUrl,
     externalArticles: synthesizedArticles,
     now,
-    webControl: {}
+    webControl: {},
+    expandEditorialCopy: false
   });
 
   if (synthesizedState.articles.length > 0) {
@@ -1035,9 +1030,12 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
     }
   }
 
-  const fallbackArticleBuilder = strictQualityGate ? preserveSourceDraft : forceArticleValueFloor;
+  if (strictQualityGate) {
+    return [];
+  }
+
   return filterPublishReadyArticles(
-    incomingArticles.map((article) => fallbackArticleBuilder(article, now)).filter(Boolean),
+    incomingArticles.map((article) => forceArticleValueFloor(article, now)).filter(Boolean),
     "source-draft",
     strictQualityGate
   );
@@ -2009,6 +2007,7 @@ function extractParagraphs(html) {
     .map((match) => sanitizeEditorialParagraph(match[1]))
     .filter(Boolean)
     .filter((paragraph) => paragraph.length >= 90)
+    .filter((paragraph) => !isSourceTextContaminated(paragraph))
     .filter((paragraph) => !isBoilerplateParagraph(paragraph) && !isWeakEditorialSentence(paragraph))
     .filter((paragraph, index, list) => list.findIndex((entry) => entry === paragraph) === index);
 }
@@ -2039,7 +2038,9 @@ function filterRelevantParagraphs({ title, description, paragraphs = [] }) {
 }
 
 function pickRelevantLeadText({ title, values = [] }) {
-  const cleanedValues = values.map((value) => cleanText(value)).filter(Boolean);
+  const cleanedValues = values
+    .map((value) => cleanText(value))
+    .filter((value) => value && !isSourceTextContaminated(value));
   const anchors = extractAnchorTerms(title);
 
   if (!cleanedValues.length) {

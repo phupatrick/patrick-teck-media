@@ -1,4 +1,5 @@
 import { repairEncodingArtifacts } from "./text-repair.mjs";
+import { hasSourceTextContamination } from "./newsroom-source-hygiene.mjs";
 
 export function evaluateArticleReadiness(article) {
   const title = normalizeText(article?.title);
@@ -51,7 +52,8 @@ export function evaluateArticleReadiness(article) {
     leadFieldVariety: leadFieldVariety.size >= 1,
     valueDensity: hasReaderValueDensity({ title, summary, dek, hook, sectionBodies, isHighScrutinyArticle }),
     noPlaceholderCopy: !containsPlaceholderCopy([summary, dek, hook, ...sectionBodies]),
-    cleanEncoding: !containsEncodingArtifacts([title, summary, dek, hook, ...sectionBodies])
+    cleanEncoding: !containsEncodingArtifacts([title, summary, dek, hook, ...sectionBodies]),
+    sourceCleanliness: !hasSourceTextContamination([title, summary, dek, hook, ...sectionBodies])
   };
 
   const missing = Object.entries(checks)
@@ -154,6 +156,11 @@ export function normalizeText(value) {
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
+    .replace(/&(?:zwnj|zwj);/gi, "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, "\"")
+    .replace(/&#(?:39|x27);/gi, "'")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -226,11 +233,18 @@ function containsPlaceholderCopy(values) {
   });
 }
 
-function containsGenericPadding(values) {
+export function containsGenericPadding(values) {
   const patterns = [
     /payload nguon ban dau/i,
     /source payload is thin/i,
     /the useful part is the context/i,
+    /the practical impact sits in workflow, cost, risk/i,
+    /for readers, the useful frame is evidence/i,
+    /the next question is whether the signal becomes/i,
+    /a stronger article separates the source fact/i,
+    /the source signal from .* should be placed in context first/i,
+    /the source signal should be placed in context first/i,
+    /this section should (establish|connect|keep only|name the reader|close with)/i,
     /reader value is a clearer checklist/i,
     /what readers should check before acting/i,
     /what changed, who feels it first/i,
@@ -244,6 +258,13 @@ function containsGenericPadding(values) {
     const text = normalizeText(value).toLowerCase();
     return patterns.some((pattern) => pattern.test(text));
   });
+}
+
+export function stripGenericEditorialPadding(value) {
+  return splitSentences(value)
+    .filter((sentence) => !containsGenericPadding([sentence]))
+    .join(" ")
+    .trim();
 }
 
 function isRemoteImageUrl(value) {
@@ -292,7 +313,7 @@ function hasEditorialNarrativeFlow(sectionHeadings) {
   const headings = sectionHeadings.map((heading) => normalizeText(heading).toLowerCase());
   const text = headings.join(" | ");
 
-  const hasContext = /(context|background|what changed|updates? worth|b.{0,5}i c.{0,5}nh|di.{0,5}m m.{0,5}i)/i.test(text);
+  const hasContext = /(context|background|what happened|what changed|updates? worth|b.{0,5}i c.{0,5}nh|di.{0,5}m m.{0,5}i)/i.test(text);
   const hasImpact = /(impact|why it matters|changes? in practice|t.{0,5}c .{0,5}ng|th.{0,5}c t.{0,5})/i.test(text);
   const hasReaderAction = /(watch|who should|readers?|checklist|next step|action|decision|ai n.{0,5}n|theo d.{0,5}i|gia tr.{0,5} ngu.{0,5}i d.{0,5}c)/i.test(text);
 

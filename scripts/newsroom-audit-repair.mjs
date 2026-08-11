@@ -47,7 +47,8 @@ export function repairNewsroomAudit({
   targetPath = contentPath,
   siteUrl = process.env.SITE_URL || "https://patricktechmedia.com",
   storeUrl = process.env.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
-  now = new Date().toISOString()
+  now = new Date().toISOString(),
+  strictContentHygiene = /^(1|true|yes|on)$/i.test(String(process.env.NEWSROOM_AUDIT_STRICT || ""))
 } = {}) {
   const resolvedPath = path.resolve(rootDir, targetPath);
   const previousPayload = readJson(resolvedPath);
@@ -56,7 +57,8 @@ export function repairNewsroomAudit({
     siteUrl,
     storeUrl,
     contentPath: resolvedPath,
-    now
+    now,
+    expandEditorialCopy: !strictContentHygiene
   });
   const repairedArticles = state.articles
     .map(toPersistedArticle)

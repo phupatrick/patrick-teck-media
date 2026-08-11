@@ -1,9 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
-import { evaluateArticleReadiness, isArticlePublishReady } from "./newsroom-quality.mjs";
+import {
+  evaluateArticleReadiness,
+  isArticlePublishReady,
+  stripGenericEditorialPadding
+} from "./newsroom-quality.mjs";
 import { createNewsroomStore, normalizeNewsroomPayload } from "./newsroom-store.mjs";
 import { createOpenClawWebStore, normalizeOpenClawWebState } from "./openclaw-web-store.mjs";
 import { repairEncodingArtifacts } from "./text-repair.mjs";
+import { hasSourceTextContamination } from "./newsroom-source-hygiene.mjs";
 import {
   buildArticles,
   getAuthors,
@@ -288,12 +293,17 @@ export function buildNewsroomState(options = {}) {
   const contentPath = resolveContentPath(options.contentPath);
   const webStatePath = resolveWebStatePath(options.webStatePath);
   const webControl = normalizeOpenClawWebState(options.webControl || loadLocalOpenClawWebState(webStatePath));
+  const normalizationOptions = {
+    topics,
+    contentTypeMeta,
+    expandEditorialCopy: options.expandEditorialCopy !== false
+  };
   const baseArticles = Array.isArray(options.externalArticles)
-    ? normalizeInjectedArticles(options.externalArticles, { topics, contentTypeMeta })
-    : loadExternalArticles(contentPath, { topics, contentTypeMeta }) || buildArticles();
+    ? normalizeInjectedArticles(options.externalArticles, normalizationOptions)
+    : loadExternalArticles(contentPath, normalizationOptions) || buildArticles();
   const sourceArticles = mergeArticleSets(
     baseArticles,
-    normalizeInjectedArticles(options.injectedArticles, { topics, contentTypeMeta })
+    normalizeInjectedArticles(options.injectedArticles, normalizationOptions)
   ).filter(isArticlePublishReady);
   const assetVersion = resolveAssetVersion(options.assetVersion, sourceArticles, now);
   const frontPageTopicWeights = {
@@ -1658,7 +1668,7 @@ function loadLocalOpenClawWebState(webStatePath) {
   }
 }
 
-function loadExternalArticles(contentPath, { topics, contentTypeMeta }) {
+function loadExternalArticles(contentPath, { topics, contentTypeMeta, expandEditorialCopy = true }) {
   try {
     if (!fs.existsSync(contentPath)) {
       return null;
@@ -1672,7 +1682,7 @@ function loadExternalArticles(contentPath, { topics, contentTypeMeta }) {
     }
 
     const normalized = items
-      .map((article) => normalizeExternalArticle(article, { topics, contentTypeMeta }))
+      .map((article) => normalizeExternalArticle(article, { topics, contentTypeMeta, expandEditorialCopy }))
       .filter(Boolean);
 
     return normalized.length > 0 ? normalized : null;
@@ -1681,13 +1691,13 @@ function loadExternalArticles(contentPath, { topics, contentTypeMeta }) {
   }
 }
 
-function normalizeInjectedArticles(articles, { topics, contentTypeMeta }) {
+function normalizeInjectedArticles(articles, { topics, contentTypeMeta, expandEditorialCopy = true }) {
   if (!Array.isArray(articles) || articles.length === 0) {
     return [];
   }
 
   return articles
-    .map((article) => normalizeExternalArticle(article, { topics, contentTypeMeta }))
+    .map((article) => normalizeExternalArticle(article, { topics, contentTypeMeta, expandEditorialCopy }))
     .filter(Boolean);
 }
 
@@ -1750,7 +1760,7 @@ function buildSaigonDateKey(dateString) {
   return `${year}-${month}-${day}`;
 }
 
-function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
+function normalizeExternalArticle(article, { topics, contentTypeMeta, expandEditorialCopy = true }) {
   if (!article || typeof article !== "object") {
     return null;
   }
@@ -1764,15 +1774,42 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
   }
 
   const verificationState = article.verification_state || "trend";
-  const sections = Array.isArray(article.sections) ? article.sections : [];
+  const rawSections = Array.isArray(article.sections) ? article.sections : [];
+  if (hasSourceTextContamination([
+    article.title,
+    article.summary,
+    article.dek,
+    article.hook,
+    rawSections.map((section) => [section?.heading, section?.body])
+  ])) {
+    return null;
+  }
+  const sections = expandEditorialCopy
+    ? rawSections
+    : rawSections
+      .map((section) => ({
+        ...section,
+        heading: stripGenericEditorialPadding(section?.heading || ""),
+        body: stripGenericEditorialPadding(section?.body || "")
+      }))
+      .filter((section) => section.heading && section.body);
+  const sourceSummary = expandEditorialCopy
+    ? article.summary || ""
+    : stripGenericEditorialPadding(article.summary || "");
+  const sourceDek = expandEditorialCopy
+    ? article.dek || ""
+    : stripGenericEditorialPadding(article.dek || "");
+  const sourceHook = expandEditorialCopy
+    ? article.hook || ""
+    : stripGenericEditorialPadding(article.hook || "");
   const summary = polishExternalSummary({
-    value: article.summary || "",
-    dek: article.dek || "",
+    value: sourceSummary,
+    dek: sourceDek,
     sections,
     language
   });
   const dek = polishExternalDek({
-    value: article.dek || "",
+    value: sourceDek,
     summary,
     sections,
     language
@@ -1786,7 +1823,7 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     dek,
     sections
   });
-  const hook = normalizeArticleHook(article, {
+  const hook = normalizeArticleHook({ ...article, hook: sourceHook }, {
     language,
     topic: topic.id,
     verificationState,
@@ -1807,7 +1844,8 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta }) {
     dek,
     hook,
     sections,
-    sourceSet
+    sourceSet,
+    expandEditorialCopy
   });
   const image = sanitizePublicImage(normalizeExternalImage(article.image));
 
@@ -2221,16 +2259,31 @@ function buildEditorialAngle({ language, topic, verificationState, contentType }
   );
 }
 
-function buildEditorialSections({ language, topic, verificationState, contentType, title, summary, dek, hook, sections, sourceSet }) {
+function buildEditorialSections({
+  language,
+  topic,
+  verificationState,
+  contentType,
+  title,
+  summary,
+  dek,
+  hook,
+  sections,
+  sourceSet,
+  expandEditorialCopy = true
+}) {
   const context = { language, topic, verificationState, contentType, title, summary, dek, hook, sourceSet };
   const normalizedProvided = (Array.isArray(sections) ? sections : [])
-    .map((section, index) => normalizeEditorialSection(section, index, context))
+    .map((section, index) => normalizeEditorialSection(section, index, context, expandEditorialCopy))
     .filter(Boolean);
   const generated = buildGeneratedEditorialSections(context);
   const merged = [];
   const seen = new Set();
+  const candidates = expandEditorialCopy
+    ? [...normalizedProvided, ...generated]
+    : normalizedProvided;
 
-  for (const section of [...normalizedProvided, ...generated]) {
+  for (const section of candidates) {
     if (!section) {
       continue;
     }
@@ -2327,7 +2380,7 @@ function splitEditorialSentences(value) {
     .filter(Boolean);
 }
 
-function normalizeEditorialSection(section, index, context) {
+function normalizeEditorialSection(section, index, context, expandEditorialCopy = true) {
   const heading = safeEditorialTrim(section?.heading || "");
   const baseBody = safeEditorialTrim(section?.body || "");
 
@@ -2337,11 +2390,15 @@ function normalizeEditorialSection(section, index, context) {
 
   return {
     heading,
-    body: expandEditorialSectionBody(baseBody, index, context)
+    body: expandEditorialSectionBody(baseBody, index, context, expandEditorialCopy)
   };
 }
 
-function expandEditorialSectionBody(body, index, context) {
+function expandEditorialSectionBody(body, index, context, expandEditorialCopy = true) {
+  if (!expandEditorialCopy) {
+    return joinEditorialSentences(body);
+  }
+
   const supportMap = [
     buildSourceConfidenceSentence(context),
     buildTopicImpactSentence(context),
@@ -2357,7 +2414,9 @@ function expandEditorialSectionBody(body, index, context) {
   }
 
   const enriched = joinEditorialSentences(base, ...additions);
-  return enriched.length >= 320 ? enriched : joinEditorialSentences(enriched, buildContextSentence(context), buildReaderActionSentence(context));
+  return enriched.length >= 320
+    ? enriched
+    : joinEditorialSentences(enriched, buildContextSentence(context), buildReaderActionSentence(context));
 }
 
 function buildGeneratedEditorialSections(context) {

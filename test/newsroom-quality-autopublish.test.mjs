@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
 import { evaluateArticleAutopublishReadiness, isArticleAutopublishReady } from "../src/newsroom-quality.mjs";
+import { isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
 
 const readyArticle = buildReadyArticle();
 
@@ -49,11 +50,26 @@ const thinArticle = {
 assert.equal(isArticleAutopublishReady(thinArticle), false, "thin articles should not publish");
 assert.ok(evaluateArticleAutopublishReadiness(thinArticle).missing.includes("sectionCount"));
 
+const contaminatedArticle = {
+  ...readyArticle,
+  id: "contaminated-source-menu",
+  slug: "contaminated-source-menu",
+  sections: readyArticle.sections.map((section, index) => index === 0
+    ? {
+        ...section,
+        body: "Corporate People & Culture Technology Design More Stories Products Mobile TV Display Home Appliances Semiconductor More Products Social Impact CSR Environment Sustainability Press Resources Press Releases Video News Media Library Statements Fast Facts Search open. OpenAI said the workflow controls will reach team accounts in July 2026."
+      }
+    : section)
+};
+assert.equal(isSourceTextContaminated(contaminatedArticle.sections[0].body), true);
+assert.equal(isArticleAutopublishReady(contaminatedArticle), false, "scraped navigation should never publish");
+assert.ok(evaluateArticleAutopublishReadiness(contaminatedArticle).missing.includes("sourceCleanliness"));
+
 const tempDir = await mkdtemp(path.join(os.tmpdir(), "ptm-quality-"));
 try {
   const outputPath = path.join(tempDir, "newsroom-content.json");
   const result = await publishArticles({
-    incomingArticles: [readyArticle, thinArticle],
+    incomingArticles: [readyArticle, thinArticle, contaminatedArticle],
     outputPath,
     replaceMode: true,
     now: "2026-07-10T00:00:00.000Z",
@@ -61,7 +77,7 @@ try {
   });
 
   assert.equal(result.publishedCount, 1, "publish count should only include articles that passed readiness");
-  assert.equal(result.rejectedCount, 1, "rejected count should report filtered articles");
+  assert.equal(result.rejectedCount, 2, "rejected count should report thin and contaminated articles");
   assert.equal(result.totalArticles, 1);
 } finally {
   await rm(tempDir, { recursive: true, force: true });
