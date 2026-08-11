@@ -1,6 +1,78 @@
 {
-  "generated_at": "2026-08-11T09:42:06.097Z",
+  "generated_at": "2026-08-11T10:34:35.901Z",
   "articles": [
+    {
+      "id": "feed-3086dc1f1b33-en",
+      "cluster_id": "feed-3086dc1f1b33",
+      "language": "en",
+      "topic": "apps-software",
+      "content_type": "NewsArticle",
+      "slug": "ios-27-may-be-free-but-the-ai-bill-won-t-be",
+      "title": "iOS 27 may be free, but the AI bill won’t be",
+      "summary": "One of the next things they teach you is how to conduct a cost/benefit analysis. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.",
+      "dek": "Why it matters: The practical impact sits in workflow, cost, risk, or a buying decision; iOS 27 may be free, but the AI bill won’t be should be explained through that lens before any broad claim is made.",
+      "hook": "What to watch next: The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
+      "sections": [
+        {
+          "heading": "Context: what changed",
+          "body": "One of the next things they teach you is how to conduct a cost/benefit analysis. Or maybe that’s in the second semester. The Macalope doesn’t remember; he slept through a lot of business school. But he’s been thinking about cost/benefit analysis a lot lately with regard to AI. The source signal from Macworld should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue. This section should establish the confirmed change before moving into interpretation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "For most use cases, AI is really a substitute for search. The web has consistently been a struggle between free and open and a bunch of would-be gatekeepers from AOL to Meta who want to keep you on their pages instead of having you go to some pesky website created by some yahoo who probably doesn’t even know any venture capitalists. Gross. Even Google, whose whole raison d’être was finding web pages for you, would now rather you stay on its site and read an answer its AI scraped off the page of the person who actually did the work to come up with the answer in the first place and, oh, here, look at some ads, since we have you. The practical impact sits in workflow, cost, risk, or a buying decision; iOS 27 may be free, but the AI bill won’t be should be explained through that lens before any broad claim is made. This section should connect the report to reader workflow, spending, security, or product decisions."
+        },
+        {
+          "heading": "Details worth verifying",
+          "body": "In playing with Siri AI in the iOS 27 public beta, the Macalope has experienced some real benefits. One example: after fruitlessly searching in his Mail inbox for a gift card he received a year and a half ago, he was able to just ask Siri AI to “find the gift card so-and-so sent me” (he used a real name rather than “so-and-so” — it’s not that amazing) and it found it almost immediately. The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle. This section should keep only verifiable details and avoid repeating the same source phrasing."
+        },
+        {
+          "heading": "Who should act or wait",
+          "body": "To be sure, there are a number of other neat features of Siri AI that are not simply better search capabilities, but while it’s all neat, the Horny One found himself thinking: is it all worth the cost? For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting. This section should name the reader group that benefits from acting now or waiting for confirmation."
+        },
+        {
+          "heading": "What to watch next",
+          "body": "You may be saying, but Mr. Macalope, sir, iOS 27 is a free upgrade! There is no cost! THE MACALOPE KNOWS THAT, TODD! A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary. This section should close with the next signal worth checking, not another summary of the same fact."
+        }
+      ],
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Macworld",
+          "source_url": "https://www.macworld.com/article/3209941/the-ai-bill-is-about-to-come-due.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-08-11T10:30:00.000Z",
+          "image_url": "https://www.macworld.com/wp-content/uploads/2026/08/macalope-2021.jpg?quality=50&strip=all&w=1024",
+          "image_caption": "Reference image from Macworld.",
+          "image_credit": "Macworld"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-08-11T10:30:00.000Z",
+      "updated_at": "2026-08-11T10:30:00.000Z",
+      "image": {
+        "src": "https://www.macworld.com/wp-content/uploads/2026/08/macalope-2021.jpg?quality=50&strip=all&w=1024",
+        "caption": "Reference image from Macworld.",
+        "credit": "Macworld",
+        "source_url": "https://www.macworld.com/article/3209941/the-ai-bill-is-about-to-come-due.html"
+      },
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-08-11T10:34:35.831Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-aac1aed2cfcb-vi",
       "cluster_id": "feed-aac1aed2cfcb",
@@ -209,7 +281,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-11T09:42:06.033Z",
+        "generated_at": "2026-08-11T10:34:35.831Z",
         "origin": "local-curated-rss"
       }
     },
@@ -701,7 +773,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-11T09:42:06.033Z",
+        "generated_at": "2026-08-11T10:34:35.831Z",
         "origin": "local-curated-rss"
       }
     },
@@ -7889,7 +7961,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-08-11T09:42:06.033Z",
+        "generated_at": "2026-08-11T10:34:35.831Z",
         "origin": "local-curated-rss"
       }
     },
