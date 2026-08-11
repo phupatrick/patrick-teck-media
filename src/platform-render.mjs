@@ -454,9 +454,7 @@ function renderPlatformLayout({ state, language, title, description, path, conte
             <strong>Tech Media</strong>
           </span>
         </a>
-        <nav class="nav-strip" aria-label="Primary">
-          ${nav.map((item) => `<a href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
-        </nav>
+        ${renderCategoryMenu(nav, language)}
         <div class="topbar-actions">
           <a class="lang-pill" href="/${language}/portal">${copy.portalNavLabel}</a>
           <a class="lang-pill" href="/${language}/login">${copy.loginNavLabel}</a>
@@ -482,7 +480,7 @@ function renderPlatformLayout({ state, language, title, description, path, conte
 }
 
 function renderCategoryMenu(nav, language) {
-  const label = language === "vi" ? "Th? lo?i" : "Categories";
+  const label = language === "vi" ? "Danh\u0020m\u1ee5c" : "Categories";
   return `
         <nav class="nav-strip nav-strip-menu" aria-label="Primary">
           <details class="category-menu">

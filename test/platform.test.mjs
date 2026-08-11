@@ -350,6 +350,7 @@ const tests = [
       });
       const defaultHtml = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login" });
       const googleHtml = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login", googleConfigured: true });
+      const englishHtml = renderAuthPage(newsroom, "en", { notice: "", activeTab: "login" });
 
       assert.match(defaultHtml, /data-auth-shell/);
       assert.match(defaultHtml, /Đăng nhập/);
@@ -364,6 +365,12 @@ const tests = [
       assert.doesNotMatch(defaultHtml, /GOOGLE_CLIENT_SECRET/);
       assert.match(defaultHtml, /\/site\.css\?v=/);
       assert.match(defaultHtml, /\/site\.js\?v=/);
+      assert.match(defaultHtml, /<nav class="nav-strip nav-strip-menu" aria-label="Primary">/);
+      assert.match(defaultHtml, /<details class="category-menu">/);
+      assert.match(defaultHtml, /<summary>Danh\u0020m\u1ee5c<\/summary>/);
+      assert.match(defaultHtml, /<a role="listitem" href="\/vi\/topics\/ai">AI<\/a>/);
+      assert.match(englishHtml, /<summary>Categories<\/summary>/);
+      assert.match(englishHtml, /<a role="listitem" href="\/en\/topics\/ai">AI<\/a>/);
       assert.match(googleHtml, /auth-provider-card/);
       assert.match(googleHtml, /google-auth-button/);
       assert.match(googleHtml, /\/auth\/google\/start\?lang=vi/);
