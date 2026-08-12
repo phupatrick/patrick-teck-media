@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-12T08:45:51.123Z",
-    "finishedAt": "2026-08-12T08:48:01.905Z",
+    "startedAt": "2026-08-12T09:59:02.763Z",
+    "finishedAt": "2026-08-12T10:01:19.379Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786524351172-096cb4.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786528742813-7f2d9b.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: This operation was aborted Holding normalized article \"Giá Bitcoin hôm nay 12.8.2026: Giảm nhẹ chờ bài kiểm tra lạm phát\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Giá Bitcoin hôm nay 12.8.2026: Giảm nhẹ chờ bài kiểm tra lạm phát\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-12T08:48:01.889Z",
+      "reviewedAt": "2026-08-12T10:01:19.362Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
