@@ -4,11 +4,11 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-13T17:41:31.277Z",
-    "finishedAt": "2026-08-13T17:43:58.146Z",
+    "startedAt": "2026-08-13T18:28:53.583Z",
+    "finishedAt": "2026-08-13T18:30:52.072Z",
     "trigger": {
-      "source": "schedule",
-      "reason": "scheduled"
+      "source": "telegram",
+      "reason": "vercel-cron"
     }
   },
   "newsroom": {
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786642891325-1ea474.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The foldable iPhone Ultra could disappoint a whole bunch of eager buyers\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Ditch your bulky power brick for this $26 Anker Nano smart charger\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786645733622-b8e75c.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"iPhone 18 set for a RAM upgrade, and maybe a massive one\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The foldable iPhone Ultra could disappoint a whole bunch of eager buyers\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Ditch your bulky power brick for this $26 Anker Nano smart charger\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"iPhone 18 set for a RAM upgrade, and maybe a massive one\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"Unveiling good and bad behaviors on the Agentic Internet\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-13T17:43:58.128Z",
+      "reviewedAt": "2026-08-13T18:30:52.058Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
