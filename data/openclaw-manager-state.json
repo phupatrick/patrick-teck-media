@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-13T22:03:46.409Z",
-    "finishedAt": "2026-08-13T22:05:41.962Z",
+    "startedAt": "2026-08-13T23:01:37.137Z",
+    "finishedAt": "2026-08-13T23:04:15.754Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786658626449-591939.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786662097176-47d774.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases"
+      "warnings": "Skipping Microsoft Copilot Blog: This operation was aborted Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-13T22:05:41.948Z",
+      "reviewedAt": "2026-08-13T23:04:15.740Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
