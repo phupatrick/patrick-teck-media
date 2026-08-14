@@ -4,11 +4,11 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-14T17:37:21.339Z",
-    "finishedAt": "2026-08-14T17:39:33.436Z",
+    "startedAt": "2026-08-14T18:19:11.794Z",
+    "finishedAt": "2026-08-14T18:21:27.483Z",
     "trigger": {
-      "source": "schedule",
-      "reason": "scheduled"
+      "source": "telegram",
+      "reason": "vercel-cron"
     }
   },
   "newsroom": {
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786729041389-50d9b1.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786731551842-004fe5.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-14T17:39:33.419Z",
+      "reviewedAt": "2026-08-14T18:21:27.467Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
