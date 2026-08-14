@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-14T09:43:34.583Z",
-    "finishedAt": "2026-08-14T09:45:42.538Z",
+    "startedAt": "2026-08-14T10:40:46.514Z",
+    "finishedAt": "2026-08-14T10:42:42.411Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786700614635-301900.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Why fragmented AI regulation makes governance a competitive advantage\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Grab this Touch Bar MacBook Pro for $267 while refurbs last\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786704046561-59d827.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The Pixel 11 Pro is a slap in the face to Android enthusiasts everywhere\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Why fragmented AI regulation makes governance a competitive advantage\" because it failed publish readiness: noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Why fragmented AI regulation makes governance a competitive advantage\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Grab this Touch Bar MacBook Pro for $267 while refurbs last\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Kanto's new budget-friendly turntable has a few smart features to make it easy for novices to use, and it's lovely and c\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"The Pixel 11 Pro is a slap in the face to Android enthusiasts everywhere\" because it failed publish readiness: noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-14T09:45:42.522Z",
+      "reviewedAt": "2026-08-14T10:42:42.394Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
