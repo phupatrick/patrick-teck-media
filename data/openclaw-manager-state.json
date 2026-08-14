@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-14T22:18:16.873Z",
-    "finishedAt": "2026-08-14T22:20:26.134Z",
+    "startedAt": "2026-08-14T22:48:11.089Z",
+    "finishedAt": "2026-08-14T22:50:15.687Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786745896921-e490fe.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786747691136-1dc49e.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 500 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-14T22:20:26.117Z",
+      "reviewedAt": "2026-08-14T22:50:15.670Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
