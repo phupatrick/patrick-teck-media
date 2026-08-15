@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-15T12:42:13.011Z",
-    "finishedAt": "2026-08-15T12:44:24.055Z",
+    "startedAt": "2026-08-15T13:17:44.929Z",
+    "finishedAt": "2026-08-15T13:20:02.521Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786797733060-b18309.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Robot hút bụi thế hệ mới có thể làm được những gì\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Thay đổi lớn trên YouTube liên quan đến điều kiện bật kiếm tiền mà nhiều người nên biết rõ\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Creality Sermoon P1 review: This ultraportable handheld 3D scanner let me scan almost any object I wanted\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786799864980-bbed90.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Thay đổi lớn trên YouTube liên quan đến điều kiện bật kiếm tiền mà nhiều người nên biết rõ\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Robot hút bụi thế hệ mới có thể làm được những gì\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Thay đổi lớn trên YouTube liên quan đến điều kiện bật kiếm tiền mà nhiều người nên biết rõ\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Creality Sermoon P1 review: This ultraportable handheld 3D scanner let me scan almost any object I wanted\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Thay đổi lớn trên YouTube liên quan đến điều kiện bật kiếm tiền mà nhiều người nên biết rõ\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-15T12:44:24.037Z",
+      "reviewedAt": "2026-08-15T13:20:02.504Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
