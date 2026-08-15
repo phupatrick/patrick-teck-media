@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-15T20:47:52.413Z",
-    "finishedAt": "2026-08-15T20:50:03.400Z",
+    "startedAt": "2026-08-15T21:17:20.569Z",
+    "finishedAt": "2026-08-15T21:19:39.723Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786826872459-f954ac.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786828640618-fbc2c1.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"OVH Cloud tells users to expect 87% price rise — with gaming servers hit particularly hard\" because it failed publish readiness: noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Thay đổi lớn trên YouTube liên quan đến điều kiện bật kiếm tiền mà nhiều người nên biết rõ\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-15T20:50:03.382Z",
+      "reviewedAt": "2026-08-15T21:19:39.706Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
