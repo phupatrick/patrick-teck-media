@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-16T02:46:13.945Z",
-    "finishedAt": "2026-08-16T02:48:25.004Z",
+    "startedAt": "2026-08-16T03:44:42.159Z",
+    "finishedAt": "2026-08-16T03:46:59.900Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786848373994-bcb36e.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Những tài sản nào được niêm yết trên sàn tiền số Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"One UI 9 cho gỡ cài đặt ứng dụng Microsoft SwiftKey\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Thay đổi lớn trên YouTube liên quan đến điều kiện bật kiếm tiền mà nhiều người nên biết rõ\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786851882208-fed3a1.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Alibaba tặng miễn phí thứ đáng lẽ phải bán\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Những tài sản nào được niêm yết trên sàn tiền số Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"One UI 9 cho gỡ cài đặt ứng dụng Microsoft SwiftKey\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Thay đổi lớn trên YouTube liên quan đến điều kiện bật kiếm tiền mà nhiều người nên biết rõ\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Những tài sản nào được niêm yết trên sàn tiền số Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"One UI 9 cho gỡ cài đặt ứng dụng Microsoft SwiftKey\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Thay đổi lớn trên YouTube liên quan đến điều kiện bật kiếm tiền mà nhiều người nên biết rõ\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Alibaba tặng miễn phí thứ đáng lẽ phải bán\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Những tài sản nào được niêm yết trên sàn tiền số Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"One UI 9 cho gỡ cài đặt ứng dụng Microsoft SwiftKey\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Thay đổi lớn trên YouTube liên quan đến điều kiện bật kiếm tiền mà nhiều người nên biết rõ\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Building a practical path to post-quantum cryptography\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-16T02:48:24.987Z",
+      "reviewedAt": "2026-08-16T03:46:59.883Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
