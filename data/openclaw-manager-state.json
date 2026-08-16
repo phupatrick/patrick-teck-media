@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-16T14:18:38.634Z",
-    "finishedAt": "2026-08-16T14:20:49.677Z",
+    "startedAt": "2026-08-16T14:47:39.721Z",
+    "finishedAt": "2026-08-16T14:49:40.094Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786889918685-3d47ef.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Google mang tính năng bảo mật mới lên Android 17\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786891659768-24dc96.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Is the MacBook Pro M5 still worth buying after the price hike\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Google mang tính năng bảo mật mới lên Android 17\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Google mang tính năng bảo mật mới lên Android 17\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Is the MacBook Pro M5 still worth buying after the price hike\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Google mang tính năng bảo mật mới lên Android 17\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-16T14:20:49.659Z",
+      "reviewedAt": "2026-08-16T14:49:40.078Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
