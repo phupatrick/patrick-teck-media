@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-17T05:49:19.258Z",
-    "finishedAt": "2026-08-17T05:51:15.550Z",
+    "startedAt": "2026-08-17T06:47:00.329Z",
+    "finishedAt": "2026-08-17T06:49:15.312Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786945759306-2d96cf.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung Announces Partnership With Call of Duty®: Modern Warfare® 4\" because it failed publish readiness: noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Google mang tính năng bảo mật mới lên Android 17\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786949220370-e2208c.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung Announces Partnership With Call of Duty®: Modern Warfare® 4\" because it failed publish readiness: noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Hàng triệu người dùng iPhone sắp nhận gần 100 USD từ Apple\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google mang tính năng bảo mật mới lên Android 17\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung Announces Partnership With Call of Duty®: Modern Warfare® 4\" because it failed publish readiness: noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Google mang tính năng bảo mật mới lên Android 17\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Samsung Announces Partnership With Call of Duty®: Modern Warfare® 4\" because it failed publish readiness: noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Hàng triệu người dùng iPhone sắp nhận gần 100 USD từ Apple\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Google mang tính năng bảo mật mới lên Android 17\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-17T05:51:15.533Z",
+      "reviewedAt": "2026-08-17T06:49:15.297Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
