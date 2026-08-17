@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-17T18:56:33.946Z",
-    "finishedAt": "2026-08-17T18:58:40.529Z",
+    "startedAt": "2026-08-17T19:27:27.400Z",
+    "finishedAt": "2026-08-17T19:29:51.428Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786992993996-87d152.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The Steam Frame is ‘just around the corner’ but the Steam Machine has already killed my interest — only Half-Life could \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1786994847451-780ab6.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The $119 MacBook Neo deal going viral on TikTok is a scam, and I almost fell for it — here's where you can actually find\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"The Steam Frame is ‘just around the corner’ but the Steam Machine has already killed my interest — only Half-Life could \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The Steam Frame is ‘just around the corner’ but the Steam Machine has already killed my interest — only Half-Life could \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The $119 MacBook Neo deal going viral on TikTok is a scam, and I almost fell for it — here's where you can actually find\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"The Steam Frame is ‘just around the corner’ but the Steam Machine has already killed my interest — only Half-Life could \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-17T18:58:40.511Z",
+      "reviewedAt": "2026-08-17T19:29:51.409Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
