@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-18T19:48:23.690Z",
-    "finishedAt": "2026-08-18T19:50:33.320Z",
+    "startedAt": "2026-08-18T20:19:10.061Z",
+    "finishedAt": "2026-08-18T20:21:28.822Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787082503738-4cf154.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Managing unsolicited event invitations with user blocking in Google Calendar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple's Camera AirPods May Launch as 'AirPods Pro,' Not 'AirPods Ultra'\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Apple phát hành iOS 26.6.1, người dùng iPhone nên cập nhật sớm\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Managing unsolicited event invitations with user blocking in Google Calendar\" because it failed publish readiness: narrativeFlow, paragraphShape",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787084350109-9d17be.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Managing unsolicited event invitations with user blocking in Google Calendar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple phát hành iOS 26.6.1, người dùng iPhone nên cập nhật sớm\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Managing unsolicited event invitations with user blocking in Google Calendar\" because it failed publish readiness: narrativeFlow, paragraphShape",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple's Camera AirPods May Launch as 'AirPods Pro,' Not 'AirPods Ultra'\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Apple phát hành iOS 26.6.1, người dùng iPhone nên cập nhật sớm\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Managing unsolicited event invitations with user blocking in Google Calendar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Apple phát hành iOS 26.6.1, người dùng iPhone nên cập nhật sớm\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Managing unsolicited event invitations with user blocking in Google Calendar\" because it failed publish readiness: narrativeFlow, paragraphShape"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-18T19:50:33.303Z",
+      "reviewedAt": "2026-08-18T20:21:28.804Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
