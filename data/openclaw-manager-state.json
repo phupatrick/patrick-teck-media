@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-18T09:58:46.070Z",
-    "finishedAt": "2026-08-18T10:01:20.148Z",
+    "startedAt": "2026-08-18T10:34:45.009Z",
+    "finishedAt": "2026-08-18T10:37:04.804Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787047126120-205671.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787049285057-7b00fa.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Macworld: This operation was aborted Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-18T10:01:20.129Z",
+      "reviewedAt": "2026-08-18T10:37:04.787Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
