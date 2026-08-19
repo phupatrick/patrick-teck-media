@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-19T16:11:40.297Z",
-    "finishedAt": "2026-08-19T16:14:08.079Z",
+    "startedAt": "2026-08-19T16:46:23.294Z",
+    "finishedAt": "2026-08-19T16:48:46.910Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,13 +14,13 @@
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
     "totalArticles": 262,
-    "articleCountBefore": 261,
-    "articleCountDelta": 1,
+    "articleCountBefore": 262,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787155900339-b82d70.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Managing unsolicited event invitations with user blocking in Google Calendar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Managing unsolicited event invitations with user blocking in Google Calendar\" because it failed publish readiness: narrativeFlow, paragraphShape",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787157983344-b687af.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"'We operate fleets of smaller, lower-cost assets that are centrally controlled and highly scalable': How tiny uncrewed v\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"How Axonius built secure multi-tenant AI agents on Bedrock AgentCore\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,8 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 1 article(s) from curated-rss into /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Managing unsolicited event invitations with user blocking in Google Calendar\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"'We operate fleets of smaller, lower-cost assets that are centrally controlled and highly scalable': How tiny uncrewed v\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"How Axonius built secure multi-tenant AI agents on Bedrock AgentCore\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-19T16:14:08.066Z",
+      "reviewedAt": "2026-08-19T16:48:46.891Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
