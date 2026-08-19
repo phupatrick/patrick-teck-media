@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-19T21:39:29.864Z",
-    "finishedAt": "2026-08-19T21:42:01.366Z",
+    "startedAt": "2026-08-19T21:59:31.784Z",
+    "finishedAt": "2026-08-19T22:01:48.627Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787175569909-985101.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Framework responds to complaints that BIOS update bricks Ryzen 7040 laptops\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787176771817-342e42.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Engadget: fetch failed Skipping Digital Trends: fetch failed Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Framework responds to complaints that BIOS update bricks Ryzen 7040 laptops\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The reMarkable Paper Pro can run Android 13 — it’s not pretty, but it works and it’s an incredible upgrade\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Elevate your Google Meet experience for shared meeting spaces with Room Display mode\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Elevate your Google Meet experience for shared meeting spaces with Room Display mode\" because it failed publish readiness: narrativeFlow, paragraphShape",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Framework responds to complaints that BIOS update bricks Ryzen 7040 laptops\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping 9to5Mac: fetch failed Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Framework responds to complaints that BIOS update bricks Ryzen 7040 laptops\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Elevate your Google Meet experience for shared meeting spaces with Room Display mode\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Elevate your Google Meet experience for shared meeting spaces with Room Display mode\" because it failed publish readiness: narrativeFlow, paragraphShape"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-19T21:42:01.344Z",
+      "reviewedAt": "2026-08-19T22:01:48.615Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
