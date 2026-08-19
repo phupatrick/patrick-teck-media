@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-19T19:37:55.622Z",
-    "finishedAt": "2026-08-19T19:40:18.303Z",
+    "startedAt": "2026-08-19T19:58:33.009Z",
+    "finishedAt": "2026-08-19T20:00:56.832Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787168275676-b10314.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787169513056-cb813d.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"AirPods with cameras could not arrive at a worse time — and I'll just say no\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"How Axonius built secure multi-tenant AI agents on Bedrock AgentCore\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Trung Quốc buộc Meta trả lại startup AI vừa mua 2 tỷ USD\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-19T19:40:18.286Z",
+      "reviewedAt": "2026-08-19T20:00:56.815Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
