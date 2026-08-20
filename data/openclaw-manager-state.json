@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-20T09:31:47.987Z",
-    "finishedAt": "2026-08-20T09:34:12.533Z",
+    "startedAt": "2026-08-20T10:05:08.484Z",
+    "finishedAt": "2026-08-20T10:07:41.816Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787218308037-8ed116.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787220308535-6b9522.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Pixel Weather gets a fresh look and a handy new forecast detail with the latest update\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Pixel Weather gets a fresh look and a handy new forecast detail with the latest update\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-20T09:34:12.515Z",
+      "reviewedAt": "2026-08-20T10:07:41.798Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
