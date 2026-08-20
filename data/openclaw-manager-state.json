@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-20T02:30:27.742Z",
-    "finishedAt": "2026-08-20T02:32:20.131Z",
+    "startedAt": "2026-08-20T03:28:17.841Z",
+    "finishedAt": "2026-08-20T03:30:37.023Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787193027792-2afe41.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Loạt điện thoại Xiaomi và Redmi phổ biến đã đến 'ngày hết hạn'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Automate Document Processing with Quick Automate and the IDP Accelerator\" because it failed publish readiness: narrativeFlow",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787196497892-af128a.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"YouTube cập nhật khiến hàng loạt thiết bị Apple gặp sự cố\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Automate Document Processing with Quick Automate and the IDP Accelerator\" because it failed publish readiness: narrativeFlow",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Loạt điện thoại Xiaomi và Redmi phổ biến đã đến 'ngày hết hạn'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Automate Document Processing with Quick Automate and the IDP Accelerator\" because it failed publish readiness: narrativeFlow"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"YouTube cập nhật khiến hàng loạt thiết bị Apple gặp sự cố\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Automate Document Processing with Quick Automate and the IDP Accelerator\" because it failed publish readiness: narrativeFlow"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-20T02:32:20.113Z",
+      "reviewedAt": "2026-08-20T03:30:37.005Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
