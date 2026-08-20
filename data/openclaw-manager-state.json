@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-20T12:40:22.863Z",
-    "finishedAt": "2026-08-20T12:42:52.766Z",
+    "startedAt": "2026-08-20T13:32:53.663Z",
+    "finishedAt": "2026-08-20T13:35:09.916Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787229622915-b64230.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Sony leak suggests it's rebooting some of its best ever headphones to compete with Bose and Sennheiser — but I'm not sur\" because it failed publish readiness: noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Meta glasses are a workplace menace\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Automate Document Processing with Quick Automate and the IDP Accelerator\" because it failed publish readiness: narrativeFlow",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787232773709-5eeea8.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Oops! Qualcomm retracts key Snapdragon C benchmarks for budget laptops\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Meta glasses are a workplace menace\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Automate Document Processing with Quick Automate and the IDP Accelerator\" because it failed publish readiness: narrativeFlow",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Sony leak suggests it's rebooting some of its best ever headphones to compete with Bose and Sennheiser — but I'm not sur\" because it failed publish readiness: noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Meta glasses are a workplace menace\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Automate Document Processing with Quick Automate and the IDP Accelerator\" because it failed publish readiness: narrativeFlow"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Oops! Qualcomm retracts key Snapdragon C benchmarks for budget laptops\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Meta glasses are a workplace menace\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Automate Document Processing with Quick Automate and the IDP Accelerator\" because it failed publish readiness: narrativeFlow"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-20T12:42:52.747Z",
+      "reviewedAt": "2026-08-20T13:35:09.901Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
