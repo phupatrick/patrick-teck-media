@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-20T11:22:45.998Z",
-    "finishedAt": "2026-08-20T11:25:08.714Z",
+    "startedAt": "2026-08-20T11:52:37.234Z",
+    "finishedAt": "2026-08-20T11:54:53.731Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787224966049-ae1dd7.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Over 9 million facial recognition images leaked in major breach at reverse image search and identity verification servic\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The price and release date for Xbox's 25th anniversary translucent 'OG green' controller have leaked ahead of Gamescom\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Gameplay và bản đồ GTA 6 bị tin tặc tung lên mạng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787226757281-ae1f07.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Over 9 million facial recognition images leaked in major breach at reverse image search and identity verification servic\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The price and release date for Xbox's 25th anniversary translucent 'OG green' controller have leaked ahead of Gamescom\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Over 9 million facial recognition images leaked in major breach at reverse image search and identity verification servic\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The price and release date for Xbox's 25th anniversary translucent 'OG green' controller have leaked ahead of Gamescom\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Gameplay và bản đồ GTA 6 bị tin tặc tung lên mạng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping TechRadar: This operation was aborted Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Gameplay và bản đồ GTA 6 bị tin tặc tung lên mạng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"New enterprise security controls for Workspace Studio enable expanded collaboration use cases\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"Automate Document Processing with Quick Automate and the IDP Accelerator\" because it failed publish readiness: narrativeFlow"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-20T11:25:08.697Z",
+      "reviewedAt": "2026-08-20T11:54:53.714Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
