@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-21T19:22:59.908Z",
-    "finishedAt": "2026-08-21T19:25:16.686Z",
+    "startedAt": "2026-08-21T19:47:04.215Z",
+    "finishedAt": "2026-08-21T19:49:07.990Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787340179954-883b4f.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787341624262-5b64b1.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 502 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Even dead websites aren't safe — experts warn hackers are spending millions on expired domains to enable malware scams\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"YouTube \"siết\" gói Premium Family khác địa chỉ nhà: Dịch vụ mua chung trôi nổi vỡ trận, người dùng đối mặt nguy cơ bị kh\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-21T19:25:16.669Z",
+      "reviewedAt": "2026-08-21T19:49:07.971Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
