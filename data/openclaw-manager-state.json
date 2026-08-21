@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-21T10:46:10.917Z",
-    "finishedAt": "2026-08-21T10:48:29.792Z",
+    "startedAt": "2026-08-21T11:21:17.314Z",
+    "finishedAt": "2026-08-21T11:23:13.283Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787309170965-b69898.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Logitech sued for keeping US tariff refunds instead of returning them to customers\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"I tested this game-changing, sub-$100 Godox flash kit — and it’s the best portrait photography upgrade I’ve tried all ye\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"5 mẫu smartphone LG khiến người dùng tiếc nuối\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787311277361-f0d48e.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Logitech sued for keeping US tariff refunds instead of returning them to customers\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"I tested this game-changing, sub-$100 Godox flash kit — and it’s the best portrait photography upgrade I’ve tried all ye\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"5 mẫu smartphone LG khiến người dùng tiếc nuối\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-21T10:48:29.774Z",
+      "reviewedAt": "2026-08-21T11:23:13.266Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
