@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-22T15:16:40.130Z",
-    "finishedAt": "2026-08-22T15:19:03.565Z",
+    "startedAt": "2026-08-22T15:44:55.438Z",
+    "finishedAt": "2026-08-22T15:47:05.186Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787411800173-544ef3.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787413495488-0e97cc.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Rebelle 8 review: This impressive painting software let me turn my MacBook into a full-blown canvas\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"YouTube Premium lại khiến người dùng lo lắng với đợt tăng giá mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox Series X Special Edition Pricing Confirms 2026 Is a Bad Year for Gamers\" because it failed publish readiness: noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-22T15:19:03.551Z",
+      "reviewedAt": "2026-08-22T15:47:05.167Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
