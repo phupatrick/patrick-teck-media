@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-22T07:35:19.711Z",
-    "finishedAt": "2026-08-22T07:37:37.022Z",
+    "startedAt": "2026-08-22T07:59:52.391Z",
+    "finishedAt": "2026-08-22T08:01:45.980Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787384119752-7c3d78.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Xbox Series X Special Edition Pricing Confirms 2026 Is a Bad Year for Gamers\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Motorola's GrapheneOS phones will launch in 2027 priced higher than Pixels\" because it failed publish readiness: noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787385592438-a0fefd.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple làm điều bất thường với iPhone 17 trước thềm iPhone 18 ra mắt\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox Series X Special Edition Pricing Confirms 2026 Is a Bad Year for Gamers\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Motorola's GrapheneOS phones will launch in 2027 priced higher than Pixels\" because it failed publish readiness: noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Xbox Series X Special Edition Pricing Confirms 2026 Is a Bad Year for Gamers\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Motorola's GrapheneOS phones will launch in 2027 priced higher than Pixels\" because it failed publish readiness: noRepeatedSentences"
+      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple làm điều bất thường với iPhone 17 trước thềm iPhone 18 ra mắt\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Xbox Series X Special Edition Pricing Confirms 2026 Is a Bad Year for Gamers\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Motorola's GrapheneOS phones will launch in 2027 priced higher than Pixels\" because it failed publish readiness: noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-22T07:37:37.008Z",
+      "reviewedAt": "2026-08-22T08:01:45.962Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
