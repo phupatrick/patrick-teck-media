@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-22T03:14:37.862Z",
-    "finishedAt": "2026-08-22T03:16:35.312Z",
+    "startedAt": "2026-08-22T03:58:22.511Z",
+    "finishedAt": "2026-08-22T04:00:31.722Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787368477909-7ab6ec.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Xbox Series X Special Edition Pricing Confirms 2026 Is a Bad Year for Gamers\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Say it once: introducing Bot Preference Sync\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Motorola's GrapheneOS phones will launch in 2027 priced higher than Pixels\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"AI trong chứng khoán 'dễ mua công nghệ, khó đặt niềm tin'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787371102559-600f65.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple reportedly cut more than 200 jobs across Vision Pro and Siri software teams\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"Xbox Series X Special Edition Pricing Confirms 2026 Is a Bad Year for Gamers\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Motorola's GrapheneOS phones will launch in 2027 priced higher than Pixels\" because it failed publish readiness: noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Xbox Series X Special Edition Pricing Confirms 2026 Is a Bad Year for Gamers\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Say it once: introducing Bot Preference Sync\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Motorola's GrapheneOS phones will launch in 2027 priced higher than Pixels\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"AI trong chứng khoán 'dễ mua công nghệ, khó đặt niềm tin'\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases"
+      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple reportedly cut more than 200 jobs across Vision Pro and Siri software teams\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"Xbox Series X Special Edition Pricing Confirms 2026 Is a Bad Year for Gamers\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Motorola's GrapheneOS phones will launch in 2027 priced higher than Pixels\" because it failed publish readiness: noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-22T03:16:35.294Z",
+      "reviewedAt": "2026-08-22T04:00:31.704Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
