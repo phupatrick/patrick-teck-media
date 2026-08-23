@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-22T23:44:01.505Z",
-    "finishedAt": "2026-08-22T23:46:29.891Z",
+    "startedAt": "2026-08-22T23:58:34.293Z",
+    "finishedAt": "2026-08-23T00:00:49.142Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787442241561-9516ad.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787443114347-22d15d.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Are digital cameras still worth buying in 2026\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube Premium lại khiến người dùng lo lắng với đợt tăng giá mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping ZDNet Mobile: This operation was aborted Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Are digital cameras still worth buying in 2026\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube Premium lại khiến người dùng lo lắng với đợt tăng giá mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Are digital cameras still worth buying in 2026\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube Premium lại khiến người dùng lo lắng với đợt tăng giá mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-22T23:46:29.871Z",
+      "reviewedAt": "2026-08-23T00:00:49.122Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
