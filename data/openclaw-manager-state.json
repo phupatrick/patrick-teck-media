@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-23T13:00:33.963Z",
-    "finishedAt": "2026-08-23T13:02:49.506Z",
+    "startedAt": "2026-08-23T13:44:43.708Z",
+    "finishedAt": "2026-08-23T13:46:58.142Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787490034012-37c31d.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube Premium lại khiến người dùng lo lắng với đợt tăng giá mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787492683758-2da550.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"4 giải pháp giúp tăng dung lượng lưu trữ cho laptop\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube Premium lại khiến người dùng lo lắng với đợt tăng giá mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"4 giải pháp giúp tăng dung lượng lưu trữ cho laptop\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Doanh nghiệp nước ngoài sẽ được đầu tư vệ tinh tầm thấp tại Việt Nam\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-23T13:02:49.490Z",
+      "reviewedAt": "2026-08-23T13:46:58.124Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
