@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-23T10:19:31.346Z",
-    "finishedAt": "2026-08-23T10:21:15.548Z",
+    "startedAt": "2026-08-23T10:49:12.567Z",
+    "finishedAt": "2026-08-23T10:51:19.441Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787480371384-19a535.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"6 Android phones with microSD card slots you can still buy in 2026\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube Premium lại khiến người dùng lo lắng với đợt tăng giá mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787482152609-548d1f.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Microsoft Copilot Blog: Feed Microsoft Copilot Blog returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"6 Android phones with microSD card slots you can still buy in 2026\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Mã độc mới tự tạo passkey chiếm đoạt email ngay cả khi đã đổi mật khẩu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"YouTube Premium lại khiến người dùng lo lắng với đợt tăng giá mới\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-23T10:21:15.533Z",
+      "reviewedAt": "2026-08-23T10:51:19.427Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,

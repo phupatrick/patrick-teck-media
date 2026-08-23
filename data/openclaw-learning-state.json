@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T10:21:14.316Z",
+  "generated_at": "2026-08-23T10:51:18.041Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-08-23T10:21:14.316Z",
+    "updated_at": "2026-08-23T10:51:18.041Z",
     "confidence": 0.95,
     "totalSignals": 268,
     "eligibleArticleCount": 70,
@@ -144,6 +144,12 @@
     "lastCycleSummary": "Learned from 70 eligible article(s); 931 article(s) excluded from learning; 0 owner feedback item(s); 268 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, internet-business-tech, gaming, security, apps-software"
   },
   "cycles": [
+    {
+      "generated_at": "2026-08-23T10:51:18.041Z",
+      "totalSignals": 268,
+      "confidence": 0.95,
+      "summary": "Learned from 70 eligible article(s); 931 article(s) excluded from learning; 0 owner feedback item(s); 268 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, internet-business-tech, gaming, security, apps-software"
+    },
     {
       "generated_at": "2026-08-23T10:21:14.316Z",
       "totalSignals": 268,
@@ -374,12 +380,6 @@
     },
     {
       "generated_at": "2026-08-22T13:30:21.181Z",
-      "totalSignals": 268,
-      "confidence": 0.95,
-      "summary": "Learned from 70 eligible article(s); 932 article(s) excluded from learning; 0 owner feedback item(s); 268 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, internet-business-tech, gaming, security, apps-software"
-    },
-    {
-      "generated_at": "2026-08-22T12:55:34.772Z",
       "totalSignals": 268,
       "confidence": 0.95,
       "summary": "Learned from 70 eligible article(s); 932 article(s) excluded from learning; 0 owner feedback item(s); 268 signal(s); 19 top view(s): Which AI plan feels more useful right now: what Google and Microsoft just added to the race; focus: devices, internet-business-tech, gaming, security, apps-software"
