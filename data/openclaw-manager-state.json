@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-25T07:29:38.795Z",
-    "finishedAt": "2026-08-25T07:31:38.221Z",
+    "startedAt": "2026-08-25T08:09:51.711Z",
+    "finishedAt": "2026-08-25T08:12:05.521Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787642978843-905c71.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Thanh Nien Cong Nghe: Feed Thanh Nien Cong Nghe returned 502 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The AYN Odin 3 is getting another price hike, but you can avoid it by acting fast\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Canva muốn giúp giáo viên Việt tự thiết kế bài giảng trực quan\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The Cloudflare Blog – Brought to you by EmDash\" because it failed publish readiness: paragraphShape, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787645391758-a8b010.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Canva muốn giúp giáo viên Việt tự thiết kế bài giảng trực quan\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The Cloudflare Blog – Brought to you by EmDash\" because it failed publish readiness: paragraphShape, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"The AYN Odin 3 is getting another price hike, but you can avoid it by acting fast\" because it failed publish readiness: noRepeatedSentences Holding normalized article \"Canva muốn giúp giáo viên Việt tự thiết kế bài giảng trực quan\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The Cloudflare Blog – Brought to you by EmDash\" because it failed publish readiness: paragraphShape, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Canva muốn giúp giáo viên Việt tự thiết kế bài giảng trực quan\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The Cloudflare Blog – Brought to you by EmDash\" because it failed publish readiness: paragraphShape, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-25T07:31:38.203Z",
+      "reviewedAt": "2026-08-25T08:12:05.504Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
