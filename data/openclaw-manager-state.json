@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-25T23:22:03.181Z",
-    "finishedAt": "2026-08-25T23:24:01.221Z",
+    "startedAt": "2026-08-25T23:48:19.606Z",
+    "finishedAt": "2026-08-25T23:50:42.608Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787700123228-956584.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787701699641-c5e3c4.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Of course, this fake GTA VI ISO download is malware — testers reveal 113GB download is 99.99% empty zeroes, with a tiny \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Control “Take notes for me” directly from Google Meet hardware touch controllers\" because it failed publish readiness: narrativeFlow, paragraphShape",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Of course, this fake GTA VI ISO download is malware — testers reveal 113GB download is 99.99% empty zeroes, with a tiny \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Control “Take notes for me” directly from Google Meet hardware touch controllers\" because it failed publish readiness: narrativeFlow, paragraphShape"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Google Android Blog: fetch failed Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Of course, this fake GTA VI ISO download is malware — testers reveal 113GB download is 99.99% empty zeroes, with a tiny \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Control “Take notes for me” directly from Google Meet hardware touch controllers\" because it failed publish readiness: narrativeFlow, paragraphShape"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-25T23:24:01.202Z",
+      "reviewedAt": "2026-08-25T23:50:42.596Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
