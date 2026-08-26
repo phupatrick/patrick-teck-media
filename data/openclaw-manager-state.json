@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-26T09:10:38.085Z",
-    "finishedAt": "2026-08-26T09:13:09.427Z",
+    "startedAt": "2026-08-26T09:56:47.389Z",
+    "finishedAt": "2026-08-26T09:59:31.089Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787735438132-39348b.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft công bố thay đổi lớn trên Excel khiến người dùng lo lắng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"ASUS tung loạt linh kiện phiên bản kỷ niệm 20 năm: Đã có giá tại Việt Nam, ráp cả bộ chỉ hơn... 500 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The Cloudflare Blog – Brought to you by EmDash\" because it failed publish readiness: paragraphShape, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787738207436-ef893e.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft công bố thay đổi lớn trên Excel khiến người dùng lo lắng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"The Cloudflare Blog – Brought to you by EmDash\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding synthesized article \"Control “Take notes for me” directly from Google Meet hardware touch controllers\" because it failed publish readiness: narrativeFlow, paragraphShape",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft công bố thay đổi lớn trên Excel khiến người dùng lo lắng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"ASUS tung loạt linh kiện phiên bản kỷ niệm 20 năm: Đã có giá tại Việt Nam, ráp cả bộ chỉ hơn... 500 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"The Cloudflare Blog – Brought to you by EmDash\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding synthesized article \"Control “Take notes for me” directly from Google Meet hardware touch controllers\" because it failed publish readiness: narrativeFlow, paragraphShape"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Skipping SiliconANGLE: This operation was aborted Holding normalized article \"Microsoft công bố thay đổi lớn trên Excel khiến người dùng lo lắng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"The Cloudflare Blog – Brought to you by EmDash\" because it failed publish readiness: paragraphShape, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-26T09:13:09.411Z",
+      "reviewedAt": "2026-08-26T09:59:31.071Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
