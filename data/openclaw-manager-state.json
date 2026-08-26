@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-26T03:38:33.700Z",
-    "finishedAt": "2026-08-26T03:40:48.219Z",
+    "startedAt": "2026-08-26T04:23:44.071Z",
+    "finishedAt": "2026-08-26T04:26:26.215Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787715513751-1ed974.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Điện thoại cũ đem đổi máy mới có thực sự đáng tiền\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Of course, this fake GTA VI ISO download is malware — testers reveal 113GB download is 99.99% empty zeroes, with a tiny \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Control “Take notes for me” directly from Google Meet hardware touch controllers\" because it failed publish readiness: narrativeFlow, paragraphShape",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787718224123-3f4857.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"ASUS tung loạt linh kiện phiên bản kỷ niệm 20 năm: Đã có giá tại Việt Nam, ráp cả bộ chỉ hơn... 500 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Of course, this fake GTA VI ISO download is malware — testers reveal 113GB download is 99.99% empty zeroes, with a tiny \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Control “Take notes for me” directly from Google Meet hardware touch controllers\" because it failed publish readiness: narrativeFlow, paragraphShape",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Điện thoại cũ đem đổi máy mới có thực sự đáng tiền\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding normalized article \"Of course, this fake GTA VI ISO download is malware — testers reveal 113GB download is 99.99% empty zeroes, with a tiny \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Control “Take notes for me” directly from Google Meet hardware touch controllers\" because it failed publish readiness: narrativeFlow, paragraphShape"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Microsoft 365 Blog: Feed Microsoft 365 Blog returned 403 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"ASUS tung loạt linh kiện phiên bản kỷ niệm 20 năm: Đã có giá tại Việt Nam, ráp cả bộ chỉ hơn... 500 triệu\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Of course, this fake GTA VI ISO download is malware — testers reveal 113GB download is 99.99% empty zeroes, with a tiny \" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-26T03:40:48.201Z",
+      "reviewedAt": "2026-08-26T04:26:26.196Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
