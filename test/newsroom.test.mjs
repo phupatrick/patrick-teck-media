@@ -4,7 +4,13 @@ import os from "node:os";
 import path from "node:path";
 import { buildOpenClawLearningProfile } from "../scripts/openclaw-learning.mjs";
 import { repairNewsroomAudit } from "../scripts/newsroom-audit-repair.mjs";
-import { runNewsroomRefresh } from "../scripts/newsroom-refresh.mjs";
+import {
+  canonicalizeFeedUrl,
+  loadSourceRegistry,
+  normalizeSourceFeed,
+  runNewsroomRefresh,
+  selectActiveSourceFeeds
+} from "../scripts/newsroom-refresh.mjs";
 import {
   buildJsonFeed,
   buildNewsSitemapXml,
@@ -43,6 +49,25 @@ assert.deepEqual(
 
 const state = createState();
 const tests = [
+  {
+    name: "newsroom source registry validates, deduplicates, and shards a large pool",
+    async run() {
+      const registry = loadSourceRegistry({ NEWSROOM_SOURCE_REGISTRY: "data/newsroom-sources.json" });
+      assert.ok(registry.length >= 40);
+      assert.equal(canonicalizeFeedUrl("HTTPS://Example.com/feed/#latest"), "https://example.com/feed");
+      assert.equal(normalizeSourceFeed({ name: "bad", url: "javascript:alert(1)", sourceType: "press", trustTier: "specialist" }), null);
+
+      const feeds = [
+        ...registry,
+        registry[0],
+        { name: "invalid", url: "https://example.com/feed", sourceType: "blog", trustTier: "unknown" }
+      ];
+      const active = selectActiveSourceFeeds(feeds, { NEWSROOM_MAX_ACTIVE_FEEDS: "7", NEWSROOM_SOURCE_SHARD: "2" });
+      assert.equal(active.length, 7);
+      assert.equal(new Set(active.map((feed) => canonicalizeFeedUrl(feed.url))).size, 7);
+      assert.ok(active.every((feed) => feed.sourceType === "official-site" || feed.sourceType === "press"));
+    }
+  },
   {
     name: "newsroom telegram admin can save and list Shopee advertising links",
     async run() {

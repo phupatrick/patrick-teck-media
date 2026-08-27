@@ -87,10 +87,98 @@ const SOURCE_TOPIC_HINTS = [
 ];
 
 function normalizeFallbackFeeds(feeds, env) {
-  return (Array.isArray(feeds) ? feeds : []).map((feed) => ({
+  const deduped = new Map();
+
+  for (const feed of Array.isArray(feeds) ? feeds : []) {
+    const normalized = normalizeSourceFeed(feed);
+    if (!normalized) {
+      continue;
+    }
+    const key = canonicalizeFeedUrl(normalized.url);
+    if (!deduped.has(key)) {
+      deduped.set(key, { ...normalized, limit: resolveFeedLimit(normalized.limit, env) });
+    }
+  }
+
+  return selectActiveSourceFeeds([...deduped.values()], env);
+}
+
+export function canonicalizeFeedUrl(value) {
+  try {
+    const url = new URL(String(value));
+    url.hash = "";
+    url.hostname = url.hostname.toLowerCase();
+    url.pathname = url.pathname.replace(/\/+$/, "") || "/";
+    return url.toString();
+  } catch {
+    return "";
+  }
+}
+
+export function normalizeSourceFeed(feed) {
+  if (!feed || typeof feed !== "object") {
+    return null;
+  }
+
+  const url = canonicalizeFeedUrl(feed.url);
+  const name = cleanText(feed.name || "");
+  const trustTier = cleanText(feed.trustTier || "");
+  const sourceType = cleanText(feed.sourceType || "");
+  if (!url || !/^https?:$/.test(new URL(url).protocol) || !name) {
+    return null;
+  }
+  if (!(sourceType === "official-site" || sourceType === "press") ||
+      !(trustTier === "official" || trustTier === "established-media" || trustTier === "specialist")) {
+    return null;
+  }
+
+  return {
     ...feed,
-    limit: resolveFeedLimit(feed.limit, env)
-  }));
+    name,
+    url,
+    sourceType,
+    trustTier,
+    language: feed.language === "vi" ? "vi" : "en",
+    region: cleanText(feed.region || "Global"),
+    topicHint: cleanText(feed.topicHint || "internet-business-tech")
+  };
+}
+
+export function loadSourceRegistry(env = process.env) {
+  const registryPath = env.NEWSROOM_SOURCE_REGISTRY || "data/newsroom-sources.json";
+  try {
+    const absolutePath = path.resolve(process.cwd(), registryPath);
+    const payload = JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+    const feeds = Array.isArray(payload) ? payload : payload?.feeds;
+    return Array.isArray(feeds) ? feeds.map(normalizeSourceFeed).filter(Boolean) : [];
+  } catch (error) {
+    if (env.NEWSROOM_SOURCE_REGISTRY) {
+      console.warn(`Unable to load source registry: ${error.message || error}`);
+    }
+    return [];
+  }
+}
+
+export function selectActiveSourceFeeds(feeds, env = process.env) {
+  const uniqueFeeds = new Map();
+  for (const feed of Array.isArray(feeds) ? feeds : []) {
+    const normalized = normalizeSourceFeed(feed);
+    if (normalized) {
+      uniqueFeeds.set(canonicalizeFeedUrl(normalized.url), normalized);
+    }
+  }
+  const validFeeds = [...uniqueFeeds.values()];
+  const maxFeeds = clampInteger(env.NEWSROOM_MAX_ACTIVE_FEEDS, 1, 250, 120);
+  if (validFeeds.length <= maxFeeds) {
+    return validFeeds;
+  }
+
+  const shardCount = Math.max(1, Math.ceil(validFeeds.length / maxFeeds));
+  const configuredShard = parsePositiveInteger(env.NEWSROOM_SOURCE_SHARD, 0);
+  const dayNumber = Math.floor(Date.now() / 86_400_000);
+  const shard = configuredShard > 0 ? (configuredShard - 1) % shardCount : dayNumber % shardCount;
+  const rotated = validFeeds.slice(shard * maxFeeds).concat(validFeeds.slice(0, shard * maxFeeds));
+  return rotated.slice(0, maxFeeds);
 }
 
 function resolveFeedLimit(baseLimit, env) {
@@ -946,7 +1034,9 @@ const SOURCE_TOPIC_HINTS = [
   }
 
   if (!incomingArticles.length) {
-    const effectiveFallbackFeeds = normalizeFallbackFeeds(fallbackFeeds, env);
+    const registryFeeds = loadSourceRegistry(env);
+    const effectiveFallbackFeeds = normalizeFallbackFeeds([...registryFeeds, ...fallbackFeeds], env);
+    console.info(`Newsroom source pool: ${registryFeeds.length + fallbackFeeds.length} configured, ${effectiveFallbackFeeds.length} active this cycle.`);
     incomingArticles = await fetchFallbackArticles(now, effectiveFallbackFeeds, env);
     sourceLabel = "curated-rss";
   }
