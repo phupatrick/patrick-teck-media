@@ -27,9 +27,18 @@ export function renderHomePage(state, language, adsConfig) {
     safeGuideStories,
     briefingStory
   } = buildHomePageStoryGroups(home);
-  const mastheadLatestStories = (home.latest || [])
+  const mastheadCandidates = [home.featured, ...(home.latest || [])]
     .filter(Boolean)
-    .sort(sortStoriesByDateDesc)
+    .sort(sortStoriesByDateDesc);
+  const newestMastheadTimestamp = Date.parse(mastheadCandidates[0]?.updated_at || mastheadCandidates[0]?.published_at || "");
+  const mastheadLatestStories = mastheadCandidates
+    .filter((article) => {
+      const timestamp = Date.parse(article.updated_at || article.published_at || "");
+      return Number.isFinite(newestMastheadTimestamp)
+        && Number.isFinite(timestamp)
+        && newestMastheadTimestamp - timestamp <= 48 * 60 * 60 * 1000;
+    })
+    .filter((article, index, stories) => stories.findIndex((entry) => entry.href === article.href) === index)
     .slice(0, 3);
   const latestPrimaryStories = safeLatestStories.slice(0, 3);
   const latestMoreStories = safeLatestStories.slice(3);

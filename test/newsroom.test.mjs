@@ -1127,8 +1127,10 @@ const tests = [
     run() {
       for (const [language, label] of [["vi", "Xem thêm"], ["en", "See more"]]) {
       const homeHtml = renderHomePage(state, language, { client: "", slots: {} });
-        const firstLatest = state.home[language].latest[0] || state.home[language].featured;
-        const mastheadIndex = homeHtml.indexOf(`href="${firstLatest.href}"`);
+        const firstMastheadCandidate = [state.home[language].featured, ...(state.home[language].latest || [])]
+          .filter(Boolean)
+          .sort((left, right) => Date.parse(right.updated_at || right.published_at || 0) - Date.parse(left.updated_at || left.published_at || 0))[0];
+        const mastheadIndex = homeHtml.indexOf(`href="${firstMastheadCandidate.href}"`);
         assert.ok(mastheadIndex >= 0);
         const primaryStart = homeHtml.indexOf('class="story-grid latest-primary-grid"');
         const moreStart = homeHtml.indexOf('class="latest-more"');
