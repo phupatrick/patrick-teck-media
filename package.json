@@ -10,6 +10,7 @@
     "adobe:check": "node tools/adobe-account-checker/checker.mjs",
     "newsroom:publish": "node scripts/newsroom-publish.mjs",
     "newsroom:refresh": "node scripts/newsroom-refresh.mjs",
+    "newsroom:discover-sources": "node scripts/newsroom-source-discovery.mjs",
     "storage:sync": "node scripts/storage-sync.mjs",
     "platform:views:sync": "node scripts/platform-view-sync.mjs",
     "seller:import:zalo": "node scripts/seller-import-zalo.mjs",

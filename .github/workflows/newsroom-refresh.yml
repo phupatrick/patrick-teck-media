@@ -21,6 +21,7 @@ on:
         default: ""
   schedule:
     - cron: "*/15 * * * *"
+    - cron: "17 0 * * *"
 
 permissions:
   contents: write
@@ -65,6 +66,14 @@ jobs:
           SITE_URL: https://patricktechmedia.com
           PLATFORM_STATE_PATH: data/platform-state.json
         run: npm run platform:views:sync
+
+      - name: Discover new technology feeds once per day
+        if: ${{ github.event_name == 'schedule' && github.event.schedule == '17 0 * * *' }}
+        continue-on-error: true
+        env:
+          NEWSROOM_DISCOVERY_LIMIT: "200"
+          NEWSROOM_DISCOVERED_SOURCE_REGISTRY: data/newsroom-discovered-sources.json
+        run: npm run newsroom:discover-sources
 
       - name: Run OpenClaw manager
         env:

@@ -69,6 +69,16 @@ const tests = [
     }
   },
   {
+    name: "newsroom source discovery output is accepted as a second registry",
+    async run() {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-discovery-"));
+      const registryPath = path.join(tempDir, "discovered.json");
+      fs.writeFileSync(registryPath, JSON.stringify({ feeds: [{ name: "Discovered Feed", url: "https://example.org/technology/feed.xml", sourceType: "press", trustTier: "specialist" }] }), "utf8");
+      const loaded = loadSourceRegistry({ NEWSROOM_SOURCE_REGISTRY: "data/newsroom-sources.json", NEWSROOM_DISCOVERED_SOURCE_REGISTRY: registryPath });
+      assert.ok(loaded.some((feed) => feed.name === "Discovered Feed"));
+    }
+  },
+  {
     name: "newsroom telegram admin can save and list Shopee advertising links",
     async run() {
       const saved = [];

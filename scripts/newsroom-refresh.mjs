@@ -145,18 +145,26 @@ export function normalizeSourceFeed(feed) {
 }
 
 export function loadSourceRegistry(env = process.env) {
-  const registryPath = env.NEWSROOM_SOURCE_REGISTRY || "data/newsroom-sources.json";
-  try {
-    const absolutePath = path.resolve(process.cwd(), registryPath);
-    const payload = JSON.parse(fs.readFileSync(absolutePath, "utf8"));
-    const feeds = Array.isArray(payload) ? payload : payload?.feeds;
-    return Array.isArray(feeds) ? feeds.map(normalizeSourceFeed).filter(Boolean) : [];
-  } catch (error) {
-    if (env.NEWSROOM_SOURCE_REGISTRY) {
-      console.warn(`Unable to load source registry: ${error.message || error}`);
+  const registryPaths = [
+    env.NEWSROOM_SOURCE_REGISTRY || "data/newsroom-sources.json",
+    env.NEWSROOM_DISCOVERED_SOURCE_REGISTRY || "data/newsroom-discovered-sources.json"
+  ];
+  const feeds = [];
+  for (const registryPath of registryPaths) {
+    try {
+      const absolutePath = path.resolve(process.cwd(), registryPath);
+      const payload = JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+      const entries = Array.isArray(payload) ? payload : payload?.feeds;
+      if (Array.isArray(entries)) {
+        feeds.push(...entries.map(normalizeSourceFeed).filter(Boolean));
+      }
+    } catch (error) {
+      if (env.NEWSROOM_SOURCE_REGISTRY === registryPath) {
+        console.warn(`Unable to load source registry: ${error.message || error}`);
+      }
     }
-    return [];
   }
+  return feeds;
 }
 
 export function selectActiveSourceFeeds(feeds, env = process.env) {
