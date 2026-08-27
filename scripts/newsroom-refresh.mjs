@@ -1917,15 +1917,43 @@ function titleCaseHost(host) {
 }
 
 async function fetchWithTimeout(url, options = {}, env = process.env) {
-  const controller = new AbortController();
   const timeoutMs = clampInteger(env?.NEWSROOM_FETCH_TIMEOUT_MS, 2_000, 30_000, DEFAULT_FETCH_TIMEOUT_MS);
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  const retries = clampInteger(env?.NEWSROOM_FETCH_RETRIES, 0, 3, 2);
 
-  try {
-    return await fetch(url, { ...options, signal: controller.signal });
-  } finally {
-    clearTimeout(timeout);
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      const response = await fetch(url, { ...options, signal: controller.signal });
+      const retryable = [408, 425, 429, 500, 502, 503, 504].includes(response.status);
+
+      if (!retryable || attempt === retries) {
+        return response;
+      }
+
+      await delay(Math.min(1200, 250 * (attempt + 1)));
+    } catch (error) {
+      if (attempt === retries || !isRetryableFetchError(error)) {
+        throw error;
+      }
+
+      await delay(Math.min(1200, 250 * (attempt + 1)));
+    } finally {
+      clearTimeout(timeout);
+    }
   }
+
+  throw new Error("Fetch retry loop ended unexpectedly.");
+}
+
+function isRetryableFetchError(error) {
+  return error?.name === "AbortError"
+    || /timed out|timeout|network|socket|fetch failed|reset/i.test(String(error?.message || error));
+}
+
+function delay(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
 async function fetchSourceSnapshot(url) {
