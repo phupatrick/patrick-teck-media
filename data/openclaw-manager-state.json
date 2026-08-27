@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-26T21:38:57.182Z",
-    "finishedAt": "2026-08-26T21:41:23.015Z",
+    "startedAt": "2026-08-27T01:04:08.571Z",
+    "finishedAt": "2026-08-27T01:06:15.050Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787780337222-03e685.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Here's every major Xbox and PC announcement we've rounded up from the Future Games Show at Gamescom 2026\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft công bố thay đổi lớn trên Excel khiến người dùng lo lắng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787792648620-4e7196.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple ấn định ngày ra mắt iPhone 18 Pro và iPhone gập\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Here's every major Xbox and PC announcement we've rounded up from the Future Games Show at Gamescom 2026\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft công bố thay đổi lớn trên Excel khiến người dùng lo lắng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Here's every major Xbox and PC announcement we've rounded up from the Future Games Show at Gamescom 2026\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft công bố thay đổi lớn trên Excel khiến người dùng lo lắng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Apple ấn định ngày ra mắt iPhone 18 Pro và iPhone gập\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Here's every major Xbox and PC announcement we've rounded up from the Future Games Show at Gamescom 2026\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Microsoft công bố thay đổi lớn trên Excel khiến người dùng lo lắng\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-26T21:41:23.001Z",
+      "reviewedAt": "2026-08-27T01:06:15.032Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
