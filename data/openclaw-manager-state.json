@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-27T21:01:52.681Z",
-    "finishedAt": "2026-08-27T21:02:41.671Z",
+    "startedAt": "2026-08-27T22:27:43.272Z",
+    "finishedAt": "2026-08-27T22:28:54.442Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787864512728-e86c09.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft finalizes Windows 11 version 26H2 for general availability: Next version of Windows 11 enters final preview ph\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Gói ghém tinh hoa dòng S để “không thỏa hiệp”, Galaxy S26 FE chinh phục người dùng bằng những giá trị tất yếu\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Newsroom source pool: 110 configured, 108 active this cycle. Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787869663316-8819e3.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping SecurityWeek: Feed SecurityWeek returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft finalizes Windows 11 version 26H2 for general availability: Next version of Windows 11 enters final preview ph\" because it failed publish readiness: sourceBreadth, narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Managed PostgreSQL vs. self-hosted PostgreSQL: Key benefits and trade-offs\" because it failed publish readiness: sourceBreadth, paragraphShape, noRepeatedSentences Holding normalized article \"Gói ghém tinh hoa dòng S để “không thỏa hiệp”, Galaxy S26 FE chinh phục người dùng bằng những giá trị tất yếu\" because it failed publish readiness: sourceBreadth, narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -28,8 +28,10 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft finalizes Windows 11 version 26H2 for general availability: Next version of Windows 11 enters final preview ph\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Gói ghém tinh hoa dòng S để “không thỏa hiệp”, Galaxy S26 FE chinh phục người dùng bằng những giá trị tất yếu\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases"
+      "output": "Newsroom source pool: 110 configured, 108 active this cycle. Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
+      "warnings": "Skipping SecurityWeek: Feed SecurityWeek returned 403 Skipping CNET How To: Feed CNET How To returned 404 Skipping PCWorld: This operation was aborted Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật\" because it failed publish readiness: narrativeFlow Holding normalized article \"The practical tech tips worth saving right now: which AI, workspace, and app moves actually help\" because it failed publish readiness: narrativeFlow Holding normalized article \"How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Microsoft finalizes Windows 11 version 26H2 for general availability: Next version of Windows 11 enters final preview ph\" because it failed publish readiness: sourceBreadth, narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Managed PostgreSQL vs. self-hosted PostgreSQL: Key benefits and trade-offs\" because it failed publish readiness: sourceBreadth, paragraphShape, noRepeatedSentences Holding synthesized article \"Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"The practical tech tips worth saving right now: which AI, workspace, and app moves actually help\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
+      "publishedCount": null,
+      "noNewArticles": false
     },
     "auditRepair": {
       "ok": true,
@@ -55,7 +57,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-27T21:02:41.652Z",
+      "reviewedAt": "2026-08-27T22:28:54.423Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
