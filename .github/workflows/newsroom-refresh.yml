@@ -1,6 +1,10 @@
 name: OpenClaw Manager Cycle
 
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "data/**"
   workflow_dispatch:
     inputs:
       source:

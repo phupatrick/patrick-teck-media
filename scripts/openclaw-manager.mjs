@@ -324,7 +324,11 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, audi
         path: feedSource.refreshSource?.file ? path.resolve(rootDir, feedSource.refreshSource.file) : "",
         url: feedSource.refreshSource?.url || feedSource.refreshSource?.singleUrl || ""
       },
-      refresh,
+      refresh: {
+        ...refresh,
+        publishedCount: extractRefreshCount(refresh.output),
+        noNewArticles: extractRefreshCount(refresh.output) === 0
+      },
       auditRepair,
       learning,
       webControl
@@ -346,6 +350,11 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, audi
       }
     }
   };
+}
+
+function extractRefreshCount(value) {
+  const match = String(value || "").match(/Refreshed\s+(\d+)\s+article/i);
+  return match ? Number(match[1]) : null;
 }
 
 function compactText(value) {

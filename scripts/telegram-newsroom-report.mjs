@@ -26,11 +26,17 @@ const refresh = manager.newsroom?.refresh || {};
 const newsroom = manager.newsroom || {};
 const refreshedCount = extractRefreshedCount(refresh.output);
 const heldCount = countHeldCandidates(refresh.warnings);
+const publishedLine = refreshedCount === null
+  ? "Kết quả đăng: chưa đọc được số lượng từ refresh"
+  : refreshedCount === 0
+    ? "Kết quả đăng: chu kỳ đã chạy nhưng chưa có bài mới đủ điều kiện"
+    : `Kết quả đăng: đã cập nhật ${refreshedCount} bài mới`;
 const message = [
   formatCycleWindow(cycle.startedAt, cycle.finishedAt),
   cycle.trigger?.reason ? `Yêu cầu: ${cycle.trigger.reason}` : "",
   cycle.trigger?.source ? `Kích hoạt: ${cycle.trigger.source}` : "",
   `Thu thập: ${formatRefreshMode(refresh.mode)}${refreshedCount === null ? "" : ` - ${refreshedCount} bài nguồn mới`}`,
+  publishedLine,
   `Kho bài: ${newsroom.articleCountBefore ?? articles.length} - ${articles.length} (${formatDelta(newsroom.articleCountDelta)})`,
   `Kiểm định: ${heldCount} bài đang giữ lại để viết/xác minh thêm`,
   "",
