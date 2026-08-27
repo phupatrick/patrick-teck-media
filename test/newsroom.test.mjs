@@ -22,7 +22,8 @@ import {
   getTopicPage,
   sortStoriesByFreshnessAndHeat
 } from "../src/newsroom-service.mjs";
-import { buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
+import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
+import { evaluateArticleAutopublishReadiness } from "../src/newsroom-quality.mjs";
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
 import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
 import { selectNewerSnapshot } from "../src/document-store.mjs";
@@ -49,6 +50,44 @@ assert.deepEqual(
 
 const state = createState();
 const tests = [
+  {
+    name: "aggregates differently worded model coverage into a researched multi-source article",
+    async run() {
+      const first = makeScenarioArticle({
+        topic: "devices",
+        title: "Galaxy S26 FE ra mắt với pin lớn hơn và màn hình sáng hơn",
+        slug: "galaxy-s26-fe-ra-mat",
+        source_set: [{ source_type: "official-site", source_name: "Samsung Newsroom", source_url: "https://example.com/samsung-s26", image_url: "https://images.example.com/samsung-s26.jpg" }],
+        sections: [{ heading: "Thông số", body: "Galaxy S26 FE có màn hình 6.7 inch, pin 4,900 mAh và mức giá khởi điểm 699 USD theo thông tin công bố." }]
+      });
+      const second = makeScenarioArticle({
+        topic: "devices",
+        title: "Đánh giá Galaxy S26 FE: giá bán và thông số đáng chú ý",
+        slug: "galaxy-s26-fe-danh-gia",
+        source_set: [{ source_type: "press", source_name: "GenK Mobile", source_url: "https://example.com/genk-s26" }],
+        sections: [{ heading: "Giá và trải nghiệm", body: "GenK Mobile ghi nhận Galaxy S26 FE tập trung vào camera, thời lượng pin và mức giá 699 USD trong nhóm máy cận cao cấp." }]
+      });
+
+      const [article] = aggregateIncomingDrafts([first, second], "2026-08-28T00:00:00.000Z");
+      assert.ok(article);
+      assert.equal(article.source_set.length, 2);
+      assert.equal(article.research_context.source_count, 2);
+      assert.equal(article.research_context.source_facts.length, 2);
+      assert.match(article.sections.at(-1).heading, /Nhận xét tổng hợp/);
+      assert.match(article.sections.at(-1).body, /2 nguồn độc lập/);
+    }
+  },
+  {
+    name: "does not autopublish a single-source bot article without an explicit exception",
+    async run() {
+      const article = makeScenarioArticle({
+        source_set: [{ source_type: "official-site", source_name: "One Official Source", source_url: "https://example.com/one-source" }]
+      });
+      const readiness = evaluateArticleAutopublishReadiness(article);
+      assert.equal(readiness.checks.sourceBreadth, false);
+      assert.ok(readiness.missing.includes("sourceBreadth"));
+    }
+  },
   {
     name: "newsroom source registry validates, deduplicates, and shards a large pool",
     async run() {

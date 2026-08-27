@@ -100,6 +100,11 @@ export function evaluateArticleAutopublishReadiness(article) {
     noRepeatedSentences: !hasRepeatedSentences([summary, dek, hook, ...sectionBodies]),
     noRepeatedPhrases: !hasRepeatedPhraseClusters([summary, dek, hook, ...sectionBodies]),
     noGenericPadding: !containsGenericPadding(allCopy),
+    // Automatic publication must be based on corroboration, not a single
+    // feed's paraphrase. Official-only breaking notices can opt out explicitly.
+    sourceBreadth:
+      sourceCount >= 2
+      || article?.single_source_exception === true,
     sourceNameBalance: hasSourceNameBalance(article, allCopy),
     specificInformation: hasSpecificInformationDensity({ allCopy, sourceCount, isHighScrutinyArticle })
   };

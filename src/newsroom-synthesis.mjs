@@ -219,10 +219,50 @@ function buildClusterArticle(cluster, now) {
     store_link_mode: resolveStoreLinkMode(topic, contentType),
     related_store_items: resolveStoreItems(topic),
     source_set: sources,
+    research_context: buildResearchContext(members, sources, language),
     author_id: resolveAuthorId(topic, lead.author_id),
     published_at: publishedAt,
     updated_at: updatedAt,
     image
+  };
+}
+
+function buildResearchContext(members, sources, language) {
+  const sourceFacts = [];
+  const seen = new Set();
+
+  for (const member of members) {
+    const source = (member.source_set || [])[0];
+    const sourceUrl = normalizeSourceUrl(source?.source_url || "");
+    const facts = [
+      member.summary,
+      member.dek,
+      member.sections?.[0]?.body,
+      ...(member.draft_context?.paragraphs || [])
+    ]
+      .flatMap(splitSentences)
+      .map((sentence) => normalizeEditorialSentence(sentence, 55))
+      .filter(Boolean)
+      .slice(0, 5);
+
+    if (!sourceUrl || seen.has(sourceUrl) || !facts.length) {
+      continue;
+    }
+
+    seen.add(sourceUrl);
+    sourceFacts.push({
+      source_name: cleanText(source?.source_name || member.draft_context?.source_name),
+      source_url: sourceUrl,
+      facts
+    });
+  }
+
+  return {
+    method: "multi-source editorial synthesis",
+    language,
+    source_count: sources.length,
+    independent_sources: sources.map((source) => cleanText(source?.source_name)).filter(Boolean),
+    source_facts: sourceFacts
   };
 }
 
@@ -273,7 +313,34 @@ function areDraftsRelated(left, right) {
     return true;
   }
 
-  return sameTopic && similarity.sharedLong >= 3 && similarity.overlap >= 0.58;
+  return (sameTopic && similarity.sharedLong >= 3 && similarity.overlap >= 0.58)
+    || hasSharedStoryAnchor(left, right);
+}
+
+// Feed headlines often describe the same event with different wording.
+function hasSharedStoryAnchor(left, right) {
+  if (normalizeTopic(left?.topic) !== normalizeTopic(right?.topic)) {
+    return false;
+  }
+
+  const leftAnchors = getStoryAnchors(left?.title);
+  const rightAnchors = getStoryAnchors(right?.title);
+  return [...leftAnchors].some((anchor) => rightAnchors.has(anchor));
+}
+
+function getStoryAnchors(value) {
+  const knownAnchors = /\b(iphone|ipad|pixel|galaxy|android|windows|macbook|chatgpt|gemini|claude|copilot|grok|openai|google|microsoft|nvidia|amd|intel|qualcomm|meta|samsung|apple|notebooklm|deepseek|steam|playstation|xbox|nintendo)\b/i;
+  const anchors = new Set();
+
+  for (const token of cleanText(value || "").split(/\s+/)) {
+    const normalized = normalizeCompact(token).replace(/[^a-z0-9]/g, "");
+
+    if (normalized.length >= 4 && (/\d/.test(normalized) || knownAnchors.test(token) || normalized.length >= 9)) {
+      anchors.add(normalized);
+    }
+  }
+
+  return anchors;
 }
 
 function selectCompanionMembers(articles, language, predicate, limit) {
@@ -1879,19 +1946,20 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
         "Các nguồn đang khớp nhau ở đâu",
         "Tác động thực tế với người đọc",
         "Ai nên chú ý lúc này",
-        "Điều cần theo dõi tiếp"
+        "Nhận xét tổng hợp từ các nguồn"
       ]
     : [
         "Context: what is changing",
         "Where the sources line up",
         "Practical impact for readers",
         "Who should pay attention now",
-        "What to watch next"
+        "Synthesis from the collected sources"
       ];
 
   const sourceTrail = buildSourceTrailSentence(sources, language);
   const consensus = buildCorroborationSentence(sources, language, verificationState);
   const impact = buildImpactSentence(topic, language, "NewsArticle");
+  const evidenceChecklist = buildTopicEvidenceChecklist(topic, language);
   const assessment = buildAssessmentSentence({
     language,
     topic,
@@ -1941,6 +2009,7 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
       body: composeParagraph(
         [
           detailTwo,
+          evidenceChecklist,
           impact
         ],
         impact,
@@ -1952,6 +2021,7 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
       body: composeParagraph(
         [
           assessment,
+          evidenceChecklist,
           nuance,
           detailThree
         ],
@@ -1963,15 +2033,44 @@ function buildNewsSections({ members, lead, sources, pool, language, topic, veri
       heading: headings[4],
       body: composeParagraph(
         [
+          assessment,
           watch,
-          buildForwardLook(topic, lead.title, language),
-          buildCoverageSentence({ language, members: members.length, sources: sources.length })
+          language === "vi"
+            ? `Nhận xét này được tổng hợp sau khi đối chiếu ${sources.length} nguồn độc lập; phần chưa thống nhất được giữ ở mức cần theo dõi, không suy diễn thành dữ kiện.`
+            : `This assessment follows a comparison of ${sources.length} independent sources; unresolved details remain marked for follow-up instead of being presented as facts.`,
+          buildForwardLook(topic, lead.title, language)
         ],
-        watch,
-        230
+        assessment,
+        280
       )
     }
   ];
+}
+
+function buildTopicEvidenceChecklist(topic, language) {
+  const checklists = {
+    devices: {
+      vi: "Với thiết bị, bài chỉ nên chốt sau khi đối chiếu thông số chính, giá niêm yết hoặc giá bán thực tế, thời điểm mở bán, khả dụng theo thị trường và điểm đánh đổi trong trải nghiệm.",
+      en: "For a device story, the useful check is the core specification, list or street price, release timing, market availability, and the trade-offs that affect daily use."
+    },
+    ai: {
+      vi: "Với AI, cần tách rõ chức năng đang được mở, điểm mạnh trong công việc thật, mức giá và giới hạn sử dụng, thay vì lặp lại lời quảng bá về model.",
+      en: "For an AI story, separate the features that are actually available, the strengths in real workflows, the price, and usage limits instead of repeating model marketing."
+    },
+    "apps-software": {
+      vi: "Với ứng dụng và phần mềm, cần kiểm tra tính năng chính, nền tảng hỗ trợ, mô hình giá, quyền riêng tư và trường hợp sử dụng phù hợp.",
+      en: "For apps and software, check the main functions, supported platforms, pricing model, privacy terms, and the use cases where the tool fits."
+    },
+    security: {
+      vi: "Với bảo mật, cần nêu rõ sự cố hoặc thay đổi nào đã được xác nhận, ai bị ảnh hưởng, mức độ rủi ro và bước giảm thiểu có thể làm ngay.",
+      en: "For security coverage, state what incident or change is confirmed, who is affected, the risk level, and what mitigation readers can take now."
+    }
+  };
+
+  return checklists[normalizeTopic(topic)]?.[language]
+    || (language === "vi"
+      ? "Với các chủ đề khác, bài cần làm rõ dữ kiện đã xác nhận, bên bị tác động, chi phí hoặc hệ quả thực tế và điều người đọc nên theo dõi tiếp."
+      : "For other topics, the story should make the confirmed facts, affected parties, practical cost or impact, and next signals clear.");
 }
 
 function buildGuideSections({ lead, sources, pool, language, topic, verificationState }) {
