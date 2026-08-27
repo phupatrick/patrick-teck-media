@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
-import { aggregateIncomingDrafts } from "../src/newsroom-synthesis.mjs";
+import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { buildNewsroomState } from "../src/newsroom-service.mjs";
 import { isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
 import {
@@ -962,6 +962,7 @@ const SOURCE_TOPIC_HINTS = [
 
   incomingArticles = prepareArticlesForPublish(incomingArticles, {
     now,
+    outputPath,
     siteUrl: env.SITE_URL || "https://patricktechmedia.com",
     storeUrl: env.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
     strictQualityGate: isStrictAutopublishQualityGateEnabled(env)
@@ -995,11 +996,14 @@ const SOURCE_TOPIC_HINTS = [
   return { ...result, sourceLabel };
 }
 
-function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, strictQualityGate = false }) {
+function prepareArticlesForPublish(incomingArticles, { now, outputPath, siteUrl, storeUrl, strictQualityGate = false }) {
+  const historicalArticles = readExistingArticles(outputPath || "data/newsroom-content.json");
+  const contextualArticles = buildHistoricalContextArticles(incomingArticles, historicalArticles, now);
+  const publishCandidates = [...incomingArticles, ...contextualArticles];
   const state = buildNewsroomState({
     siteUrl,
     storeUrl,
-    externalArticles: incomingArticles,
+    externalArticles: publishCandidates,
     now,
     webControl: {},
     expandEditorialCopy: false
@@ -1013,7 +1017,7 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
 
   }
 
-  const synthesizedArticles = aggregateIncomingDrafts(incomingArticles, now);
+  const synthesizedArticles = aggregateIncomingDrafts(publishCandidates, now);
   const synthesizedState = buildNewsroomState({
     siteUrl,
     storeUrl,
@@ -1035,7 +1039,7 @@ function prepareArticlesForPublish(incomingArticles, { now, siteUrl, storeUrl, s
   }
 
   return filterPublishReadyArticles(
-    incomingArticles.map((article) => forceArticleValueFloor(article, now)).filter(Boolean),
+    publishCandidates.map((article) => forceArticleValueFloor(article, now)).filter(Boolean),
     "source-draft",
     strictQualityGate
   );
@@ -2039,6 +2043,52 @@ function filterRelevantParagraphs({ title, description, paragraphs = [] }) {
 
   const fallback = scored.filter((entry) => entry.score >= 1).map((entry) => entry.paragraph);
   return fallback.slice(0, 8);
+}
+
+function buildHistoricalContextArticles(incomingArticles, historicalArticles, now) {
+  const incomingUrls = new Set(
+    incomingArticles.flatMap((article) => (article.source_set || []).map((source) => canonicalSourceUrl(source?.source_url)))
+      .filter(Boolean)
+  );
+
+  if (!incomingUrls.size || !historicalArticles.length) {
+    return [];
+  }
+
+  return buildEditorialCompanionArticles([...historicalArticles, ...incomingArticles], now)
+    .filter((article) => (article.source_set || []).some((source) => incomingUrls.has(canonicalSourceUrl(source?.source_url))))
+    .map((article) => ({
+      ...article,
+      draft_context: {
+        ...(article.draft_context || {}),
+        historical_context: true,
+        historical_context_sources: (article.source_set || []).map((source) => source.source_url).filter(Boolean)
+      }
+    }));
+}
+
+function canonicalSourceUrl(value) {
+  const normalized = cleanText(value);
+  if (!normalized) {
+    return "";
+  }
+
+  try {
+    const url = new URL(normalized);
+    url.hash = "";
+    url.search = "";
+    return url.toString().replace(/\/+$/, "");
+  } catch {
+    return normalized;
+  }
+}
+
+function readExistingArticles(outputPath) {
+  try {
+    return normalizeArticles(JSON.parse(fs.readFileSync(path.resolve(process.cwd(), outputPath), "utf8")));
+  } catch {
+    return [];
+  }
 }
 
 function pickRelevantLeadText({ title, values = [] }) {
