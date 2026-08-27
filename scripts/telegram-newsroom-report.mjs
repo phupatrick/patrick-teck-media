@@ -18,7 +18,7 @@ if (!token || chatIds.length === 0) {
 const content = readJson(contentPath);
 const manager = readJson(managerStatePath);
 const learning = readJson(learningStatePath);
-const articles = Array.isArray(content.articles) - content.articles : [];
+const articles = Array.isArray(content.articles) ? content.articles : [];
 const latest = selectLatestNewsArticles(articles, 5);
 const learningProfile = learning.profile || {};
 const cycle = manager.manager || {};
@@ -28,9 +28,9 @@ const refreshedCount = extractRefreshedCount(refresh.output);
 const heldCount = countHeldCandidates(refresh.warnings);
 const message = [
   formatCycleWindow(cycle.startedAt, cycle.finishedAt),
-  cycle.trigger?.reason - `Yêu cầu: ${cycle.trigger.reason}` : "",
-  cycle.trigger?.source - `Kích hoạt: ${cycle.trigger.source}` : "",
-  `Thu thập: ${formatRefreshMode(refresh.mode)}${refreshedCount === null - "" : ` - ${refreshedCount} bài nguồn mới`}`,
+  cycle.trigger?.reason ? `Yêu cầu: ${cycle.trigger.reason}` : "",
+  cycle.trigger?.source ? `Kích hoạt: ${cycle.trigger.source}` : "",
+  `Thu thập: ${formatRefreshMode(refresh.mode)}${refreshedCount === null ? "" : ` - ${refreshedCount} bài nguồn mới`}`,
   `Kho bài: ${newsroom.articleCountBefore ?? articles.length} - ${articles.length} (${formatDelta(newsroom.articleCountDelta)})`,
   `Kiểm định: ${heldCount} bài đang giữ lại để viết/xác minh thêm`,
   "",
@@ -39,8 +39,8 @@ const message = [
   `Tổng bài trong file: ${articles.length}`,
   `Nguồn chạy: ${formatRefreshMode(manager.newsroom?.refresh?.mode)}`,
   manager.newsroom?.auditRepair?.skipped
-    - "Sửa audit: không yêu cầu trong chu kỳ này"
-    : `Sửa audit: ${manager.newsroom?.auditRepair?.ok - "đã chạy" : "chưa chạy"}`,
+    ? "Sửa audit: không yêu cầu trong chu kỳ này"
+    : `Sửa audit: ${manager.newsroom?.auditRepair?.ok ? "đã chạy" : "chưa chạy"}`,
   `Duyệt bài gửi: ${manager.platform?.submissionReview?.approved || 0} đã duyệt, ${manager.platform?.submissionReview?.held || 0} đang giữ lại`,
   `Bot học: ${learningProfile.totalSignals || 0} tín hiệu, độ tin cậy ${Math.round((learningProfile.confidence || 0) * 100)}%`,
   "",
@@ -80,7 +80,7 @@ function selectLatestNewsArticles(sourceArticles, limit) {
     .filter((article) => article?.content_type === "NewsArticle" && article.verification_state !== "trend")
     .sort(sortByPublishedDesc);
 
-  return (news.length - news : sourceArticles.slice().sort(sortByPublishedDesc)).slice(0, limit);
+  return (news.length ? news : sourceArticles.slice().sort(sortByPublishedDesc)).slice(0, limit);
 }
 
 function formatCycleWindow(startedAt, finishedAt) {
@@ -89,9 +89,9 @@ function formatCycleWindow(startedAt, finishedAt) {
   }
 
   const started = formatTimestamp(startedAt);
-  const finished = finishedAt - formatTimestamp(finishedAt) : "đang chạy";
-  const duration = finishedAt - formatDuration(startedAt, finishedAt) : "";
-  return `Thời gian chu kỳ: ${started} - ${finished}${duration - ` (${duration})` : ""}`;
+  const finished = finishedAt ? formatTimestamp(finishedAt) : "đang chạy";
+  const duration = finishedAt ? formatDuration(startedAt, finishedAt) : "";
+  return `Thời gian chu kỳ: ${started} - ${finished}${duration ? ` (${duration})` : ""}`;
 }
 
 function formatTimestamp(value) {
@@ -118,7 +118,7 @@ function formatDuration(startedAt, finishedAt) {
 
 function extractRefreshedCount(value) {
   const match = String(value || "").match(/Refreshed\s+(\d+)\s+article/i);
-  return match - Number(match[1]) : null;
+  return match ? Number(match[1]) : null;
 }
 
 function countHeldCandidates(value) {
@@ -127,7 +127,7 @@ function countHeldCandidates(value) {
 
 function formatDelta(value) {
   const delta = Number(value || 0);
-  return delta > 0 - `+${delta}` : String(delta);
+  return delta > 0 ? `+${delta}` : String(delta);
 }
 
 function formatRefreshMode(mode) {

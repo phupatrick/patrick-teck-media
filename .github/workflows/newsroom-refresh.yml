@@ -111,6 +111,7 @@ jobs:
 
       - name: Report newsroom status to Telegram
         if: ${{ always() }}
+        continue-on-error: true
         env:
           TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}
           TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: ${{ secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS }}
