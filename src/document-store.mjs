@@ -10,7 +10,8 @@ export function createDocumentStore({
   fallbackPath,
   initialValue,
   databaseUrl = process.env.DATABASE_URL || "",
-  requireDatabase = isEnabled(process.env.DOCUMENT_STORE_REQUIRE_DATABASE)
+  requireDatabase = isEnabled(process.env.DOCUMENT_STORE_REQUIRE_DATABASE),
+  preferNewerFile = false
 }) {
   if (!documentKey) {
     throw new Error("A documentKey is required for the document store.");
@@ -42,6 +43,13 @@ export function createDocumentStore({
         }
 
         const fileValue = readStateFile(resolvedPath, normalizedInitialValue);
+
+        if (preferNewerFile && !isInitialLike(fileValue, normalizedInitialValue)) {
+          const selectedValue = selectNewerSnapshot(databaseValue, fileValue);
+          if (selectedValue === fileValue) {
+            return fileValue;
+          }
+        }
 
         if (!isInitialLike(fileValue, normalizedInitialValue)) {
           try {
@@ -99,6 +107,22 @@ export function createDocumentStore({
       return normalizeValue(updatedValue, normalizedInitialValue);
     }
   };
+}
+
+export function selectNewerSnapshot(databaseValue, fileValue) {
+  const databaseTime = snapshotTimestamp(databaseValue);
+  const fileTime = snapshotTimestamp(fileValue);
+
+  if (fileTime > databaseTime) {
+    return fileValue;
+  }
+
+  return databaseValue;
+}
+
+function snapshotTimestamp(value) {
+  const timestamp = Date.parse(String(value?.generated_at || value?.updated_at || ""));
+  return Number.isFinite(timestamp) ? timestamp : 0;
 }
 
 async function readDatabaseDocument({ databaseUrl, documentKey, initialValue }) {

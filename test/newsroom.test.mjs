@@ -18,6 +18,15 @@ import {
 import { buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
 import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
+import { selectNewerSnapshot } from "../src/document-store.mjs";
+
+assert.equal(
+  selectNewerSnapshot(
+    { generated_at: "2026-08-11T19:12:14.298Z", articles: [{ slug: "old" }] },
+    { generated_at: "2026-08-19T16:12:54.000Z", articles: [{ slug: "new" }] }
+  ).articles[0].slug,
+  "new"
+);
 
 const state = createState();
 const tests = [

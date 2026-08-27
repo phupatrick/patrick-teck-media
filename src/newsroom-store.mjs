@@ -10,7 +10,10 @@ export function createNewsroomStore({ contentPath, databaseUrl = process.env.DAT
     documentKey: "newsroom_content",
     fallbackPath: contentPath,
     initialValue: DEFAULT_NEWSROOM_PAYLOAD,
-    databaseUrl
+    databaseUrl,
+    // GitHub deployments carry a newer generated snapshot than a stale
+    // database row when the refresh job has already pushed its commit.
+    preferNewerFile: true
   });
 
   return {
