@@ -91,6 +91,16 @@ const tests = [
     }
   },
   {
+    name: "newsroom telegram sources command remains available without optional diagnostics",
+    async run() {
+      const response = await executeNewsroomCommand("/sources", {
+        getSourceSummary: async () => ({ configured: 42, active: 42, healthy: 36, unhealthy: 6, shard: "luân phiên theo ngày" })
+      });
+      assert.match(response.text, /Kho nguồn/);
+      assert.match(response.text, /Đã khai báo: 42/);
+    }
+  },
+  {
     name: "newsroom telegram audit flags noisy scraped source text",
     async run() {
       const response = await executeNewsroomCommand("/audit", {
