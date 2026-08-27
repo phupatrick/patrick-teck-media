@@ -27,7 +27,7 @@ export function renderHomePage(state, language, adsConfig) {
     safeGuideStories,
     briefingStory
   } = buildHomePageStoryGroups(home);
-  const mastheadLatestStories = [home.featured, ...(home.latest || [])]
+  const mastheadLatestStories = (home.latest || [])
     .filter(Boolean)
     .sort(sortStoriesByDateDesc)
     .slice(0, 3);
@@ -68,7 +68,9 @@ export function renderHomePage(state, language, adsConfig) {
           <p class="eyebrow">${copy.updateLabel}</p>
           <h2>${copy.updateTitle}</h2>
           <div class="masthead-brief-list">
-            ${mastheadLatestStories.map((article) => renderMastheadItem(article, language)).join("")}
+            ${mastheadLatestStories.length
+              ? mastheadLatestStories.map((article) => renderMastheadItem(article, language)).join("")
+              : `<p class="masthead-empty">${language === "vi" ? "Chưa có bài mới trong 48 giờ qua." : "No new stories in the last 48 hours."}</p>`}
           </div>
         </aside>
       </section>

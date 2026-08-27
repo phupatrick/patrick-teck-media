@@ -1127,7 +1127,7 @@ const tests = [
     run() {
       for (const [language, label] of [["vi", "Xem thêm"], ["en", "See more"]]) {
       const homeHtml = renderHomePage(state, language, { client: "", slots: {} });
-        const firstLatest = state.home[language].featured;
+        const firstLatest = state.home[language].latest[0] || state.home[language].featured;
         const mastheadIndex = homeHtml.indexOf(`href="${firstLatest.href}"`);
         assert.ok(mastheadIndex >= 0);
         const primaryStart = homeHtml.indexOf('class="story-grid latest-primary-grid"');
