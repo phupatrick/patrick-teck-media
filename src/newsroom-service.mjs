@@ -531,19 +531,64 @@ export function getHomeData(state, language) {
     })
     .filter(Boolean);
 
+  const orderedHomeLists = {
+    trending: sortStoriesByFreshnessAndHeat(trending, state.runtime.generatedAt),
+    evergreen: sortStoriesByFreshnessAndHeat(evergreen, state.runtime.generatedAt),
+    packageWatch: sortStoriesByFreshnessAndHeat(packageWatch, state.runtime.generatedAt),
+    tips: sortStoriesByFreshnessAndHeat(tips, state.runtime.generatedAt),
+    latest: sortStoriesByFreshnessAndHeat(latest, state.runtime.generatedAt),
+    browserStories: sortStoriesByFreshnessAndHeat(browserStories, state.runtime.generatedAt)
+  };
+  const orderedTopicSections = topicSections.map((section) => ({
+    ...section,
+    stories: sortStoriesByFreshnessAndHeat(section.stories, state.runtime.generatedAt)
+  }));
+
   return {
     featured,
     briefing,
-    trending,
-    evergreen,
-    packageWatch,
-    tips,
-    latest,
+    ...orderedHomeLists,
     liveDesk: getLiveDeskData(state, language),
-    browserStories,
-    topicSections,
+    topicSections: orderedTopicSections,
     metrics: getNewsroomMetrics(state, language)
   };
+}
+
+export function sortStoriesByFreshnessAndHeat(stories, now = new Date().toISOString()) {
+  const anchor = Date.parse(now);
+  const list = Array.isArray(stories) ? stories : [];
+
+  return list
+    .map((article, index) => {
+      const timestamp = Date.parse(article?.updated_at || article?.published_at || "");
+      const ageHours = Number.isFinite(anchor) && Number.isFinite(timestamp)
+        ? Math.max(0, (anchor - timestamp) / 3_600_000)
+        : Number.POSITIVE_INFINITY;
+      const views = Number(article?.view_stats?.views || article?.views || 0);
+      const uniqueViews = Number(article?.view_stats?.unique_views || article?.unique_views || 0);
+      const hot = article?.trending === true
+        || article?.is_hot === true
+        || article?.verification_state === "trend"
+        || views > 0
+        || uniqueViews > 0;
+      const bucket = ageHours <= 48 ? 0 : hot ? 1 : 2;
+      const contentTypeRank = article?.content_type === "NewsArticle"
+        ? 0
+        : article?.content_type === "Roundup"
+          ? 1
+          : 2;
+
+      return { article, bucket, contentTypeRank, timestamp: Number.isFinite(timestamp) ? timestamp : 0, views, uniqueViews, index };
+    })
+    .sort((left, right) =>
+      left.bucket - right.bucket
+      || left.contentTypeRank - right.contentTypeRank
+      || right.views - left.views
+      || right.uniqueViews - left.uniqueViews
+      || right.timestamp - left.timestamp
+      || left.index - right.index
+    )
+    .map(({ article }) => article);
 }
 
 export async function loadNewsroomState(options = {}) {

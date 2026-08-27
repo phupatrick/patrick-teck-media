@@ -13,7 +13,8 @@ import {
   getArticleByRoute,
   getHomeData,
   getRadarData,
-  getTopicPage
+  getTopicPage,
+  sortStoriesByFreshnessAndHeat
 } from "../src/newsroom-service.mjs";
 import { buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
@@ -26,6 +27,18 @@ assert.equal(
     { generated_at: "2026-08-19T16:12:54.000Z", articles: [{ slug: "new" }] }
   ).articles[0].slug,
   "new"
+);
+
+assert.deepEqual(
+  sortStoriesByFreshnessAndHeat(
+    [
+      { href: "/old-hot", published_at: "2026-08-20T00:00:00.000Z", verification_state: "trend" },
+      { href: "/new", published_at: "2026-08-27T12:00:00.000Z" },
+      { href: "/old", published_at: "2026-08-01T00:00:00.000Z" }
+    ],
+    "2026-08-28T00:00:00.000Z"
+  ).map((article) => article.href),
+  ["/new", "/old-hot", "/old"]
 );
 
 const state = createState();
