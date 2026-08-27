@@ -1367,8 +1367,8 @@ async function fetchSingleUrlArticles(sourceUrl, timestamp, env = process.env) {
 async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
   const allArticles = [];
   const fetchConcurrency = clampInteger(env?.NEWSROOM_FETCH_CONCURRENCY, 1, 8, 4);
-
-  for (const feed of feeds) {
+  const feedConcurrency = clampInteger(env?.NEWSROOM_FEED_CONCURRENCY, 1, 8, 4);
+  const fetched = await mapWithConcurrency(feeds, feedConcurrency, async (feed) => {
     try {
       const response = await fetchWithTimeout(feed.url, {
         headers: {
@@ -1383,12 +1383,13 @@ async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
 
       const xml = await response.text();
       const items = parseFeedItems(xml).slice(0, feed.limit);
-      const mappedItems = await mapWithConcurrency(items, fetchConcurrency, async (item) => mapFeedItem(feed, item, timestamp));
-      allArticles.push(...mappedItems.filter(Boolean));
+      return mapWithConcurrency(items, fetchConcurrency, async (item) => mapFeedItem(feed, item, timestamp));
     } catch (error) {
       console.warn(`Skipping ${feed.name}: ${error.message || error}`);
+      return [];
     }
-  }
+  });
+  allArticles.push(...fetched.flat().filter(Boolean));
 
   // Preserve source provenance for automatic publication. Aggregated and
   // companion drafts remain useful editorial inputs, but their synthesized
@@ -1397,7 +1398,7 @@ async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
 }
 
 function selectCuratedSourceDrafts(articles, env = process.env) {
-  const limit = clampInteger(env?.NEWSROOM_AUTOPUBLISH_LIMIT, 1, 12, 6);
+  const limit = clampInteger(env?.NEWSROOM_AUTOPUBLISH_LIMIT, 1, 20, 10);
   const topicFloor = ["security", "internet-business-tech", "devices", "apps-software", "gaming"];
   const seenLinks = new Set();
   const seenTopics = new Map();
@@ -1558,7 +1559,9 @@ async function mapFeedItem(feed, item, timestamp) {
     description: sourceDescription,
     paragraphs: snapshot.paragraphs
   });
-  const editorialParagraphs = relevantParagraphs.length ? relevantParagraphs : [];
+  const editorialParagraphs = relevantParagraphs
+    .filter((paragraph) => !isSourceTextContaminated(paragraph))
+    .slice(0, 8);
   const rawBody = cleanText([sourceDescription, ...editorialParagraphs].join(" "));
 
   if (!rawBody) {
@@ -2013,28 +2016,29 @@ function extractParagraphs(html) {
 }
 
 function filterRelevantParagraphs({ title, description, paragraphs = [] }) {
+  const cleanParagraphs = paragraphs.filter((paragraph) => !isSourceTextContaminated(paragraph));
   const anchors = extractAnchorTerms(`${title} ${description}`);
 
-  if (!paragraphs.length) {
+  if (!cleanParagraphs.length) {
     return [];
   }
 
   if (!anchors.length) {
-    return paragraphs.slice(0, 4);
+    return cleanParagraphs.slice(0, 8);
   }
 
-  const scored = paragraphs.map((paragraph) => ({
+  const scored = cleanParagraphs.map((paragraph) => ({
     paragraph,
     score: scoreParagraphRelevance(paragraph, anchors)
   }));
   const strong = scored.filter((entry) => entry.score >= 2).map((entry) => entry.paragraph);
 
   if (strong.length >= 2) {
-    return strong.slice(0, 6);
+    return strong.slice(0, 8);
   }
 
   const fallback = scored.filter((entry) => entry.score >= 1).map((entry) => entry.paragraph);
-  return fallback.slice(0, 4);
+  return fallback.slice(0, 8);
 }
 
 function pickRelevantLeadText({ title, values = [] }) {
