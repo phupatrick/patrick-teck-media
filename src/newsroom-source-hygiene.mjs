@@ -14,6 +14,14 @@ const NAVIGATION_PATTERNS = [
   /mobile ai tin ict internet.*apps[- ]game.*đồ chơi số/i
 ];
 
+const VIETNAMESE_NAVIGATION_PATTERNS = [
+  /bình luận mới được duyệt.*thông tin tài khoản.*đăng xuất/i,
+  /chính trị.*thời sự.*thế giới.*kinh tế.*đời sống/i,
+  /chào ngày mới.*tin 24h.*tin thị trường.*tin 360/i,
+  /chọn .* làm nguồn ưu tiên trên google.*xem hướng dẫn/i,
+  /bước 1.*bước 2.*thêm .* trên google/i
+];
+
 const NAVIGATION_TOKENS = /\b(?:open|close|toggle|menu|search|home|products|support|resources|stories|login|sign\s+up|privacy|cookie|terms)\b/gi;
 
 export function isSourceTextContaminated(value) {
@@ -24,6 +32,10 @@ export function isSourceTextContaminated(value) {
   }
 
   if (NAVIGATION_PATTERNS.some((pattern) => pattern.test(text))) {
+    return true;
+  }
+
+  if (VIETNAMESE_NAVIGATION_PATTERNS.some((pattern) => pattern.test(text))) {
     return true;
   }
 

@@ -61,6 +61,13 @@ const contaminatedArticle = {
       }
     : section)
 };
+
+assert.equal(
+  isSourceTextContaminated(
+    "Bình luận mới được duyệt Xem tất cả Thông tin tài khoản Đổi mật khẩu Tin đã lưu Tin đã xem Đăng xuất Chính trị Thời sự Thế giới Kinh tế Đời sống Công nghệ Đóng menu"
+  ),
+  true
+);
 assert.equal(isSourceTextContaminated(contaminatedArticle.sections[0].body), true);
 assert.equal(isArticleAutopublishReady(contaminatedArticle), false, "scraped navigation should never publish");
 assert.ok(evaluateArticleAutopublishReadiness(contaminatedArticle).missing.includes("sourceCleanliness"));
