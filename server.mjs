@@ -57,6 +57,7 @@ import { createSellerService } from "./src/seller-service.mjs";
 import { createSellerTranslator } from "./src/seller-translation.mjs";
 import { createTelegramSellerBot } from "./src/telegram-seller-bot.mjs";
 import { createTelegramNewsroomBot } from "./src/telegram-newsroom-bot.mjs";
+import { loadSourceRegistry } from "./scripts/newsroom-refresh.mjs";
 import { createOpenClawControlPlane } from "./src/openclaw-control-plane.mjs";
 import { createOpenClawLearningStore } from "./src/openclaw-learning-store.mjs";
 
@@ -288,6 +289,11 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
   getLearningSummary: () => openclawLearningStore.getSummary(),
   getArticleViewStats: (input) => platformService.listArticleViewStats(input),
   getArticleViewStorageMode: () => platformService.storageMode,
+  getSourceSummary: async () => {
+    const registry = loadSourceRegistry({ NEWSROOM_SOURCE_REGISTRY: process.env.NEWSROOM_SOURCE_REGISTRY || envFromFile.NEWSROOM_SOURCE_REGISTRY || "data/newsroom-sources.json" });
+    const activeLimit = Math.max(1, Number(process.env.NEWSROOM_MAX_ACTIVE_FEEDS || envFromFile.NEWSROOM_MAX_ACTIVE_FEEDS || 120));
+    return { configured: registry.length, active: Math.min(registry.length, activeLimit), healthy: "chưa kiểm tra", unhealthy: "chưa kiểm tra", shard: "luân phiên theo ngày" };
+  },
   addLearningFeedback: (input) => openclawLearningStore.addFeedback(input),
   addShopeeAdLink: async (input) => {
     const link = await sellerService.addAdLink(input);

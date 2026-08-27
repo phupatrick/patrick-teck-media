@@ -2,6 +2,7 @@ const DEFAULT_COMMANDS = [
   { command: "status", description: "Xem trạng thái web và tòa soạn" },
   { command: "auto", description: "Xem lịch chạy tự động" },
   { command: "latest", description: "Xem các bài mới đăng" },
+  { command: "sources", description: "Xem kho nguồn và tình trạng feed" },
   { command: "views", description: "Xem bảng xếp hạng bài view cao" },
   { command: "rank", description: "Xếp hạng bài theo view" },
   { command: "audit", description: "Kiểm tra chất lượng bài đã đăng" },
@@ -30,6 +31,7 @@ const HELP_TEXT = [
   "/status - trạng thái web, số bài, bài mới nhất và OpenClaw",
   "/auto - lịch chạy tự động và trạng thái thiết lập",
   "/latest - danh sách bài mới đăng",
+  "/sources - số nguồn, nguồn đang chạy và tình trạng feed",
   "/views hoặc /rank - bảng xếp hạng bài view cao và bot học được gì từ nhóm đó",
   "/audit - quét bài đã đăng bị mỏng hoặc nhiễu nội dung",
   "/learn - hồ sơ học hiện tại của bot",
@@ -63,6 +65,7 @@ export function createTelegramNewsroomBot(options = {}) {
   const getLearningSummary = options.getLearningSummary;
   const getArticleViewStats = options.getArticleViewStats;
   const getArticleViewStorageMode = options.getArticleViewStorageMode;
+  const getSourceSummary = options.getSourceSummary;
   const addLearningFeedback = options.addLearningFeedback;
   const addShopeeAdLink = options.addShopeeAdLink;
   const listShopeeAdLinks = options.listShopeeAdLinks;
@@ -157,6 +160,7 @@ export function createTelegramNewsroomBot(options = {}) {
           getLearningSummary,
           getArticleViewStats,
           getArticleViewStorageMode,
+          getSourceSummary,
           addLearningFeedback,
           addShopeeAdLink,
           listShopeeAdLinks,
@@ -216,6 +220,7 @@ export function createTelegramNewsroomBot(options = {}) {
         getLearningSummary,
         getArticleViewStats,
         getArticleViewStorageMode,
+        getSourceSummary,
         addLearningFeedback,
         addShopeeAdLink,
         listShopeeAdLinks,
@@ -348,6 +353,10 @@ export async function executeNewsroomCommand(rawText, context = {}) {
 
   if (command === "/latest") {
     return { text: await buildLatestText(context) };
+  }
+
+  if (command === "/sources" || command === "/source") {
+    return { text: await buildSourcesText(context) };
   }
 
   if (command === "/views" || command === "/view" || command === "/rank" || command === "/ranking") {
@@ -547,7 +556,7 @@ export async function sendTelegramMessage({ token, chatId, text, extra = {} }) {
 async function buildStatusText(context) {
   const [state, control] = await Promise.all([
     context.getState?.(),
-    context.getControlSummary?.().catch(() => null)
+    typeof context.getControlSummary === "function" ? context.getControlSummary().catch(() => null) : Promise.resolve(null)
   ]);
   const articles = Array.isArray(state?.articles) ? state.articles : [];
   const latest = selectLatestNewsArticles(articles, 1)[0] || articles.slice().sort(sortByPublishedDesc)[0];
@@ -782,12 +791,32 @@ async function buildHealthText(context) {
 
 async function buildDiagnosticsText(context) {
   const diagnostics = typeof context.getBotDiagnostics === "function" ? await context.getBotDiagnostics().catch(() => null) : null;
-  if (!diagnostics) return "Bot diagnostics are unavailable.";
+  if (!diagnostics) return "Chưa có dữ liệu chẩn đoán bot.";
   return ["Chẩn đoán bot Patrick Tech Media", "", "Lưu trữ hồ sơ học: " + diagnostics.learningStorageMode, "Hồ sơ học bền vững: " + (diagnostics.learningPersistent ? "sẵn sàng" : "cần DATABASE_URL"), "Lưu trữ view: " + diagnostics.viewStorageMode, "Lưu trữ quảng cáo Shopee: " + diagnostics.sellerStorageMode, "Gọi GitHub Actions làm mới: " + (diagnostics.workflowDispatchConfigured ? "sẵn sàng" : "thiếu token"), "Worker OpenClaw: " + (diagnostics.openClawEnabled ? "sẵn sàng" : "chưa cấu hình"), "", diagnostics.learningPersistent ? "Hồ sơ học bền vững đã sẵn sàng." : "Việc cần làm: thêm cùng một DATABASE_URL vào Vercel Production và GitHub Actions secrets, sau đó deploy lại."].join("\n");
 }
 
+async function buildSourcesText(context = {}) {
+  const summary = typeof context.getSourceSummary === "function"
+    ? await context.getSourceSummary().catch(() => null)
+    : null;
+  if (!summary) {
+    return "Chưa có báo cáo kho nguồn. Cần cập nhật worker/refresh để bot đọc được thống kê feed.";
+  }
+  return [
+    "Kho nguồn tòa soạn",
+    "",
+    `Đã khai báo: ${summary.configured || 0}`,
+    `Đang chạy chu kỳ này: ${summary.active || 0}`,
+    `Nguồn tốt gần nhất: ${summary.healthy || 0}`,
+    `Nguồn lỗi/tạm ngưng: ${summary.unhealthy || 0}`,
+    summary.shard ? `Nhóm luân phiên: ${summary.shard}` : ""
+  ].filter(Boolean).join("\n");
+}
+
 async function buildJobsText(context) {
-  const control = await context.getControlSummary?.();
+  const control = typeof context.getControlSummary === "function"
+    ? await context.getControlSummary().catch(() => null)
+    : null;
 
   if (!control) {
     return "Chưa có dữ liệu hàng đợi OpenClaw.";
