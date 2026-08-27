@@ -27,7 +27,10 @@ export function renderHomePage(state, language, adsConfig) {
     safeGuideStories,
     briefingStory
   } = buildHomePageStoryGroups(home);
-  const mastheadLatestStories = (home.latest || []).slice(0, 3);
+  const mastheadLatestStories = [home.featured, ...(home.latest || [])]
+    .filter(Boolean)
+    .sort(sortStoriesByDateDesc)
+    .slice(0, 3);
   const latestPrimaryStories = safeLatestStories.slice(0, 3);
   const latestMoreStories = safeLatestStories.slice(3);
   const latestMoreLabel = language === "vi" ? "Xem thêm" : "See more";
@@ -1435,6 +1438,11 @@ function renderRibbonItem(article, language) {
       <em>${escapeHtml(formatPublishDate(language, article.published_at))}</em>
       </a>
     `;
+}
+
+function sortStoriesByDateDesc(left, right) {
+  return new Date(right.updated_at || right.published_at || 0).getTime()
+    - new Date(left.updated_at || left.published_at || 0).getTime();
 }
 
 function renderMastheadItem(article, language) {
