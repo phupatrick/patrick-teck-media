@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-27T11:11:20.616Z",
-    "finishedAt": "2026-08-27T11:13:57.444Z",
+    "startedAt": "2026-08-27T21:01:52.681Z",
+    "finishedAt": "2026-08-27T21:02:41.671Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,14 +13,14 @@
   },
   "newsroom": {
     "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 262,
-    "articleCountBefore": 262,
+    "totalArticles": 194,
+    "articleCountBefore": 194,
     "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787829080662-d67337.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Windows Central: This operation was aborted Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Sự thật về phiên bản iPhone Ultra màu đỏ gây sốt mạng xã hội\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cyber Essentials is no longer a tick-box exercise – businesses need to act now\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"Tỉ phú Bill Gates cảnh báo 3 rủi ro lớn từ AI nhân loại phải đối mặt\" because it failed publish readiness: narrativeFlow, noRepeatedSentences",
+      "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787864512728-e86c09.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft finalizes Windows 11 version 26H2 for general availability: Next version of Windows 11 enters final preview ph\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Gói ghém tinh hoa dòng S để “không thỏa hiệp”, Galaxy S26 FE chinh phục người dùng bằng những giá trị tất yếu\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Sự thật về phiên bản iPhone Ultra màu đỏ gây sốt mạng xã hội\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding normalized article \"Cyber Essentials is no longer a tick-box exercise – businesses need to act now\" because it failed publish readiness: paragraphShape, noRepeatedSentences Holding normalized article \"Tỉ phú Bill Gates cảnh báo 3 rủi ro lớn từ AI nhân loại phải đối mặt\" because it failed publish readiness: narrativeFlow, noRepeatedSentences"
+      "warnings": "Skipping CNET How To: Feed CNET How To returned 404 Skipping Anthropic News: Feed Anthropic News returned 404 Holding normalized article \"Microsoft finalizes Windows 11 version 26H2 for general availability: Next version of Windows 11 enters final preview ph\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases, sourceNameBalance Holding normalized article \"Gói ghém tinh hoa dòng S để “không thỏa hiệp”, Galaxy S26 FE chinh phục người dùng bằng những giá trị tất yếu\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences, noRepeatedPhrases"
     },
     "auditRepair": {
       "ok": true,
@@ -40,13 +40,13 @@
     "learning": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 268 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 198 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
       "ok": true,
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for devices, apps-software, ai, internet-business-tech, security, gaming, cloud-enterprise.",
+      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for apps-software, devices, ai, internet-business-tech, security, gaming, cloud-enterprise.",
       "warnings": ""
     }
   },
@@ -55,7 +55,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-27T11:13:57.426Z",
+      "reviewedAt": "2026-08-27T21:02:41.652Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,

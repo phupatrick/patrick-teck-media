@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T11:13:57.412Z",
+  "generated_at": "2026-08-27T21:02:41.638Z",
   "manager": {
     "id": "openclaw",
     "autonomy": "owner-delegated-full"
@@ -31,8 +31,8 @@
     "deploy_by_push": true
   },
   "priorityTopics": [
-    "devices",
     "apps-software",
+    "devices",
     "ai",
     "internet-business-tech",
     "security",
@@ -42,16 +42,16 @@
   "ranking": {
     "topicWeights": {
       "ai": 111,
-      "apps-software": 95,
-      "internet-business-tech": 82,
+      "apps-software": 102,
+      "internet-business-tech": 76,
       "security": 68,
-      "devices": 66,
+      "devices": 59,
       "gaming": 38,
       "cloud-enterprise": 1
     },
     "sourceTypeWeights": {
       "official-site": 46,
-      "press": 44,
+      "press": 43,
       "official-social": 9,
       "editorial-research": 8,
       "internal-roundup": 6,
@@ -63,8 +63,8 @@
   "frontpageCopy": {
     "vi": {
       "heroTitle": "Gói AI nào vừa đáng tiền hơn, và hãng nào đang tăng giá trị thật?",
-      "badgeSignals": "Thiết bị",
-      "badgeAds": "Ứng dụng & Phần mềm",
+      "badgeSignals": "Ứng dụng & Phần mềm",
+      "badgeAds": "Thiết bị",
       "badgeBilingual": "AI",
       "hotTitle": "Tiêu điểm đang kéo lượt đọc",
       "editorsTitle": "Nên mở tiếp bài nào",
@@ -86,8 +86,8 @@
     },
     "en": {
       "heroTitle": "Which AI plans just became more useful, and who is adding real value?",
-      "badgeSignals": "Devices",
-      "badgeAds": "Apps & Software",
+      "badgeSignals": "Apps & Software",
+      "badgeAds": "Devices",
       "badgeBilingual": "AI",
       "hotTitle": "The stories pulling readers in",
       "editorsTitle": "What to open next",
