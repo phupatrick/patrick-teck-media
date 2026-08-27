@@ -354,7 +354,11 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, audi
 
 function extractRefreshCount(value) {
   const match = String(value || "").match(/Refreshed\s+(\d+)\s+article/i);
-  return match ? Number(match[1]) : null;
+  if (match) {
+    return Number(match[1]);
+  }
+
+  return /already up to date|no new articles/i.test(String(value || "")) ? 0 : null;
 }
 
 function compactText(value) {

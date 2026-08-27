@@ -31,12 +31,14 @@ const publishedLine = refreshedCount === null
   : refreshedCount === 0
     ? "Kết quả đăng: chu kỳ đã chạy nhưng chưa có bài mới đủ điều kiện"
     : `Kết quả đăng: đã cập nhật ${refreshedCount} bài mới`;
+const sourceWarningCount = countSourceWarnings(refresh.warnings);
 const message = [
   formatCycleWindow(cycle.startedAt, cycle.finishedAt),
   cycle.trigger?.reason ? `Yêu cầu: ${cycle.trigger.reason}` : "",
   cycle.trigger?.source ? `Kích hoạt: ${cycle.trigger.source}` : "",
   `Thu thập: ${formatRefreshMode(refresh.mode)}${refreshedCount === null ? "" : ` - ${refreshedCount} bài nguồn mới`}`,
   publishedLine,
+  `Nguồn lỗi/cần kiểm tra: ${sourceWarningCount}`,
   `Kho bài: ${newsroom.articleCountBefore ?? articles.length} - ${articles.length} (${formatDelta(newsroom.articleCountDelta)})`,
   `Kiểm định: ${heldCount} bài đang giữ lại để viết/xác minh thêm`,
   "",
@@ -124,11 +126,19 @@ function formatDuration(startedAt, finishedAt) {
 
 function extractRefreshedCount(value) {
   const match = String(value || "").match(/Refreshed\s+(\d+)\s+article/i);
-  return match ? Number(match[1]) : null;
+  if (match) {
+    return Number(match[1]);
+  }
+
+  return /already up to date|no new articles/i.test(String(value || "")) ? 0 : null;
 }
 
 function countHeldCandidates(value) {
   return (String(value || "").match(/Holding (?:normalized|synthesized|source-draft) article/gi) || []).length;
+}
+
+function countSourceWarnings(value) {
+  return (String(value || "").match(/Skipping [^:]+: (?:Feed .+ returned \d+|This operation was aborted)/gi) || []).length;
 }
 
 function formatDelta(value) {
