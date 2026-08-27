@@ -8,12 +8,12 @@ const DEFAULT_COMMANDS = [
   { command: "learn", description: "Xem hồ sơ học của bot" },
   { command: "feedback", description: "Dạy bot bằng phản hồi của chủ sở hữu" },
   { command: "health", description: "Kiểm tra tình trạng web đang chạy" },
-  { command: "diagnose", description: "Check bot storage and automation readiness" },
+  { command: "diagnose", description: "Kiểm tra lưu trữ và tự động hóa" },
   { command: "web", description: "Mở liên kết quản lý web" },
   { command: "id", description: "Lấy mã chat và mã người dùng" },
   { command: "submit", description: "Đọc, xác thực và đăng bài từ link" },
-  { command: "shopee", description: "Add a Shopee advertising link" },
-  { command: "ads", description: "List active Shopee advertising links" },
+  { command: "shopee", description: "Thêm link quảng cáo Shopee" },
+  { command: "ads", description: "Xem link quảng cáo Shopee" },
   { command: "up", description: "Tự động up thêm bài mới" },
   { command: "refresh", description: "Yêu cầu làm mới tòa soạn" },
   { command: "jobs", description: "Xem hàng đợi OpenClaw" },
@@ -438,7 +438,7 @@ export async function submitLearningFeedback(rawText, context = {}) {
   }
 
   const diagnostics = typeof context.getBotDiagnostics === "function" ? await context.getBotDiagnostics().catch(() => null) : null;
-  if (diagnostics && !diagnostics.learningPersistent) return { text: "Feedback was not saved because production learning storage is temporary. Add DATABASE_URL on Vercel before teaching the bot." };
+  if (diagnostics && !diagnostics.learningPersistent) return { text: "Phản hồi chưa được lưu bền vững vì bộ nhớ học production đang tạm thời. Cần thêm DATABASE_URL trên Vercel trước khi dạy bot." };
 
   if (typeof context.addLearningFeedback !== "function") {
     return {
@@ -488,10 +488,10 @@ async function addShopeeAdvertisement(rawText, context = {}) {
   const link = await context.addShopeeAdLink({ url, title, actor: context.userId || "telegram-admin" });
   return {
     text: [
-      "Saved Shopee advertising link.",
-      "Title: " + link.title,
-      "Link: " + link.url,
-      "The media site can now rotate this offer in eligible advertising slots."
+    "Đã lưu link quảng cáo Shopee.",
+    "Tiêu đề: " + link.title,
+    "Link: " + link.url,
+    "Website có thể tự động hiển thị ưu đãi này ở các vị trí quảng cáo phù hợp."
     ].join("\n")
   };
 }
@@ -503,8 +503,8 @@ async function buildShopeeAdvertisementList(context = {}) {
 
   const links = await context.listShopeeAdLinks();
   return links.length
-    ? ["Active Shopee advertising links", "", ...links.map((entry) => "- " + entry.id + " | " + entry.title + " | " + entry.url)].join("\n")
-    : "No Shopee advertising links yet. Use /shopee <shopee_url> | Title";
+    ? ["Link quảng cáo Shopee đang hoạt động", "", ...links.map((entry) => "- " + entry.id + " | " + entry.title + " | " + entry.url)].join("\n")
+    : "Chưa có link quảng cáo Shopee. Dùng /shopee <link_shopee> | Tiêu đề";
 }
 
 export async function submitNewsroomLink(rawText, context = {}) {
@@ -783,7 +783,7 @@ async function buildHealthText(context) {
 async function buildDiagnosticsText(context) {
   const diagnostics = typeof context.getBotDiagnostics === "function" ? await context.getBotDiagnostics().catch(() => null) : null;
   if (!diagnostics) return "Bot diagnostics are unavailable.";
-  return ["Patrick Tech Media bot diagnostics", "", "Learning storage: " + diagnostics.learningStorageMode, "Persistent learning: " + (diagnostics.learningPersistent ? "ready" : "needs DATABASE_URL"), "View storage: " + diagnostics.viewStorageMode, "Shopee ad storage: " + diagnostics.sellerStorageMode, "GitHub refresh dispatch: " + (diagnostics.workflowDispatchConfigured ? "ready" : "missing token"), "OpenClaw worker: " + (diagnostics.openClawEnabled ? "ready" : "not configured"), "", diagnostics.learningPersistent ? "Persistent learning is ready." : "Action required: add the same DATABASE_URL to Vercel Production and GitHub Actions secrets, then redeploy."].join("\n");
+  return ["Chẩn đoán bot Patrick Tech Media", "", "Lưu trữ hồ sơ học: " + diagnostics.learningStorageMode, "Hồ sơ học bền vững: " + (diagnostics.learningPersistent ? "sẵn sàng" : "cần DATABASE_URL"), "Lưu trữ view: " + diagnostics.viewStorageMode, "Lưu trữ quảng cáo Shopee: " + diagnostics.sellerStorageMode, "Gọi GitHub Actions làm mới: " + (diagnostics.workflowDispatchConfigured ? "sẵn sàng" : "thiếu token"), "Worker OpenClaw: " + (diagnostics.openClawEnabled ? "sẵn sàng" : "chưa cấu hình"), "", diagnostics.learningPersistent ? "Hồ sơ học bền vững đã sẵn sàng." : "Việc cần làm: thêm cùng một DATABASE_URL vào Vercel Production và GitHub Actions secrets, sau đó deploy lại."].join("\n");
 }
 
 async function buildJobsText(context) {

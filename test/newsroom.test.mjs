@@ -55,7 +55,7 @@ const tests = [
           return { id: "ad_1", ...input };
         }
       });
-      assert.match(response.text, /Saved Shopee advertising link/);
+      assert.match(response.text, /Đã lưu link quảng cáo Shopee/);
       assert.equal(saved[0].title, "AI plan deal");
 
       const listResponse = await executeNewsroomCommand("/ads", {

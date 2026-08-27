@@ -10,52 +10,52 @@ const SEARCH_WAIT_SECONDS = 180;
 const LANGUAGE = "en";
 
 const COPY = {
-  welcome: "Seller bot is ready. Pick a category, browse temporary products, or search the catalog.",
-  viewerHint: "Everyone in the allowed group can browse and search. Only admins can add, edit, or delete products.",
-  adminHint: "Admins can use /addcat, /add, /addtemp, /edit, and /delete.",
+  welcome: "Bot Seller đã sẵn sàng. Chọn danh mục, xem sản phẩm tạm thời hoặc tìm kiếm trong Catalog.",
+  viewerHint: "Thành viên trong nhóm được phép có thể xem và tìm kiếm. Chỉ quản trị viên được thêm, sửa hoặc xóa sản phẩm.",
+  adminHint: "Quản trị viên có thể dùng /addcat, /add, /addtemp, /edit và /delete.",
   buttons: {
-    browse: "Categories",
-    temporary: "Temporary items",
-    search: "Search",
-    backHome: "Back to menu",
-    backCategories: "Back to categories"
+    browse: "Danh mục",
+    temporary: "Sản phẩm tạm",
+    search: "Tìm kiếm",
+    backHome: "Về menu",
+    backCategories: "Về danh mục"
   },
-  categoriesTitle: "Product categories",
-  temporaryTitle: "Temporary products",
-  noCategories: "No categories yet.",
-  noProducts: "This category has no products yet.",
-  searchPrompt: "Send a product name, keyword, or bundle you want to find.",
-  searchEmpty: "No matching products found.",
-  searchResults: "Search results",
-  onlyAdmin: "Only admins can modify the catalog.",
-  notAllowed: "This group is not allowed to use this bot.",
+  categoriesTitle: "Danh mục sản phẩm",
+  temporaryTitle: "Sản phẩm tạm thời",
+  noCategories: "Chưa có danh mục nào.",
+  noProducts: "Danh mục này chưa có sản phẩm.",
+  searchPrompt: "Gửi tên sản phẩm, từ khóa hoặc gói bạn muốn tìm.",
+  searchEmpty: "Không tìm thấy sản phẩm phù hợp.",
+  searchResults: "Kết quả tìm kiếm",
+  onlyAdmin: "Chỉ quản trị viên được thay đổi Catalog.",
+  notAllowed: "Nhóm này chưa được phép sử dụng bot.",
   help: [
-    "Main commands:",
-    "/heybot - open the catalog menu",
-    "/find <keyword> - search products",
+    "Các lệnh chính:",
+    "/heybot - mở menu Catalog",
+    "/find <từ khóa> - tìm sản phẩm",
     "",
-    "Admin commands:",
-    "/addcat Category name",
-    "/add <category_id> | Name | Duration | Warranty | Price | Description",
-    "/addtemp Name | Duration | Warranty | Price | Description | YYYY-MM-DD",
-    "/edit <product_id> | name=... | category=... | duration=... | warranty=... | price=... | desc=... | until=... | status=active|inactive",
-    "/delete <product_id>",
-    "/addad <shopee_url> | Title",
-    "/listads",
-    "/deletead <ad_link_id>",
-    "/summary"
+    "Lệnh quản trị viên:",
+    "/addcat <tên danh mục>",
+    "/add <mã danh mục> | Tên | Thời hạn | Bảo hành | Giá | Mô tả",
+    "/addtemp Tên | Thời hạn | Bảo hành | Giá | Mô tả | YYYY-MM-DD",
+    "/edit <mã sản phẩm> | name=... | category=... | duration=... | warranty=... | price=... | desc=... | until=... | status=active|inactive",
+    "/delete <mã sản phẩm>",
+    "/addad <link Shopee> | Tiêu đề",
+    "/listads - xem link quảng cáo",
+    "/deletead <mã link>",
+    "/summary - thống kê Catalog"
   ].join("\n"),
-  summary: "Catalog summary",
+  summary: "Tổng quan Catalog",
   summaryLines: (summary) => [
-    `Categories: ${summary.totalCategories}`,
-    `Total products: ${summary.totalProducts}`,
-    `Standard: ${summary.standardProducts}`,
-    `Temporary: ${summary.temporaryProducts}`,
-    `Visible: ${summary.active}`,
-    `Pending: ${summary.pending}`,
-    `Sold out: ${summary.soldOut}`,
-    `Hidden: ${summary.inactive}`,
-    `Shopee ad links: ${summary.activeAdLinks || 0}`
+    `Danh mục: ${summary.totalCategories}`,
+    `Tổng sản phẩm: ${summary.totalProducts}`,
+    `Sản phẩm thường: ${summary.standardProducts}`,
+    `Sản phẩm tạm: ${summary.temporaryProducts}`,
+    `Đang hiển thị: ${summary.active}`,
+    `Chờ xử lý: ${summary.pending}`,
+    `Hết hàng: ${summary.soldOut}`,
+    `Đang ẩn: ${summary.inactive}`,
+    `Link quảng cáo Shopee: ${summary.activeAdLinks || 0}`
   ]
 };
 
@@ -67,12 +67,17 @@ export function createTelegramSellerBot(options = {}) {
   const adminUserIds = new Set(normalizeIdList(options.adminUserIds || options.allowedUserIds || []));
   const timezone = String(options.timezone || "Asia/Saigon").trim() || "Asia/Saigon";
   const timezoneOffset = String(options.timezoneOffset || service.timezoneOffset || "+07:00").trim() || "+07:00";
+  const webhookUrl = normalizeWebhookUrl(options.webhookUrl || "");
+  const webhookSecret = String(options.webhookSecret || "").trim();
+  const autoRegisterWebhook = options.autoRegisterWebhook !== false && Boolean(webhookUrl);
   const waitingSearch = new Map();
 
   let running = false;
   let offset = Number.isInteger(options.offset) ? options.offset : 0;
   let loopPromise = null;
   let botProfile = null;
+  let webhookRegistrationPromise = null;
+  let webhookStatus = { enabled: autoRegisterWebhook, url: webhookUrl, registeredAt: "", lastError: "" };
 
   return {
     service,
@@ -95,13 +100,29 @@ export function createTelegramSellerBot(options = {}) {
       try {
         await apiCall(token, "setMyCommands", {
           commands: [
-            { command: "heybot", description: "Open seller catalog menu" },
-            { command: "find", description: "Search products" },
-            { command: "help", description: "View help" }
+            { command: "heybot", description: "Mở menu Catalog Seller" },
+            { command: "find", description: "Tìm sản phẩm" },
+            { command: "help", description: "Xem hướng dẫn" }
           ]
+        });
+        await apiCall(token, "setMyCommands", {
+          commands: [
+            { command: "heybot", description: "Mở menu Catalog Seller" },
+            { command: "find", description: "Tìm sản phẩm" },
+            { command: "help", description: "Xem hướng dẫn" }
+          ],
+          language_code: "vi"
         });
       } catch {
         // Optional.
+      }
+
+      if (autoRegisterWebhook) {
+        try {
+          await ensureWebhookRegistration();
+        } catch (error) {
+          webhookStatus = { ...webhookStatus, lastError: error.message || "Không đăng ký được webhook Seller." };
+        }
       }
 
       return true;
@@ -125,6 +146,9 @@ export function createTelegramSellerBot(options = {}) {
       running = false;
       await loopPromise;
     },
+    getWebhookStatus() {
+      return { ...webhookStatus };
+    },
     async executeTextCommand(text, context = {}) {
       await service.ensureDefaultCategories();
       return executeSellerCommand(text, buildExecutionContext(context));
@@ -142,6 +166,23 @@ export function createTelegramSellerBot(options = {}) {
       }
     }
   };
+
+  async function ensureWebhookRegistration() {
+    if (webhookRegistrationPromise) return webhookRegistrationPromise;
+    webhookRegistrationPromise = (async () => {
+      const current = await apiCall(token, "getWebhookInfo", {});
+      if (normalizeWebhookUrl(current?.url || "") !== webhookUrl) {
+        await apiCall(token, "setWebhook", {
+          url: webhookUrl,
+          allowed_updates: ["message", "callback_query"],
+          ...(webhookSecret ? { secret_token: webhookSecret } : {})
+        });
+      }
+      webhookStatus = { ...webhookStatus, registeredAt: new Date().toISOString(), lastError: "" };
+      return current;
+    })().finally(() => { webhookRegistrationPromise = null; });
+    return webhookRegistrationPromise;
+  }
 
   function buildExecutionContext(context = {}) {
     return {
@@ -448,8 +489,8 @@ export async function executeSellerCommand(text, context = {}) {
     const links = await service.listAdLinks();
     return {
       text: links.length
-        ? ["Shopee ad links", "", ...links.map((entry) => `- ${entry.id} | ${entry.title} | ${entry.url}`)].join("\n")
-        : "No Shopee ad links yet."
+        ? ["Link quảng cáo Shopee", "", ...links.map((entry) => `- ${entry.id} | ${entry.title} | ${entry.url}`)].join("\n")
+        : "Chưa có link quảng cáo Shopee nào."
     };
   }
 
@@ -469,7 +510,7 @@ export async function executeSellerCommand(text, context = {}) {
   if (command === "/add") {
     const segments = splitPipeSegments(restText);
     if (segments.length < 6) {
-      throw new Error("Usage: /add <category_id> | Name | Duration | Warranty | Price | Description");
+      throw new Error("Cách dùng: /add <mã danh mục> | Tên | Thời hạn | Bảo hành | Giá | Mô tả");
     }
 
     const product = await service.createProduct({
@@ -483,13 +524,13 @@ export async function executeSellerCommand(text, context = {}) {
       actor: context.actor
     });
 
-    return { text: `Added ${product.id}\n${buildProductDetailText(product, { timezone: context.timezone, language: LANGUAGE })}` };
+    return { text: `Đã thêm ${product.id}\n${buildProductDetailText(product, { timezone: context.timezone, language: LANGUAGE })}` };
   }
 
   if (command === "/addtemp") {
     const segments = splitPipeSegments(restText);
     if (segments.length < 6) {
-      throw new Error("Usage: /addtemp Name | Duration | Warranty | Price | Description | YYYY-MM-DD");
+      throw new Error("Cách dùng: /addtemp Tên | Thời hạn | Bảo hành | Giá | Mô tả | YYYY-MM-DD");
     }
 
     const product = await service.createProduct({
@@ -504,7 +545,7 @@ export async function executeSellerCommand(text, context = {}) {
       actor: context.actor
     });
 
-    return { text: `Added temporary ${product.id}\n${buildProductDetailText(product, { timezone: context.timezone, language: LANGUAGE })}` };
+    return { text: `Đã thêm sản phẩm tạm ${product.id}\n${buildProductDetailText(product, { timezone: context.timezone, language: LANGUAGE })}` };
   }
 
   if (command === "/edit") {
@@ -512,7 +553,7 @@ export async function executeSellerCommand(text, context = {}) {
     const productId = safeTrim(segments.shift());
 
     if (!productId || segments.length === 0) {
-      throw new Error("Usage: /edit <product_id> | name=... | category=... | duration=... | warranty=... | price=... | desc=... | until=... | status=active|inactive");
+      throw new Error("Cách dùng: /edit <mã sản phẩm> | name=... | category=... | duration=... | warranty=... | price=... | desc=... | until=... | status=active|inactive");
     }
 
     const updates = { actor: context.actor, sourceLanguage: "en" };
@@ -547,7 +588,7 @@ export async function executeSellerCommand(text, context = {}) {
     }
 
     const product = await service.updateProduct(productId, updates);
-    return { text: `Updated ${product.id}\n${buildProductDetailText(product, { timezone: context.timezone, language: LANGUAGE })}` };
+    return { text: `Đã cập nhật ${product.id}\n${buildProductDetailText(product, { timezone: context.timezone, language: LANGUAGE })}` };
   }
 
   if (command === "/addad") {
@@ -556,7 +597,7 @@ export async function executeSellerCommand(text, context = {}) {
     const title = safeTrim(segments[1]) || "Shopee";
 
     if (!url) {
-      throw new Error("Usage: /addad <shopee_url> | Title");
+      throw new Error("Cách dùng: /addad <link Shopee> | Tiêu đề");
     }
 
     const link = await service.addAdLink({
@@ -565,7 +606,7 @@ export async function executeSellerCommand(text, context = {}) {
       actor: context.actor
     });
 
-    return { text: `Saved Shopee ad link ${link.id}
+    return { text: `Đã lưu link quảng cáo Shopee ${link.id}
 ${link.title}
 ${link.url}` };
   }
@@ -577,17 +618,17 @@ ${link.url}` };
     }
 
     const link = await service.removeAdLink(adLinkId, { actor: context.actor });
-    return { text: `Removed Shopee ad link ${link.id}` };
+    return { text: `Đã xóa link quảng cáo Shopee ${link.id}` };
   }
 
   if (command === "/delete") {
     const productId = safeTrim(restText);
     if (!productId) {
-      throw new Error("Usage: /delete <product_id>");
+      throw new Error("Cách dùng: /delete <mã sản phẩm>");
     }
 
     const product = await service.deleteProduct(productId, { actor: context.actor });
-    return { text: `Deleted ${product.id} - ${product.name}` };
+    return { text: `Đã xóa ${product.id} - ${product.name}` };
   }
 
   throw new Error(COPY.help);
@@ -653,6 +694,10 @@ function stripBotMention(text, botUsername) {
 
 function safeTrim(value) {
   return String(value || "").trim();
+}
+
+function normalizeWebhookUrl(value) {
+  return String(value || "").trim().replace(/\/+$/, "");
 }
 
 async function apiCall(token, method, payload) {

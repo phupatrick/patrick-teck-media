@@ -55,7 +55,7 @@ const tests = [
         buildContext()
       );
 
-      assert.match(addReply.text, /Added/);
+      assert.match(addReply.text, /Đã thêm/);
       const products = await service.listProducts({ includeTemporary: true });
       const product = products.find((entry) => entry.name === "GPT Plus");
       assert.equal(product.category_name, "Tep GPT");
@@ -74,7 +74,7 @@ const tests = [
         buildContext()
       );
 
-      assert.match(addReply.text, /Added temporary/);
+      assert.match(addReply.text, /Đã thêm sản phẩm tạm/);
 
       const temporary = (await service.listProducts({ includeTemporary: true })).find((entry) => entry.name === "Gemini Ultra");
       assert.ok(temporary.is_temporary);
@@ -92,7 +92,7 @@ const tests = [
     async run() {
       const searchReply = await executeSellerCommand("/find GPT", buildContext());
 
-      assert.match(searchReply.text, /Search results/i);
+      assert.match(searchReply.text, /Kết quả tìm kiếm/);
       assert.match(searchReply.text, /GPT Plus/);
 
       const category = (await service.listCategories({ includeTemporary: true })).find((entry) => entry.name === "Tep GPT");
@@ -102,7 +102,7 @@ const tests = [
         buildContext()
       );
 
-      assert.match(editReply.text, /Updated/i);
+      assert.match(editReply.text, /Đã cập nhật/);
       const updated = await service.getProductById(existing.id, { language: "en" });
       assert.equal(updated.name, "GPT Pro");
       assert.equal(updated.description, "Shared GPT Pro account");
@@ -116,7 +116,7 @@ const tests = [
         buildContext()
       );
 
-      assert.match(addReply.text, /Saved Shopee ad link/);
+      assert.match(addReply.text, /Đã lưu link quảng cáo Shopee/);
       const links = await service.listAdLinks();
       assert.equal(links.length > 0, true);
       assert.equal(links[0].platform, "shopee");
@@ -126,7 +126,7 @@ const tests = [
       assert.match(listReply.text, /Shopee AI deal/);
 
       const deleteReply = await executeSellerCommand(`/deletead ${links[0].id}`, buildContext());
-      assert.match(deleteReply.text, /Removed Shopee ad link/);
+      assert.match(deleteReply.text, /Đã xóa link quảng cáo Shopee/);
     }
   },
   {
@@ -142,7 +142,7 @@ const tests = [
               actor: "@viewer"
             })
           ),
-        /Chi admin|Only admins|admin/i
+        /quản trị viên/i
       );
 
       const helpReply = await executeSellerCommand(

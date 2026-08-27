@@ -99,6 +99,7 @@ const config = {
   telegramSellerAdminUserIds: (process.env.TELEGRAM_SELLER_ADMIN_USER_IDS || envFromFile.TELEGRAM_SELLER_ADMIN_USER_IDS || process.env.TELEGRAM_SELLER_ALLOWED_USER_IDS || envFromFile.TELEGRAM_SELLER_ALLOWED_USER_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
   telegramWebhookPath: process.env.TELEGRAM_SELLER_WEBHOOK_PATH || envFromFile.TELEGRAM_SELLER_WEBHOOK_PATH || "/api/telegram/seller/webhook",
   telegramWebhookSecret: process.env.TELEGRAM_SELLER_WEBHOOK_SECRET || envFromFile.TELEGRAM_SELLER_WEBHOOK_SECRET || "",
+  telegramSellerAutoWebhook: !isExplicitlyDisabled(process.env.TELEGRAM_SELLER_AUTO_WEBHOOK || envFromFile.TELEGRAM_SELLER_AUTO_WEBHOOK || "1"),
   telegramNewsroomBotToken: process.env.TELEGRAM_NEWSROOM_BOT_TOKEN || envFromFile.TELEGRAM_NEWSROOM_BOT_TOKEN || "",
   telegramNewsroomAllowedChatIds: (process.env.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS || envFromFile.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
   telegramNewsroomAdminUserIds: (process.env.TELEGRAM_NEWSROOM_ADMIN_USER_IDS || envFromFile.TELEGRAM_NEWSROOM_ADMIN_USER_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
@@ -256,7 +257,10 @@ const telegramSellerBot = createTelegramSellerBot({
   adminUserIds: config.telegramSellerAdminUserIds,
   timezone: config.sellerTimezone,
   timezoneOffset: config.sellerTimezoneOffset,
-  pollingTimeoutSeconds: config.telegramBotPollTimeout
+  pollingTimeoutSeconds: config.telegramBotPollTimeout,
+  webhookUrl: buildPublicUrl(config.siteUrl, normalizeWebhookPath(config.telegramWebhookPath)),
+  webhookSecret: config.telegramWebhookSecret,
+  autoRegisterWebhook: config.telegramSellerAutoWebhook
 });
 const openclawControlPlane = createOpenClawControlPlane({
   statePath: config.openclawControlPath,
