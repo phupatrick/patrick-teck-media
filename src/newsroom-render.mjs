@@ -27,6 +27,7 @@ export function renderHomePage(state, language, adsConfig) {
     safeGuideStories,
     briefingStory
   } = buildHomePageStoryGroups(home);
+  const mastheadLatestStories = (home.latest || []).slice(0, 3);
   const latestPrimaryStories = safeLatestStories.slice(0, 3);
   const latestMoreStories = safeLatestStories.slice(3);
   const latestMoreLabel = language === "vi" ? "Xem thêm" : "See more";
@@ -64,7 +65,7 @@ export function renderHomePage(state, language, adsConfig) {
           <p class="eyebrow">${copy.updateLabel}</p>
           <h2>${copy.updateTitle}</h2>
           <div class="masthead-brief-list">
-            ${safeLatestStories.slice(0, 3).map((article) => renderMastheadItem(article, language)).join("")}
+            ${mastheadLatestStories.map((article) => renderMastheadItem(article, language)).join("")}
           </div>
         </aside>
       </section>

@@ -1113,7 +1113,10 @@ const tests = [
     name: "keeps the homepage latest lane focused with a three-story reveal",
     run() {
       for (const [language, label] of [["vi", "Xem thêm"], ["en", "See more"]]) {
-        const homeHtml = renderHomePage(state, language, { client: "", slots: {} });
+      const homeHtml = renderHomePage(state, language, { client: "", slots: {} });
+        const firstLatest = state.home[language].latest[0];
+        const mastheadIndex = homeHtml.indexOf(`href="${firstLatest.href}"`);
+        assert.ok(mastheadIndex >= 0);
         const primaryStart = homeHtml.indexOf('class="story-grid latest-primary-grid"');
         const moreStart = homeHtml.indexOf('class="latest-more"');
         const detailsEnd = homeHtml.indexOf("</details>", moreStart);
