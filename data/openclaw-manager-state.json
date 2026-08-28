@@ -4,11 +4,11 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-28T17:31:08.559Z",
-    "finishedAt": "2026-08-28T17:32:24.539Z",
+    "startedAt": "2026-08-28T17:34:56.596Z",
+    "finishedAt": "2026-08-28T17:36:22.326Z",
     "trigger": {
-      "source": "telegram",
-      "reason": "telegram-up-more:7481176582"
+      "source": "schedule",
+      "reason": "scheduled"
     }
   },
   "newsroom": {
@@ -19,8 +19,8 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom source pool: 142 configured, 120 active this cycle. Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787938268604-0bf49c.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Skipping Anthropic News: Feed Anthropic News returned 404 Skipping SecurityWeek: Feed SecurityWeek returned 403 Skipping Spotify Engineering: Feed Spotify Engineering returned 404 Skipping CNET How To: Feed CNET How To returned 404 Holding normalized article \"How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"8 PC gaming upgrades under $100 that don’t feel cheap\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases",
+      "output": "Newsroom source pool: 142 configured, 120 active this cycle. Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787938496628-5b3073.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "warnings": "Skipping Anthropic News: Feed Anthropic News returned 404 Skipping SecurityWeek: Feed SecurityWeek returned 403 Skipping Spotify Engineering: Feed Spotify Engineering returned 404 Skipping CNET How To: Feed CNET How To returned 404 Holding normalized article \"How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"8 PC gaming upgrades under $100 that don’t feel cheap\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"'AI bí ẩn' Ox Alpha dùng hoàn toàn bằng chip Trung Quốc\" because it failed publish readiness: sourceBreadth, narrativeFlow, paragraphShape, noRepeatedSentences",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
     },
@@ -57,7 +57,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-28T17:32:24.519Z",
+      "reviewedAt": "2026-08-28T17:36:22.314Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
