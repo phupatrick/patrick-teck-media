@@ -213,7 +213,7 @@ const TOPIC_KEYWORD_RULES = [
   {
     topic: "chips-ai-infra",
     score: 60,
-    pattern: /\b(gpu|npu|tpu|bán dẫn|semiconductor|tsmc|h100|blackwell|b200|nvidia|intel gaudi|datacenter|data center|wafer|arm arch|cluster ai|llm server)\b/i
+    pattern: /\b(gpu|npu|tpu|bán dẫn|semiconductor|tsmc|h100|h200|blackwell|b200|nvidia|intel gaudi|amd mi300|datacenter|data center|wafer|arm arch|cluster ai|llm server|asic|dram|hbm3e|hbm4)\b/i
   },
   {
     topic: "gaming",

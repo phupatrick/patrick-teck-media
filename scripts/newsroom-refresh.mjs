@@ -2487,7 +2487,7 @@ function inferTopicFromSignals(feed, title, body) {
   const titleHasBusinessSignal = hasBusinessPlatformSignals(titleHaystack);
   const titleHasCloudSignal = /\b(cloud|serverless|kubernetes|database|data center|enterprise|aws|azure|gcp|devops|saas|workspace admin)\b/i.test(titleHaystack);
   const titleHasSocialSignal = /\b(meta|facebook|instagram|threads|youtube|creator|social|tiktok|shorts|reels|ads manager|moderation)\b/i.test(titleHaystack);
-  const titleHasChipSignal = /\b(chip|chips|gpu|cpu|npu|tpu|bán dẫn|semiconductor|foundry|wafer|datacenter|data center|h100|b200|blackwell|nvidia|intel gaudi|arm arch|cluster ai|llm server)\b/i.test(titleHaystack);
+  const titleHasChipSignal = /\b(chip|chips|gpu|cpu|npu|tpu|bán dẫn|semiconductor|foundry|wafer|datacenter|data center|h100|h200|b200|blackwell|nvidia|intel gaudi|amd mi300|arm arch|cluster ai|llm server|asic|dram|hbm3e|hbm4)\b/i.test(titleHaystack);
 
   if (titleHasChipSignal) {
     return "chips-ai-infra";
@@ -2566,7 +2566,7 @@ function inferTopicFromSignals(feed, title, body) {
     scores.set("devices", (scores.get("devices") || 0) + 18);
   }
 
-  if (/\b(gpu|npu|tpu|bán dẫn|semiconductor|tsmc|h100|blackwell|b200|nvidia|intel gaudi|datacenter|data center|wafer|arm arch|cluster ai|llm server)\b/i.test(rawHaystack)) {
+  if (/\b(gpu|npu|tpu|bán dẫn|semiconductor|tsmc|h100|h200|blackwell|b200|nvidia|intel gaudi|amd mi300|datacenter|data center|wafer|arm arch|cluster ai|llm server|asic|dram|hbm3e|hbm4)\b/i.test(rawHaystack)) {
     scores.set("chips-ai-infra", (scores.get("chips-ai-infra") || 0) + 60);
   }
 

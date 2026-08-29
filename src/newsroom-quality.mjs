@@ -1,6 +1,12 @@
 import { repairEncodingArtifacts } from "./text-repair.mjs";
 import { hasSourceTextContamination } from "./newsroom-source-hygiene.mjs";
 
+const OFFICIAL_HIGH_TRUST_DOMAINS = new Set([
+  "google.com", "blog.google", "microsoft.com", "apple.com", "openai.com",
+  "anthropic.com", "aws.amazon.com", "cloudflare.com", "meta.com", "github.com",
+  "github.blog", "nist.gov", "cisa.gov", "ncsc.gov.uk", "owasp.org", "kernel.org"
+]);
+
 export function evaluateArticleReadiness(article) {
   const title = normalizeText(article?.title);
   const summary = normalizeText(article?.summary);
@@ -130,7 +136,15 @@ function isTrustedSingleSource(article) {
   return (Array.isArray(article?.source_set) ? article.source_set : []).some((source) => {
     const sourceType = String(source?.source_type || "").trim();
     const trustTier = String(source?.trust_tier || "").trim();
+    let hostname = "";
+    try {
+      hostname = new URL(String(source?.source_url || "")).hostname.toLowerCase().replace(/^www\./, "");
+    } catch {
+      hostname = "";
+    }
+    const officialDomain = [...OFFICIAL_HIGH_TRUST_DOMAINS].some((domain) => hostname === domain || hostname.endsWith(`.${domain}`));
     return sourceType === "official-site"
+      || officialDomain
       || (sourceType === "press" && ["official", "established-media"].includes(trustTier));
   });
 }
