@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-owner-brief.json",
-    "startedAt": "2026-08-29T14:48:04.641Z",
-    "finishedAt": "2026-08-29T14:49:24.336Z",
+    "startedAt": "2026-08-29T14:53:08.029Z",
+    "finishedAt": "2026-08-29T14:54:48.850Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -13,13 +13,13 @@
   },
   "newsroom": {
     "contentPath": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\newsroom-content.json",
-    "totalArticles": 198,
-    "articleCountBefore": 198,
+    "totalArticles": 205,
+    "articleCountBefore": 205,
     "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom source pool: 139 configured, 120 active this cycle. Refreshed 3 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\.openclaw-hidden-feed-seed-1788014888215-666873.json Generated OpenClaw hidden feed with 3 article(s) at C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-hidden-feed.json",
+      "output": "Newsroom source pool: 139 configured, 120 active this cycle. Refreshed 6 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\.openclaw-hidden-feed-seed-1788015192563-793955.json Generated OpenClaw hidden feed with 6 article(s) at C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-hidden-feed.json",
       "warnings": "Skipping Better Programming - Medium: fetch failed Skipping HackerNoon.com - Medium: fetch failed Skipping The Airbnb Tech Blog - Medium: fetch failed Skipping programming: fetch failed",
       "path": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-hidden-feed.json",
       "url": ""
@@ -28,9 +28,9 @@
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Refreshed 4 article(s) from external-feed into C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\newsroom-content.json",
+      "output": "Refreshed 15 article(s) from external-feed into C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\newsroom-content.json",
       "warnings": "",
-      "publishedCount": 4,
+      "publishedCount": 15,
       "noNewArticles": false
     },
     "socialSignals": {
@@ -47,7 +47,7 @@
     "learning": {
       "ok": true,
       "path": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-learning-state.json",
-      "output": "OpenClaw learning updated C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-learning-state.json via project-file: 202 signal(s), confidence 0.95.",
+      "output": "OpenClaw learning updated C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-learning-state.json via project-file: 209 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
@@ -62,7 +62,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-29T14:49:24.304Z",
+      "reviewedAt": "2026-08-29T14:54:48.762Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,

@@ -84,26 +84,34 @@ export function buildEditorialCompanionArticles(articles, now = new Date().toISO
 
 function rebalanceCompanionImages(articles) {
   const usedSrcs = new Set();
-
-  return articles
+  const entries = articles
     .filter(Boolean)
-    .map((article) => {
-      const replacement = pickDistinctCompanionImage(article, usedSrcs);
+    .map((article, index) => ({
+      article,
+      index,
+      candidates: collectCompanionImageCandidates(article)
+    }))
+    // Assign constrained stories first so a broad story cannot consume the
+    // only suitable image available to a later companion.
+    .sort((left, right) => left.candidates.length - right.candidates.length || left.index - right.index);
 
-      if (!replacement) {
-        return article;
-      }
+  const assigned = entries.map(({ article, candidates }) => {
+    const replacement = pickDistinctCompanionImage(article, usedSrcs, candidates);
 
-      usedSrcs.add(replacement.src);
-      return {
-        ...article,
-        image: replacement
-      };
-    });
+    if (!replacement) {
+      return { article, result: article };
+    }
+
+    usedSrcs.add(replacement.src);
+    return { article, result: { ...article, image: replacement } };
+  });
+
+  return entries
+    .sort((left, right) => left.index - right.index)
+    .map(({ article }) => assigned.find((entry) => entry.article === article)?.result || article);
 }
 
-function pickDistinctCompanionImage(article, usedSrcs) {
-  const candidates = collectCompanionImageCandidates(article);
+function pickDistinctCompanionImage(article, usedSrcs, candidates = collectCompanionImageCandidates(article)) {
 
   if (!candidates.length) {
     return null;

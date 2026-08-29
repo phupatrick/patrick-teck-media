@@ -1,13 +1,21 @@
 export function repairEncodingArtifacts(value) {
-  const input = String(value || "");
-  const suspiciousPattern = /(?:\u00e2(?:\u20ac|[\u0080-\u00bf]))|(?:[\u00c2-\u00c6][\u0080-\u00ff])|(?:\u00e1[\u00ba\u00bb])/;
+  let current = String(value || "");
 
-  if (!input || !suspiciousPattern.test(input)) {
-    return input;
+  for (let attempt = 0; attempt < 3 && hasEncodingArtifacts(current); attempt += 1) {
+    const repaired = decodeWindows1252Mojibake(current);
+
+    if (repaired === current || scoreEncodingQuality(repaired) >= scoreEncodingQuality(current)) {
+      break;
+    }
+
+    current = repaired;
   }
 
-  const repaired = decodeWindows1252Mojibake(input);
-  return scoreEncodingQuality(repaired) < scoreEncodingQuality(input) ? repaired : input;
+  return current;
+}
+
+function hasEncodingArtifacts(value) {
+  return /(?:\u00e2(?:\u20ac|[\u0080-\u00bf]))|(?:[\u00c2-\u00c6][\u0080-\u00ff])|(?:\u00e1[\u00ba\u00bb])|Ă¯Â¿Â½/.test(String(value || ""));
 }
 
 function scoreEncodingQuality(value) {
