@@ -6,7 +6,7 @@ import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { buildNewsroomState } from "../src/newsroom-service.mjs";
 import { cleanSourceText, isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
-import { getPendingArticleKey, isSingleSourceArticle, preparePendingArticles, readPendingQueue, writePendingQueue } from "../src/newsroom-pending-queue.mjs";
+import { applySingleSourcePublicationPolicy, getPendingArticleKey, isSingleSourceArticle, preparePendingArticles, readPendingQueue, writePendingQueue } from "../src/newsroom-pending-queue.mjs";
 import {
   evaluateArticleAutopublishReadiness,
   evaluateArticleReadiness,
@@ -1052,13 +1052,8 @@ const SOURCE_TOPIC_HINTS = [
   }
 
   const pendingItems = preparePendingArticles(readPendingQueue(pendingPath), now);
-  const pendingArticles = pendingItems.map((item) => ({
-    ...item.article,
-    ...(item.allowed_single_source
-      ? { single_source_exception: true, is_single_source: true, show_editorial_label: true }
-      : {})
-  }));
-  const queuedCandidates = [...pendingArticles, ...incomingArticles];
+  const pendingArticles = pendingItems.map((item) => applySingleSourcePublicationPolicy(item.article, item.expired));
+  const queuedCandidates = [...pendingArticles, ...incomingArticles.map((article) => applySingleSourcePublicationPolicy(article))];
 
   if (queuedCandidates.length === 0) {
     return {

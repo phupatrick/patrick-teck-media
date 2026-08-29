@@ -27,7 +27,8 @@ import { evaluateArticleAutopublishReadiness } from "../src/newsroom-quality.mjs
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
 import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
 import { selectNewerSnapshot } from "../src/document-store.mjs";
-import { PENDING_TTL_MS, getPendingArticleKey, hasTrustedSource, preparePendingArticles } from "../src/newsroom-pending-queue.mjs";
+import { PENDING_TTL_MS, applySingleSourcePublicationPolicy, getPendingArticleKey, getSourceQualityTier, hasTrustedSource, preparePendingArticles } from "../src/newsroom-pending-queue.mjs";
+import { isUsefulSocialSignal, normalizeSocialSignal } from "../src/openclaw-social-connectors.mjs";
 
 assert.equal(
   selectNewerSnapshot(
@@ -65,17 +66,24 @@ assert.deepEqual(
         source_set: [{ source_type: "community", trust_tier: "community", source_url: "https://example.com/community" }]
       }
     }
-  ], "2026-08-28T22:30:00.000Z");
-  assert.equal(PENDING_TTL_MS, 180 * 60 * 1000);
+  ], "2026-08-28T20:30:00.000Z");
+  assert.equal(PENDING_TTL_MS, 60 * 60 * 1000);
   assert.equal(pending[0].expired, false);
-  assert.equal(pending[0].allowed_single_source, false);
+  assert.equal(pending[0].allowed_single_source, true);
   assert.equal(hasTrustedSource(pending[0].article), true);
-  const expired = preparePendingArticles(pending, "2026-08-29T00:01:00.000Z");
+  const expired = preparePendingArticles(pending, "2026-08-28T21:01:00.000Z");
   assert.equal(expired[0].expired, true);
   assert.equal(expired[0].allowed_single_source, true);
   assert.equal(expired[1].allowed_single_source, false);
   assert.equal(getPendingArticleKey({ source_set: [{ source_url: "https://example.com/story#fragment" }] }), "https://example.com/story");
+  assert.equal(getSourceQualityTier(pending[0].article), 1);
+  assert.equal(applySingleSourcePublicationPolicy(pending[0].article).single_source_exception, true);
+  assert.equal(applySingleSourcePublicationPolicy(pending[1].article).single_source_exception, undefined);
 }
+
+assert.equal(isUsefulSocialSignal("A".repeat(80)), false);
+assert.equal(isUsefulSocialSignal("OpenAI announced a benchmark update with new release details and practical feature notes for developers."), true);
+assert.equal(normalizeSocialSignal({ title: "A release update", summary: "The project announced a benchmark release with concrete feature details for developers and operators.", url: "https://example.com/release" })?.discovery_only, true);
 
 const state = createState();
 {

@@ -33,6 +33,7 @@ const config = {
 
 const startedAt = new Date().toISOString();
 const articleCountBefore = getArticleCount(config.contentPath);
+const socialSignals = runSocialSignalCycle();
 const feedSource = ensureHiddenFeedSource();
 const refresh = runRefreshCycle(feedSource.refreshSource);
 const auditRepair = config.auditRepair ? runAuditRepairCycle() : { ok: true, skipped: true, output: "Audit repair was not requested.", warnings: "" };
@@ -53,6 +54,7 @@ const managerSnapshot = buildManagerSnapshot({
   startedAt,
   finishedAt: new Date().toISOString(),
   feedSource,
+  socialSignals,
   refresh,
   auditRepair,
   learning,
@@ -297,7 +299,7 @@ function runAuditRepairCycle() {
   };
 }
 
-function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, auditRepair, learning, webControl, ownerBrief, submissionReview, contentPath, platformStatePath, webStatePath, articleCountBefore = 0 }) {
+function buildManagerSnapshot({ startedAt, finishedAt, feedSource, socialSignals, refresh, auditRepair, learning, webControl, ownerBrief, submissionReview, contentPath, platformStatePath, webStatePath, articleCountBefore = 0 }) {
   const payload = readJson(contentPath);
   const articles = Array.isArray(payload?.articles) ? payload.articles : [];
 
@@ -329,6 +331,7 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, audi
         publishedCount: extractRefreshCount(refresh.output),
         noNewArticles: extractRefreshCount(refresh.output) === 0
       },
+      socialSignals,
       auditRepair,
       learning,
       webControl
@@ -350,6 +353,12 @@ function buildManagerSnapshot({ startedAt, finishedAt, feedSource, refresh, audi
       }
     }
   };
+}
+
+function runSocialSignalCycle() {
+  const scriptPath = path.resolve(rootDir, "scripts/openclaw-social-signals.mjs");
+  const result = spawnSync(process.execPath, [scriptPath], { cwd: rootDir, env: process.env, encoding: "utf8", timeout: Math.min(config.childTimeoutMs, 90_000) });
+  return { ok: result.status === 0, output: compactText(result.stdout), warnings: compactText(result.stderr) };
 }
 
 function extractRefreshCount(value) {

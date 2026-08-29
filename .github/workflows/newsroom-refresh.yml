@@ -98,6 +98,7 @@ jobs:
           PLATFORM_STATE_PATH: data/platform-state.json
           OPENCLAW_MANAGER_STATE_PATH: data/openclaw-manager-state.json
           OPENCLAW_PENDING_QUEUE_PATH: data/openclaw-pending-clusters.json
+          OPENCLAW_SOCIAL_SIGNALS_PATH: data/openclaw-social-signals.json
         run: node scripts/openclaw-manager.mjs
 
       - name: Sync generated data to cloud storage

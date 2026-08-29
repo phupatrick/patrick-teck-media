@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export const PENDING_TTL_MS = 180 * 60 * 1000;
+export const PENDING_TTL_MS = 60 * 60 * 1000;
 
 export function readPendingQueue(filePath) {
   try {
@@ -30,7 +30,7 @@ export function preparePendingArticles(items, now = new Date().toISOString()) {
       first_seen_at: firstSeenAt,
       age_ms: ageMs,
       expired,
-      allowed_single_source: expired && hasTrustedSource(item.article)
+      allowed_single_source: canPublishSingleSource(item.article, expired)
     };
   });
 }
@@ -51,4 +51,22 @@ export function hasTrustedSource(article) {
     source?.source_type === "official-site"
     || (source?.source_type === "press" && ["official", "established-media"].includes(source?.trust_tier))
   );
+}
+
+export function getSourceQualityTier(article) {
+  const sources = Array.isArray(article?.source_set) ? article.source_set : [];
+  if (sources.some((source) => source?.source_type === "official-site" || (source?.source_type === "official-social" && source?.trust_tier === "official"))) return 1;
+  if (sources.some((source) => source?.source_type === "press" && ["official", "established-media"].includes(source?.trust_tier))) return 2;
+  return 3;
+}
+
+export function canPublishSingleSource(article, expired = false) {
+  const tier = getSourceQualityTier(article);
+  return tier === 1 || (tier === 2 && expired);
+}
+
+export function applySingleSourcePublicationPolicy(article, expired = false) {
+  if (!isSingleSourceArticle(article) || !canPublishSingleSource(article, expired)) return article;
+  const tier = getSourceQualityTier(article);
+  return { ...article, single_source_exception: true, is_single_source: true, show_editorial_label: true, editorial_label: tier === 1 ? "Xác thực chính thức" : "Tin nhanh xác thực" };
 }
