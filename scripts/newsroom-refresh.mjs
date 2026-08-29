@@ -125,6 +125,10 @@ export function normalizeSourceFeed(feed) {
   const name = cleanText(feed.name || "");
   const trustTier = cleanText(feed.trustTier || "");
   const sourceType = cleanText(feed.sourceType || "");
+  const disabledSource = /^(securityweek|spotify engineering|cnet how to)$/i.test(name);
+  if (feed.active === false || disabledSource) {
+    return null;
+  }
   if (!url || !/^https?:$/.test(new URL(url).protocol) || !name) {
     return null;
   }
@@ -548,17 +552,6 @@ const fallbackFeeds = [
     sourceType: "press",
     trustTier: "established-media",
     topicHint: "internet-business-tech",
-    limit: 6
-  },
-  {
-    name: "CNET How To",
-    url: "https://www.cnet.com/rss/how-to/",
-    language: "en",
-    region: "Global",
-    sourceType: "press",
-    trustTier: "established-media",
-    topicHint: "apps-software",
-    contentTypeHint: "EvergreenGuide",
     limit: 6
   },
   {
@@ -1068,7 +1061,7 @@ const SOURCE_TOPIC_HINTS = [
     now,
     outputPath,
     siteUrl: env.SITE_URL || "https://patricktechmedia.com",
-    storeUrl: env.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+    storeUrl: env.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store",
     strictQualityGate: isStrictAutopublishQualityGateEnabled(env)
   });
 
@@ -1321,20 +1314,34 @@ function forceArticleValueFloor(article, now) {
 function buildEditorialValueLines({ article, language }) {
   const title = cleanText(article?.title);
   const sourceName = cleanText(article?.source_set?.[0]?.source_name || article?.draft_context?.source_name || "");
-  const sourcePhrase = sourceName
-    ? (language === "en" ? `The source signal from ${sourceName}` : `Tín hiệu từ ${sourceName}`)
-    : (language === "en" ? "The source signal" : "Tín hiệu nguồn");
+  const openerIndex = [...title].reduce((sum, character) => sum + character.charCodeAt(0), 0) % 5;
+  const openers = language === "en"
+    ? [
+        "The confirmed detail here",
+        "The most useful starting point",
+        "What deserves attention first",
+        "The evidence currently available",
+        "The practical story begins"
+      ]
+    : [
+        "Chi tiết đã được xác nhận",
+        "Điểm nên bắt đầu đọc",
+        "Điều đáng chú ý trước tiên",
+        "Lớp bằng chứng hiện có",
+        "Câu chuyện thực tế bắt đầu"
+      ];
+  const sourcePhrase = openers[openerIndex];
 
   return language === "en"
     ? [
-        `${sourcePhrase} should be placed in context first: the timing, the confirmed detail, and the reason it belongs in today's technology queue.`,
+        `${sourcePhrase} should be read in the context of ${sourceName || "this story"}: when it appeared, what is confirmed, and why readers should care.`,
         `The practical impact sits in workflow, cost, risk, or a buying decision; ${title || "this update"} should be explained through that lens before any broad claim is made.`,
         "The next question is whether the signal becomes a durable rollout, a pricing move, a product limitation, or a short update that fades after the news cycle.",
         "For readers, the useful frame is evidence, affected users, remaining risk, and the next point worth checking before acting.",
         "A stronger article separates the source fact, the reader impact, and the follow-up question so the piece does not feel like a loose link summary."
       ]
     : [
-        `${sourcePhrase} cần được đặt vào bối cảnh trước: thời điểm xuất hiện, chi tiết đã có cơ sở và lý do nó đáng nằm trong dòng tin công nghệ hôm nay.`,
+        `${sourcePhrase} cần được đặt trong bối cảnh của ${sourceName || "câu chuyện này"}: thời điểm xuất hiện, dữ kiện chắc chắn và lý do người đọc nên quan tâm.`,
         `Tác động thực tế nằm ở workflow, chi phí, rủi ro hoặc quyết định mua/dùng; ${title || "cập nhật này"} nên được giải thích qua lăng kính đó trước khi kết luận rộng hơn.`,
         "Câu hỏi tiếp theo là tín hiệu này có thành rollout bền vững, thay đổi giá trị sản phẩm, giới hạn đáng chú ý hay chỉ là một nhịp cập nhật ngắn.",
         "Với người đọc, khung hữu ích gồm bằng chứng hiện có, nhóm bị ảnh hưởng, rủi ro còn lại và điểm nên kiểm tra trước khi hành động.",
@@ -2480,7 +2487,11 @@ function inferTopicFromSignals(feed, title, body) {
   const titleHasBusinessSignal = hasBusinessPlatformSignals(titleHaystack);
   const titleHasCloudSignal = /\b(cloud|serverless|kubernetes|database|data center|enterprise|aws|azure|gcp|devops|saas|workspace admin)\b/i.test(titleHaystack);
   const titleHasSocialSignal = /\b(meta|facebook|instagram|threads|youtube|creator|social|tiktok|shorts|reels|ads manager|moderation)\b/i.test(titleHaystack);
-  const titleHasChipSignal = /\b(chip|chips|gpu|cpu|npu|semiconductor|foundry|wafer|datacenter gpu|snapdragon|xeon|ryzen|instinct|blackwell)\b/i.test(titleHaystack);
+  const titleHasChipSignal = /\b(chip|chips|gpu|cpu|npu|tpu|bán dẫn|semiconductor|foundry|wafer|datacenter|data center|h100|b200|blackwell|nvidia|intel gaudi|arm arch|cluster ai|llm server)\b/i.test(titleHaystack);
+
+  if (titleHasChipSignal) {
+    return "chips-ai-infra";
+  }
 
   if ((titleHasStrongAiSignal || titleHasGenericAiSignal) && titleHasAiPackageSignal) {
     return "ai";
@@ -2513,7 +2524,7 @@ function inferTopicFromSignals(feed, title, body) {
     return "internet-business-tech";
   }
 
-  if (/\b(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiết bị|điện thoại|logitech|sony|asus|intel|amd|qualcomm|nvidia)\b/i.test(titleHaystack)
+  if (/\b(iphone|android|pixel|galaxy|laptop|macbook|ipad|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiết bị|điện thoại|logitech|sony|asus|intel|amd|qualcomm)\b/i.test(titleHaystack)
     && !titleHasStrongAiSignal
     && !titleHasAiPackageSignal) {
     return "devices";
@@ -2551,8 +2562,12 @@ function inferTopicFromSignals(feed, title, body) {
     scores.set("security", (scores.get("security") || 0) + 22);
   }
 
-  if (/(iphone|android|pixel|galaxy|laptop|macbook|ipad|chip|gpu|cpu|npu|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiết bị|điện thoại)/i.test(rawHaystack)) {
+  if (/(iphone|android|pixel|galaxy|laptop|macbook|ipad|ram|memory|ssd|pc|desktop|device|tablet|camera|robot|hardware|thiết bị|điện thoại)/i.test(rawHaystack)) {
     scores.set("devices", (scores.get("devices") || 0) + 18);
+  }
+
+  if (/\b(gpu|npu|tpu|bán dẫn|semiconductor|tsmc|h100|blackwell|b200|nvidia|intel gaudi|datacenter|data center|wafer|arm arch|cluster ai|llm server)\b/i.test(rawHaystack)) {
+    scores.set("chips-ai-infra", (scores.get("chips-ai-infra") || 0) + 60);
   }
 
   if (hasGamingSignals(rawHaystack)) {

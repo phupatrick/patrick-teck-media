@@ -104,7 +104,9 @@ export function evaluateArticleAutopublishReadiness(article) {
     // feed's paraphrase. Official-only breaking notices can opt out explicitly.
     sourceBreadth:
       sourceCount >= 2
-      || article?.single_source_exception === true,
+      || article?.single_source_exception === true
+      || (sourceCount >= 1 && isTrustedSingleSource(article)
+        && ["emerging", "verified"].includes(String(article?.verification_state || "").trim())),
     sourceNameBalance: hasSourceNameBalance(article, allCopy),
     specificInformation: hasSpecificInformationDensity({ allCopy, sourceCount, isHighScrutinyArticle })
   };
@@ -122,6 +124,15 @@ export function evaluateArticleAutopublishReadiness(article) {
 
 export function isArticleAutopublishReady(article) {
   return evaluateArticleAutopublishReadiness(article).ready;
+}
+
+function isTrustedSingleSource(article) {
+  return (Array.isArray(article?.source_set) ? article.source_set : []).some((source) => {
+    const sourceType = String(source?.source_type || "").trim();
+    const trustTier = String(source?.trust_tier || "").trim();
+    return sourceType === "official-site"
+      || (sourceType === "press" && ["official", "established-media"].includes(trustTier));
+  });
 }
 
 // Official announcements and established technology reporting can be timely

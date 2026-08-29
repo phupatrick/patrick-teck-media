@@ -65,7 +65,7 @@ export function createTelegramSellerBot(options = {}) {
   const pollingTimeoutSeconds = Math.max(1, Number(options.pollingTimeoutSeconds || 20));
   const allowedChatIds = new Set(normalizeIdList(options.allowedChatIds || []));
   const adminUserIds = new Set(normalizeIdList(options.adminUserIds || options.allowedUserIds || []));
-  const timezone = String(options.timezone || "Asia/Saigon").trim() || "Asia/Saigon";
+  const timezone = String(options.timezone || "Asia/Ho_Chi_Minh").trim() || "Asia/Ho_Chi_Minh";
   const timezoneOffset = String(options.timezoneOffset || service.timezoneOffset || "+07:00").trim() || "+07:00";
   const webhookUrl = normalizeWebhookUrl(options.webhookUrl || "");
   const webhookSecret = String(options.webhookSecret || "").trim();
@@ -486,7 +486,7 @@ export async function executeSellerCommand(text, context = {}) {
 
     return buildSearchResultPayload(
       await service.searchProducts(restText, { includeTemporary: true, language: LANGUAGE }),
-      context.timezone || "Asia/Saigon"
+      context.timezone || "Asia/Ho_Chi_Minh"
     );
   }
 

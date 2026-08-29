@@ -28,7 +28,7 @@ npm start
 ```env
 PORT=3000
 SITE_URL=https://patricktechmedia.com
-PATRICK_TECH_STORE_URL=https://patricktechstore.vercel.app
+PATRICK_TECH_STORE_URL=https://patricktechmedia.store
 NEWSROOM_CONTENT_PATH=data/newsroom-content.json
 OPENCLAW_WEB_STATE_PATH=data/openclaw-web-state.json
 PLATFORM_STATE_PATH=data/platform-state.json
@@ -334,7 +334,7 @@ Delete it if you need to rotate tokens:
 npm run telegram:newsroom:webhook:delete
 ```
 
-The Vercel cron route `/api/openclaw/cron` is enabled in `vercel.json` with schedule `0 18 * * *`, which is 01:00 Asia/Saigon. It dispatches the GitHub workflow as a daily fallback. The GitHub Actions workflow remains the high-frequency automation path at `*/15 * * * *`, while Vercel keeps the Telegram command webhook online.
+The Vercel cron route `/api/openclaw/cron` is enabled in `vercel.json` with schedule `0 18 * * *`, which is 01:00 Asia/Ho_Chi_Minh. It dispatches the GitHub workflow as a daily fallback. The GitHub Actions workflow remains the high-frequency automation path at `*/15 * * * *`, while Vercel keeps the Telegram command webhook online.
 
 ### Configure
 
@@ -342,7 +342,7 @@ Add these values to `.env`:
 
 ```env
 SELLER_CATALOG_PATH=data/seller-catalog.json
-SELLER_TIMEZONE=Asia/Saigon
+SELLER_TIMEZONE=Asia/Ho_Chi_Minh
 SELLER_TIMEZONE_OFFSET=+07:00
 SELLER_TRANSLATION_MODE=fallback
 SELLER_TRANSLATION_ENDPOINT=

@@ -236,7 +236,7 @@ function runWebControlCycle() {
     env: {
       ...process.env,
       SITE_URL: config.siteUrl,
-      PATRICK_TECH_STORE_URL: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+      PATRICK_TECH_STORE_URL: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store",
       NEWSROOM_CONTENT_PATH: config.contentPath,
       OPENCLAW_WEB_STATE_PATH: config.webStatePath,
       OPENCLAW_LEARNING_STATE_PATH: config.learningStatePath,
@@ -273,7 +273,7 @@ function runAuditRepairCycle() {
     env: {
       ...process.env,
       SITE_URL: config.siteUrl,
-      PATRICK_TECH_STORE_URL: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+      PATRICK_TECH_STORE_URL: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store",
       NEWSROOM_CONTENT_PATH: config.contentPath
     },
     encoding: "utf8"

@@ -738,7 +738,7 @@ export function buildProductCardLine(product, options = {}) {
   ];
 
   if (product.is_temporary && product.temporary_until) {
-    parts.push(`den ${formatDate(product.temporary_until, options.timezone || "Asia/Saigon")}`);
+    parts.push(`den ${formatDate(product.temporary_until, options.timezone || "Asia/Ho_Chi_Minh")}`);
   }
 
   return parts.join(" | ");
@@ -755,7 +755,7 @@ export function buildProductDetailText(product, options = {}) {
   ];
 
   if (product.is_temporary && product.temporary_until) {
-    lines.push(`${labels.until}: ${formatDate(product.temporary_until, options.timezone || "Asia/Saigon")}`);
+    lines.push(`${labels.until}: ${formatDate(product.temporary_until, options.timezone || "Asia/Ho_Chi_Minh")}`);
   }
 
   if (product.description) {

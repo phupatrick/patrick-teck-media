@@ -25,12 +25,12 @@ const DATE_FORMATTERS = {
   vi: new Intl.DateTimeFormat("vi-VN", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "Asia/Saigon"
+    timeZone: "Asia/Ho_Chi_Minh"
   }),
   en: new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "Asia/Saigon"
+    timeZone: "Asia/Ho_Chi_Minh"
   })
 };
 
@@ -38,12 +38,12 @@ const TIME_ONLY_FORMATTERS = {
   vi: new Intl.DateTimeFormat("vi-VN", {
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "Asia/Saigon"
+    timeZone: "Asia/Ho_Chi_Minh"
   }),
   en: new Intl.DateTimeFormat("en-US", {
     hour: "numeric",
     minute: "2-digit",
-    timeZone: "Asia/Saigon"
+    timeZone: "Asia/Ho_Chi_Minh"
   })
 };
 
@@ -211,6 +211,11 @@ const TOPIC_TIE_BREAK = ["ai", "security", "internet-business-tech", "apps-softw
 
 const TOPIC_KEYWORD_RULES = [
   {
+    topic: "chips-ai-infra",
+    score: 60,
+    pattern: /\b(gpu|npu|tpu|bán dẫn|semiconductor|tsmc|h100|blackwell|b200|nvidia|intel gaudi|datacenter|data center|wafer|arm arch|cluster ai|llm server)\b/i
+  },
+  {
     topic: "gaming",
     score: 24,
     pattern: /\b(game|gaming|gta|nintendo|switch ?2|playstation|xbox|pubg|rockstar|the last of us|crimson desert|everness|krafton|dlss)\b/i
@@ -228,7 +233,7 @@ const TOPIC_KEYWORD_RULES = [
   {
     topic: "devices",
     score: 22,
-    pattern: /\b(device|devices|phone|smartphone|android|iphone|pixel|laptop|macbook|ipad|chip|cpu|gpu|ram|memory|ssd|pc|desktop|headphones|tablet|router|fiber|hardware|wearable|refurbished)\b/i
+    pattern: /\b(device|devices|phone|smartphone|android|iphone|pixel|laptop|macbook|ipad|ram|memory|ssd|pc|desktop|headphones|tablet|router|fiber|hardware|wearable|refurbished)\b/i
   },
   {
     topic: "apps-software",
@@ -286,7 +291,7 @@ const FRONT_PAGE_SOURCE_WEIGHTS = {
 
 export function buildNewsroomState(options = {}) {
   const siteUrl = normalizeSiteUrl(options.siteUrl || "https://patricktechmedia.com");
-  const storeUrl = normalizeSiteUrl(options.storeUrl || "https://patricktechstore.vercel.app");
+  const storeUrl = normalizeSiteUrl(options.storeUrl || "https://patricktechmedia.store");
   const now = new Date(options.now || new Date().toISOString());
   const topics = getTopics();
   const contentTypeMeta = getContentTypeMeta();

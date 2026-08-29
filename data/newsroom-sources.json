@@ -36,7 +36,6 @@
     {"name":"NCSC UK Reports","url":"https://www.ncsc.gov.uk/api/1/services/v1/report-rss-feed.xml","language":"en","region":"UK","sourceType":"official-site","trustTier":"official","topicHint":"security","limit":8},
     {"name":"KrebsOnSecurity","url":"https://krebsonsecurity.com/feed/","language":"en","region":"Global","sourceType":"press","trustTier":"specialist","topicHint":"security","limit":8},
     {"name":"Dark Reading","url":"https://www.darkreading.com/rss.xml","language":"en","region":"Global","sourceType":"press","trustTier":"specialist","topicHint":"security","limit":8},
-    {"name":"SecurityWeek","url":"https://www.securityweek.com/feed/","language":"en","region":"Global","sourceType":"press","trustTier":"specialist","topicHint":"security","limit":8},
     {"name":"IEEE Spectrum","url":"https://spectrum.ieee.org/feeds/feed.rss","language":"en","region":"Global","sourceType":"press","trustTier":"established-media","topicHint":"chips-ai-infra","limit":8},
     {"name":"MIT Technology Review","url":"https://www.technologyreview.com/feed/","language":"en","region":"Global","sourceType":"press","trustTier":"established-media","topicHint":"ai","limit":8},
     {"name":"The Register","url":"https://www.theregister.com/headlines.atom","language":"en","region":"Global","sourceType":"press","trustTier":"established-media","topicHint":"internet-business-tech","limit":8},

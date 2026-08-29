@@ -35,7 +35,7 @@ function buildContext(overrides = {}) {
     userId: "7481176582",
     adminUserIds: new Set(["7481176582"]),
     timezoneOffset: "+07:00",
-    timezone: "Asia/Saigon",
+    timezone: "Asia/Ho_Chi_Minh",
     ...overrides
   };
 }

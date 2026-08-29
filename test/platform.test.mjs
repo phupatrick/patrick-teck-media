@@ -87,7 +87,7 @@ const tests = [
 
       const state = buildNewsroomState({
         siteUrl: "https://patricktechmedia.vercel.app",
-        storeUrl: "https://patricktechstore.vercel.app",
+        storeUrl: "https://patricktechmedia.store",
         injectedArticles: await service.listPublishedArticles(),
         webControl: {}
       });
@@ -345,7 +345,7 @@ const tests = [
     run() {
       const newsroom = buildNewsroomState({
         siteUrl: "https://patricktechmedia.vercel.app",
-        storeUrl: "https://patricktechstore.vercel.app",
+        storeUrl: "https://patricktechmedia.store",
         webControl: {}
       });
       const defaultHtml = renderAuthPage(newsroom, "vi", { notice: "", activeTab: "login" });

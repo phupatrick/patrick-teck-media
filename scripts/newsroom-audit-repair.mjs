@@ -46,7 +46,7 @@ const persistedArticleFields = [
 export function repairNewsroomAudit({
   targetPath = contentPath,
   siteUrl = process.env.SITE_URL || "https://patricktechmedia.com",
-  storeUrl = process.env.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+  storeUrl = process.env.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store",
   now = new Date().toISOString(),
   strictContentHygiene = /^(1|true|yes|on)$/i.test(String(process.env.NEWSROOM_AUDIT_STRICT || ""))
 } = {}) {

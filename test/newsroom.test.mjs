@@ -123,14 +123,14 @@ const tests = [
     }
   },
   {
-    name: "does not autopublish a single-source bot article without an explicit exception",
+    name: "autopublishes a trusted single-source article when verified",
     async run() {
       const article = makeScenarioArticle({
         source_set: [{ source_type: "official-site", source_name: "One Official Source", source_url: "https://example.com/one-source" }]
       });
       const readiness = evaluateArticleAutopublishReadiness(article);
-      assert.equal(readiness.checks.sourceBreadth, false);
-      assert.ok(readiness.missing.includes("sourceBreadth"));
+      assert.equal(readiness.checks.sourceBreadth, true);
+      assert.equal(readiness.missing.includes("sourceBreadth"), false);
     }
   },
   {
@@ -290,7 +290,7 @@ const tests = [
 
       assert.match(response.text, /Chế độ tự động/);
       assert.match(response.text, /15 phút/);
-      assert.match(response.text, /01:00 Asia\/Saigon/);
+      assert.match(response.text, /01:00 Asia\/Ho_Chi_Minh/);
       assert.match(response.text, /có quyền \/refresh/);
     }
   },
@@ -1224,7 +1224,7 @@ const tests = [
       assert.equal((homeHtml.match(/store-promo-slot/g) || []).length, 2);
       assert.match(homeHtml, /https:\/\/patricktechmedia\.store\/\?utm_source=patricktechmedia&amp;utm_medium=newsroom_banner/);
       assert.match(storeHtml, /Patrick Tech Store/);
-      assert.match(storeHtml, /patricktechstore\.vercel\.app\/\?ref=patricktechmedia&entry=/);
+      assert.match(storeHtml, /patricktechmedia\.store\/\?ref=patricktechmedia&entry=/);
     }
   },
   {
@@ -2034,7 +2034,7 @@ const tests = [
         });
       const controlled = buildNewsroomState({
         siteUrl: "https://patricktechmedia.com",
-        storeUrl: "https://patricktechstore.vercel.app",
+        storeUrl: "https://patricktechmedia.store",
         externalArticles: [gamingArticle, aiArticle],
         webControl: {
           frontpageCopy: {
@@ -2329,7 +2329,7 @@ const tests = [
 
       const fileState = buildNewsroomState({
         siteUrl: "https://patricktechmedia.com",
-        storeUrl: "https://patricktechstore.vercel.app",
+        storeUrl: "https://patricktechmedia.store",
         contentPath,
         webControl: {}
       });
@@ -2396,7 +2396,7 @@ const tests = [
 
       const fileState = buildNewsroomState({
         siteUrl: "https://patricktechmedia.com",
-        storeUrl: "https://patricktechstore.vercel.app",
+        storeUrl: "https://patricktechmedia.store",
         contentPath,
         webControl: {}
       });
@@ -2432,7 +2432,7 @@ const tests = [
 
       const fileState = buildNewsroomState({
         siteUrl: "https://patricktechmedia.com",
-        storeUrl: "https://patricktechstore.vercel.app",
+        storeUrl: "https://patricktechmedia.store",
         contentPath,
         webControl: {}
       });
@@ -2461,6 +2461,8 @@ const tests = [
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-refresh-file-"));
       const sourcePath = path.join(tempDir, "hidden-feed.json");
       const outputPath = path.join(tempDir, "newsroom-content.json");
+      const pendingPath = path.join(tempDir, "pending.json");
+      fs.writeFileSync(pendingPath, JSON.stringify({ generated_at: "2026-08-28T00:00:00.000Z", items: [] }), "utf8");
       const article = makeScenarioArticle({
         language: "vi",
         content_type: "NewsArticle",
@@ -2513,7 +2515,8 @@ const tests = [
           OPENCLAW_NEWSROOM_URL: "",
           NEWSROOM_PULL_FILE: sourcePath,
           OPENCLAW_NEWSROOM_FILE: "",
-          NEWSROOM_CONTENT_PATH: outputPath
+          NEWSROOM_CONTENT_PATH: outputPath,
+          OPENCLAW_PENDING_QUEUE_PATH: pendingPath
         },
         () => runNewsroomRefresh(process.env)
       );
@@ -2723,7 +2726,7 @@ if (failed > 0) {
 function createState() {
   const newsroom = buildNewsroomState({
     siteUrl: "https://patricktechmedia.com",
-    storeUrl: "https://patricktechstore.vercel.app",
+    storeUrl: "https://patricktechmedia.store",
     now: "2026-05-26T20:00:00.000+07:00",
     webControl: {}
   });
@@ -2741,7 +2744,7 @@ function buildScenarioState(injectedArticles, options = {}) {
 
   const newsroom = buildNewsroomState({
     siteUrl: "https://patricktechmedia.com",
-    storeUrl: "https://patricktechstore.vercel.app",
+    storeUrl: "https://patricktechmedia.store",
     contentPath,
     injectedArticles,
     now: options.now,

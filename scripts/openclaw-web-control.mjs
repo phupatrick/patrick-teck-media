@@ -6,7 +6,7 @@ import { loadNewsroomState } from "../src/newsroom-service.mjs";
 const rootDir = process.cwd();
 const config = {
   siteUrl: process.env.SITE_URL || "https://patricktechmedia.com",
-  storeUrl: process.env.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+  storeUrl: process.env.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store",
   databaseUrl: process.env.DATABASE_URL || "",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
   webStatePath: process.env.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json",

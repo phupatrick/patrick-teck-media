@@ -600,7 +600,7 @@ async function buildAutomationText(context) {
     "Telegram webhook: Vercel nhận lệnh 24/24 theo kiểu không cần mở máy.",
     `Webhook tự động: ${webhookText}`,
     "Làm mới tòa soạn: GitHub Actions chạy mỗi 15 phút.",
-    "Lịch dự phòng Vercel: gọi /api/openclaw/cron mỗi ngày lúc 01:00 Asia/Saigon.",
+    "Lịch dự phòng Vercel: gọi /api/openclaw/cron mỗi ngày lúc 01:00 Asia/Ho_Chi_Minh.",
     "Báo cáo Telegram: gửi sau mỗi chu kỳ nếu đã cấu hình TELEGRAM_NEWSROOM_REPORT_CHAT_IDS.",
     "",
     `Hàng đợi OpenClaw: ${openClawQueueText}`,
@@ -1511,7 +1511,7 @@ function formatDate(value) {
   }
 
   try {
-    return new Date(value).toLocaleString("vi-VN", { timeZone: "Asia/Saigon" });
+    return new Date(value).toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" });
   } catch {
     return String(value);
   }

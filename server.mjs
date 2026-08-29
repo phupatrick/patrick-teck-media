@@ -72,7 +72,7 @@ const sessionSecretResolution = resolveSessionSecret(process.env.SESSION_SECRET 
 const config = {
   port: Number(process.env.PORT || envFromFile.PORT || 3000),
   siteUrl: rawSiteUrl,
-  storeUrl: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechstore.vercel.app",
+  storeUrl: process.env.PATRICK_TECH_STORE_URL || envFromFile.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store",
   databaseUrl: process.env.DATABASE_URL || envFromFile.DATABASE_URL || "",
   contentPath: process.env.NEWSROOM_CONTENT_PATH || envFromFile.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json",
   webStatePath: process.env.OPENCLAW_WEB_STATE_PATH || envFromFile.OPENCLAW_WEB_STATE_PATH || "data/openclaw-web-state.json",
@@ -88,7 +88,7 @@ const config = {
     mid: process.env.GOOGLE_ADSENSE_SLOT_MID || envFromFile.GOOGLE_ADSENSE_SLOT_MID || ""
   },
   sellerCatalogPath: process.env.SELLER_CATALOG_PATH || envFromFile.SELLER_CATALOG_PATH || "data/seller-catalog.json",
-  sellerTimezone: process.env.SELLER_TIMEZONE || envFromFile.SELLER_TIMEZONE || "Asia/Saigon",
+  sellerTimezone: process.env.SELLER_TIMEZONE || envFromFile.SELLER_TIMEZONE || "Asia/Ho_Chi_Minh",
   sellerTimezoneOffset: process.env.SELLER_TIMEZONE_OFFSET || envFromFile.SELLER_TIMEZONE_OFFSET || "+07:00",
   sellerTranslationMode: process.env.SELLER_TRANSLATION_MODE || envFromFile.SELLER_TRANSLATION_MODE || "fallback",
   sellerTranslationEndpoint: process.env.SELLER_TRANSLATION_ENDPOINT || envFromFile.SELLER_TRANSLATION_ENDPOINT || "",
@@ -141,7 +141,7 @@ const MAX_QUERY_PARAMETER_COUNT = 32;
 const PUBLIC_PAGE_CACHE_CONTROL = "public, max-age=0, s-maxage=120, stale-while-revalidate=600";
 const PUBLIC_HOME_CACHE_CONTROL = "public, max-age=0, s-maxage=15, stale-while-revalidate=45";
 const PUBLIC_API_CACHE_CONTROL = "public, max-age=15, s-maxage=30, stale-while-revalidate=120";
-const LIVE_API_CACHE_CONTROL = "public, max-age=10, s-maxage=15, stale-while-revalidate=45";
+const LIVE_API_CACHE_CONTROL = "public, s-maxage=30, stale-while-revalidate=59";
 const STATIC_ASSET_CACHE_CONTROL = "public, max-age=31536000, immutable";
 const STATIC_ASSET_FALLBACK_CACHE_CONTROL = "public, max-age=3600, stale-while-revalidate=86400";
 const SITE_MAP_CACHE_CONTROL = "public, max-age=300, s-maxage=1800, stale-while-revalidate=86400";
