@@ -1222,7 +1222,7 @@ const tests = [
 
       assert.equal((homeHtml.match(/class="ad-shell/g) || []).length, 2);
       assert.equal((homeHtml.match(/store-promo-slot/g) || []).length, 2);
-      assert.match(homeHtml, /store-promo-slot\" href=\"https:\/\/patricktechmedia\.store\/\" target=\"_blank\" rel=\"noopener noreferrer\"/);
+      assert.match(homeHtml, /https:\/\/patricktechmedia\.store\/\?utm_source=patricktechmedia&amp;utm_medium=newsroom_banner/);
       assert.match(storeHtml, /Patrick Tech Store/);
       assert.match(storeHtml, /patricktechstore\.vercel\.app\/\?ref=patricktechmedia&entry=/);
     }

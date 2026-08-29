@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "ignoreCommand": "bash scripts/vercel-ignore-build.sh",
   "functions": {
     "api/entry.mjs": {
       "excludeFiles": "{data/openclaw-hidden-feed.json,data/tmp-*.json,data/tmp-*.ndjson,data/manual-*-batch*.json,data/openclaw-batch-*.json,test/**}"
@@ -8,7 +9,7 @@
   "crons": [
     {
       "path": "/api/openclaw/cron",
-      "schedule": "0 18 * * *"
+      "schedule": "0 1,6,11 * * *"
     }
   ],
   "rewrites": [

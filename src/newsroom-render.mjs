@@ -2073,7 +2073,7 @@ function shouldShowShopeePromotion(state, { language, placement, shopeeCount }) 
 }
 
 function getStoreLandingHref(language) {
-  return "https://patricktechmedia.store/";
+  return "https://patricktechmedia.store/?utm_source=patricktechmedia&utm_medium=newsroom_banner";
 }
 
 function renderCsrfInput(token) {
