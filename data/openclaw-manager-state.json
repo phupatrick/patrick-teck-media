@@ -3,35 +3,35 @@
     "id": "openclaw",
     "name": "OpenClaw",
     "mode": "autonomous",
-    "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-29T14:32:30.781Z",
-    "finishedAt": "2026-08-29T14:33:38.853Z",
+    "briefPath": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-owner-brief.json",
+    "startedAt": "2026-08-29T14:38:51.707Z",
+    "finishedAt": "2026-08-29T14:40:23.923Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
     }
   },
   "newsroom": {
-    "contentPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-    "totalArticles": 197,
+    "contentPath": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\newsroom-content.json",
+    "totalArticles": 198,
     "articleCountBefore": 197,
-    "articleCountDelta": 0,
+    "articleCountDelta": 1,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom source pool: 139 configured, 120 active this cycle. Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1788013952658-78f220.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
-      "warnings": "Holding normalized article \"Top Stories: Apple's 'Surprise and Shine' Event, Plus New Mac mini and Mac Studio\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Replace slow drafting workflows with AutoCAD LT for just $199\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"8 PC gaming upgrades under $100 that don’t feel cheap\" because it failed publish readiness: noRepeatedSentences, noRepeatedPhrases",
-      "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom source pool: 139 configured, 120 active this cycle. Refreshed 3 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\.openclaw-hidden-feed-seed-1788014335023-aa9e1c.json Generated OpenClaw hidden feed with 3 article(s) at C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-hidden-feed.json",
+      "warnings": "Skipping Better Programming - Medium: fetch failed Skipping HackerNoon.com - Medium: fetch failed Skipping The Airbnb Tech Blog - Medium: fetch failed Skipping programming: fetch failed",
+      "path": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-hidden-feed.json",
       "url": ""
     },
     "refresh": {
       "ok": true,
       "exitCode": 0,
       "mode": "external-feed",
-      "output": "Newsroom source pool: 139 configured, 120 active this cycle. Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Holding normalized article \"Microsoft đang đẩy Copilot vào gói nào: từ cá nhân tới doanh nghiệp, giá trị mới nằm ở tích hợp hay quản trị\" because it failed publish readiness: narrativeFlow Holding normalized article \"Top Stories: Apple's 'Surprise and Shine' Event, Plus New Mac mini and Mac Studio\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"Replace slow drafting workflows with AutoCAD LT for just $199\" because it failed publish readiness: paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"8 PC gaming upgrades under $100 that don’t feel cheap\" because it failed publish readiness: noRepeatedSentences, noRepeatedPhrases",
-      "publishedCount": 0,
-      "noNewArticles": true
+      "output": "Refreshed 4 article(s) from external-feed into C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\newsroom-content.json",
+      "warnings": "",
+      "publishedCount": 4,
+      "noNewArticles": false
     },
     "socialSignals": {
       "ok": true,
@@ -46,23 +46,23 @@
     },
     "learning": {
       "ok": true,
-      "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
-      "output": "OpenClaw learning updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json via project-file: 201 signal(s), confidence 0.95.",
+      "path": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-learning-state.json",
+      "output": "OpenClaw learning updated C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-learning-state.json via project-file: 202 signal(s), confidence 0.95.",
       "warnings": ""
     },
     "webControl": {
       "ok": true,
-      "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-      "output": "OpenClaw web control updated /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json with frontpage tuning for apps-software, devices, ai, internet-business-tech, security, gaming, cloud-enterprise.",
+      "path": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-web-state.json",
+      "output": "OpenClaw web control updated C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-web-state.json with frontpage tuning for apps-software, devices, ai, internet-business-tech, security, gaming, cloud-enterprise.",
       "warnings": ""
     }
   },
   "platform": {
-    "statePath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/platform-state.json",
+    "statePath": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\platform-state.json",
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-29T14:33:38.840Z",
+      "reviewedAt": "2026-08-29T14:40:23.885Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
@@ -73,8 +73,8 @@
     }
   },
   "automation": {
-    "webStatePath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-web-state.json",
-    "learningStatePath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-learning-state.json",
+    "webStatePath": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-web-state.json",
+    "learningStatePath": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-learning-state.json",
     "gitAutopush": false,
     "ownerBrief": {
       "siteName": "Patrick Tech Media",
