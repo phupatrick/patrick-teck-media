@@ -9,7 +9,7 @@
   "crons": [
     {
       "path": "/api/openclaw/cron",
-      "schedule": "0 1,6,11 * * *"
+      "schedule": "0 1 * * *"
     }
   ],
   "rewrites": [
