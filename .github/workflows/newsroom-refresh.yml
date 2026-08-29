@@ -23,6 +23,10 @@ on:
         description: "Run automatic audit repair before publishing"
         required: false
         default: ""
+      publish_pair:
+        description: "Require a VI/EN pair for this manually requested run"
+        required: false
+        default: ""
   schedule:
     - cron: "*/15 * * * *"
     - cron: "17 0 * * *"
@@ -85,6 +89,10 @@ jobs:
           NEWSROOM_PULL_TOKEN: ${{ secrets.NEWSROOM_PULL_TOKEN }}
           NEWSROOM_SINGLE_URL: ${{ github.event.inputs.article_url || '' }}
           NEWSROOM_AUDIT_REPAIR: ${{ github.event.inputs.repair_audit || '' }}
+          NEWSROOM_REQUIRE_BILINGUAL_PAIR: ${{ github.event.inputs.publish_pair || '0' }}
+          NEWSROOM_TRANSLATION_ENDPOINT: ${{ secrets.NEWSROOM_TRANSLATION_ENDPOINT }}
+          NEWSROOM_TRANSLATION_API_KEY: ${{ secrets.NEWSROOM_TRANSLATION_API_KEY }}
+          NEWSROOM_TRANSLATION_MODEL: ${{ secrets.NEWSROOM_TRANSLATION_MODEL }}
           NEWSROOM_AUDIT_STRICT: "1"
           OPENCLAW_RUN_SOURCE: ${{ github.event.inputs.source || 'schedule' }}
           OPENCLAW_RUN_REASON: ${{ github.event.inputs.reason || 'scheduled' }}

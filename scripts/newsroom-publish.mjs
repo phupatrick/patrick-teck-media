@@ -10,7 +10,8 @@ export async function publishArticles({
   replaceMode = false,
   now = new Date().toISOString(),
   databaseUrl = process.env.DATABASE_URL || "",
-  strictQualityGate = isStrictAutopublishQualityGateEnabled(process.env)
+  strictQualityGate = isStrictAutopublishQualityGateEnabled(process.env),
+  requireBilingualPair = isBilingualPairRequired(process.env)
 }) {
   if (!Array.isArray(incomingArticles) || incomingArticles.length === 0) {
     throw new Error("No articles found in the input payload.");
@@ -23,9 +24,15 @@ export async function publishArticles({
   const existingPayload = replaceMode ? { articles: [] } : await store.readPayload();
   const existingArticles = normalizeArticles(existingPayload).filter(isArticlePublishReady).sort(sortByDateDesc);
   const articleMap = new Map(existingArticles.map((article) => [articleKey(article), article]));
-  const publishableIncomingArticles = incomingArticles
+  const qualityApprovedArticles = incomingArticles
     .filter(isArticleLike)
     .filter(strictQualityGate ? isArticleAutopublishReady : isArticlePublishReady);
+  // Existing articles count as a valid alternate during the phased VI/EN migration.
+  // This protects the historical library while requiring a pair for new clusters.
+  const bilingualCandidates = [...existingArticles, ...qualityApprovedArticles];
+  const publishableIncomingArticles = requireBilingualPair
+    ? qualityApprovedArticles.filter((article) => hasBilingualPair(article, bilingualCandidates))
+    : qualityApprovedArticles;
 
   for (const article of publishableIncomingArticles) {
     const key = articleKey(article);
@@ -98,6 +105,26 @@ function isArticleLike(article) {
 
 function isStrictAutopublishQualityGateEnabled(env = process.env) {
   return /^(1|true|yes|on)$/i.test(String(env.NEWSROOM_AUTOPUBLISH_STRICT || ""));
+}
+
+function isBilingualPairRequired(env = process.env) {
+  return /^(1|true|yes|on)$/i.test(String(env.NEWSROOM_REQUIRE_BILINGUAL_PAIR || ""));
+}
+
+function hasBilingualPair(article, articles) {
+  const clusterId = String(article?.cluster_id || "").trim();
+
+  if (!clusterId) {
+    return false;
+  }
+
+  const languages = new Set(
+    articles
+      .filter((candidate) => String(candidate?.cluster_id || "").trim() === clusterId)
+      .map((candidate) => candidate.language)
+  );
+
+  return languages.has("vi") && languages.has("en");
 }
 
 function articleKey(article) {

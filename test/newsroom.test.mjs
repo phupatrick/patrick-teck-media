@@ -23,12 +23,13 @@ import {
   sortStoriesByFreshnessAndHeat
 } from "../src/newsroom-service.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
-import { evaluateArticleAutopublishReadiness } from "../src/newsroom-quality.mjs";
+import { evaluateArticleAutopublishReadiness, evaluateArticleReadiness } from "../src/newsroom-quality.mjs";
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
 import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
 import { selectNewerSnapshot } from "../src/document-store.mjs";
 import { PENDING_TTL_MS, applySingleSourcePublicationPolicy, getPendingArticleKey, getSourceQualityTier, hasTrustedSource, preparePendingArticles } from "../src/newsroom-pending-queue.mjs";
 import { isUsefulSocialSignal, normalizeSocialSignal } from "../src/openclaw-social-connectors.mjs";
+import { publishArticles } from "../scripts/newsroom-publish.mjs";
 
 assert.equal(
   selectNewerSnapshot(
@@ -137,7 +138,8 @@ const tests = [
     name: "newsroom source registry validates, deduplicates, and shards a large pool",
     async run() {
       const registry = loadSourceRegistry({ NEWSROOM_SOURCE_REGISTRY: "data/newsroom-sources.json" });
-      assert.ok(registry.length >= 40);
+      assert.ok(registry.length >= 70);
+      assert.ok(registry.filter((feed) => feed.language === "vi").length >= 30);
       assert.equal(canonicalizeFeedUrl("HTTPS://Example.com/feed/#latest"), "https://example.com/feed");
       assert.equal(normalizeSourceFeed({ name: "bad", url: "javascript:alert(1)", sourceType: "press", trustTier: "specialist" }), null);
 
@@ -160,6 +162,96 @@ const tests = [
       fs.writeFileSync(registryPath, JSON.stringify({ feeds: [{ name: "Discovered Feed", url: "https://example.org/technology/feed.xml", sourceType: "press", trustTier: "specialist" }] }), "utf8");
       const loaded = loadSourceRegistry({ NEWSROOM_SOURCE_REGISTRY: "data/newsroom-sources.json", NEWSROOM_DISCOVERED_SOURCE_REGISTRY: registryPath });
       assert.ok(loaded.some((feed) => feed.name === "Discovered Feed"));
+    }
+  },
+  {
+    name: "bilingual publish guard publishes a complete pair and keeps an unpaired draft out",
+    async run() {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-bilingual-publish-"));
+      const outputPath = path.join(tempDir, "newsroom-content.json");
+      const sections = Array.from({ length: 5 }, (_, index) => ({
+        heading: `Verified research section ${index + 1}`,
+        body: `${["Hardware architecture", "Subscription pricing", "Privacy controls", "Deployment workflow", "Long-term support"][index]} explains a distinct implementation, pricing, risk, or workflow decision for the verified story. It gives readers specific context, a practical checklist, and a clear next step before they act. Detail ${index + 1}. `.repeat(4)
+      }));
+      const vi = makeScenarioArticle({
+        language: "vi",
+        topic: "devices",
+        slug: "paired-story",
+        title: "Bai viet doi tac da duoc xac thuc va co du lieu day du",
+        sections
+      });
+      const en = makeScenarioArticle({ language: "en", topic: "devices", slug: "paired-story", title: "Verified paired story with complete research detail", sections });
+      const paired = await publishArticles({ incomingArticles: [vi, en], outputPath, requireBilingualPair: true });
+      assert.equal(paired.publishedCount, 2);
+      assert.equal(JSON.parse(fs.readFileSync(outputPath, "utf8")).articles.length, 2);
+
+      const unpaired = makeScenarioArticle({ language: "vi", topic: "devices", slug: "held-story", title: "Bai viet can cho ban dich truoc khi duoc xuat ban", sections });
+      const held = await publishArticles({ incomingArticles: [unpaired], outputPath, requireBilingualPair: true });
+      assert.equal(held.changed, false);
+      assert.equal(held.publishedCount, 0);
+      assert.equal(held.rejectedCount, 1);
+      assert.equal(JSON.parse(fs.readFileSync(outputPath, "utf8")).articles.length, 2);
+    }
+  },
+  {
+    name: "bilingual refresh retains an untranslated draft and publishes it after translation succeeds",
+    async run() {
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-bilingual-refresh-"));
+      const sourcePath = path.join(tempDir, "source.json");
+      const outputPath = path.join(tempDir, "newsroom-content.json");
+      const pendingPath = path.join(tempDir, "pending.json");
+      const sections = Array.from({ length: 5 }, (_, index) => ({
+        heading: `Research context ${index + 1}`,
+        body: `${["Hardware architecture", "Subscription pricing", "Privacy controls", "Deployment workflow", "Long-term support"][index]} explains a distinct implementation, pricing, risk, or workflow decision for the verified story. It gives readers specific context, a practical checklist, and a clear next step before they act. Detail ${index + 1}. `.repeat(4)
+      }));
+      const article = makeScenarioArticle({
+        language: "vi",
+        topic: "devices",
+        slug: "translation-retry-story",
+        title: "Bai viet doi ban dich co noi dung day du va duoc xac thuc",
+        sections
+      });
+      fs.writeFileSync(sourcePath, JSON.stringify({ articles: [article] }), "utf8");
+
+      const baseEnv = {
+        NEWSROOM_PULL_URL: "",
+        OPENCLAW_NEWSROOM_URL: "",
+        NEWSROOM_PULL_FILE: sourcePath,
+        OPENCLAW_NEWSROOM_FILE: "",
+        NEWSROOM_CONTENT_PATH: outputPath,
+        OPENCLAW_PENDING_QUEUE_PATH: pendingPath,
+        NEWSROOM_REQUIRE_BILINGUAL_PAIR: "1",
+        NEWSROOM_TRANSLATION_ENDPOINT: "",
+        NEWSROOM_TRANSLATION_API_KEY: "",
+        NEWSROOM_TRANSLATION_MODEL: ""
+      };
+      const held = await withTempEnv(baseEnv, () => runNewsroomRefresh(process.env));
+      assert.equal(held.changed, false);
+      assert.equal(JSON.parse(fs.readFileSync(pendingPath, "utf8")).items.length, 1);
+
+      const previousFetch = globalThis.fetch;
+      globalThis.fetch = async () => new Response(JSON.stringify({ output_text: JSON.stringify({
+        title: "Verified translated story with full research detail",
+        summary: article.summary,
+        dek: article.dek,
+        hook: article.hook,
+        sections
+      }) }), { status: 200, headers: { "Content-Type": "application/json" } });
+      try {
+        const published = await withTempEnv({
+          ...baseEnv,
+          NEWSROOM_PULL_FILE: "",
+          NEWSROOM_TRANSLATION_ENDPOINT: "https://translator.example/v1/responses",
+          NEWSROOM_TRANSLATION_API_KEY: "test-key",
+          NEWSROOM_TRANSLATION_MODEL: "test-model"
+        }, () => runNewsroomRefresh(process.env));
+        assert.equal(published.changed, true);
+        const output = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+        assert.equal(output.articles.length, 2);
+        assert.deepEqual(new Set(output.articles.map((item) => item.language)), new Set(["vi", "en"]));
+      } finally {
+        globalThis.fetch = previousFetch;
+      }
     }
   },
   {
@@ -473,6 +565,26 @@ const tests = [
       assert.match(response.text, /Đã nhận liên kết/);
       assert.equal(dispatches.length, 1);
       assert.equal(dispatches[0].articleUrl, "https://blog.google/technology/ai/source-story");
+    }
+  },
+  {
+    name: "newsroom telegram publish pair dispatches the bilingual workflow flag",
+    async run() {
+      const dispatches = [];
+      const response = await executeNewsroomCommand("/publish_pair https://blog.google/technology/ai/source-story", {
+        siteUrl: "https://patricktechmedia.com",
+        userId: "12345",
+        isAdmin: true,
+        dispatchWorkflow: async (input) => {
+          dispatches.push(input);
+          return { ok: true };
+        }
+      });
+
+      assert.match(response.text, /cả bản tiếng Việt lẫn tiếng Anh/);
+      assert.equal(dispatches.length, 1);
+      assert.equal(dispatches[0].publishPair, true);
+      assert.match(dispatches[0].reason, /telegram-pair:12345/);
     }
   },
   {

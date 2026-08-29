@@ -5,6 +5,7 @@ import { pathToFileURL } from "node:url";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { repairEncodingArtifacts } from "../src/text-repair.mjs";
+import { createNewsroomTranslator } from "../src/newsroom-translation.mjs";
 import { buildNewsroomState } from "../src/newsroom-service.mjs";
 import { cleanSourceText, isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
 import { applySingleSourcePublicationPolicy, getPendingArticleKey, isSingleSourceArticle, preparePendingArticles, readPendingQueue, writePendingQueue } from "../src/newsroom-pending-queue.mjs";
@@ -1047,7 +1048,9 @@ const SOURCE_TOPIC_HINTS = [
 
   const pendingItems = preparePendingArticles(readPendingQueue(pendingPath), now);
   const pendingArticles = pendingItems.map((item) => applySingleSourcePublicationPolicy(item.article, item.expired));
-  const queuedCandidates = [...pendingArticles, ...incomingArticles.map((article) => applySingleSourcePublicationPolicy(article))];
+  const sourceCandidates = [...pendingArticles, ...incomingArticles];
+  const bilingualCandidates = await ensureBilingualCandidates(sourceCandidates, env, now, outputPath);
+  const queuedCandidates = bilingualCandidates.map((article) => applySingleSourcePublicationPolicy(article));
 
   if (queuedCandidates.length === 0) {
     return {
@@ -1069,7 +1072,13 @@ const SOURCE_TOPIC_HINTS = [
   const publishedSourceUrls = new Set(incomingArticles.flatMap((article) =>
     (article.source_set || []).map((source) => canonicalSourceUrl(source.source_url)).filter(Boolean)
   ));
+  const pairEligibilityCandidates = isBilingualPairRequired(env)
+    ? [...queuedCandidates, ...readExistingArticles(outputPath)]
+    : [];
   const wasPublished = (article) => {
+    if (isBilingualPairRequired(env) && !hasBilingualCandidate(article, pairEligibilityCandidates)) {
+      return false;
+    }
     const articleKey = getPendingArticleKey(article);
     return incomingArticles.some((published) => {
       if (getPendingArticleKey(published) === articleKey) return true;
@@ -1081,7 +1090,7 @@ const SOURCE_TOPIC_HINTS = [
     .filter((item) => !item.expired)
     .map((item) => ({ article: item.article, first_seen_at: item.first_seen_at }));
   const incomingPending = queuedCandidates
-    .filter((article) => isSingleSourceArticle(article))
+    .filter((article) => shouldHoldPendingArticle(article, queuedCandidates, env))
     .filter((article) => !wasPublished(article))
     .map((article) => ({ article, first_seen_at: article.first_seen_at || now }));
   const pendingMap = new Map();
@@ -1110,7 +1119,8 @@ const SOURCE_TOPIC_HINTS = [
     databaseUrl: env.DATABASE_URL || "",
     // prepareArticlesForPublish already applies the strict gate. The baseline
     // check here only protects storage invariants before writing.
-    strictQualityGate: false
+    strictQualityGate: false,
+    requireBilingualPair: isBilingualPairRequired(env)
   });
 
   if (!result.changed) {
@@ -1167,6 +1177,67 @@ function prepareArticlesForPublish(incomingArticles, { now, outputPath, siteUrl,
     "source-draft",
     strictQualityGate
   );
+}
+
+async function ensureBilingualCandidates(articles, env, now, outputPath) {
+  if (!isBilingualPairRequired(env) || !articles.length) {
+    return articles;
+  }
+
+  const existing = readExistingArticles(outputPath || "data/newsroom-content.json");
+  const translator = createNewsroomTranslator({
+    endpoint: env.NEWSROOM_TRANSLATION_ENDPOINT,
+    apiKey: env.NEWSROOM_TRANSLATION_API_KEY,
+    model: env.NEWSROOM_TRANSLATION_MODEL
+  });
+  const byCluster = new Map();
+
+  for (const article of [...existing, ...articles]) {
+    const clusterId = String(article?.cluster_id || "").trim();
+    if (!clusterId) continue;
+    const languages = byCluster.get(clusterId) || new Set();
+    languages.add(article.language === "en" ? "en" : "vi");
+    byCluster.set(clusterId, languages);
+  }
+
+  const result = [...articles];
+  for (const article of articles) {
+    const clusterId = String(article?.cluster_id || "").trim();
+    if (!clusterId) continue;
+    const languages = byCluster.get(clusterId) || new Set();
+    const sourceLanguage = article.language === "en" ? "en" : "vi";
+    const targetLanguage = sourceLanguage === "en" ? "vi" : "en";
+    if (languages.has(targetLanguage)) continue;
+    if (!translator.enabled) {
+      console.warn(`Holding bilingual article "${cleanText(article.title).slice(0, 100)}": translation provider is not configured.`);
+      continue;
+    }
+
+    try {
+      const translated = await translator.translateArticle(article, targetLanguage);
+      const translatedTitle = cleanText(translated.title);
+      const translatedArticle = {
+        ...article,
+        id: `${article.id || `feed-${crypto.createHash("sha1").update(clusterId).digest("hex").slice(0, 12)}`}-${targetLanguage}`,
+        cluster_id: clusterId,
+        language: targetLanguage,
+        title: translatedTitle,
+        summary: cleanText(translated.summary),
+        dek: cleanText(translated.dek),
+        hook: cleanText(translated.hook),
+        sections: translated.sections.map((section) => ({ heading: cleanText(section.heading), body: cleanText(section.body) })),
+        published_at: article.published_at || now,
+        updated_at: now,
+        translated_from: article.id || ""
+      };
+      result.push(translatedArticle);
+      languages.add(targetLanguage);
+    } catch (error) {
+      console.warn(`Holding bilingual article "${cleanText(article.title).slice(0, 100)}": ${error.message || error}`);
+    }
+  }
+
+  return result;
 }
 
 function filterTrustedSourceFallbackArticles(articles, stage) {
@@ -1424,7 +1495,29 @@ function stripRuntimeArticleFields(article) {
   };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+function isBilingualPairRequired(env = process.env) {
+  return /^(1|true|yes|on)$/i.test(String(env.NEWSROOM_REQUIRE_BILINGUAL_PAIR || ""));
+}
+
+function shouldHoldPendingArticle(article, candidates, env) {
+  if (isSingleSourceArticle(article)) return true;
+  if (!isBilingualPairRequired(env)) return false;
+
+  return !hasBilingualCandidate(article, candidates);
+}
+
+function hasBilingualCandidate(article, candidates) {
+  const clusterId = String(article?.cluster_id || "").trim();
+  if (!clusterId) return false;
+  const languages = new Set(
+    candidates
+      .filter((candidate) => String(candidate?.cluster_id || "").trim() === clusterId)
+      .map((candidate) => candidate?.language === "en" ? "en" : "vi")
+  );
+  return languages.has("vi") && languages.has("en");
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   runNewsroomRefresh()
     .then((result) => {
       if (!result.changed) {

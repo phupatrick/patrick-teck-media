@@ -3,6 +3,8 @@ const DEFAULT_COMMANDS = [
   { command: "auto", description: "Xem lịch chạy tự động" },
   { command: "latest", description: "Xem các bài mới đăng" },
   { command: "sources", description: "Xem kho nguồn và tình trạng feed" },
+  { command: "radar_now", description: "Xem tín hiệu công nghệ mới" },
+  { command: "metrics", description: "Xem chỉ số tòa soạn" },
   { command: "views", description: "Xem bảng xếp hạng bài view cao" },
   { command: "rank", description: "Xếp hạng bài theo view" },
   { command: "audit", description: "Kiểm tra chất lượng bài đã đăng" },
@@ -13,6 +15,8 @@ const DEFAULT_COMMANDS = [
   { command: "web", description: "Mở liên kết quản lý web" },
   { command: "id", description: "Lấy mã chat và mã người dùng" },
   { command: "submit", description: "Đọc, xác thực và đăng bài từ link" },
+  { command: "publish_pair", description: "Đăng link với bản VI/EN" },
+  { command: "purge_cache", description: "Làm mới cache instance" },
   { command: "shopee", description: "Thêm link quảng cáo Shopee" },
   { command: "ads", description: "Xem link quảng cáo Shopee" },
   { command: "up", description: "Tự động up thêm bài mới" },
@@ -32,6 +36,8 @@ const HELP_TEXT = [
   "/auto - lịch chạy tự động và trạng thái thiết lập",
   "/latest - danh sách bài mới đăng",
   "/sources - số nguồn, nguồn đang chạy và tình trạng feed",
+  "/radar_now - các tín hiệu công nghệ mới cần theo dõi",
+  "/metrics - chỉ số bài viết, nguồn và lưu trữ",
   "/views hoặc /rank - bảng xếp hạng bài view cao và bot học được gì từ nhóm đó",
   "/audit - quét bài đã đăng bị mỏng hoặc nhiễu nội dung",
   "/learn - hồ sơ học hiện tại của bot",
@@ -40,6 +46,8 @@ const HELP_TEXT = [
   "/web - liên kết quản lý web",
   "/setup - checklist cài đặt trên Vercel",
   "/submit <url> - đọc, xác thực và đăng bài từ link nguồn",
+  "/publish_pair <url> - đăng link với cặp bản tiếng Việt và tiếng Anh",
+  "/purge_cache - xóa cache state của instance hiện tại, chỉ admin dùng được",
   "/up - tự động up thêm bài mới",
   "/refresh - yêu cầu làm mới tòa soạn, chỉ admin dùng được",
   "/jobs - tóm tắt hàng đợi OpenClaw",
@@ -66,6 +74,7 @@ export function createTelegramNewsroomBot(options = {}) {
   const getArticleViewStats = options.getArticleViewStats;
   const getArticleViewStorageMode = options.getArticleViewStorageMode;
   const getSourceSummary = options.getSourceSummary;
+  const purgeCache = options.purgeCache;
   const addLearningFeedback = options.addLearningFeedback;
   const addShopeeAdLink = options.addShopeeAdLink;
   const listShopeeAdLinks = options.listShopeeAdLinks;
@@ -161,6 +170,7 @@ export function createTelegramNewsroomBot(options = {}) {
           getArticleViewStats,
           getArticleViewStorageMode,
           getSourceSummary,
+          purgeCache,
           addLearningFeedback,
           addShopeeAdLink,
           listShopeeAdLinks,
@@ -221,6 +231,7 @@ export function createTelegramNewsroomBot(options = {}) {
         getArticleViewStats,
         getArticleViewStorageMode,
         getSourceSummary,
+        purgeCache,
         addLearningFeedback,
         addShopeeAdLink,
         listShopeeAdLinks,
@@ -359,6 +370,20 @@ export async function executeNewsroomCommand(rawText, context = {}) {
     return { text: await buildSourcesText(context) };
   }
 
+  if (command === "/radar_now" || command === "/radar-now") {
+    return { text: await buildRadarNowText(context) };
+  }
+
+  if (command === "/metrics") {
+    return { text: await buildMetricsText(context) };
+  }
+
+  if (command === "/purge_cache") {
+    if (!context.isAdmin) throw new Error("Chỉ admin được xóa cache.");
+    if (typeof context.purgeCache === "function") await context.purgeCache();
+    return { text: "Đã xóa cache state trong instance hiện tại. CDN/API cache sẽ tự hết hạn theo Cache-Control." };
+  }
+
   if (command === "/views" || command === "/view" || command === "/rank" || command === "/ranking") {
     return { text: await buildViewsText(context) };
   }
@@ -395,6 +420,12 @@ export async function executeNewsroomCommand(rawText, context = {}) {
   if (command === "/submit") {
     const linkText = commandText.slice(firstToken.length).trim();
     return submitNewsroomLink(linkText, context);
+  }
+
+  if (command === "/publish_pair") {
+    const linkText = commandText.slice(firstToken.length).trim();
+    if (!linkText) return { text: "Dùng: /publish_pair <url>" };
+    return { text: await requestArticlePublish(context, linkText, true) };
   }
 
   if (command === "/shopee" || command === "/addad") {
@@ -835,6 +866,30 @@ async function buildJobsText(context) {
   ].join("\n").trim();
 }
 
+async function buildRadarNowText(context = {}) {
+  const state = await context.getState?.();
+  const radar = state?.radar?.vi;
+  const queue = radar?.queue || radar?.signals || [];
+  if (!queue.length) return "Radar hiện chưa có tín hiệu.";
+  return ["Radar công nghệ hiện tại", "", ...queue.slice(0, 10).map((item, index) => `${index + 1}. ${item.title || item.label || item.keyword || "Tín hiệu mới"}${item.href ? `\n${buildPublicArticleUrl(context.siteUrl, item)}` : ""}`)].join("\n");
+}
+
+async function buildMetricsText(context = {}) {
+  const state = await context.getState?.();
+  const articles = Array.isArray(state?.articles) ? state.articles : [];
+  const views = typeof context.getArticleViewStats === "function" ? await context.getArticleViewStats({ limit: 100, language: "" }).catch(() => []) : [];
+  const totalViews = (Array.isArray(views) ? views : []).reduce((sum, item) => sum + Number(item.views || 0), 0);
+  return [
+    "Số liệu tòa soạn",
+    "",
+    `Bài VI: ${articles.filter((item) => item.language === "vi").length}`,
+    `Bài EN: ${articles.filter((item) => item.language === "en").length}`,
+    `Tổng bài: ${articles.length}`,
+    `Tổng lượt xem đã ghi nhận: ${totalViews}`,
+    `Cụm nội dung: ${new Set(articles.map((item) => item.cluster_id).filter(Boolean)).size}`
+  ].join("\n");
+}
+
 async function requestRefresh(context, reasonPrefix = "telegram") {
   if (typeof context.dispatchWorkflow === "function") {
     const result = await context.dispatchWorkflow({
@@ -921,11 +976,12 @@ async function requestAuditRepair(context, auditSummary) {
   return "Đã phát hiện lỗi, nhưng chưa có GITHUB_WORKFLOW_DISPATCH_TOKEN hoặc OpenClaw worker để tự sửa. Cần bật một trong hai đường này.";
 }
 
-async function requestArticlePublish(context, articleUrl) {
+async function requestArticlePublish(context, articleUrl, publishPair = false) {
   if (typeof context.dispatchWorkflow === "function") {
     const result = await context.dispatchWorkflow({
-      reason: `telegram-link:${context.userId || "admin"}`,
-      articleUrl
+      reason: `${publishPair ? "telegram-pair" : "telegram-link"}:${context.userId || "admin"}`,
+      articleUrl,
+      publishPair
     });
 
     if (result?.ok) {
@@ -933,7 +989,9 @@ async function requestArticlePublish(context, articleUrl) {
         "Đã nhận liên kết và gửi vào quy trình tự động.",
         "",
         `Liên kết: ${articleUrl}`,
-        "Bot sẽ đọc nội dung, lọc phần dư thừa, xác thực độ tin cậy, chọn ảnh nguồn phù hợp, viết bài có giá trị, chạy cổng kiểm tra chất lượng rồi mới đăng.",
+        publishPair
+          ? "Bot sẽ tạo và kiểm tra cả bản tiếng Việt lẫn tiếng Anh trước khi đăng. Nếu dịch vụ dịch chưa cấu hình hoặc một bản không đạt chất lượng, bài sẽ được giữ trong hàng đợi."
+          : "Bot sẽ đọc nội dung, lọc phần dư thừa, xác thực độ tin cậy, chọn ảnh nguồn phù hợp, viết bài có giá trị, chạy cổng kiểm tra chất lượng rồi mới đăng.",
         "Khi quy trình xong, báo cáo Telegram sẽ gửi lại nếu TELEGRAM_NEWSROOM_REPORT_CHAT_IDS đã cấu hình."
       ].join("\n");
     }

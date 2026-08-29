@@ -41,6 +41,10 @@ GOOGLE_CLIENT_SECRET=
 NEWSROOM_PULL_URL=
 NEWSROOM_PULL_TOKEN=
 NEWSROOM_PULL_FILE=
+NEWSROOM_REQUIRE_BILINGUAL_PAIR=0
+NEWSROOM_TRANSLATION_ENDPOINT=
+NEWSROOM_TRANSLATION_API_KEY=
+NEWSROOM_TRANSLATION_MODEL=
 OPENCLAW_NEWSROOM_URL=
 OPENCLAW_NEWSROOM_TOKEN=
 OPENCLAW_NEWSROOM_FILE=data/openclaw-hidden-feed.json
@@ -62,6 +66,17 @@ If AdSense values are empty, the site renders clearly marked reserved ad placeho
 `DATABASE_URL` can point to Neon Postgres. When it is present, the app stores the newsroom, platform state, and OpenClaw web-control state in Postgres while still mirroring a safe local JSON fallback. Set `DOCUMENT_STORE_REQUIRE_DATABASE=1` in production after seeding the database if you want Vercel to fail loudly instead of falling back to local JSON when storage is unavailable.
 
 `NEWSROOM_CONTENT_PATH` points to the JSON file that powers the live newsroom. If the file is missing, the app falls back to the built-in editorial seed data.
+
+`NEWSROOM_REQUIRE_BILINGUAL_PAIR=1` enables the Media 2.0 publishing guard: a newly
+published `cluster_id` must contain both `vi` and `en` articles in the same batch. Keep
+it at `0` until the newsroom translation provider is configured; existing published
+articles are intentionally not removed during the phased migration.
+
+For the GitHub Actions workflow, add `NEWSROOM_TRANSLATION_ENDPOINT`,
+`NEWSROOM_TRANSLATION_API_KEY`, and `NEWSROOM_TRANSLATION_MODEL` as repository
+secrets before using `/publish_pair <url>` in the newsroom Telegram bot. The command
+enables the pair guard for that one run only. If the provider is absent or translation
+fails validation, the source draft stays in the pending queue for a later retry.
 
 `OPENCLAW_WEB_STATE_PATH` stores the front-page control state that OpenClaw uses to tune homepage copy and ranking without hard-editing templates.
 

@@ -294,6 +294,11 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
     const activeLimit = Math.max(1, Number(process.env.NEWSROOM_MAX_ACTIVE_FEEDS || envFromFile.NEWSROOM_MAX_ACTIVE_FEEDS || 120));
     return { configured: registry.length, active: Math.min(registry.length, activeLimit), healthy: "chưa kiểm tra", unhealthy: "chưa kiểm tra", shard: "luân phiên theo ngày" };
   },
+  purgeCache: async () => {
+    stateCache.clear();
+    stateTimestamps.clear();
+    refreshPromises.clear();
+  },
   addLearningFeedback: (input) => openclawLearningStore.addFeedback(input),
   addShopeeAdLink: async (input) => {
     const link = await sellerService.addAdLink(input);
@@ -1502,6 +1507,7 @@ async function dispatchNewsroomWorkflow(input = {}) {
 
   const articleUrl = normalizeWorkflowArticleUrl(input.articleUrl);
   const auditRepair = Boolean(input.auditRepair);
+  const publishPair = Boolean(input.publishPair);
   const workflowInputs = {
     source: auditRepair ? "telegram-audit" : articleUrl ? "telegram-link" : "telegram",
     reason: String(input.reason || "").slice(0, 120)
@@ -1513,6 +1519,10 @@ async function dispatchNewsroomWorkflow(input = {}) {
 
   if (auditRepair) {
     workflowInputs.repair_audit = "1";
+  }
+
+  if (publishPair) {
+    workflowInputs.publish_pair = "1";
   }
 
   const response = await fetch(`https://api.github.com/repos/${repository}/actions/workflows/${workflowFile}/dispatches`, {
