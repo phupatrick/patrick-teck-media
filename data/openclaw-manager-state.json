@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-owner-brief.json",
-    "startedAt": "2026-08-29T01:09:26.343Z",
-    "finishedAt": "2026-08-29T01:10:24.398Z",
+    "startedAt": "2026-08-29T07:06:17.347Z",
+    "finishedAt": "2026-08-29T07:07:05.623Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -19,7 +19,7 @@
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom source pool: 142 configured, 120 active this cycle. Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787965766384-c4ac5e.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
+      "output": "Newsroom source pool: 142 configured, 120 active this cycle. Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/.openclaw-hidden-feed-seed-1787987177381-be72d1.json Generated OpenClaw hidden feed with 0 article(s) at /home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "warnings": "Skipping SecurityWeek: Feed SecurityWeek returned 403 Skipping Spotify Engineering: Feed Spotify Engineering returned 404 Skipping CNET How To: Feed CNET How To returned 404 Holding normalized article \"Best Chromebooks 2026: Top picks for work, school, and more\" because it failed publish readiness: sourceBreadth, paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"8 PC gaming upgrades under $100 that don’t feel cheap\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases",
       "path": "/home/runner/work/patrick-teck-media/patrick-teck-media/data/openclaw-hidden-feed.json",
       "url": ""
@@ -29,7 +29,7 @@
       "exitCode": 0,
       "mode": "external-feed",
       "output": "Newsroom source pool: 142 configured, 120 active this cycle. Newsroom already up to date from curated-rss at /home/runner/work/patrick-teck-media/patrick-teck-media/data/newsroom-content.json",
-      "warnings": "Skipping SecurityWeek: Feed SecurityWeek returned 403 Skipping Spotify Engineering: Feed Spotify Engineering returned 404 Skipping CNET How To: Feed CNET How To returned 404 Holding normalized article \"Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật\" because it failed publish readiness: narrativeFlow Holding normalized article \"The practical tech tips worth saving right now: which AI, workspace, and app moves actually help\" because it failed publish readiness: narrativeFlow Holding normalized article \"Best Chromebooks 2026: Top picks for work, school, and more\" because it failed publish readiness: sourceBreadth, paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"8 PC gaming upgrades under $100 that don’t feel cheap\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences Holding synthesized article \"The practical tech tips worth saving right now: which AI, workspace, and app moves actually help\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
+      "warnings": "Skipping Microsoft Security: Feed Microsoft Security returned 403 Skipping SecurityWeek: Feed SecurityWeek returned 403 Skipping Spotify Engineering: Feed Spotify Engineering returned 404 Skipping programming: Feed programming returned 429 Skipping CNET How To: Feed CNET How To returned 404 Holding normalized article \"Gói AI nào đang tăng giá trị thực: đâu là khác biệt đáng nhìn kỹ\" because it failed publish readiness: narrativeFlow Holding normalized article \"Dùng gói AI sao cho đỡ mua trùng app\" because it failed publish readiness: narrativeFlow Holding normalized article \"Google vừa đổi gì trong các gói AI: 5TB, Workspace và NotebookLM đang kéo giá trị đi đâu\" because it failed publish readiness: narrativeFlow Holding normalized article \"Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật\" because it failed publish readiness: narrativeFlow Holding normalized article \"Which AI plans are adding practical value\" because it failed publish readiness: narrativeFlow Holding normalized article \"How to use AI plans without stacking duplicate apps\" because it failed publish readiness: narrativeFlow Holding normalized article \"What Google just changed in AI plans: 5 TB, Workspace, and NotebookLM are now part of the same value fight\" because it failed publish readiness: narrativeFlow Holding normalized article \"The practical tech tips worth saving right now: which AI, workspace, and app moves actually help\" because it failed publish readiness: narrativeFlow Holding normalized article \"Best Chromebooks 2026: Top picks for work, school, and more\" because it failed publish readiness: sourceBreadth, paragraphShape, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases Holding normalized article \"8 PC gaming upgrades under $100 that don’t feel cheap\" because it failed publish readiness: sourceBreadth, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Tin công nghệ đáng theo dõi ngay lúc này\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"Dùng gói AI sao cho đỡ mua trùng app\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"Which AI plans are adding practical value\" because it failed publish readiness: narrativeFlow, noRepeatedSentences, noRepeatedPhrases Holding synthesized article \"How to use AI plans without stacking duplicate apps\" because it failed publish readiness: narrativeFlow, noRepeatedSentences Holding synthesized article \"The practical tech tips worth saving right now: which AI, workspace, and app moves actually help\" because it failed publish readiness: narrativeFlow, paragraphShape, noRepeatedSentences",
       "publishedCount": 0,
       "noNewArticles": true
     },
@@ -57,7 +57,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-29T01:10:24.380Z",
+      "reviewedAt": "2026-08-29T07:07:05.608Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
