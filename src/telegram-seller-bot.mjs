@@ -82,6 +82,14 @@ export function createTelegramSellerBot(options = {}) {
   return {
     service,
     async initialize() {
+      await service.ensureDefaultCategories();
+      try {
+        const result = await service.syncStoreCatalog({ actor: "store-catalog-sync" });
+        console.log(`[telegram-seller-bot] synced ${result.total} Store Catalog products in ${result.categories} categories`);
+      } catch (error) {
+        console.warn(`[telegram-seller-bot] Store Catalog sync skipped: ${error.message || error}`);
+      }
+
       if (!token) {
         return false;
       }
@@ -90,13 +98,6 @@ export function createTelegramSellerBot(options = {}) {
         return true;
       }
 
-      await service.ensureDefaultCategories();
-      try {
-        const result = await service.syncStoreCatalog({ actor: "store-catalog-sync" });
-        console.log(`[telegram-seller-bot] synced ${result.total} Store Catalog products in ${result.categories} categories`);
-      } catch (error) {
-        console.warn(`[telegram-seller-bot] Store Catalog sync skipped: ${error.message || error}`);
-      }
       try {
         botProfile = await apiCall(token, "getMe", {});
       } catch (error) {

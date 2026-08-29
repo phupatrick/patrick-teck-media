@@ -612,6 +612,12 @@ export { server, buildState, handleRequest };
 
 async function buildState(siteUrl = config.siteUrl) {
   const communityArticles = await platformService.listPublishedArticles();
+  await sellerService.ensureDefaultCategories();
+  try {
+    await sellerService.syncStoreCatalog({ actor: "store-catalog-sync" });
+  } catch (error) {
+    console.warn("[seller-catalog-sync]", error.message || error);
+  }
   const [sellerCatalogVi, sellerCatalogEn, sellerSummary] = await Promise.all([
     sellerService.readState({ language: "vi" }),
     sellerService.readState({ language: "en" }),
