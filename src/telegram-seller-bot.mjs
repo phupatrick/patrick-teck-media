@@ -352,13 +352,18 @@ export function createTelegramSellerBot(options = {}) {
   }
 
   async function buildCategoryResponse() {
-    const categories = await service.listCategories({ includeTemporary: false, language: LANGUAGE });
+    const [categories, products] = await Promise.all([
+      service.listCategories({ includeTemporary: false, language: LANGUAGE }),
+      service.listProducts({ includeTemporary: false, language: LANGUAGE })
+    ]);
+    const populatedCategoryIds = new Set(products.map((product) => product.category_id));
+    const visibleCategories = categories.filter((category) => populatedCategoryIds.has(category.id));
     return {
-      text: categories.length
-        ? [COPY.categoriesTitle, "", ...categories.map((entry) => `- ${entry.name}`)].join("\n")
+      text: visibleCategories.length
+        ? [COPY.categoriesTitle, "", ...visibleCategories.map((entry) => `- ${entry.name}`)].join("\n")
         : COPY.noCategories,
       replyMarkup: inlineKeyboard([
-        ...categories.map((entry) => [button(entry.name, `cat:${entry.id}`)]),
+        ...visibleCategories.map((entry) => [button(entry.name, `cat:${entry.id}`)]),
         [button(COPY.buttons.backHome, "home")]
       ])
     };
