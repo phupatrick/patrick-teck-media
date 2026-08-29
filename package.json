@@ -35,7 +35,6 @@
     "openclaw:social:autopilot:install": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\openclaw-social-autopilot-install.ps1 -AllPages"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2",
-    "playwright": "^1.54.2"
+    "@neondatabase/serverless": "^1.0.2"
   }
 }
