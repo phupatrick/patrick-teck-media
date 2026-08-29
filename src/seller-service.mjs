@@ -171,7 +171,7 @@ export function createSellerService(options = {}) {
         if (!categoryMap.has(categoryId)) {
           categoryMap.set(categoryId, {
             id: categoryId,
-            name: safeTrim(source.catalogCategoryEn || source.categoryEn) || englishCategoryName(categoryId),
+            name: safeTrim(source.catalogLabelEn || source.catalogCategoryEn || source.categoryEn) || englishCategoryName(categoryId),
             description: "Products synchronized from the Patrick Tech Store Catalog.",
             sort_order: categoryMap.size + 1,
             is_temporary: false,
