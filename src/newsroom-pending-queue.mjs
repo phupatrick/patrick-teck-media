@@ -1,0 +1,54 @@
+import fs from "node:fs";
+import path from "node:path";
+
+export const PENDING_TTL_MS = 180 * 60 * 1000;
+
+export function readPendingQueue(filePath) {
+  try {
+    const payload = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), filePath), "utf8"));
+    return Array.isArray(payload?.items) ? payload.items.filter((item) => item?.article) : [];
+  } catch {
+    return [];
+  }
+}
+
+export function writePendingQueue(filePath, items, now = new Date().toISOString()) {
+  const target = path.resolve(process.cwd(), filePath);
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, JSON.stringify({ generated_at: now, items }, null, 2) + "\n", "utf8");
+}
+
+export function preparePendingArticles(items, now = new Date().toISOString()) {
+  const nowMs = Date.parse(now);
+  return (Array.isArray(items) ? items : []).map((item) => {
+    const parsedFirstSeenAt = Date.parse(item.first_seen_at);
+    const firstSeenAt = Number.isFinite(parsedFirstSeenAt) ? item.first_seen_at : now;
+    const ageMs = Math.max(0, nowMs - Date.parse(firstSeenAt));
+    const expired = ageMs >= PENDING_TTL_MS;
+    return {
+      ...item,
+      first_seen_at: firstSeenAt,
+      age_ms: ageMs,
+      expired,
+      allowed_single_source: expired && hasTrustedSource(item.article)
+    };
+  });
+}
+
+export function getPendingArticleKey(article) {
+  const primarySource = (article?.source_set || [])
+    .map((source) => String(source?.source_url || "").trim().toLowerCase().replace(/#.*$/, ""))
+    .find(Boolean);
+  return String(article?.id || article?.slug || primarySource || "").trim();
+}
+
+export function isSingleSourceArticle(article) {
+  return (article?.source_set || []).filter((source) => source?.source_url).length < 2;
+}
+
+export function hasTrustedSource(article) {
+  return (article?.source_set || []).some((source) =>
+    source?.source_type === "official-site"
+    || (source?.source_type === "press" && ["official", "established-media"].includes(source?.trust_tier))
+  );
+}

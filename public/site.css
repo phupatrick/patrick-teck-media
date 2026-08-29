@@ -5541,6 +5541,68 @@ body {
   grid-auto-rows: auto;
 }
 
+.category-fallback {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+  padding: 18px;
+  color: #fffdf8;
+  background: linear-gradient(135deg, #153b55 0%, #197278 52%, #e07a5f 100%);
+}
+
+.category-fallback::before,
+.category-fallback::after {
+  position: absolute;
+  content: "";
+  border: 1px solid rgba(255, 253, 248, 0.28);
+  border-radius: 50%;
+}
+
+.category-fallback::before {
+  width: 180px;
+  height: 180px;
+  right: -46px;
+  top: -62px;
+}
+
+.category-fallback::after {
+  width: 96px;
+  height: 96px;
+  left: -28px;
+  bottom: -34px;
+}
+
+.category-fallback-mark,
+.category-fallback-topic {
+  position: relative;
+  z-index: 1;
+}
+
+.category-fallback-mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 253, 248, 0.48);
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.category-fallback-topic {
+  max-width: 70%;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
 /* Keep article card copy visible when a narrow grid or decorative layer is active. */
 .story-card {
   display: grid;

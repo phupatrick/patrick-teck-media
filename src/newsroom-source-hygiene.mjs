@@ -16,6 +16,8 @@ const NAVIGATION_PATTERNS = [
 
 const VIETNAMESE_NAVIGATION_PATTERNS = [
   /bình luận mới được duyệt.*thông tin tài khoản.*đăng xuất/i,
+  /bình luận mới được duyệt.*xem tất cả.*thông tin tài khoản.*đổi mật khẩu.*tin đã lưu.*tin đã xem.*đăng xuất/i,
+  /thông tin tài khoản.*đổi mật khẩu.*tin đã lưu.*tin đã xem.*đăng xuất/i,
   /chính trị.*thời sự.*thế giới.*kinh tế.*đời sống/i,
   /chào ngày mới.*tin 24h.*tin thị trường.*tin 360/i,
   /chọn .* làm nguồn ưu tiên trên google.*xem hướng dẫn/i,
@@ -65,4 +67,29 @@ export function normalizeSourceText(value) {
       .replace(/\s+/g, " ")
       .trim()
   );
+}
+
+// Remove common account/navigation fragments while preserving the article prose.
+export function cleanSourceText(value) {
+  let text = normalizeSourceText(value);
+
+  if (!text) {
+    return "";
+  }
+
+  const fragments = [
+    /bình luận mới được duyệt\s+xem tất cả\s+thông tin tài khoản\s+đổi mật khẩu\s+tin đã lưu\s+tin đã xem\s+đăng xuất/gi,
+    /xem tất cả\s+thông tin tài khoản\s+đổi mật khẩu\s+tin đã lưu\s+tin đã xem\s+đăng xuất/gi,
+    /thông tin tài khoản\s+đổi mật khẩu\s+tin đã lưu\s+tin đã xem\s+đăng xuất/gi,
+    /chính trị\s+thời sự\s+thế giới\s+kinh tế\s+đời sống\s+công nghệ/gi,
+    /đặt báo\s+đăng nhập.*?đăng xuất/gi,
+    /open menu.*?(?:main menu|close main menu)/gi,
+    /(?:privacy policy|cookie policy|terms of use).*?(?:newsletter|sign up|all rights reserved)/gi
+  ];
+
+  for (const fragment of fragments) {
+    text = text.replace(fragment, " ");
+  }
+
+  return text.replace(/\s+/g, " ").trim();
 }

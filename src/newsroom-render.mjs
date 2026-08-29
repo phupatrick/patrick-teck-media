@@ -687,7 +687,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
   const realViews = Number(feedback.views || 0);
   const viewMeta = renderArticleViewMeta(language, article, realViews, options.viewer);
   const seoDescription = buildSeoDescription(article, language);
-  const schemaType = article.content_type === "NewsArticle" ? "NewsArticle" : "Article";
+  const schemaType = article.content_type === "NewsArticle" ? "TechArticle" : "Article";
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": schemaType,
@@ -1186,7 +1186,7 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
     `<meta property="og:image" content="${ogImageUrl}" />`,
     `<meta property="og:image:secure_url" content="${ogImageUrl}" />`,
     `<meta property="og:image:alt" content="${escapeHtml(ogImageAlt)}" />`,
-    `<meta property="og:type" content="${["NewsArticle", "Article"].includes(schema?.["@type"]) ? "article" : "website"}" />`,
+    `<meta property="og:type" content="${["NewsArticle", "TechArticle", "Article"].includes(schema?.["@type"]) ? "article" : "website"}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
@@ -1664,7 +1664,6 @@ function renderArticleHero(article) {
     return `
       <figure class="article-hero-media article-hero-media-placeholder">
         ${renderImagePlaceholder(article, "article-placeholder-card")}
-        <figcaption>${escapeHtml(article.hero_image.caption)}</figcaption>
       </figure>
     `;
   }
@@ -1854,15 +1853,10 @@ function escapeRegex(value) {
 }
 
 function renderImagePlaceholder(article, className) {
-  const visualLabel =
-    article.hero_image.label ||
-    (article.language === "vi" ? "Ảnh đang cập nhật" : "Image updating");
-
   return `
-    <div class="${className}">
-      <span>${escapeHtml(article.topic_label)}</span>
-      <strong>${escapeHtml(visualLabel)}</strong>
-      <p>${escapeHtml(article.hero_image.caption)}</p>
+    <div class="${className} category-fallback category-fallback-${escapeHtml(article.topic || "default")}" role="img" aria-label="${escapeHtml(article.topic_label || article.title)}">
+      <span class="category-fallback-mark">${escapeHtml(String(article.topic_label || "Tech").slice(0, 2).toUpperCase())}</span>
+      <span class="category-fallback-topic">${escapeHtml(article.topic_label || "Tech")}</span>
     </div>
   `;
 }

@@ -27,6 +27,7 @@ import { evaluateArticleAutopublishReadiness } from "../src/newsroom-quality.mjs
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
 import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
 import { selectNewerSnapshot } from "../src/document-store.mjs";
+import { PENDING_TTL_MS, getPendingArticleKey, hasTrustedSource, preparePendingArticles } from "../src/newsroom-pending-queue.mjs";
 
 assert.equal(
   selectNewerSnapshot(
@@ -48,7 +49,43 @@ assert.deepEqual(
   ["/new", "/old-hot", "/old"]
 );
 
+{
+  const pending = preparePendingArticles([
+    {
+      first_seen_at: "2026-08-28T20:00:00.000Z",
+      article: {
+        id: "pending-official",
+        source_set: [{ source_type: "official-site", trust_tier: "official", source_url: "https://example.com/official" }]
+      }
+    },
+    {
+      first_seen_at: "2026-08-28T20:00:00.000Z",
+      article: {
+        id: "pending-reader",
+        source_set: [{ source_type: "community", trust_tier: "community", source_url: "https://example.com/community" }]
+      }
+    }
+  ], "2026-08-28T22:30:00.000Z");
+  assert.equal(PENDING_TTL_MS, 180 * 60 * 1000);
+  assert.equal(pending[0].expired, false);
+  assert.equal(pending[0].allowed_single_source, false);
+  assert.equal(hasTrustedSource(pending[0].article), true);
+  const expired = preparePendingArticles(pending, "2026-08-29T00:01:00.000Z");
+  assert.equal(expired[0].expired, true);
+  assert.equal(expired[0].allowed_single_source, true);
+  assert.equal(expired[1].allowed_single_source, false);
+  assert.equal(getPendingArticleKey({ source_set: [{ source_url: "https://example.com/story#fragment" }] }), "https://example.com/story");
+}
+
 const state = createState();
+{
+  const fallbackState = structuredClone(state);
+  const fallbackArticle = fallbackState.articles[0];
+  fallbackArticle.hero_image = { kind: "fallback", caption: "Ảnh đang cập nhật" };
+  const html = renderArticlePage(fallbackState, "vi", fallbackArticle, [], { client: "", slots: {} });
+  assert.match(html, /category-fallback/);
+  assert.doesNotMatch(html, /Ảnh đang cập nhật|Image updating/);
+}
 const tests = [
   {
     name: "aggregates differently worded model coverage into a researched multi-source article",

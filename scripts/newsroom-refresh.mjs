@@ -5,7 +5,8 @@ import { pathToFileURL } from "node:url";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { buildNewsroomState } from "../src/newsroom-service.mjs";
-import { isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
+import { cleanSourceText, isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
+import { getPendingArticleKey, isSingleSourceArticle, preparePendingArticles, readPendingQueue, writePendingQueue } from "../src/newsroom-pending-queue.mjs";
 import {
   evaluateArticleAutopublishReadiness,
   evaluateArticleReadiness,
@@ -241,6 +242,7 @@ async function mapWithConcurrency(items, concurrency, mapper) {
 
 export async function runNewsroomRefresh(env = process.env) {
   const outputPath = env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
+  const pendingPath = env.OPENCLAW_PENDING_QUEUE_PATH || "data/openclaw-pending-clusters.json";
   const singleUrl = normalizePublicArticleUrl(env.NEWSROOM_SINGLE_URL || env.NEWSROOM_ARTICLE_URL || "");
   const sourceUrl = env.NEWSROOM_PULL_URL || env.OPENCLAW_NEWSROOM_URL || "";
   const sourceFile = env.NEWSROOM_PULL_FILE || env.OPENCLAW_NEWSROOM_FILE || "";
@@ -1049,7 +1051,16 @@ const SOURCE_TOPIC_HINTS = [
     sourceLabel = "curated-rss";
   }
 
-  if (incomingArticles.length === 0) {
+  const pendingItems = preparePendingArticles(readPendingQueue(pendingPath), now);
+  const pendingArticles = pendingItems.map((item) => ({
+    ...item.article,
+    ...(item.allowed_single_source
+      ? { single_source_exception: true, is_single_source: true, show_editorial_label: true }
+      : {})
+  }));
+  const queuedCandidates = [...pendingArticles, ...incomingArticles];
+
+  if (queuedCandidates.length === 0) {
     return {
       changed: false,
       publishedCount: 0,
@@ -1058,7 +1069,7 @@ const SOURCE_TOPIC_HINTS = [
     };
   }
 
-  incomingArticles = prepareArticlesForPublish(incomingArticles, {
+  incomingArticles = prepareArticlesForPublish(queuedCandidates, {
     now,
     outputPath,
     siteUrl: env.SITE_URL || "https://patricktechmedia.com",
@@ -1066,12 +1077,38 @@ const SOURCE_TOPIC_HINTS = [
     strictQualityGate: isStrictAutopublishQualityGateEnabled(env)
   });
 
+  const publishedSourceUrls = new Set(incomingArticles.flatMap((article) =>
+    (article.source_set || []).map((source) => canonicalSourceUrl(source.source_url)).filter(Boolean)
+  ));
+  const wasPublished = (article) => {
+    const articleKey = getPendingArticleKey(article);
+    return incomingArticles.some((published) => {
+      if (getPendingArticleKey(published) === articleKey) return true;
+      return (article.source_set || []).some((source) => publishedSourceUrls.has(canonicalSourceUrl(source.source_url)));
+    });
+  };
+  const nextPending = pendingItems
+    .filter((item) => !wasPublished(item.article))
+    .filter((item) => !item.expired)
+    .map((item) => ({ article: item.article, first_seen_at: item.first_seen_at }));
+  const incomingPending = queuedCandidates
+    .filter((article) => isSingleSourceArticle(article))
+    .filter((article) => !wasPublished(article))
+    .map((article) => ({ article, first_seen_at: article.first_seen_at || now }));
+  const pendingMap = new Map();
+  for (const item of [...nextPending, ...incomingPending]) {
+    const key = getPendingArticleKey(item.article);
+    if (key && !pendingMap.has(key)) pendingMap.set(key, item);
+  }
+  writePendingQueue(pendingPath, [...pendingMap.values()], now);
+
   if (!incomingArticles.length) {
     return {
       changed: false,
       publishedCount: 0,
       outputPath,
       sourceLabel,
+      pendingCount: pendingMap.size,
       reason: "no-publishable-articles"
     };
   }
@@ -2289,7 +2326,7 @@ function normalizeAnchorText(value) {
 }
 
 function sanitizeEditorialParagraph(value) {
-  return cleanText(
+  return cleanSourceText(
     String(value || "")
       .replace(/search results for[^.?!]*[.?!]?/gi, " ")
       .replace(/all search results[^.?!]*[.?!]?/gi, " ")
@@ -2995,7 +3032,7 @@ function finishSentence(value) {
 }
 
 function cleanText(value) {
-  return repairEncodingArtifacts(
+  return cleanSourceText(repairEncodingArtifacts(
     decodeXmlEntities(
     String(value || "")
       .replace(/<script[\s\S]*?<\/script>/gi, " ")
@@ -3004,7 +3041,7 @@ function cleanText(value) {
       .replace(/\s+/g, " ")
       .trim()
     )
-  );
+  ));
 }
 
 function sanitizeIncomingArticles(articles) {
@@ -3020,15 +3057,15 @@ function sanitizeIncomingArticle(article) {
 
   return {
     ...rest,
-    title: cleanText(rest.title),
-    summary: cleanText(rest.summary),
-    dek: cleanText(rest.dek),
-    hook: cleanText(rest.hook),
+    title: cleanSourceText(rest.title),
+    summary: cleanSourceText(rest.summary),
+    dek: cleanSourceText(rest.dek),
+    hook: cleanSourceText(rest.hook),
     sections: Array.isArray(rest.sections)
       ? rest.sections.map((section) => ({
           ...section,
-          heading: cleanText(section?.heading),
-          body: cleanText(section?.body)
+          heading: cleanSourceText(section?.heading),
+          body: cleanSourceText(section?.body)
         }))
       : rest.sections,
     image: rest.image && typeof rest.image === "object"
