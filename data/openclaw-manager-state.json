@@ -4,8 +4,8 @@
     "name": "OpenClaw",
     "mode": "autonomous",
     "briefPath": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-owner-brief.json",
-    "startedAt": "2026-08-29T14:38:51.707Z",
-    "finishedAt": "2026-08-29T14:40:23.923Z",
+    "startedAt": "2026-08-29T14:48:04.641Z",
+    "finishedAt": "2026-08-29T14:49:24.336Z",
     "trigger": {
       "source": "schedule",
       "reason": "scheduled"
@@ -14,12 +14,12 @@
   "newsroom": {
     "contentPath": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\newsroom-content.json",
     "totalArticles": 198,
-    "articleCountBefore": 197,
-    "articleCountDelta": 1,
+    "articleCountBefore": 198,
+    "articleCountDelta": 0,
     "hiddenFeed": {
       "type": "file",
       "generated": true,
-      "output": "Newsroom source pool: 139 configured, 120 active this cycle. Refreshed 3 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\.openclaw-hidden-feed-seed-1788014335023-aa9e1c.json Generated OpenClaw hidden feed with 3 article(s) at C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-hidden-feed.json",
+      "output": "Newsroom source pool: 139 configured, 120 active this cycle. Refreshed 3 article(s) from curated-rss into C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\.openclaw-hidden-feed-seed-1788014888215-666873.json Generated OpenClaw hidden feed with 3 article(s) at C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-hidden-feed.json",
       "warnings": "Skipping Better Programming - Medium: fetch failed Skipping HackerNoon.com - Medium: fetch failed Skipping The Airbnb Tech Blog - Medium: fetch failed Skipping programming: fetch failed",
       "path": "C:\\Users\\phupu\\OneDrive\\Documents\\ChatGPT\\Patrick Tech\\patrick-teck-media\\data\\openclaw-hidden-feed.json",
       "url": ""
@@ -62,7 +62,7 @@
     "submissionReview": {
       "reviewer": "openclaw",
       "trustMode": "owner",
-      "reviewedAt": "2026-08-29T14:40:23.885Z",
+      "reviewedAt": "2026-08-29T14:49:24.304Z",
       "totalSubmissions": 0,
       "reviewed": 0,
       "approved": 0,
