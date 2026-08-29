@@ -142,6 +142,15 @@ function extractOutputText(payload) {
 }
 
 function buildFallbackTranslation(fields, targetLanguage) {
+  if (targetLanguage === "en") {
+    return {
+      name: translateEnglishText(fields.name),
+      description: translateEnglishText(fields.description),
+      duration_label: translateEnglishText(fields.duration_label),
+      warranty_label: translateEnglishText(fields.warranty_label)
+    };
+  }
+
   if (targetLanguage !== "my") {
     return { ...fields };
   }
@@ -152,6 +161,38 @@ function buildFallbackTranslation(fields, targetLanguage) {
     duration_label: fields.duration_label ? `[MY] ${fields.duration_label}` : "",
     warranty_label: fields.warranty_label ? `[MY] ${fields.warranty_label}` : ""
   };
+}
+
+function translateEnglishText(value) {
+  let text = safeTrim(value);
+  const replacements = [
+    [/tài khoản/gi, "account"],
+    [/bảo hành full/gi, "full warranty"],
+    [/bảo hành/gi, "warranty"],
+    [/nâng cấp/gi, "upgrade"],
+    [/chính chủ/gi, "primary"],
+    [/dùng chung/gi, "shared"],
+    [/cấp riêng/gi, "dedicated"],
+    [/thiết bị/gi, "devices"],
+    [/sản phẩm/gi, "product"],
+    [/thời hạn/gi, "term"],
+    [/miễn phí/gi, "free"],
+    [/ngày/gi, "days"],
+    [/tháng/gi, "months"],
+    [/năm/gi, "years"],
+    [/giờ/gi, "hours"],
+    [/mô tả/gi, "description"],
+    [/liên hệ/gi, "contact"],
+    [/khách hàng/gi, "customer"],
+    [/đăng nhập/gi, "log in"],
+    [/mật khẩu/gi, "password"],
+    [/đã xác thực/gi, "verified"],
+    [/đáng tin cậy/gi, "trusted"]
+  ];
+  for (const [pattern, replacement] of replacements) {
+    text = text.replace(pattern, replacement);
+  }
+  return text.replace(/\s{2,}/g, " ").trim();
 }
 
 function safeTrim(value) {

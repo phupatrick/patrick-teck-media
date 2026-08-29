@@ -10,52 +10,52 @@ const SEARCH_WAIT_SECONDS = 180;
 const LANGUAGE = "en";
 
 const COPY = {
-  welcome: "Bot Seller đã sẵn sàng. Chọn danh mục, xem sản phẩm tạm thời hoặc tìm kiếm trong Catalog.",
-  viewerHint: "Thành viên trong nhóm được phép có thể xem và tìm kiếm. Chỉ quản trị viên được thêm, sửa hoặc xóa sản phẩm.",
-  adminHint: "Quản trị viên có thể dùng /addcat, /add, /addtemp, /edit và /delete.",
+  welcome: "Seller Bot is ready. Choose a category, browse temporary products, or search the Catalog.",
+  viewerHint: "Allowed group members can browse and search. Only administrators can add, edit, or delete products.",
+  adminHint: "Administrators can use /addcat, /add, /addtemp, /edit, and /delete.",
   buttons: {
-    browse: "Danh mục",
-    temporary: "Sản phẩm tạm",
-    search: "Tìm kiếm",
-    backHome: "Về menu",
-    backCategories: "Về danh mục"
+    browse: "Categories",
+    temporary: "Temporary products",
+    search: "Search",
+    backHome: "Back to menu",
+    backCategories: "Back to categories"
   },
-  categoriesTitle: "Danh mục sản phẩm",
-  temporaryTitle: "Sản phẩm tạm thời",
-  noCategories: "Chưa có danh mục nào.",
-  noProducts: "Danh mục này chưa có sản phẩm.",
-  searchPrompt: "Gửi tên sản phẩm, từ khóa hoặc gói bạn muốn tìm.",
-  searchEmpty: "Không tìm thấy sản phẩm phù hợp.",
-  searchResults: "Kết quả tìm kiếm",
-  onlyAdmin: "Chỉ quản trị viên được thay đổi Catalog.",
-  notAllowed: "Nhóm này chưa được phép sử dụng bot.",
+  categoriesTitle: "Product categories",
+  temporaryTitle: "Temporary products",
+  noCategories: "No categories are available.",
+  noProducts: "This category has no products.",
+  searchPrompt: "Send a product name, keyword, or plan to search.",
+  searchEmpty: "No matching products were found.",
+  searchResults: "Search results",
+  onlyAdmin: "Only administrators can modify the Catalog.",
+  notAllowed: "This group is not allowed to use the bot.",
   help: [
-    "Các lệnh chính:",
-    "/heybot - mở menu Catalog",
-    "/find <từ khóa> - tìm sản phẩm",
+    "Main commands:",
+    "/heybot - open the Catalog menu",
+    "/find <keyword> - search products",
     "",
-    "Lệnh quản trị viên:",
-    "/addcat <tên danh mục>",
-    "/add <mã danh mục> | Tên | Thời hạn | Bảo hành | Giá | Mô tả",
-    "/addtemp Tên | Thời hạn | Bảo hành | Giá | Mô tả | YYYY-MM-DD",
-    "/edit <mã sản phẩm> | name=... | category=... | duration=... | warranty=... | price=... | desc=... | until=... | status=active|inactive",
-    "/delete <mã sản phẩm>",
-    "/addad <link Shopee> | Tiêu đề",
-    "/listads - xem link quảng cáo",
-    "/deletead <mã link>",
-    "/summary - thống kê Catalog"
+    "Administrator commands:",
+    "/addcat <category name>",
+    "/add <category id> | Name | Duration | Warranty | Price | Description",
+    "/addtemp Name | Duration | Warranty | Price | Description | YYYY-MM-DD",
+    "/edit <product id> | name=... | category=... | duration=... | warranty=... | price=... | desc=... | until=... | status=active|inactive",
+    "/delete <product id>",
+    "/addad <Shopee link> | Title",
+    "/listads - list advertising links",
+    "/deletead <link id>",
+    "/summary - show Catalog statistics"
   ].join("\n"),
-  summary: "Tổng quan Catalog",
+  summary: "Catalog overview",
   summaryLines: (summary) => [
-    `Danh mục: ${summary.totalCategories}`,
-    `Tổng sản phẩm: ${summary.totalProducts}`,
-    `Sản phẩm thường: ${summary.standardProducts}`,
-    `Sản phẩm tạm: ${summary.temporaryProducts}`,
-    `Đang hiển thị: ${summary.active}`,
-    `Chờ xử lý: ${summary.pending}`,
-    `Hết hàng: ${summary.soldOut}`,
-    `Đang ẩn: ${summary.inactive}`,
-    `Link quảng cáo Shopee: ${summary.activeAdLinks || 0}`
+    `Categories: ${summary.totalCategories}`,
+    `Total products: ${summary.totalProducts}`,
+    `Standard products: ${summary.standardProducts}`,
+    `Temporary products: ${summary.temporaryProducts}`,
+    `Active: ${summary.active}`,
+    `Pending: ${summary.pending}`,
+    `Sold out: ${summary.soldOut}`,
+    `Inactive: ${summary.inactive}`,
+    `Shopee advertising links: ${summary.activeAdLinks || 0}`
   ]
 };
 
@@ -91,6 +91,12 @@ export function createTelegramSellerBot(options = {}) {
       }
 
       await service.ensureDefaultCategories();
+      try {
+        const result = await service.syncStoreCatalog({ actor: "store-catalog-sync" });
+        console.log(`[telegram-seller-bot] synced ${result.total} Store Catalog products in ${result.categories} categories`);
+      } catch (error) {
+        console.warn(`[telegram-seller-bot] Store Catalog sync skipped: ${error.message || error}`);
+      }
       try {
         botProfile = await apiCall(token, "getMe", {});
       } catch (error) {

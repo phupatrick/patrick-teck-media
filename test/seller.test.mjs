@@ -92,7 +92,7 @@ const tests = [
     async run() {
       const searchReply = await executeSellerCommand("/find GPT", buildContext());
 
-      assert.match(searchReply.text, /Kết quả tìm kiếm/);
+      assert.match(searchReply.text, /Search results/);
       assert.match(searchReply.text, /GPT Plus/);
 
       const category = (await service.listCategories({ includeTemporary: true })).find((entry) => entry.name === "Tep GPT");
@@ -130,6 +130,51 @@ const tests = [
     }
   },
   {
+    name: "syncs Store Catalog products into English USD categories",
+    async run() {
+      const syncDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-media-store-sync-"));
+      const syncService = createSellerService({
+        statePath: path.join(syncDir, "seller-catalog.json"),
+        catalogUrl: "https://patricktechmedia.store/api/products",
+        translator: createSellerTranslator({
+          async translate({ targetLanguage, fields }) {
+            return {
+              name: targetLanguage === "en" ? `English ${fields.name}` : fields.name,
+              description: targetLanguage === "en" ? `English ${fields.description}` : fields.description,
+              duration_label: fields.duration_label,
+              warranty_label: fields.warranty_label
+            };
+          }
+        })
+      });
+      const previousFetch = globalThis.fetch;
+      globalThis.fetch = async () => new Response(JSON.stringify({ products: [
+        {
+          id: "premium-1",
+          catalogCategory: "premium",
+          catalogCategoryEn: "Premium Accounts",
+          title: "Tài khoản AI 1 tháng",
+          description: "Bảo hành 30 ngày",
+          price: 260000
+        }
+      ] }), { status: 200, headers: { "content-type": "application/json" } });
+      try {
+        const result = await syncService.syncStoreCatalog();
+        assert.deepEqual(result, { total: 1, categories: 1, catalogUrl: "https://patricktechmedia.store/api/products" });
+        const categories = await syncService.listCategories({ language: "en" });
+        const products = await syncService.listProducts({ language: "en" });
+        assert.equal(categories.find((entry) => entry.id === "premium").name, "Premium Accounts");
+        assert.equal(products.length, 1);
+        assert.equal(products[0].name, "English Tài khoản AI 1 tháng");
+        assert.equal(products[0].price, 8);
+        assert.equal(products[0].currency, "USD");
+        assert.equal(products[0].quantity, 9999);
+      } finally {
+        globalThis.fetch = previousFetch;
+      }
+    }
+  },
+  {
     name: "blocks non-admin catalog modifications while allowing browsing",
     async run() {
       await assert.rejects(
@@ -142,7 +187,7 @@ const tests = [
               actor: "@viewer"
             })
           ),
-        /quản trị viên/i
+        /administrators/i
       );
 
       const helpReply = await executeSellerCommand(

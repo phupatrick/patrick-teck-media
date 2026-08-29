@@ -7,6 +7,9 @@ const DEFAULT_CATEGORY_ID = "general";
 const TEMPORARY_CATEGORY_ID = "temporary";
 const SUPPORTED_LANGUAGES = ["vi", "en", "my"];
 const DEFAULT_SELLER_CURRENCY = "USD";
+const DEFAULT_STORE_CATALOG_URL = "https://patricktechmedia.store/api/products";
+const VND_PER_USD = 26000;
+const RESELLER_DISCOUNT = 0.2;
 
 export function createSellerService(options = {}) {
   const store = createSellerStore({
@@ -16,7 +19,8 @@ export function createSellerService(options = {}) {
   const translator = options.translator || createSellerTranslator(options.translation || {});
   const config = {
     timezoneOffset: safeTrim(options.timezoneOffset || process.env.SELLER_TIMEZONE_OFFSET || DEFAULT_TIMEZONE_OFFSET) || DEFAULT_TIMEZONE_OFFSET,
-    currency: safeTrim(options.currency || process.env.SELLER_CURRENCY || DEFAULT_SELLER_CURRENCY) || DEFAULT_SELLER_CURRENCY
+    currency: safeTrim(options.currency || process.env.SELLER_CURRENCY || DEFAULT_SELLER_CURRENCY) || DEFAULT_SELLER_CURRENCY,
+    catalogUrl: safeTrim(options.catalogUrl || process.env.SELLER_CATALOG_URL || DEFAULT_STORE_CATALOG_URL) || DEFAULT_STORE_CATALOG_URL
   };
 
   return {
@@ -145,6 +149,97 @@ export function createSellerService(options = {}) {
           actor: "system"
         });
       }
+    },
+    async syncStoreCatalog(options = {}) {
+      const response = await fetch(config.catalogUrl, {
+        headers: { accept: "application/json", "user-agent": "patrick-tech-media-seller" },
+        signal: AbortSignal.timeout(15000)
+      });
+      if (!response.ok) {
+        throw new Error(`Store Catalog returned HTTP ${response.status}.`);
+      }
+
+      const payload = await response.json();
+      const sourceProducts = Array.isArray(payload?.products) ? payload.products : [];
+      if (!sourceProducts.length) {
+        throw new Error("Store Catalog returned no products.");
+      }
+
+      const categoryMap = new Map();
+      for (const source of sourceProducts) {
+        const categoryId = safeTrim(source.catalogCategory || source.category || DEFAULT_CATEGORY_ID) || DEFAULT_CATEGORY_ID;
+        if (!categoryMap.has(categoryId)) {
+          categoryMap.set(categoryId, {
+            id: categoryId,
+            name: safeTrim(source.catalogCategoryEn || source.categoryEn) || englishCategoryName(categoryId),
+            description: "Products synchronized from the Patrick Tech Store Catalog.",
+            sort_order: categoryMap.size + 1,
+            is_temporary: false,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            created_by: "store-catalog-sync",
+            updated_by: "store-catalog-sync"
+          });
+        }
+      }
+
+      const translatedProducts = await Promise.all(sourceProducts.map(async (source) => {
+        const name = safeTrim(source.title || source.name) || "Catalog product";
+        const description = safeTrim(source.description);
+        const fields = {
+          name,
+          description,
+          duration_label: inferDuration(name + " " + description),
+          warranty_label: inferWarranty(name + " " + description)
+        };
+        const translated = await translator.translateProductTexts({
+          sourceLanguage: "vi",
+          fields,
+          targets: ["en", "my"]
+        });
+        const baseVnd = Math.max(0, Number(source.price) || 0);
+        const price = Math.round((baseVnd * (1 - RESELLER_DISCOUNT) / VND_PER_USD) * 100) / 100;
+        return normalizeProduct({
+          id: `store-${safeId(source.id || source.path || name)}`,
+          source_catalog_id: safeTrim(source.id || source.path || name),
+          category_id: safeTrim(source.catalogCategory || source.category) || DEFAULT_CATEGORY_ID,
+          source_language: "vi",
+          translations: buildTranslations("vi", fields, translated),
+          price,
+          currency: "USD",
+          quantity: 9999,
+          created_at: safeTrim(source.syncedAt) || new Date().toISOString(),
+          updated_at: safeTrim(source.syncedAt) || new Date().toISOString(),
+          created_by: "store-catalog-sync",
+          updated_by: "store-catalog-sync",
+          status: baseVnd > 0 ? "active" : "inactive"
+        });
+      }));
+
+      await store.updateState((draft) => {
+        const state = normalizeDraftState(draft);
+        const existingCatalogIds = new Set(translatedProducts.map((product) => product.source_catalog_id));
+        state.categories = [
+          ...state.categories.filter((category) => !category.source_catalog),
+          ...[...categoryMap.values()].map((category) => ({ ...category, source_catalog: true }))
+        ];
+        state.products = [
+          ...state.products.filter((product) => !product.source_catalog_id || !existingCatalogIds.has(product.source_catalog_id)),
+          ...translatedProducts
+        ];
+        state.audit.unshift({
+          id: makeId("audit"),
+          action: "sync_store_catalog",
+          actor: safeTrim(options.actor) || "store-catalog-sync",
+          product_id: "",
+          category_id: "",
+          changes: { total: translatedProducts.length, categories: categoryMap.size },
+          created_at: new Date().toISOString()
+        });
+        return state;
+      });
+
+      return { total: translatedProducts.length, categories: categoryMap.size, catalogUrl: config.catalogUrl };
     },
     async getUserPreference(userId) {
       const state = normalizeDraftState(await store.readState());
@@ -586,7 +681,8 @@ function normalizeCategory(category) {
     created_at: safeTrim(category?.created_at),
     updated_at: safeTrim(category?.updated_at),
     created_by: safeTrim(category?.created_by),
-    updated_by: safeTrim(category?.updated_by)
+    updated_by: safeTrim(category?.updated_by),
+    source_catalog: Boolean(category?.source_catalog)
   };
 }
 
@@ -759,6 +855,7 @@ function normalizeProduct(product) {
 
   return {
     id: safeTrim(product?.id),
+    source_catalog_id: safeTrim(product?.source_catalog_id),
     category_id: safeTrim(product?.category_id) || DEFAULT_CATEGORY_ID,
     source_language: sourceLanguage,
     translations,
@@ -777,6 +874,29 @@ function normalizeProduct(product) {
     updated_by: safeTrim(product?.updated_by),
     status: safeTrim(product?.status) || "active"
   };
+}
+
+function safeId(value) {
+  return safeTrim(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 100) || crypto.randomUUID();
+}
+
+function englishCategoryName(categoryId) {
+  return {
+    premium: "Premium Accounts",
+    "api-keys": "API Keys & AI",
+    social: "Social Growth",
+    software: "Code, Tools & Software"
+  }[safeTrim(categoryId)] || "Other Products";
+}
+
+function inferDuration(value) {
+  const match = String(value || "").match(/\b(\d+\s*(?:ngày|tháng|năm|giờ|day|days|month|months|year|years|hour|hours))\b/i);
+  return match ? match[1].replace(/ngày/gi, "days").replace(/tháng/gi, "months").replace(/năm/gi, "years").replace(/giờ/gi, "hours") : "";
+}
+
+function inferWarranty(value) {
+  const match = String(value || "").match(/bảo hành\s*(?:full\s*)?(\d+\s*(?:ngày|tháng|năm|giờ))/i);
+  return match ? `Warranty ${match[1].replace(/ngày/gi, "days").replace(/tháng/gi, "months").replace(/năm/gi, "years").replace(/giờ/gi, "hours")}` : "";
 }
 
 function normalizeState(state, now = new Date(), language = "vi") {
