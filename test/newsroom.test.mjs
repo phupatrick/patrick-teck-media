@@ -2722,6 +2722,8 @@ const tests = [
       const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-refresh-fix-"));
       const sourcePath = path.join(tempDir, "hidden-feed.json");
       const outputPath = path.join(tempDir, "newsroom-content.json");
+      const pendingPath = path.join(tempDir, "pending-clusters.json");
+      fs.writeFileSync(pendingPath, JSON.stringify({ generated_at: "", items: [] }), "utf8");
       const article = makeScenarioArticle({
         language: "en",
         content_type: "NewsArticle",
@@ -2774,7 +2776,8 @@ const tests = [
           OPENCLAW_NEWSROOM_URL: "",
           NEWSROOM_PULL_FILE: sourcePath,
           OPENCLAW_NEWSROOM_FILE: "",
-          NEWSROOM_CONTENT_PATH: outputPath
+          NEWSROOM_CONTENT_PATH: outputPath,
+          OPENCLAW_PENDING_QUEUE_PATH: pendingPath
         },
         () => runNewsroomRefresh(process.env)
       );
