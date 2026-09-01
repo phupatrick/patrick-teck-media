@@ -344,7 +344,7 @@ FB_PAGE_ID=885195674667440
 FB_PAGE_ACCESS_TOKEN=
 SOCIAL_AI_PROVIDER=offline
 SOCIAL_AI_API_KEY=
-SOCIAL_AUTOPILOT_ENABLED=0
+SOCIAL_AUTOPILOT_ENABLED=1
 SOCIAL_AUTOPILOT_LIMIT=1
 SOCIAL_AUTOPILOT_ROTATE_TOPICS=0
 ```
@@ -361,7 +361,7 @@ npm run telegram:newsroom:webhook:delete
 
 The Vercel cron route `/api/openclaw/cron` is enabled in `vercel.json` with schedule `0 1 * * *` UTC, which is 08:00 Asia/Ho_Chi_Minh. It dispatches the GitHub workflow as a daily fallback. Set `CRON_SECRET` in Vercel and send it as `Authorization: Bearer <CRON_SECRET>`; the route rejects unauthenticated requests whenever the secret is configured. The GitHub Actions workflow remains the high-frequency automation path at `*/15 * * * *`, while Vercel keeps the Telegram command webhook online.
 
-Social Autopilot runs with `npm run social:autopilot`. It is disabled by default; set `SOCIAL_AUTOPILOT_ENABLED=1` only after configuring the Facebook Page token and Telegram report chat ids. It selects recent Vietnamese newsroom articles that have no matching `source_key` in the social store, publishes at most `SOCIAL_AUTOPILOT_LIMIT` articles, stores the Facebook id, and reports results to Telegram. Set `SOCIAL_AUTOPILOT_ROTATE_TOPICS=1` to use the small evergreen topic rotation only when no unpublished newsroom article is available. Never commit page tokens or API keys.
+Social Autopilot runs with `npm run social:autopilot` on every 15-minute GitHub Actions cycle. It is enabled by default in production; set the `SOCIAL_AUTOPILOT_ENABLED` secret to `0` only for an intentional pause. It selects recent Vietnamese newsroom articles that have no matching `source_key` in the social store, publishes at most `SOCIAL_AUTOPILOT_LIMIT` article per cycle, stores the Facebook id, uses a fallback technology image when the source has none, and reports both successes and failures to Telegram. Set `SOCIAL_AUTOPILOT_ROTATE_TOPICS=1` to use the small evergreen topic rotation only when no unpublished newsroom article is available. Never commit page tokens or API keys.
 
 ### Configure
 

@@ -115,9 +115,10 @@ jobs:
           OPENCLAW_SOCIAL_SIGNALS_PATH: data/openclaw-social-signals.json
         run: node scripts/openclaw-manager.mjs
 
-      - name: Run Social Autopilot (opt-in)
+      - name: Run Social Autopilot
         env:
-          SOCIAL_AUTOPILOT_ENABLED: ${{ secrets.SOCIAL_AUTOPILOT_ENABLED || '0' }}
+          # Publishing is autonomous in production; set the secret to 0 for an intentional pause.
+          SOCIAL_AUTOPILOT_ENABLED: ${{ secrets.SOCIAL_AUTOPILOT_ENABLED || '1' }}
           SOCIAL_AUTOPILOT_LIMIT: ${{ secrets.SOCIAL_AUTOPILOT_LIMIT || '1' }}
           SOCIAL_AUTOPILOT_ROTATE_TOPICS: ${{ secrets.SOCIAL_AUTOPILOT_ROTATE_TOPICS || '0' }}
           SOCIAL_AI_PROVIDER: ${{ secrets.SOCIAL_AI_PROVIDER || 'gemini' }}
