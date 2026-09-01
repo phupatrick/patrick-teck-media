@@ -111,6 +111,22 @@ jobs:
           OPENCLAW_SOCIAL_SIGNALS_PATH: data/openclaw-social-signals.json
         run: node scripts/openclaw-manager.mjs
 
+      - name: Run Social Autopilot (opt-in)
+        env:
+          SOCIAL_AUTOPILOT_ENABLED: ${{ secrets.SOCIAL_AUTOPILOT_ENABLED || '0' }}
+          SOCIAL_AUTOPILOT_LIMIT: ${{ secrets.SOCIAL_AUTOPILOT_LIMIT || '1' }}
+          SOCIAL_AUTOPILOT_ROTATE_TOPICS: ${{ secrets.SOCIAL_AUTOPILOT_ROTATE_TOPICS || '0' }}
+          SOCIAL_AI_PROVIDER: ${{ secrets.SOCIAL_AI_PROVIDER || 'offline' }}
+          SOCIAL_AI_API_KEY: ${{ secrets.SOCIAL_AI_API_KEY }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}
+          TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: ${{ secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          NEWSROOM_CONTENT_PATH: data/newsroom-content.json
+          SOCIAL_STATE_PATH: data/social-posts.json
+        run: npm run social:autopilot
+
       - name: Sync generated data to cloud storage
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}

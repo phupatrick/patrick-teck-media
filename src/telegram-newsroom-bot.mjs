@@ -232,13 +232,16 @@ export function createTelegramNewsroomBot(options = {}) {
     const action = String(callbackQuery.data || "");
     if (action.startsWith("social:")) {
       try {
+        await answerCallback(callbackQuery.id, "Đang xử lý đăng Facebook...");
         const response = await handleSocialCallback(action, {
           isAdmin: isAdminUser(callbackQuery.from),
           store: socialStore,
           defaults: socialDefaults
         });
         await answerCallback(callbackQuery.id, "Da cap nhat.");
-        await editMessage(chat.id, message.message_id, response?.text || "Da xu ly.");
+        await editMessage(chat.id, message.message_id, response?.text || "Da xu ly.", {
+          reply_markup: response?.replyMarkup || { inline_keyboard: [] }
+        });
       } catch (error) {
         await answerCallback(callbackQuery.id, "Co loi.");
         await editMessage(chat.id, message.message_id, error.message || "Khong the xu ly bai Facebook.");

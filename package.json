@@ -23,6 +23,7 @@
     "newsroom:dispatch": "node scripts/dispatch-newsroom-workflow.mjs",
     "openclaw:feed": "node scripts/openclaw-newsroom-feed.mjs",
     "openclaw:social:signals": "node scripts/openclaw-social-signals.mjs",
+    "social:autopilot": "node scripts/social-autopilot.mjs",
     "openclaw:learn": "node scripts/openclaw-learning.mjs",
     "openclaw:web": "node scripts/openclaw-web-control.mjs",
     "openclaw:git-sync": "node scripts/openclaw-git-sync.mjs",

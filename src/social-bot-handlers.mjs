@@ -1,5 +1,5 @@
 import { CONTENT_PILLARS } from "./social-templates.mjs";
-import { createPostContent, postFirstComment, postToFacebook } from "./social-engine.mjs";
+import { createPostContent, getRandomTechImage, postFirstComment, postToFacebook } from "./social-engine.mjs";
 
 export async function executeSocialCommand(rawText, context = {}) {
   if (!context.isAdmin) throw new Error("Chi admin moi duoc quan ly Facebook.");
@@ -25,10 +25,10 @@ export async function handleSocialCallback(callbackData, context = {}) {
     const fbPostId = await postToFacebook({ pageId: config.fb_page_id, pageToken: config.fb_page_token, caption: post.caption, imageUrl: post.image_url, fetchImpl: context.fetch });
     if (post.first_comment) await postFirstComment({ postId: fbPostId, pageToken: config.fb_page_token, commentText: post.first_comment, fetchImpl: context.fetch });
     post.status = "published"; post.fb_post_id = fbPostId; post.published_at = new Date().toISOString(); post.updated_at = post.published_at;
-    result = `Da dang Facebook: https://facebook.com/${fbPostId}`;
+    result = `✅ ĐÃ ĐĂNG LÊN FANPAGE THÀNH CÔNG!\nhttps://facebook.com/${fbPostId}`;
     return state;
   });
-  return { text: result };
+  return { text: result, replyMarkup: { inline_keyboard: [] } };
 }
 
 async function createPendingPost(topic, context) {
@@ -36,7 +36,7 @@ async function createPendingPost(topic, context) {
   const state = await context.store.getState();
   const config = { ...context.defaults, ...state.config };
   const content = await createPostContent({ provider: config.ai_provider, apiKey: config.ai_api_key, topic, pillar: CONTENT_PILLARS.AI_NEWS, fetchImpl: context.fetch });
-  const post = { id: `social_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`, topic, caption: content.caption, first_comment: content.first_comment, status: "pending_approval", created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
+  const post = { id: `social_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`, topic, caption: content.caption, first_comment: content.first_comment, image_url: getRandomTechImage(), status: "pending_approval", created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
   await context.store.update((draft) => { draft.posts.unshift(post); draft.updated_at = new Date().toISOString(); return draft; });
   return { text: `Bai viet dang cho duyet:\n\n${post.caption}\n\nBinh luan dau:\n${post.first_comment}`, replyMarkup: { inline_keyboard: [[{ text: "Dang Facebook", callback_data: `social:approve:${post.id}` }, { text: "Huy", callback_data: `social:reject:${post.id}` }]] } };
 }
