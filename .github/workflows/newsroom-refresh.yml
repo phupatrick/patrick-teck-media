@@ -93,6 +93,9 @@ jobs:
           NEWSROOM_TRANSLATION_ENDPOINT: ${{ secrets.NEWSROOM_TRANSLATION_ENDPOINT }}
           NEWSROOM_TRANSLATION_API_KEY: ${{ secrets.NEWSROOM_TRANSLATION_API_KEY }}
           NEWSROOM_TRANSLATION_MODEL: ${{ secrets.NEWSROOM_TRANSLATION_MODEL }}
+          NEWSROOM_GEMINI_API_KEY: ${{ secrets.NEWSROOM_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
+          NEWSROOM_GEMINI_MODEL: ${{ secrets.NEWSROOM_GEMINI_MODEL || 'gemini-1.5-flash' }}
+          NEWSROOM_GEMINI_LIMIT: "12"
           NEWSROOM_AUDIT_STRICT: "1"
           OPENCLAW_RUN_SOURCE: ${{ github.event.inputs.source || 'schedule' }}
           OPENCLAW_RUN_REASON: ${{ github.event.inputs.reason || 'scheduled' }}

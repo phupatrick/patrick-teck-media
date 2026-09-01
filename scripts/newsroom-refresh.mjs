@@ -6,6 +6,7 @@ import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
 import { repairEncodingArtifacts } from "../src/text-repair.mjs";
 import { createNewsroomTranslator } from "../src/newsroom-translation.mjs";
+import { enrichArticleWithGemini, getNewsroomGeminiConfig } from "../src/newsroom-gemini.mjs";
 import { buildNewsroomState } from "../src/newsroom-service.mjs";
 import { cleanSourceText, isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
 import { applySingleSourcePublicationPolicy, getPendingArticleKey, isSingleSourceArticle, markPendingTranslationFailure, preparePendingArticles, readPendingQueue, writePendingQueue } from "../src/newsroom-pending-queue.mjs";
@@ -1062,13 +1063,38 @@ const SOURCE_TOPIC_HINTS = [
     };
   }
 
-  incomingArticles = prepareArticlesForPublish(queuedCandidates, {
+  const publishOptions = {
     now,
     outputPath,
     siteUrl: env.SITE_URL || "https://patricktechmedia.com",
     storeUrl: env.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store",
     strictQualityGate: isStrictAutopublishQualityGateEnabled(env)
-  });
+  };
+  incomingArticles = prepareArticlesForPublish(queuedCandidates, publishOptions);
+
+  const geminiConfig = getNewsroomGeminiConfig(env);
+  if (geminiConfig.apiKey && incomingArticles.length < queuedCandidates.length) {
+    const readySourceKeys = new Set(incomingArticles.flatMap(articleSourceKeys));
+    const limit = clampInteger(env.NEWSROOM_GEMINI_LIMIT, 1, 20, 12);
+    const candidatesForGemini = queuedCandidates
+      .filter((article) => !articleSourceKeys(article).some((key) => readySourceKeys.has(key)))
+      .slice(0, limit);
+    const enriched = [];
+    for (const article of candidatesForGemini) {
+      try {
+        enriched.push(await enrichArticleWithGemini(article, geminiConfig));
+      } catch (error) {
+        console.warn(`Newsroom Gemini enrichment failed for "${cleanText(article.title).slice(0, 120)}": ${error.message || error}`);
+      }
+    }
+    if (enriched.length > 0) {
+      const enrichedByKey = new Map(enriched.flatMap((article) => articleSourceKeys(article).map((key) => [key, article])));
+      incomingArticles = prepareArticlesForPublish(
+        queuedCandidates.map((article) => enrichedByKey.get(articleSourceKeys(article)[0]) || article),
+        publishOptions
+      );
+    }
+  }
 
   const publishedSourceUrls = new Set(incomingArticles.flatMap((article) =>
     (article.source_set || []).map((source) => canonicalSourceUrl(source.source_url)).filter(Boolean)
@@ -1647,6 +1673,13 @@ async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
   // companion drafts remain useful editorial inputs, but their synthesized
   // source records cannot prove the trust tier of a particular report.
   return selectCuratedSourceDrafts(allArticles, env);
+}
+
+function articleSourceKeys(article) {
+  const keys = (article?.source_set || []).map((source) => canonicalSourceUrl(source?.source_url)).filter(Boolean);
+  const id = cleanText(article?.id || article?.slug);
+  if (id) keys.push(`id:${id}`);
+  return [...new Set(keys)];
 }
 
 function readFeedHttpCache(filePath) {
