@@ -29,17 +29,22 @@ export function getRandomTechImage({ random = Math.random } = {}) {
 
 export async function createPostContent({ provider = "offline", apiKey = "", topic, pillar, notes, fetchImpl = fetch } = {}) {
   const normalizedProvider = String(provider || "offline").trim().toLowerCase();
-  if (!apiKey || ["", "none", "offline"].includes(normalizedProvider)) {
+  if (["", "none", "offline"].includes(normalizedProvider)) {
     return generateOfflinePost({ topic, pillar, notes });
   }
 
-  try {
-    const result = await requestAiContent({ provider: normalizedProvider, apiKey, topic, pillar, notes, fetchImpl });
-    return validatePostContent(result);
-  } catch (error) {
-    console.warn(`[social] AI content fallback: ${error.message || error}`);
-    return generateOfflinePost({ topic, pillar, notes });
+  const resolvedApiKey = String(
+    process.env.SOCIAL_AI_API_KEY ||
+    process.env.GEMINI_API_KEY ||
+    apiKey ||
+    ""
+  ).trim();
+  if (!resolvedApiKey) {
+    throw new Error(`Missing API key for social provider "${normalizedProvider}".`);
   }
+
+  const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, topic, pillar, notes, fetchImpl });
+  return validatePostContent(result);
 }
 
 export async function postToFacebook({ pageId, pageToken, caption, imageUrl = "", fetchImpl = fetch } = {}) {
@@ -76,7 +81,9 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, fetchI
       body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}\n\n${buildPrompt({ topic, pillar, notes })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
     });
     const payload = await readResponse(response);
-    if (!response.ok) throw new Error(payload?.error?.message || `Gemini failed with HTTP ${response.status}.`);
+    if (!response.ok) {
+      throw new Error(`Gemini API failed (HTTP ${response.status}): ${payload?.error?.message || payload?.raw || "Google returned an unknown error."}`);
+    }
     return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
   }
 
@@ -88,7 +95,9 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, fetchI
     body: JSON.stringify({ model, response_format: { type: "json_object" }, messages: [{ role: "system", content: SOCIAL_SYSTEM_PROMPT }, { role: "user", content: buildPrompt({ topic, pillar, notes }) }] })
   });
   const payload = await readResponse(response);
-  if (!response.ok) throw new Error(payload?.error?.message || `${provider} failed with HTTP ${response.status}.`);
+  if (!response.ok) {
+    throw new Error(`${provider} API failed (HTTP ${response.status}): ${payload?.error?.message || payload?.raw || "Provider returned an unknown error."}`);
+  }
   return parseJsonText(payload?.choices?.[0]?.message?.content);
 }
 

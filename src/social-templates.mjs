@@ -14,8 +14,8 @@ const DEFAULT_COMMENT = [
 ].join("\n");
 
 export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, notes = "", customCTA = "" } = {}) {
-  const title = normalizeText(topic, "Cong nghe va giai phap so dang chu y");
-  const detail = normalizeText(notes, "Lam ro loi ich, gioi han va cach ap dung phu hop voi nhu cau thuc te.");
+  const title = normalizeText(topic, "Công nghệ và giải pháp số đáng chú ý");
+  const detail = normalizeText(notes, "Làm rõ lợi ích, giới hạn và cách áp dụng phù hợp với nhu cầu thực tế.");
   const cta = normalizeText(customCTA, DEFAULT_CTA);
 
   const contentByPillar = {

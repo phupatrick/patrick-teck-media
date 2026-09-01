@@ -29,6 +29,36 @@ try {
   assert.match(geminiRequest.body.contents[0].parts[0].text, /phân tích sâu 3 điểm/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.equal(geminiContent.caption, "Bài có dấu");
+  const originalSocialKey = process.env.SOCIAL_AI_API_KEY;
+  const originalGeminiKey = process.env.GEMINI_API_KEY;
+  try {
+    process.env.SOCIAL_AI_API_KEY = "env-key";
+    delete process.env.GEMINI_API_KEY;
+    let envRequestUrl = "";
+    await createPostContent({
+      provider: "gemini",
+      topic: "Kiểm tra key môi trường",
+      fetchImpl: async (url) => {
+        envRequestUrl = url;
+        return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài từ env", first_comment: "" }) }] } }] }), { status: 200 });
+      }
+    });
+    assert.match(envRequestUrl, /key=env-key/);
+
+    await assert.rejects(
+      createPostContent({
+        provider: "gemini",
+        apiKey: "request-key",
+        fetchImpl: async () => new Response(JSON.stringify({ error: { message: "API key not valid" } }), { status: 401 })
+      }),
+      /Gemini API failed \(HTTP 401\): API key not valid/
+    );
+  } finally {
+    if (originalSocialKey === undefined) delete process.env.SOCIAL_AI_API_KEY;
+    else process.env.SOCIAL_AI_API_KEY = originalSocialKey;
+    if (originalGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
+    else process.env.GEMINI_API_KEY = originalGeminiKey;
+  }
   const store = createSocialStore({ statePath: tempPath });
   const response = await executeSocialCommand("/social_post Kiem tra he thong", { isAdmin: true, store, defaults: {} });
   assert.match(response.text, /cho duyet/);
