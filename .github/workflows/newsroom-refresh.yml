@@ -97,6 +97,8 @@ jobs:
           OPENCLAW_RUN_SOURCE: ${{ github.event.inputs.source || 'schedule' }}
           OPENCLAW_RUN_REASON: ${{ github.event.inputs.reason || 'scheduled' }}
           NEWSROOM_AUTOPUBLISH_STRICT: "1"
+          NEWSROOM_AUTOPUBLISH_LIMIT: "12"
+          NEWSROOM_AUTOPUBLISH_MIN_VI: "5"
           OPENCLAW_NEWSROOM_URL: ${{ secrets.OPENCLAW_NEWSROOM_URL }}
           OPENCLAW_NEWSROOM_TOKEN: ${{ secrets.OPENCLAW_NEWSROOM_TOKEN }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}

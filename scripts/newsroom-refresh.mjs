@@ -1663,8 +1663,9 @@ function writeFeedHttpCache(filePath, value) {
   }
 }
 
-function selectCuratedSourceDrafts(articles, env = process.env) {
+export function selectCuratedSourceDrafts(articles, env = process.env) {
   const limit = clampInteger(env?.NEWSROOM_AUTOPUBLISH_LIMIT, 1, 20, 10);
+  const minimumVietnamese = clampInteger(env?.NEWSROOM_AUTOPUBLISH_MIN_VI, 0, limit, Math.min(limit, Math.max(2, Math.ceil(limit * 0.4))));
   const topicFloor = ["security", "internet-business-tech", "devices", "apps-software", "gaming"];
   const seenLinks = new Set();
   const seenTopics = new Map();
@@ -1702,6 +1703,18 @@ function selectCuratedSourceDrafts(articles, env = process.env) {
 
   const selected = [];
   const usedIds = new Set();
+
+  // Reserve capacity for Vietnamese articles only after they pass the same trust, depth, and quality checks.
+  for (const article of eligible) {
+    if (selected.length >= minimumVietnamese) break;
+    if (article.language !== "vi") continue;
+    const key = article.id || article.slug;
+    if (!key || usedIds.has(key)) continue;
+    selected.push(article);
+    usedIds.add(key);
+    const topic = normalizeTopicHint(article?.topic) || "ai";
+    seenTopics.set(topic, (seenTopics.get(topic) || 0) + 1);
+  }
 
   for (const topic of topicFloor) {
     const match = eligible.find((article) => normalizeTopicHint(article?.topic) === topic && !usedIds.has(article.id || article.slug));
