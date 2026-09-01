@@ -25,7 +25,7 @@ try {
       return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài có dấu", first_comment: "Liên hệ 0933 684 560" }) }] } }] }), { status: 200 });
     }
   });
-  assert.match(geminiRequest.url, /gemini-1\.5-flash:generateContent/);
+  assert.match(geminiRequest.url, /gemini-2\.5-flash:generateContent/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /phân tích sâu 3 điểm/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.equal(geminiContent.caption, "Bài có dấu");

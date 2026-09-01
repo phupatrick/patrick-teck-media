@@ -22,6 +22,8 @@ const SOCIAL_SYSTEM_PROMPT = [
   "Trả về JSON duy nhất gồm caption và first_comment; không bọc markdown."
 ].join(" ");
 
+const DEFAULT_GEMINI_MODEL = "gemini-2.5-flash";
+
 export function getRandomTechImage({ random = Math.random } = {}) {
   const index = Math.min(TECH_IMAGES.length - 1, Math.max(0, Math.floor(Number(random()) * TECH_IMAGES.length)));
   return TECH_IMAGES[index];
@@ -75,7 +77,8 @@ export async function postFirstComment({ postId, pageToken, commentText, fetchIm
 
 async function requestAiContent({ provider, apiKey, topic, pillar, notes, fetchImpl }) {
   if (provider === "gemini") {
-    const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
+    const model = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL).trim() || DEFAULT_GEMINI_MODEL;
+    const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}\n\n${buildPrompt({ topic, pillar, notes })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
