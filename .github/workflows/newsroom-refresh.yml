@@ -80,7 +80,7 @@ jobs:
         if: ${{ github.event_name == 'schedule' && github.event.schedule == '17 0 * * *' }}
         continue-on-error: true
         env:
-          NEWSROOM_DISCOVERY_LIMIT: "200"
+          NEWSROOM_DISCOVERY_LIMIT: "300"
           NEWSROOM_DISCOVERED_SOURCE_REGISTRY: data/newsroom-discovered-sources.json
         run: npm run newsroom:discover-sources
 
@@ -96,13 +96,16 @@ jobs:
           NEWSROOM_TRANSLATION_MODEL: ${{ secrets.NEWSROOM_TRANSLATION_MODEL }}
           NEWSROOM_GEMINI_API_KEY: ${{ secrets.NEWSROOM_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
           NEWSROOM_GEMINI_MODEL: ${{ secrets.NEWSROOM_GEMINI_MODEL || 'gemini-1.5-flash' }}
-          NEWSROOM_GEMINI_LIMIT: "12"
+          NEWSROOM_GEMINI_LIMIT: "20"
+          NEWSROOM_MAX_ACTIVE_FEEDS: "180"
+          NEWSROOM_FEED_ITEM_LIMIT: "12"
+          NEWSROOM_FEED_LIMIT_MULTIPLIER: "1.5"
           NEWSROOM_AUDIT_STRICT: "1"
           OPENCLAW_RUN_SOURCE: ${{ github.event.inputs.source || 'schedule' }}
           OPENCLAW_RUN_REASON: ${{ github.event.inputs.reason || 'scheduled' }}
           NEWSROOM_AUTOPUBLISH_STRICT: "1"
-          NEWSROOM_AUTOPUBLISH_LIMIT: "12"
-          NEWSROOM_AUTOPUBLISH_MIN_VI: "5"
+          NEWSROOM_AUTOPUBLISH_LIMIT: "20"
+          NEWSROOM_AUTOPUBLISH_MIN_VI: "12"
           OPENCLAW_NEWSROOM_URL: ${{ secrets.OPENCLAW_NEWSROOM_URL }}
           OPENCLAW_NEWSROOM_TOKEN: ${{ secrets.OPENCLAW_NEWSROOM_TOKEN }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
