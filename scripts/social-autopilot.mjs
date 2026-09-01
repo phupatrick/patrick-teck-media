@@ -37,7 +37,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
     try {
       const content = await createPostContent({
         provider: env.SOCIAL_AI_PROVIDER || "offline",
-        apiKey: env.SOCIAL_AI_API_KEY || "",
+        apiKey: env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY || "",
         topic: article.title,
         pillar: "ai_news",
         notes: buildArticleNotes(article),

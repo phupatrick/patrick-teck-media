@@ -22,8 +22,8 @@ const SOCIAL_SYSTEM_PROMPT = [
   "Trả về JSON duy nhất gồm caption và first_comment; không bọc markdown."
 ].join(" ");
 
-const DEFAULT_GEMINI_MODEL = "gemini-3.6-flash";
-const COMPATIBLE_GEMINI_MODELS = ["gemini-2.5-flash", "gemini-1.5-flash"];
+const DEFAULT_GEMINI_MODEL = "gemini-1.5-flash";
+const COMPATIBLE_GEMINI_MODELS = ["gemini-2.5-flash"];
 
 export function getRandomTechImage({ random = Math.random } = {}) {
   const index = Math.min(TECH_IMAGES.length - 1, Math.max(0, Math.floor(Number(random()) * TECH_IMAGES.length)));
@@ -37,6 +37,7 @@ export async function createPostContent({ provider = "offline", apiKey = "", top
   }
 
   const resolvedApiKey = String(
+    process.env.NEWSROOM_GEMINI_API_KEY ||
     process.env.SOCIAL_AI_API_KEY ||
     process.env.GEMINI_API_KEY ||
     apiKey ||
@@ -78,7 +79,7 @@ export async function postFirstComment({ postId, pageToken, commentText, fetchIm
 
 async function requestAiContent({ provider, apiKey, topic, pillar, notes, fetchImpl }) {
   if (provider === "gemini") {
-    const configuredModel = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || "").trim();
+    const configuredModel = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "").trim();
     const models = [...new Set([configuredModel, DEFAULT_GEMINI_MODEL, ...COMPATIBLE_GEMINI_MODELS].filter(Boolean))];
     const errors = [];
     for (const model of models) {

@@ -25,13 +25,15 @@ try {
       return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài có dấu", first_comment: "Liên hệ 0933 684 560" }) }] } }] }), { status: 200 });
     }
   });
-  assert.match(geminiRequest.url, /gemini-3\.6-flash:generateContent/);
+  assert.match(geminiRequest.url, /gemini-1\.5-flash:generateContent/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /phân tích sâu 3 điểm/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.equal(geminiContent.caption, "Bài có dấu");
   const originalSocialKey = process.env.SOCIAL_AI_API_KEY;
+  const originalNewsroomKey = process.env.NEWSROOM_GEMINI_API_KEY;
   const originalGeminiKey = process.env.GEMINI_API_KEY;
   try {
+    process.env.NEWSROOM_GEMINI_API_KEY = "newsroom-key";
     process.env.SOCIAL_AI_API_KEY = "env-key";
     delete process.env.GEMINI_API_KEY;
     let envRequestUrl = "";
@@ -43,7 +45,7 @@ try {
         return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài từ env", first_comment: "" }) }] } }] }), { status: 200 });
       }
     });
-    assert.match(envRequestUrl, /key=env-key/);
+    assert.match(envRequestUrl, /key=newsroom-key/);
 
     const fallbackUrls = [];
     await createPostContent({
@@ -56,7 +58,7 @@ try {
         return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài dự phòng", first_comment: "" }) }] } }] }), { status: 200 });
       }
     });
-    assert.match(fallbackUrls[0], /gemini-3\.6-flash:generateContent/);
+    assert.match(fallbackUrls[0], /gemini-1\.5-flash:generateContent/);
 
     await assert.rejects(
       createPostContent({
@@ -69,6 +71,8 @@ try {
   } finally {
     if (originalSocialKey === undefined) delete process.env.SOCIAL_AI_API_KEY;
     else process.env.SOCIAL_AI_API_KEY = originalSocialKey;
+    if (originalNewsroomKey === undefined) delete process.env.NEWSROOM_GEMINI_API_KEY;
+    else process.env.NEWSROOM_GEMINI_API_KEY = originalNewsroomKey;
     if (originalGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
     else process.env.GEMINI_API_KEY = originalGeminiKey;
   }
