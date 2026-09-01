@@ -1098,16 +1098,12 @@ export function renderNotFoundPage(state, language, adsConfig) {
 
 function renderCategoryMenu(nav, language) {
   const label = language === "vi" ? "Danh\u0020m\u1ee5c" : "Categories";
-  const courseLink = {
-    href: `/${language}/courses`,
-    label: language === "vi" ? "Khóa học" : "Courses"
-  };
   return `
         <nav class="nav-strip nav-strip-menu" aria-label="Primary">
           <details class="category-menu">
             <summary>${label}</summary>
             <div class="category-menu-panel" role="list">
-              ${[...nav, courseLink].map((item) => `<a role="listitem" href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
+              ${nav.map((item) => `<a role="listitem" href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
             </div>
           </details>
         </nav>`;
@@ -1235,6 +1231,7 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
           </span>
         </a>
         ${renderCategoryMenu(nav, language)}
+        <a class="lang-pill course-nav-link" href="/${language}/courses">${language === "vi" ? "Khóa học" : "Courses"}</a>
         <div class="topbar-actions">
           <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Viết bài" : "Write"}</a>
           <a class="lang-pill" href="/${language}/login">${language === "vi" ? "Đăng nhập" : "Login"}</a>
