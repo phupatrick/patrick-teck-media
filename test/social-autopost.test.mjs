@@ -14,6 +14,21 @@ try {
   const content = await createPostContent({ topic: "Offline", provider: "offline" });
   assert.ok(content.caption && content.first_comment);
   assert.match(getRandomTechImage({ random: () => 0 }), /^https:\/\/images\.unsplash\.com\//);
+  let geminiRequest = null;
+  const geminiContent = await createPostContent({
+    provider: "gemini",
+    apiKey: "test-key",
+    topic: "Điện thoại AI",
+    notes: "Thông số đã xác minh",
+    fetchImpl: async (url, options) => {
+      geminiRequest = { url, body: JSON.parse(options.body) };
+      return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài có dấu", first_comment: "Liên hệ 0933 684 560" }) }] } }] }), { status: 200 });
+    }
+  });
+  assert.match(geminiRequest.url, /gemini-1\.5-flash:generateContent/);
+  assert.match(geminiRequest.body.contents[0].parts[0].text, /phân tích sâu 3 điểm/);
+  assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
+  assert.equal(geminiContent.caption, "Bài có dấu");
   const store = createSocialStore({ statePath: tempPath });
   const response = await executeSocialCommand("/social_post Kiem tra he thong", { isAdmin: true, store, defaults: {} });
   assert.match(response.text, /cho duyet/);

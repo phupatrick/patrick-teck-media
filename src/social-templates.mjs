@@ -5,9 +5,9 @@ export const CONTENT_PILLARS = {
   TRUST_SUPPORT: "trust_support"
 };
 
-const DEFAULT_CTA = "Nhan tin cho Patrick Tech de duoc tu van goi phu hop va ho tro cai dat 1-1.";
+const DEFAULT_CTA = "📩 Nhắn Zalo 0933 684 560 để được tư vấn gói phù hợp, hỗ trợ cài đặt và bảo hành 1-1 từ Patrick Tech.";
 const DEFAULT_COMMENT = [
-  "Thong tin va ho tro chinh thuc cua Patrick Tech Co.:",
+  "📌 Thông tin và hỗ trợ chính thức của Patrick Tech Co.",
   "Website: https://patricktechmedia.com/vi/",
   "Store: https://patricktechmedia.store/",
   "Zalo / Hotline: 0933 684 560"
@@ -20,36 +20,36 @@ export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, n
 
   const contentByPillar = {
     [CONTENT_PILLARS.AI_NEWS]: [
-      `[DIEM TIN CONG NGHE] ${title.toUpperCase()}`,
-      "Cong nghe chi co gia tri khi nguoi dung hieu no thay doi dieu gi trong cong viec va chi phi hang ngay.",
-      `Dieu can biet: ${detail}`,
-      "Goc nhin Patrick Tech: hay kiem tra nguon cong bo, dieu kien su dung va chi phi truoc khi dua vao quy trinh.",
-      cta,
-      "#PatrickTechCo #AI #CongNghe #TechNews"
+      `🔥 ${title.toUpperCase()}: ĐIỀU GÌ ĐÁNG CHÚ Ý?`,
+      `🔎 **Điểm 1 - Công nghệ hoạt động ra sao:** ${detail}`,
+      "⚙️ **Điểm 2 - Tính năng và tác động thực tế:** Hãy đối chiếu khả năng xử lý, mức tương thích, độ ổn định và chi phí vận hành trước khi đưa công cụ vào công việc.",
+      "💡 **Điểm 3 - Có đáng dùng không:** Lợi ích chỉ rõ ràng khi tính năng giải quyết đúng nhu cầu; hãy thử ở quy mô nhỏ và kiểm tra giới hạn, quyền riêng tư cùng chính sách cập nhật.",
+      `✅ **Kết luận:** ${cta}`,
+      "#PatrickTechCo #AI #CôngNghệ #TechNews"
     ],
     [CONTENT_PILLARS.WORKFLOW_TIPS]: [
-      `[MEO LAM VIEC SO] ${title.toUpperCase()}`,
-      "Mot workflow tot nen bat dau tu viec nho, do duoc ket qua va mo rong khi da on dinh.",
-      `Buoc nen thu: ${detail}`,
-      "Goi y: dat dau ra ro rang, luu mau prompt va kiem tra lai ket qua truoc khi su dung.",
-      cta,
+      `🚀 ${title.toUpperCase()}: ÁP DỤNG THẾ NÀO CHO HIỆU QUẢ?`,
+      `🧭 **Bước 1 - Xác định đầu ra:** ${detail}`,
+      "🛠️ **Bước 2 - Thiết kế quy trình:** Chia việc thành các bước nhỏ, lưu mẫu thao tác, phân quyền dữ liệu và đặt điểm kiểm tra trước khi kết quả được gửi đi.",
+      "📊 **Bước 3 - Đo hiệu quả:** So sánh thời gian, chi phí, tỷ lệ lỗi và chất lượng đầu ra trước và sau khi áp dụng; chỉ mở rộng khi kết quả ổn định.",
+      `✅ **Kết luận:** ${cta}`,
       "#PatrickTechCo #Workflow #AIProductivity"
     ],
     [CONTENT_PILLARS.PRODUCT_OFFER]: [
-      `[TAI KHOAN SO VA API] ${title.toUpperCase()}`,
-      "Patrick Tech tu van dung nhu cau, minh bach pham vi goi va ho tro trong suot qua trinh su dung.",
-      `Diem can luu y: ${detail}`,
-      "Nen doi chieu tinh nang, gioi han va chinh sach bao hanh truoc khi chon goi.",
-      cta,
-      "#PatrickTechCo #TaiKhoanAI #APIKey"
+      `🛒 ${title.toUpperCase()}: KIỂM TRA GÌ TRƯỚC KHI MUA?`,
+      `📋 **Điểm 1 - Tính năng và thông số:** ${detail}`,
+      "💰 **Điểm 2 - Giá trị và chi phí:** So sánh giá, thời hạn, hạn mức, thiết bị hỗ trợ và chi phí phát sinh với nhu cầu thực tế thay vì chỉ nhìn vào mức giá niêm yết.",
+      "🛡️ **Điểm 3 - Hậu mãi:** Xác nhận phạm vi bảo hành, thời gian phản hồi, cách xử lý khi lỗi và kênh hỗ trợ trước khi thanh toán.",
+      `✅ **Lý do nên cân nhắc:** ${cta}`,
+      "#PatrickTechCo #TàiKhoảnAI #APIKey"
     ],
     [CONTENT_PILLARS.TRUST_SUPPORT]: [
-      `[HO TRO KY THUAT] ${title.toUpperCase()}`,
-      "Uy tin den tu thong tin ro rang, ho tro dung luc va trach nhiem sau khi ban giao.",
-      `Thong tin them: ${detail}`,
-      "Patrick Tech uu tien huong dan de hieu, kiem tra loi cung khach hang va thong bao ro cach xu ly.",
-      cta,
-      "#PatrickTechCo #HoTroTanTam #DichVuSo"
+      `🤝 ${title.toUpperCase()}: HỖ TRỢ KHÔNG DỪNG Ở BÁN HÀNG`,
+      `✅ **Điểm 1 - Minh bạch:** ${detail}`,
+      "🔧 **Điểm 2 - Xử lý thực tế:** Patrick Tech kiểm tra nguyên nhân, hướng dẫn từng bước và ưu tiên giải pháp phù hợp với thiết bị, tài khoản và quy trình của khách hàng.",
+      "📞 **Điểm 3 - Đồng hành sau bàn giao:** Khách hàng có kênh liên hệ rõ ràng, được cập nhật tiến độ và biết trước phạm vi bảo hành cũng như thời gian hỗ trợ.",
+      `🌟 **Cam kết:** ${cta}`,
+      "#PatrickTechCo #HỗTrợTậnTâm #DịchVụSố"
     ]
   };
 

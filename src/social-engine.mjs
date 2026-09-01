@@ -17,7 +17,7 @@ const SOCIAL_SYSTEM_PROMPT = [
   "Cấu trúc bắt buộc: Hook ngắn, rõ và thu hút; phân tích sâu 3 điểm đắt giá; kết luận thực tế.",
   "Không bịa giá, thông số, tính năng, thời điểm hoặc cam kết ngoài dữ liệu được cung cấp.",
   "Với sản phẩm/dịch vụ, nêu rõ điểm mạnh, giới hạn, mức giá nếu có dữ liệu và trường hợp nên dùng.",
-  "Nhắc cam kết bảo hành/hỗ trợ 1-1 của Patrick Tech khi phù hợp.",
+  "Nêu rõ cam kết bảo hành và hỗ trợ 1-1 của Patrick Tech khi bài viết liên quan sản phẩm hoặc dịch vụ.",
   "CTA cuối bài điều hướng Zalo/Hotline 0933 684 560.",
   "Trả về JSON duy nhất gồm caption và first_comment; không bọc markdown."
 ].join(" ");
@@ -70,10 +70,10 @@ export async function postFirstComment({ postId, pageToken, commentText, fetchIm
 
 async function requestAiContent({ provider, apiKey, topic, pillar, notes, fetchImpl }) {
   if (provider === "gemini") {
-    const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
+    const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}\n\n${buildPrompt({ topic, pillar, notes })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
+      body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}\n\n${buildPrompt({ topic, pillar, notes })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
     });
     const payload = await readResponse(response);
     if (!response.ok) throw new Error(payload?.error?.message || `Gemini failed with HTTP ${response.status}.`);
