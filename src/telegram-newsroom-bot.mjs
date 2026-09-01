@@ -3,20 +3,17 @@ import { executeSocialCommand, handleSocialCallback } from "./social-bot-handler
 const DEFAULT_COMMANDS = [
   { command: "news", description: "Quản lý newsroom" },
   { command: "social", description: "Quản lý Facebook và AI" },
-  { command: "status", description: "Xem trạng thái hệ thống" },
-  { command: "latest", description: "Xem bài mới" },
   { command: "submit", description: "Đăng bài từ link nguồn" },
   { command: "up", description: "Tạo thêm bài tự động" },
-  { command: "pending", description: "Xem hàng chờ dịch" },
+  { command: "pending", description: "Xem hàng chờ" },
   { command: "help", description: "Xem hướng dẫn ngắn" },
-  { command: "menu", description: "Mở bảng điều khiển" },
-  { command: "id", description: "Lấy mã cấu hình bot" }
+  { command: "menu", description: "Mở bảng điều khiển" }
 ];
 
 const NEWSROOM_SHORTCUTS = {
-  status: "/status", auto: "/auto", latest: "/latest", sources: "/sources", source: "/sources",
-  radar: "/radar_now", radar_now: "/radar_now", metrics: "/metrics", pending: "/pending",
-  views: "/views", rank: "/rank", audit: "/audit", learn: "/learn", feedback: "/feedback",
+  status: "/status", check: "/status", auto: "/auto", latest: "/latest", sources: "/sources", source: "/sources", scan: "/sources",
+  radar: "/radar_now", radar_now: "/radar_now", metrics: "/metrics", stats: "/metrics", pending: "/pending",
+  views: "/views", rank: "/views", audit: "/audit", learn: "/learn", feedback: "/feedback",
   health: "/health", diagnose: "/diagnose", diag: "/diagnose", web: "/web", id: "/id",
   submit: "/submit", publish: "/publish_pair", pair: "/publish_pair", purge: "/purge_cache",
   purge_cache: "/purge_cache", ads: "/ads", shopee: "/shopee", up: "/up", refresh: "/refresh",
@@ -33,13 +30,24 @@ function compactCommand(commandText, shortcuts) {
 const HELP_TEXT = [
   "Bot Patrick Tech Media",
   "",
-  "/news <status|latest|sources|radar|metrics|pending|audit|health|jobs|refresh> - vận hành newsroom",
-  "/social <post|queue|ai> [nội dung] - quản lý bài Facebook",
-  "/submit <url> - đọc, xác thực và đăng bài từ link nguồn",
-  "/up - tạo thêm bài tự động; /pending - xem bài chờ dịch",
-  "/id - lấy mã chat và mã người dùng để cấu hình Vercel",
-  "/help - hướng dẫn ngắn; /menu - bảng điều khiển",
-  "Alias cũ vẫn được hỗ trợ để không gián đoạn automation.",
+  "NHÓM NEWSROOM",
+  "/news check - trạng thái web, bot và OpenClaw",
+  "/news latest - các bài mới nhất",
+  "/news scan - nguồn và radar tin mới",
+  "/news stats - chỉ số tòa soạn; /news rank - bài nổi bật",
+  "/news pending - bài chờ dịch/xác minh",
+  "/news audit hoặc /news learn - kiểm duyệt và bộ nhớ học",
+  "/submit <url> - gửi một link để đọc, xác thực và đăng",
+  "/up - yêu cầu tạo thêm bài tự động",
+  "",
+  "NHÓM FACEBOOK",
+  "/social post <chủ đề> - soạn bài chờ duyệt",
+  "/social queue - xem bài Facebook chờ duyệt",
+  "/social ai <provider> - đổi AI viết bài",
+  "",
+  "HỆ THỐNG",
+  "/id - lấy mã cấu hình; /menu - mở nút điều khiển",
+  "Alias lệnh cũ vẫn được hỗ trợ.",
   "",
   "Chế độ hiện tại: Vercel nhận lệnh Telegram qua webhook, GitHub Actions làm mới tòa soạn thường xuyên, Vercel cron làm dự phòng hằng ngày."
 ].join("\n");
