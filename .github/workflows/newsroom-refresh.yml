@@ -126,14 +126,19 @@ jobs:
           npm run storage:sync
 
       - name: Verify and publish OpenClaw changes
-        if: ${{ secrets.DATABASE_URL == '' }}
         env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
           OPENCLAW_GIT_AUTOPUSH: "1"
           OPENCLAW_GIT_USER_NAME: "github-actions[bot]"
           OPENCLAW_GIT_USER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
           OPENCLAW_GIT_COMMIT_MESSAGE: "Run OpenClaw manager cycle"
           OPENCLAW_GIT_SKIP_TESTS: "1"
-        run: node scripts/openclaw-git-sync.mjs
+        run: |
+          if [ -n "$DATABASE_URL" ]; then
+            echo "DATABASE_URL is configured; skipping generated git commit-back."
+            exit 0
+          fi
+          node scripts/openclaw-git-sync.mjs
 
       - name: Report newsroom status to Telegram
         if: ${{ always() }}
