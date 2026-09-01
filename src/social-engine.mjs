@@ -19,7 +19,8 @@ const SOCIAL_SYSTEM_PROMPT = [
   "Không bịa giá, thông số, tính năng, thời điểm hoặc cam kết ngoài dữ liệu được cung cấp.",
   "Với sản phẩm/dịch vụ, nêu rõ điểm mạnh, giới hạn, mức giá nếu có dữ liệu và trường hợp nên dùng.",
   "Nêu rõ cam kết bảo hành và hỗ trợ 1-1 của Patrick Tech khi bài viết liên quan sản phẩm hoặc dịch vụ.",
-  "CTA cuối bài điều hướng Zalo/Hotline 0933 684 560.",
+  "CTA cuối bài điều hướng website patricktechmedia.com, cửa hàng patricktechmedia.store và Zalo/Hotline 0933 684 560.",
+  "Kết thúc bằng một câu hỏi mở để khuyến khích thảo luận, không dùng lời hứa tuyệt đối, gây áp lực hoặc thông tin chưa được xác minh.",
   "Trả về JSON duy nhất gồm caption và first_comment; không bọc markdown."
 ].join(" ");
 
@@ -31,7 +32,7 @@ export function getRandomTechImage({ random = Math.random } = {}) {
   return TECH_IMAGES[index];
 }
 
-export async function createPostContent({ provider = "offline", apiKey = "", topic, pillar, notes, fetchImpl = fetch } = {}) {
+export async function createPostContent({ provider = "offline", apiKey = "", topic, pillar, notes, sourceArticleUrl = "", fetchImpl = fetch } = {}) {
   const normalizedProvider = String(provider || "offline").trim().toLowerCase();
   if (["", "none", "offline"].includes(normalizedProvider)) {
     return generateOfflinePost({ topic, pillar, notes });
@@ -56,7 +57,7 @@ export async function createPostContent({ provider = "offline", apiKey = "", top
   } catch {
     // Learning data is optional; content generation remains available without it.
   }
-  const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, topic, pillar, notes, learningContext, fetchImpl });
+  const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, topic, pillar, notes, sourceArticleUrl, learningContext, fetchImpl });
   return validatePostContent(result);
 }
 
@@ -86,7 +87,7 @@ export async function postFirstComment({ postId, pageToken, commentText, fetchIm
   return payload?.id || null;
 }
 
-async function requestAiContent({ provider, apiKey, topic, pillar, notes, learningContext = "", fetchImpl }) {
+async function requestAiContent({ provider, apiKey, topic, pillar, notes, sourceArticleUrl = "", learningContext = "", fetchImpl }) {
   if (provider === "gemini") {
     const configuredModel = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "").trim();
     const models = [...new Set([configuredModel, DEFAULT_GEMINI_MODEL, ...COMPATIBLE_GEMINI_MODELS].filter(Boolean))];
@@ -95,7 +96,7 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, learni
       const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, notes })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
+        body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, notes, sourceArticleUrl })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
       });
       const payload = await readResponse(response);
       if (response.ok) return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
@@ -111,7 +112,7 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, learni
   const response = await fetchImpl(`${baseUrl}/v1/chat/completions`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({ model, response_format: { type: "json_object" }, messages: [{ role: "system", content: `${SOCIAL_SYSTEM_PROMPT}${learningContext}` }, { role: "user", content: buildPrompt({ topic, pillar, notes }) }] })
+    body: JSON.stringify({ model, response_format: { type: "json_object" }, messages: [{ role: "system", content: `${SOCIAL_SYSTEM_PROMPT}${learningContext}` }, { role: "user", content: buildPrompt({ topic, pillar, notes, sourceArticleUrl }) }] })
   });
   const payload = await readResponse(response);
   if (!response.ok) {
@@ -120,15 +121,26 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, learni
   return parseJsonText(payload?.choices?.[0]?.message?.content);
 }
 
-function buildPrompt({ topic, pillar, notes }) {
-  return `Thương hiệu: Patrick Tech Co. Chủ đề: ${topic || "Công nghệ"}. Trụ cột: ${pillar || "ai_news"}. Dữ liệu đã xác minh: ${notes || ""}. Hãy viết đủ chiều sâu nhưng dễ đọc, ưu tiên lợi ích và quyết định thực tế của người đọc.`;
+function buildPrompt({ topic, pillar, notes, sourceArticleUrl = "" }) {
+  return `Thương hiệu: Patrick Tech Co. Chủ đề: ${topic || "Công nghệ"}. Trụ cột: ${pillar || "ai_news"}. URL bài nguồn để tham khảo: ${sourceArticleUrl || "không có"}. Dữ liệu đã xác minh: ${notes || ""}. Hãy viết đủ chiều sâu nhưng dễ đọc, ưu tiên lợi ích và quyết định thực tế của người đọc.`;
 }
 
 function validatePostContent(value) {
-  const caption = String(value?.caption || "").trim();
+  const caption = sanitizeSocialText(String(value?.caption || "").trim());
   const firstComment = String(value?.first_comment || value?.firstComment || "").trim();
   if (!caption) throw new Error("AI response has no caption.");
   return { caption: caption.slice(0, 6000), first_comment: firstComment.slice(0, 1800) };
+}
+
+const UNSAFE_CLAIMS = [
+  [/cam kết lợi nhuận/gi, "giá trị tham khảo, không cam kết lợi nhuận"],
+  [/đảm bảo 100%/gi, "hướng đến kết quả phù hợp"],
+  [/không rủi ro/gi, "cần đánh giá rủi ro trước khi dùng"],
+  [/hack tài khoản/gi, "bảo vệ và khôi phục quyền truy cập đúng quy trình"]
+];
+
+export function sanitizeSocialText(value) {
+  return UNSAFE_CLAIMS.reduce((text, [pattern, replacement]) => text.replace(pattern, replacement), String(value || "")).trim();
 }
 
 function parseJsonText(value) {

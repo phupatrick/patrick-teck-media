@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { generateOfflinePost } from "../src/social-templates.mjs";
-import { createPostContent, getRandomTechImage } from "../src/social-engine.mjs";
+import { createPostContent, getRandomTechImage, sanitizeSocialText } from "../src/social-engine.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
 import fs from "node:fs";
@@ -11,6 +11,11 @@ const tempPath = path.join(os.tmpdir(), `patrick-social-${Date.now()}.json`);
 try {
   const post = generateOfflinePost({ topic: "AI agent", pillar: "ai_news" });
   assert.match(post.caption, /AI AGENT/);
+  assert.match(post.caption, /PATRICK TECH CO\./);
+  assert.match(post.caption, /patricktechmedia\.com/);
+  assert.match(post.caption, /patricktechmedia\.store/);
+  assert.match(post.caption, /Chia sẻ trải nghiệm/);
+  assert.doesNotMatch(sanitizeSocialText("Đảm bảo 100% và không rủi ro"), /Đảm bảo 100%|không rủi ro/);
   const content = await createPostContent({ topic: "Offline", provider: "offline" });
   assert.ok(content.caption && content.first_comment);
   assert.match(getRandomTechImage({ random: () => 0 }), /^https:\/\/images\.unsplash\.com\//);
@@ -20,6 +25,7 @@ try {
     apiKey: "test-key",
     topic: "Điện thoại AI",
     notes: "Thông số đã xác minh",
+    sourceArticleUrl: "https://patricktechmedia.com/vi/news/ai-phone",
     fetchImpl: async (url, options) => {
       geminiRequest = { url, body: JSON.parse(options.body) };
       return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài có dấu", first_comment: "Liên hệ 0933 684 560" }) }] } }] }), { status: 200 });
@@ -28,6 +34,7 @@ try {
   assert.match(geminiRequest.url, /gemini-1\.5-flash:generateContent/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /phân tích sâu 3 điểm/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
+  assert.match(geminiRequest.body.contents[0].parts[0].text, /ai-phone/);
   assert.equal(geminiContent.caption, "Bài có dấu");
   const originalSocialKey = process.env.SOCIAL_AI_API_KEY;
   const originalNewsroomKey = process.env.NEWSROOM_GEMINI_API_KEY;

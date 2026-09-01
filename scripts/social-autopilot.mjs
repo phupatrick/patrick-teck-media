@@ -41,13 +41,15 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         topic: article.title,
         pillar: "ai_news",
         notes: buildArticleNotes(article),
+        sourceArticleUrl: article.href || article.url || "",
         fetchImpl
       });
+      const imageUrl = article.image?.src || article.image_url || getRandomTechImage();
       const postId = await postToFacebook({
         pageId,
         pageToken,
         caption: content.caption,
-        imageUrl: article.image?.src || article.image_url || getRandomTechImage(),
+        imageUrl,
         fetchImpl
       });
       if (content.first_comment) await postFirstComment({ postId, pageToken, commentText: content.first_comment, fetchImpl });
@@ -58,7 +60,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         source_url: article.href || article.url || "",
         caption: content.caption,
         first_comment: content.first_comment,
-        image_url: article.image?.src || article.image_url || "",
+        image_url: imageUrl,
         status: "published",
         fb_post_id: String(postId),
         created_at: new Date().toISOString(),

@@ -5,7 +5,9 @@ export const CONTENT_PILLARS = {
   TRUST_SUPPORT: "trust_support"
 };
 
-const DEFAULT_CTA = "📩 Nhắn Zalo 0933 684 560 để được tư vấn gói phù hợp, hỗ trợ cài đặt và bảo hành 1-1 từ Patrick Tech.";
+const DEFAULT_CTA = "📩 Nhắn Zalo 0933 684 560 để được tư vấn gói phù hợp, hỗ trợ cài đặt và bảo hành 1-1 từ Patrick Tech. Xem bài viết tại patricktechmedia.com/vi/ hoặc sản phẩm tại patricktechmedia.store.";
+const BRAND_HEADER = "⚡ PATRICK TECH CO. | Công nghệ thực tế, hỗ trợ rõ ràng";
+const DISCUSSION_PROMPT = "💬 Bạn đang dùng công cụ nào cho nhu cầu này? Chia sẻ trải nghiệm để mọi người cùng tham khảo.";
 const DEFAULT_COMMENT = [
   "📌 Thông tin và hỗ trợ chính thức của Patrick Tech Co.",
   "Website: https://patricktechmedia.com/vi/",
@@ -54,7 +56,7 @@ export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, n
   };
 
   return {
-    caption: (contentByPillar[pillar] || contentByPillar[CONTENT_PILLARS.AI_NEWS]).join("\n\n"),
+    caption: [BRAND_HEADER, ...(contentByPillar[pillar] || contentByPillar[CONTENT_PILLARS.AI_NEWS]), DISCUSSION_PROMPT].join("\n\n"),
     first_comment: DEFAULT_COMMENT
   };
 }
