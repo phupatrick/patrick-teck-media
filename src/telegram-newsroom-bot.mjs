@@ -207,10 +207,20 @@ export function createTelegramNewsroomBot(options = {}) {
             : null;
 
         if (response?.text) {
-          await sendMessage(message.chat.id, response.text, {
-            reply_to_message_id: message.message_id,
-            reply_markup: response.replyMarkup
-          });
+          if (response.photo) {
+            await sendPhoto(message.chat.id, response.photo, response.photoCaption, {
+              reply_to_message_id: message.message_id,
+              reply_markup: response.replyMarkup
+            });
+            await sendMessage(message.chat.id, response.text, {
+              reply_to_message_id: message.message_id
+            });
+          } else {
+            await sendMessage(message.chat.id, response.text, {
+              reply_to_message_id: message.message_id,
+              reply_markup: response.replyMarkup
+            });
+          }
         }
       } catch (error) {
         await sendMessage(message.chat.id, error.message || "Lệnh tòa soạn bị lỗi.", {
@@ -297,6 +307,10 @@ export function createTelegramNewsroomBot(options = {}) {
 
   async function sendMessage(chatId, text, extra = {}) {
     return sendTelegramMessage({ token, chatId, text, extra });
+  }
+
+  async function sendPhoto(chatId, photo, caption, extra = {}) {
+    return sendTelegramPhoto({ token, chatId, photo, caption, extra });
   }
 
   async function editMessage(chatId, messageId, text, extra = {}) {
@@ -625,6 +639,19 @@ export async function sendTelegramMessage({ token, chatId, text, extra = {} }) {
     chat_id: normalizedChatId,
     text: String(text || "").slice(0, 4000),
     disable_web_page_preview: true,
+    ...extra
+  });
+}
+
+export async function sendTelegramPhoto({ token, chatId, photo, caption = "", extra = {} }) {
+  const normalizedToken = String(token || "").trim();
+  const normalizedChatId = String(chatId || "").trim();
+  const normalizedPhoto = String(photo || "").trim();
+  if (!normalizedToken || !normalizedChatId || !normalizedPhoto) return null;
+  return apiCall(normalizedToken, "sendPhoto", {
+    chat_id: normalizedChatId,
+    photo: normalizedPhoto,
+    caption: String(caption || "").slice(0, 1024),
     ...extra
   });
 }

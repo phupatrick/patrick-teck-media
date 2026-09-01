@@ -38,7 +38,7 @@ async function createPendingPost(topic, context) {
   const content = await createPostContent({ provider: config.ai_provider, apiKey: config.ai_api_key, topic, pillar: CONTENT_PILLARS.AI_NEWS, fetchImpl: context.fetch });
   const post = { id: `social_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`, topic, caption: content.caption, first_comment: content.first_comment, image_url: getRandomTechImage(), status: "pending_approval", created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
   await context.store.update((draft) => { draft.posts.unshift(post); draft.updated_at = new Date().toISOString(); return draft; });
-  return { text: `Bai viet dang cho duyet:\n\n${post.caption}\n\nBinh luan dau:\n${post.first_comment}`, replyMarkup: { inline_keyboard: [[{ text: "Dang Facebook", callback_data: `social:approve:${post.id}` }, { text: "Huy", callback_data: `social:reject:${post.id}` }]] } };
+  return { text: `Bai viet dang cho duyet:\n\n${post.caption}\n\nBinh luan dau:\n${post.first_comment}`, photo: post.image_url, photoCaption: "Ảnh minh họa cho bài viết. Chọn thao tác bên dưới:", replyMarkup: { inline_keyboard: [[{ text: "Dang Facebook", callback_data: `social:approve:${post.id}` }, { text: "Huy", callback_data: `social:reject:${post.id}` }]] } };
 }
 
 async function updateProvider(args, context) {
