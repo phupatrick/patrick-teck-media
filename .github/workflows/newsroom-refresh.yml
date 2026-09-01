@@ -128,7 +128,7 @@ jobs:
           NEWSROOM_GEMINI_API_KEY: ${{ secrets.NEWSROOM_GEMINI_API_KEY || secrets.SOCIAL_AI_API_KEY || secrets.GEMINI_API_KEY }}
           SOCIAL_AI_API_KEY: ${{ secrets.SOCIAL_AI_API_KEY || secrets.NEWSROOM_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.NEWSROOM_GEMINI_API_KEY || secrets.SOCIAL_AI_API_KEY }}
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID || '885195674667440' }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}
           TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: ${{ secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS }}
