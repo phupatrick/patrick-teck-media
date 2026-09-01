@@ -124,6 +124,7 @@ jobs:
           npm run storage:sync
 
       - name: Verify and publish OpenClaw changes
+        if: ${{ secrets.DATABASE_URL == '' }}
         env:
           OPENCLAW_GIT_AUTOPUSH: "1"
           OPENCLAW_GIT_USER_NAME: "github-actions[bot]"
@@ -142,6 +143,7 @@ jobs:
           NEWSROOM_CONTENT_PATH: data/newsroom-content.json
           OPENCLAW_MANAGER_STATE_PATH: data/openclaw-manager-state.json
           OPENCLAW_LEARNING_STATE_PATH: data/openclaw-learning-state.json
+          OPENCLAW_PENDING_QUEUE_PATH: data/openclaw-pending-clusters.json
         run: |
           if [ -z "$TELEGRAM_NEWSROOM_BOT_TOKEN" ] || [ -z "$TELEGRAM_NEWSROOM_REPORT_CHAT_IDS" ]; then
             echo "Telegram report env is not configured; skipping report."

@@ -36,7 +36,7 @@ export function createDocumentStore({
       }
 
       try {
-        const databaseValue = await readDatabaseDocument({ databaseUrl, documentKey, initialValue: normalizedInitialValue });
+        const databaseValue = await withDatabaseRetries(() => readDatabaseDocument({ databaseUrl, documentKey, initialValue: normalizedInitialValue }));
 
         if (!isInitialLike(databaseValue, normalizedInitialValue)) {
           return databaseValue;
@@ -53,14 +53,17 @@ export function createDocumentStore({
 
         if (!isInitialLike(fileValue, normalizedInitialValue)) {
           try {
-            await writeDatabaseDocument({
+            await withDatabaseRetries(() => writeDatabaseDocument({
               databaseUrl,
               documentKey,
               value: fileValue,
               initialValue: normalizedInitialValue
-            });
-          } catch {
-            // If the seed write fails, we still return the known-good local state.
+            }));
+          } catch (error) {
+            if (requireDatabase) {
+              throw requiredDatabaseError(documentKey, error);
+            }
+            // A non-strict local deployment can continue from its known-good state.
           }
 
           return fileValue;
@@ -69,7 +72,7 @@ export function createDocumentStore({
         return databaseValue;
       } catch (error) {
         if (requireDatabase) {
-          throw error;
+          throw requiredDatabaseError(documentKey, error);
         }
 
         return readStateFile(resolvedPath, normalizedInitialValue);
@@ -82,16 +85,16 @@ export function createDocumentStore({
       }
 
       try {
-        await writeDatabaseDocument({
+        await withDatabaseRetries(() => writeDatabaseDocument({
           databaseUrl,
           documentKey,
           value: nextValue,
           initialValue: normalizedInitialValue
-        });
+        }));
         writeStateFile(resolvedPath, nextValue, normalizedInitialValue);
       } catch (error) {
         if (requireDatabase) {
-          throw error;
+          throw requiredDatabaseError(documentKey, error);
         }
 
         writeStateFile(resolvedPath, nextValue, normalizedInitialValue);
@@ -157,13 +160,13 @@ async function ensureDatabaseSchema(databaseUrl) {
       cacheKey,
       (async () => {
         const sql = await getSqlClient(cacheKey);
-        await sql`
+        await withDatabaseRetries(() => sql`
           CREATE TABLE IF NOT EXISTS app_documents (
             id TEXT PRIMARY KEY,
             payload JSONB NOT NULL DEFAULT '{}'::jsonb,
             updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
           )
-        `;
+        `);
       })().catch((error) => {
         schemaReady.delete(cacheKey);
         throw error;
@@ -172,6 +175,29 @@ async function ensureDatabaseSchema(databaseUrl) {
   }
 
   return schemaReady.get(cacheKey);
+}
+
+async function withDatabaseRetries(operation) {
+  let lastError;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+      if (attempt === 2 || !isTransientDatabaseError(error)) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 150 * (attempt + 1)));
+    }
+  }
+  throw lastError;
+}
+
+function isTransientDatabaseError(error) {
+  return /timeout|timed out|network|socket|connection|fetch failed|reset|temporar|503|504/i.test(String(error?.message || error));
+}
+
+function requiredDatabaseError(documentKey, error) {
+  const detail = String(error?.message || error || "unknown database error");
+  return new Error(`Document store "${documentKey}" requires Neon Postgres; JSON and memory fallback are disabled: ${detail}`);
 }
 
 async function getSqlClient(databaseUrl) {

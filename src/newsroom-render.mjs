@@ -662,6 +662,7 @@ export function renderTopicPage(state, language, topicPage, adsConfig) {
     state,
     language,
     path: `/${language}/topics/${topicPage.slug}`,
+    alternateHref: `/${language === "vi" ? "en" : "vi"}/topics/${topicPage.slug}`,
     adsConfig,
     title: `${topicPage.label} | ${state.site.name}`,
     description: language === "vi" ? `Chuyên mục ${topicPage.label} của Patrick Tech Media.` : `${topicPage.label} coverage from Patrick Tech Media.`,
@@ -687,7 +688,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
   const realViews = Number(feedback.views || 0);
   const viewMeta = renderArticleViewMeta(language, article, realViews, options.viewer);
   const seoDescription = buildSeoDescription(article, language);
-  const schemaType = article.content_type === "NewsArticle" ? "TechArticle" : "Article";
+  const schemaType = article.content_type === "NewsArticle" ? "NewsArticle" : "Article";
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": schemaType,
@@ -2074,7 +2075,8 @@ function shouldShowShopeePromotion(state, { language, placement, shopeeCount }) 
 }
 
 function getStoreLandingHref(language) {
-  return "https://patricktechmedia.store/?utm_source=patricktechmedia&utm_medium=newsroom_banner";
+  const storeUrl = String(process.env.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store").replace(/\/+$/, "");
+  return `${storeUrl}/?utm_source=patricktechmedia&utm_medium=newsroom_banner`;
 }
 
 export function renderCoursesPage(state, language, adsConfig) {
@@ -2112,7 +2114,7 @@ export function renderCoursesPage(state, language, adsConfig) {
       <div class="section-head"><div><p class="eyebrow">${vi ? "Thư viện học tập" : "Learning library"}</p><h2>${vi ? "Chọn lộ trình của bạn" : "Choose your path"}</h2></div></div>
       <div class="course-grid">${catalog.map(([category, title, description, lessonTitle, lesson, practice, check]) => `<article class="course-card-inline"><div class="course-card-art"><img src="/founder.jpg" alt="Patrick Tech course library" /><span>${escapeHtml(category)}</span></div><div class="course-card-copy"><p class="eyebrow">${escapeHtml(category)}</p><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p><details><summary>${lessonLabel}</summary><div class="course-lesson"><p class="eyebrow">${vi ? "Bài 01" : "Lesson 01"}</p><h4>${escapeHtml(lessonTitle)}</h4><p>${escapeHtml(lesson)}</p><p><strong>${vi ? "Thực hành:" : "Practice:"}</strong> ${escapeHtml(practice)}</p><p><strong>${vi ? "Tự kiểm tra:" : "Self-check:"}</strong> ${escapeHtml(check)}</p></div><div class="course-audio"><strong>${vi ? "Học liệu Patrick Tech" : "Patrick Tech learning media"}</strong><span>${vi ? "Nội dung học được trình bày trực tiếp; bản âm thanh gốc sẽ được bổ sung khi tệp nguồn có thể được nhập hợp lệ." : "Learning content is presented directly; original audio will be added when source files can be lawfully imported."}</span></div></details></div></article>`).join("")}</div>
     </section>`;
-  return renderLayout({ state, language, path: `/${language}/courses`, alternateHref: `/${language === "vi" ? "en" : "vi"}/courses`, adsConfig, title: vi ? "Khóa học | Patrick Tech" : "Courses | Patrick Tech", description: vi ? "Thư viện khóa học song ngữ của Patrick Tech Co." : "Patrick Tech Co. bilingual course library.", content });
+  return renderLayout({ state, language, path: `/${language}/courses`, alternateHref: `/${language === "vi" ? "en" : "vi"}/courses`, adsConfig, title: vi ? "Khóa học | Patrick Tech" : "Courses | Patrick Tech", description: vi ? "Thư viện khóa học song ngữ của Patrick Tech Co." : "Patrick Tech Co. bilingual course library.", schema: { "@context": "https://schema.org", "@type": "Course", name: vi ? "Thư viện khóa học Patrick Tech" : "Patrick Tech Course Library", inLanguage: language, provider: { "@type": "Organization", name: "Patrick Tech Co.", url: state.site.siteUrl } }, content });
 }
 
 function renderCsrfInput(token) {

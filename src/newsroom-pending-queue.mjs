@@ -28,11 +28,18 @@ export function preparePendingArticles(items, now = new Date().toISOString()) {
     return {
       ...item,
       first_seen_at: firstSeenAt,
+      retry_count: Math.max(0, Number(item.retry_count || 0)),
+      last_retry_at: String(item.last_retry_at || ""),
+      ttl_ms: Math.max(1, Number(item.ttl_ms || PENDING_TTL_MS)),
       age_ms: ageMs,
       expired,
       allowed_single_source: canPublishSingleSource(item.article, expired)
     };
   });
+}
+
+export function markPendingTranslationFailure(item, now = new Date().toISOString()) {
+  return { ...item, retry_count: Math.max(0, Number(item?.retry_count || 0)) + 1, last_retry_at: now, ttl_ms: Math.max(1, Number(item?.ttl_ms || PENDING_TTL_MS)) };
 }
 
 export function getPendingArticleKey(article) {

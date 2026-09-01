@@ -51,7 +51,8 @@ import {
   renderPolicyPage,
   renderRadarPage,
   renderTopicPage,
-  renderWorkflowPage
+  renderWorkflowPage,
+  renderCoursesPage
 } from "./src/newsroom-render.mjs";
 import { createSellerService } from "./src/seller-service.mjs";
 import { createSellerTranslator } from "./src/seller-translation.mjs";
@@ -139,6 +140,7 @@ const MAX_REQUEST_URL_LENGTH = 4096;
 const MAX_QUERY_STRING_LENGTH = 2048;
 const MAX_QUERY_PARAMETER_COUNT = 32;
 const PUBLIC_PAGE_CACHE_CONTROL = "public, max-age=0, s-maxage=120, stale-while-revalidate=600";
+const PUBLIC_ARTICLE_CACHE_CONTROL = "public, s-maxage=60, stale-while-revalidate=300";
 const PUBLIC_HOME_CACHE_CONTROL = "public, max-age=0, s-maxage=15, stale-while-revalidate=45";
 const PUBLIC_API_CACHE_CONTROL = "public, max-age=15, s-maxage=30, stale-while-revalidate=120";
 const LIVE_API_CACHE_CONTROL = "public, s-maxage=30, stale-while-revalidate=59";
@@ -293,6 +295,14 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
     const registry = loadSourceRegistry({ NEWSROOM_SOURCE_REGISTRY: process.env.NEWSROOM_SOURCE_REGISTRY || envFromFile.NEWSROOM_SOURCE_REGISTRY || "data/newsroom-sources.json" });
     const activeLimit = Math.max(1, Number(process.env.NEWSROOM_MAX_ACTIVE_FEEDS || envFromFile.NEWSROOM_MAX_ACTIVE_FEEDS || 120));
     return { configured: registry.length, active: Math.min(registry.length, activeLimit), healthy: "chưa kiểm tra", unhealthy: "chưa kiểm tra", shard: "luân phiên theo ngày" };
+  },
+  getPendingArticles: () => {
+    try {
+      const payload = JSON.parse(readFileSync(path.resolve(process.cwd(), config.openclawPendingQueuePath), "utf8"));
+      return Array.isArray(payload?.items) ? payload.items : [];
+    } catch {
+      return [];
+    }
   },
   purgeCache: async () => {
     stateCache.clear();
@@ -539,6 +549,10 @@ async function handleRequest(req, res) {
 
     if (segments[1] === "store") {
       return sendHtml(res, 200, renderStorePage(state, language, adsConfig), publicPageOptions);
+    }
+
+    if (segments[1] === "courses") {
+      return sendHtml(res, 200, renderCoursesPage(state, language, adsConfig), publicPageOptions);
     }
 
     if (segments[1] === "topics" && segments[2]) {
@@ -845,6 +859,9 @@ function resolvePublicPageCacheControl(requestUrl) {
   const pathname = requestUrl.pathname || "/";
   if (pathname === "/" || pathname === "/vi" || pathname === "/vi/" || pathname === "/en" || pathname === "/en/") {
     return PUBLIC_HOME_CACHE_CONTROL;
+  }
+  if (/^\/(vi|en)\/(tin-tuc|news|huong-dan|guides|so-sanh|compare|tong-hop|roundups)\/[^/]+\/?$/.test(pathname)) {
+    return PUBLIC_ARTICLE_CACHE_CONTROL;
   }
 
   return PUBLIC_PAGE_CACHE_CONTROL;

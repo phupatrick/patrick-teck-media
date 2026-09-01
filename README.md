@@ -349,7 +349,7 @@ Delete it if you need to rotate tokens:
 npm run telegram:newsroom:webhook:delete
 ```
 
-The Vercel cron route `/api/openclaw/cron` is enabled in `vercel.json` with schedule `0 18 * * *`, which is 01:00 Asia/Ho_Chi_Minh. It dispatches the GitHub workflow as a daily fallback. The GitHub Actions workflow remains the high-frequency automation path at `*/15 * * * *`, while Vercel keeps the Telegram command webhook online.
+The Vercel cron route `/api/openclaw/cron` is enabled in `vercel.json` with schedule `0 1 * * *` UTC, which is 08:00 Asia/Ho_Chi_Minh. It dispatches the GitHub workflow as a daily fallback. Set `CRON_SECRET` in Vercel and send it as `Authorization: Bearer <CRON_SECRET>`; the route rejects unauthenticated requests whenever the secret is configured. The GitHub Actions workflow remains the high-frequency automation path at `*/15 * * * *`, while Vercel keeps the Telegram command webhook online.
 
 ### Configure
 

@@ -576,6 +576,8 @@ export function createSellerService(options = {}) {
       return normalizeAdLink(removed);
     },
     async getSummary(options = {}) {
+      // Persist expiry cleanup so seller summaries and future catalog reads agree.
+      await this.purgeExpiredTemporaryProducts({ now: options.now, actor: "system", language: options.language });
       const state = normalizeState(await store.readState(), options.now, resolveLanguage(options.language));
       const products = state.products;
 

@@ -4,6 +4,8 @@ export function createNewsroomTranslator(options = {}) {
   const endpoint = String(options.endpoint || process.env.NEWSROOM_TRANSLATION_ENDPOINT || "").trim();
   const apiKey = String(options.apiKey || process.env.NEWSROOM_TRANSLATION_API_KEY || "").trim();
   const model = String(options.model || process.env.NEWSROOM_TRANSLATION_MODEL || "").trim();
+  const fetchImpl = options.fetch || fetch;
+  const sleep = options.sleep || ((milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)));
 
   return {
     enabled: Boolean(endpoint && apiKey && model),
@@ -14,7 +16,26 @@ export function createNewsroomTranslator(options = {}) {
 
       const sourceLanguage = article?.language === "en" ? "en" : "vi";
       const target = targetLanguage === "en" ? "en" : "vi";
-      const response = await fetch(endpoint, {
+      let translated;
+      let lastError;
+      for (let attempt = 0; attempt < 3; attempt += 1) {
+        try {
+          translated = await requestTranslation({ endpoint, apiKey, model, article, sourceLanguage, target, fetchImpl });
+          break;
+        } catch (error) {
+          lastError = error;
+          if (attempt < 2) await sleep([2000, 5000, 10000][attempt]);
+        }
+      }
+
+      if (!translated) throw lastError || new Error("Newsroom translation failed.");
+      return validateTranslation(translated);
+    }
+  };
+}
+
+async function requestTranslation({ endpoint, apiKey, model, article, sourceLanguage, target, fetchImpl }) {
+      const response = await fetchImpl(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
         body: JSON.stringify({
@@ -41,10 +62,7 @@ export function createNewsroomTranslator(options = {}) {
 
       const payload = await response.json();
       const text = extractOutputText(payload);
-      const translated = JSON.parse(stripJsonFence(text));
-      return validateTranslation(translated);
-    }
-  };
+      return parseTranslationJson(text);
 }
 
 function selectFields(article) {
@@ -88,3 +106,18 @@ function extractOutputText(payload) {
 function stripJsonFence(value) {
   return String(value || "").trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
 }
+
+export function parseTranslationJson(value) {
+  const cleaned = stripJsonFence(value);
+  try {
+    return JSON.parse(cleaned);
+  } catch {
+    const start = cleaned.indexOf("{");
+    const end = cleaned.lastIndexOf("}");
+    if (start < 0 || end <= start) throw new Error("Newsroom translation returned invalid JSON.");
+    return JSON.parse(cleaned.slice(start, end + 1));
+  }
+}
+
+// Public alias used by operational tooling and integration tests.
+export const sanitizeAndParseJSON = parseTranslationJson;

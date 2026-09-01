@@ -5,6 +5,7 @@ const DEFAULT_COMMANDS = [
   { command: "sources", description: "Xem kho nguồn và tình trạng feed" },
   { command: "radar_now", description: "Xem tín hiệu công nghệ mới" },
   { command: "metrics", description: "Xem chỉ số tòa soạn" },
+  { command: "pending", description: "Xem bài đang chờ dịch" },
   { command: "views", description: "Xem bảng xếp hạng bài view cao" },
   { command: "rank", description: "Xếp hạng bài theo view" },
   { command: "audit", description: "Kiểm tra chất lượng bài đã đăng" },
@@ -38,6 +39,7 @@ const HELP_TEXT = [
   "/sources - số nguồn, nguồn đang chạy và tình trạng feed",
   "/radar_now - các tín hiệu công nghệ mới cần theo dõi",
   "/metrics - chỉ số bài viết, nguồn và lưu trữ",
+  "/pending - bài đang chờ dịch hoặc xác minh song ngữ",
   "/views hoặc /rank - bảng xếp hạng bài view cao và bot học được gì từ nhóm đó",
   "/audit - quét bài đã đăng bị mỏng hoặc nhiễu nội dung",
   "/learn - hồ sơ học hiện tại của bot",
@@ -74,6 +76,7 @@ export function createTelegramNewsroomBot(options = {}) {
   const getArticleViewStats = options.getArticleViewStats;
   const getArticleViewStorageMode = options.getArticleViewStorageMode;
   const getSourceSummary = options.getSourceSummary;
+  const getPendingArticles = options.getPendingArticles;
   const purgeCache = options.purgeCache;
   const addLearningFeedback = options.addLearningFeedback;
   const addShopeeAdLink = options.addShopeeAdLink;
@@ -170,6 +173,7 @@ export function createTelegramNewsroomBot(options = {}) {
           getArticleViewStats,
           getArticleViewStorageMode,
           getSourceSummary,
+          getPendingArticles,
           purgeCache,
           addLearningFeedback,
           addShopeeAdLink,
@@ -231,6 +235,7 @@ export function createTelegramNewsroomBot(options = {}) {
         getArticleViewStats,
         getArticleViewStorageMode,
         getSourceSummary,
+        getPendingArticles,
         purgeCache,
         addLearningFeedback,
         addShopeeAdLink,
@@ -376,6 +381,10 @@ export async function executeNewsroomCommand(rawText, context = {}) {
 
   if (command === "/metrics") {
     return { text: await buildMetricsText(context) };
+  }
+
+  if (command === "/pending") {
+    return { text: await buildPendingText(context) };
   }
 
   if (command === "/purge_cache") {
@@ -887,6 +896,17 @@ async function buildMetricsText(context = {}) {
     `Tổng bài: ${articles.length}`,
     `Tổng lượt xem đã ghi nhận: ${totalViews}`,
     `Cụm nội dung: ${new Set(articles.map((item) => item.cluster_id).filter(Boolean)).size}`
+  ].join("\n");
+}
+
+async function buildPendingText(context = {}) {
+  const items = typeof context.getPendingArticles === "function" ? await context.getPendingArticles() : [];
+  const pending = Array.isArray(items) ? items : [];
+  if (!pending.length) return "Không có bài nào đang chờ dịch.";
+  return [
+    `Đang chờ dịch: ${pending.length} bài`,
+    "",
+    ...pending.slice(0, 12).map((item, index) => `${index + 1}. ${item?.article?.title || "Chưa có tiêu đề"}${Number(item?.retry_count || 0) ? ` (thử lại ${item.retry_count})` : ""}`)
   ].join("\n");
 }
 

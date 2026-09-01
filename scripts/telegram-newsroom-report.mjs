@@ -9,6 +9,7 @@ const siteUrl = String(process.env.SITE_URL || "https://patricktechmedia.com").r
 const contentPath = process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.json";
 const managerStatePath = process.env.OPENCLAW_MANAGER_STATE_PATH || "data/openclaw-manager-state.json";
 const learningStatePath = process.env.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json";
+const pendingQueuePath = process.env.OPENCLAW_PENDING_QUEUE_PATH || "data/openclaw-pending-clusters.json";
 
 if (!token || chatIds.length === 0) {
   console.log("Bỏ qua báo cáo Telegram vì chưa cấu hình token hoặc chat nhận báo cáo.");
@@ -18,6 +19,8 @@ if (!token || chatIds.length === 0) {
 const content = readJson(contentPath);
 const manager = readJson(managerStatePath);
 const learning = readJson(learningStatePath);
+const pending = Array.isArray(readJson(pendingQueuePath).items) ? readJson(pendingQueuePath).items : [];
+const translationWarnings = pending.filter((item) => Number(item?.retry_count || 0) >= 3);
 const articles = Array.isArray(content.articles) ? content.articles : [];
 const latest = selectLatestNewsArticles(articles, 5);
 const learningProfile = learning.profile || {};
@@ -41,6 +44,7 @@ const message = [
   `Nguồn lỗi/cần kiểm tra: ${sourceWarningCount}`,
   `Kho bài: ${newsroom.articleCountBefore ?? articles.length} - ${articles.length} (${formatDelta(newsroom.articleCountDelta)})`,
   `Kiểm định: ${heldCount} bài đang giữ lại để viết/xác minh thêm`,
+  translationWarnings.length ? `Cảnh báo dịch: ${translationWarnings.length} bài đã lỗi từ 3 lần: ${translationWarnings.slice(0, 3).map((item) => item.article?.title || "Chưa có tiêu đề").join("; ")}` : "",
   "",
   "Patrick Tech Media đã cập nhật tòa soạn",
   "",

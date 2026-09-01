@@ -8,7 +8,7 @@ import { repairEncodingArtifacts } from "../src/text-repair.mjs";
 import { createNewsroomTranslator } from "../src/newsroom-translation.mjs";
 import { buildNewsroomState } from "../src/newsroom-service.mjs";
 import { cleanSourceText, isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
-import { applySingleSourcePublicationPolicy, getPendingArticleKey, isSingleSourceArticle, preparePendingArticles, readPendingQueue, writePendingQueue } from "../src/newsroom-pending-queue.mjs";
+import { applySingleSourcePublicationPolicy, getPendingArticleKey, isSingleSourceArticle, markPendingTranslationFailure, preparePendingArticles, readPendingQueue, writePendingQueue } from "../src/newsroom-pending-queue.mjs";
 import {
   evaluateArticleAutopublishReadiness,
   evaluateArticleReadiness,
@@ -1049,7 +1049,8 @@ const SOURCE_TOPIC_HINTS = [
   const pendingItems = preparePendingArticles(readPendingQueue(pendingPath), now);
   const pendingArticles = pendingItems.map((item) => applySingleSourcePublicationPolicy(item.article, item.expired));
   const sourceCandidates = [...pendingArticles, ...incomingArticles];
-  const bilingualCandidates = await ensureBilingualCandidates(sourceCandidates, env, now, outputPath);
+  const bilingualResult = await ensureBilingualCandidates(sourceCandidates, env, now, outputPath);
+  const bilingualCandidates = bilingualResult.articles;
   const queuedCandidates = bilingualCandidates.map((article) => applySingleSourcePublicationPolicy(article));
 
   if (queuedCandidates.length === 0) {
@@ -1088,11 +1089,13 @@ const SOURCE_TOPIC_HINTS = [
   const nextPending = pendingItems
     .filter((item) => !wasPublished(item.article))
     .filter((item) => !item.expired)
-    .map((item) => ({ article: item.article, first_seen_at: item.first_seen_at }));
+    .map((item) => bilingualResult.failedKeys.has(getPendingArticleKey(item.article))
+      ? markPendingTranslationFailure(item, now)
+      : ({ article: item.article, first_seen_at: item.first_seen_at, retry_count: item.retry_count || 0, last_retry_at: item.last_retry_at || "" }));
   const incomingPending = queuedCandidates
     .filter((article) => shouldHoldPendingArticle(article, queuedCandidates, env))
     .filter((article) => !wasPublished(article))
-    .map((article) => ({ article, first_seen_at: article.first_seen_at || now }));
+    .map((article) => ({ article, first_seen_at: article.first_seen_at || now, retry_count: bilingualResult.failedKeys.has(getPendingArticleKey(article)) ? 1 : 0, last_retry_at: bilingualResult.failedKeys.has(getPendingArticleKey(article)) ? now : "" }));
   const pendingMap = new Map();
   for (const item of [...nextPending, ...incomingPending]) {
     const key = getPendingArticleKey(item.article);
@@ -1181,7 +1184,7 @@ function prepareArticlesForPublish(incomingArticles, { now, outputPath, siteUrl,
 
 async function ensureBilingualCandidates(articles, env, now, outputPath) {
   if (!isBilingualPairRequired(env) || !articles.length) {
-    return articles;
+    return { articles, failedKeys: new Set() };
   }
 
   const existing = readExistingArticles(outputPath || "data/newsroom-content.json");
@@ -1201,6 +1204,7 @@ async function ensureBilingualCandidates(articles, env, now, outputPath) {
   }
 
   const result = [...articles];
+  const failedKeys = new Set();
   for (const article of articles) {
     const clusterId = String(article?.cluster_id || "").trim();
     if (!clusterId) continue;
@@ -1234,10 +1238,11 @@ async function ensureBilingualCandidates(articles, env, now, outputPath) {
       languages.add(targetLanguage);
     } catch (error) {
       console.warn(`Holding bilingual article "${cleanText(article.title).slice(0, 100)}": ${error.message || error}`);
+      failedKeys.add(getPendingArticleKey(article));
     }
   }
 
-  return result;
+  return { articles: result, failedKeys };
 }
 
 function filterTrustedSourceFallbackArticles(articles, stage) {
@@ -1601,20 +1606,31 @@ async function fetchSingleUrlArticles(sourceUrl, timestamp, env = process.env) {
 
 async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
   const allArticles = [];
+  const feedCachePath = env.NEWSROOM_FEED_CACHE_PATH || "data/newsroom-feed-http-cache.json";
+  const feedCache = readFeedHttpCache(feedCachePath);
   const fetchConcurrency = clampInteger(env?.NEWSROOM_FETCH_CONCURRENCY, 1, 8, 4);
   const feedConcurrency = clampInteger(env?.NEWSROOM_FEED_CONCURRENCY, 1, 8, 4);
   const fetched = await mapWithConcurrency(feeds, feedConcurrency, async (feed) => {
     try {
-      const response = await fetchWithTimeout(feed.url, {
-        headers: {
+      const cachedHeaders = feedCache[feed.url] || {};
+      const headers = {
           Accept: "application/rss+xml, application/xml, text/xml",
           "User-Agent": "patrick-tech-media-refresh/1.0"
+        };
+      if (cachedHeaders.etag) headers["If-None-Match"] = cachedHeaders.etag;
+      if (cachedHeaders.lastModified) headers["If-Modified-Since"] = cachedHeaders.lastModified;
+      const response = await fetchWithTimeout(feed.url, {
+        headers: {
+          ...headers
         }
       }, env);
+
+      if (response.status === 304) return [];
 
       if (!response.ok) {
         throw new Error(`Feed ${feed.name} returned ${response.status}`);
       }
+      feedCache[feed.url] = { etag: response.headers.get("etag") || "", lastModified: response.headers.get("last-modified") || "", updated_at: new Date().toISOString() };
 
       const xml = await response.text();
       const items = parseFeedItems(xml).slice(0, feed.limit);
@@ -1625,11 +1641,26 @@ async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
     }
   });
   allArticles.push(...fetched.flat().filter(Boolean));
+  writeFeedHttpCache(feedCachePath, feedCache);
 
   // Preserve source provenance for automatic publication. Aggregated and
   // companion drafts remain useful editorial inputs, but their synthesized
   // source records cannot prove the trust tier of a particular report.
   return selectCuratedSourceDrafts(allArticles, env);
+}
+
+function readFeedHttpCache(filePath) {
+  try { return JSON.parse(fs.readFileSync(path.resolve(process.cwd(), filePath), "utf8")); } catch { return {}; }
+}
+
+function writeFeedHttpCache(filePath, value) {
+  try {
+    const target = path.resolve(process.cwd(), filePath);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+  } catch (error) {
+    console.warn(`Unable to write feed HTTP cache: ${error.message || error}`);
+  }
 }
 
 function selectCuratedSourceDrafts(articles, env = process.env) {
