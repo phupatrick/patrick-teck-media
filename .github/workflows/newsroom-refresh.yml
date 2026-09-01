@@ -135,7 +135,12 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           NEWSROOM_CONTENT_PATH: data/newsroom-content.json
           SOCIAL_STATE_PATH: data/social-posts.json
-        run: npm run social:autopilot
+        run: |
+          if [ -z "$FB_PAGE_ACCESS_TOKEN" ]; then
+            echo "Facebook Autopilot skipped: FB_PAGE_ACCESS_TOKEN is not configured in GitHub Actions secrets."
+            exit 0
+          fi
+          npm run social:autopilot
 
       - name: Run nightly Social metrics and learning report
         if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 15 * * *' }}
