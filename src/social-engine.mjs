@@ -22,7 +22,8 @@ const SOCIAL_SYSTEM_PROMPT = [
   "Trả về JSON duy nhất gồm caption và first_comment; không bọc markdown."
 ].join(" ");
 
-const DEFAULT_GEMINI_MODEL = "gemini-2.5-flash";
+const DEFAULT_GEMINI_MODEL = "gemini-3.6-flash";
+const COMPATIBLE_GEMINI_MODELS = ["gemini-2.5-flash", "gemini-1.5-flash"];
 
 export function getRandomTechImage({ random = Math.random } = {}) {
   const index = Math.min(TECH_IMAGES.length - 1, Math.max(0, Math.floor(Number(random()) * TECH_IMAGES.length)));
@@ -77,17 +78,22 @@ export async function postFirstComment({ postId, pageToken, commentText, fetchIm
 
 async function requestAiContent({ provider, apiKey, topic, pillar, notes, fetchImpl }) {
   if (provider === "gemini") {
-    const model = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL).trim() || DEFAULT_GEMINI_MODEL;
-    const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}\n\n${buildPrompt({ topic, pillar, notes })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
-    });
-    const payload = await readResponse(response);
-    if (!response.ok) {
-      throw new Error(`Gemini API failed (HTTP ${response.status}): ${payload?.error?.message || payload?.raw || "Google returned an unknown error."}`);
+    const configuredModel = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || "").trim();
+    const models = [...new Set([configuredModel, DEFAULT_GEMINI_MODEL, ...COMPATIBLE_GEMINI_MODELS].filter(Boolean))];
+    const errors = [];
+    for (const model of models) {
+      const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}\n\n${buildPrompt({ topic, pillar, notes })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
+      });
+      const payload = await readResponse(response);
+      if (response.ok) return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
+      const detail = payload?.error?.message || payload?.raw || "Google returned an unknown error.";
+      errors.push(`${model}: HTTP ${response.status}: ${detail}`);
+      if (response.status !== 404) break;
     }
-    return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
+    throw new Error(`Gemini API failed: ${errors.join(" | ")}`);
   }
 
   const baseUrl = provider === "deepseek" ? "https://api.deepseek.com" : "https://api.openai.com";

@@ -25,7 +25,7 @@ try {
       return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài có dấu", first_comment: "Liên hệ 0933 684 560" }) }] } }] }), { status: 200 });
     }
   });
-  assert.match(geminiRequest.url, /gemini-2\.5-flash:generateContent/);
+  assert.match(geminiRequest.url, /gemini-3\.6-flash:generateContent/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /phân tích sâu 3 điểm/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.equal(geminiContent.caption, "Bài có dấu");
@@ -45,13 +45,26 @@ try {
     });
     assert.match(envRequestUrl, /key=env-key/);
 
+    const fallbackUrls = [];
+    await createPostContent({
+      provider: "gemini",
+      apiKey: "request-key",
+      topic: "Model fallback",
+      fetchImpl: async (url) => {
+        fallbackUrls.push(url);
+        if (fallbackUrls.length === 1) return new Response(JSON.stringify({ error: { message: "model is no longer available" } }), { status: 404 });
+        return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài dự phòng", first_comment: "" }) }] } }] }), { status: 200 });
+      }
+    });
+    assert.match(fallbackUrls[0], /gemini-3\.6-flash:generateContent/);
+
     await assert.rejects(
       createPostContent({
         provider: "gemini",
         apiKey: "request-key",
         fetchImpl: async () => new Response(JSON.stringify({ error: { message: "API key not valid" } }), { status: 401 })
       }),
-      /Gemini API failed \(HTTP 401\): API key not valid/
+      /Gemini API failed: .*HTTP 401: API key not valid/
     );
   } finally {
     if (originalSocialKey === undefined) delete process.env.SOCIAL_AI_API_KEY;
