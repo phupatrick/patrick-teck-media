@@ -1098,12 +1098,16 @@ export function renderNotFoundPage(state, language, adsConfig) {
 
 function renderCategoryMenu(nav, language) {
   const label = language === "vi" ? "Danh\u0020m\u1ee5c" : "Categories";
+  const courseLink = {
+    href: `/${language}/courses`,
+    label: language === "vi" ? "Khóa học" : "Courses"
+  };
   return `
         <nav class="nav-strip nav-strip-menu" aria-label="Primary">
           <details class="category-menu">
             <summary>${label}</summary>
             <div class="category-menu-panel" role="list">
-              ${nav.map((item) => `<a role="listitem" href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
+              ${[...nav, courseLink].map((item) => `<a role="listitem" href="${item.href}">${escapeHtml(item.label)}</a>`).join("")}
             </div>
           </details>
         </nav>`;
@@ -2074,6 +2078,44 @@ function shouldShowShopeePromotion(state, { language, placement, shopeeCount }) 
 
 function getStoreLandingHref(language) {
   return "https://patricktechmedia.store/?utm_source=patricktechmedia&utm_medium=newsroom_banner";
+}
+
+export function renderCoursesPage(state, language, adsConfig) {
+  const vi = language === "vi";
+  const catalog = vi
+    ? [
+        ["IELTS", "IELTS Writing Band 7–8", "Xây dựng ý, lập luận và diễn đạt cho Task 1 và Task 2.", "Luận điểm rõ ràng", "Mỗi đoạn thân bài dùng cấu trúc: ý chính, giải thích, ví dụ cụ thể. Tránh liệt kê ý mà không phát triển.", "Viết một câu chủ đề cho đề: Should cities invest more in public transport?", "Câu tự kiểm tra: Câu của bạn có nêu rõ quan điểm và phạm vi đoạn văn không?"],
+        ["TOEIC", "TOEIC Prep 300–600", "Từ vựng, ngữ pháp và chiến thuật làm bài theo từng Part.", "Ngữ pháp trong ngữ cảnh", "Sau động từ to be, chọn tính từ để mô tả trạng thái; sau modal verb, dùng động từ nguyên mẫu.", "Hoàn thành: The report _____ ready by Friday. (be / is / will be)", "Đáp án: will be. Modal will đi với động từ nguyên mẫu be."],
+        ["English", "Collocations A1–C2", "Học cụm từ theo cấp độ để nói và viết tự nhiên hơn.", "Cụm từ tự nhiên", "Học từ theo cụm: make a decision, take responsibility, pay attention. Điều này giúp câu văn tự nhiên hơn.", "Chọn động từ phù hợp: _____ a decision (make / do / give).", "Đáp án: make a decision. Đọc lại cụm từ trong một câu hoàn chỉnh."],
+        ["VSTEP", "VSTEP theo 4 kỹ năng", "Luyện nghe, nói, đọc, viết theo mục tiêu B1–C1.", "Nói có cấu trúc", "Mở đầu bằng câu trả lời trực tiếp, phát triển bằng hai lý do và chốt bằng một ví dụ cá nhân.", "Nói trong 60 giây: Which skill do you want to improve this year?", "Tự kiểm tra: Bạn đã dùng từ nối, ví dụ và câu kết chưa?"],
+        ["Chinese", "HSK 1–6 theo lộ trình", "Từ phát âm, từ vựng đến đọc hiểu và viết theo từng cấp HSK.", "Câu giao tiếp nền tảng", "Mẫu câu: 我想学习中文 (Wǒ xiǎng xuéxí Zhōngwén) nghĩa là Tôi muốn học tiếng Trung.", "Sắp xếp thành câu: 学习 / 我 / 中文 / 想.", "Đáp án: 我想学习中文. Đọc thành tiếng và viết lại câu ba lần."],
+        ["Korean", "TOPIK và tiếng Hàn tổng hợp", "Ngữ âm, ngữ pháp và từ vựng dùng cho học tập, công việc.", "Giới thiệu bản thân", "Mẫu câu: 저는 베트남 사람이에요. (Jeoneun Betonam saram-ieyo.) nghĩa là Tôi là người Việt Nam.", "Điền quốc tịch: 저는 _____ 사람이에요.", "Tự kiểm tra: Bạn có dùng 저/저는 trong ngữ cảnh lịch sự không?"],
+        ["Work skills", "Excel cơ bản và MOS", "Từ thao tác bảng tính đến kỹ năng văn phòng chuẩn hóa.", "Tính tổng có kiểm soát", "Dùng =SUM(B2:B10) để cộng dữ liệu liên tiếp. Luôn kiểm tra đơn vị và hàng tiêu đề trước khi tính.", "Viết công thức tính tổng doanh thu từ ô C2 đến C8.", "Đáp án: =SUM(C2:C8). So sánh kết quả với các giá trị nguồn."],
+        ["Career", "Logistics, SAP và xuất nhập khẩu", "Từ vựng nghiệp vụ, chứng từ và tư duy vận hành thực tế.", "Chuỗi chứng từ", "Một lô hàng cần thông tin nhất quán giữa invoice, packing list và vận đơn: tên hàng, số lượng, trọng lượng và điều kiện giao hàng.", "Liệt kê ba thông tin cần đối chiếu trước khi gửi bộ chứng từ.", "Tự kiểm tra: Thông tin hàng hóa có nhất quán trên toàn bộ chứng từ không?"]
+      ]
+    : [
+        ["IELTS", "IELTS Writing Band 7–8", "Build ideas, arguments, and language for Task 1 and Task 2.", "Clear argument", "Build every body paragraph with a main point, explanation, and specific example. Do not list undeveloped ideas.", "Write a topic sentence for: Should cities invest more in public transport?", "Self-check: Does your sentence state a position and define the paragraph focus?"],
+        ["TOEIC", "TOEIC Prep 300–600", "Vocabulary, grammar, and test strategy organized by Part.", "Grammar in context", "After the verb to be, choose an adjective for a state; after a modal verb, use the base form of the verb.", "Complete: The report _____ ready by Friday. (be / is / will be)", "Answer: will be. The modal will takes the base form be."],
+        ["English", "Collocations A1–C2", "Level-based collocations for natural speaking and writing.", "Natural word partnerships", "Learn words in useful groups: make a decision, take responsibility, pay attention. This makes your language more natural.", "Choose the verb: _____ a decision (make / do / give).", "Answer: make a decision. Read the whole phrase in a complete sentence."],
+        ["VSTEP", "VSTEP Across Four Skills", "Practice listening, speaking, reading, and writing for B1–C1.", "Structured speaking", "Start with a direct answer, add two reasons, and close with a personal example.", "Speak for 60 seconds: Which skill do you want to improve this year?", "Self-check: Did you use connectors, an example, and a concluding sentence?"],
+        ["Chinese", "HSK 1–6 Learning Path", "From pronunciation and vocabulary to reading and writing by HSK level.", "Foundation conversation", "Pattern: 我想学习中文 (Wǒ xiǎng xuéxí Zhōngwén) means I want to learn Chinese.", "Put in order: 学习 / 我 / 中文 / 想.", "Answer: 我想学习中文. Say it aloud and write it three times."],
+        ["Korean", "TOPIK and Practical Korean", "Pronunciation, grammar, and vocabulary for study and work.", "Introducing yourself", "Pattern: 저는 베트남 사람이에요. (Jeoneun Betonam saram-ieyo.) means I am Vietnamese.", "Complete your nationality: 저는 _____ 사람이에요.", "Self-check: Did you use 저/저는 in a polite context?"],
+        ["Work skills", "Excel Foundations and MOS", "From spreadsheet fundamentals to standardized office workflows.", "Controlled totals", "Use =SUM(B2:B10) to add a continuous range. Always confirm units and headers before calculating.", "Write a formula to total revenue in cells C2 through C8.", "Answer: =SUM(C2:C8). Compare the result against the source values."],
+        ["Career", "Logistics, SAP, and Import–Export", "Professional vocabulary, documentation, and practical operations.", "Document consistency", "A shipment needs consistent details across its invoice, packing list, and bill of lading: item name, quantity, weight, and delivery terms.", "List three details to verify before sending the document set.", "Self-check: Are item details consistent across every document?"]
+      ];
+  const lessonLabel = vi ? "Mở bài học và bài luyện" : "Open lesson and practice";
+  const content = `
+    <section class="courses-hero page-stack">
+      <p class="eyebrow">Patrick Tech Co.</p>
+      <h1>${vi ? "Học thật trong thư viện khóa học Patrick Tech" : "Learn inside the Patrick Tech course library"}</h1>
+      <p class="lead">${vi ? "Văn bản, hình ảnh và luyện nghe được trình bày trực tiếp trong trang học. Không cần rời trang để mở nguồn ngoài." : "Text, visuals, and listening practice live directly inside the learning page. No external source-hopping required."}</p>
+      <div class="course-stat-row"><span>${catalog.length} ${vi ? "lộ trình" : "paths"}</span><span>${vi ? "Việt – Anh" : "Vietnamese – English"}</span><span>${vi ? "Nội dung nội tuyến" : "Inline content"}</span></div>
+    </section>
+    <section class="section-block section-surface courses-library-page">
+      <div class="section-head"><div><p class="eyebrow">${vi ? "Thư viện học tập" : "Learning library"}</p><h2>${vi ? "Chọn lộ trình của bạn" : "Choose your path"}</h2></div></div>
+      <div class="course-grid">${catalog.map(([category, title, description, lessonTitle, lesson, practice, check]) => `<article class="course-card-inline"><div class="course-card-art"><img src="/founder.jpg" alt="Patrick Tech course library" /><span>${escapeHtml(category)}</span></div><div class="course-card-copy"><p class="eyebrow">${escapeHtml(category)}</p><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p><details><summary>${lessonLabel}</summary><div class="course-lesson"><p class="eyebrow">${vi ? "Bài 01" : "Lesson 01"}</p><h4>${escapeHtml(lessonTitle)}</h4><p>${escapeHtml(lesson)}</p><p><strong>${vi ? "Thực hành:" : "Practice:"}</strong> ${escapeHtml(practice)}</p><p><strong>${vi ? "Tự kiểm tra:" : "Self-check:"}</strong> ${escapeHtml(check)}</p></div><div class="course-audio"><strong>${vi ? "Học liệu Patrick Tech" : "Patrick Tech learning media"}</strong><span>${vi ? "Nội dung học được trình bày trực tiếp; bản âm thanh gốc sẽ được bổ sung khi tệp nguồn có thể được nhập hợp lệ." : "Learning content is presented directly; original audio will be added when source files can be lawfully imported."}</span></div></details></div></article>`).join("")}</div>
+    </section>`;
+  return renderLayout({ state, language, path: `/${language}/courses`, alternateHref: `/${language === "vi" ? "en" : "vi"}/courses`, adsConfig, title: vi ? "Khóa học | Patrick Tech" : "Courses | Patrick Tech", description: vi ? "Thư viện khóa học song ngữ của Patrick Tech Co." : "Patrick Tech Co. bilingual course library.", content });
 }
 
 function renderCsrfInput(token) {
