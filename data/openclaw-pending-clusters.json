@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T18:47:52.187Z",
+  "generated_at": "2026-09-01T19:32:40.870Z",
   "items": [
     {
       "article": {
@@ -734,7 +734,7 @@
           "link": "https://vnexpress.net/nhieu-lanh-dao-trong-he-sinh-thai-vingroup-thu-nhap-tien-ty-moi-thang-5115485.html"
         }
       },
-      "first_seen_at": "2026-09-01T18:46:31.750Z",
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -823,7 +823,7 @@
           "link": "https://vnexpress.net/tai-sao-may-bay-bien-mat-khoi-radar-khi-qua-dai-duong-5114689.html"
         }
       },
-      "first_seen_at": "2026-09-01T18:46:31.750Z",
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -911,7 +911,7 @@
           "link": "https://genk.vn/xiaomi-nghi-gi-khi-ban-dien-thoai-poco-gia-30-trieu-16526090121323739.chn"
         }
       },
-      "first_seen_at": "2026-09-01T18:46:31.750Z",
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1002,7 +1002,101 @@
           "link": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
         }
       },
-      "first_seen_at": "2026-09-01T18:46:31.750Z",
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-95bfd49ba1b6-en",
+        "cluster_id": "feed-95bfd49ba1b6",
+        "language": "en",
+        "topic": "security",
+        "content_type": "NewsArticle",
+        "slug": "cybersecurity-ir-workshop-the-workshop-you-shouldn-t-miss",
+        "title": "Cybersecurity IR Workshop: The workshop you shouldn’t miss",
+        "summary": "What is the Cybersecurity Incident Response Readiness Workshop? Our approach: How we assess your maturity That is why incident response cannot be something your organization figures out in real time.",
+        "dek": "What is the Cybersecurity Incident Response Readiness Workshop?",
+        "hook": "Our approach: How we assess your maturity That is why incident response cannot be something your organization figures out in real time.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "What is the Cybersecurity Incident Response Readiness Workshop? Our approach: How we assess your maturity That is why incident response cannot be something your organization figures out in real time."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "The Detection and Response Team (DART) – the Microsoft team that delivers Defender Experts Cybersecurity Incident Response – has supported organizations across 54 countries and regions through some of their most challenging security moments; and while we sincerely hope you never need to call us in the middle of a live incident, we do want to help you prepare for that possibility before it becomes real."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "That’s exactly what the Cybersecurity Incident Response Readiness Workshop is designed to do."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "The Cybersecurity Incident Response Workshop is a collaborative, scenario driven workshop designed to evaluate your organization’s incident response (IR) plan against realistic, real-world security events, guided by DART researchers."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "Rather than reviewing your plan in isolation, we work through simulated incidents together. Participants navigate realistic attack scenarios, present investigation findings, discuss decisions, and receive direct feedback from responders with extensive experience handling complex incidents worldwide."
+          }
+        ],
+        "verification_state": "verified",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "secure-access-kit"
+        ],
+        "source_set": [
+          {
+            "source_type": "official-site",
+            "source_name": "Microsoft Security",
+            "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/cybersecurity-ir-workshop-you-shouldnt-miss/",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "official",
+            "published_at": "2026-09-01T18:55:35.000Z",
+            "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/08/MS_Actional-Insights_Incident-response-.jpg",
+            "image_caption": "Reference image from Microsoft Security.",
+            "image_credit": "Microsoft Security"
+          }
+        ],
+        "author_id": "thao-nguyen",
+        "published_at": "2026-09-01T18:55:35.000Z",
+        "updated_at": "2026-09-01T18:55:35.000Z",
+        "image": {
+          "src": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/08/MS_Actional-Insights_Incident-response-.jpg",
+          "caption": "Reference image from Microsoft Security.",
+          "credit": "Microsoft Security",
+          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/cybersecurity-ir-workshop-you-shouldnt-miss/"
+        },
+        "draft_context": {
+          "source_title": "Cybersecurity IR Workshop: The workshop you shouldn’t miss",
+          "source_name": "Microsoft Security",
+          "source_type": "official-site",
+          "trust_tier": "official",
+          "topic_hint": "security",
+          "content_type_hint": "",
+          "description": "In this article What is the Cybersecurity Incident Response Readiness Workshop? Our approach: How we assess your maturity Learn more Cybersecurity incidents can unfold in hours, but response plans often fail at the point of execution: ownership is unclear, investigation findings is difficult to access, and critical decisions are delayed. That is why incident response cannot be something your organization figures out in real time. The Detection and Response Team (DART) – the Microsoft team that delivers Defender Experts Cybersecurity Incident Response – has supported organizations across 54 countries and regions through some of their most challenging security moments; and while we sincerely hope you never need to call us in the middle of a live incident, we do want to help you prepare for that possibility before it becomes real. That’s exactly what the Cybersecurity Incident Response Readiness Workshop is designed to do. What is the Cybersecurity Incident Response Readiness Workshop? The Cybersecurity Incident Response Workshop is a collaborative, scenario driven workshop designed to evaluate your organization’s incident response (IR) plan against realistic, real-world security events, guided by DART researchers. Rather than reviewing your plan in isolation, we work through simulated incidents together. Participants navigate realistic attack scenarios, present investigation findings, discuss decisions, and receive direct feedback from responders with extensive experience handling complex incidents worldwide. What makes DART’s approach different? DART’s approach combines active participation with lessons drawn from frontline incident response. Instead of reviewing a plan as a static document, the Cybersecurity Incident Response Workshop exercises how people, processes, and technology work together under pressure. Participants practice detection, containment, and response decisions while DART security researchers provide feedback grounded in real-world incident experience. The workshop creates a controlled environment for teams to test how they detect, investigate, contain, and communicate during an incident. DART security researchers examine how people, processes, and technology work together across identity, endpoint, cloud, and communications, including whether the organization’s tools, logs, and telemetry support timely decisions against real threat actor behaviors. Additionally, the workshop includes threat hunting exercises that let incident response teams investigate realistic scenarios with urgency but without the pressure of a live incident. This hands-on practice strengthens technical judgment and helps teams coordinate their response more effectively. Why organizations run this workshop The goal is not to pass or fail. It’s to discover how well your organization can make and execute critical response decisions under pressure, and where preparation today can prevent delay during a real incident. During the Workshop, organizations are able to: Compare and contrast their incident response plan with insights drawn from DART’s experience across thousands of real‑world cases. Exercise response processes using real-world scenarios to identify strengths and improvement opportunities, including processes, threat hunting techniques, and the use of cybersecurity technologies. Identify potential gaps in both tools and procedures before a threat actor finds them. In short: it’s a chance to see what holds up under pressure, where coordination or visibility begins to bend, and what your organization should reinforce before a threat actor puts the response plan to the test. Our approach: How we assess your maturity The workshop blends structured analysis with hands-on knowledge transfer, creating an experience that is both evaluative and practical. The assessment examines how your organization’s people, processes, and technology support incident response across identity, endpoint, cloud, and communications. It also evaluates whether available tools and telemetry provide the visibility needed to respond to real threat actor tactics. Additional knowledge transfer is delivered through interactive exercises led by DART, encouraging cross-team collaboration while sharing proven detection and containment practices drawn from real incidents. What organizations walk away with By the end of the workshop, organizations leave with a clearer view of how their incident response capability performs today and where focused improvements can strengthen readiness. You’ll take away: Clear identification of strengths and opportunities in IR preparation and execution. Insight into how tools, techniques, and available data perform during an incident. A summary of findings and prioritized recommendations to help strengthen incident response readiness and guide next steps. Scope and structure The engagement begins by aligning on objectives, participants, logistics, and expected outcomes so the scenarios and discussions can be tailored to the organization’s needs The workshop spans 2 or 3 days, including: Kick off and introductions to understand who the audience is and what they hope to gain from the workshop; this helps us tailor our delivery approach for each unique organization Knowledge-transfer sessions Scenarios and guided discussions assessing current capabilities Closeout and recommended next steps Practice before it matters If your incident response plan lives mostly on paper, or if it’s never been exercised with the people who will use it, the Cybersecurity Incident Response Workshop provides a safe, structured way to change that. When a real incident happens, you don’t want your first conversation about roles, investigation findings, or decision-making to happen in the middle of a crisis. Don’t wait for a live incident to test your response plan, if you have an established Unified Enterprise agreement with Microsoft, reach out to your Customer Success Account Manager (CSAM) to schedule a Cybersecurity Incident Response Workshop and give your teams the opportunity to practice before it matters most. Learn more To learn more about DART capabilities, please visit our website , or contact your Microsoft Customer Success Account Manager or Premier Support contact. For the latest security research from the Microsoft Threat Intelligence community, check out the Microsoft Threat Intelligence Blog . To get notified about new publications and to join discussions on social media, follow us on LinkedIn , X (formerly Twitter) , and Bluesky . To hear stories and insights from the Microsoft Threat Intelligence community about the ever-evolving threat landscape, listen to the Microsoft Threat Intelligence podcast . The post Cybersecurity IR Workshop: The workshop you shouldn’t miss appeared first on Microsoft Security Blog .",
+          "paragraphs": [
+            "What is the Cybersecurity Incident Response Readiness Workshop? Our approach: How we assess your maturity That is why incident response cannot be something your organization figures out in real time.",
+            "The Detection and Response Team (DART) – the Microsoft team that delivers Defender Experts Cybersecurity Incident Response – has supported organizations across 54 countries and regions through some of their most challenging security moments; and while we sincerely hope you never need to call us in the middle of a live incident, we do want to help you prepare for that possibility before it becomes real.",
+            "That’s exactly what the Cybersecurity Incident Response Readiness Workshop is designed to do.",
+            "The Cybersecurity Incident Response Workshop is a collaborative, scenario driven workshop designed to evaluate your organization’s incident response (IR) plan against realistic, real-world security events, guided by DART researchers.",
+            "Rather than reviewing your plan in isolation, we work through simulated incidents together. Participants navigate realistic attack scenarios, present investigation findings, discuss decisions, and receive direct feedback from responders with extensive experience handling complex incidents worldwide.",
+            "DART’s approach combines active participation with lessons drawn from frontline incident response. Instead of reviewing a plan as a static document, the Cybersecurity Incident Response Workshop exercises how people, processes, and technology work together under pressure. Participants practice detection, containment, and response decisions while DART security researchers provide feedback grounded in real-world incident experience."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=1199",
+          "link": "https://www.microsoft.com/en-us/security/blog/2026/09/01/cybersecurity-ir-workshop-you-shouldnt-miss/"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Xác thực chính thức"
+      },
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1093,42 +1187,42 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-01T18:46:31.750Z",
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
     {
       "article": {
-        "id": "feed-87439335480a-en",
-        "cluster_id": "feed-87439335480a",
+        "id": "feed-28a58dda4ede-en",
+        "cluster_id": "feed-28a58dda4ede",
         "language": "en",
         "topic": "devices",
-        "content_type": "EvergreenGuide",
-        "slug": "lumus-quanta-reach-licensing-agreement-for-next-gen-waveguides-for-ar-glasses-that-may-turn-the",
-        "title": "Lumus, Quanta reach licensing agreement for next-gen waveguides for AR glasses that may turn the tide",
-        "summary": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen. In a press release, Lumus announced that it has expanded its partnership with Quanta Computing.",
-        "dek": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen.",
-        "hook": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen.",
+        "content_type": "NewsArticle",
+        "slug": "superpacs-are-funneling-millions-of-dollars-into-pro-ai-candidates-with-trump-saying-communities",
+        "title": "SuperPACs are funneling millions of dollars into pro-AI candidates, with Trump saying communities that reject data centers will end up ‘backwards and poor’",
+        "summary": "Tech Radar Tech Radar Pro Tech Radar Gaming TechRadar the business technology experts US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3.org/2000/svg\"> View Profile Sign out Search Search TechRadar News Reviews Features Perspectives Website builders Web hosting Security. Data centers have become a hot political topic with the majority of Americans preferring to have a nuclear reactor in their backyard rather than an AI data center .",
+        "dek": "Tech Radar Tech Radar Pro Tech Radar Gaming TechRadar the business technology experts US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3.org/2000/svg\"> View Profile Sign out Search Search TechRadar News Reviews Features Perspectives Website builders Web hosting Security.",
+        "hook": "Tech Radar Tech Radar Pro Tech Radar Gaming TechRadar the business technology experts US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3.org/2000/svg\"> View Profile Sign out Search Search TechRadar News Reviews Features Perspectives Website builders Web hosting Security.",
         "sections": [
           {
-            "heading": "Where to start",
-            "body": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen."
+            "heading": "Context: what is changing",
+            "body": "Tech Radar Tech Radar Pro Tech Radar Gaming TechRadar the business technology experts US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada México Australasia Australia New Zealand RSS w3.org/2000/svg\"> View Profile Sign out Search Search TechRadar News Reviews Features Perspectives Website builders Web hosting Security."
           },
           {
-            "heading": "The shortest path",
-            "body": "In a press release, Lumus announced that it has expanded its partnership with Quanta Computing. This expansion sees the two companies reaching a licensing agreement \"to manufacture three new geometric waveguides for AR glasses.\" The post states Lumus is developing three new waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV)."
+            "heading": "Where the sources line up",
+            "body": "Data centers have become a hot political topic with the majority of Americans preferring to have a nuclear reactor in their backyard rather than an AI data center . Americans are also increasingly concerned about AI and its effects on the job market, the environment, and their own health."
           },
           {
-            "heading": "Common mistakes",
-            "body": "Thanks to the new licensing agreement, Quanta will handle manufacturing. What we can expect from the Z-30 2.0 is a 30-degree FOV \"in a thinner, lighter optical engine.\" Lumus adds that its latest technology increases the display's brightness, alongside direct prescription lens bonding. The two new A-Lens waveguides (30 and 50) are Lumus' \"lower-cost\" production solutions."
+            "heading": "Practical impact for readers",
+            "body": "But these perspectives just don’t align with AI companies, who have seen unprecedented growth in their model’s capabilities and their stock value. For that growth to continue, perspectives on AI and the infrastructure behind it need to change."
           },
           {
-            "heading": "Who should use it",
-            "body": "The next-gen A-Lens waveguides are reportedly cutting down the weight and thickness by 50%. However, Lumus states it maintained its image quality and efficiency with this upgrade. This is an ongoing trend that Lumus is trying to introduce into this advancing world of AR glasses. Trimming down waveguide weight and thickness is key, but so is image quality, brightness, and cost."
+            "heading": "Who should pay attention now",
+            "body": "There are a few main players behind this movement. Leading The Future (LTF) has become a key funder behind pro-AI and pro-data center candidates, but also says it is using its millions to oppose those opposed to AI - as if the midterms weren’t already confusing enough."
           },
           {
-            "heading": "Patrick Tech Media take",
-            "body": "Earlier today, Lumus' CEO, Ari Grobman, said, \"Our relationship with Quanta has always been built around solving the practical challenges of bringing advanced AR optics into mass production. This agreement allows us to bring our next generation of lower-cost waveguides into manufacturing with a partner that understands both the technology and the production requirements behind it.\"."
+            "heading": "What to watch next",
+            "body": "But a new group, Build American AI, has emerged to run pro-AI and pro-data center ads in key battleground states of Kansas, Ohio, and Wisconsin. The Republican party recently issued a call for help from AI firms over AI opposition due to fears it could cost them the Ohio senate race ."
           }
         ],
         "verification_state": "emerging",
@@ -1136,53 +1230,53 @@
         "ad_eligible": true,
         "show_editorial_label": false,
         "indexable": true,
-        "store_link_mode": "full",
+        "store_link_mode": "off",
         "related_store_items": [],
         "source_set": [
           {
             "source_type": "press",
-            "source_name": "Android Central",
-            "source_url": "https://www.androidcentral.com/gaming/virtual-reality/lumus-quanta-reach-licensing-agreement-waveguides-for-ar-glasses-turn-the-tide",
+            "source_name": "TechRadar",
+            "source_url": "https://www.techradar.com/pro/superpacs-are-funneling-millions-of-dollars-into-pro-ai-candidates-with-trump-saying-communities-that-reject-data-centers-will-end-up-backwards-and-poor",
             "region": "Global",
             "language": "en",
             "trust_tier": "established-media",
-            "published_at": "2026-09-01T18:36:40.000Z",
-            "image_url": "https://cdn.mos.cms.futurecdn.net/c4mMW3eameAbTyBgaAApEK-2560-80.jpg",
-            "image_caption": "Reference image from Android Central.",
-            "image_credit": "Android Central"
+            "published_at": "2026-09-01T18:55:00.000Z",
+            "image_url": "https://cdn.mos.cms.futurecdn.net/mBxmnLnpbAuepmei5vxvLf-1920-80.jpg",
+            "image_caption": "Reference image from TechRadar.",
+            "image_credit": "TechRadar"
           }
         ],
         "author_id": "quang-huy",
-        "published_at": "2026-09-01T18:36:40.000Z",
-        "updated_at": "2026-09-01T18:36:40.000Z",
+        "published_at": "2026-09-01T18:55:00.000Z",
+        "updated_at": "2026-09-01T18:55:00.000Z",
         "image": {
-          "src": "https://cdn.mos.cms.futurecdn.net/c4mMW3eameAbTyBgaAApEK-2560-80.jpg",
-          "caption": "Reference image from Android Central.",
-          "credit": "Android Central",
-          "source_url": "https://www.androidcentral.com/gaming/virtual-reality/lumus-quanta-reach-licensing-agreement-waveguides-for-ar-glasses-turn-the-tide"
+          "src": "https://cdn.mos.cms.futurecdn.net/mBxmnLnpbAuepmei5vxvLf-1920-80.jpg",
+          "caption": "Reference image from TechRadar.",
+          "credit": "TechRadar",
+          "source_url": "https://www.techradar.com/pro/superpacs-are-funneling-millions-of-dollars-into-pro-ai-candidates-with-trump-saying-communities-that-reject-data-centers-will-end-up-backwards-and-poor"
         },
         "draft_context": {
-          "source_title": "Lumus, Quanta reach licensing agreement for next-gen waveguides for AR glasses that may turn the tide",
-          "source_name": "Android Central",
+          "source_title": "SuperPACs are funneling millions of dollars into pro-AI candidates, with Trump saying communities that reject data centers will end up ‘backwards and poor’",
+          "source_name": "TechRadar",
           "source_type": "press",
           "trust_tier": "established-media",
           "topic_hint": "devices",
           "content_type_hint": "",
-          "description": "What you need to know Lumus is expanding its partnership with Quanta this week, which brings a licensing agreement between the two companies for next-gen waveguides. Lumus states Quanta will manufacture its next-gen waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV). The company was at CES 2026 where it stated it's future for waveguides for AR glasses will be \"thinner, lighter, and easier to produce.\" This morning (Sept 1), Lumus, a developer of waveguides for several big-name brands, announced a major partnership expansion. In a press release, Lumus announced that it has expanded its partnership with Quanta Computing. This expansion sees the two companies reaching a licensing agreement \"to manufacture three new geometric waveguides for AR glasses.\" The post states Lumus is developing three new waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV). Thanks to the new licensing agreement, Quanta will handle manufacturing. What we can expect from the Z-30 2.0 is a 30-degree FOV \"in a thinner, lighter optical engine.\" Lumus adds that its latest technology increases the display's brightness, alongside direct prescription lens bonding. The two new A-Lens waveguides (30 and 50) are Lumus' \"lower-cost\" production solutions. The next-gen A-Lens waveguides are reportedly cutting down the weight and thickness by 50%. However, Lumus states it maintained its image quality and efficiency with this upgrade. This is an ongoing trend that Lumus is trying to introduce into this advancing world of AR glasses. Trimming down waveguide weight and thickness is key, but so is image quality, brightness, and cost. Earlier today, Lumus' CEO, Ari Grobman, said, \"Our relationship with Quanta has always been built around solving the practical challenges of bringing advanced AR optics into mass production. This agreement allows us to bring our next generation of lower-cost waveguides into manufacturing with a partner that understands both the technology and the production requirements behind it.\" Here comes the future, and Lumus is leading it (Image credit: Lumus) As mentioned before, Lumus creates waveguides for several brands, even for Meta and its Ray-Ban Display Glasses. Earlier this year, Meta announced that it was doubling the production of its Ray-Ban glasses to meet demand. This was something Lumus echoed in its press release this morning. The demand for smart glasses continues to rise, but there's room for improvement. Its work to reduce the weight and thickness of its waveguides for AR glasses is one such upgrade. Additionally, the lower-production-cost A-Lenses are designed to help bring more products to consumers. We'll have to see how things pan out going forward. On a related note, Lumus was at CES 2026 . This major tech event is where the company first stated what its plans were for the future of AR glasses. Lumus said, \"That's the future for us—making these waveguides thinner, lighter, and easier to produce.\" Its announcement today further echoes that sentiment. ]]>",
+          "description": "Political action committees are funneling millions of dollars into candidates and adverts in an attempt to change perspectives on AI and data centers Numerous states have changed regulations on data centers, making them increasingly hard to gain approval for new projects The US economy is hinged upon the growth of AI companies, and opposition is costing money A new breed of AI-aligned super political action committees (SuperPAC) is spending millions of dollars in an attempt to get pro-AI data center candidates elected in this year’s midterm elections. Data centers have become a hot political topic with the majority of Americans preferring to have a nuclear reactor in their backyard rather than an AI data center . Americans are also increasingly concerned about AI and its effects on the job market, the environment, and their own health. But these perspectives just don’t align with AI companies, who have seen unprecedented growth in their model’s capabilities and their stock value. For that growth to continue, perspectives on AI and the infrastructure behind it need to change. Build data centers or become ‘backwards and poor’ There are a few main players behind this movement. Leading The Future (LTF) has become a key funder behind pro-AI and pro-data center candidates, but also says it is using its millions to oppose those opposed to AI - as if the midterms weren’t already confusing enough. But a new group, Build American AI, has emerged to run pro-AI and pro-data center ads in key battleground states of Kansas, Ohio, and Wisconsin. The Republican party recently issued a call for help from AI firms over AI opposition due to fears it could cost them the Ohio senate race . If that were to be the case, it could lead to a wider change of floating voters aligning themselves with whoever is opposed to AI data centers. Even Nvidia is jumping on the PAC train, having recently set up NVPAC to shape policy in its own favor. Nvidia has an enormous stake in AI technologies, given that it commands an enormous share of the hardware used in most AI data centers. The Trump administration has aligned much of America’s politics around AI. To remain a global power ahead of China, AI cannot be slowed down. To remain on top of America’s battlefields at home and abroad, AI is being integrated into every arm of the military and all aspects of law enforcement. Opposition to AI is therefore opposition to America’s future, or so Trump would want you to believe. The US economy is currently being buoyed by the surge in growth experienced by AI companies, but the models they are creating have been labelled not only a threat to financial institutions , but also a threat to financial stability of the world . “The only reason that communities throughout the U.S.A. should not want Data Centers is if they want to end up being backwards and poor,” Trump wrote in a Truth Social post . “If they want to be successful and rich, with far lower taxes and jobs all over the place, let Data Reign.” Trump’s referrals to taxes and jobs raise an interesting point, because numerous states have lost out on billions of tax revenue due to data center exemptions, and numerous studies have shown AI is leading to job losses in multiple industries. There is also a large amount of infighting within the Republican Party surrounding support for data centers. Many representatives that previously pushed for data center construction - such as Texas Gov. Greg Abbott - have done a 180. AI could therefore go from a revolutionary technology to one of the most divisive political issues of the Trump administration and beyond. ]]>",
           "paragraphs": [
-            "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen",
-            "In a press release, Lumus announced that it has expanded its partnership with Quanta Computing. This expansion sees the two companies reaching a licensing agreement \"to manufacture three new geometric waveguides for AR glasses.\" The post states Lumus is developing three new waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV).",
-            "Thanks to the new licensing agreement, Quanta will handle manufacturing. What we can expect from the Z-30 2.0 is a 30-degree FOV \"in a thinner, lighter optical engine.\" Lumus adds that its latest technology increases the display's brightness, alongside direct prescription lens bonding. The two new A-Lens waveguides (30 and 50) are Lumus' \"lower-cost\" production solutions.",
-            "The next-gen A-Lens waveguides are reportedly cutting down the weight and thickness by 50%. However, Lumus states it maintained its image quality and efficiency with this upgrade. This is an ongoing trend that Lumus is trying to introduce into this advancing world of AR glasses. Trimming down waveguide weight and thickness is key, but so is image quality, brightness, and cost.",
-            "Earlier today, Lumus' CEO, Ari Grobman, said, \"Our relationship with Quanta has always been built around solving the practical challenges of bringing advanced AR optics into mass production. This agreement allows us to bring our next generation of lower-cost waveguides into manufacturing with a partner that understands both the technology and the production requirements behind it.\"",
-            "Exclusive: The future of Viture smart glasses is bright. Very bright Samsung shows off ultra-bright XR displays that could power future smart glasses Get it reserved: Xreal's Aura smart glasses refresh the game with powerful Android XR and AI Here comes the future, and Lumus is leading it"
+            "Tech Radar Tech Radar Pro Tech Radar Gaming TechRadar the business technology experts US Edition Asia Singapore Europe Danmark Suomi Norge Sverige UK Italia Nederland Belgi&euml; (Nederlands) France Deutschland Espa&ntilde;a North America US (English) Canada M&eacute;xico Australasia Australia New Zealand RSS w3.org/2000/svg\"> View Profile Sign out Search Search TechRadar News Reviews Features Perspectives Website builders Web hosting Security",
+            "Data centers have become a hot political topic with the majority of Americans preferring to have a nuclear reactor in their backyard rather than an AI data center . Americans are also increasingly concerned about AI and its effects on the job market, the environment, and their own health.",
+            "But these perspectives just don&rsquo;t align with AI companies, who have seen unprecedented growth in their model&rsquo;s capabilities and their stock value. For that growth to continue, perspectives on AI and the infrastructure behind it need to change.",
+            "There are a few main players behind this movement. Leading The Future (LTF) has become a key funder behind pro-AI and pro-data center candidates, but also says it is using its millions to oppose those opposed to AI - as if the midterms weren&rsquo;t already confusing enough.",
+            "But a new group, Build American AI, has emerged to run pro-AI and pro-data center ads in key battleground states of Kansas, Ohio, and Wisconsin. The Republican party recently issued a call for help from AI firms over AI opposition due to fears it could cost them the Ohio senate race .",
+            "'Let data reign'; Trump warns that those who don't let AI data centers proliferate will end up 'backwards and poor' AI data center backlash has cost tech firms $130 billion in three months 'This has become a sleeper issue for the entire election cycle': Republican Party tells top AI firms to do something about rising US data center opposition If that were to be the case, it could lead to a wider change of floating voters aligning themselves with whoever is opposed to AI data centers."
           ],
           "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=773",
-          "link": "https://www.androidcentral.com/gaming/virtual-reality/lumus-quanta-reach-licensing-agreement-waveguides-for-ar-glasses-turn-the-tide"
+          "source_depth_reason": "depth=100; paragraphs=6; words=948",
+          "link": "https://www.techradar.com/pro/superpacs-are-funneling-millions-of-dollars-into-pro-ai-candidates-with-trump-saying-communities-that-reject-data-centers-will-end-up-backwards-and-poor"
         }
       },
-      "first_seen_at": "2026-09-01T18:46:31.750Z",
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1273,42 +1367,226 @@
           "link": "https://www.windowscentral.com/hardware/laptops/best-buys-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisis-induced-price-hike-down-by-24-percent"
         }
       },
-      "first_seen_at": "2026-09-01T18:46:31.750Z",
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
     {
       "article": {
-        "id": "feed-72000b13aae7-en",
-        "cluster_id": "feed-72000b13aae7",
+        "id": "feed-d17177b0e019-en",
+        "cluster_id": "feed-d17177b0e019",
         "language": "en",
-        "topic": "devices",
-        "content_type": "EvergreenGuide",
-        "slug": "android-drop-google-s-motion-assist-and-guided-vision-are-two-features-i-m-ready-for-on-android",
-        "title": "Android Drop: Google's Motion Assist and Guided Vision are two features I'm ready for on Android",
-        "summary": "Google's press release details a laundry list of new features for September; however, we're focusing on two items: Motion Sickness and Guided Vision. If you've ever tried using your phone while riding shotgun in a car, you might've put it down.",
-        "dek": "Google's press release details a laundry list of new features for September; however, we're focusing on two items: Motion Sickness and Guided Vision.",
-        "hook": "Google's press release details a laundry list of new features for September; however, we're focusing on two items: Motion Sickness and Guided Vision.",
+        "topic": "ai",
+        "content_type": "NewsArticle",
+        "slug": "anthropic-launches-claude-fable-5-1-with-lower-costs-and-fewer-false-positives",
+        "title": "Anthropic Launches Claude Fable 5.1 With Lower Costs and Fewer False Positives",
+        "summary": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers.",
+        "dek": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks.",
+        "hook": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks.",
         "sections": [
           {
-            "heading": "Where to start",
-            "body": "Google's press release details a laundry list of new features for September; however, we're focusing on two items: Motion Sickness and Guided Vision. If you've ever tried using your phone while riding shotgun in a car, you might've put it down. Motion Sickness could affect anyone, but Google is rolling out \"Motion Assist\" this month to help. According to Google, Motion Assist \"adds a subtle bubble overlay to your screen that moves with the vehicle.\"."
+            "heading": "What changed",
+            "body": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers. It outperforms Fable 5, Opus 5, and OpenAI's GPT–5.6 Sol across multiple benchmarks."
           },
           {
-            "heading": "The shortest path",
-            "body": "The post states these bubbles will bridge the gap between \"what your eyes see and the movement of your ride.\" Users can start it via the Quick Settings tile, or they can set it to automatically turn on when you're in a moving vehicle. These moving bubbles will appear on the sides of your phone to help reduce motion sickness. The automatic option states Motion Assist will activate if it detects the user in a car, bus, or train."
+            "heading": "Price and bundle value",
+            "body": "Fable 5.1 and Mythos 5.1 are the same model, but with different safeguard levels. Fable 5.1 is available to everyone, but Mythos 5.1 is limited to U.S. companies and individuals participating in Anthropic's trusted access programs. There's a new Life Sciences Verification Program that allows Mythos 5.1's advanced biology capabilities to be used for scientific research, with open enrollment for scientists coming soon."
           },
           {
-            "heading": "Common mistakes",
-            "body": "If the subject leaves your frame, Gemini Live will guide you back so it can help you appropriately."
+            "heading": "AI features that change the value",
+            "body": "Fable 5.1 costs approximately 25 percent less than Fable 5 for typical workloads, and up to 45 percent for highly agentic work, because of a reduction in cache-read pricing. Base pricing remains the same. It is available today on all platforms."
           },
           {
-            "heading": "Who should use it",
-            "body": "I will always prefer updates like this over some \"new thing\" for AI. While one of these features relies on Google's AI, this is the direction I like seeing it go. A direction where it's incredibly helpful to people who may have trouble seeing or what have you. Tech should make life easier. We've got enough to worry about as it is."
+            "heading": "Who should pay attention",
+            "body": "Apple's four new iPhones feature more differences between the latest models than ever before, so which one should you buy?"
           },
           {
             "heading": "Patrick Tech Media take",
-            "body": "Google Pixel Google's June Pixel Drop is rolling out, and we're unraveling what's coming with Android 17 Android OS Android 17 review: Bubbling with excitement Apps & Software Google adds shared Keep notes and custom themes to Messages Wearables Gemini at Unpacked: Google announces major AI updates for foldables, glasses AI Gemini’s new blurred UI is finally reaching Android phones Android OS Android 17 is finally here — here's what's new and who's getting it Latest in Google Pixel Google Pixel Not good: Google's Video Boost offers nothing but static for Pixel 11 Pro users Google Pixel I tested the Google Pixel 11, and it's a fun blend of social media and AI magic Google Pixel Google Pixel 11 Pro vs. Pixel 9 Pro: No reason to upgrade just yet Google Pixel The Pixel 11 Pro Fold is a solid upgrade, but after testing it against other foldables, I wish Google had gone a bit further Google Pixel Should you buy the Google Pixel 11? Google Pixel Should you buy the Google Pixel 11 Pro Fold? Latest in News Apps & Software No tracker tag? Gemini can now store item locations right in Find Hub Apps & Software Google adds shared Keep notes and custom themes to Messages Smart Home Google raises prices on the TV Streamer and Nest cameras effective today Android OS Android 17 QPR2 Beta 4 is shaping up to be Google’s best beta yet Meta Is it AI? Instagram gets crystal clear with a reworked AI-generated profile label Google Pixel Not good: Google's Video Boost offers nothing but static for Pixel 11 Pro users LATEST ARTICLES 1 Best Buy just launched its huge Labor Day sale — see the TOP 20+ tech deals that Android users can't miss 2 I can't believe how good Razer's tiny new mobile controller is 3 I tested the POCO F9 Ultra, and it is the value flagship I'd buy in 2026 4 Google raises prices on the TV Streamer and Nest cameras effective today 5 Android 17 QPR2 Beta 4 is shaping up to be Google’s best beta yet Android Central is part of Future US Inc, an international media group and leading digital publisher. Visit our corporate site ."
+            "body": "Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz. Patrick Tech Media will keep checking MacRumors to see whether the value holds once the rollout broadens."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "MacRumors",
+            "source_url": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-01T19:15:25.000Z",
+            "image_url": "https://images.macrumors.com/t/miP5cemYnLJaXuUhVtW0LMDZCJQ=/1782x/article-new/2025/09/anthopic-claude.jpg",
+            "image_caption": "Reference image from MacRumors.",
+            "image_credit": "MacRumors"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-01T19:15:25.000Z",
+        "updated_at": "2026-09-01T19:15:25.000Z",
+        "image": {
+          "src": "https://images.macrumors.com/t/miP5cemYnLJaXuUhVtW0LMDZCJQ=/1782x/article-new/2025/09/anthopic-claude.jpg",
+          "caption": "Reference image from MacRumors.",
+          "credit": "MacRumors",
+          "source_url": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/"
+        },
+        "draft_context": {
+          "source_title": "Anthropic Launches Claude Fable 5.1 With Lower Costs and Fewer False Positives",
+          "source_name": "MacRumors",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Anthropic today introduced Claude Fable 5.1 and Claude Mythos 5.1, which the company says are the \"world's most advanced models for coding and knowledge work.\" According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers. It outperforms Fable 5, Opus 5, and OpenAI's GPT–5.6 Sol across multiple benchmarks. Fable 5.1 and Mythos 5.1 are the same model, but with different safeguard levels. Fable 5.1 is available to everyone, but Mythos 5.1 is limited to U.S. companies and individuals participating in Anthropic's trusted access programs. There's a new Life Sciences Verification Program that allows Mythos 5.1's advanced biology capabilities to be used for scientific research, with open enrollment for scientists coming soon. Safeguards for Fable 5.1 have been improved, and Claude Code users should see around 60 percent fewer cybersecurity false positives. Anthropic says Fable 5.1 can now be used to discover software vulnerabilities, but not develop exploits for them. Fable 5.1 includes invisible watermarking for text generated by Claude, and Anthropic is rolling out a detection API in a private preview. The API is available to eligible organizations as required by EU law. Fable 5.1 costs approximately 25 percent less than Fable 5 for typical workloads, and up to 45 percent for highly agentic work, because of a reduction in cache-read pricing. Base pricing remains the same. It is available today on all platforms. Tag: Anthropic This article, \" Anthropic Launches Claude Fable 5.1 With Lower Costs and Fewer False Positives \" first appeared on MacRumors.com Discuss this article in our forums",
+          "paragraphs": [
+            "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers. It outperforms Fable 5, Opus 5, and OpenAI's GPT–5.6 Sol across multiple benchmarks.",
+            "Fable 5.1 and Mythos 5.1 are the same model, but with different safeguard levels. Fable 5.1 is available to everyone, but Mythos 5.1 is limited to U.S. companies and individuals participating in Anthropic's trusted access programs. There's a new Life Sciences Verification Program that allows Mythos 5.1's advanced biology capabilities to be used for scientific research, with open enrollment for scientists coming soon.",
+            "Safeguards for Fable 5.1 have been improved, and Claude Code users should see around 60 percent fewer cybersecurity false positives. Anthropic says Fable 5.1 can now be used to discover software vulnerabilities, but not develop exploits for them. Fable 5.1 includes invisible watermarking for text generated by Claude, and Anthropic is rolling out a detection API in a private preview. The API is available to eligible organizations as required by EU law.",
+            "Fable 5.1 costs approximately 25 percent less than Fable 5 for typical workloads, and up to 45 percent for highly agentic work, because of a reduction in cache-read pricing. Base pricing remains the same. It is available today on all platforms.",
+            "Apple's four new iPhones feature more differences between the latest models than ever before, so which one should you buy?"
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=5; words=533",
+          "link": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/"
+        }
+      },
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-2eb807ad3d08-en",
+        "cluster_id": "feed-2eb807ad3d08",
+        "language": "en",
+        "topic": "ai",
+        "content_type": "NewsArticle",
+        "slug": "introducing-claude-fable-5-1-on-aws",
+        "title": "Introducing Claude Fable 5.1 on AWS",
+        "summary": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS. Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows.",
+        "dek": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS.",
+        "hook": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS. Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "Given its capabilities, Anthropic has designated Fable 5.1 a Covered Model , a category of Claude models that carry additional data retention, safety review, and access policies wherever they’re offered. For more information, see Amazon Bedrock abuse detection and Anthropic’s Covered Models page. Anthropic also announced the Enterprise Frontier Safeguards , a solution that will give customers the option to safely deploy Anthropic’s most capable models while keeping their data in cloud infrastructure they control. The Enterprise Frontier Safeguards section that follows covers what this means on Amazon Bedrock."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "This post covers Claude Fable 5.1’s improvements, the Enterprise Frontier Safeguards, and how to start building with the model on Amazon Bedrock."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Anthropic reports Fable 5.1 is a clear improvement over Fable 5 on the hardest reasoning tests Anthropic runs. These tests include competition mathematics, graduate-level questions in engineering and the sciences, and long multi-step problems where reliability is key. In day-to-day use that shows up as better judgment on ambiguous tasks and fewer confident wrong answers:."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "Because Claude Fable 5.1 is a Covered Model , its use is subject to data retention for up to 30 days and human review by Amazon personnel. With Amazon Bedrock, you can control data retention through a mode on your account or Amazon Bedrock project, which you configure with the data retention API . Using Claude Fable 5.1 requires the aws_review mode, which you set before you invoke the model. In this mode, AWS retains your prompts and outputs for human safety review within the AWS boundary. Claude Fable 5.1 does not require sharing with the model provider. See Amazon Bedrock data retention for more details."
+          }
+        ],
+        "verification_state": "verified",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "official-site",
+            "source_name": "AWS ML Blog",
+            "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-1-on-aws/",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "official",
+            "published_at": "2026-09-01T19:12:43.000Z",
+            "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/01/ml-21797.png",
+            "image_caption": "Reference image from AWS ML Blog.",
+            "image_credit": "AWS ML Blog"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-01T19:12:43.000Z",
+        "updated_at": "2026-09-01T19:12:43.000Z",
+        "image": {
+          "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/01/ml-21797.png",
+          "caption": "Reference image from AWS ML Blog.",
+          "credit": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-1-on-aws/"
+        },
+        "draft_context": {
+          "source_title": "Introducing Claude Fable 5.1 on AWS",
+          "source_name": "AWS ML Blog",
+          "source_type": "official-site",
+          "trust_tier": "official",
+          "topic_hint": "ai",
+          "content_type_hint": "",
+          "description": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS. Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows. Given its capabilities, Anthropic has designated Fable 5.1 a Covered Model , a category of Claude models that carry additional data retention, safety review, and access policies wherever they’re offered. For more information, see Amazon Bedrock abuse detection and Anthropic’s Covered Models page. Anthropic also announced the Enterprise Frontier Safeguards , a solution that will give customers the option to safely deploy Anthropic’s most capable models while keeping their data in cloud infrastructure they control. The Enterprise Frontier Safeguards section that follows covers what this means on Amazon Bedrock. This post covers Claude Fable 5.1’s improvements, the Enterprise Frontier Safeguards, and how to start building with the model on Amazon Bedrock. What makes Claude Fable 5.1 different Anthropic reports Fable 5.1 is a clear improvement over Fable 5 on the hardest reasoning tests Anthropic runs. These tests include competition mathematics, graduate-level questions in engineering and the sciences, and long multi-step problems where reliability is key. In day-to-day use that shows up as better judgment on ambiguous tasks and fewer confident wrong answers: Agentic coding. Carries more of a project on its own, from code base-spanning features to code review and performance work, across multi-hour sessions. It is also more honest: if it gets stuck it says so, and it is less likely to disable a failing test to pass. Autonomous operation. Built for multi-hour jobs that span many applications. It plans, uses the tools it needs, recovers when a step fails, and keeps you updated without being asked. End-to-end knowledge work. Takes an analysis from first question to finished document, doing the research, building the spreadsheet, writing the memo or deck, and checking its numbers as it goes. Built for everyday finance, accounting, and healthcare work. Scientific research. Supports research campaigns from literature and hypotheses to models, experiments, and formal verification. Improved usability. Keeps you updated on long tasks, writes more clearly, and follows instructions more closely. Data retention Because Claude Fable 5.1 is a Covered Model , its use is subject to data retention for up to 30 days and human review by Amazon personnel. With Amazon Bedrock, you can control data retention through a mode on your account or Amazon Bedrock project, which you configure with the data retention API . Using Claude Fable 5.1 requires the aws_review mode, which you set before you invoke the model. In this mode, AWS retains your prompts and outputs for human safety review within the AWS boundary. Claude Fable 5.1 does not require sharing with the model provider. See Amazon Bedrock data retention for more details. Enterprise Frontier Safeguards Enterprise Frontier Safeguards (EFS), built in partnership between AWS and Anthropic, will help eligible customers use Claude Fable 5 and Claude Fable 5.1 models while keeping their data in a cloud environment they control. If you are an EFS-eligible customer, you can use Claude Fable 5 and Claude Fable 5.1 with zero data retention (ZDR) on Amazon Bedrock and Claude Platform on AWS. This is available for internal use through December 31, 2026. Additional Enterprise Frontier Safeguards will be available later this year, you will be able to keep your prompts and outputs in your AWS account, under your own encryption keys, access policies, and audit logging. Safety monitoring will be through automated review with no human review required. Getting started with Claude Fable 5.1 on Amazon Bedrock To try Fable 5.1, open the Amazon Bedrock console , go to Test > Playground , and select Fable 5.1 as the model. From there, you can run a prompt directly against it. Programmatically, you can call the model with the Anthropic Messages API against bedrock-runtime (through the Anthropic SDK). You can also stay on the Invoke and Converse APIs on bedrock-runtime through the AWS Command Line Interface (AWS CLI) and AWS SDK . Prerequisites Active AWS account with Amazon Bedrock access. AWS Command Line Interface (AWS CLI) installed and configured. Python 3.10+. Boto3 installed: pip install boto3 . AWS Identity and Access Management (IAM) permissions: bedrock:InvokeModel and bedrock:InvokeModelWithResponseStream . Here’s a quick example using the AWS SDK for Python (Boto3): import boto3 import json # Create a Bedrock Runtime client bedrock_runtime = boto3.client( service_name=\"bedrock-runtime\", region_name=\"us-east-1\" ) # Invoke Claude Fable 5.1 response = bedrock_runtime.invoke_model( modelId=\"global.anthropic.claude-fable-5-1\", contentType=\"application/json\", accept=\"application/json\", body=json.dumps({ \"anthropic_version\": \"bedrock-2023-05-31\", \"max_tokens\": 4096, \"messages\": [ { \"role\": \"user\", \"content\": \"An S3 bucket serves 40 TB/month egress. Estimate the monthly egress cost at $0.09/GB, and state one architecture change to cut it. Show the calculation, keep it under 120 words.\" } ] }) ) result = json.loads(response[\"body\"].read()) # Fable 5.1 is a reasoning model: the response may include a thinking block # before the text block, so select the text block rather than a fixed index. print(next(b[\"text\"] for b in result[\"content\"] if b[\"type\"] == \"text\")) You can explore the Getting Started notebook for more examples. Availability Claude Fable 5.1 is available today on Amazon Bedrock through the US Geo CRIS (us.) and Global CRIS (global.) inference profiles. In AWS GovCloud (US), it is available on both the bedrock-runtime and bedrock-mantle endpoints. See the Bedrock documentation for the full list of supported Regions. For pricing information, see Amazon Bedrock pricing . It is also available through Claude Platform on AWS in North America. Give Claude Fable 5.1 a try in the Amazon Bedrock console , in Claude Platform on AWS , or explore the Getting Started notebooks on GitHub. About the authors Dani Mitchell Dani is a Sr. generative AI Specialist Solutions Architect at AWS and the SA lead for Amazon Bedrock Knowledge Bases. He helps enterprises across the world design and deploy generative AI solutions using Amazon Bedrock and Anthropic’s models and capabilities to build scalable, production-ready applications. Aamna Najmi Aamna is a Senior Specialist Solutions Architect for Generative AI focusing on Anthropic models and operationalizing and governing generative AI systems at scale on Amazon Bedrock. She helps ISVs solve their challenges, embrace innovation, and create new business opportunities with Amazon Bedrock. Sofian Hamiti Sofian is a technology leader with over 12 years of experience building AI solutions, and leading high-performing teams to maximize customer outcomes. He is passionate about empowering diverse talents to drive global impact and achieve their career aspirations. Antonio Rodriguez Antonio is a Principal Generative AI Tech Leader at Amazon Web Services. He helps companies of all sizes solve their challenges, embrace innovation, and create new business opportunities with Amazon Bedrock. Ayan Ray Ayan is a Principal Partner Solutions Architect and AI Tech Lead at AWS, serving as the Worldwide Tech Lead for Anthropic at AWS. He works at the intersection of cloud architecture and Artificial Intelligence, helping organizations adopt and scale Anthropic’s technologies on AWS.",
+          "paragraphs": [
+            "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS. Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows.",
+            "Given its capabilities, Anthropic has designated Fable 5.1 a Covered Model , a category of Claude models that carry additional data retention, safety review, and access policies wherever they’re offered. For more information, see Amazon Bedrock abuse detection and Anthropic’s Covered Models page. Anthropic also announced the Enterprise Frontier Safeguards , a solution that will give customers the option to safely deploy Anthropic’s most capable models while keeping their data in cloud infrastructure they control. The Enterprise Frontier Safeguards section that follows covers what this means on Amazon Bedrock.",
+            "This post covers Claude Fable 5.1’s improvements, the Enterprise Frontier Safeguards, and how to start building with the model on Amazon Bedrock.",
+            "Anthropic reports Fable 5.1 is a clear improvement over Fable 5 on the hardest reasoning tests Anthropic runs. These tests include competition mathematics, graduate-level questions in engineering and the sciences, and long multi-step problems where reliability is key. In day-to-day use that shows up as better judgment on ambiguous tasks and fewer confident wrong answers:",
+            "Because Claude Fable 5.1 is a Covered Model , its use is subject to data retention for up to 30 days and human review by Amazon personnel. With Amazon Bedrock, you can control data retention through a mode on your account or Amazon Bedrock project, which you configure with the data retention API . Using Claude Fable 5.1 requires the aws_review mode, which you set before you invoke the model. In this mode, AWS retains your prompts and outputs for human safety review within the AWS boundary. Claude Fable 5.1 does not require sharing with the model provider. See Amazon Bedrock data retention for more details.",
+            "Enterprise Frontier Safeguards (EFS), built in partnership between AWS and Anthropic, will help eligible customers use Claude Fable 5 and Claude Fable 5.1 models while keeping their data in a cloud environment they control."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=1481",
+          "link": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-1-on-aws/"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Xác thực chính thức"
+      },
+      "first_seen_at": "2026-09-01T19:30:53.789Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-87439335480a-en",
+        "cluster_id": "feed-87439335480a",
+        "language": "en",
+        "topic": "devices",
+        "content_type": "EvergreenGuide",
+        "slug": "lumus-quanta-reach-licensing-agreement-for-next-gen-waveguides-for-ar-glasses-that-may-turn-the",
+        "title": "Lumus, Quanta reach licensing agreement for next-gen waveguides for AR glasses that may turn the tide",
+        "summary": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen. In a press release, Lumus announced that it has expanded its partnership with Quanta Computing.",
+        "dek": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen.",
+        "hook": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen.",
+        "sections": [
+          {
+            "heading": "Where to start",
+            "body": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen."
+          },
+          {
+            "heading": "The shortest path",
+            "body": "In a press release, Lumus announced that it has expanded its partnership with Quanta Computing. This expansion sees the two companies reaching a licensing agreement \"to manufacture three new geometric waveguides for AR glasses.\" The post states Lumus is developing three new waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV)."
+          },
+          {
+            "heading": "Common mistakes",
+            "body": "Thanks to the new licensing agreement, Quanta will handle manufacturing. What we can expect from the Z-30 2.0 is a 30-degree FOV \"in a thinner, lighter optical engine.\" Lumus adds that its latest technology increases the display's brightness, alongside direct prescription lens bonding. The two new A-Lens waveguides (30 and 50) are Lumus' \"lower-cost\" production solutions."
+          },
+          {
+            "heading": "Who should use it",
+            "body": "The next-gen A-Lens waveguides are reportedly cutting down the weight and thickness by 50%. However, Lumus states it maintained its image quality and efficiency with this upgrade. This is an ongoing trend that Lumus is trying to introduce into this advancing world of AR glasses. Trimming down waveguide weight and thickness is key, but so is image quality, brightness, and cost."
+          },
+          {
+            "heading": "Patrick Tech Media take",
+            "body": "Earlier today, Lumus' CEO, Ari Grobman, said, \"Our relationship with Quanta has always been built around solving the practical challenges of bringing advanced AR optics into mass production. This agreement allows us to bring our next generation of lower-cost waveguides into manufacturing with a partner that understands both the technology and the production requirements behind it.\"."
           }
         ],
         "verification_state": "emerging",
@@ -1322,134 +1600,47 @@
           {
             "source_type": "press",
             "source_name": "Android Central",
-            "source_url": "https://www.androidcentral.com/phones/google-pixel/android-drop-google-motion-assist-and-guided-vision-on-android",
+            "source_url": "https://www.androidcentral.com/gaming/virtual-reality/lumus-quanta-reach-licensing-agreement-waveguides-for-ar-glasses-turn-the-tide",
             "region": "Global",
             "language": "en",
             "trust_tier": "established-media",
-            "published_at": "2026-09-01T18:00:00.000Z",
-            "image_url": "https://cdn.mos.cms.futurecdn.net/SHQKoFFu7jFKMsDvg7mGta-2048-80.jpg",
+            "published_at": "2026-09-01T18:36:40.000Z",
+            "image_url": "https://cdn.mos.cms.futurecdn.net/c4mMW3eameAbTyBgaAApEK-2560-80.jpg",
             "image_caption": "Reference image from Android Central.",
             "image_credit": "Android Central"
           }
         ],
         "author_id": "quang-huy",
-        "published_at": "2026-09-01T18:00:00.000Z",
-        "updated_at": "2026-09-01T18:00:00.000Z",
+        "published_at": "2026-09-01T18:36:40.000Z",
+        "updated_at": "2026-09-01T18:36:40.000Z",
         "image": {
-          "src": "https://cdn.mos.cms.futurecdn.net/SHQKoFFu7jFKMsDvg7mGta-2048-80.jpg",
+          "src": "https://cdn.mos.cms.futurecdn.net/c4mMW3eameAbTyBgaAApEK-2560-80.jpg",
           "caption": "Reference image from Android Central.",
           "credit": "Android Central",
-          "source_url": "https://www.androidcentral.com/phones/google-pixel/android-drop-google-motion-assist-and-guided-vision-on-android"
+          "source_url": "https://www.androidcentral.com/gaming/virtual-reality/lumus-quanta-reach-licensing-agreement-waveguides-for-ar-glasses-turn-the-tide"
         },
         "draft_context": {
-          "source_title": "Android Drop: Google's Motion Assist and Guided Vision are two features I'm ready for on Android",
+          "source_title": "Lumus, Quanta reach licensing agreement for next-gen waveguides for AR glasses that may turn the tide",
           "source_name": "Android Central",
           "source_type": "press",
           "trust_tier": "established-media",
           "topic_hint": "devices",
           "content_type_hint": "",
-          "description": "What you need to know For September's Android Drop, Google is introducing \"Motion Assist,\" a feature to help users suffering from motion sickness while using their phone in a vehicle. On the Accessibility front, Gemini Live can help users find items or read fine print with \"Guided Vision,\" delivering audio descriptions to guide users. Google states Motion Assist will rollout on Android 17 devices, while Guided Vision prepares a debut on Android 9 and newer. It's September, and right on time is Google with the latest Android Drop. This month, the company is focusing on the accessibility and comfort of Android with two major updates. Google's press release details a laundry list of new features for September; however, we're focusing on two items: Motion Sickness and Guided Vision. If you've ever tried using your phone while riding shotgun in a car, you might've put it down. Motion Sickness could affect anyone, but Google is rolling out \"Motion Assist\" this month to help. According to Google, Motion Assist \"adds a subtle bubble overlay to your screen that moves with the vehicle.\" Google Google The post states these bubbles will bridge the gap between \"what your eyes see and the movement of your ride.\" Users can start it via the Quick Settings tile, or they can set it to automatically turn on when you're in a moving vehicle. These moving bubbles will appear on the sides of your phone to help reduce motion sickness. The automatic option states Motion Assist will activate if it detects the user in a car, bus, or train. What's more, users will find a few customization options to make Motion Assist theirs. A point to Accessibility (Image credit: Google) Google states Motion Assist will roll out on phones running Android 17. The second major update is Guided Vision. The post states this feature relies on Gemini Live, meaning users will have to share their camera with the AI. After sharing, Gemini Live will provide audio descriptions of what's in front of you. Google says the AI can help with \"reading fine print on a food label, ordering from a menu in a low-lit restaurant, or locating household objects.\" In one example, Gemini Live guides a user to a seasoning they're looking for on a shelf. If the subject leaves your frame, Gemini Live will guide you back so it can help you appropriately. Guided Vision is rolling out \"soon\" to phones running Android 9 or newer where Gemini is available. Once it arrives, users can add Guided Vision to their Accessibility shortcuts or launch it via the TalkBack menu. Android Central's Take I will always prefer updates like this over some \"new thing\" for AI. While one of these features relies on Google's AI, this is the direction I like seeing it go. A direction where it's incredibly helpful to people who may have trouble seeing or what have you. Tech should make life easier. We've got enough to worry about as it is. ]]>",
+          "description": "What you need to know Lumus is expanding its partnership with Quanta this week, which brings a licensing agreement between the two companies for next-gen waveguides. Lumus states Quanta will manufacture its next-gen waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV). The company was at CES 2026 where it stated it's future for waveguides for AR glasses will be \"thinner, lighter, and easier to produce.\" This morning (Sept 1), Lumus, a developer of waveguides for several big-name brands, announced a major partnership expansion. In a press release, Lumus announced that it has expanded its partnership with Quanta Computing. This expansion sees the two companies reaching a licensing agreement \"to manufacture three new geometric waveguides for AR glasses.\" The post states Lumus is developing three new waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV). Thanks to the new licensing agreement, Quanta will handle manufacturing. What we can expect from the Z-30 2.0 is a 30-degree FOV \"in a thinner, lighter optical engine.\" Lumus adds that its latest technology increases the display's brightness, alongside direct prescription lens bonding. The two new A-Lens waveguides (30 and 50) are Lumus' \"lower-cost\" production solutions. The next-gen A-Lens waveguides are reportedly cutting down the weight and thickness by 50%. However, Lumus states it maintained its image quality and efficiency with this upgrade. This is an ongoing trend that Lumus is trying to introduce into this advancing world of AR glasses. Trimming down waveguide weight and thickness is key, but so is image quality, brightness, and cost. Earlier today, Lumus' CEO, Ari Grobman, said, \"Our relationship with Quanta has always been built around solving the practical challenges of bringing advanced AR optics into mass production. This agreement allows us to bring our next generation of lower-cost waveguides into manufacturing with a partner that understands both the technology and the production requirements behind it.\" Here comes the future, and Lumus is leading it (Image credit: Lumus) As mentioned before, Lumus creates waveguides for several brands, even for Meta and its Ray-Ban Display Glasses. Earlier this year, Meta announced that it was doubling the production of its Ray-Ban glasses to meet demand. This was something Lumus echoed in its press release this morning. The demand for smart glasses continues to rise, but there's room for improvement. Its work to reduce the weight and thickness of its waveguides for AR glasses is one such upgrade. Additionally, the lower-production-cost A-Lenses are designed to help bring more products to consumers. We'll have to see how things pan out going forward. On a related note, Lumus was at CES 2026 . This major tech event is where the company first stated what its plans were for the future of AR glasses. Lumus said, \"That's the future for us—making these waveguides thinner, lighter, and easier to produce.\" Its announcement today further echoes that sentiment. ]]>",
           "paragraphs": [
-            "Google's press release details a laundry list of new features for September; however, we're focusing on two items: Motion Sickness and Guided Vision. If you've ever tried using your phone while riding shotgun in a car, you might've put it down. Motion Sickness could affect anyone, but Google is rolling out \"Motion Assist\" this month to help. According to Google, Motion Assist \"adds a subtle bubble overlay to your screen that moves with the vehicle.\"",
-            "The post states these bubbles will bridge the gap between \"what your eyes see and the movement of your ride.\" Users can start it via the Quick Settings tile, or they can set it to automatically turn on when you're in a moving vehicle. These moving bubbles will appear on the sides of your phone to help reduce motion sickness. The automatic option states Motion Assist will activate if it detects the user in a car, bus, or train.",
-            "If the subject leaves your frame, Gemini Live will guide you back so it can help you appropriately.",
-            "I will always prefer updates like this over some \"new thing\" for AI. While one of these features relies on Google's AI, this is the direction I like seeing it go. A direction where it's incredibly helpful to people who may have trouble seeing or what have you. Tech should make life easier. We've got enough to worry about as it is.",
-            "Google Pixel Google's June Pixel Drop is rolling out, and we're unraveling what's coming with Android 17 Android OS Android 17 review: Bubbling with excitement Apps & Software Google adds shared Keep notes and custom themes to Messages Wearables Gemini at Unpacked: Google announces major AI updates for foldables, glasses AI Gemini&rsquo;s new blurred UI is finally reaching Android phones Android OS Android 17 is finally here &mdash; here's what's new and who's getting it Latest in Google Pixel Google Pixel Not good: Google's Video Boost offers nothing but static for Pixel 11 Pro users Google Pixel I tested the Google Pixel 11, and it's a fun blend of social media and AI magic Google Pixel Google Pixel 11 Pro vs. Pixel 9 Pro: No reason to upgrade just yet Google Pixel The Pixel 11 Pro Fold is a solid upgrade, but after testing it against other foldables, I wish Google had gone a bit further Google Pixel Should you buy the Google Pixel 11? Google Pixel Should you buy the Google Pixel 11 Pro Fold? Latest in News Apps & Software No tracker tag? Gemini can now store item locations right in Find Hub Apps & Software Google adds shared Keep notes and custom themes to Messages Smart Home Google raises prices on the TV Streamer and Nest cameras effective today Android OS Android 17 QPR2 Beta 4 is shaping up to be Google&rsquo;s best beta yet Meta Is it AI? Instagram gets crystal clear with a reworked AI-generated profile label Google Pixel Not good: Google's Video Boost offers nothing but static for Pixel 11 Pro users LATEST ARTICLES 1 Best Buy just launched its huge Labor Day sale &mdash; see the TOP 20+ tech deals that Android users can't miss 2 I can't believe how good Razer's tiny new mobile controller is 3 I tested the POCO F9 Ultra, and it is the value flagship I'd buy in 2026 4 Google raises prices on the TV Streamer and Nest cameras effective today 5 Android 17 QPR2 Beta 4 is shaping up to be Google&rsquo;s best beta yet Android Central is part of Future US Inc, an international media group and leading digital publisher. Visit our corporate site ."
+            "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen",
+            "In a press release, Lumus announced that it has expanded its partnership with Quanta Computing. This expansion sees the two companies reaching a licensing agreement \"to manufacture three new geometric waveguides for AR glasses.\" The post states Lumus is developing three new waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV).",
+            "Thanks to the new licensing agreement, Quanta will handle manufacturing. What we can expect from the Z-30 2.0 is a 30-degree FOV \"in a thinner, lighter optical engine.\" Lumus adds that its latest technology increases the display's brightness, alongside direct prescription lens bonding. The two new A-Lens waveguides (30 and 50) are Lumus' \"lower-cost\" production solutions.",
+            "The next-gen A-Lens waveguides are reportedly cutting down the weight and thickness by 50%. However, Lumus states it maintained its image quality and efficiency with this upgrade. This is an ongoing trend that Lumus is trying to introduce into this advancing world of AR glasses. Trimming down waveguide weight and thickness is key, but so is image quality, brightness, and cost.",
+            "Earlier today, Lumus' CEO, Ari Grobman, said, \"Our relationship with Quanta has always been built around solving the practical challenges of bringing advanced AR optics into mass production. This agreement allows us to bring our next generation of lower-cost waveguides into manufacturing with a partner that understands both the technology and the production requirements behind it.\"",
+            "Exclusive: The future of Viture smart glasses is bright. Very bright Samsung shows off ultra-bright XR displays that could power future smart glasses Get it reserved: Xreal's Aura smart glasses refresh the game with powerful Android XR and AI Here comes the future, and Lumus is leading it"
           ],
           "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=5; words=1102",
-          "link": "https://www.androidcentral.com/phones/google-pixel/android-drop-google-motion-assist-and-guided-vision-on-android"
+          "source_depth_reason": "depth=100; paragraphs=6; words=773",
+          "link": "https://www.androidcentral.com/gaming/virtual-reality/lumus-quanta-reach-licensing-agreement-waveguides-for-ar-glasses-turn-the-tide"
         }
       },
-      "first_seen_at": "2026-09-01T18:46:31.750Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-05659353067a-en",
-        "cluster_id": "feed-05659353067a",
-        "language": "en",
-        "topic": "devices",
-        "content_type": "NewsArticle",
-        "slug": "best-free-vpn-for-android-5-top-picks-you-can-trust",
-        "title": "Best free VPN for Android: 5 top picks you can trust",
-        "summary": "Whether you’re looking to stay safer on public Wi-Fi or access region-locked content on your favorite streaming apps, a good free VPN for Android can help. And the best thing is that you don’t even need to add another subscription to your monthly bills.",
-        "dek": "Whether you’re looking to stay safer on public Wi-Fi or access region-locked content on your favorite streaming apps, a good free VPN for Android can help.",
-        "hook": "Whether you’re looking to stay safer on public Wi-Fi or access region-locked content on your favorite streaming apps, a good free VPN for Android can help.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "Whether you’re looking to stay safer on public Wi-Fi or access region-locked content on your favorite streaming apps, a good free VPN for Android can help. And the best thing is that you don’t even need to add another subscription to your monthly bills."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "Proton VPN – Best free VPN for Android PrivadoVPN – Best free VPN for Android runner-up Windscribe Pro – Best for multiple devices Hide.me – Best for no sign-up requirement AVG Secure – Best free trial You can also check out my guide to the best VPNs covering multiple devices."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "Why you should trust PCWorld for VPN reviews and buying advice: Here at PCWorld we’ve been testing computer hardware, software, and services since the 1980s. As reviewers and users of PC hardware and software, we put every product through its paces using rigorous benchmarking and hands-on evaluation. We’d never recommend something we wouldn’t want for ourselves."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "Proton VPN’s free version even showed decent speeds in my tests, just going to show that this is the free VPN to use right now."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "It’s worth noting that the free VPN version does not support P2P meaning you won’t be able to torrent unless you upgrade. If you decide to upgrade to the premium version the monthly price is a bit expensive, so I recommend trying out the free version first before upgrading."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "off",
-        "related_store_items": [],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "PCWorld",
-            "source_url": "https://www.pcworld.com/article/695190/best-free-vpn-for-android.html",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-01T17:30:00.000Z",
-            "image_url": "https://www.pcworld.com/wp-content/uploads/2026/09/695190-0-10095400-1788283829-android-phone.jpg?quality=50&strip=all&w=1024",
-            "image_caption": "Reference image from PCWorld.",
-            "image_credit": "PCWorld"
-          }
-        ],
-        "author_id": "quang-huy",
-        "published_at": "2026-09-01T17:30:00.000Z",
-        "updated_at": "2026-09-01T17:30:00.000Z",
-        "image": {
-          "src": "https://www.pcworld.com/wp-content/uploads/2026/09/695190-0-10095400-1788283829-android-phone.jpg?quality=50&strip=all&w=1024",
-          "caption": "Reference image from PCWorld.",
-          "credit": "PCWorld",
-          "source_url": "https://www.pcworld.com/article/695190/best-free-vpn-for-android.html"
-        },
-        "draft_context": {
-          "source_title": "Best free VPN for Android: 5 top picks you can trust",
-          "source_name": "PCWorld",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "Whether you’re looking to stay safer on public Wi-Fi or access region-locked content on your favorite streaming apps, a good free VPN for Android can help. And the best thing is that you don’t even need to add another subscription to your monthly bills. The tricky part is figuring out which free VPNs are actually worth trusting. The Google Play Store is packed with options, but plenty of them come with questionable privacy practices, intrusive ads, or worse . After testing dozens of VPNs across both PC and Android devices, I’ve narrowed down the field to the free services that are genuinely reliable and safe to use. Below are my top picks and what each one does best. You can also check out my guide to the best VPNs covering multiple devices. Why you should trust PCWorld for VPN reviews and buying advice: Here at PCWorld we’ve been testing computer hardware, software, and services since the 1980s. As reviewers and users of PC hardware and software, we put every product through its paces using rigorous benchmarking and hands-on evaluation. We’d never recommend something we wouldn’t want for ourselves. Proton VPN – Best free VPN for Android Pros Excellent privacy and transparency Strong catalog of security features Unrivaled free plan Good connection speeds Cons Premium plans aren’t the cheapest Not all features available across apps Price When Reviewed: From $3.59 per month Best Prices Today: Retailer Price ProtonVPN $3.59 View Deal Price comparison from over 24,000 stores worldwide Who should use Proton VPN? Proton VPN’s free version offers speed and excellent privacy, making it an easy choice for anyone who is looking to safeguard a single device. Other than the one-device limit, the free version of Proton VPN is practically a premium service. It comes from a trustworthy, privacy-focused company that has undergone multiple successful audits of its no-logs policy. It serves no ads and you’ll be able to choose from 10 servers located all over the world. Plus, the best part is that there are no data limits, meaning you can surf and stream to your heart’s content without worrying about hitting a paywall. No data limits is reason enough to use Proton VPN; add in everything else and the competition for top spot isn’t even close. Proton VPN’s free version even showed decent speeds in my tests, just going to show that this is the free VPN to use right now. Proton VPN: Further considerations The VPN is from the same company behind Proton Mail, a privacy-focused email service, and a whole suite of other services so it’s very easy to integrate the VPN into the whole Proton ecosystem if that’s your thing — just be aware that not every other service is offered for free. The company has made all of its apps open-source including the free VPN, as well. It’s worth noting that the free VPN version does not support P2P meaning you won’t be able to torrent unless you upgrade. If you decide to upgrade to the premium version the monthly price is a bit expensive, so I recommend trying out the free version first before upgrading. Read our full Proton VPN review PrivadoVPN – Best free VPN for Android runner-up Pros Excellent free version Unblocks streaming services Based in privacy-friendly Switzerland Cons No independent audit Smaller server network Feature set not as robust as some competitors Price When Reviewed: $10.99 Best Prices Today: Retailer Price PrivadoVPN $10.99 View Deal Price comparison from over 24,000 stores worldwide Who should use PrivadoVPN? PrivadoVPN is a good option for just about any free VPN user. While I recommend either the paid or free plan, it’s the free version of the VPN that really stands out. With 13 global servers to choose from, a generous 10 simultaneous device-connection limit, and up to 10GB per month of high-speed data, you can’t really go wrong. In my testing I found that even the free servers were able to unblock streaming services — something that’s virtually unheard of with other free VPNs. The decent amount of global servers to choose from and ability to unblock streaming services means you can use it to stream while traveling for free — just be careful as you’ll run up against the 10GB-per-month data limit quickly while streaming in HD. The only reason I rated Proton VPN slightly higher is because it offers a truly unlimited free version. Not to take away too much from PrivadoVPN, though, as it is about as close as you’re going to get otherwise. The 10GB-per-month data cap only applies to high-speeds, after you reach the cap you’ll still be able to use the free VPN but with throttled speeds. PrivadoVPN: Further considerations Privacy-conscious users should also be aware that the company hasn’t yet completed an independent audit, but it does promise to abide by its no-logs policy for both the paid and free versions — you’ll just need to take its word for it. Read our full PrivadoVPN review Windscribe Pro – Best for multiple devices Pros Good free plan Fast speeds Unlimited device connections Cons Streaming unblocking is inconsistent Smaller server network than some competitors Best Prices Today: Retailer Price Windscribe Free View Deal Price comparison from over 24,000 stores worldwide Who should use Windscribe VPN? Another solid choice for Android users is Windscribe VPN. You won’t get the unlimited data like you do with Proton VPN, but it makes up for that with unlimited simultaneous device connections and solid overall speeds. Data is capped at up to 10GB per month, which means you can browse to your heart’s content, but likely won’t be able to use it for any streaming services. The free service offers 10 regional connections including the U.S., Canada, UK, France, Germany, Hong Kong, Netherlands, Switzerland, Norway, and Romania. It also has a ton of privacy features such as blockers for site notifications and “we use cookies” banners, WebRTC leak protection, location spoofing, user agent rotation, and more. Windscribe VPN: Further considerations Windscribe Pro’s free Android VPN is best suited for those who need access across multiple devices. Watch out for the data limit though, as you can hit it pretty fast while using multiple devices. The service is also extremely easy to use with a simple setup and solid performance for a free VPN. I not only recommend the Windscribe free service on its own, but also as an easy way to get to know the service before committing to a paid tier with premium features. Read our full Windscribe Pro review Hide.me – Best for no sign-up requirement Pros Good download speeds Easy-to-use Windows app No-logs promise Cons Speeds were inconsistent in our tests Expensive single year subscription Best Prices Today: Retailer Price Hide.me $59.95 View Deal Price comparison from over 24,000 stores worldwide Who should use Hide.me? Since Hide.me’s free version does not require a sign-up in order to use, it’s good for those who just need a VPN for simple, one-off tasks. Alternatively, if you’re concerned about privacy, not having to enter in any personal information is a huge plus as well. Hide.me has pretty good speeds, and like Windscribe you’re limited to 10GB per month. Hide.me offers eight connection choices including locations in the U.S. locations, Canada, Germany, and the Netherlands. The big draw for most users though will that it doesn’t require an account for signing up, making it seamless and easy to use for just about anyone. Hide.me: Further considerations Hide.me’s free version should mainly be used for one-off tasks that you want to do privately. The data cap and inconsistent speeds means it won’t be a viable option for streaming. If you do decide to upgrade, Hide.me’s paid version comes with a tremendous number of customizable features and settings. It also becomes quite affordable when you opt for a long-term plan. Read our full Hide.me review AVG Secure – Best free trial Pros 10 simultaneous device connections Unblocks streaming services Free 60-day trial Cons Logs some user activity data Not a lot of extra features Long-term only subscription options Price When Reviewed: $53.88 per year Best Prices Today: Retailer Price AVG 91% off original price $4.55 View Deal PCWorld Software Store $5.99 View Deal Price comparison from over 24,000 stores worldwide Who should use AVG Secure VPN? It might sound odd to include a free-trial option here, but AVG Secure VPN is a fine VPN service on its own and it provides a 60-day free trial for new users. That’s incredibly generous for a premium service — most other VPNs only offer one-week free trials at best. The free trial extends to all devices as well so you can use it on both your Windows machine as well as your Android device. Most people looking for a free VPN for shorter-term use will stand to gain a lot from AVG Secure VPN’s free trial. But I think it’s an exceptional choice in particular for those who are traveling for awhile and need a VPN while abroad. By taking advantage of a premium service’s speeds and broad server network you can access all of your streaming content no matter what country you find yourself in and you shouldn’t have to worry about frustrating data caps from other free services. Stream and browse to your heart’s content for no cost — well, at least for 60 days. AVG Secure VPN: Further considerations AVG is a household name in security software and its VPN lives up to its high-standards. The free-trial gives you complete access to all of the paid features such as 10 simultaneous device connections, over 700 servers across more than 50 countries, and guaranteed streaming service unblocking with specific servers. While the speeds aren’t the fastest I’ve ever seen, they’re good enough for most general online activities. All-in-all, two months for free of AVG Secure VPN is a fantastic deal, just don’t forget to cancel the subscription before the free trial runs out. Read our full AVG Secure review Other free VPNs for Android we liked Hide.me : A well-rounded service that ticks almost every box, and the fantastic array of configurable settings make it a power-user’s dream. The speeds are a bit inconsistent though and free users are limited to 10GB per month of data. Hotspot Shield : Another decent free option if you’re fine with only U.S.-based servers and a few ads. A daily limit of 500MB and 2Mbps capped speeds hold it back in many uses other than private browsing. IPVanish : It doesn’t have a dedicated free VPN, but it does offer a handy 7-day unrestricted free trial for Android users to try out. The service nails all of the basics: good speeds, a large server network, and privacy promises backed up with independent audits. I’m continuously evaluating new VPNs and reevaluating services I’ve already tested on a regular basis, so be sure to come back for more recommendations and to see what else we’ve put through their paces. Can I get a better VPN deal? Here at PCWorld, we are regularly hunting down the best VPN deals to help you get the most bang for your buck. VPN services frequently run deals throughout the year, so if you decide to upgrade from a free to premium tier, you should have a few chances to snag your favorite VPN on a steep discount if you can time it right. While the prices for all VPNs on this list are updated daily, they do not account for special deals or offers. It’s best to keep checking our deals article to see what new limited-time discounts are on offer each week. Additionally, sales events such as Amazon Prime Day in mid-July and Black Friday at the end of November provide excellent opportunities to find even cheaper VPN deals. How we test VPNs We judge VPNs on a variety of criteria including server network, connection speeds, privacy protections, ease-of-use, additional features, and cost. For a more detailed guide on our evaluation process, check out PCWorld’s comprehensive guide on how we test VPN services . Speed tests are kept as simple as possible. We average the connections between different global locations for any given VPN and then compare them to our baseline internet speed to get a good picture of the overall connection speeds. We thoroughly research and analyze the privacy policies and histories of each VPN and note any outstanding discrepancies or data collection issues. Experience and ease-of-use are subjective, but we try our best to give an accurate representation of how it feels to work with the VPN. And finally, we compare the value of the service based upon its price and additional features to the industry average to help you gain an accurate picture of what you’ll get for your money. Who curated this article? Sam Singleton is PCWorld’s VPN beat reporter and jack of all trades. When he’s not on the hunt for the best computer deals he’s covering VPNs, productivity software, laptops, and a wide gamut of consumer-grade hardware and software. How to choose the best free VPN for Android Choosing a free VPN is a question of weighing the trade-offs with each service. Do you want unlimited bandwidth, but a restriction on devices? Or is it preferable to have more devices but deal with a bandwidth limit? This applies not only to Android VPNs, but all free services in general. Here’s what to look for to help you make a confident choice: Server network One of the first things you should look for in a free Android VPN is the number of servers and locations. It’s difficult to judge any VPN by just one feature, but a semi-reliable way to tell if a VPN is even worth your time is to look at the server network. While premium services should have 1,000 or more total servers, free VPNs will provide a lot less. Look for something in the range of 8 to 10 total servers, preferably located in different countries around the world. If it has less, don’t worry too much, but make sure the your preferred country locations are available regardless. Speed The next thing to consider is a VPN’s speed. This may be tricky to do since you aren’t likely to be able to test connection speeds without paying to use the service. Reading reviews online will give you a general estimate. Look for reviews, like ours, that give you a relative average of connection speeds rather than direct Mbps speed comparisons, for a more accurate picture. Also, be sure to check if the free version comes with any speed restrictions. Privacy You’ll also want to read up on a VPN’s privacy protections. Does it have a no-logs policy ? Has it undergone any independent audits of its servers? Where is the VPN company located? All of these will give you an idea of whether or not a VPN is transparent with its data collection policies and if it’s subject to government data sharing requirements. Other factors to consider One thing you definitely want to avoid is a VPN that is ad supported. Ads expose you to tracking by the company delivering said ads, which is something you don’t want. Also, stay away from any deal that suggests you can get a VPN by “sharing” your bandwidth like we saw with the Hola VPN scandal back in 2015. You also want to watch out for any VPNs with no name recognition, or that don’t have any official reviews by third-parties. FAQ 1. What is the best free VPN for Android? Proton VPN is our pick for best free VPN overall. With the free version, you’ll get all of the same privacy and security benefits of the premium version, plus no monthly data limits and good speeds. The only major drawback is that you’ll be limited to a few global servers, but there should be enough variety to access what you want. 2. Are free VPNs safe? Free VPNs have a bit of a bad rap as some have been used to exploit users with targeted ads and dubious privacy policies. Figuring out which services are reputable and which you should steer clear of can be challenging — especially so with mobile VPNs that come from the app store. When we review VPNs here at PCWorld, we look closely at each service’s privacy policy and do in-depth research to determine if there’ve been any historical data sharing issues associated with the company. The best free VPNs, such as those listed above, will have strict no-logs policies and back them up with third-party audits. Many of these details aren’t widely known, so if you’re unsure about a service’s track record or privacy policy commitments, be sure to check out our detailed reviews, or do a bit of research on your own before using a free VPN. 3. Do free VPNs work with Netflix? Netflix has a reputation for strongly combating VPN usage on its site. Sometimes, even with premium VPNs, it can be difficult to find servers that can unblock these types of streaming sites. Free VPNs in particular can struggle to access streaming services such as Netflix due in part to their limited number of servers — more servers means more potential options to bypass blocks. Additionally, free VPNs often limit connection speeds or the amount of data for users, meaning streaming isn’t a viable option. I recommend that if your main goal with a VPN is to access location-restricted content, then you opt for a premium VPN such as those in our list of best VPNs for Netflix . Otherwise, you might find it difficult with any free VPN to access streaming content. 4. Is a free Android VPN any good? If you’re looking to increase your privacy and security while surfing the web, then the right free VPN can be a perfectly viable solution. You may run into some performance issues with free VPNs due to their imposed limitations, though. That being said, all of the free VPNs above are more than worth trying out, especially if your VPN needs are basic. Just make sure that you stick with a reputable provider such as those above, with strong privacy practices. 5. What is a VPN? VPNs create a secure tunnel between your PC and the internet. When you connect to a VPN your web traffic is routed through the chosen VPN server to make it appear as though you’re browsing from that server’s location, and not from your actual location. The VPN app will also encrypt your data so that any third parties such as your ISP can’t see your specific online activities. A VPN can be a great response to a variety of concerns, such as online privacy, anonymity, greater security on public Wi-Fi, and, of course, spoofing locations. 6. Can I be tracked with a free VPN? While a trustworthy free VPN will certainly offer you better privacy and security, neither it nor any other premium VPN can make you completely anonymous or keep you from being tracked entirely. A VPN will keep your ISP, or that snooping third-party on your cafe Wi-Fi, from seeing your traffic, but there are a mind-boggling number of ways that other companies or sites track you across the internet. For example, when you sign into a website, your identity is still revealed to that website, VPN or not. Or when you log into your Gmail account while using a VPN, Google can now collect personalized cookies based on your browsing. Related content PCWorld software reviews Want to start using a VPN? Here’s how Privacy issues with top free Android VPNs puts 2.5 billion users at risk VPNs and the law: How often does law enforcement actually request VPN logs? Can a VPN really hide all of your torrent activity? Are free VPNs any good? Best VPN Best VPN for streaming Netflix Fastest VPN Best VPN for Android Best free VPN Best VPN for torrenting Best VPN deals",
-          "paragraphs": [
-            "Whether you&rsquo;re looking to stay safer on public Wi-Fi or access region-locked content on your favorite streaming apps, a good free VPN for Android can help. And the best thing is that you don&rsquo;t even need to add another subscription to your monthly bills.",
-            "Proton VPN – Best free VPN for Android PrivadoVPN – Best free VPN for Android runner-up Windscribe Pro – Best for multiple devices Hide.me – Best for no sign-up requirement AVG Secure – Best free trial You can also check out my guide to the best VPNs covering multiple devices.",
-            "Why you should trust PCWorld for VPN reviews and buying advice: Here at PCWorld we&rsquo;ve been testing computer hardware, software, and services since the 1980s. As reviewers and users of PC hardware and software, we put every product through its paces using rigorous benchmarking and hands-on evaluation. We&rsquo;d never recommend something we wouldn&rsquo;t want for ourselves.",
-            "Proton VPN&rsquo;s free version even showed decent speeds in my tests, just going to show that this is the free VPN to use right now.",
-            "It&rsquo;s worth noting that the free VPN version does not support P2P meaning you won&rsquo;t be able to torrent unless you upgrade. If you decide to upgrade to the premium version the monthly price is a bit expensive, so I recommend trying out the free version first before upgrading."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=5; words=3551",
-          "link": "https://www.pcworld.com/article/695190/best-free-vpn-for-android.html"
-        }
-      },
-      "first_seen_at": "2026-09-01T18:46:31.750Z",
+      "first_seen_at": "2026-09-01T19:32:40.870Z",
       "retry_count": 0,
       "last_retry_at": ""
     }
