@@ -249,12 +249,20 @@ export function createTelegramNewsroomBot(options = {}) {
           defaults: socialDefaults
         });
         await answerCallback(callbackQuery.id, "Da cap nhat.");
-        await editMessage(chat.id, message.message_id, response?.text || "Da xu ly.", {
-          reply_markup: response?.replyMarkup || { inline_keyboard: [] }
-        });
+        const editExtra = { reply_markup: response?.replyMarkup || { inline_keyboard: [] } };
+        if (Array.isArray(message.photo) && message.photo.length) {
+          await editMessageCaption(chat.id, message.message_id, response?.text || "Da xu ly.", editExtra);
+        } else {
+          await editMessage(chat.id, message.message_id, response?.text || "Da xu ly.", editExtra);
+        }
       } catch (error) {
         await answerCallback(callbackQuery.id, "Co loi.");
-        await editMessage(chat.id, message.message_id, error.message || "Khong the xu ly bai Facebook.");
+        const errorText = error.message || "Khong the xu ly bai Facebook.";
+        if (Array.isArray(message.photo) && message.photo.length) {
+          await editMessageCaption(chat.id, message.message_id, errorText, { reply_markup: { inline_keyboard: [] } });
+        } else {
+          await editMessage(chat.id, message.message_id, errorText);
+        }
       }
       return;
     }
@@ -319,6 +327,15 @@ export function createTelegramNewsroomBot(options = {}) {
       message_id: messageId,
       text: String(text || "").slice(0, 4000),
       disable_web_page_preview: true,
+      ...extra
+    });
+  }
+
+  async function editMessageCaption(chatId, messageId, caption, extra = {}) {
+    return apiCall(token, "editMessageCaption", {
+      chat_id: chatId,
+      message_id: messageId,
+      caption: String(caption || "").slice(0, 1024),
       ...extra
     });
   }
