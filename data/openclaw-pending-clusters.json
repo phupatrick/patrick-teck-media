@@ -1,97 +1,6 @@
 {
-  "generated_at": "2026-09-01T20:56:16.044Z",
+  "generated_at": "2026-09-01T21:08:19.057Z",
   "items": [
-    {
-      "article": {
-        "id": "feed-51b0e96be16e-en",
-        "cluster_id": "feed-51b0e96be16e",
-        "language": "en",
-        "topic": "apps-software",
-        "content_type": "NewsArticle",
-        "slug": "microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed",
-        "title": "Microsoft and AWS build the multicloud bridge they said customers barely needed",
-        "summary": "New services promise private 100 Gbps links between the rival platforms without months of networking faff. Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed.",
-        "dek": "New services promise private 100 Gbps links between the rival platforms without months of networking faff.",
-        "hook": "New services promise private 100 Gbps links between the rival platforms without months of networking faff.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "New services promise private 100 Gbps links between the rival platforms without months of networking faff."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "creator-software-stack"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "The Register",
-            "source_url": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-01T14:16:00.000Z",
-            "image_url": "https://image.theregister.com/241502.jpg?imageId=241502&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-            "image_caption": "Reference image from The Register.",
-            "image_credit": "The Register"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-01T14:16:00.000Z",
-        "updated_at": "2026-09-01T14:16:00.000Z",
-        "image": {
-          "src": "https://image.theregister.com/241502.jpg?imageId=241502&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-          "caption": "Reference image from The Register.",
-          "credit": "The Register",
-          "source_url": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614"
-        },
-        "draft_context": {
-          "source_title": "Microsoft and AWS build the multicloud bridge they said customers barely needed",
-          "source_name": "The Register",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "internet-business-tech",
-          "content_type_hint": "",
-          "description": "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed. The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms. But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said. The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution. Until now, connecting Azure and AWS environments has required careful coordination of physical connectivity, routing, provisioning, monitoring, and lifecycle management, Microsoft says. What should be a straightforward decision can therefore take weeks or months to implement. But AWS previously told the UK's competition watchdog that there were no significant technical barriers to a multicloud strategy, saying \"customers can multicloud, switch between cloud providers when they want to.\" Microsoft, meanwhile, insisted there was little customer interest in multicloud \"other than in fairly specialized situations as it is not easy or convenient for customers.\" Now Microsoft claims that Azure Multicloud Interconnect fundamentally changes things, allowing its customers to establish dedicated private connectivity \"through a simplified experience that abstracts the underlying complexity of multicloud networking,\" Narayan Annamalai, Microsoft's VP and head of product for Azure Networking Services, wrote in a blog post. Annamalai said the result is a high-bandwidth, more predictable route to deploying multicloud architectures for mission-critical workloads. Connections can operate at up to 100 Gbps from day one, with scope for future growth. Microsoft sees an opportunity to extend this model beyond a single cloud-to-cloud relationship, as \"the same open API specification can help enable broader interoperability across hyperscale cloud providers.\" Amazon, meanwhile, says AWS Interconnect – multicloud now covers all three major rival platforms: Azure, Google Cloud, and Oracle Cloud Infrastructure. In a canned statement, Robert Kennedy, VP of Network Services at AWS, said: \"Customers told us they wanted a better way to connect workloads spanning AWS and Azure, and the old ways of doing it were clunky.\" \"With AWS Interconnect – multicloud and Azure Multicloud Interconnect, we're proving what's possible when both sides commit to a high bar: MACsec security out of the box, four-nines availability, and scalability at the click of a button.\" The companies advise customers interested in joining the Azure preview to contact their Microsoft or AWS account teams. ®",
-          "paragraphs": [
-            "New services promise private 100 Gbps links between the rival platforms without months of networking faff",
-            "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed.",
-            "The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms.",
-            "But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said.",
-            "The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution.",
-            "Until now, connecting Azure and AWS environments has required careful coordination of physical connectivity, routing, provisioning, monitoring, and lifecycle management, Microsoft says. What should be a straightforward decision can therefore take weeks or months to implement."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=606",
-          "link": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614"
-        }
-      },
-      "first_seen_at": "2026-09-01T19:58:24.265Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
     {
       "article": {
         "id": "feed-f0f075a1bac3-en",
@@ -1016,6 +925,100 @@
     },
     {
       "article": {
+        "id": "feed-51b0e96be16e-en",
+        "cluster_id": "feed-51b0e96be16e",
+        "language": "en",
+        "topic": "apps-software",
+        "content_type": "NewsArticle",
+        "slug": "microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed",
+        "title": "Microsoft and AWS build the multicloud bridge they said customers barely needed",
+        "summary": "New services promise private 100 Gbps links between the rival platforms without months of networking faff. Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed.",
+        "dek": "New services promise private 100 Gbps links between the rival platforms without months of networking faff.",
+        "hook": "New services promise private 100 Gbps links between the rival platforms without months of networking faff.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "New services promise private 100 Gbps links between the rival platforms without months of networking faff."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "creator-software-stack"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "The Register",
+            "source_url": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-01T14:16:00.000Z",
+            "image_url": "https://image.theregister.com/241502.jpg?imageId=241502&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+            "image_caption": "Reference image from The Register.",
+            "image_credit": "The Register"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-01T14:16:00.000Z",
+        "updated_at": "2026-09-01T14:16:00.000Z",
+        "image": {
+          "src": "https://image.theregister.com/241502.jpg?imageId=241502&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+          "caption": "Reference image from The Register.",
+          "credit": "The Register",
+          "source_url": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614"
+        },
+        "draft_context": {
+          "source_title": "Microsoft and AWS build the multicloud bridge they said customers barely needed",
+          "source_name": "The Register",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "internet-business-tech",
+          "content_type_hint": "",
+          "description": "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed. The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms. But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said. The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution. Until now, connecting Azure and AWS environments has required careful coordination of physical connectivity, routing, provisioning, monitoring, and lifecycle management, Microsoft says. What should be a straightforward decision can therefore take weeks or months to implement. But AWS previously told the UK's competition watchdog that there were no significant technical barriers to a multicloud strategy, saying \"customers can multicloud, switch between cloud providers when they want to.\" Microsoft, meanwhile, insisted there was little customer interest in multicloud \"other than in fairly specialized situations as it is not easy or convenient for customers.\" Now Microsoft claims that Azure Multicloud Interconnect fundamentally changes things, allowing its customers to establish dedicated private connectivity \"through a simplified experience that abstracts the underlying complexity of multicloud networking,\" Narayan Annamalai, Microsoft's VP and head of product for Azure Networking Services, wrote in a blog post. Annamalai said the result is a high-bandwidth, more predictable route to deploying multicloud architectures for mission-critical workloads. Connections can operate at up to 100 Gbps from day one, with scope for future growth. Microsoft sees an opportunity to extend this model beyond a single cloud-to-cloud relationship, as \"the same open API specification can help enable broader interoperability across hyperscale cloud providers.\" Amazon, meanwhile, says AWS Interconnect – multicloud now covers all three major rival platforms: Azure, Google Cloud, and Oracle Cloud Infrastructure. In a canned statement, Robert Kennedy, VP of Network Services at AWS, said: \"Customers told us they wanted a better way to connect workloads spanning AWS and Azure, and the old ways of doing it were clunky.\" \"With AWS Interconnect – multicloud and Azure Multicloud Interconnect, we're proving what's possible when both sides commit to a high bar: MACsec security out of the box, four-nines availability, and scalability at the click of a button.\" The companies advise customers interested in joining the Azure preview to contact their Microsoft or AWS account teams. ®",
+          "paragraphs": [
+            "New services promise private 100 Gbps links between the rival platforms without months of networking faff",
+            "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed.",
+            "The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms.",
+            "But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said.",
+            "The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution.",
+            "Until now, connecting Azure and AWS environments has required careful coordination of physical connectivity, routing, provisioning, monitoring, and lifecycle management, Microsoft says. What should be a straightforward decision can therefore take weeks or months to implement."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=606",
+          "link": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
+      },
+      "first_seen_at": "2026-09-01T21:06:49.675Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
         "id": "feed-171a5a142215-vi",
         "cluster_id": "feed-171a5a142215",
         "language": "vi",
@@ -1099,7 +1102,7 @@
           "link": "https://vnexpress.net/nhieu-lanh-dao-trong-he-sinh-thai-vingroup-thu-nhap-tien-ty-moi-thang-5115485.html"
         }
       },
-      "first_seen_at": "2026-09-01T20:54:55.687Z",
+      "first_seen_at": "2026-09-01T21:07:02.121Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1188,7 +1191,7 @@
           "link": "https://vnexpress.net/tai-sao-may-bay-bien-mat-khoi-radar-khi-qua-dai-duong-5114689.html"
         }
       },
-      "first_seen_at": "2026-09-01T20:54:55.687Z",
+      "first_seen_at": "2026-09-01T21:07:02.121Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1276,7 +1279,7 @@
           "link": "https://genk.vn/xiaomi-nghi-gi-khi-ban-dien-thoai-poco-gia-30-trieu-16526090121323739.chn"
         }
       },
-      "first_seen_at": "2026-09-01T20:54:55.687Z",
+      "first_seen_at": "2026-09-01T21:07:02.121Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1367,7 +1370,7 @@
           "link": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
         }
       },
-      "first_seen_at": "2026-09-01T20:54:55.687Z",
+      "first_seen_at": "2026-09-01T21:07:02.121Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1461,7 +1464,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-01T20:54:55.687Z",
+      "first_seen_at": "2026-09-01T21:07:02.121Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1552,7 +1555,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-01T20:54:55.687Z",
+      "first_seen_at": "2026-09-01T21:07:02.121Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1643,7 +1646,7 @@
           "link": "https://www.windowscentral.com/hardware/laptops/best-buys-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisis-induced-price-hike-down-by-24-percent"
         }
       },
-      "first_seen_at": "2026-09-01T20:54:55.687Z",
+      "first_seen_at": "2026-09-01T21:07:02.121Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1733,7 +1736,7 @@
           "link": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/"
         }
       },
-      "first_seen_at": "2026-09-01T20:54:55.687Z",
+      "first_seen_at": "2026-09-01T21:07:02.121Z",
       "retry_count": 0,
       "last_retry_at": ""
     }
