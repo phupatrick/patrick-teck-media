@@ -58,6 +58,8 @@ import { createSellerService } from "./src/seller-service.mjs";
 import { createSellerTranslator } from "./src/seller-translation.mjs";
 import { createTelegramSellerBot } from "./src/telegram-seller-bot.mjs";
 import { createTelegramNewsroomBot } from "./src/telegram-newsroom-bot.mjs";
+import { createSocialStore } from "./src/social-store.mjs";
+import { executeSocialCommand, handleSocialCallback } from "./src/social-bot-handlers.mjs";
 import { loadSourceRegistry } from "./scripts/newsroom-refresh.mjs";
 import { createOpenClawControlPlane } from "./src/openclaw-control-plane.mjs";
 import { createOpenClawLearningStore } from "./src/openclaw-learning-store.mjs";
@@ -117,7 +119,12 @@ const config = {
   openclawLearningStatePath: process.env.OPENCLAW_LEARNING_STATE_PATH || envFromFile.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json",
   openclawControlToken: process.env.OPENCLAW_CONTROL_TOKEN || envFromFile.OPENCLAW_CONTROL_TOKEN || "",
   openclawWorkerHeartbeatSeconds: Number(process.env.OPENCLAW_WORKER_HEARTBEAT_SECONDS || envFromFile.OPENCLAW_WORKER_HEARTBEAT_SECONDS || 120),
-  openclawJobLeaseSeconds: Number(process.env.OPENCLAW_JOB_LEASE_SECONDS || envFromFile.OPENCLAW_JOB_LEASE_SECONDS || 90)
+  openclawJobLeaseSeconds: Number(process.env.OPENCLAW_JOB_LEASE_SECONDS || envFromFile.OPENCLAW_JOB_LEASE_SECONDS || 90),
+  socialStatePath: process.env.SOCIAL_STATE_PATH || envFromFile.SOCIAL_STATE_PATH || "data/social-posts.json",
+  socialPageId: process.env.FB_PAGE_ID || envFromFile.FB_PAGE_ID || "885195674667440",
+  socialPageToken: process.env.FB_PAGE_ACCESS_TOKEN || envFromFile.FB_PAGE_ACCESS_TOKEN || "",
+  socialAiProvider: process.env.SOCIAL_AI_PROVIDER || envFromFile.SOCIAL_AI_PROVIDER || "offline",
+  socialAiApiKey: process.env.SOCIAL_AI_API_KEY || envFromFile.SOCIAL_AI_API_KEY || ""
 };
 const rateLimitBuckets = new Map();
 const RATE_LIMIT_RULES = {
@@ -275,6 +282,13 @@ const openclawLearningStore = createOpenClawLearningStore({
   statePath: config.openclawLearningStatePath,
   databaseUrl: config.databaseUrl
 });
+const socialStore = createSocialStore({ statePath: config.socialStatePath, databaseUrl: config.databaseUrl });
+const socialDefaults = {
+  fb_page_id: config.socialPageId,
+  fb_page_token: config.socialPageToken,
+  ai_provider: config.socialAiProvider,
+  ai_api_key: config.socialAiApiKey
+};
 const TELEGRAM_SELLER_WEBHOOK_PATH = normalizeWebhookPath(config.telegramWebhookPath);
 const TELEGRAM_NEWSROOM_WEBHOOK_PATH = normalizeWebhookPath(config.telegramNewsroomWebhookPath);
 const TELEGRAM_NEWSROOM_WEBHOOK_URL = buildPublicUrl(config.siteUrl, TELEGRAM_NEWSROOM_WEBHOOK_PATH);
@@ -319,7 +333,9 @@ const telegramNewsroomBot = createTelegramNewsroomBot({
   getBotDiagnostics: async () => { const learning = await openclawLearningStore.getSummary(); return { learningStorageMode: learning.storageMode || "unknown", learningPersistent: learning.storageMode === "neon-postgres", viewStorageMode: platformService.storageMode, sellerStorageMode: config.databaseUrl ? "neon-postgres" : "temp-file", workflowDispatchConfigured: Boolean(config.githubWorkflowDispatchToken), openClawEnabled: Boolean(config.openclawControlToken) }; },
   createControlJob: (job) => openclawControlPlane.createJob(job),
   dispatchWorkflow: dispatchNewsroomWorkflow,
-  openClawEnabled: Boolean(config.openclawControlToken)
+  openClawEnabled: Boolean(config.openclawControlToken),
+  socialStore,
+  socialDefaults
 });
 
 const stateCache = new Map();
@@ -996,6 +1012,16 @@ async function handleApi(req, pathname, requestUrl, res, state) {
       },
       { cacheControl: "no-store" }
     );
+  }
+
+  if (pathname === "/api/social/queue") {
+    if (!isAuthorizedOpenClawControlRequest(req)) return sendJson(res, 401, { error: "Unauthorized." });
+    const socialState = await socialStore.getState();
+    return sendJson(res, 200, {
+      storageMode: socialStore.storageMode,
+      posts: socialState.posts,
+      pending: socialState.posts.filter((post) => post.status === "pending_approval")
+    }, { cacheControl: "no-store" });
   }
 
   if (pathname === "/api/seller/catalog") {

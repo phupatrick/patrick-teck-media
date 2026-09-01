@@ -1,3 +1,5 @@
+import { executeSocialCommand, handleSocialCallback } from "./social-bot-handlers.mjs";
+
 const DEFAULT_COMMANDS = [
   { command: "status", description: "Xem trạng thái web và tòa soạn" },
   { command: "auto", description: "Xem lịch chạy tự động" },
@@ -22,6 +24,9 @@ const DEFAULT_COMMANDS = [
   { command: "ads", description: "Xem link quảng cáo Shopee" },
   { command: "up", description: "Tự động up thêm bài mới" },
   { command: "refresh", description: "Yêu cầu làm mới tòa soạn" },
+  { command: "social_post", description: "Soạn bài mạng xã hội và đưa vào hàng chờ duyệt" },
+  { command: "social_queue", description: "Xem hàng chờ bài mạng xã hội" },
+  { command: "social_ai", description: "Đổi provider AI cho bài mạng xã hội" },
   { command: "jobs", description: "Xem hàng đợi OpenClaw" },
   { command: "setup", description: "Xem checklist cài đặt" },
   { command: "menu", description: "Mở bảng điều khiển" },
@@ -52,6 +57,9 @@ const HELP_TEXT = [
   "/purge_cache - xóa cache state của instance hiện tại, chỉ admin dùng được",
   "/up - tự động up thêm bài mới",
   "/refresh - yêu cầu làm mới tòa soạn, chỉ admin dùng được",
+  "/social_post <chủ đề> - soạn bài Facebook và chờ admin duyệt",
+  "/social_queue - xem các bài Facebook đang chờ duyệt",
+  "/social_ai <offline|gemini|openai|deepseek> [api_key] - cấu hình AI mạng xã hội",
   "/jobs - tóm tắt hàng đợi OpenClaw",
   "/help - danh sách lệnh",
   "/menu - mở bảng điều khiển bằng nút",
@@ -85,6 +93,8 @@ export function createTelegramNewsroomBot(options = {}) {
   const createControlJob = options.createControlJob;
   const dispatchWorkflow = options.dispatchWorkflow;
   const openClawEnabled = Boolean(options.openClawEnabled);
+  const socialStore = options.socialStore;
+  const socialDefaults = options.socialDefaults || {};
   const webhookUrl = normalizeWebhookUrl(options.webhookUrl || "");
   const webhookSecret = String(options.webhookSecret || "").trim();
   const autoRegisterWebhook = options.autoRegisterWebhook !== false && Boolean(webhookUrl);
@@ -182,10 +192,14 @@ export function createTelegramNewsroomBot(options = {}) {
           getWebhookStatus: () => ({ ...webhookStatus }),
           createControlJob,
           dispatchWorkflow,
-          openClawEnabled
+          openClawEnabled,
+          socialStore,
+          socialDefaults
         };
         const response = text.startsWith("/")
-          ? await executeNewsroomCommand(text, context)
+          ? (text.toLowerCase().startsWith("/social_")
+            ? await executeSocialCommand(text, context)
+            : await executeNewsroomCommand(text, context))
           : extractArticleUrls(text).length
             ? await submitNewsroomLink(text, context)
             : null;
@@ -214,6 +228,21 @@ export function createTelegramNewsroomBot(options = {}) {
     }
 
     const action = String(callbackQuery.data || "");
+    if (action.startsWith("social:")) {
+      try {
+        const response = await handleSocialCallback(action, {
+          isAdmin: isAdminUser(callbackQuery.from),
+          store: socialStore,
+          defaults: socialDefaults
+        });
+        await answerCallback(callbackQuery.id, "Da cap nhat.");
+        await editMessage(chat.id, message.message_id, response?.text || "Da xu ly.");
+      } catch (error) {
+        await answerCallback(callbackQuery.id, "Co loi.");
+        await editMessage(chat.id, message.message_id, error.message || "Khong the xu ly bai Facebook.");
+      }
+      return;
+    }
     const command = mapCallbackToCommand(action);
 
     if (!command) {
@@ -244,7 +273,9 @@ export function createTelegramNewsroomBot(options = {}) {
         getWebhookStatus: () => ({ ...webhookStatus }),
         createControlJob,
         dispatchWorkflow,
-        openClawEnabled
+        openClawEnabled,
+        socialStore,
+        socialDefaults
       });
 
       await answerCallback(callbackQuery.id, "Đã cập nhật.");
