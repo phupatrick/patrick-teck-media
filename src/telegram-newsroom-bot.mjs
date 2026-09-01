@@ -1,68 +1,45 @@
 import { executeSocialCommand, handleSocialCallback } from "./social-bot-handlers.mjs";
 
 const DEFAULT_COMMANDS = [
-  { command: "status", description: "Xem trạng thái web và tòa soạn" },
-  { command: "auto", description: "Xem lịch chạy tự động" },
-  { command: "latest", description: "Xem các bài mới đăng" },
-  { command: "sources", description: "Xem kho nguồn và tình trạng feed" },
-  { command: "radar_now", description: "Xem tín hiệu công nghệ mới" },
-  { command: "metrics", description: "Xem chỉ số tòa soạn" },
-  { command: "pending", description: "Xem bài đang chờ dịch" },
-  { command: "views", description: "Xem bảng xếp hạng bài view cao" },
-  { command: "rank", description: "Xếp hạng bài theo view" },
-  { command: "audit", description: "Kiểm tra chất lượng bài đã đăng" },
-  { command: "learn", description: "Xem hồ sơ học của bot" },
-  { command: "feedback", description: "Dạy bot bằng phản hồi của chủ sở hữu" },
-  { command: "health", description: "Kiểm tra tình trạng web đang chạy" },
-  { command: "diagnose", description: "Kiểm tra lưu trữ và tự động hóa" },
-  { command: "web", description: "Mở liên kết quản lý web" },
-  { command: "id", description: "Lấy mã chat và mã người dùng" },
-  { command: "submit", description: "Đọc, xác thực và đăng bài từ link" },
-  { command: "publish_pair", description: "Đăng link với bản VI/EN" },
-  { command: "purge_cache", description: "Làm mới cache instance" },
-  { command: "shopee", description: "Thêm link quảng cáo Shopee" },
-  { command: "ads", description: "Xem link quảng cáo Shopee" },
-  { command: "up", description: "Tự động up thêm bài mới" },
-  { command: "refresh", description: "Yêu cầu làm mới tòa soạn" },
-  { command: "social_post", description: "Soạn bài mạng xã hội và đưa vào hàng chờ duyệt" },
-  { command: "social_queue", description: "Xem hàng chờ bài mạng xã hội" },
-  { command: "social_ai", description: "Đổi provider AI cho bài mạng xã hội" },
-  { command: "jobs", description: "Xem hàng đợi OpenClaw" },
-  { command: "setup", description: "Xem checklist cài đặt" },
+  { command: "news", description: "Quản lý newsroom" },
+  { command: "social", description: "Quản lý Facebook và AI" },
+  { command: "status", description: "Xem trạng thái hệ thống" },
+  { command: "latest", description: "Xem bài mới" },
+  { command: "submit", description: "Đăng bài từ link nguồn" },
+  { command: "up", description: "Tạo thêm bài tự động" },
+  { command: "pending", description: "Xem hàng chờ dịch" },
+  { command: "help", description: "Xem hướng dẫn ngắn" },
   { command: "menu", description: "Mở bảng điều khiển" },
-  { command: "help", description: "Xem danh sách lệnh" }
+  { command: "id", description: "Lấy mã cấu hình bot" }
 ];
 
+const NEWSROOM_SHORTCUTS = {
+  status: "/status", auto: "/auto", latest: "/latest", sources: "/sources", source: "/sources",
+  radar: "/radar_now", radar_now: "/radar_now", metrics: "/metrics", pending: "/pending",
+  views: "/views", rank: "/rank", audit: "/audit", learn: "/learn", feedback: "/feedback",
+  health: "/health", diagnose: "/diagnose", diag: "/diagnose", web: "/web", id: "/id",
+  submit: "/submit", publish: "/publish_pair", pair: "/publish_pair", purge: "/purge_cache",
+  purge_cache: "/purge_cache", ads: "/ads", shopee: "/shopee", up: "/up", refresh: "/refresh",
+  jobs: "/jobs", setup: "/setup"
+};
+
+function compactCommand(commandText, shortcuts) {
+  const [, rawSubcommand = "", ...args] = commandText.split(/\s+/);
+  const subcommand = String(rawSubcommand).toLowerCase();
+  const mapped = shortcuts[subcommand];
+  return mapped ? [mapped, ...args].join(" ") : "/menu";
+}
+
 const HELP_TEXT = [
-  "Bot tòa soạn Patrick Tech Media",
+  "Bot Patrick Tech Media",
   "",
-  "/ping - kiểm tra bot nhanh",
-  "/id - lấy mã chat và mã người dùng để cấu hình Vercel",
-  "/status - trạng thái web, số bài, bài mới nhất và OpenClaw",
-  "/auto - lịch chạy tự động và trạng thái thiết lập",
-  "/latest - danh sách bài mới đăng",
-  "/sources - số nguồn, nguồn đang chạy và tình trạng feed",
-  "/radar_now - các tín hiệu công nghệ mới cần theo dõi",
-  "/metrics - chỉ số bài viết, nguồn và lưu trữ",
-  "/pending - bài đang chờ dịch hoặc xác minh song ngữ",
-  "/views hoặc /rank - bảng xếp hạng bài view cao và bot học được gì từ nhóm đó",
-  "/audit - quét bài đã đăng bị mỏng hoặc nhiễu nội dung",
-  "/learn - hồ sơ học hiện tại của bot",
-  "/feedback <tốt|tệ|sâu|gọn|nguồn|ảnh|giọng> <ghi chú> - dạy bot bằng phản hồi",
-  "/health - kiểm tra trang chủ đang chạy và API tòa soạn",
-  "/web - liên kết quản lý web",
-  "/setup - checklist cài đặt trên Vercel",
+  "/news <status|latest|sources|radar|metrics|pending|audit|health|jobs|refresh> - vận hành newsroom",
+  "/social <post|queue|ai> [nội dung] - quản lý bài Facebook",
   "/submit <url> - đọc, xác thực và đăng bài từ link nguồn",
-  "/publish_pair <url> - đăng link với cặp bản tiếng Việt và tiếng Anh",
-  "/purge_cache - xóa cache state của instance hiện tại, chỉ admin dùng được",
-  "/up - tự động up thêm bài mới",
-  "/refresh - yêu cầu làm mới tòa soạn, chỉ admin dùng được",
-  "/social_post <chủ đề> - soạn bài Facebook và chờ admin duyệt",
-  "/social_queue - xem các bài Facebook đang chờ duyệt",
-  "/social_ai <offline|gemini|openai|deepseek> [api_key] - cấu hình AI mạng xã hội",
-  "/jobs - tóm tắt hàng đợi OpenClaw",
-  "/help - danh sách lệnh",
-  "/menu - mở bảng điều khiển bằng nút",
+  "/up - tạo thêm bài tự động; /pending - xem bài chờ dịch",
+  "/id - lấy mã chat và mã người dùng để cấu hình Vercel",
+  "/help - hướng dẫn ngắn; /menu - bảng điều khiển",
+  "Alias cũ vẫn được hỗ trợ để không gián đoạn automation.",
   "",
   "Chế độ hiện tại: Vercel nhận lệnh Telegram qua webhook, GitHub Actions làm mới tòa soạn thường xuyên, Vercel cron làm dự phòng hằng ngày."
 ].join("\n");
@@ -406,6 +383,15 @@ export async function executeNewsroomCommand(rawText, context = {}) {
 
   if (["/start", "/help", "/menu"].includes(command)) {
     return { text: `${MENU_TEXT}\n\n${HELP_TEXT}`, replyMarkup: buildMenuMarkup("menu") };
+  }
+
+  if (command === "/news") {
+    return executeNewsroomCommand(compactCommand(commandText, NEWSROOM_SHORTCUTS), context);
+  }
+
+  if (command === "/social") {
+    const socialText = compactCommand(commandText, { post: "/social_post", queue: "/social_queue", ai: "/social_ai" });
+    return executeSocialCommand(socialText, context);
   }
 
   if (command === "/ping") {

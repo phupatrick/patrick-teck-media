@@ -30,6 +30,7 @@ on:
   schedule:
     - cron: "*/15 * * * *"
     - cron: "17 0 * * *"
+    - cron: "0 15 * * *"
 
 permissions:
   contents: write
@@ -131,6 +132,17 @@ jobs:
           NEWSROOM_CONTENT_PATH: data/newsroom-content.json
           SOCIAL_STATE_PATH: data/social-posts.json
         run: npm run social:autopilot
+
+      - name: Run nightly Social metrics and learning report
+        if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 15 * * *' }}
+        continue-on-error: true
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SOCIAL_STATE_PATH: data/social-posts.json
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}
+          TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: ${{ secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || secrets.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS }}
+        run: node scripts/social-daily-report.mjs
 
       - name: Sync generated data to cloud storage
         env:

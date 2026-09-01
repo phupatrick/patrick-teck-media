@@ -9,10 +9,16 @@ const BOT_ENTRY_COMMAND = "/heybot";
 const SEARCH_WAIT_SECONDS = 180;
 const LANGUAGE = "en";
 
+const CATALOG_SHORTCUTS = {
+  find: "/find", search: "/find", summary: "/summary", list: "/summary", ads: "/listads",
+  addcat: "/addcat", category: "/addcat", add: "/add", addtemp: "/addtemp", temp: "/addtemp",
+  edit: "/edit", delete: "/delete", addad: "/addad", deletead: "/deletead"
+};
+
 const COPY = {
   welcome: "Seller Bot is ready. Choose a category, browse temporary products, or search the Catalog.",
   viewerHint: "Allowed group members can browse and search. Only administrators can add, edit, or delete products.",
-  adminHint: "Administrators can use /addcat, /add, /addtemp, /edit, and /delete.",
+  adminHint: "Administrators can use /catalog addcat, add, temp, edit, and delete.",
   buttons: {
     browse: "Categories",
     temporary: "Temporary products",
@@ -30,20 +36,15 @@ const COPY = {
   onlyAdmin: "Only administrators can modify the Catalog.",
   notAllowed: "This group is not allowed to use the bot.",
   help: [
-    "Main commands:",
-    "/heybot - open the Catalog menu",
-    "/find <keyword> - search products",
+    "Quick commands:",
+    "/catalog - open the Catalog menu",
+    "/catalog find <keyword> - search products",
+    "/catalog summary - show Catalog statistics",
+    "/heybot - alias mở menu Catalog",
     "",
-    "Administrator commands:",
-    "/addcat <category name>",
-    "/add <category id> | Name | Duration | Warranty | Price | Description",
-    "/addtemp Name | Duration | Warranty | Price | Description | YYYY-MM-DD",
-    "/edit <product id> | name=... | category=... | duration=... | warranty=... | price=... | desc=... | until=... | status=active|inactive",
-    "/delete <product id>",
-    "/addad <Shopee link> | Title",
-    "/listads - list advertising links",
-    "/deletead <link id>",
-    "/summary - show Catalog statistics"
+    "Admin: /catalog addcat|add|temp|edit|delete ...",
+    "Ads: /catalog ads|addad|deletead ...",
+    "Legacy commands such as /find and /addtemp remain supported."
   ].join("\n"),
   summary: "Catalog overview",
   summaryLines: (summary) => [
@@ -107,14 +108,14 @@ export function createTelegramSellerBot(options = {}) {
       try {
         await apiCall(token, "setMyCommands", {
           commands: [
-            { command: "heybot", description: "Mở menu Catalog Seller" },
+            { command: "catalog", description: "Mở menu và quản lý Catalog" },
             { command: "find", description: "Tìm sản phẩm" },
             { command: "help", description: "Xem hướng dẫn" }
           ]
         });
         await apiCall(token, "setMyCommands", {
           commands: [
-            { command: "heybot", description: "Mở menu Catalog Seller" },
+            { command: "catalog", description: "Mở menu và quản lý Catalog" },
             { command: "find", description: "Tìm sản phẩm" },
             { command: "help", description: "Xem hướng dẫn" }
           ],
@@ -469,6 +470,12 @@ export async function executeSellerCommand(text, context = {}) {
   const command = String(firstToken || "").toLowerCase();
   const restText = commandText.slice(firstToken.length).trim();
 
+  if (command === "/catalog") {
+    const compact = compactCatalogCommand(commandText);
+    if (compact === "/catalog") return executeSellerCommand(BOT_ENTRY_COMMAND, context);
+    return executeSellerCommand(compact, context);
+  }
+
   if ([BOT_ENTRY_COMMAND, "/start", "/help"].includes(command)) {
     return {
       text: `${COPY.help}\n\n${COPY.welcome}`,
@@ -706,6 +713,12 @@ function stripBotMention(text, botUsername) {
 
 function safeTrim(value) {
   return String(value || "").trim();
+}
+
+function compactCatalogCommand(commandText) {
+  const [, rawSubcommand = "", ...args] = commandText.split(/\s+/);
+  const mapped = CATALOG_SHORTCUTS[String(rawSubcommand).toLowerCase()];
+  return mapped ? [mapped, ...args].join(" ") : "/catalog";
 }
 
 function normalizeWebhookUrl(value) {

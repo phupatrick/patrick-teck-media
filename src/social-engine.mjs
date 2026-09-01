@@ -1,4 +1,5 @@
 import { generateOfflinePost } from "./social-templates.mjs";
+import { createDocumentStore } from "./document-store.mjs";
 
 const TECH_IMAGES = [
   "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85",
@@ -47,7 +48,15 @@ export async function createPostContent({ provider = "offline", apiKey = "", top
     throw new Error(`Missing API key for social provider "${normalizedProvider}".`);
   }
 
-  const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, topic, pillar, notes, fetchImpl });
+  let learningContext = "";
+  try {
+    const store = createDocumentStore({ documentKey: "social:learned_context", fallbackPath: "data/social-learned-context.json", initialValue: {} });
+    const learned = await store.read();
+    if (Array.isArray(learned.top_winning_topics) && learned.top_winning_topics.length) learningContext = `\nKinh nghiệm bài hiệu quả: ${learned.top_winning_topics.slice(0, 3).join(" | ")}. ${learned.optimization_rule || ""}`;
+  } catch {
+    // Learning data is optional; content generation remains available without it.
+  }
+  const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, topic, pillar, notes, learningContext, fetchImpl });
   return validatePostContent(result);
 }
 
@@ -77,7 +86,7 @@ export async function postFirstComment({ postId, pageToken, commentText, fetchIm
   return payload?.id || null;
 }
 
-async function requestAiContent({ provider, apiKey, topic, pillar, notes, fetchImpl }) {
+async function requestAiContent({ provider, apiKey, topic, pillar, notes, learningContext = "", fetchImpl }) {
   if (provider === "gemini") {
     const configuredModel = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "").trim();
     const models = [...new Set([configuredModel, DEFAULT_GEMINI_MODEL, ...COMPATIBLE_GEMINI_MODELS].filter(Boolean))];
@@ -86,7 +95,7 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, fetchI
       const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}\n\n${buildPrompt({ topic, pillar, notes })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
+        body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, notes })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
       });
       const payload = await readResponse(response);
       if (response.ok) return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
@@ -102,7 +111,7 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, fetchI
   const response = await fetchImpl(`${baseUrl}/v1/chat/completions`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({ model, response_format: { type: "json_object" }, messages: [{ role: "system", content: SOCIAL_SYSTEM_PROMPT }, { role: "user", content: buildPrompt({ topic, pillar, notes }) }] })
+    body: JSON.stringify({ model, response_format: { type: "json_object" }, messages: [{ role: "system", content: `${SOCIAL_SYSTEM_PROMPT}${learningContext}` }, { role: "user", content: buildPrompt({ topic, pillar, notes }) }] })
   });
   const payload = await readResponse(response);
   if (!response.ok) {
