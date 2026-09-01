@@ -1,5 +1,7 @@
 import { CONTENT_PILLARS } from "./social-templates.mjs";
-import { createPostContent, getRandomTechImage, postFirstComment, postToFacebook } from "./social-engine.mjs";
+import { createPostContent, getRandomTechImage, postFirstComment, safePostToFacebook } from "./social-engine.mjs";
+
+const processingLocks = new Set();
 
 export async function executeSocialCommand(rawText, context = {}) {
   if (!context.isAdmin) throw new Error("Chi admin moi duoc quan ly Facebook.");
@@ -16,19 +18,29 @@ export async function handleSocialCallback(callbackData, context = {}) {
   if (!context.isAdmin) throw new Error("Chi admin moi duoc duyet bai Facebook.");
   const [, action, id] = String(callbackData).split(":");
   if (!id || !["approve", "reject"].includes(action)) throw new Error("Thao tac Facebook khong hop le.");
+  if (processingLocks.has(id)) {
+    await context.answerCallbackQuery?.("Bài đang được xử lý, vui lòng chờ.");
+    return { text: "Bài viết đang được xử lý.", replyMarkup: { inline_keyboard: [] } };
+  }
+  processingLocks.add(id);
   let result = "";
-  await context.store.update(async (state) => {
+  try {
+    await context.answerCallbackQuery?.("Đang xử lý đăng Facebook...");
+    await context.store.update(async (state) => {
     const post = state.posts.find((item) => item.id === id);
     if (!post || post.status !== "pending_approval") throw new Error("Bai viet khong con trong hang cho duyet.");
     if (action === "reject") { post.status = "rejected"; post.updated_at = new Date().toISOString(); result = "Da huy bai viet Facebook."; return state; }
     const config = { ...context.defaults, ...state.config };
-    const fbPostId = await postToFacebook({ pageId: config.fb_page_id, pageToken: config.fb_page_token, caption: post.caption, imageUrl: post.image_url, fetchImpl: context.fetch });
+    const fbPostId = await safePostToFacebook({ pageId: config.fb_page_id, pageToken: config.fb_page_token, caption: post.caption, imageUrl: post.image_url, fetchImpl: context.fetch });
     if (post.first_comment) await postFirstComment({ postId: fbPostId, pageToken: config.fb_page_token, commentText: post.first_comment, fetchImpl: context.fetch });
     post.status = "published"; post.fb_post_id = fbPostId; post.published_at = new Date().toISOString(); post.updated_at = post.published_at;
     result = `✅ ĐÃ ĐĂNG LÊN FANPAGE THÀNH CÔNG!\nhttps://facebook.com/${fbPostId}`;
     return state;
-  });
-  return { text: result, replyMarkup: { inline_keyboard: [] } };
+    });
+    return { text: result, replyMarkup: { inline_keyboard: [] } };
+  } finally {
+    processingLocks.delete(id);
+  }
 }
 
 async function createPendingPost(topic, context) {

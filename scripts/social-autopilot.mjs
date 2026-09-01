@@ -1,6 +1,6 @@
 import { loadNewsroomState } from "../src/newsroom-service.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
-import { createPostContent, getRandomTechImage, postFirstComment, postToFacebook } from "../src/social-engine.mjs";
+import { createPostContent, getRandomTechImage, postFirstComment, safePostToFacebook } from "../src/social-engine.mjs";
 import { pathToFileURL } from "node:url";
 
 const DEFAULT_CONTENT_PATH = "data/newsroom-content.json";
@@ -45,7 +45,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         fetchImpl
       });
       const imageUrl = article.image?.src || article.image_url || getRandomTechImage();
-      const postId = await postToFacebook({
+      const postId = await safePostToFacebook({
         pageId,
         pageToken,
         caption: content.caption,

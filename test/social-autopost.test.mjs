@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { generateOfflinePost } from "../src/social-templates.mjs";
-import { createPostContent, getRandomTechImage, sanitizeSocialText } from "../src/social-engine.mjs";
+import { createPostContent, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
 import fs from "node:fs";
@@ -19,6 +19,17 @@ try {
   const content = await createPostContent({ topic: "Offline", provider: "offline" });
   assert.ok(content.caption && content.first_comment);
   assert.match(getRandomTechImage({ random: () => 0 }), /^https:\/\/images\.unsplash\.com\//);
+  const publishUrls = [];
+  const fallbackPostId = await safePostToFacebook({ pageId: "page", pageToken: "token", caption: "Fallback", imageUrl: "https://images.example.com/broken.jpg", fetchImpl: async (url) => {
+    publishUrls.push(url);
+    return publishUrls.length === 1
+      ? new Response(JSON.stringify({ error: { message: "image unavailable" } }), { status: 400 })
+      : new Response(JSON.stringify({ id: "text-123" }), { status: 200 });
+  } });
+  assert.equal(fallbackPostId, "text-123");
+  assert.match(publishUrls[0], /\/photos$/);
+  assert.match(publishUrls[1], /\/feed$/);
+  await assert.rejects(postToFacebook({ pageId: "page", pageToken: "token", caption: "Timeout", timeoutMs: 5, fetchImpl: () => new Promise(() => {}) }), /Request timeout after 5ms/);
   let geminiRequest = null;
   const geminiContent = await createPostContent({
     provider: "gemini",
@@ -91,14 +102,17 @@ try {
   assert.match(queue.text, /Kiem tra he thong/);
   const callbackPath = path.join(os.tmpdir(), `patrick-social-callback-${Date.now()}.json`);
   const callbackStore = createSocialStore({ statePath: callbackPath });
+  let callbackToast = "";
   await callbackStore.update((state) => { state.posts.push({ id: "post-1", caption: "Bài kiểm thử", first_comment: "", image_url: "https://images.unsplash.com/test", status: "pending_approval" }); return state; });
   const callback = await handleSocialCallback("social:approve:post-1", {
     isAdmin: true,
     store: callbackStore,
     defaults: { fb_page_id: "page", fb_page_token: "token" },
-    fetch: async () => new Response(JSON.stringify({ id: "123_456" }), { status: 200 })
+    fetch: async () => new Response(JSON.stringify({ id: "123_456" }), { status: 200 }),
+    answerCallbackQuery: (text) => { callbackToast = text; }
   });
   assert.match(callback.text, /ĐÃ ĐĂNG LÊN FANPAGE THÀNH CÔNG/);
+  assert.match(callbackToast, /Đang xử lý/);
   assert.deepEqual(callback.replyMarkup, { inline_keyboard: [] });
   fs.rmSync(callbackPath, { force: true });
   console.log("social-autopost.test.mjs passed");

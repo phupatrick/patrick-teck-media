@@ -231,7 +231,8 @@ export function createTelegramNewsroomBot(options = {}) {
         const response = await handleSocialCallback(action, {
           isAdmin: isAdminUser(callbackQuery.from),
           store: socialStore,
-          defaults: socialDefaults
+          defaults: socialDefaults,
+          answerCallbackQuery: (text) => answerCallback(callbackQuery.id, text)
         });
         await answerCallback(callbackQuery.id, "Da cap nhat.");
         const editExtra = { reply_markup: response?.replyMarkup || { inline_keyboard: [] } };

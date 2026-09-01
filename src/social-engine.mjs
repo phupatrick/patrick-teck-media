@@ -61,13 +61,13 @@ export async function createPostContent({ provider = "offline", apiKey = "", top
   return validatePostContent(result);
 }
 
-export async function postToFacebook({ pageId, pageToken, caption, imageUrl = "", fetchImpl = fetch } = {}) {
+export async function postToFacebook({ pageId, pageToken, caption, imageUrl = "", fetchImpl = fetch, timeoutMs = 10000 } = {}) {
   if (!pageId || !pageToken) throw new Error("Facebook Page ID and access token are required.");
   const usePhoto = Boolean(String(imageUrl || "").trim());
   const endpoint = `https://graph.facebook.com/v20.0/${encodeURIComponent(pageId)}/${usePhoto ? "photos" : "feed"}`;
   const body = new URLSearchParams({ access_token: pageToken, [usePhoto ? "caption" : "message"]: String(caption || "") });
   if (usePhoto) body.set("url", String(imageUrl).trim());
-  const response = await fetchImpl(endpoint, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body });
+  const response = await fetchWithTimeout(fetchImpl, endpoint, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body }, timeoutMs);
   const payload = await readResponse(response);
   if (!response.ok) throw new Error(payload?.error?.message || `Facebook publishing failed with HTTP ${response.status}.`);
   const id = String(payload?.id || payload?.post_id || "").trim();
@@ -75,13 +75,22 @@ export async function postToFacebook({ pageId, pageToken, caption, imageUrl = ""
   return id;
 }
 
-export async function postFirstComment({ postId, pageToken, commentText, fetchImpl = fetch } = {}) {
+export async function safePostToFacebook({ pageId, pageToken, caption, imageUrl = "", fetchImpl = fetch, timeoutMs = 10000 } = {}) {
+  try {
+    return await postToFacebook({ pageId, pageToken, caption, imageUrl, fetchImpl, timeoutMs });
+  } catch (error) {
+    if (!String(imageUrl || "").trim()) throw error;
+    return postToFacebook({ pageId, pageToken, caption, imageUrl: "", fetchImpl, timeoutMs });
+  }
+}
+
+export async function postFirstComment({ postId, pageToken, commentText, fetchImpl = fetch, timeoutMs = 10000 } = {}) {
   if (!postId || !pageToken || !commentText) return null;
-  const response = await fetchImpl(`https://graph.facebook.com/v20.0/${encodeURIComponent(postId)}/comments`, {
+  const response = await fetchWithTimeout(fetchImpl, `https://graph.facebook.com/v20.0/${encodeURIComponent(postId)}/comments`, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({ access_token: pageToken, message: String(commentText) })
-  });
+  }, timeoutMs);
   const payload = await readResponse(response);
   if (!response.ok) throw new Error(payload?.error?.message || `Facebook comment failed with HTTP ${response.status}.`);
   return payload?.id || null;
@@ -93,11 +102,11 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, source
     const models = [...new Set([configuredModel, DEFAULT_GEMINI_MODEL, ...COMPATIBLE_GEMINI_MODELS].filter(Boolean))];
     const errors = [];
     for (const model of models) {
-      const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+      const response = await fetchWithTimeout(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, notes, sourceArticleUrl })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
-      });
+      }, 10000);
       const payload = await readResponse(response);
       if (response.ok) return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
       const detail = payload?.error?.message || payload?.raw || "Google returned an unknown error.";
@@ -109,11 +118,11 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, source
 
   const baseUrl = provider === "deepseek" ? "https://api.deepseek.com" : "https://api.openai.com";
   const model = provider === "deepseek" ? "deepseek-chat" : "gpt-4o-mini";
-  const response = await fetchImpl(`${baseUrl}/v1/chat/completions`, {
+  const response = await fetchWithTimeout(fetchImpl, `${baseUrl}/v1/chat/completions`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
     body: JSON.stringify({ model, response_format: { type: "json_object" }, messages: [{ role: "system", content: `${SOCIAL_SYSTEM_PROMPT}${learningContext}` }, { role: "user", content: buildPrompt({ topic, pillar, notes, sourceArticleUrl }) }] })
-  });
+  }, 10000);
   const payload = await readResponse(response);
   if (!response.ok) {
     throw new Error(`${provider} API failed (HTTP ${response.status}): ${payload?.error?.message || payload?.raw || "Provider returned an unknown error."}`);
@@ -151,4 +160,21 @@ function parseJsonText(value) {
 async function readResponse(response) {
   const text = await response.text();
   try { return JSON.parse(text); } catch { return { raw: text }; }
+}
+
+async function fetchWithTimeout(fetchImpl, url, options, timeoutMs) {
+  const controller = new AbortController();
+  const duration = Math.max(1, Number(timeoutMs) || 10000);
+  const timer = setTimeout(() => controller.abort(), duration);
+  let timeoutTimer;
+  const timeout = new Promise((_, reject) => { timeoutTimer = setTimeout(() => reject(new Error(`Request timeout after ${duration}ms: ${url}`)), duration); });
+  try {
+    return await Promise.race([fetchImpl(url, { ...options, signal: controller.signal }), timeout]);
+  } catch (error) {
+    if (error?.name === "AbortError") throw new Error(`Request timeout after ${duration}ms: ${url}`);
+    throw error;
+  } finally {
+    clearTimeout(timer);
+    clearTimeout(timeoutTimer);
+  }
 }
