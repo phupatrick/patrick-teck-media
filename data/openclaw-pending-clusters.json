@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T19:58:24.265Z",
+  "generated_at": "2026-09-01T20:11:32.633Z",
   "items": [
     {
       "article": {
@@ -834,6 +834,97 @@
     },
     {
       "article": {
+        "id": "feed-51b0e96be16e-en",
+        "cluster_id": "feed-51b0e96be16e",
+        "language": "en",
+        "topic": "apps-software",
+        "content_type": "NewsArticle",
+        "slug": "microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed",
+        "title": "Microsoft and AWS build the multicloud bridge they said customers barely needed",
+        "summary": "New services promise private 100 Gbps links between the rival platforms without months of networking faff. Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed.",
+        "dek": "New services promise private 100 Gbps links between the rival platforms without months of networking faff.",
+        "hook": "New services promise private 100 Gbps links between the rival platforms without months of networking faff.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "New services promise private 100 Gbps links between the rival platforms without months of networking faff."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "creator-software-stack"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "The Register",
+            "source_url": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-01T14:16:00.000Z",
+            "image_url": "https://image.theregister.com/241502.jpg?imageId=241502&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+            "image_caption": "Reference image from The Register.",
+            "image_credit": "The Register"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-01T14:16:00.000Z",
+        "updated_at": "2026-09-01T14:16:00.000Z",
+        "image": {
+          "src": "https://image.theregister.com/241502.jpg?imageId=241502&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+          "caption": "Reference image from The Register.",
+          "credit": "The Register",
+          "source_url": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614"
+        },
+        "draft_context": {
+          "source_title": "Microsoft and AWS build the multicloud bridge they said customers barely needed",
+          "source_name": "The Register",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "internet-business-tech",
+          "content_type_hint": "",
+          "description": "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed. The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms. But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said. The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution. Until now, connecting Azure and AWS environments has required careful coordination of physical connectivity, routing, provisioning, monitoring, and lifecycle management, Microsoft says. What should be a straightforward decision can therefore take weeks or months to implement. But AWS previously told the UK's competition watchdog that there were no significant technical barriers to a multicloud strategy, saying \"customers can multicloud, switch between cloud providers when they want to.\" Microsoft, meanwhile, insisted there was little customer interest in multicloud \"other than in fairly specialized situations as it is not easy or convenient for customers.\" Now Microsoft claims that Azure Multicloud Interconnect fundamentally changes things, allowing its customers to establish dedicated private connectivity \"through a simplified experience that abstracts the underlying complexity of multicloud networking,\" Narayan Annamalai, Microsoft's VP and head of product for Azure Networking Services, wrote in a blog post. Annamalai said the result is a high-bandwidth, more predictable route to deploying multicloud architectures for mission-critical workloads. Connections can operate at up to 100 Gbps from day one, with scope for future growth. Microsoft sees an opportunity to extend this model beyond a single cloud-to-cloud relationship, as \"the same open API specification can help enable broader interoperability across hyperscale cloud providers.\" Amazon, meanwhile, says AWS Interconnect – multicloud now covers all three major rival platforms: Azure, Google Cloud, and Oracle Cloud Infrastructure. In a canned statement, Robert Kennedy, VP of Network Services at AWS, said: \"Customers told us they wanted a better way to connect workloads spanning AWS and Azure, and the old ways of doing it were clunky.\" \"With AWS Interconnect – multicloud and Azure Multicloud Interconnect, we're proving what's possible when both sides commit to a high bar: MACsec security out of the box, four-nines availability, and scalability at the click of a button.\" The companies advise customers interested in joining the Azure preview to contact their Microsoft or AWS account teams. ®",
+          "paragraphs": [
+            "New services promise private 100 Gbps links between the rival platforms without months of networking faff",
+            "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed.",
+            "The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms.",
+            "But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said.",
+            "The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution.",
+            "Until now, connecting Azure and AWS environments has required careful coordination of physical connectivity, routing, provisioning, monitoring, and lifecycle management, Microsoft says. What should be a straightforward decision can therefore take weeks or months to implement."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=606",
+          "link": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614"
+        }
+      },
+      "first_seen_at": "2026-09-01T19:58:24.265Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
         "id": "feed-171a5a142215-vi",
         "cluster_id": "feed-171a5a142215",
         "language": "vi",
@@ -917,7 +1008,7 @@
           "link": "https://vnexpress.net/nhieu-lanh-dao-trong-he-sinh-thai-vingroup-thu-nhap-tien-ty-moi-thang-5115485.html"
         }
       },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
+      "first_seen_at": "2026-09-01T20:10:03.326Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1006,7 +1097,7 @@
           "link": "https://vnexpress.net/tai-sao-may-bay-bien-mat-khoi-radar-khi-qua-dai-duong-5114689.html"
         }
       },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
+      "first_seen_at": "2026-09-01T20:10:03.326Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1094,7 +1185,7 @@
           "link": "https://genk.vn/xiaomi-nghi-gi-khi-ban-dien-thoai-poco-gia-30-trieu-16526090121323739.chn"
         }
       },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
+      "first_seen_at": "2026-09-01T20:10:03.326Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1185,7 +1276,367 @@
           "link": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
         }
       },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
+      "first_seen_at": "2026-09-01T20:10:03.326Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-827dc71d1537-en",
+        "cluster_id": "feed-827dc71d1537",
+        "language": "en",
+        "topic": "internet-business-tech",
+        "content_type": "NewsArticle",
+        "slug": "how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
+        "title": "How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys",
+        "summary": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.",
+        "dek": "WhatsApp is the world's largest messaging platform, serving billions of users globally.",
+        "hook": "WhatsApp is the world's largest messaging platform, serving billions of users globally.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "\"What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide,\" says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. Passkeys offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent."
+          }
+        ],
+        "verification_state": "verified",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "official-site",
+            "source_name": "Android Developers Blog",
+            "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "official",
+            "published_at": "2026-08-28T17:10:10.680Z",
+            "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
+            "image_caption": "Reference image from Android Developers Blog.",
+            "image_credit": "Android Developers Blog"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-08-28T17:10:10.680Z",
+        "updated_at": "2026-08-28T17:10:10.680Z",
+        "image": {
+          "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
+          "caption": "Reference image from Android Developers Blog.",
+          "credit": "Android Developers Blog",
+          "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html"
+        },
+        "draft_context": {
+          "source_title": "How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys",
+          "source_name": "Android Developers Blog",
+          "source_type": "official-site",
+          "trust_tier": "official",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Posted by Niharika Arora, Senior Developer Relations Engineer, Tracy Agyemang, Product Marketing Manager, Google and Mayank Manuja, Android Engineer, Meta WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging. \"What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide,\" says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp. Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft. A user creating a passkey on WhatsApp for faster, more secure sign-ins. The Decision to Adopt Passkeys For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. Passkeys offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent. Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent. How passkeys are saved and used to authenticate using public-private key cryptography Having robust and diverse account access methods ensures that users are never locked out of what matters most to them. Client-Side Integration From the WhatsApp developer perspective, the Credential Manager API provided a clean, unified interface that abstracted away the complexity of underlying credential providers. Once initial integration flows were mapped out, the API surface became straightforward, with credential creation and retrieval following well-defined request and response patterns. Find the implementation guide in the Android developer documentation . While the happy path worked from the start, navigating a diverse user base across OEMs, multiple Android versions, and varied device configurations (such as PIN-only versus biometric, or Android 13 versus 14+) surfaced unprecedented edge cases. These included users without a screen lock, unexpected exception types, outdated Play Services, and inconsistent credential provider behavior. To overcome these hurdles, the WhatsApp and Google teams collaborated deeply and tackled several challenges: Optimizing the credential lookup flow: The initial lookup flow exhibited poor latency, particularly for users who had not yet created a passkey. Since the majority of WhatsApp users fall under this bucket in early stages, this added noticeable delay to nearly every sign-in. By instrumenting the call path and identifying bottlenecks together, WhatsApp significantly fastened up the process, achieving performance gains that ultimately benefited the entire Android ecosystem. Handling transient states: WhatsApp built a comprehensive error-handling layer to navigate device-specific hurdles such as password manager availability, screen lock not configured, intermittent connectivity issues, incompatible hardware, outdated play services, categorizing exceptions into recoverable and terminal states. This allowed for graceful degradation, if a passkey flow could not complete, the system safely fell back to traditional authentication without leaving the user in a broken state. Navigating OS-specific exceptions: When telemetry revealed device-specific hurdles such as GetPublicKeyCredentialDomException (Failed to decrypt credential) on certain Android 13 devices, and CreatePublicKeyCredentialDomException (Unable to get sync account) during passkey creation on Android 14, Google and the WhatsApp team investigated the root causes and implemented platform-level improvements to ensure smoother creation flows. You can find the comprehensive error guide here which lists common error codes and descriptions related to Credential Manager, and provides some information about their causes. Note: For further guidance, explore the Passkeys best practices blog to learn how to optimize the user experience when adopting passkeys. Refining the User Experience Because passkeys were an entirely new concept in early 2023, there were no established patterns for prompting their creation. Through extensive A/B testing, WhatsApp developed a contextual framework targeting users who would benefit most. This strategy continuously evolved: as Android OS flows matured into a streamlined, single-screen experience, WhatsApp simplified its own prompts to avoid redundant or confusing UI. WhatsApp's streamlined, single-screen passkey creation flow Server-Side Architecture and Cross-Platform Hurdles On the backend, WhatsApp's server implements the standard WebAuthn/FIDO2 ceremonies. The backend is written in Erlang and calls the Rust webauthn-rs library through a native interface. This Rust library handles signature verification and credential parsing, allowing the internal code to remain focused on orchestration, storage, and product rules like eligibility, rate-limiting, and credential lifecycle. The server architecture orchestrates these core ceremonies through four primary entry points, paired into Begin and Finish sequences for both Registration and Authentication: 1. Passkey registration This sequence handles issuing creation options to the client, verifying the attestation once the client acknowledges successful creation, and securely persisting the credential. The server & client interaction architecture during passkey registration Erlang: Begin Registration begin_registration(UserId) -> Existing = list_credentials(UserId), %% reuse the existing user handle, or mint a new one {UserHandle, IsNew} = user_handle(Existing), %% returns the client creation options and the server-side challenge state #{client_safe := CreationOptions, server_only := ChallengeState} = webauthn:start_registration(UserId, UserHandle, rp_config()), %% excludeCredentials: the user's existing credential IDs, so the device won't re-enroll one Options = with_exclude_credentials(CreationOptions, credential_ids(Existing)), store_challenge(UserId, ChallengeState), %% short TTL IsNew andalso reserve_user_handle(UserId, UserHandle), Options. Identify the user: The server first checks for any existing credentials to either reuse an existing user handle or generate a new one. Generate options and challenge: It calls the WebAuthn library to generate the creation options for the client and a secure challenge state for the server. Prevent duplicates: It explicitly excludes the user's existing credential IDs so that the device does not accidentally re-enroll a passkey that is already registered. Store challenge: The server temporarily stores the challenge with a short time-to-live (TTL) and sends the options back to the client device. Erlang: Finish Registration finish_registration(UserId, Attestation) -> ChallengeState = get_challenge(UserId), %% must exist and be unexpired #{credential_id := CredId, public_key := PubKey} = webauthn:finish_registration(Attestation, ChallengeState, rp_config()), ok = index_credential(CredId, UserId), %% map credential_id -> account case multi_passkey_enabled(UserId) of true -> add_credential(UserId, CredId, PubKey); %% append (oldest evicted past the cap) false -> replace_credential(UserId, CredId, PubKey) %% single-passkey mode end, notify_client(UserId, {passkey_created, CredId}), ok. Retrieve challenge: The server retrieves the stored challenge, ensuring it still exists and hasn't expired. Verify attestation: It passes the client's response (Attestation) and the challenge to the WebAuthn library to verify the request and extract the new credential ID and public key. Index the credential: The new credential ID is mapped directly to the user's account for fast lookup later. Save and manage limits: Depending on whether the multi-passkey feature is enabled, the server will either append the new credential to the user's list (evicting the oldest if a cap is reached) or replace the existing one in single-passkey mode. 2. Credential Authentication Similar to creation, the app server handles the authentication flow by orchestrating the login sequence. This includes verifying the assertion after successful client authentication, and dynamically updating stored credentials whenever WebAuthn signals a refresh is necessary. Erlang: Begin Authentication begin_authentication(UserId) -> Credentials = list_valid_credentials(UserId), #{client_safe := RequestOptions, server_only := ChallengeState} = webauthn:start_authentication(Credentials, rp_config()), store_challenge(UserId, ChallengeState), %% short TTL RequestOptions. Fetch valid credentials: The server looks up all currently valid credentials associated with the user. Generate challenge: It uses those credentials to build request options for the client and generates a new server-side challenge. Store and return: Just like in registration, the challenge is saved temporarily, and the request options are passed to the client app. Erlang: Finish Authentication finish_authentication(UserId, Assertion) -> ChallengeState = get_challenge(UserId), Credentials = list_valid_credentials(UserId), case webauthn:finish_authentication(Credentials, Assertion, ChallengeState) of #{user_verified := true, credential_id := CredId, needs_update := NeedsUpdate} = Result -> %% webauthn tells us when the stored credential should be refreshed NeedsUpdate andalso refresh_credential(UserId, CredId, Result), mark_credential_used(UserId, CredId), {ok, CredId}; _ -> {error, not_allowed} end. Verify assertion: The server retrieves the stored challenge and valid credentials, then asks the WebAuthn library to verify the client's Assertion. Refresh if needed: If the user is successfully verified, the server checks a needs_update flag. The WebAuthn library uses this flag to signal if the stored credential state needs to be refreshed on the server. Finalize: The server marks the credential as used and successfully completes the login process. The step-by-step passkey login experience on the WhatsApp app. To know more about server registration, follow the integration guide here . Advanced Architectural Considerations Implementing passkeys on the server at scale presented unique challenges, particularly concerning account architecture and device synchronization. Ashish Choudhary from the WhatsApp backend team highlighted the primary hurdles they faced: Migrating to multiple passkeys per account: WhatsApp's legacy server logic was deeply intertwined with the assumption of a single credential per user. To support modern multi-device realities, they engineered a bounded list system that intelligently evicts the oldest credential once a limit is reached. To ensure absolute stability, this major structural shift was rolled out gradually through rigorous experimentation. Balancing the credential lifecycle: Managing credential validity required a delicate touch. Invalidating credentials too aggressively forces needless re-enrollments, while being too lenient lets stale credentials pile up. WhatsApp solved this by implementing balanced lifecycle states to maintain tight security without frustrating users, complemented by automated background cleanup for inactive passkeys. Rethinking Cross-Device Synchronization This robust multi-passkey architecture also allowed WhatsApp to completely rethink cross-platform usability. The standard WebAuthn cross-device flow requires scanning a QR code on one device and authenticating over Bluetooth on another. However, WhatsApp found the Bluetooth dependency unreliable, and users often confused the new QR codes with the existing WhatsApp Web linking process. Instead of forcing a fragile cross-device transport mechanism, WhatsApp allows users to hold passkeys natively across multiple ecosystems such as Google Password Manager on Android and iCloud Keychain on iOS. When users migrate to a new platform, they simply generate a fresh passkey during their next sign-in. This approach is completely frictionless for the user and operates seamlessly on top of the new multi-passkey server infrastructure. Looking Ahead Since launching passkeys, WhatsApp has witnessed robust organic adoption across its vast user base. By transforming the traditional multi-step sign-in process into a single, frictionless biometric gesture, the app has dramatically improved the user experience. Building on this momentum, WhatsApp is now expanding passkey utility beyond initial sign-ins, exploring seamless in-app re-authentication for sensitive account actions like passkey-encrypted backups. Looking ahead, WhatsApp is actively collaborating with platform partners to pioneer lower-friction credential creation paths, anticipating that barriers to entry will naturally diminish as device biometric capabilities expand. Recommendation for Developers Building at Scale For developers preparing to integrate passkeys at scale, the WhatsApp team shares these critical recommendations: Invest in an error taxonomy early: Categorize the wide variety of Credential Manager exceptions into recoverable versus terminal states, and define clear, graceful fallback paths for each scenario. Understand your eligibility funnel: Instrument device capability checks such as screen lock presence, biometric hardware, and Play Services versions and design flows to proactively exclude ineligible users rather than failing mid-flow. Prepare your app for fallback: Use passkeys as an optimal primary authentication method for capable devices, but always retain traditional methods as a reliable, universal fallback. Plan for OS version fragmentation: Passkey behavior can differ across operating systems. Test thoroughly on Android 13, 14, and 15+, and account for OEM-specific variations in the credential selection UI. Upsell contextually and educate: Present passkey creation naturally during security-relevant actions. Clearly emphasize the value proposition (speed and security) using accessible language to drive user adoption. Monitor proactively: The ecosystem evolves with every OS update. Continuously track latency and error patterns to stay ahead of shifting device landscapes. Get Started with Passkeys and Credential Manager Get hands on with passkeys and Credential Manager on Android using our integration guide and public sample code . If you have any questions or issues, you can share with us through the Android Credentials issues tracker .",
+          "paragraphs": [
+            "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.",
+            "\"What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide,\" says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp.",
+            "Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft.",
+            "For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. Passkeys offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent.",
+            "Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=5; words=2332",
+          "link": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Xác thực chính thức"
+      },
+      "first_seen_at": "2026-09-01T20:10:03.326Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-8190f7c57354-en",
+        "cluster_id": "feed-8190f7c57354",
+        "language": "en",
+        "topic": "gaming",
+        "content_type": "NewsArticle",
+        "slug": "best-buy-s-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisi",
+        "title": "Best Buy's Labor Day Sale has brought one of our favorite high-class gaming laptops' Memory-Crisis-induced price hike down by 24%",
+        "summary": "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots. The ASUS ROG Strix G16 gaming laptop can have its storage upgraded by inserting NVMe PCIe 4.0 SSDs via its two M.2 2280 slots, each of which can support up to 2TB of space for a grand total of 4TB.",
+        "dek": "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots.",
+        "hook": "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "The ASUS ROG Strix G16 gaming laptop can have its storage upgraded by inserting NVMe PCIe 4.0 SSDs via its two M.2 2280 slots, each of which can support up to 2TB of space for a grand total of 4TB."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "The ASUS ROG Strix G16 remains one of the best-performing premium laptops for gaming at over 120 fps on 1,600p resolution, and it's now 24% off thanks to Best Buy's Labor Day deal."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Thankfully, retailers will always continue to offer brief respites from this crisis with generous discounts for the best gaming laptops."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "For example, one of our top-rated gaming laptops, the ASUS ROG Strix G16, has had its steep listing price of $2,299.99 brought down to $1,749.99 at Best Buy until the end of Best Buy's Labor Day Sale on September 7, 2026 ."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [
+          "gaming-cloud-pass"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "Windows Central",
+            "source_url": "https://www.windowscentral.com/hardware/laptops/best-buys-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisis-induced-price-hike-down-by-24-percent",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-01T16:07:38.000Z",
+            "image_url": "https://cdn.mos.cms.futurecdn.net/RQWQD2p6QDjT8CdZBHEvB4-2560-80.jpg",
+            "image_caption": "Reference image from Windows Central.",
+            "image_credit": "Windows Central"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-01T16:07:38.000Z",
+        "updated_at": "2026-09-01T16:07:38.000Z",
+        "image": {
+          "src": "https://cdn.mos.cms.futurecdn.net/RQWQD2p6QDjT8CdZBHEvB4-2560-80.jpg",
+          "caption": "Reference image from Windows Central.",
+          "credit": "Windows Central",
+          "source_url": "https://www.windowscentral.com/hardware/laptops/best-buys-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisis-induced-price-hike-down-by-24-percent"
+        },
+        "draft_context": {
+          "source_title": "Best Buy's Labor Day Sale has brought one of our favorite high-class gaming laptops' Memory-Crisis-induced price hike down by 24%",
+          "source_name": "Windows Central",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "The memory crisis continues to get worse, driving the price of gaming laptops to ridiculous extremes while scaring people into buying them despite the price hikes out of fear that their prices will worsen before they get better. Thankfully, retailers will always continue to offer brief respites from this crisis with generous discounts for the best gaming laptops. For example, one of our top-rated gaming laptops, the ASUS ROG Strix G16, has had its steep listing price of $2,299.99 brought down to $1,749.99 at Best Buy until the end of Best Buy's Labor Day Sale on September 7, 2026 . ROG Strix G16 16\" FHD 165Hz Gaming Laptop: was $2299.99 now $1749.99 \"The latest ASUS ROG Strix G16 takes full advantage of AMD's most powerful mobile processors to offer excellent performance and a consistent gaming experience, and may end up being an underrated value-play in the premium gaming laptop segment this year.\" ~ Zachary Boddy, Former Staff Writer Windows Central Review : ⭐⭐⭐⭐½ View Deal Why buy the ASUS ROG Strix G16 gaming laptop (AMD)? The ASUS ROG Strix G16 in hand. (Image credit: Windows Central (Zachary Boddy) | ASUS) Of all the best gaming laptops we've personally tested, the ASUS ROG Strix G16 remains one of the finest for those who prefer to outfit their desktops with AMD hardware. As noted in our 4.5 Star Review of the ASUS ROG Strix G16 , it delivers exceptional performance, capable of running graphically demanding games like Cyberpunk 2077 at 69 fps or over 140 fps thanks to its NVIDIA GeForce RTX 5070 TI graphics card, 16GB of RAM, 1TB SSD, and AMD Ryzen 9 8940HX processor . In addition, this laptop features an LED, FHD, IPS display capable of rendering images and videos at vibrant and colorful 1600p resolutions with refresh rates of 165 Hz and a max brightness of 300 nits . Close-up of the ASUS ROG Strix G16's keyboard. (Image credit: Windows Central (Zachary Boddy) | ASUS) Combine these specs with a comfy keyboard with extra buttons, and you've got a powerhouse gaming-on-the-go machine that will let you play your favorite games with sublime graphical details and smooth-as-butter gameplay input responsiveness. So, if you don't mind a laptop with a mostly plastic design and prefer using AMD processors rather than Intel ones, then the ASUS ROG Strix G16 gaming laptop that's now $1749.99 at Best Buy won't steer you wrong. I know it certainly pleased my former colleague, Zachary Boddy, when he said, \"The ROG Strix G16 isn't trying to compete with the most premium devices from Razer or Lenovo, and instead offers a lot of power in a solidly built chassis, paired with a fantastic keyboard and a comfortable display. It could be the underdog of the premium gaming laptop segment.\" FAQ How long will Best Buy's Labor Day Sale last? Best Buy's Labor Day Sale will last until September 7, 2026 Is its RAM upgradeable? The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots. Can its storage space be upgraded? The ASUS ROG Strix G16 gaming laptop can have its storage upgraded by inserting NVMe PCIe 4.0 SSDs via its two M.2 2280 slots, each of which can support up to 2TB of space for a grand total of 4TB. Join us on Reddit at r/WindowsCentral to share your insights and discuss our latest news, reviews, and more. ]]>",
+          "paragraphs": [
+            "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots.",
+            "The ASUS ROG Strix G16 gaming laptop can have its storage upgraded by inserting NVMe PCIe 4.0 SSDs via its two M.2 2280 slots, each of which can support up to 2TB of space for a grand total of 4TB.",
+            "The ASUS ROG Strix G16 remains one of the best-performing premium laptops for gaming at over 120 fps on 1,600p resolution, and it's now 24% off thanks to Best Buy's Labor Day deal",
+            "Thankfully, retailers will always continue to offer brief respites from this crisis with generous discounts for the best gaming laptops.",
+            "For example, one of our top-rated gaming laptops, the ASUS ROG Strix G16, has had its steep listing price of $2,299.99 brought down to $1,749.99 at Best Buy until the end of Best Buy's Labor Day Sale on September 7, 2026 .",
+            "\"The latest ASUS ROG Strix G16 takes full advantage of AMD's most powerful mobile processors to offer excellent performance and a consistent gaming experience, and may end up being an underrated value-play in the premium gaming laptop segment this year.\" ~ Zachary Boddy, Former Staff Writer Windows Central Review : &#11088;&#11088;&#11088;&#11088;&frac12;"
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=789",
+          "link": "https://www.windowscentral.com/hardware/laptops/best-buys-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisis-induced-price-hike-down-by-24-percent"
+        }
+      },
+      "first_seen_at": "2026-09-01T20:10:03.326Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-f0f075a1bac3-en",
+        "cluster_id": "feed-f0f075a1bac3",
+        "language": "en",
+        "topic": "chips-ai-infra",
+        "content_type": "NewsArticle",
+        "slug": "it-s-been-particularly-bad-since-blackwell-nvidia-s-new-gpu-driver-has-another-nasty-bug-and-gam",
+        "title": "'It's been particularly bad since Blackwell': Nvidia's new GPU driver has another nasty bug — and gamers are rapidly losing patience",
+        "summary": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series.",
+        "dek": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers.",
+        "hook": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "For example, this Redditor says: \"It's been particularly bad since Blackwell [RTX 5000] release. Just on Blackwell alone, between the whole DisplayPort 2.1 not working with HDR , screen flickering, and black screens on the initial release, it's been a complete mess.\"."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "Windows 10 loses support for Nvidia GPUs soon: here's what you need to know Redditor explains how Windows 11 can end up stripping out your GPU driver Microsoft's investigating reports of games crashing after Windows 11 update Another gamer complains : \"It is pretty shocking seeing this from a trillionaire company on a stable build. Nothing about this driver is stable.\"."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Yet another Redditor grumbles : \"It's crazy how things are now. You used to be able to update each time or be one driver behind at worst. Now I'm half a year outdated and thinking I'll just leave it.\"."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "This seems like quite a widespread issue and one that affects modern Nvidia graphics cards all the way back to RTX 2000 models."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "TechRadar",
+            "source_url": "https://www.techradar.com/computing/gpu/its-been-particularly-bad-since-blackwell-nvidias-new-gpu-driver-has-another-nasty-bug-and-gamers-are-rapidly-losing-patience",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-01T20:00:00.000Z",
+            "image_url": "https://cdn.mos.cms.futurecdn.net/fB4xhGeRkAJAnQZ5YUNiLR-1920-80.jpg",
+            "image_caption": "Reference image from TechRadar.",
+            "image_credit": "TechRadar"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-01T20:00:00.000Z",
+        "updated_at": "2026-09-01T20:00:00.000Z",
+        "image": {
+          "src": "https://cdn.mos.cms.futurecdn.net/fB4xhGeRkAJAnQZ5YUNiLR-1920-80.jpg",
+          "caption": "Reference image from TechRadar.",
+          "credit": "TechRadar",
+          "source_url": "https://www.techradar.com/computing/gpu/its-been-particularly-bad-since-blackwell-nvidias-new-gpu-driver-has-another-nasty-bug-and-gamers-are-rapidly-losing-patience"
+        },
+        "draft_context": {
+          "source_title": "'It's been particularly bad since Blackwell': Nvidia's new GPU driver has another nasty bug — and gamers are rapidly losing patience",
+          "source_name": "TechRadar",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Nvidia's latest graphics driver has a frustrating bug Version 616.56 is causing distracting screen flickers and color corruption A patch is coming, and there are potential workarounds — but gamers are getting fed up with the prevalence of bugs in GeForce drivers Nvidia's latest graphics driver is causing chaos for some GeForce GPU owners in the form of a glitch that makes the screen flicker. Wccftech spotted the bug with Nvidia's Game Ready Driver version 616.56, and as flagged by Renan Maniero on X, Team Green has said it's testing a fix for the issue (as revealed on the GeForce forums). The screen is reportedly flickering white or black and exhibiting other brief flashes of color corruption, and this is happening in certain games ( The Last of Us and Minecraft are mentioned, among others) or on the Windows desktop. It's also occurring in web browser sessions and while playing YouTube videos, based on Reddit reports — of which there are plenty. There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series. For example, this Redditor says: \"It's been particularly bad since Blackwell [RTX 5000] release. Just on Blackwell alone, between the whole DisplayPort 2.1 not working with HDR, screen flickering, and black screens on the initial release, it's been a complete mess.\" Another gamer complains : \"It is pretty shocking seeing this from a trillionaire company on a stable build. Nothing about this driver is stable.\" Yet another Redditor grumbles : \"It's crazy how things are now. You used to be able to update each time or be one driver behind at worst. Now I'm half a year outdated and thinking I'll just leave it.\" Analysis: more drivers, more problems? There are possible workarounds though Even older GeForce graphics cards are affected here (Image credit: Future) This seems like quite a widespread issue and one that affects modern Nvidia graphics cards all the way back to RTX 2000 models. If you're getting frustrated by this bug — random screen flickering gets pretty old, pretty fast, if it's happening regularly — Maniero also shared an apparent potential workaround on X that you can try while waiting for the official fix. Seemingly, this is a bug that mostly affects monitors in 8-bit mode, and if you switch to 10-bit color (assuming your display supports this), the problem may disappear. Maniero also suggests that you try turning on Windows Auto Color Management (ACM). Other folks on Reddit have shared various possible remedies, including switching from DisplayPort to an HDMI connector instead, and disabling Multi-Plane Overlay (MPO) in Windows 11, as one Redditor suggested . Nvidia provides a Registry file for turning off MPO (and enabling it again), but as ever with anything in this area of Windows, proceed at your own risk. (Although this method should be much safer than trying to edit the Registry directly yourself). Your other choice is simply to roll back driver 616.56 to an earlier version, and there's no shortage of gamers who've done exactly that and report that the problem vanishes. Hopefully Nvidia's official flicker-begone patch will be coming soon enough in the form of a hotfix, because this is an unduly annoying gremlin in the GeForce works that needs to be sorted out promptly. ]]>",
+          "paragraphs": [
+            "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series.",
+            "For example, this Redditor says: \"It's been particularly bad since Blackwell [RTX 5000] release. Just on Blackwell alone, between the whole DisplayPort 2.1 not working with HDR , screen flickering, and black screens on the initial release, it's been a complete mess.\"",
+            "Windows 10 loses support for Nvidia GPUs soon: here's what you need to know Redditor explains how Windows 11 can end up stripping out your GPU driver Microsoft's investigating reports of games crashing after Windows 11 update Another gamer complains : \"It is pretty shocking seeing this from a trillionaire company on a stable build. Nothing about this driver is stable.\"",
+            "Yet another Redditor grumbles : \"It's crazy how things are now. You used to be able to update each time or be one driver behind at worst. Now I'm half a year outdated and thinking I'll just leave it.\"",
+            "This seems like quite a widespread issue and one that affects modern Nvidia graphics cards all the way back to RTX 2000 models."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=5; words=783",
+          "link": "https://www.techradar.com/computing/gpu/its-been-particularly-bad-since-blackwell-nvidias-new-gpu-driver-has-another-nasty-bug-and-gamers-are-rapidly-losing-patience"
+        }
+      },
+      "first_seen_at": "2026-09-01T20:10:03.326Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-d17177b0e019-en",
+        "cluster_id": "feed-d17177b0e019",
+        "language": "en",
+        "topic": "ai",
+        "content_type": "NewsArticle",
+        "slug": "anthropic-launches-claude-fable-5-1-with-lower-costs-and-fewer-false-positives",
+        "title": "Anthropic Launches Claude Fable 5.1 With Lower Costs and Fewer False Positives",
+        "summary": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers.",
+        "dek": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks.",
+        "hook": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks.",
+        "sections": [
+          {
+            "heading": "What changed",
+            "body": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers. It outperforms Fable 5, Opus 5, and OpenAI's GPT–5.6 Sol across multiple benchmarks."
+          },
+          {
+            "heading": "Price and bundle value",
+            "body": "Fable 5.1 and Mythos 5.1 are the same model, but with different safeguard levels. Fable 5.1 is available to everyone, but Mythos 5.1 is limited to U.S. companies and individuals participating in Anthropic's trusted access programs. There's a new Life Sciences Verification Program that allows Mythos 5.1's advanced biology capabilities to be used for scientific research, with open enrollment for scientists coming soon."
+          },
+          {
+            "heading": "AI features that change the value",
+            "body": "Fable 5.1 costs approximately 25 percent less than Fable 5 for typical workloads, and up to 45 percent for highly agentic work, because of a reduction in cache-read pricing. Base pricing remains the same. It is available today on all platforms."
+          },
+          {
+            "heading": "Who should pay attention",
+            "body": "Apple's four new iPhones feature more differences between the latest models than ever before, so which one should you buy?"
+          },
+          {
+            "heading": "Patrick Tech Media take",
+            "body": "Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz. Patrick Tech Media will keep checking MacRumors to see whether the value holds once the rollout broadens."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "MacRumors",
+            "source_url": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-01T19:15:25.000Z",
+            "image_url": "https://images.macrumors.com/t/miP5cemYnLJaXuUhVtW0LMDZCJQ=/1782x/article-new/2025/09/anthopic-claude.jpg",
+            "image_caption": "Reference image from MacRumors.",
+            "image_credit": "MacRumors"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-01T19:15:25.000Z",
+        "updated_at": "2026-09-01T19:15:25.000Z",
+        "image": {
+          "src": "https://images.macrumors.com/t/miP5cemYnLJaXuUhVtW0LMDZCJQ=/1782x/article-new/2025/09/anthopic-claude.jpg",
+          "caption": "Reference image from MacRumors.",
+          "credit": "MacRumors",
+          "source_url": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/"
+        },
+        "draft_context": {
+          "source_title": "Anthropic Launches Claude Fable 5.1 With Lower Costs and Fewer False Positives",
+          "source_name": "MacRumors",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Anthropic today introduced Claude Fable 5.1 and Claude Mythos 5.1, which the company says are the \"world's most advanced models for coding and knowledge work.\" According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers. It outperforms Fable 5, Opus 5, and OpenAI's GPT–5.6 Sol across multiple benchmarks. Fable 5.1 and Mythos 5.1 are the same model, but with different safeguard levels. Fable 5.1 is available to everyone, but Mythos 5.1 is limited to U.S. companies and individuals participating in Anthropic's trusted access programs. There's a new Life Sciences Verification Program that allows Mythos 5.1's advanced biology capabilities to be used for scientific research, with open enrollment for scientists coming soon. Safeguards for Fable 5.1 have been improved, and Claude Code users should see around 60 percent fewer cybersecurity false positives. Anthropic says Fable 5.1 can now be used to discover software vulnerabilities, but not develop exploits for them. Fable 5.1 includes invisible watermarking for text generated by Claude, and Anthropic is rolling out a detection API in a private preview. The API is available to eligible organizations as required by EU law. Fable 5.1 costs approximately 25 percent less than Fable 5 for typical workloads, and up to 45 percent for highly agentic work, because of a reduction in cache-read pricing. Base pricing remains the same. It is available today on all platforms. Tag: Anthropic This article, \" Anthropic Launches Claude Fable 5.1 With Lower Costs and Fewer False Positives \" first appeared on MacRumors.com Discuss this article in our forums",
+          "paragraphs": [
+            "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers. It outperforms Fable 5, Opus 5, and OpenAI's GPT–5.6 Sol across multiple benchmarks.",
+            "Fable 5.1 and Mythos 5.1 are the same model, but with different safeguard levels. Fable 5.1 is available to everyone, but Mythos 5.1 is limited to U.S. companies and individuals participating in Anthropic's trusted access programs. There's a new Life Sciences Verification Program that allows Mythos 5.1's advanced biology capabilities to be used for scientific research, with open enrollment for scientists coming soon.",
+            "Safeguards for Fable 5.1 have been improved, and Claude Code users should see around 60 percent fewer cybersecurity false positives. Anthropic says Fable 5.1 can now be used to discover software vulnerabilities, but not develop exploits for them. Fable 5.1 includes invisible watermarking for text generated by Claude, and Anthropic is rolling out a detection API in a private preview. The API is available to eligible organizations as required by EU law.",
+            "Fable 5.1 costs approximately 25 percent less than Fable 5 for typical workloads, and up to 45 percent for highly agentic work, because of a reduction in cache-read pricing. Base pricing remains the same. It is available today on all platforms.",
+            "Apple's four new iPhones feature more differences between the latest models than ever before, so which one should you buy?"
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=5; words=533",
+          "link": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/"
+        }
+      },
+      "first_seen_at": "2026-09-01T20:10:03.326Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1279,646 +1730,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-827dc71d1537-en",
-        "cluster_id": "feed-827dc71d1537",
-        "language": "en",
-        "topic": "internet-business-tech",
-        "content_type": "NewsArticle",
-        "slug": "how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
-        "title": "How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys",
-        "summary": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.",
-        "dek": "WhatsApp is the world's largest messaging platform, serving billions of users globally.",
-        "hook": "WhatsApp is the world's largest messaging platform, serving billions of users globally.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "\"What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide,\" says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. Passkeys offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent."
-          }
-        ],
-        "verification_state": "verified",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": true,
-        "indexable": true,
-        "store_link_mode": "off",
-        "related_store_items": [],
-        "source_set": [
-          {
-            "source_type": "official-site",
-            "source_name": "Android Developers Blog",
-            "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "official",
-            "published_at": "2026-08-28T17:10:10.680Z",
-            "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
-            "image_caption": "Reference image from Android Developers Blog.",
-            "image_credit": "Android Developers Blog"
-          }
-        ],
-        "author_id": "quang-huy",
-        "published_at": "2026-08-28T17:10:10.680Z",
-        "updated_at": "2026-08-28T17:10:10.680Z",
-        "image": {
-          "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
-          "caption": "Reference image from Android Developers Blog.",
-          "credit": "Android Developers Blog",
-          "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html"
-        },
-        "draft_context": {
-          "source_title": "How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys",
-          "source_name": "Android Developers Blog",
-          "source_type": "official-site",
-          "trust_tier": "official",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "Posted by Niharika Arora, Senior Developer Relations Engineer, Tracy Agyemang, Product Marketing Manager, Google and Mayank Manuja, Android Engineer, Meta WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging. \"What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide,\" says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp. Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft. A user creating a passkey on WhatsApp for faster, more secure sign-ins. The Decision to Adopt Passkeys For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. Passkeys offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent. Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent. How passkeys are saved and used to authenticate using public-private key cryptography Having robust and diverse account access methods ensures that users are never locked out of what matters most to them. Client-Side Integration From the WhatsApp developer perspective, the Credential Manager API provided a clean, unified interface that abstracted away the complexity of underlying credential providers. Once initial integration flows were mapped out, the API surface became straightforward, with credential creation and retrieval following well-defined request and response patterns. Find the implementation guide in the Android developer documentation . While the happy path worked from the start, navigating a diverse user base across OEMs, multiple Android versions, and varied device configurations (such as PIN-only versus biometric, or Android 13 versus 14+) surfaced unprecedented edge cases. These included users without a screen lock, unexpected exception types, outdated Play Services, and inconsistent credential provider behavior. To overcome these hurdles, the WhatsApp and Google teams collaborated deeply and tackled several challenges: Optimizing the credential lookup flow: The initial lookup flow exhibited poor latency, particularly for users who had not yet created a passkey. Since the majority of WhatsApp users fall under this bucket in early stages, this added noticeable delay to nearly every sign-in. By instrumenting the call path and identifying bottlenecks together, WhatsApp significantly fastened up the process, achieving performance gains that ultimately benefited the entire Android ecosystem. Handling transient states: WhatsApp built a comprehensive error-handling layer to navigate device-specific hurdles such as password manager availability, screen lock not configured, intermittent connectivity issues, incompatible hardware, outdated play services, categorizing exceptions into recoverable and terminal states. This allowed for graceful degradation, if a passkey flow could not complete, the system safely fell back to traditional authentication without leaving the user in a broken state. Navigating OS-specific exceptions: When telemetry revealed device-specific hurdles such as GetPublicKeyCredentialDomException (Failed to decrypt credential) on certain Android 13 devices, and CreatePublicKeyCredentialDomException (Unable to get sync account) during passkey creation on Android 14, Google and the WhatsApp team investigated the root causes and implemented platform-level improvements to ensure smoother creation flows. You can find the comprehensive error guide here which lists common error codes and descriptions related to Credential Manager, and provides some information about their causes. Note: For further guidance, explore the Passkeys best practices blog to learn how to optimize the user experience when adopting passkeys. Refining the User Experience Because passkeys were an entirely new concept in early 2023, there were no established patterns for prompting their creation. Through extensive A/B testing, WhatsApp developed a contextual framework targeting users who would benefit most. This strategy continuously evolved: as Android OS flows matured into a streamlined, single-screen experience, WhatsApp simplified its own prompts to avoid redundant or confusing UI. WhatsApp's streamlined, single-screen passkey creation flow Server-Side Architecture and Cross-Platform Hurdles On the backend, WhatsApp's server implements the standard WebAuthn/FIDO2 ceremonies. The backend is written in Erlang and calls the Rust webauthn-rs library through a native interface. This Rust library handles signature verification and credential parsing, allowing the internal code to remain focused on orchestration, storage, and product rules like eligibility, rate-limiting, and credential lifecycle. The server architecture orchestrates these core ceremonies through four primary entry points, paired into Begin and Finish sequences for both Registration and Authentication: 1. Passkey registration This sequence handles issuing creation options to the client, verifying the attestation once the client acknowledges successful creation, and securely persisting the credential. The server & client interaction architecture during passkey registration Erlang: Begin Registration begin_registration(UserId) -> Existing = list_credentials(UserId), %% reuse the existing user handle, or mint a new one {UserHandle, IsNew} = user_handle(Existing), %% returns the client creation options and the server-side challenge state #{client_safe := CreationOptions, server_only := ChallengeState} = webauthn:start_registration(UserId, UserHandle, rp_config()), %% excludeCredentials: the user's existing credential IDs, so the device won't re-enroll one Options = with_exclude_credentials(CreationOptions, credential_ids(Existing)), store_challenge(UserId, ChallengeState), %% short TTL IsNew andalso reserve_user_handle(UserId, UserHandle), Options. Identify the user: The server first checks for any existing credentials to either reuse an existing user handle or generate a new one. Generate options and challenge: It calls the WebAuthn library to generate the creation options for the client and a secure challenge state for the server. Prevent duplicates: It explicitly excludes the user's existing credential IDs so that the device does not accidentally re-enroll a passkey that is already registered. Store challenge: The server temporarily stores the challenge with a short time-to-live (TTL) and sends the options back to the client device. Erlang: Finish Registration finish_registration(UserId, Attestation) -> ChallengeState = get_challenge(UserId), %% must exist and be unexpired #{credential_id := CredId, public_key := PubKey} = webauthn:finish_registration(Attestation, ChallengeState, rp_config()), ok = index_credential(CredId, UserId), %% map credential_id -> account case multi_passkey_enabled(UserId) of true -> add_credential(UserId, CredId, PubKey); %% append (oldest evicted past the cap) false -> replace_credential(UserId, CredId, PubKey) %% single-passkey mode end, notify_client(UserId, {passkey_created, CredId}), ok. Retrieve challenge: The server retrieves the stored challenge, ensuring it still exists and hasn't expired. Verify attestation: It passes the client's response (Attestation) and the challenge to the WebAuthn library to verify the request and extract the new credential ID and public key. Index the credential: The new credential ID is mapped directly to the user's account for fast lookup later. Save and manage limits: Depending on whether the multi-passkey feature is enabled, the server will either append the new credential to the user's list (evicting the oldest if a cap is reached) or replace the existing one in single-passkey mode. 2. Credential Authentication Similar to creation, the app server handles the authentication flow by orchestrating the login sequence. This includes verifying the assertion after successful client authentication, and dynamically updating stored credentials whenever WebAuthn signals a refresh is necessary. Erlang: Begin Authentication begin_authentication(UserId) -> Credentials = list_valid_credentials(UserId), #{client_safe := RequestOptions, server_only := ChallengeState} = webauthn:start_authentication(Credentials, rp_config()), store_challenge(UserId, ChallengeState), %% short TTL RequestOptions. Fetch valid credentials: The server looks up all currently valid credentials associated with the user. Generate challenge: It uses those credentials to build request options for the client and generates a new server-side challenge. Store and return: Just like in registration, the challenge is saved temporarily, and the request options are passed to the client app. Erlang: Finish Authentication finish_authentication(UserId, Assertion) -> ChallengeState = get_challenge(UserId), Credentials = list_valid_credentials(UserId), case webauthn:finish_authentication(Credentials, Assertion, ChallengeState) of #{user_verified := true, credential_id := CredId, needs_update := NeedsUpdate} = Result -> %% webauthn tells us when the stored credential should be refreshed NeedsUpdate andalso refresh_credential(UserId, CredId, Result), mark_credential_used(UserId, CredId), {ok, CredId}; _ -> {error, not_allowed} end. Verify assertion: The server retrieves the stored challenge and valid credentials, then asks the WebAuthn library to verify the client's Assertion. Refresh if needed: If the user is successfully verified, the server checks a needs_update flag. The WebAuthn library uses this flag to signal if the stored credential state needs to be refreshed on the server. Finalize: The server marks the credential as used and successfully completes the login process. The step-by-step passkey login experience on the WhatsApp app. To know more about server registration, follow the integration guide here . Advanced Architectural Considerations Implementing passkeys on the server at scale presented unique challenges, particularly concerning account architecture and device synchronization. Ashish Choudhary from the WhatsApp backend team highlighted the primary hurdles they faced: Migrating to multiple passkeys per account: WhatsApp's legacy server logic was deeply intertwined with the assumption of a single credential per user. To support modern multi-device realities, they engineered a bounded list system that intelligently evicts the oldest credential once a limit is reached. To ensure absolute stability, this major structural shift was rolled out gradually through rigorous experimentation. Balancing the credential lifecycle: Managing credential validity required a delicate touch. Invalidating credentials too aggressively forces needless re-enrollments, while being too lenient lets stale credentials pile up. WhatsApp solved this by implementing balanced lifecycle states to maintain tight security without frustrating users, complemented by automated background cleanup for inactive passkeys. Rethinking Cross-Device Synchronization This robust multi-passkey architecture also allowed WhatsApp to completely rethink cross-platform usability. The standard WebAuthn cross-device flow requires scanning a QR code on one device and authenticating over Bluetooth on another. However, WhatsApp found the Bluetooth dependency unreliable, and users often confused the new QR codes with the existing WhatsApp Web linking process. Instead of forcing a fragile cross-device transport mechanism, WhatsApp allows users to hold passkeys natively across multiple ecosystems such as Google Password Manager on Android and iCloud Keychain on iOS. When users migrate to a new platform, they simply generate a fresh passkey during their next sign-in. This approach is completely frictionless for the user and operates seamlessly on top of the new multi-passkey server infrastructure. Looking Ahead Since launching passkeys, WhatsApp has witnessed robust organic adoption across its vast user base. By transforming the traditional multi-step sign-in process into a single, frictionless biometric gesture, the app has dramatically improved the user experience. Building on this momentum, WhatsApp is now expanding passkey utility beyond initial sign-ins, exploring seamless in-app re-authentication for sensitive account actions like passkey-encrypted backups. Looking ahead, WhatsApp is actively collaborating with platform partners to pioneer lower-friction credential creation paths, anticipating that barriers to entry will naturally diminish as device biometric capabilities expand. Recommendation for Developers Building at Scale For developers preparing to integrate passkeys at scale, the WhatsApp team shares these critical recommendations: Invest in an error taxonomy early: Categorize the wide variety of Credential Manager exceptions into recoverable versus terminal states, and define clear, graceful fallback paths for each scenario. Understand your eligibility funnel: Instrument device capability checks such as screen lock presence, biometric hardware, and Play Services versions and design flows to proactively exclude ineligible users rather than failing mid-flow. Prepare your app for fallback: Use passkeys as an optimal primary authentication method for capable devices, but always retain traditional methods as a reliable, universal fallback. Plan for OS version fragmentation: Passkey behavior can differ across operating systems. Test thoroughly on Android 13, 14, and 15+, and account for OEM-specific variations in the credential selection UI. Upsell contextually and educate: Present passkey creation naturally during security-relevant actions. Clearly emphasize the value proposition (speed and security) using accessible language to drive user adoption. Monitor proactively: The ecosystem evolves with every OS update. Continuously track latency and error patterns to stay ahead of shifting device landscapes. Get Started with Passkeys and Credential Manager Get hands on with passkeys and Credential Manager on Android using our integration guide and public sample code . If you have any questions or issues, you can share with us through the Android Credentials issues tracker .",
-          "paragraphs": [
-            "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.",
-            "\"What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide,\" says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp.",
-            "Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft.",
-            "For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. Passkeys offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent.",
-            "Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=5; words=2332",
-          "link": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html"
-        },
-        "single_source_exception": true,
-        "is_single_source": true,
-        "editorial_label": "Xác thực chính thức"
-      },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-a0b1b49b18af-en",
-        "cluster_id": "feed-a0b1b49b18af",
-        "language": "en",
-        "topic": "apps-software",
-        "content_type": "NewsArticle",
-        "slug": "tokenomics-at-scale-how-jamf-built-real-time-spend-enforcement-for-amazon-bedrock",
-        "title": "Tokenomics at scale: How Jamf built real-time spend enforcement for Amazon Bedrock",
-        "summary": "Generative AI spend behaves unlike any cost line before it. AI spend scales with behavior : a single engineer running an agentic coding loop against a premium model can burn more tokens in a few hours than a team does in a week.",
-        "dek": "AI spend scales with behavior : a single engineer running an agentic coding loop against a premium model can burn more tokens in a few hours than a team does in a week.",
-        "hook": "AI spend scales with behavior : a single engineer running an agentic coding loop against a premium model can burn more tokens in a few hours than a team does in a week.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "Generative AI spend behaves unlike any cost line before it. Traditional compute scales with provisioned capacity. AI spend scales with behavior : a single engineer running an agentic coding loop against a premium model can burn more tokens in a few hours than a team does in a week. This is the tokenomics problem: usage is invisible until the bill arrives, making both cost control and return on investment (ROI) hard to prove. Before expanding AI access, leadership wants three answers: What do we spend per person? Can we cap it without slowing the engineers down? And do the productivity gains justify the cost?"
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "Jamf , trusted by more than 76,000 organizations to manage and secure Apple devices at scale, faced this challenge directly. To accelerate AI-assisted development, Jamf gave its engineering organization broad access to Amazon Bedrock . Productivity climbed, but so did the need for AI FinOps: per-user visibility and cost accountability."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "Jamf built a production system that solves this at the individual level. In this post, you learn how to build this architecture using AWS Identity and Access Management (IAM) Customer Managed Policies (CMPs), an Amazon Athena -based cost view, and a serverless AWS Lambda enforcement loop. By the end, you will have a working, production-tested pattern that enforces tiered spend limits in near-real-time without disrupting active sessions. This is an AI cost governance capability."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "Jamf’s solution tracks each engineer’s daily Amazon Bedrock spending, then applies tiered model restrictions as they approach their budget. For example, it denies Anthropic Claude Opus access at 80% of the daily budget and denies Anthropic Claude Sonnet access at 100%. It does not block Anthropic Claude Haiku, so engineers retain a low-cost model to keep working. Restrictions take effect within minutes, require no re-authentication, and revert automatically at the next daily reset. For engineers who legitimately need more, a documented exception process grants time-boxed higher limits."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "You can access the code from this post at https://github.com/aws-samples/sample-bedrock-spend-enforcement . At a high-level, the deployment steps can be summarized as follows:."
-          }
-        ],
-        "verification_state": "verified",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": true,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "creator-software-stack"
-        ],
-        "source_set": [
-          {
-            "source_type": "official-site",
-            "source_name": "AWS ML Blog",
-            "source_url": "https://aws.amazon.com/blogs/machine-learning/tokenomics-at-scale-how-jamf-built-real-time-spend-enforcement-for-amazon-bedrock/",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "official",
-            "published_at": "2026-09-01T16:03:41.000Z",
-            "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/28/ML-21656-featured-image.png",
-            "image_caption": "Reference image from AWS ML Blog.",
-            "image_credit": "AWS ML Blog"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-01T16:03:41.000Z",
-        "updated_at": "2026-09-01T16:03:41.000Z",
-        "image": {
-          "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/28/ML-21656-featured-image.png",
-          "caption": "Reference image from AWS ML Blog.",
-          "credit": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/tokenomics-at-scale-how-jamf-built-real-time-spend-enforcement-for-amazon-bedrock/"
-        },
-        "draft_context": {
-          "source_title": "Tokenomics at scale: How Jamf built real-time spend enforcement for Amazon Bedrock",
-          "source_name": "AWS ML Blog",
-          "source_type": "official-site",
-          "trust_tier": "official",
-          "topic_hint": "ai",
-          "content_type_hint": "",
-          "description": "Generative AI spend behaves unlike any cost line before it. Traditional compute scales with provisioned capacity. AI spend scales with behavior : a single engineer running an agentic coding loop against a premium model can burn more tokens in a few hours than a team does in a week. This is the tokenomics problem: usage is invisible until the bill arrives, making both cost control and return on investment (ROI) hard to prove. Before expanding AI access, leadership wants three answers: What do we spend per person? Can we cap it without slowing the engineers down? And do the productivity gains justify the cost? Jamf , trusted by more than 76,000 organizations to manage and secure Apple devices at scale, faced this challenge directly. To accelerate AI-assisted development, Jamf gave its engineering organization broad access to Amazon Bedrock . Productivity climbed, but so did the need for AI FinOps: per-user visibility and cost accountability. Jamf built a production system that solves this at the individual level. In this post, you learn how to build this architecture using AWS Identity and Access Management (IAM) Customer Managed Policies (CMPs), an Amazon Athena -based cost view, and a serverless AWS Lambda enforcement loop. By the end, you will have a working, production-tested pattern that enforces tiered spend limits in near-real-time without disrupting active sessions. This is an AI cost governance capability. Solution overview Jamf’s solution tracks each engineer’s daily Amazon Bedrock spending, then applies tiered model restrictions as they approach their budget. For example, it denies Anthropic Claude Opus access at 80% of the daily budget and denies Anthropic Claude Sonnet access at 100%. It does not block Anthropic Claude Haiku, so engineers retain a low-cost model to keep working. Restrictions take effect within minutes, require no re-authentication, and revert automatically at the next daily reset. For engineers who legitimately need more, a documented exception process grants time-boxed higher limits. Architecture diagram The architecture addresses three concerns: measuring spending, deciding who to restrict and notifying them, and enforcing the restriction. Each is handled by a purpose-built, serverless component. Figure 1: Real-time spend enforcement for Amazon Bedrock The end-to-end flow works as follows: Measure Invocation and logging — When an engineer calls Amazon Bedrock ( bedrock:InvokeModel ) through their AWS IAM Identity Center single sign-on (SSO) session, Amazon Bedrock logs invocations (including model ID, input and output token counts, and user identity) to the Amazon Simple Storage Service (Amazon S3) bucket you configure. Decide and notify Cost measurement — an Amazon Athena view ( bedrock_cost_today ) reads those logs and computes per-user daily spend by multiplying token counts against published model rates. Athena queries the raw logs in place, avoiding the need for a separate data pipeline. Enforcement decision — An AWS Lambda enforcement handler runs every 15 minutes, triggered by an Amazon EventBridge schedule. It reads the current day’s spend from the Athena view and cross-references an Amazon DynamoDB exceptions table that holds any custom, time-boxed limits granted to individual engineers. Notification — The same enforcement handler reads each user’s previous state from the Amazon DynamoDB state table, and when spend crosses a new threshold, sends the engineer a one-time Slack direct message for that tier, so restrictions are not a surprise. Enforce Enforcement action — For each engineer over a threshold, the Lambda publishes a new version of the appropriate CMP by using iam:CreatePolicyVersion . The policy targets specific users through a saml:sub condition key. Live evaluation — The CMPs are attached to the IAM permission set . On the engineer’s next Amazon Bedrock call, IAM evaluates the updated policy and allows or denies the request accordingly, with no re-authentication required. Prerequisites To deploy this solution, you need: AWS account with permissions to create IAM roles, Customer Managed Policies, AWS Lambda functions, Amazon Athena workgroups , Amazon S3 buckets, and Amazon DynamoDB tables. AWS IAM Identity Center with a permission set that you configure and assign to your users. Configure Amazon Bedrock model invocation logging to deliver logs to your Amazon S3 bucket. AWS Command Line Interface (AWS CLI) configured with appropriate credentials. Slack workspace with an app configured for slash commands, interactivity, and bot messages. Deployment steps You can access the code from this post at https://github.com/aws-samples/sample-bedrock-spend-enforcement . At a high-level, the deployment steps can be summarized as follows: Step 1: Create the Amazon Athena cost view Amazon Bedrock invocation logs land on Amazon S3 as JSON. Start by creating an Athena table over the log location, then a view that translates token counts into dollars. The view multiplies input and output tokens by the published per-token rate for each model, grouped by user identity and the current date. Replace the rate constants with the current Amazon Bedrock pricing for your Region. Each model family needs an explicit pricing branch. An unmapped model is priced at the highest tier as a fail-safe (not $0), so an unrecognized model cannot bypass enforcement. Watch the accompanying alert and add the model’s real rate promptly. Step 2: Create the Customer Managed Policies Create the enforcement policies that deny a model family for a specific set of users, identified by their saml:sub value. Start with an empty user list. The Lambda populates it at runtime by publishing new policy versions. Attach the policies to the IAM permission set. When you update these customer-managed policies by using iam:CreatePolicyVersion, your changes take effect immediately without re-provisioning. Step 3: Deploy the enforcement Lambda and schedule Deploy the enforcement handler and schedule it to run every 15 minutes with Amazon EventBridge. On each run, the handler queries the Athena view, reads the DynamoDB exceptions table, computes the restricted-user list for each tier, and publishes updated CMP versions. This design is idempotent by construction: each run recomputes the full restricted-user list from that day’s cumulative spend, rather than applying an incremental change. Running the handler twice in a row, or missing a run entirely, produces the same result once it catches up. There is nothing to double-apply and nothing to roll back. The daily reset is implicit too. The Athena view scopes spend to a rolling daily window (00:00 in your chosen reference time zone). Once that window rolls over, the next run’s recomputed list omits users who are no longer over threshold, and their CMP restriction lifts automatically on the following iam:CreatePolicyVersion call. There is no separate unblock code path to maintain or get out of sync. Step 4: Add the exception workflow Some engineers legitimately need higher limits for a large migration, a customer escalation, or a model evaluation. Rather than manually editing policies, expose a Slack slash command ( /bedrock-limit ) that admins can use to grant a time-boxed custom limit. The command writes an entry to the DynamoDB exceptions table with the engineer’s identity, the elevated limit, and an expiry timestamp. It also records an audit trail of who granted it, when, and optionally which ticket authorized it. Set a DynamoDB Time to Live (TTL) attribute on the expiry timestamp, so exceptions clean themselves up automatically. On its next run, the enforcement Lambda reads the active exceptions and adjusts each engineer’s threshold accordingly. Learnings Running this system in production surfaced lessons that are worth sharing. Cost: For this use case, AWS Lambda, DynamoDB, and S3 generated costs well under $10/month for hundreds of engineers. Amazon Athena is the one line item to size carefully: the bill scales with scan scope and run frequency, so keep the invocation-log schema lean (token counts and identity/model metadata only) and query the pre-aggregated cost view once per run rather than scanning raw logs repeatedly. JSON logs mean every query scans every byte, regardless of columns selected. Athena must deserialize each row before applying any filter, so four differently filtered queries against the same view each scanned the same ~11 GB. Column pruning and predicate pushdown do not help against row-oriented JSON. Fix it by combining derived queries into one SELECT ... GROUP BY and splitting results in application code, or go further and convert logs to a columnar format like Parquet. Governance accelerates adoption rather than restricting it. The strategic insight is counterintuitive: putting a hard per-user cap in place made leadership comfortable expanding access , not contracting it. Because spending is now observable, Jamf could confidently grow the number of AI-enabled engineers. Always available model. Keeping a low-cost model always available was a deliberate choice. An engineer at 100% of the budget can still get work done, so enforcement does not fully stop productivity. New models need an explicit pricing branch. Treat the pricing map as a first-class operational artifact and add new models at the moment they are enabled. IAM policy version limit. A managed policy retains a maximum of five versions. The enforcement Lambda must delete the oldest non-default version before creating a new one, or iam:CreatePolicyVersion will fail. Account for the asynchronous query model of Amazon Athena. Athena queries are submitted and polled, not returned synchronously. The Lambda handler must start the query, wait for completion, and then read results. Set the function timeout accordingly. Cleanup To avoid ongoing charges and remove the enforcement controls, delete the resources you created. Conclusion In this post, you learned how Jamf built real-time, per-user spend enforcement for Amazon Bedrock using Customer Managed Policies, an Amazon Athena cost view, and a serverless AWS Lambda loop. As generative AI adoption scales, the organizations that win will be the ones that can answer the tokenomics question with confidence: we know what each person spends, we can cap it without slowing anyone down, and we can prove the value. Cost governance is what makes it safe to say yes to more AI, not less. Now, it’s your turn to start exploring. We are here to help, and if you need further assistance, reach out to AWS Support and your AWS account team. About the authors Arun Chandapillai Arun is a Senior Cloud Architect passionate about helping customers accelerate IT modernization through business-first cloud adoption strategies. He specializes in building and deploying AI and Generative AI solutions, from agentic workflows to production-ready applications, on AWS. Arun is an automotive enthusiast and avid speaker who is passionate about giving back and believes ‘you get back what you give.’ Cami Persson Cami is a Principal Account Manager at AWS, partnering with Independent Software Vendors to drive value creation through cloud adoption and AI integration. She focuses on accelerating partners’ revenue growth and platform modernization at scale. Based in Minneapolis, Cami resides with her husband. Aditya Mettu Aditya is a Technical Account Manager at AWS, supporting Independent Software Vendor (ISV) customers. He helps engineering teams run generative AI on AWS reliably and cost-effectively, with a focus on AI FinOps: cost visibility, governance, and optimization for services such as Amazon Bedrock. He enjoys turning cloud spend data into practical guardrails that let teams scale AI adoption without runaway costs. Andre Bernardo Andre is a builder at the intersection of Cloud Infrastructure, FinOps, and AI design, specializing in systems that scale cleanly and stay out of the engineer’s way. He builds the cloud automation and generative AI platform that lets Jamf adopt AI safely, without slowing teams down. Andrew Dunham Andrew is a FinOps Engineer focused on cloud cost optimization, automation, and financial governance. He combines a background in finance, economics, and data science with cloud engineering expertise to help teams understand, control, and optimize the cost of AWS and Generative AI workloads. Levi McCormick Levi is Director of Engineering with 25+ years in tech, spanning phone support, training and mentoring, architecture, application design, and customer engagement. He’s passionate about developer experience and leveraging cloud platforms so every engineer can be a 10x engineer.",
-          "paragraphs": [
-            "Generative AI spend behaves unlike any cost line before it. Traditional compute scales with provisioned capacity. AI spend scales with behavior : a single engineer running an agentic coding loop against a premium model can burn more tokens in a few hours than a team does in a week. This is the tokenomics problem: usage is invisible until the bill arrives, making both cost control and return on investment (ROI) hard to prove. Before expanding AI access, leadership wants three answers: What do we spend per person? Can we cap it without slowing the engineers down? And do the productivity gains justify the cost?",
-            "Jamf , trusted by more than 76,000 organizations to manage and secure Apple devices at scale, faced this challenge directly. To accelerate AI-assisted development, Jamf gave its engineering organization broad access to Amazon Bedrock . Productivity climbed, but so did the need for AI FinOps: per-user visibility and cost accountability.",
-            "Jamf built a production system that solves this at the individual level. In this post, you learn how to build this architecture using AWS Identity and Access Management (IAM) Customer Managed Policies (CMPs), an Amazon Athena -based cost view, and a serverless AWS Lambda enforcement loop. By the end, you will have a working, production-tested pattern that enforces tiered spend limits in near-real-time without disrupting active sessions. This is an AI cost governance capability.",
-            "Jamf’s solution tracks each engineer’s daily Amazon Bedrock spending, then applies tiered model restrictions as they approach their budget. For example, it denies Anthropic Claude Opus access at 80% of the daily budget and denies Anthropic Claude Sonnet access at 100%. It does not block Anthropic Claude Haiku, so engineers retain a low-cost model to keep working. Restrictions take effect within minutes, require no re-authentication, and revert automatically at the next daily reset. For engineers who legitimately need more, a documented exception process grants time-boxed higher limits.",
-            "You can access the code from this post at https://github.com/aws-samples/sample-bedrock-spend-enforcement . At a high-level, the deployment steps can be summarized as follows:"
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=5; words=2282",
-          "link": "https://aws.amazon.com/blogs/machine-learning/tokenomics-at-scale-how-jamf-built-real-time-spend-enforcement-for-amazon-bedrock/"
-        },
-        "single_source_exception": true,
-        "is_single_source": true,
-        "editorial_label": "Xác thực chính thức"
-      },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-8190f7c57354-en",
-        "cluster_id": "feed-8190f7c57354",
-        "language": "en",
-        "topic": "gaming",
-        "content_type": "NewsArticle",
-        "slug": "best-buy-s-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisi",
-        "title": "Best Buy's Labor Day Sale has brought one of our favorite high-class gaming laptops' Memory-Crisis-induced price hike down by 24%",
-        "summary": "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots. The ASUS ROG Strix G16 gaming laptop can have its storage upgraded by inserting NVMe PCIe 4.0 SSDs via its two M.2 2280 slots, each of which can support up to 2TB of space for a grand total of 4TB.",
-        "dek": "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots.",
-        "hook": "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "The ASUS ROG Strix G16 gaming laptop can have its storage upgraded by inserting NVMe PCIe 4.0 SSDs via its two M.2 2280 slots, each of which can support up to 2TB of space for a grand total of 4TB."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "The ASUS ROG Strix G16 remains one of the best-performing premium laptops for gaming at over 120 fps on 1,600p resolution, and it's now 24% off thanks to Best Buy's Labor Day deal."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "Thankfully, retailers will always continue to offer brief respites from this crisis with generous discounts for the best gaming laptops."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "For example, one of our top-rated gaming laptops, the ASUS ROG Strix G16, has had its steep listing price of $2,299.99 brought down to $1,749.99 at Best Buy until the end of Best Buy's Labor Day Sale on September 7, 2026 ."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "off",
-        "related_store_items": [
-          "gaming-cloud-pass"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "Windows Central",
-            "source_url": "https://www.windowscentral.com/hardware/laptops/best-buys-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisis-induced-price-hike-down-by-24-percent",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-01T16:07:38.000Z",
-            "image_url": "https://cdn.mos.cms.futurecdn.net/RQWQD2p6QDjT8CdZBHEvB4-2560-80.jpg",
-            "image_caption": "Reference image from Windows Central.",
-            "image_credit": "Windows Central"
-          }
-        ],
-        "author_id": "quang-huy",
-        "published_at": "2026-09-01T16:07:38.000Z",
-        "updated_at": "2026-09-01T16:07:38.000Z",
-        "image": {
-          "src": "https://cdn.mos.cms.futurecdn.net/RQWQD2p6QDjT8CdZBHEvB4-2560-80.jpg",
-          "caption": "Reference image from Windows Central.",
-          "credit": "Windows Central",
-          "source_url": "https://www.windowscentral.com/hardware/laptops/best-buys-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisis-induced-price-hike-down-by-24-percent"
-        },
-        "draft_context": {
-          "source_title": "Best Buy's Labor Day Sale has brought one of our favorite high-class gaming laptops' Memory-Crisis-induced price hike down by 24%",
-          "source_name": "Windows Central",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "The memory crisis continues to get worse, driving the price of gaming laptops to ridiculous extremes while scaring people into buying them despite the price hikes out of fear that their prices will worsen before they get better. Thankfully, retailers will always continue to offer brief respites from this crisis with generous discounts for the best gaming laptops. For example, one of our top-rated gaming laptops, the ASUS ROG Strix G16, has had its steep listing price of $2,299.99 brought down to $1,749.99 at Best Buy until the end of Best Buy's Labor Day Sale on September 7, 2026 . ROG Strix G16 16\" FHD 165Hz Gaming Laptop: was $2299.99 now $1749.99 \"The latest ASUS ROG Strix G16 takes full advantage of AMD's most powerful mobile processors to offer excellent performance and a consistent gaming experience, and may end up being an underrated value-play in the premium gaming laptop segment this year.\" ~ Zachary Boddy, Former Staff Writer Windows Central Review : ⭐⭐⭐⭐½ View Deal Why buy the ASUS ROG Strix G16 gaming laptop (AMD)? The ASUS ROG Strix G16 in hand. (Image credit: Windows Central (Zachary Boddy) | ASUS) Of all the best gaming laptops we've personally tested, the ASUS ROG Strix G16 remains one of the finest for those who prefer to outfit their desktops with AMD hardware. As noted in our 4.5 Star Review of the ASUS ROG Strix G16 , it delivers exceptional performance, capable of running graphically demanding games like Cyberpunk 2077 at 69 fps or over 140 fps thanks to its NVIDIA GeForce RTX 5070 TI graphics card, 16GB of RAM, 1TB SSD, and AMD Ryzen 9 8940HX processor . In addition, this laptop features an LED, FHD, IPS display capable of rendering images and videos at vibrant and colorful 1600p resolutions with refresh rates of 165 Hz and a max brightness of 300 nits . Close-up of the ASUS ROG Strix G16's keyboard. (Image credit: Windows Central (Zachary Boddy) | ASUS) Combine these specs with a comfy keyboard with extra buttons, and you've got a powerhouse gaming-on-the-go machine that will let you play your favorite games with sublime graphical details and smooth-as-butter gameplay input responsiveness. So, if you don't mind a laptop with a mostly plastic design and prefer using AMD processors rather than Intel ones, then the ASUS ROG Strix G16 gaming laptop that's now $1749.99 at Best Buy won't steer you wrong. I know it certainly pleased my former colleague, Zachary Boddy, when he said, \"The ROG Strix G16 isn't trying to compete with the most premium devices from Razer or Lenovo, and instead offers a lot of power in a solidly built chassis, paired with a fantastic keyboard and a comfortable display. It could be the underdog of the premium gaming laptop segment.\" FAQ How long will Best Buy's Labor Day Sale last? Best Buy's Labor Day Sale will last until September 7, 2026 Is its RAM upgradeable? The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots. Can its storage space be upgraded? The ASUS ROG Strix G16 gaming laptop can have its storage upgraded by inserting NVMe PCIe 4.0 SSDs via its two M.2 2280 slots, each of which can support up to 2TB of space for a grand total of 4TB. Join us on Reddit at r/WindowsCentral to share your insights and discuss our latest news, reviews, and more. ]]>",
-          "paragraphs": [
-            "The ASUS ROG Strix G16 gaming laptop can have its RAM upgraded to a max limit of 64GB via its two DDR5 SODIMM memory slots.",
-            "The ASUS ROG Strix G16 gaming laptop can have its storage upgraded by inserting NVMe PCIe 4.0 SSDs via its two M.2 2280 slots, each of which can support up to 2TB of space for a grand total of 4TB.",
-            "The ASUS ROG Strix G16 remains one of the best-performing premium laptops for gaming at over 120 fps on 1,600p resolution, and it's now 24% off thanks to Best Buy's Labor Day deal",
-            "Thankfully, retailers will always continue to offer brief respites from this crisis with generous discounts for the best gaming laptops.",
-            "For example, one of our top-rated gaming laptops, the ASUS ROG Strix G16, has had its steep listing price of $2,299.99 brought down to $1,749.99 at Best Buy until the end of Best Buy's Labor Day Sale on September 7, 2026 .",
-            "\"The latest ASUS ROG Strix G16 takes full advantage of AMD's most powerful mobile processors to offer excellent performance and a consistent gaming experience, and may end up being an underrated value-play in the premium gaming laptop segment this year.\" ~ Zachary Boddy, Former Staff Writer Windows Central Review : &#11088;&#11088;&#11088;&#11088;&frac12;"
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=789",
-          "link": "https://www.windowscentral.com/hardware/laptops/best-buys-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisis-induced-price-hike-down-by-24-percent"
-        }
-      },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-d17177b0e019-en",
-        "cluster_id": "feed-d17177b0e019",
-        "language": "en",
-        "topic": "ai",
-        "content_type": "NewsArticle",
-        "slug": "anthropic-launches-claude-fable-5-1-with-lower-costs-and-fewer-false-positives",
-        "title": "Anthropic Launches Claude Fable 5.1 With Lower Costs and Fewer False Positives",
-        "summary": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers.",
-        "dek": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks.",
-        "hook": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks.",
-        "sections": [
-          {
-            "heading": "What changed",
-            "body": "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers. It outperforms Fable 5, Opus 5, and OpenAI's GPT–5.6 Sol across multiple benchmarks."
-          },
-          {
-            "heading": "Price and bundle value",
-            "body": "Fable 5.1 and Mythos 5.1 are the same model, but with different safeguard levels. Fable 5.1 is available to everyone, but Mythos 5.1 is limited to U.S. companies and individuals participating in Anthropic's trusted access programs. There's a new Life Sciences Verification Program that allows Mythos 5.1's advanced biology capabilities to be used for scientific research, with open enrollment for scientists coming soon."
-          },
-          {
-            "heading": "AI features that change the value",
-            "body": "Fable 5.1 costs approximately 25 percent less than Fable 5 for typical workloads, and up to 45 percent for highly agentic work, because of a reduction in cache-read pricing. Base pricing remains the same. It is available today on all platforms."
-          },
-          {
-            "heading": "Who should pay attention",
-            "body": "Apple's four new iPhones feature more differences between the latest models than ever before, so which one should you buy?"
-          },
-          {
-            "heading": "Patrick Tech Media take",
-            "body": "Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz. Patrick Tech Media will keep checking MacRumors to see whether the value holds once the rollout broadens."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "ai-workspace-bundle"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "MacRumors",
-            "source_url": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-01T19:15:25.000Z",
-            "image_url": "https://images.macrumors.com/t/miP5cemYnLJaXuUhVtW0LMDZCJQ=/1782x/article-new/2025/09/anthopic-claude.jpg",
-            "image_caption": "Reference image from MacRumors.",
-            "image_credit": "MacRumors"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-01T19:15:25.000Z",
-        "updated_at": "2026-09-01T19:15:25.000Z",
-        "image": {
-          "src": "https://images.macrumors.com/t/miP5cemYnLJaXuUhVtW0LMDZCJQ=/1782x/article-new/2025/09/anthopic-claude.jpg",
-          "caption": "Reference image from MacRumors.",
-          "credit": "MacRumors",
-          "source_url": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/"
-        },
-        "draft_context": {
-          "source_title": "Anthropic Launches Claude Fable 5.1 With Lower Costs and Fewer False Positives",
-          "source_name": "MacRumors",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "Anthropic today introduced Claude Fable 5.1 and Claude Mythos 5.1, which the company says are the \"world's most advanced models for coding and knowledge work.\" According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers. It outperforms Fable 5, Opus 5, and OpenAI's GPT–5.6 Sol across multiple benchmarks. Fable 5.1 and Mythos 5.1 are the same model, but with different safeguard levels. Fable 5.1 is available to everyone, but Mythos 5.1 is limited to U.S. companies and individuals participating in Anthropic's trusted access programs. There's a new Life Sciences Verification Program that allows Mythos 5.1's advanced biology capabilities to be used for scientific research, with open enrollment for scientists coming soon. Safeguards for Fable 5.1 have been improved, and Claude Code users should see around 60 percent fewer cybersecurity false positives. Anthropic says Fable 5.1 can now be used to discover software vulnerabilities, but not develop exploits for them. Fable 5.1 includes invisible watermarking for text generated by Claude, and Anthropic is rolling out a detection API in a private preview. The API is available to eligible organizations as required by EU law. Fable 5.1 costs approximately 25 percent less than Fable 5 for typical workloads, and up to 45 percent for highly agentic work, because of a reduction in cache-read pricing. Base pricing remains the same. It is available today on all platforms. Tag: Anthropic This article, \" Anthropic Launches Claude Fable 5.1 With Lower Costs and Fewer False Positives \" first appeared on MacRumors.com Discuss this article in our forums",
-          "paragraphs": [
-            "According to Anthropic, Claude Fable 5.1 sets a new standard for coding, knowledge work, and long-running problem-solving tasks. It achieves similar or better results than Fable 5 at low or medium effort, and has much higher performance at higher effort tiers. It outperforms Fable 5, Opus 5, and OpenAI's GPT–5.6 Sol across multiple benchmarks.",
-            "Fable 5.1 and Mythos 5.1 are the same model, but with different safeguard levels. Fable 5.1 is available to everyone, but Mythos 5.1 is limited to U.S. companies and individuals participating in Anthropic's trusted access programs. There's a new Life Sciences Verification Program that allows Mythos 5.1's advanced biology capabilities to be used for scientific research, with open enrollment for scientists coming soon.",
-            "Safeguards for Fable 5.1 have been improved, and Claude Code users should see around 60 percent fewer cybersecurity false positives. Anthropic says Fable 5.1 can now be used to discover software vulnerabilities, but not develop exploits for them. Fable 5.1 includes invisible watermarking for text generated by Claude, and Anthropic is rolling out a detection API in a private preview. The API is available to eligible organizations as required by EU law.",
-            "Fable 5.1 costs approximately 25 percent less than Fable 5 for typical workloads, and up to 45 percent for highly agentic work, because of a reduction in cache-read pricing. Base pricing remains the same. It is available today on all platforms.",
-            "Apple's four new iPhones feature more differences between the latest models than ever before, so which one should you buy?"
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=5; words=533",
-          "link": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/"
-        }
-      },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-2eb807ad3d08-en",
-        "cluster_id": "feed-2eb807ad3d08",
-        "language": "en",
-        "topic": "ai",
-        "content_type": "NewsArticle",
-        "slug": "introducing-claude-fable-5-1-on-aws",
-        "title": "Introducing Claude Fable 5.1 on AWS",
-        "summary": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS. Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows.",
-        "dek": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS.",
-        "hook": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS. Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "Given its capabilities, Anthropic has designated Fable 5.1 a Covered Model , a category of Claude models that carry additional data retention, safety review, and access policies wherever they’re offered. For more information, see Amazon Bedrock abuse detection and Anthropic’s Covered Models page. Anthropic also announced the Enterprise Frontier Safeguards , a solution that will give customers the option to safely deploy Anthropic’s most capable models while keeping their data in cloud infrastructure they control. The Enterprise Frontier Safeguards section that follows covers what this means on Amazon Bedrock."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "This post covers Claude Fable 5.1’s improvements, the Enterprise Frontier Safeguards, and how to start building with the model on Amazon Bedrock."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "Anthropic reports Fable 5.1 is a clear improvement over Fable 5 on the hardest reasoning tests Anthropic runs. These tests include competition mathematics, graduate-level questions in engineering and the sciences, and long multi-step problems where reliability is key. In day-to-day use that shows up as better judgment on ambiguous tasks and fewer confident wrong answers:."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "Because Claude Fable 5.1 is a Covered Model , its use is subject to data retention for up to 30 days and human review by Amazon personnel. With Amazon Bedrock, you can control data retention through a mode on your account or Amazon Bedrock project, which you configure with the data retention API . Using Claude Fable 5.1 requires the aws_review mode, which you set before you invoke the model. In this mode, AWS retains your prompts and outputs for human safety review within the AWS boundary. Claude Fable 5.1 does not require sharing with the model provider. See Amazon Bedrock data retention for more details."
-          }
-        ],
-        "verification_state": "verified",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": true,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "ai-workspace-bundle"
-        ],
-        "source_set": [
-          {
-            "source_type": "official-site",
-            "source_name": "AWS ML Blog",
-            "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-1-on-aws/",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "official",
-            "published_at": "2026-09-01T19:12:43.000Z",
-            "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/01/ml-21797.png",
-            "image_caption": "Reference image from AWS ML Blog.",
-            "image_credit": "AWS ML Blog"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-01T19:12:43.000Z",
-        "updated_at": "2026-09-01T19:12:43.000Z",
-        "image": {
-          "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/01/ml-21797.png",
-          "caption": "Reference image from AWS ML Blog.",
-          "credit": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-1-on-aws/"
-        },
-        "draft_context": {
-          "source_title": "Introducing Claude Fable 5.1 on AWS",
-          "source_name": "AWS ML Blog",
-          "source_type": "official-site",
-          "trust_tier": "official",
-          "topic_hint": "ai",
-          "content_type_hint": "",
-          "description": "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS. Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows. Given its capabilities, Anthropic has designated Fable 5.1 a Covered Model , a category of Claude models that carry additional data retention, safety review, and access policies wherever they’re offered. For more information, see Amazon Bedrock abuse detection and Anthropic’s Covered Models page. Anthropic also announced the Enterprise Frontier Safeguards , a solution that will give customers the option to safely deploy Anthropic’s most capable models while keeping their data in cloud infrastructure they control. The Enterprise Frontier Safeguards section that follows covers what this means on Amazon Bedrock. This post covers Claude Fable 5.1’s improvements, the Enterprise Frontier Safeguards, and how to start building with the model on Amazon Bedrock. What makes Claude Fable 5.1 different Anthropic reports Fable 5.1 is a clear improvement over Fable 5 on the hardest reasoning tests Anthropic runs. These tests include competition mathematics, graduate-level questions in engineering and the sciences, and long multi-step problems where reliability is key. In day-to-day use that shows up as better judgment on ambiguous tasks and fewer confident wrong answers: Agentic coding. Carries more of a project on its own, from code base-spanning features to code review and performance work, across multi-hour sessions. It is also more honest: if it gets stuck it says so, and it is less likely to disable a failing test to pass. Autonomous operation. Built for multi-hour jobs that span many applications. It plans, uses the tools it needs, recovers when a step fails, and keeps you updated without being asked. End-to-end knowledge work. Takes an analysis from first question to finished document, doing the research, building the spreadsheet, writing the memo or deck, and checking its numbers as it goes. Built for everyday finance, accounting, and healthcare work. Scientific research. Supports research campaigns from literature and hypotheses to models, experiments, and formal verification. Improved usability. Keeps you updated on long tasks, writes more clearly, and follows instructions more closely. Data retention Because Claude Fable 5.1 is a Covered Model , its use is subject to data retention for up to 30 days and human review by Amazon personnel. With Amazon Bedrock, you can control data retention through a mode on your account or Amazon Bedrock project, which you configure with the data retention API . Using Claude Fable 5.1 requires the aws_review mode, which you set before you invoke the model. In this mode, AWS retains your prompts and outputs for human safety review within the AWS boundary. Claude Fable 5.1 does not require sharing with the model provider. See Amazon Bedrock data retention for more details. Enterprise Frontier Safeguards Enterprise Frontier Safeguards (EFS), built in partnership between AWS and Anthropic, will help eligible customers use Claude Fable 5 and Claude Fable 5.1 models while keeping their data in a cloud environment they control. If you are an EFS-eligible customer, you can use Claude Fable 5 and Claude Fable 5.1 with zero data retention (ZDR) on Amazon Bedrock and Claude Platform on AWS. This is available for internal use through December 31, 2026. Additional Enterprise Frontier Safeguards will be available later this year, you will be able to keep your prompts and outputs in your AWS account, under your own encryption keys, access policies, and audit logging. Safety monitoring will be through automated review with no human review required. Getting started with Claude Fable 5.1 on Amazon Bedrock To try Fable 5.1, open the Amazon Bedrock console , go to Test > Playground , and select Fable 5.1 as the model. From there, you can run a prompt directly against it. Programmatically, you can call the model with the Anthropic Messages API against bedrock-runtime (through the Anthropic SDK). You can also stay on the Invoke and Converse APIs on bedrock-runtime through the AWS Command Line Interface (AWS CLI) and AWS SDK . Prerequisites Active AWS account with Amazon Bedrock access. AWS Command Line Interface (AWS CLI) installed and configured. Python 3.10+. Boto3 installed: pip install boto3 . AWS Identity and Access Management (IAM) permissions: bedrock:InvokeModel and bedrock:InvokeModelWithResponseStream . Here’s a quick example using the AWS SDK for Python (Boto3): import boto3 import json # Create a Bedrock Runtime client bedrock_runtime = boto3.client( service_name=\"bedrock-runtime\", region_name=\"us-east-1\" ) # Invoke Claude Fable 5.1 response = bedrock_runtime.invoke_model( modelId=\"global.anthropic.claude-fable-5-1\", contentType=\"application/json\", accept=\"application/json\", body=json.dumps({ \"anthropic_version\": \"bedrock-2023-05-31\", \"max_tokens\": 4096, \"messages\": [ { \"role\": \"user\", \"content\": \"An S3 bucket serves 40 TB/month egress. Estimate the monthly egress cost at $0.09/GB, and state one architecture change to cut it. Show the calculation, keep it under 120 words.\" } ] }) ) result = json.loads(response[\"body\"].read()) # Fable 5.1 is a reasoning model: the response may include a thinking block # before the text block, so select the text block rather than a fixed index. print(next(b[\"text\"] for b in result[\"content\"] if b[\"type\"] == \"text\")) You can explore the Getting Started notebook for more examples. Availability Claude Fable 5.1 is available today on Amazon Bedrock through the US Geo CRIS (us.) and Global CRIS (global.) inference profiles. In AWS GovCloud (US), it is available on both the bedrock-runtime and bedrock-mantle endpoints. See the Bedrock documentation for the full list of supported Regions. For pricing information, see Amazon Bedrock pricing . It is also available through Claude Platform on AWS in North America. Give Claude Fable 5.1 a try in the Amazon Bedrock console , in Claude Platform on AWS , or explore the Getting Started notebooks on GitHub. About the authors Dani Mitchell Dani is a Sr. generative AI Specialist Solutions Architect at AWS and the SA lead for Amazon Bedrock Knowledge Bases. He helps enterprises across the world design and deploy generative AI solutions using Amazon Bedrock and Anthropic’s models and capabilities to build scalable, production-ready applications. Aamna Najmi Aamna is a Senior Specialist Solutions Architect for Generative AI focusing on Anthropic models and operationalizing and governing generative AI systems at scale on Amazon Bedrock. She helps ISVs solve their challenges, embrace innovation, and create new business opportunities with Amazon Bedrock. Sofian Hamiti Sofian is a technology leader with over 12 years of experience building AI solutions, and leading high-performing teams to maximize customer outcomes. He is passionate about empowering diverse talents to drive global impact and achieve their career aspirations. Antonio Rodriguez Antonio is a Principal Generative AI Tech Leader at Amazon Web Services. He helps companies of all sizes solve their challenges, embrace innovation, and create new business opportunities with Amazon Bedrock. Ayan Ray Ayan is a Principal Partner Solutions Architect and AI Tech Lead at AWS, serving as the Worldwide Tech Lead for Anthropic at AWS. He works at the intersection of cloud architecture and Artificial Intelligence, helping organizations adopt and scale Anthropic’s technologies on AWS.",
-          "paragraphs": [
-            "Today, we’re excited to announce the availability of Claude Fable 5.1 on Amazon Bedrock and Claude Platform on AWS. Claude Fable 5.1 delivers frontier intelligence for ambitious tasks across coding, scientific research, and enterprise workflows.",
-            "Given its capabilities, Anthropic has designated Fable 5.1 a Covered Model , a category of Claude models that carry additional data retention, safety review, and access policies wherever they’re offered. For more information, see Amazon Bedrock abuse detection and Anthropic’s Covered Models page. Anthropic also announced the Enterprise Frontier Safeguards , a solution that will give customers the option to safely deploy Anthropic’s most capable models while keeping their data in cloud infrastructure they control. The Enterprise Frontier Safeguards section that follows covers what this means on Amazon Bedrock.",
-            "This post covers Claude Fable 5.1’s improvements, the Enterprise Frontier Safeguards, and how to start building with the model on Amazon Bedrock.",
-            "Anthropic reports Fable 5.1 is a clear improvement over Fable 5 on the hardest reasoning tests Anthropic runs. These tests include competition mathematics, graduate-level questions in engineering and the sciences, and long multi-step problems where reliability is key. In day-to-day use that shows up as better judgment on ambiguous tasks and fewer confident wrong answers:",
-            "Because Claude Fable 5.1 is a Covered Model , its use is subject to data retention for up to 30 days and human review by Amazon personnel. With Amazon Bedrock, you can control data retention through a mode on your account or Amazon Bedrock project, which you configure with the data retention API . Using Claude Fable 5.1 requires the aws_review mode, which you set before you invoke the model. In this mode, AWS retains your prompts and outputs for human safety review within the AWS boundary. Claude Fable 5.1 does not require sharing with the model provider. See Amazon Bedrock data retention for more details.",
-            "Enterprise Frontier Safeguards (EFS), built in partnership between AWS and Anthropic, will help eligible customers use Claude Fable 5 and Claude Fable 5.1 models while keeping their data in a cloud environment they control."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=1481",
-          "link": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-1-on-aws/"
-        },
-        "single_source_exception": true,
-        "is_single_source": true,
-        "editorial_label": "Xác thực chính thức"
-      },
-      "first_seen_at": "2026-09-01T19:57:04.726Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-51b0e96be16e-en",
-        "cluster_id": "feed-51b0e96be16e",
-        "language": "en",
-        "topic": "apps-software",
-        "content_type": "NewsArticle",
-        "slug": "microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed",
-        "title": "Microsoft and AWS build the multicloud bridge they said customers barely needed",
-        "summary": "New services promise private 100 Gbps links between the rival platforms without months of networking faff. Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed.",
-        "dek": "New services promise private 100 Gbps links between the rival platforms without months of networking faff.",
-        "hook": "New services promise private 100 Gbps links between the rival platforms without months of networking faff.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "New services promise private 100 Gbps links between the rival platforms without months of networking faff."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "creator-software-stack"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "The Register",
-            "source_url": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-01T14:16:00.000Z",
-            "image_url": "https://image.theregister.com/241502.jpg?imageId=241502&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-            "image_caption": "Reference image from The Register.",
-            "image_credit": "The Register"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-01T14:16:00.000Z",
-        "updated_at": "2026-09-01T14:16:00.000Z",
-        "image": {
-          "src": "https://image.theregister.com/241502.jpg?imageId=241502&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-          "caption": "Reference image from The Register.",
-          "credit": "The Register",
-          "source_url": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614"
-        },
-        "draft_context": {
-          "source_title": "Microsoft and AWS build the multicloud bridge they said customers barely needed",
-          "source_name": "The Register",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "internet-business-tech",
-          "content_type_hint": "",
-          "description": "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed. The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms. But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said. The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution. Until now, connecting Azure and AWS environments has required careful coordination of physical connectivity, routing, provisioning, monitoring, and lifecycle management, Microsoft says. What should be a straightforward decision can therefore take weeks or months to implement. But AWS previously told the UK's competition watchdog that there were no significant technical barriers to a multicloud strategy, saying \"customers can multicloud, switch between cloud providers when they want to.\" Microsoft, meanwhile, insisted there was little customer interest in multicloud \"other than in fairly specialized situations as it is not easy or convenient for customers.\" Now Microsoft claims that Azure Multicloud Interconnect fundamentally changes things, allowing its customers to establish dedicated private connectivity \"through a simplified experience that abstracts the underlying complexity of multicloud networking,\" Narayan Annamalai, Microsoft's VP and head of product for Azure Networking Services, wrote in a blog post. Annamalai said the result is a high-bandwidth, more predictable route to deploying multicloud architectures for mission-critical workloads. Connections can operate at up to 100 Gbps from day one, with scope for future growth. Microsoft sees an opportunity to extend this model beyond a single cloud-to-cloud relationship, as \"the same open API specification can help enable broader interoperability across hyperscale cloud providers.\" Amazon, meanwhile, says AWS Interconnect – multicloud now covers all three major rival platforms: Azure, Google Cloud, and Oracle Cloud Infrastructure. In a canned statement, Robert Kennedy, VP of Network Services at AWS, said: \"Customers told us they wanted a better way to connect workloads spanning AWS and Azure, and the old ways of doing it were clunky.\" \"With AWS Interconnect – multicloud and Azure Multicloud Interconnect, we're proving what's possible when both sides commit to a high bar: MACsec security out of the box, four-nines availability, and scalability at the click of a button.\" The companies advise customers interested in joining the Azure preview to contact their Microsoft or AWS account teams. ®",
-          "paragraphs": [
-            "New services promise private 100 Gbps links between the rival platforms without months of networking faff",
-            "Microsoft has unveiled a service for privately linking Azure and Amazon Web Services (AWS), overcoming multicloud barriers the providers previously claimed barely existed.",
-            "The Redmond biz says it is working with AWS on a solution that combines Azure Multicloud Interconnect with AWS Interconnect – multicloud, allowing customers to establish private, high-speed links between infrastructure running on the two platforms.",
-            "But Azure Multicloud Interconnect is currently in preview, and feature availability, performance targets, and timelines may evolve as the service moves toward general availability, the firm said.",
-            "The move mirrors a similar tie-up between AWS and Google Cloud late last year, based on an open specification the pair developed for network interoperability. Those open API specifications also underpin the Microsoft-AWS solution.",
-            "Until now, connecting Azure and AWS environments has required careful coordination of physical connectivity, routing, provisioning, monitoring, and lifecycle management, Microsoft says. What should be a straightforward decision can therefore take weeks or months to implement."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=606",
-          "link": "https://www.theregister.com/off-prem/2026/09/01/microsoft-and-aws-build-the-multicloud-bridge-they-said-customers-barely-needed/5293614"
-        }
-      },
-      "first_seen_at": "2026-09-01T19:58:24.265Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-87439335480a-en",
-        "cluster_id": "feed-87439335480a",
-        "language": "en",
-        "topic": "devices",
-        "content_type": "EvergreenGuide",
-        "slug": "lumus-quanta-reach-licensing-agreement-for-next-gen-waveguides-for-ar-glasses-that-may-turn-the",
-        "title": "Lumus, Quanta reach licensing agreement for next-gen waveguides for AR glasses that may turn the tide",
-        "summary": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen. In a press release, Lumus announced that it has expanded its partnership with Quanta Computing.",
-        "dek": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen.",
-        "hook": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen.",
-        "sections": [
-          {
-            "heading": "Where to start",
-            "body": "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen."
-          },
-          {
-            "heading": "The shortest path",
-            "body": "In a press release, Lumus announced that it has expanded its partnership with Quanta Computing. This expansion sees the two companies reaching a licensing agreement \"to manufacture three new geometric waveguides for AR glasses.\" The post states Lumus is developing three new waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV)."
-          },
-          {
-            "heading": "Common mistakes",
-            "body": "Thanks to the new licensing agreement, Quanta will handle manufacturing. What we can expect from the Z-30 2.0 is a 30-degree FOV \"in a thinner, lighter optical engine.\" Lumus adds that its latest technology increases the display's brightness, alongside direct prescription lens bonding. The two new A-Lens waveguides (30 and 50) are Lumus' \"lower-cost\" production solutions."
-          },
-          {
-            "heading": "Who should use it",
-            "body": "The next-gen A-Lens waveguides are reportedly cutting down the weight and thickness by 50%. However, Lumus states it maintained its image quality and efficiency with this upgrade. This is an ongoing trend that Lumus is trying to introduce into this advancing world of AR glasses. Trimming down waveguide weight and thickness is key, but so is image quality, brightness, and cost."
-          },
-          {
-            "heading": "Patrick Tech Media take",
-            "body": "Earlier today, Lumus' CEO, Ari Grobman, said, \"Our relationship with Quanta has always been built around solving the practical challenges of bringing advanced AR optics into mass production. This agreement allows us to bring our next generation of lower-cost waveguides into manufacturing with a partner that understands both the technology and the production requirements behind it.\"."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "full",
-        "related_store_items": [],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "Android Central",
-            "source_url": "https://www.androidcentral.com/gaming/virtual-reality/lumus-quanta-reach-licensing-agreement-waveguides-for-ar-glasses-turn-the-tide",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-01T18:36:40.000Z",
-            "image_url": "https://cdn.mos.cms.futurecdn.net/c4mMW3eameAbTyBgaAApEK-2560-80.jpg",
-            "image_caption": "Reference image from Android Central.",
-            "image_credit": "Android Central"
-          }
-        ],
-        "author_id": "quang-huy",
-        "published_at": "2026-09-01T18:36:40.000Z",
-        "updated_at": "2026-09-01T18:36:40.000Z",
-        "image": {
-          "src": "https://cdn.mos.cms.futurecdn.net/c4mMW3eameAbTyBgaAApEK-2560-80.jpg",
-          "caption": "Reference image from Android Central.",
-          "credit": "Android Central",
-          "source_url": "https://www.androidcentral.com/gaming/virtual-reality/lumus-quanta-reach-licensing-agreement-waveguides-for-ar-glasses-turn-the-tide"
-        },
-        "draft_context": {
-          "source_title": "Lumus, Quanta reach licensing agreement for next-gen waveguides for AR glasses that may turn the tide",
-          "source_name": "Android Central",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "What you need to know Lumus is expanding its partnership with Quanta this week, which brings a licensing agreement between the two companies for next-gen waveguides. Lumus states Quanta will manufacture its next-gen waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV). The company was at CES 2026 where it stated it's future for waveguides for AR glasses will be \"thinner, lighter, and easier to produce.\" This morning (Sept 1), Lumus, a developer of waveguides for several big-name brands, announced a major partnership expansion. In a press release, Lumus announced that it has expanded its partnership with Quanta Computing. This expansion sees the two companies reaching a licensing agreement \"to manufacture three new geometric waveguides for AR glasses.\" The post states Lumus is developing three new waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV). Thanks to the new licensing agreement, Quanta will handle manufacturing. What we can expect from the Z-30 2.0 is a 30-degree FOV \"in a thinner, lighter optical engine.\" Lumus adds that its latest technology increases the display's brightness, alongside direct prescription lens bonding. The two new A-Lens waveguides (30 and 50) are Lumus' \"lower-cost\" production solutions. The next-gen A-Lens waveguides are reportedly cutting down the weight and thickness by 50%. However, Lumus states it maintained its image quality and efficiency with this upgrade. This is an ongoing trend that Lumus is trying to introduce into this advancing world of AR glasses. Trimming down waveguide weight and thickness is key, but so is image quality, brightness, and cost. Earlier today, Lumus' CEO, Ari Grobman, said, \"Our relationship with Quanta has always been built around solving the practical challenges of bringing advanced AR optics into mass production. This agreement allows us to bring our next generation of lower-cost waveguides into manufacturing with a partner that understands both the technology and the production requirements behind it.\" Here comes the future, and Lumus is leading it (Image credit: Lumus) As mentioned before, Lumus creates waveguides for several brands, even for Meta and its Ray-Ban Display Glasses. Earlier this year, Meta announced that it was doubling the production of its Ray-Ban glasses to meet demand. This was something Lumus echoed in its press release this morning. The demand for smart glasses continues to rise, but there's room for improvement. Its work to reduce the weight and thickness of its waveguides for AR glasses is one such upgrade. Additionally, the lower-production-cost A-Lenses are designed to help bring more products to consumers. We'll have to see how things pan out going forward. On a related note, Lumus was at CES 2026 . This major tech event is where the company first stated what its plans were for the future of AR glasses. Lumus said, \"That's the future for us—making these waveguides thinner, lighter, and easier to produce.\" Its announcement today further echoes that sentiment. ]]>",
-          "paragraphs": [
-            "2 Viture, S-Game Phantom Beast collab has to be the dopest 'kungfupunk' XR glasses I've seen",
-            "In a press release, Lumus announced that it has expanded its partnership with Quanta Computing. This expansion sees the two companies reaching a licensing agreement \"to manufacture three new geometric waveguides for AR glasses.\" The post states Lumus is developing three new waveguides: the Z-30 2.0, A-Lens 30 (30-degree FOV), and A-Lens 50 (50-degree FOV).",
-            "Thanks to the new licensing agreement, Quanta will handle manufacturing. What we can expect from the Z-30 2.0 is a 30-degree FOV \"in a thinner, lighter optical engine.\" Lumus adds that its latest technology increases the display's brightness, alongside direct prescription lens bonding. The two new A-Lens waveguides (30 and 50) are Lumus' \"lower-cost\" production solutions.",
-            "The next-gen A-Lens waveguides are reportedly cutting down the weight and thickness by 50%. However, Lumus states it maintained its image quality and efficiency with this upgrade. This is an ongoing trend that Lumus is trying to introduce into this advancing world of AR glasses. Trimming down waveguide weight and thickness is key, but so is image quality, brightness, and cost.",
-            "Earlier today, Lumus' CEO, Ari Grobman, said, \"Our relationship with Quanta has always been built around solving the practical challenges of bringing advanced AR optics into mass production. This agreement allows us to bring our next generation of lower-cost waveguides into manufacturing with a partner that understands both the technology and the production requirements behind it.\"",
-            "Exclusive: The future of Viture smart glasses is bright. Very bright Samsung shows off ultra-bright XR displays that could power future smart glasses Get it reserved: Xreal's Aura smart glasses refresh the game with powerful Android XR and AI Here comes the future, and Lumus is leading it"
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=773",
-          "link": "https://www.androidcentral.com/gaming/virtual-reality/lumus-quanta-reach-licensing-agreement-waveguides-for-ar-glasses-turn-the-tide"
-        }
-      },
-      "first_seen_at": "2026-09-01T19:58:24.265Z",
+      "first_seen_at": "2026-09-01T20:11:32.633Z",
       "retry_count": 0,
       "last_retry_at": ""
     }
