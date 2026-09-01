@@ -193,6 +193,8 @@ export function createTelegramNewsroomBot(options = {}) {
           createControlJob,
           dispatchWorkflow,
           openClawEnabled,
+          store: socialStore,
+          defaults: socialDefaults,
           socialStore,
           socialDefaults
         };
