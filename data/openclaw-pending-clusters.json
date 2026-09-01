@@ -1,94 +1,6 @@
 {
-  "generated_at": "2026-09-01T21:08:19.057Z",
+  "generated_at": "2026-09-01T21:17:20.025Z",
   "items": [
-    {
-      "article": {
-        "id": "feed-f0f075a1bac3-en",
-        "cluster_id": "feed-f0f075a1bac3",
-        "language": "en",
-        "topic": "chips-ai-infra",
-        "content_type": "NewsArticle",
-        "slug": "it-s-been-particularly-bad-since-blackwell-nvidia-s-new-gpu-driver-has-another-nasty-bug-and-gam",
-        "title": "'It's been particularly bad since Blackwell': Nvidia's new GPU driver has another nasty bug — and gamers are rapidly losing patience",
-        "summary": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series.",
-        "dek": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers.",
-        "hook": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "For example, this Redditor says: \"It's been particularly bad since Blackwell [RTX 5000] release. Just on Blackwell alone, between the whole DisplayPort 2.1 not working with HDR , screen flickering, and black screens on the initial release, it's been a complete mess.\"."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "Windows 10 loses support for Nvidia GPUs soon: here's what you need to know Redditor explains how Windows 11 can end up stripping out your GPU driver Microsoft's investigating reports of games crashing after Windows 11 update Another gamer complains : \"It is pretty shocking seeing this from a trillionaire company on a stable build. Nothing about this driver is stable.\"."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "Yet another Redditor grumbles : \"It's crazy how things are now. You used to be able to update each time or be one driver behind at worst. Now I'm half a year outdated and thinking I'll just leave it.\"."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "This seems like quite a widespread issue and one that affects modern Nvidia graphics cards all the way back to RTX 2000 models."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "off",
-        "related_store_items": [],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "TechRadar",
-            "source_url": "https://www.techradar.com/computing/gpu/its-been-particularly-bad-since-blackwell-nvidias-new-gpu-driver-has-another-nasty-bug-and-gamers-are-rapidly-losing-patience",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-01T20:00:00.000Z",
-            "image_url": "https://cdn.mos.cms.futurecdn.net/fB4xhGeRkAJAnQZ5YUNiLR-1920-80.jpg",
-            "image_caption": "Reference image from TechRadar.",
-            "image_credit": "TechRadar"
-          }
-        ],
-        "author_id": "quang-huy",
-        "published_at": "2026-09-01T20:00:00.000Z",
-        "updated_at": "2026-09-01T20:00:00.000Z",
-        "image": {
-          "src": "https://cdn.mos.cms.futurecdn.net/fB4xhGeRkAJAnQZ5YUNiLR-1920-80.jpg",
-          "caption": "Reference image from TechRadar.",
-          "credit": "TechRadar",
-          "source_url": "https://www.techradar.com/computing/gpu/its-been-particularly-bad-since-blackwell-nvidias-new-gpu-driver-has-another-nasty-bug-and-gamers-are-rapidly-losing-patience"
-        },
-        "draft_context": {
-          "source_title": "'It's been particularly bad since Blackwell': Nvidia's new GPU driver has another nasty bug — and gamers are rapidly losing patience",
-          "source_name": "TechRadar",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "Nvidia's latest graphics driver has a frustrating bug Version 616.56 is causing distracting screen flickers and color corruption A patch is coming, and there are potential workarounds — but gamers are getting fed up with the prevalence of bugs in GeForce drivers Nvidia's latest graphics driver is causing chaos for some GeForce GPU owners in the form of a glitch that makes the screen flicker. Wccftech spotted the bug with Nvidia's Game Ready Driver version 616.56, and as flagged by Renan Maniero on X, Team Green has said it's testing a fix for the issue (as revealed on the GeForce forums). The screen is reportedly flickering white or black and exhibiting other brief flashes of color corruption, and this is happening in certain games ( The Last of Us and Minecraft are mentioned, among others) or on the Windows desktop. It's also occurring in web browser sessions and while playing YouTube videos, based on Reddit reports — of which there are plenty. There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series. For example, this Redditor says: \"It's been particularly bad since Blackwell [RTX 5000] release. Just on Blackwell alone, between the whole DisplayPort 2.1 not working with HDR, screen flickering, and black screens on the initial release, it's been a complete mess.\" Another gamer complains : \"It is pretty shocking seeing this from a trillionaire company on a stable build. Nothing about this driver is stable.\" Yet another Redditor grumbles : \"It's crazy how things are now. You used to be able to update each time or be one driver behind at worst. Now I'm half a year outdated and thinking I'll just leave it.\" Analysis: more drivers, more problems? There are possible workarounds though Even older GeForce graphics cards are affected here (Image credit: Future) This seems like quite a widespread issue and one that affects modern Nvidia graphics cards all the way back to RTX 2000 models. If you're getting frustrated by this bug — random screen flickering gets pretty old, pretty fast, if it's happening regularly — Maniero also shared an apparent potential workaround on X that you can try while waiting for the official fix. Seemingly, this is a bug that mostly affects monitors in 8-bit mode, and if you switch to 10-bit color (assuming your display supports this), the problem may disappear. Maniero also suggests that you try turning on Windows Auto Color Management (ACM). Other folks on Reddit have shared various possible remedies, including switching from DisplayPort to an HDMI connector instead, and disabling Multi-Plane Overlay (MPO) in Windows 11, as one Redditor suggested . Nvidia provides a Registry file for turning off MPO (and enabling it again), but as ever with anything in this area of Windows, proceed at your own risk. (Although this method should be much safer than trying to edit the Registry directly yourself). Your other choice is simply to roll back driver 616.56 to an earlier version, and there's no shortage of gamers who've done exactly that and report that the problem vanishes. Hopefully Nvidia's official flicker-begone patch will be coming soon enough in the form of a hotfix, because this is an unduly annoying gremlin in the GeForce works that needs to be sorted out promptly. ]]>",
-          "paragraphs": [
-            "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series.",
-            "For example, this Redditor says: \"It's been particularly bad since Blackwell [RTX 5000] release. Just on Blackwell alone, between the whole DisplayPort 2.1 not working with HDR , screen flickering, and black screens on the initial release, it's been a complete mess.\"",
-            "Windows 10 loses support for Nvidia GPUs soon: here's what you need to know Redditor explains how Windows 11 can end up stripping out your GPU driver Microsoft's investigating reports of games crashing after Windows 11 update Another gamer complains : \"It is pretty shocking seeing this from a trillionaire company on a stable build. Nothing about this driver is stable.\"",
-            "Yet another Redditor grumbles : \"It's crazy how things are now. You used to be able to update each time or be one driver behind at worst. Now I'm half a year outdated and thinking I'll just leave it.\"",
-            "This seems like quite a widespread issue and one that affects modern Nvidia graphics cards all the way back to RTX 2000 models."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=5; words=783",
-          "link": "https://www.techradar.com/computing/gpu/its-been-particularly-bad-since-blackwell-nvidias-new-gpu-driver-has-another-nasty-bug-and-gamers-are-rapidly-losing-patience"
-        }
-      },
-      "first_seen_at": "2026-09-01T20:10:03.326Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
     {
       "article": {
         "id": "feed-28a58dda4ede-en",
@@ -1019,6 +931,97 @@
     },
     {
       "article": {
+        "id": "feed-f0f075a1bac3-en",
+        "cluster_id": "feed-f0f075a1bac3",
+        "language": "en",
+        "topic": "chips-ai-infra",
+        "content_type": "NewsArticle",
+        "slug": "it-s-been-particularly-bad-since-blackwell-nvidia-s-new-gpu-driver-has-another-nasty-bug-and-gam",
+        "title": "'It's been particularly bad since Blackwell': Nvidia's new GPU driver has another nasty bug — and gamers are rapidly losing patience",
+        "summary": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series.",
+        "dek": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers.",
+        "hook": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "For example, this Redditor says: \"It's been particularly bad since Blackwell [RTX 5000] release. Just on Blackwell alone, between the whole DisplayPort 2.1 not working with HDR , screen flickering, and black screens on the initial release, it's been a complete mess.\"."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "Windows 10 loses support for Nvidia GPUs soon: here's what you need to know Redditor explains how Windows 11 can end up stripping out your GPU driver Microsoft's investigating reports of games crashing after Windows 11 update Another gamer complains : \"It is pretty shocking seeing this from a trillionaire company on a stable build. Nothing about this driver is stable.\"."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Yet another Redditor grumbles : \"It's crazy how things are now. You used to be able to update each time or be one driver behind at worst. Now I'm half a year outdated and thinking I'll just leave it.\"."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "This seems like quite a widespread issue and one that affects modern Nvidia graphics cards all the way back to RTX 2000 models."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "TechRadar",
+            "source_url": "https://www.techradar.com/computing/gpu/its-been-particularly-bad-since-blackwell-nvidias-new-gpu-driver-has-another-nasty-bug-and-gamers-are-rapidly-losing-patience",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-01T20:00:00.000Z",
+            "image_url": "https://cdn.mos.cms.futurecdn.net/fB4xhGeRkAJAnQZ5YUNiLR-1920-80.jpg",
+            "image_caption": "Reference image from TechRadar.",
+            "image_credit": "TechRadar"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-01T20:00:00.000Z",
+        "updated_at": "2026-09-01T20:00:00.000Z",
+        "image": {
+          "src": "https://cdn.mos.cms.futurecdn.net/fB4xhGeRkAJAnQZ5YUNiLR-1920-80.jpg",
+          "caption": "Reference image from TechRadar.",
+          "credit": "TechRadar",
+          "source_url": "https://www.techradar.com/computing/gpu/its-been-particularly-bad-since-blackwell-nvidias-new-gpu-driver-has-another-nasty-bug-and-gamers-are-rapidly-losing-patience"
+        },
+        "draft_context": {
+          "source_title": "'It's been particularly bad since Blackwell': Nvidia's new GPU driver has another nasty bug — and gamers are rapidly losing patience",
+          "source_name": "TechRadar",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Nvidia's latest graphics driver has a frustrating bug Version 616.56 is causing distracting screen flickers and color corruption A patch is coming, and there are potential workarounds — but gamers are getting fed up with the prevalence of bugs in GeForce drivers Nvidia's latest graphics driver is causing chaos for some GeForce GPU owners in the form of a glitch that makes the screen flicker. Wccftech spotted the bug with Nvidia's Game Ready Driver version 616.56, and as flagged by Renan Maniero on X, Team Green has said it's testing a fix for the issue (as revealed on the GeForce forums). The screen is reportedly flickering white or black and exhibiting other brief flashes of color corruption, and this is happening in certain games ( The Last of Us and Minecraft are mentioned, among others) or on the Windows desktop. It's also occurring in web browser sessions and while playing YouTube videos, based on Reddit reports — of which there are plenty. There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series. For example, this Redditor says: \"It's been particularly bad since Blackwell [RTX 5000] release. Just on Blackwell alone, between the whole DisplayPort 2.1 not working with HDR, screen flickering, and black screens on the initial release, it's been a complete mess.\" Another gamer complains : \"It is pretty shocking seeing this from a trillionaire company on a stable build. Nothing about this driver is stable.\" Yet another Redditor grumbles : \"It's crazy how things are now. You used to be able to update each time or be one driver behind at worst. Now I'm half a year outdated and thinking I'll just leave it.\" Analysis: more drivers, more problems? There are possible workarounds though Even older GeForce graphics cards are affected here (Image credit: Future) This seems like quite a widespread issue and one that affects modern Nvidia graphics cards all the way back to RTX 2000 models. If you're getting frustrated by this bug — random screen flickering gets pretty old, pretty fast, if it's happening regularly — Maniero also shared an apparent potential workaround on X that you can try while waiting for the official fix. Seemingly, this is a bug that mostly affects monitors in 8-bit mode, and if you switch to 10-bit color (assuming your display supports this), the problem may disappear. Maniero also suggests that you try turning on Windows Auto Color Management (ACM). Other folks on Reddit have shared various possible remedies, including switching from DisplayPort to an HDMI connector instead, and disabling Multi-Plane Overlay (MPO) in Windows 11, as one Redditor suggested . Nvidia provides a Registry file for turning off MPO (and enabling it again), but as ever with anything in this area of Windows, proceed at your own risk. (Although this method should be much safer than trying to edit the Registry directly yourself). Your other choice is simply to roll back driver 616.56 to an earlier version, and there's no shortage of gamers who've done exactly that and report that the problem vanishes. Hopefully Nvidia's official flicker-begone patch will be coming soon enough in the form of a hotfix, because this is an unduly annoying gremlin in the GeForce works that needs to be sorted out promptly. ]]>",
+          "paragraphs": [
+            "There's no shortage of gamers losing their temper with Nvidia, too, and blasting Team Green for the quality of its graphics drivers. Many are venting with an observation that GeForce drivers just haven't been the same since the launch of the RTX 5000 series.",
+            "For example, this Redditor says: \"It's been particularly bad since Blackwell [RTX 5000] release. Just on Blackwell alone, between the whole DisplayPort 2.1 not working with HDR , screen flickering, and black screens on the initial release, it's been a complete mess.\"",
+            "Windows 10 loses support for Nvidia GPUs soon: here's what you need to know Redditor explains how Windows 11 can end up stripping out your GPU driver Microsoft's investigating reports of games crashing after Windows 11 update Another gamer complains : \"It is pretty shocking seeing this from a trillionaire company on a stable build. Nothing about this driver is stable.\"",
+            "Yet another Redditor grumbles : \"It's crazy how things are now. You used to be able to update each time or be one driver behind at worst. Now I'm half a year outdated and thinking I'll just leave it.\"",
+            "This seems like quite a widespread issue and one that affects modern Nvidia graphics cards all the way back to RTX 2000 models."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=5; words=783",
+          "link": "https://www.techradar.com/computing/gpu/its-been-particularly-bad-since-blackwell-nvidias-new-gpu-driver-has-another-nasty-bug-and-gamers-are-rapidly-losing-patience"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
+      },
+      "first_seen_at": "2026-09-01T21:15:45.129Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
         "id": "feed-171a5a142215-vi",
         "cluster_id": "feed-171a5a142215",
         "language": "vi",
@@ -1102,7 +1105,7 @@
           "link": "https://vnexpress.net/nhieu-lanh-dao-trong-he-sinh-thai-vingroup-thu-nhap-tien-ty-moi-thang-5115485.html"
         }
       },
-      "first_seen_at": "2026-09-01T21:07:02.121Z",
+      "first_seen_at": "2026-09-01T21:16:03.056Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1191,7 +1194,7 @@
           "link": "https://vnexpress.net/tai-sao-may-bay-bien-mat-khoi-radar-khi-qua-dai-duong-5114689.html"
         }
       },
-      "first_seen_at": "2026-09-01T21:07:02.121Z",
+      "first_seen_at": "2026-09-01T21:16:03.056Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1279,7 +1282,7 @@
           "link": "https://genk.vn/xiaomi-nghi-gi-khi-ban-dien-thoai-poco-gia-30-trieu-16526090121323739.chn"
         }
       },
-      "first_seen_at": "2026-09-01T21:07:02.121Z",
+      "first_seen_at": "2026-09-01T21:16:03.056Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1370,7 +1373,7 @@
           "link": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
         }
       },
-      "first_seen_at": "2026-09-01T21:07:02.121Z",
+      "first_seen_at": "2026-09-01T21:16:03.056Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1464,7 +1467,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-01T21:07:02.121Z",
+      "first_seen_at": "2026-09-01T21:16:03.056Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1555,7 +1558,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-01T21:07:02.121Z",
+      "first_seen_at": "2026-09-01T21:16:03.056Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1646,7 +1649,7 @@
           "link": "https://www.windowscentral.com/hardware/laptops/best-buys-labor-day-sale-has-brought-one-of-our-favorite-high-class-gaming-laptops-memory-crisis-induced-price-hike-down-by-24-percent"
         }
       },
-      "first_seen_at": "2026-09-01T21:07:02.121Z",
+      "first_seen_at": "2026-09-01T21:16:03.056Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1736,7 +1739,7 @@
           "link": "https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/"
         }
       },
-      "first_seen_at": "2026-09-01T21:07:02.121Z",
+      "first_seen_at": "2026-09-01T21:16:03.056Z",
       "retry_count": 0,
       "last_retry_at": ""
     }
