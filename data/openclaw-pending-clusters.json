@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T17:37:53.779Z",
+  "generated_at": "2026-09-02T17:50:42.449Z",
   "items": [
     {
       "article": {
@@ -5192,370 +5192,6 @@
     },
     {
       "article": {
-        "id": "feed-11a280666c01-vi",
-        "cluster_id": "feed-11a280666c01",
-        "language": "vi",
-        "topic": "ai",
-        "content_type": "EvergreenGuide",
-        "slug": "ai-moi-cua-openai-co-the-tu-tim-va-khai-thac-lo-hong-bao-mat",
-        "title": "AI mới của OpenAI có thể tự tìm và khai thác lỗ hổng bảo mật",
-        "summary": "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình. Theo công ty, Astra là mô hình đầu tiên của OpenAI vượt ngưỡng \"Critical\" (nghiêm trọng) về năng lực an ninh mạng, theo bộ khung tiêu chuẩn mà hãng dùng để đánh giá những khả năng AI có thể gây rủi ro cao.",
-        "dek": "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình.",
-        "hook": "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình.",
-        "sections": [
-          {
-            "heading": "Bắt đầu từ đâu",
-            "body": "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình."
-          },
-          {
-            "heading": "Làm theo cách gọn nhất",
-            "body": "Theo công ty, Astra là mô hình đầu tiên của OpenAI vượt ngưỡng \"Critical\" (nghiêm trọng) về năng lực an ninh mạng, theo bộ khung tiêu chuẩn mà hãng dùng để đánh giá những khả năng AI có thể gây rủi ro cao."
-          },
-          {
-            "heading": "Lỗi dễ gặp",
-            "body": "Ở mức này, OpenAI đánh giá khi được cung cấp công cụ và quyền truy cập phù hợp, mô hình có thể \"tự tìm các lỗ hổng bảo mật chưa từng được biết đến và phát triển cách khai thác chúng trên nhiều hệ thống được bảo vệ, mà không cần con người hướng dẫn từng bước\"."
-          },
-          {
-            "heading": "Ai nên áp dụng",
-            "body": "\"Đây là mô hình đầu tiên chúng tôi chỉ định ở cấp độ này và yêu cầu các biện pháp bảo vệ mạnh mẽ hơn trong quá trình phát triển và trước khi phát hành\", OpenAI giới thiệu."
-          },
-          {
-            "heading": "Patrick Tech Media đánh giá",
-            "body": "Trong một số thử nghiệm được OpenAI nêu trong bài giới thiệu, hãng cho biết Astra đã đạt 100% trên ExploitBench - bài đánh giá khả năng phát triển công cụ khai thác từ những lỗ hổng có sẵn. Chẳng hạn, Astra khai thác các lỗ hổng này tốt hơn đáng kể so với mô hình GPT-5.6 Sol, trong khi cần ít dữ liệu đầu ra hơn để hoàn thành nhiệm vụ. Trong quá trình thử nghiệm, Astra đã tự phát hiện và khai thác hai lỗ hổng zero-day chưa từng được biết đến, kết hợp chúng vào một chuỗi tấn công. OpenAI cho biết đang phối hợp với các đơn vị duy trì phần mềm để công bố và xử lý hai lỗ hổng này."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "full",
-        "related_store_items": [
-          "ai-workspace-bundle"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "VnExpress Khoa Hoc",
-            "source_url": "https://vnexpress.net/ai-moi-cua-openai-co-the-tu-tim-va-khai-thac-lo-hong-bao-mat-5115861.html",
-            "region": "VN",
-            "language": "vi",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-02T14:58:03.000Z",
-            "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/02/2026-06-17T154942Z-1529554655-8094-4305-1788360436.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=EDNQWTT64COxzf726TAuaQ",
-            "image_caption": "Ảnh tham khảo từ VnExpress Khoa Hoc.",
-            "image_credit": "VnExpress Khoa Hoc"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-02T14:58:03.000Z",
-        "updated_at": "2026-09-02T14:58:03.000Z",
-        "image": {
-          "src": "https://i2-vnexpress.vnecdn.net/2026/09/02/2026-06-17T154942Z-1529554655-8094-4305-1788360436.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=EDNQWTT64COxzf726TAuaQ",
-          "caption": "Ảnh tham khảo từ VnExpress Khoa Hoc.",
-          "credit": "VnExpress Khoa Hoc",
-          "source_url": "https://vnexpress.net/ai-moi-cua-openai-co-the-tu-tim-va-khai-thac-lo-hong-bao-mat-5115861.html"
-        },
-        "draft_context": {
-          "source_title": "AI mới của OpenAI có thể tự tìm và khai thác lỗ hổng bảo mật",
-          "source_name": "VnExpress Khoa Hoc",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "chips-ai-infra",
-          "content_type_hint": "",
-          "description": "Mô hình Astra của OpenAI có thể tự phát hiện lỗ hổng bảo mật chưa từng được biết đến, sau đó kết hợp chúng thành chuỗi khai thác mà không cần con người hướng dẫn từng bước.",
-          "paragraphs": [
-            "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình.",
-            "Theo công ty, Astra là mô hình đầu tiên của OpenAI vượt ngưỡng \"Critical\" (nghiêm trọng) về năng lực an ninh mạng, theo bộ khung tiêu chuẩn mà hãng dùng để đánh giá những khả năng AI có thể gây rủi ro cao.",
-            "Ở mức này, OpenAI đánh giá khi được cung cấp công cụ và quyền truy cập phù hợp, mô hình có thể \"tự tìm các lỗ hổng bảo mật chưa từng được biết đến và phát triển cách khai thác chúng trên nhiều hệ thống được bảo vệ, mà không cần con người hướng dẫn từng bước\".",
-            "\"Đây là mô hình đầu tiên chúng tôi chỉ định ở cấp độ này và yêu cầu các biện pháp bảo vệ mạnh mẽ hơn trong quá trình phát triển và trước khi phát hành\", OpenAI giới thiệu.",
-            "Trong một số thử nghiệm được OpenAI nêu trong bài giới thiệu, hãng cho biết Astra đã đạt 100% trên ExploitBench - bài đánh giá khả năng phát triển công cụ khai thác từ những lỗ hổng có sẵn. Chẳng hạn, Astra khai thác các lỗ hổng này tốt hơn đáng kể so với mô hình GPT-5.6 Sol, trong khi cần ít dữ liệu đầu ra hơn để hoàn thành nhiệm vụ. Trong quá trình thử nghiệm, Astra đã tự phát hiện và khai thác hai lỗ hổng zero-day chưa từng được biết đến, kết hợp chúng vào một chuỗi tấn công. OpenAI cho biết đang phối hợp với các đơn vị duy trì phần mềm để công bố và xử lý hai lỗ hổng này.",
-            "Sam Altman, CEO OpenAI, trong Hội nghị thượng đỉnh G7 diễn ra tại Evian-les-Bains, Pháp, ngày 17/6. Ảnh: Reuters"
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=367",
-          "link": "https://vnexpress.net/ai-moi-cua-openai-co-the-tu-tim-va-khai-thac-lo-hong-bao-mat-5115861.html"
-        }
-      },
-      "first_seen_at": "2026-09-02T17:36:31.269Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-391337426d39-vi",
-        "cluster_id": "feed-391337426d39",
-        "language": "vi",
-        "topic": "apps-software",
-        "content_type": "NewsArticle",
-        "slug": "nhung-ieu-can-lam-truoc-khi-cap-nhat-len-ios-27",
-        "title": "Những điều cần làm trước khi cập nhật lên iOS 27",
-        "summary": "Hệ điều hành iOS 27 dự kiến ra mắt vào mùa thu năm nay, mang lại trải nghiệm Siri mới, nâng cấp Liquid Glass cùng các cải tiến Visual Intelligence cho các dòng máy từ iPhone 11 trở lên. Nhưng trước khi nâng cấp lên phiên bản mới, bạn cần thực hiện một số việc quan trọng để tránh ảnh hưởng tới dữ liệu trên iPhone.",
-        "dek": "Hệ điều hành iOS 27 dự kiến ra mắt vào mùa thu năm nay, mang lại trải nghiệm Siri mới, nâng cấp Liquid Glass cùng các cải tiến Visual Intelligence cho các dòng máy từ iPhone 11 trở lên.",
-        "hook": "Hệ điều hành iOS 27 dự kiến ra mắt vào mùa thu năm nay, mang lại trải nghiệm Siri mới, nâng cấp Liquid Glass cùng các cải tiến Visual Intelligence cho các dòng máy từ iPhone 11 trở lên.",
-        "sections": [
-          {
-            "heading": "Bối cảnh: điều gì đang đổi",
-            "body": "Hệ điều hành iOS 27 dự kiến ra mắt vào mùa thu năm nay, mang lại trải nghiệm Siri mới, nâng cấp Liquid Glass cùng các cải tiến Visual Intelligence cho các dòng máy từ iPhone 11 trở lên. Nhưng trước khi nâng cấp lên phiên bản mới, bạn cần thực hiện một số việc quan trọng để tránh ảnh hưởng tới dữ liệu trên iPhone."
-          },
-          {
-            "heading": "Các nguồn đang khớp nhau ở đâu",
-            "body": "Để phòng ngừa rủi ro phần mềm gặp sự cố làm mất dữ liệu hoặc phải khôi phục cài đặt gốc, việc sao lưu iPhone là ưu tiên bắt buộc trước khi cập nhật . Người dùng có thể chủ động lưu trữ dữ liệu thông qua nền tảng đám mây iCloud hoặc cắm cáp kết nối máy tính để sao lưu qua Finder trên Mac hoặc iTunes trên Windows."
-          },
-          {
-            "heading": "Tác động thực tế với người đọc",
-            "body": "iPhone cần được chuẩn bị một số bước trước khi nâng cấp lên iOS 27."
-          },
-          {
-            "heading": "Ai nên chú ý lúc này",
-            "body": "Dù gói cài đặt dự kiến có kích thước dưới 5 GB, người dùng vẫn cần dọn dẹp bộ nhớ trống từ 18 đến 25 GB để đảm bảo quá trình cập nhật diễn ra trơn tru. Bạn có thể vào mục Dung lượng iPhone (iPhone Storage) trong Cài đặt chung (General) để xóa các tệp đính kèm lớn trong ứng dụng Tin nhắn hoặc hợp nhất các bức ảnh trùng lặp. Bên cạnh đó, tính năng gỡ bỏ ứng dụng không dùng (Offload App) cũng giúp giải phóng bộ nhớ hiệu quả nhưng vẫn bảo lưu trọn vẹn dữ liệu cá nhân khi tải lại."
-          },
-          {
-            "heading": "Điều cần theo dõi tiếp",
-            "body": "Người dùng cần lưu ý kiểm tra tính tương thích của các phần mềm quan trọng như ứng dụng công việc, ứng dụng học tập hoặc ngân hàng vì nhà phát triển có thể chưa kịp tung ra bản vá mới. Việc ghi nhớ chính xác tài khoản Apple ID cùng mật khẩu khóa máy cũng quan trọng nhằm tránh việc phải đưa thiết bị về chế độ Recovery Mode gây mất dữ liệu. Nếu các ứng dụng thiết yếu chưa sẵn sàng, bạn hoàn toàn có thể cân nhắc hoãn cập nhật hoặc dùng máy tính thay thế tạm thời."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "creator-software-stack"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "Thanh Nien Cong Nghe",
-            "source_url": "https://thanhnien.vn/nhung-dieu-can-lam-truoc-khi-cap-nhat-len-ios-27-185260902114739011.htm",
-            "region": "VN",
-            "language": "vi",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-02T07:43:00.000Z",
-            "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/2/ios-17883247315152097872933-25-0-900-1672-crop-17883248257621810320424.jpg",
-            "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-            "image_credit": "Thanh Nien Cong Nghe"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-02T07:43:00.000Z",
-        "updated_at": "2026-09-02T07:43:00.000Z",
-        "image": {
-          "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/2/ios-17883247315152097872933-25-0-900-1672-crop-17883248257621810320424.jpg",
-          "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-          "credit": "Thanh Nien Cong Nghe",
-          "source_url": "https://thanhnien.vn/nhung-dieu-can-lam-truoc-khi-cap-nhat-len-ios-27-185260902114739011.htm"
-        },
-        "draft_context": {
-          "source_title": "Những điều cần làm trước khi cập nhật lên iOS 27",
-          "source_name": "Thanh Nien Cong Nghe",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "Để trải nghiệm các tính năng mới mượt mà và tránh rủi ro mất dữ liệu, người dùng iPhone cần thực hiện các bước chuẩn bị kỹ lưỡng trước khi nâng cấp lên iOS 27.",
-          "paragraphs": [
-            "H&#7879; &#273;i&#7873;u h&agrave;nh iOS 27 d&#7921; ki&#7871;n ra m&#7855;t v&agrave;o m&ugrave;a thu n&#259;m nay, mang l&#7841;i tr&#7843;i nghi&#7879;m Siri m&#7899;i, n&acirc;ng c&#7845;p Liquid Glass c&ugrave;ng c&aacute;c c&#7843;i ti&#7871;n Visual Intelligence cho c&aacute;c d&ograve;ng m&aacute;y t&#7915; iPhone 11 tr&#7903; l&ecirc;n. Nh&#432;ng tr&#432;&#7899;c khi n&acirc;ng c&#7845;p l&ecirc;n phi&ecirc;n b&#7843;n m&#7899;i, b&#7841;n c&#7847;n th&#7921;c hi&#7879;n m&#7897;t s&#7889; vi&#7879;c quan tr&#7885;ng &#273;&#7875; tr&aacute;nh &#7843;nh h&#432;&#7903;ng t&#7899;i d&#7919; li&#7879;u tr&ecirc;n iPhone.",
-            "&#272;&#7875; ph&ograve;ng ng&#7915;a r&#7911;i ro ph&#7847;n m&#7873;m g&#7863;p s&#7921; c&#7889; l&agrave;m m&#7845;t d&#7919; li&#7879;u ho&#7863;c ph&#7843;i kh&ocirc;i ph&#7909;c c&agrave;i &#273;&#7863;t g&#7889;c, vi&#7879;c sao l&#432;u iPhone l&agrave; &#432;u ti&ecirc;n b&#7855;t bu&#7897;c tr&#432;&#7899;c khi c&#7853;p nh&#7853;t . Ng&#432;&#7901;i d&ugrave;ng c&oacute; th&#7875; ch&#7911; &#273;&#7897;ng l&#432;u tr&#7919; d&#7919; li&#7879;u th&ocirc;ng qua n&#7873;n t&#7843;ng &#273;&aacute;m m&acirc;y iCloud ho&#7863;c c&#7855;m c&aacute;p k&#7871;t n&#7889;i m&aacute;y t&iacute;nh &#273;&#7875; sao l&#432;u qua Finder tr&ecirc;n Mac ho&#7863;c iTunes tr&ecirc;n Windows.",
-            "iPhone c&#7847;n &#273;&#432;&#7907;c chu&#7849;n b&#7883; m&#7897;t s&#7889; b&#432;&#7899;c tr&#432;&#7899;c khi n&acirc;ng c&#7845;p l&ecirc;n iOS 27",
-            "D&ugrave; g&oacute;i c&agrave;i &#273;&#7863;t d&#7921; ki&#7871;n c&oacute; k&iacute;ch th&#432;&#7899;c d&#432;&#7899;i 5 GB, ng&#432;&#7901;i d&ugrave;ng v&#7851;n c&#7847;n d&#7885;n d&#7865;p b&#7897; nh&#7899; tr&#7889;ng t&#7915; 18 &#273;&#7871;n 25 GB &#273;&#7875; &#273;&#7843;m b&#7843;o qu&aacute; tr&igrave;nh c&#7853;p nh&#7853;t di&#7877;n ra tr&#417;n tru. B&#7841;n c&oacute; th&#7875; v&agrave;o m&#7909;c Dung l&#432;&#7907;ng iPhone (iPhone Storage) trong C&agrave;i &#273;&#7863;t chung (General) &#273;&#7875; x&oacute;a c&aacute;c t&#7879;p &#273;&iacute;nh k&egrave;m l&#7899;n trong &#7913;ng d&#7909;ng Tin nh&#7855;n ho&#7863;c h&#7907;p nh&#7845;t c&aacute;c b&#7913;c &#7843;nh tr&ugrave;ng l&#7863;p. B&ecirc;n c&#7841;nh &#273;&oacute;, t&iacute;nh n&#259;ng g&#7905; b&#7887; &#7913;ng d&#7909;ng kh&ocirc;ng d&ugrave;ng (Offload App) c&#361;ng gi&uacute;p gi&#7843;i ph&oacute;ng b&#7897; nh&#7899; hi&#7879;u qu&#7843; nh&#432;ng v&#7851;n b&#7843;o l&#432;u tr&#7885;n v&#7865;n d&#7919; li&#7879;u c&aacute; nh&acirc;n khi t&#7843;i l&#7841;i.",
-            "Ng&#432;&#7901;i d&ugrave;ng c&#7847;n l&#432;u &yacute; ki&#7875;m tra t&iacute;nh t&#432;&#417;ng th&iacute;ch c&#7911;a c&aacute;c ph&#7847;n m&#7873;m quan tr&#7885;ng nh&#432; &#7913;ng d&#7909;ng c&ocirc;ng vi&#7879;c, &#7913;ng d&#7909;ng h&#7885;c t&#7853;p ho&#7863;c ng&acirc;n h&agrave;ng v&igrave; nh&agrave; ph&aacute;t tri&#7875;n c&oacute; th&#7875; ch&#432;a k&#7883;p tung ra b&#7843;n v&aacute; m&#7899;i. Vi&#7879;c ghi nh&#7899; ch&iacute;nh x&aacute;c t&agrave;i kho&#7843;n Apple ID c&ugrave;ng m&#7853;t kh&#7849;u kh&oacute;a m&aacute;y c&#361;ng quan tr&#7885;ng nh&#7857;m tr&aacute;nh vi&#7879;c ph&#7843;i &#273;&#432;a thi&#7871;t b&#7883; v&#7873; ch&#7871; &#273;&#7897; Recovery Mode g&acirc;y m&#7845;t d&#7919; li&#7879;u. N&#7871;u c&aacute;c &#7913;ng d&#7909;ng thi&#7871;t y&#7871;u ch&#432;a s&#7861;n s&agrave;ng, b&#7841;n ho&agrave;n to&agrave;n c&oacute; th&#7875; c&acirc;n nh&#7855;c ho&atilde;n c&#7853;p nh&#7853;t ho&#7863;c d&ugrave;ng m&aacute;y t&iacute;nh thay th&#7871; t&#7841;m th&#7901;i.",
-            "Qu&aacute; tr&igrave;nh n&acirc;ng c&#7845;p h&#7879; &#273;i&#7873;u h&agrave;nh l&#7899;n c&oacute; th&#7875; k&eacute;o d&agrave;i h&#417;n m&#7897;t ti&#7871;ng &#273;&#7891;ng h&#7891;, v&igrave; v&#7853;y thi&#7871;t b&#7883; c&#7847;n &#273;&#432;&#7907;c c&#7855;m s&#7841;c pin &#273;&#7847;y &#273;&#7911; v&agrave; duy tr&igrave; k&#7871;t n&#7889;i Wi-Fi gia &#273;&igrave;nh &#7893;n &#273;&#7883;nh. Ng&#432;&#7901;i d&ugrave;ng c&#361;ng c&oacute; th&#7875; l&#7921;a ch&#7885;n ch&#7901; &#273;&#7907;i th&ecirc;m m&#7897;t v&agrave;i ng&agrave;y ho&#7863;c v&agrave;i tu&#7847;n &#273;&#7875; l&#7855;ng nghe ph&#7843;n h&#7891;i t&#7915; c&#7897;ng &#273;&#7891;ng c&ocirc;ng ngh&#7879; tr&#432;&#7899;c khi b&#7845;m c&#7853;p nh&#7853;t. Kho&#7843;ng ngh&#7881; n&agrave;y t&#7841;o &#273;i&#7873;u ki&#7879;n &#273;&#7875; Apple x&#7917; l&yacute; c&aacute;c l&#7895;i ph&aacute;t sinh ban &#273;&#7847;u v&agrave; ph&aacute;t h&agrave;nh c&aacute;c b&#7843;n v&aacute; b&#7843;o m&#7853;t ho&agrave;n thi&#7879;n h&#417;n."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=489",
-          "link": "https://thanhnien.vn/nhung-dieu-can-lam-truoc-khi-cap-nhat-len-ios-27-185260902114739011.htm"
-        }
-      },
-      "first_seen_at": "2026-09-02T17:36:31.269Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-40071cdf80de-vi",
-        "cluster_id": "feed-40071cdf80de",
-        "language": "vi",
-        "topic": "ai",
-        "content_type": "NewsArticle",
-        "slug": "anthropic-bi-kien-vi-goi-claude-max-20x-khong-ung-nhu-quang-cao",
-        "title": "Anthropic bị kiện vì gói Claude Max 20x không đúng như quảng cáo",
-        "summary": "Cộng đồng người dùng Claude những ngày qua lan truyền một phát hiện: gói Max 20x giá 200 USD một tháng, tương đương khoảng 5,22 triệu đồng, không cho lượng sử dụng gấp 4 lần so với gói Max 5x giá 100 USD, khoảng 2,61 triệu đồng, dù tên gọi \"5x\" và \"20x\" gợi ý điều đó. Trên hạn mức tính theo tuần, mức chênh lệch thực tế chỉ khoảng 1,7 lần.",
-        "dek": "Cộng đồng người dùng Claude những ngày qua lan truyền một phát hiện: gói Max 20x giá 200 USD một tháng, tương đương khoảng 5,22 triệu đồng, không cho lượng sử dụng gấp 4 lần so với gói Max 5x giá 100 USD, khoảng 2,61 triệu đồng, dù tên gọi \"5x\" và \"20x\" gợi ý điều đó.",
-        "hook": "Cộng đồng người dùng Claude những ngày qua lan truyền một phát hiện: gói Max 20x giá 200 USD một tháng, tương đương khoảng 5,22 triệu đồng, không cho lượng sử dụng gấp 4 lần so với gói Max 5x giá 100 USD, khoảng 2,61 triệu đồng, dù tên gọi \"5x\" và \"20x\" gợi ý điều đó.",
-        "sections": [
-          {
-            "heading": "Điểm nâng cấp đáng chú ý",
-            "body": "Cộng đồng người dùng Claude những ngày qua lan truyền một phát hiện: gói Max 20x giá 200 USD một tháng, tương đương khoảng 5,22 triệu đồng, không cho lượng sử dụng gấp 4 lần so với gói Max 5x giá 100 USD, khoảng 2,61 triệu đồng, dù tên gọi \"5x\" và \"20x\" gợi ý điều đó. Trên hạn mức tính theo tuần, mức chênh lệch thực tế chỉ khoảng 1,7 lần."
-          },
-          {
-            "heading": "Giá và quyền lợi",
-            "body": "Giao diện lựa chọn gói Claude Max 5x và Max 20x trên trang đăng ký của Anthropic."
-          },
-          {
-            "heading": "Những lớp AI kéo giá trị lên",
-            "body": "Số liệu cụ thể nằm trong email Anthropic gửi khách hàng hồi tháng 7/2025, được TechCrunch trích dẫn. Gói Max 5x được cấp 140 đến 280 giờ sử dụng mô hình Sonnet mỗi tuần, cộng 15 đến 35 giờ mô hình Opus. Gói Max 20x được cấp 240 đến 480 giờ Sonnet và 24 đến 40 giờ Opus mỗi tuần. Lấy trung bình, khách hàng trả gấp đôi tiền để lên gói 20x chỉ nhận thêm khoảng 1,7 lần hạn mức tuần, thay vì gấp 4 lần như tên gói thể hiện."
-          },
-          {
-            "heading": "Ai nên để mắt",
-            "body": "Anthropic đặt ra giới hạn 5 giờ và giới hạn tuần đối với lưu lượng sử dụng mỗi tài khoản."
-          },
-          {
-            "heading": "Patrick Tech Media đánh giá",
-            "body": "Khoảng cách giữa quảng cáo và thực tế đã vượt ra khỏi tranh cãi trên mạng xã hội. Ngày 14/6/2026, khách hàng Karl Kahn nộp đơn kiện tập thể lên tòa án liên bang tại California, cáo buộc Anthropic quảng cáo sai lệch hạn mức sử dụng của các gói Max. Theo đơn kiện, Karl Kahn nâng cấp lên gói Max 20x hồi tháng 4/2026 để phục vụ công việc lập trình, nhưng chỉ một phiên làm việc 5 giờ đã tiêu tốn khoảng 15% hạn mức tuần của anh. Đơn kiện dẫn lại đúng những con số hạn mức Anthropic từng công bố qua email tháng 7/2025, xin tòa công nhận tư cách vụ kiện tập thể thay mặt mọi khách hàng đã mua gói Max từ tháng 4/2024. Anthropic từ chối bình luận về vụ kiện."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "ai-workspace-bundle"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "GenK AI Registry",
-            "source_url": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn",
-            "region": "VN",
-            "language": "vi",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-01T09:05:00.000Z",
-            "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/1/621992042257042472625194647667851949686004700n-105-0-687-1111-crop-17882534260502003949679.jpg",
-            "image_caption": "Ảnh tham khảo từ GenK AI Registry.",
-            "image_credit": "GenK AI Registry"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-01T09:05:00.000Z",
-        "updated_at": "2026-09-01T09:05:00.000Z",
-        "image": {
-          "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/1/621992042257042472625194647667851949686004700n-105-0-687-1111-crop-17882534260502003949679.jpg",
-          "caption": "Ảnh tham khảo từ GenK AI Registry.",
-          "credit": "GenK AI Registry",
-          "source_url": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
-        },
-        "draft_context": {
-          "source_title": "Anthropic bị kiện vì gói Claude Max 20x không đúng như quảng cáo",
-          "source_name": "GenK AI Registry",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "ai",
-          "content_type_hint": "",
-          "description": "Nhiều khách hàng Claude Max phát hiện gói 200 USD một tháng không mang lại lượng sử dụng gấp 4 lần so với gói 100 USD như tên gọi \"20x\" gợi ý.",
-          "paragraphs": [
-            "C&#7897;ng &#273;&#7891;ng ng&#432;&#7901;i d&ugrave;ng Claude nh&#7919;ng ng&agrave;y qua lan truy&#7873;n m&#7897;t ph&aacute;t hi&#7879;n: g&oacute;i Max 20x gi&aacute; 200 USD m&#7897;t th&aacute;ng, t&#432;&#417;ng &#273;&#432;&#417;ng kho&#7843;ng 5,22 tri&#7879;u &#273;&#7891;ng, kh&ocirc;ng cho l&#432;&#7907;ng s&#7917; d&#7909;ng g&#7845;p 4 l&#7847;n so v&#7899;i g&oacute;i Max 5x gi&aacute; 100 USD, kho&#7843;ng 2,61 tri&#7879;u &#273;&#7891;ng, d&ugrave; t&ecirc;n g&#7885;i \"5x\" v&agrave; \"20x\" g&#7907;i &yacute; &#273;i&#7873;u &#273;&oacute;. Tr&ecirc;n h&#7841;n m&#7913;c t&iacute;nh theo tu&#7847;n, m&#7913;c ch&ecirc;nh l&#7879;ch th&#7921;c t&#7871; ch&#7881; kho&#7843;ng 1,7 l&#7847;n.",
-            "Giao di&#7879;n l&#7921;a ch&#7885;n g&oacute;i Claude Max 5x v&agrave; Max 20x tr&ecirc;n trang &#273;&#259;ng k&yacute; c&#7911;a Anthropic",
-            "Theo trang h&#7895; tr&#7907; c&#7911;a Anthropic, c&aacute;c con s&#7889; 5x v&agrave; 20x ch&#7881; &aacute;p d&#7909;ng cho h&#7841;n m&#7913;c trong m&#7897;t phi&ecirc;n l&agrave;m vi&#7879;c k&eacute;o d&agrave;i 5 gi&#7901;. Ngo&agrave;i h&#7841;n m&#7913;c phi&ecirc;n, c&ocirc;ng ty c&ograve;n &aacute;p th&ecirc;m h&#7841;n m&#7913;c tu&#7847;n v&agrave; th&aacute;ng, t&aacute;ch bi&#7879;t ho&agrave;n to&agrave;n v&#7899;i t&#7927; l&#7879; nh&acirc;n &#273;&#432;&#7907;c qu&#7843;ng c&aacute;o v&agrave; c&oacute; th&#7875; &#273;i&#7873;u ch&#7881;nh t&ugrave;y th&#7901;i &#273;i&#7875;m &#273;&#7875; &#273;&#7843;m b&#7843;o c&ocirc;ng b&#7857;ng gi&#7919;a c&aacute;c kh&aacute;ch h&agrave;ng.",
-            "S&#7889; li&#7879;u c&#7909; th&#7875; n&#7857;m trong email Anthropic g&#7917;i kh&aacute;ch h&agrave;ng h&#7891;i th&aacute;ng 7/2025, &#273;&#432;&#7907;c TechCrunch tr&iacute;ch d&#7851;n. G&oacute;i Max 5x &#273;&#432;&#7907;c c&#7845;p 140 &#273;&#7871;n 280 gi&#7901; s&#7917; d&#7909;ng m&ocirc; h&igrave;nh Sonnet m&#7895;i tu&#7847;n, c&#7897;ng 15 &#273;&#7871;n 35 gi&#7901; m&ocirc; h&igrave;nh Opus. G&oacute;i Max 20x &#273;&#432;&#7907;c c&#7845;p 240 &#273;&#7871;n 480 gi&#7901; Sonnet v&agrave; 24 &#273;&#7871;n 40 gi&#7901; Opus m&#7895;i tu&#7847;n. L&#7845;y trung b&igrave;nh, kh&aacute;ch h&agrave;ng tr&#7843; g&#7845;p &#273;&ocirc;i ti&#7873;n &#273;&#7875; l&ecirc;n g&oacute;i 20x ch&#7881; nh&#7853;n th&ecirc;m kho&#7843;ng 1,7 l&#7847;n h&#7841;n m&#7913;c tu&#7847;n, thay v&igrave; g&#7845;p 4 l&#7847;n nh&#432; t&ecirc;n g&oacute;i th&#7875; hi&#7879;n.",
-            "Anthropic &#273;&#7863;t ra gi&#7899;i h&#7841;n 5 gi&#7901; v&agrave; gi&#7899;i h&#7841;n tu&#7847;n &#273;&#7889;i v&#7899;i l&#432;u l&#432;&#7907;ng s&#7917; d&#7909;ng m&#7895;i t&agrave;i kho&#7843;n",
-            "Kho&#7843;ng c&aacute;ch gi&#7919;a qu&#7843;ng c&aacute;o v&agrave; th&#7921;c t&#7871; &#273;&atilde; v&#432;&#7907;t ra kh&#7887;i tranh c&atilde;i tr&ecirc;n m&#7841;ng x&atilde; h&#7897;i. Ng&agrave;y 14/6/2026, kh&aacute;ch h&agrave;ng Karl Kahn n&#7897;p &#273;&#417;n ki&#7879;n t&#7853;p th&#7875; l&ecirc;n t&ograve;a &aacute;n li&ecirc;n bang t&#7841;i California, c&aacute;o bu&#7897;c Anthropic qu&#7843;ng c&aacute;o sai l&#7879;ch h&#7841;n m&#7913;c s&#7917; d&#7909;ng c&#7911;a c&aacute;c g&oacute;i Max. Theo &#273;&#417;n ki&#7879;n, Karl Kahn n&acirc;ng c&#7845;p l&ecirc;n g&oacute;i Max 20x h&#7891;i th&aacute;ng 4/2026 &#273;&#7875; ph&#7909;c v&#7909; c&ocirc;ng vi&#7879;c l&#7853;p tr&igrave;nh, nh&#432;ng ch&#7881; m&#7897;t phi&ecirc;n l&agrave;m vi&#7879;c 5 gi&#7901; &#273;&atilde; ti&ecirc;u t&#7889;n kho&#7843;ng 15% h&#7841;n m&#7913;c tu&#7847;n c&#7911;a anh. &#272;&#417;n ki&#7879;n d&#7851;n l&#7841;i &#273;&uacute;ng nh&#7919;ng con s&#7889; h&#7841;n m&#7913;c Anthropic t&#7915;ng c&ocirc;ng b&#7889; qua email th&aacute;ng 7/2025, xin t&ograve;a c&ocirc;ng nh&#7853;n t&#432; c&aacute;ch v&#7909; ki&#7879;n t&#7853;p th&#7875; thay m&#7863;t m&#7885;i kh&aacute;ch h&agrave;ng &#273;&atilde; mua g&oacute;i Max t&#7915; th&aacute;ng 4/2024. Anthropic t&#7915; ch&#7889;i b&igrave;nh lu&#7853;n v&#7873; v&#7909; ki&#7879;n."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=440",
-          "link": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
-        }
-      },
-      "first_seen_at": "2026-09-02T17:36:31.269Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-f3df6cb5dd4c-vi",
-        "cluster_id": "feed-f3df6cb5dd4c",
-        "language": "vi",
-        "topic": "ai",
-        "content_type": "NewsArticle",
-        "slug": "chinh-phu-han-quoc-phat-ai-mien-phi-cho-toan-dan-khong-gioi-han-token",
-        "title": "Chính phủ Hàn Quốc phát AI miễn phí cho toàn dân, không giới hạn token",
-        "summary": "Cứ 4 người Hàn Quốc thì có 1 người đang bỏ tiền túi trả phí sử dụng AI. Tính đến tháng 4/2026, ChatGPT đã có 23,45 triệu người dùng hằng tháng tới từ xứ kim chi, và tính trên quy mô quốc gia, hơn 20 triệu người đã quen tay với các công cụ AI tạo sinh miễn phí.",
-        "dek": "Cứ 4 người Hàn Quốc thì có 1 người đang bỏ tiền túi trả phí sử dụng AI.",
-        "hook": "Tính đến tháng 4/2026, ChatGPT đã có 23,45 triệu người dùng hằng tháng tới từ xứ kim chi, và tính trên quy mô quốc gia, hơn 20 triệu người đã quen tay với các công cụ AI tạo sinh miễn phí.",
-        "sections": [
-          {
-            "heading": "Bối cảnh: điều gì đang đổi",
-            "body": "Cứ 4 người Hàn Quốc thì có 1 người đang bỏ tiền túi trả phí sử dụng AI. Tính đến tháng 4/2026, ChatGPT đã có 23,45 triệu người dùng hằng tháng tới từ xứ kim chi, và tính trên quy mô quốc gia, hơn 20 triệu người đã quen tay với các công cụ AI tạo sinh miễn phí. Nói cách khác, gần nửa dân số 52 triệu của Hàn Quốc đã biết truy cập vào dịch vụ AI, đang dùng nó hằng ngày, và một phần đáng kể trong số họ sẵn sàng trả tiền để dùng tốt hơn."
-          },
-          {
-            "heading": "Các nguồn đang khớp nhau ở đâu",
-            "body": "Giữa bối cảnh đó, chính phủ Seoul đã quyết định phát AI miễn phí cho tất cả người dân. Chương trình mang tên \"AI for All - Trí tuệ nhân tạo cho mọi người\" vừa chốt 3 nhà thầu công nghệ vào ngày 28/8/2026, với tham vọng cung cấp dịch vụ AI tạo sinh miễn phí, không giới hạn sử dụng cho toàn bộ người dân."
-          },
-          {
-            "heading": "Tác động thực tế với người đọc",
-            "body": "Ngân sách mà chính quyền dành cho các khoản chi tiêu liên quan đến AI trong năm 2026 đã lên tới 10 nghìn tỷ won (tương đương 189.880 tỷ VNĐ), gấp 3 lần so với năm trước. Đây là phép thử cho một mô hình chưa có tiền lệ trong nhóm G20: AI như dịch vụ công, do nhà nước tổ chức, doanh nghiệp nội địa vận hành, và toàn dân được hưởng."
-          },
-          {
-            "heading": "Ai nên chú ý lúc này",
-            "body": "Điều đáng chú ý của chương trình \"AI for All\" nằm ở chỗ nó được thiết kế hoàn toàn khác một chatbot thông thường. Thay vì là một ứng dụng độc lập để người dùng hỏi đáp mọi chuyện, dịch vụ này được gắn thẳng vào hệ thống hành chính công, biến AI thành cánh tay nối dài của bộ máy nhà nước trong việc phục vụ dân sinh."
-          },
-          {
-            "heading": "Điều cần theo dõi tiếp",
-            "body": "Một người dân bình thường có thể mở ứng dụng lên để đặt lịch khám bệnh, tìm nhà ở phù hợp túi tiền, hay được hướng dẫn từng bước thủ tục khai thuế. Chủ một doanh nghiệp nhỏ có thể nhờ AI tính toán thuế quý tới hoặc kiểm tra xem mình có đủ điều kiện nhận hỗ trợ từ chính phủ hay không. Phụ huynh thì được đề xuất nội dung giáo dục cho con. Tất cả miễn phí, không giới hạn token."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "ai-workspace-bundle"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "GenK AI Registry",
-            "source_url": "https://genk.vn/chinh-phu-han-quoc-phat-ai-mien-phi-cho-toan-dan-khong-gioi-han-token-165260831130815748.chn",
-            "region": "VN",
-            "language": "vi",
-            "trust_tier": "established-media",
-            "published_at": "2026-08-31T07:08:00.000Z",
-            "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/31/avatar1788156471730-17881564719331674169229.jpg",
-            "image_caption": "Ảnh tham khảo từ GenK AI Registry.",
-            "image_credit": "GenK AI Registry"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-08-31T07:08:00.000Z",
-        "updated_at": "2026-08-31T07:08:00.000Z",
-        "image": {
-          "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/31/avatar1788156471730-17881564719331674169229.jpg",
-          "caption": "Ảnh tham khảo từ GenK AI Registry.",
-          "credit": "GenK AI Registry",
-          "source_url": "https://genk.vn/chinh-phu-han-quoc-phat-ai-mien-phi-cho-toan-dan-khong-gioi-han-token-165260831130815748.chn"
-        },
-        "draft_context": {
-          "source_title": "Chính phủ Hàn Quốc phát AI miễn phí cho toàn dân, không giới hạn token",
-          "source_name": "GenK AI Registry",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "ai",
-          "content_type_hint": "",
-          "description": "Đằng sau tuyên bố hào phóng ấy là một tính toán chiến lược mà bất kỳ quốc gia nào cũng nên để mắt tới.",
-          "paragraphs": [
-            "C&#7913; 4 ng&#432;&#7901;i H&agrave;n Qu&#7889;c th&igrave; c&oacute; 1 ng&#432;&#7901;i &#273;ang b&#7887; ti&#7873;n t&uacute;i tr&#7843; ph&iacute; s&#7917; d&#7909;ng AI. T&iacute;nh &#273;&#7871;n th&aacute;ng 4/2026, ChatGPT &#273;&atilde; c&oacute; 23,45 tri&#7879;u ng&#432;&#7901;i d&ugrave;ng h&#7857;ng th&aacute;ng t&#7899;i t&#7915; x&#7913; kim chi, v&agrave; t&iacute;nh tr&ecirc;n quy m&ocirc; qu&#7889;c gia, h&#417;n 20 tri&#7879;u ng&#432;&#7901;i &#273;&atilde; quen tay v&#7899;i c&aacute;c c&ocirc;ng c&#7909; AI t&#7841;o sinh mi&#7877;n ph&iacute;. N&oacute;i c&aacute;ch kh&aacute;c, g&#7847;n n&#7917;a d&acirc;n s&#7889; 52 tri&#7879;u c&#7911;a H&agrave;n Qu&#7889;c &#273;&atilde; bi&#7871;t truy c&#7853;p v&agrave;o d&#7883;ch v&#7909; AI, &#273;ang d&ugrave;ng n&oacute; h&#7857;ng ng&agrave;y, v&agrave; m&#7897;t ph&#7847;n &#273;&aacute;ng k&#7875; trong s&#7889; h&#7885; s&#7861;n s&agrave;ng tr&#7843; ti&#7873;n &#273;&#7875; d&ugrave;ng t&#7889;t h&#417;n.",
-            "Gi&#7919;a b&#7889;i c&#7843;nh &#273;&oacute;, ch&iacute;nh ph&#7911; Seoul &#273;&atilde; quy&#7871;t &#273;&#7883;nh ph&aacute;t AI mi&#7877;n ph&iacute; cho t&#7845;t c&#7843; ng&#432;&#7901;i d&acirc;n. Ch&#432;&#417;ng tr&igrave;nh mang t&ecirc;n \"AI for All - Tr&iacute; tu&#7879; nh&acirc;n t&#7841;o cho m&#7885;i ng&#432;&#7901;i\" v&#7915;a ch&#7889;t 3 nh&agrave; th&#7847;u c&ocirc;ng ngh&#7879; v&agrave;o ng&agrave;y 28/8/2026, v&#7899;i tham v&#7885;ng cung c&#7845;p d&#7883;ch v&#7909; AI t&#7841;o sinh mi&#7877;n ph&iacute;, kh&ocirc;ng gi&#7899;i h&#7841;n s&#7917; d&#7909;ng cho to&agrave;n b&#7897; ng&#432;&#7901;i d&acirc;n.",
-            "Ng&acirc;n s&aacute;ch m&agrave; ch&iacute;nh quy&#7873;n d&agrave;nh cho c&aacute;c kho&#7843;n chi ti&ecirc;u li&ecirc;n quan &#273;&#7871;n AI trong n&#259;m 2026 &#273;&atilde; l&ecirc;n t&#7899;i 10 ngh&igrave;n t&#7927; won (t&#432;&#417;ng &#273;&#432;&#417;ng 189.880 t&#7927; VN&#272;), g&#7845;p 3 l&#7847;n so v&#7899;i n&#259;m tr&#432;&#7899;c. &#272;&acirc;y l&agrave; ph&eacute;p th&#7917; cho m&#7897;t m&ocirc; h&igrave;nh ch&#432;a c&oacute; ti&#7873;n l&#7879; trong nh&oacute;m G20: AI nh&#432; d&#7883;ch v&#7909; c&ocirc;ng, do nh&agrave; n&#432;&#7899;c t&#7893; ch&#7913;c, doanh nghi&#7879;p n&#7897;i &#273;&#7883;a v&#7853;n h&agrave;nh, v&agrave; to&agrave;n d&acirc;n &#273;&#432;&#7907;c h&#432;&#7903;ng.",
-            "&#272;i&#7873;u &#273;&aacute;ng ch&uacute; &yacute; c&#7911;a ch&#432;&#417;ng tr&igrave;nh \"AI for All\" n&#7857;m &#7903; ch&#7895; n&oacute; &#273;&#432;&#7907;c thi&#7871;t k&#7871; ho&agrave;n to&agrave;n kh&aacute;c m&#7897;t chatbot th&ocirc;ng th&#432;&#7901;ng. Thay v&igrave; l&agrave; m&#7897;t &#7913;ng d&#7909;ng &#273;&#7897;c l&#7853;p &#273;&#7875; ng&#432;&#7901;i d&ugrave;ng h&#7887;i &#273;&aacute;p m&#7885;i chuy&#7879;n, d&#7883;ch v&#7909; n&agrave;y &#273;&#432;&#7907;c g&#7855;n th&#7859;ng v&agrave;o h&#7879; th&#7889;ng h&agrave;nh ch&iacute;nh c&ocirc;ng, bi&#7871;n AI th&agrave;nh c&aacute;nh tay n&#7889;i d&agrave;i c&#7911;a b&#7897; m&aacute;y nh&agrave; n&#432;&#7899;c trong vi&#7879;c ph&#7909;c v&#7909; d&acirc;n sinh.",
-            "M&#7897;t ng&#432;&#7901;i d&acirc;n b&igrave;nh th&#432;&#7901;ng c&oacute; th&#7875; m&#7903; &#7913;ng d&#7909;ng l&ecirc;n &#273;&#7875; &#273;&#7863;t l&#7883;ch kh&aacute;m b&#7879;nh, t&igrave;m nh&agrave; &#7903; ph&ugrave; h&#7907;p t&uacute;i ti&#7873;n, hay &#273;&#432;&#7907;c h&#432;&#7899;ng d&#7851;n t&#7915;ng b&#432;&#7899;c th&#7911; t&#7909;c khai thu&#7871;. Ch&#7911; m&#7897;t doanh nghi&#7879;p nh&#7887; c&oacute; th&#7875; nh&#7901; AI t&iacute;nh to&aacute;n thu&#7871; qu&yacute; t&#7899;i ho&#7863;c ki&#7875;m tra xem m&igrave;nh c&oacute; &#273;&#7911; &#273;i&#7873;u ki&#7879;n nh&#7853;n h&#7895; tr&#7907; t&#7915; ch&iacute;nh ph&#7911; hay kh&ocirc;ng. Ph&#7909; huynh th&igrave; &#273;&#432;&#7907;c &#273;&#7873; xu&#7845;t n&#7897;i dung gi&aacute;o d&#7909;c cho con. T&#7845;t c&#7843; mi&#7877;n ph&iacute;, kh&ocirc;ng gi&#7899;i h&#7841;n token.",
-            "Ba li&ecirc;n minh c&ocirc;ng ngh&#7879; &#273;&#432;&#7907;c l&#7921;a ch&#7885;n cho th&#7845;y quy m&ocirc; c&#7911;a tham v&#7885;ng n&agrave;y. SK Telecom d&#7851;n &#273;&#7847;u li&ecirc;n minh th&#7913; nh&#7845;t, mang theo m&ocirc; h&igrave;nh ng&ocirc;n ng&#7919; A.X K2 v&#7899;i 688 t&#7927; tham s&#7889; c&ugrave;ng c&aacute;c &#273;&#7889;i t&aacute;c nh&#432; Liner, Shinhan Card, Goodoc. KT &#273;&#7913;ng &#273;&#7847;u li&ecirc;n minh th&#7913; hai v&#7899;i m&ocirc; h&igrave;nh Mi:dm K Pro 2.5, li&ecirc;n k&#7871;t c&ugrave;ng Upstage AI, Rebellions, Musinsa v&agrave; c&#7843; &#272;&agrave;i Ph&aacute;t thanh Gi&aacute;o d&#7909;c H&agrave;n Qu&#7889;c. Kakao, nh&agrave; v&#7853;n h&agrave;nh &#7913;ng d&#7909;ng nh&#7855;n tin ph&#7893; bi&#7871;n nh&#7845;t qu&#7889;c gia H&agrave;n Qu&#7889;c, d&#7851;n d&#7855;t li&ecirc;n minh th&#7913; ba b&#7857;ng b&#7897; &#273;&ocirc;i m&ocirc; h&igrave;nh Kanana v&agrave; EXAONE c&#7911;a LG, v&#7899;i s&#7921; tham gia c&#7911;a Lunit (AI y t&#7871;), B&#7879;nh vi&#7879;n &#272;&#7841;i h&#7885;c Qu&#7889;c gia Seoul, Shinhan Bank v&agrave; FuriosaAI."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=543",
-          "link": "https://genk.vn/chinh-phu-han-quoc-phat-ai-mien-phi-cho-toan-dan-khong-gioi-han-token-165260831130815748.chn"
-        }
-      },
-      "first_seen_at": "2026-09-02T17:36:31.269Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
         "id": "feed-ff60f7ceb17e-en",
         "cluster_id": "feed-ff60f7ceb17e",
         "language": "en",
@@ -5728,95 +5364,6 @@
           "source_depth_score": 100,
           "source_depth_reason": "depth=100; paragraphs=6; words=4155",
           "link": "https://www.macworld.com/article/2986799/ios-27-new-iphone-features-release-date-beta-compatiblity-apple-intelligence-siri.html"
-        }
-      },
-      "first_seen_at": "2026-09-02T17:36:31.269Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-a9aac6f08d3b-en",
-        "cluster_id": "feed-a9aac6f08d3b",
-        "language": "en",
-        "topic": "devices",
-        "content_type": "NewsArticle",
-        "slug": "dell-s-new-14s-laptop-exists-to-challenge-macbook-neo-and-somehow-might-be-even-cheaper",
-        "title": "Dell’s new 14S laptop exists to challenge MacBook Neo and, somehow, might be even cheaper",
-        "summary": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon. Dell is ready to challenge that with its new Dell 14S laptop announced at IFA, and it somehow might be even cheaper.",
-        "dek": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon.",
-        "hook": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon.",
-        "sections": [
-          {
-            "heading": "What changed",
-            "body": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon. Dell is ready to challenge that with its new Dell 14S laptop announced at IFA, and it somehow might be even cheaper."
-          },
-          {
-            "heading": "Price and bundle value",
-            "body": "The Dell 14S is directly positioned as an “affordable” laptop for “students, college, and everyday life.” It features an aluminum build, 21 hours of battery life, and either an Intel Core Ultra 3 or Core Ultra 5 processor. The 16:10 display has 60Hz and 120Hz options while the hardware has two USB-C ports and an HDMI port, as well as a headphone jack."
-          },
-          {
-            "heading": "AI features that change the value",
-            "body": "The Dell 14S is available in the United States this fall. Pricing will be announced closer to availability in each market. What we can say is that the Dell 14S is designed to be complementary to XPS 13 and accessible for students and young adults globally. We’re committed to making sure regional pricing reflects that too."
-          },
-          {
-            "heading": "Who should pay attention",
-            "body": "Amusingly, Dell acknowledges that it already launched a laptop called the “14S” earlier this year, saying that the “old” one is designed for creators, while this “new” model “prioritizes everyday performance, long battery life, portability, colorful design and accessible pricing.” Perfectly not confusing ."
-          },
-          {
-            "heading": "Patrick Tech Media take",
-            "body": "Gemini 3.8 Flash rolling out three weeks after last release Abner Li Sep 2 2026 Google Pics is Workspace’s new ‘pro-level’ AI image creator & editor Abner Li Sep 1 2026 Sept. 2026 Android Drop: Find Hub ‘Remembered’ list, Motion Assist, & Keep in Google Messages Abner Li Sep 1 2026 Qualcomm’s upcoming premium chip has Adreno ‘Neural Fusion’ GPU Andrew Romero Sep 2 2026 Podcast Check out 9to5Google on YouTube for more news:."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "off",
-        "related_store_items": [],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "9to5Google",
-            "source_url": "https://9to5google.com/2026/09/02/dell-14s-laptop-announcement/",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-02T17:10:00.000Z",
-            "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2026/09/dell-14s-macbook-neo-rival-1.jpg?quality=82&strip=all&resize=1200,628",
-            "image_caption": "Reference image from 9to5Google.",
-            "image_credit": "9to5Google"
-          }
-        ],
-        "author_id": "quang-huy",
-        "published_at": "2026-09-02T17:10:00.000Z",
-        "updated_at": "2026-09-02T17:10:00.000Z",
-        "image": {
-          "src": "https://9to5google.com/wp-content/uploads/sites/4/2026/09/dell-14s-macbook-neo-rival-1.jpg?quality=82&strip=all&resize=1200,628",
-          "caption": "Reference image from 9to5Google.",
-          "credit": "9to5Google",
-          "source_url": "https://9to5google.com/2026/09/02/dell-14s-laptop-announcement/"
-        },
-        "draft_context": {
-          "source_title": "Dell’s new 14S laptop exists to challenge MacBook Neo and, somehow, might be even cheaper",
-          "source_name": "9to5Google",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon. Dell is ready to challenge that with its new Dell 14S laptop announced at IFA, and it somehow might be even cheaper. more…",
-          "paragraphs": [
-            "Apple&#8217;s MacBook Neo has made waves in the laptop world because it&#8217;s a remarkably well-built and reliable laptop at a very affordable price – though one that&#8217;s a bit higher now thanks to RAMageddon. Dell is ready to challenge that with its new Dell 14S laptop announced at IFA, and it somehow might be even cheaper.",
-            "The Dell 14S is directly positioned as an &#8220;affordable&#8221; laptop for &#8220;students, college, and everyday life.&#8221; It features an aluminum build, 21 hours of battery life, and either an Intel Core Ultra 3 or Core Ultra 5 processor. The 16:10 display has 60Hz and 120Hz options while the hardware has two USB-C ports and an HDMI port, as well as a headphone jack.",
-            "In a Q&A on its blog , Dell directly positions the 14S as a &#8220;compelling&#8221; alternative to the MacBook Neo, though pricing hasn&#8217;t actually been announced at this point. The company hints, though, that it will be cheaper than the XPS 13 that already starts at $699 – in other words, Dell 14S might just be cheaper than the MacBook Neo.",
-            "The Dell 14S is available in the United States this fall. Pricing will be announced closer to availability in each market. What we can say is that the Dell 14S is designed to be complementary to XPS 13 and accessible for students and young adults globally. We’re committed to making sure regional pricing reflects that too.",
-            "Amusingly, Dell acknowledges that it already launched a laptop called the &#8220;14S&#8221; earlier this year, saying that the &#8220;old&#8221; one is designed for creators, while this &#8220;new&#8221; model &#8220;prioritizes everyday performance, long battery life, portability, colorful design and accessible pricing.&#8221; Perfectly not confusing .",
-            "Gemini 3.8 Flash rolling out three weeks after last release Abner Li Sep 2 2026 Google Pics is Workspace’s new ‘pro-level’ AI image creator & editor Abner Li Sep 1 2026 Sept. 2026 Android Drop: Find Hub ‘Remembered’ list, Motion Assist, & Keep in Google Messages Abner Li Sep 1 2026 Qualcomm&#8217;s upcoming premium chip has Adreno &#8216;Neural Fusion&#8217; GPU Andrew Romero Sep 2 2026 Podcast Check out 9to5Google on YouTube for more news:"
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=411",
-          "link": "https://9to5google.com/2026/09/02/dell-14s-laptop-announcement/"
         }
       },
       "first_seen_at": "2026-09-02T17:36:31.269Z",
@@ -6092,95 +5639,6 @@
     },
     {
       "article": {
-        "id": "feed-76b0c6726076-en",
-        "cluster_id": "feed-76b0c6726076",
-        "language": "en",
-        "topic": "devices",
-        "content_type": "NewsArticle",
-        "slug": "surfshark-hands-users-a-direct-line-to-its-developers-with-new-beta-program",
-        "title": "Surfshark hands users a direct line to its developers with new beta program",
-        "summary": "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers. For now, the scheme is limited to the company's Windows and Android apps.",
-        "dek": "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers.",
-        "hook": "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "For now, the scheme is limited to the company's Windows and Android apps. It invites everyday users to test, poke at, and help refine tools that are still works in progress, rather than waiting for a polished public release."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "Plenty of the best VPN services make use of beta programs to squash bugs and gather real-world feedback. What Surfshark is leaning on to stand out is the promise of a direct line to the people actually building the product."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "Surfshark – the best cheap VPN Surfshark is a fast, easy-to-use VPN that seriously beats the competition when it comes to subscription pricing. Its two-year Starter plan works out at $2.49 a month (plus tax), but we think Surfshark One is the best value plan as it adds an antivirus, data breach monitor, and alternative ID tool starting from the equivalent of $2.79 a month."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "Enrolled testers can try upcoming features and updates before anyone else, then flag any bugs or quirks they run into. The twist is the communication channel: participants are invited into a closed Discord hub built for direct, two-way conversation with Surfshark's developers."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "off",
-        "related_store_items": [],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "TechRadar",
-            "source_url": "https://www.techradar.com/vpn/vpn-services/surfshark-hands-users-a-direct-line-to-its-developers-with-new-beta-program",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-02T15:42:03.000Z",
-            "image_url": "https://cdn.mos.cms.futurecdn.net/i8zhkJKdgFso7HtCzMowC9-1920-80.jpg",
-            "image_caption": "Reference image from TechRadar.",
-            "image_credit": "TechRadar"
-          }
-        ],
-        "author_id": "quang-huy",
-        "published_at": "2026-09-02T15:42:03.000Z",
-        "updated_at": "2026-09-02T15:42:03.000Z",
-        "image": {
-          "src": "https://cdn.mos.cms.futurecdn.net/i8zhkJKdgFso7HtCzMowC9-1920-80.jpg",
-          "caption": "Reference image from TechRadar.",
-          "credit": "TechRadar",
-          "source_url": "https://www.techradar.com/vpn/vpn-services/surfshark-hands-users-a-direct-line-to-its-developers-with-new-beta-program"
-        },
-        "draft_context": {
-          "source_title": "Surfshark hands users a direct line to its developers with new beta program",
-          "source_name": "TechRadar",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "Surfshark has relaunched its Beta Tester Program Testers get a direct line to the development team Joining is free but available only to Windows, Android users If you like being first in line to try new tools, Surfshark has launched an updated Beta Tester Program that gives users early access to unreleased features, design changes, and app updates. For now, the scheme is limited to the company's Windows and Android apps. It invites everyday users to test, poke at, and help refine tools that are still works in progress, rather than waiting for a polished public release. Plenty of the best VPN services make use of beta programs to squash bugs and gather real-world feedback. What Surfshark is leaning on to stand out is the promise of a direct line to the people actually building the product. Surfshark – the best cheap VPN Surfshark is a fast, easy-to-use VPN that seriously beats the competition when it comes to subscription pricing. Its two-year Starter plan works out at $2.49 a month (plus tax), but we think Surfshark One is the best value plan as it adds an antivirus, data breach monitor, and alternative ID tool starting from the equivalent of $2.79 a month. View Deal What's new in the Beta Tester Program Enrolled testers can try upcoming features and updates before anyone else, then flag any bugs or quirks they run into. The twist is the communication channel: participants are invited into a closed Discord hub built for direct, two-way conversation with Surfshark's developers. The company says input from testers will directly influence feature improvements and even the development of new products. \"Our mission is to build the most beloved security product for everyone, but for that, we need input from our community,\" said Gabriele Sinkeviciute, Head of Product at Surfshark. \"Oftentimes, we are buried so deep into our product that we don't see the small details or inconveniences.\" (Image credit: Future) NEW : Leave No Trace — A weekly newsletter on digital privacy and online surveillance. Leave No Trace investigates the companies and governments putting our digital freedom at risk — and the people fighting back. 📩 Subscribe now to get every edition delivered to your inbox every Friday, launching this September. Why it matters For Surfshark, the appeal is a tighter feedback loop that catches the small annoyances developers tend to miss. The company has been shipping quickly of late, recently rolling out real-time scam text protection , so a structured way to stress-test new tools makes sense. It also puts Surfshark in good company. IPVanish launched a similar beta scheme in August, and Proton VPN has been running its Proton Protocols rewrite in beta across all major apps. Just be aware of the trade-off. Early builds can be buggy; the program is a volunteer effort with no financial reward, and you can opt out whenever you like. How to join Quick heads-up: Surfshark has a beta tester program on Windows and Android that anyone can join. Check out the program here ⬇️https://t.co/Mk6aJh1Sto August 31, 2026 Any active Surfshark subscriber can take part, regardless of plan. On Windows , open the app and head to Settings > App settings, scroll to Beta Testing, and click Join Beta. On Android , open the Surfshark page in the Google Play Store, scroll to the Join Beta section, and tap Join. Once enrolled, you will be invited into the private Discord hub to connect with developers and fellow testers. You can read our full Surfshark review if you want to know how the service performs today. ]]>",
-          "paragraphs": [
-            "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers",
-            "For now, the scheme is limited to the company's Windows and Android apps. It invites everyday users to test, poke at, and help refine tools that are still works in progress, rather than waiting for a polished public release.",
-            "Plenty of the best VPN services make use of beta programs to squash bugs and gather real-world feedback. What Surfshark is leaning on to stand out is the promise of a direct line to the people actually building the product.",
-            "Surfshark &ndash; the best cheap VPN Surfshark is a fast, easy-to-use VPN that seriously beats the competition when it comes to subscription pricing. Its two-year Starter plan works out at $2.49 a month (plus tax), but we think Surfshark One is the best value plan as it adds an antivirus, data breach monitor, and alternative ID tool starting from the equivalent of $2.79 a month.",
-            "Enrolled testers can try upcoming features and updates before anyone else, then flag any bugs or quirks they run into. The twist is the communication channel: participants are invited into a closed Discord hub built for direct, two-way conversation with Surfshark's developers.",
-            "The company says input from testers will directly influence feature improvements and even the development of new products."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=820",
-          "link": "https://www.techradar.com/vpn/vpn-services/surfshark-hands-users-a-direct-line-to-its-developers-with-new-beta-program"
-        }
-      },
-      "first_seen_at": "2026-09-02T17:36:31.269Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
         "id": "feed-6874be3951b8-en",
         "cluster_id": "feed-6874be3951b8",
         "language": "en",
@@ -6266,6 +5724,548 @@
         }
       },
       "first_seen_at": "2026-09-02T17:36:31.269Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-11a280666c01-vi",
+        "cluster_id": "feed-11a280666c01",
+        "language": "vi",
+        "topic": "ai",
+        "content_type": "EvergreenGuide",
+        "slug": "ai-moi-cua-openai-co-the-tu-tim-va-khai-thac-lo-hong-bao-mat",
+        "title": "AI mới của OpenAI có thể tự tìm và khai thác lỗ hổng bảo mật",
+        "summary": "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình. Theo công ty, Astra là mô hình đầu tiên của OpenAI vượt ngưỡng \"Critical\" (nghiêm trọng) về năng lực an ninh mạng, theo bộ khung tiêu chuẩn mà hãng dùng để đánh giá những khả năng AI có thể gây rủi ro cao.",
+        "dek": "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình.",
+        "hook": "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình.",
+        "sections": [
+          {
+            "heading": "Bắt đầu từ đâu",
+            "body": "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình."
+          },
+          {
+            "heading": "Làm theo cách gọn nhất",
+            "body": "Theo công ty, Astra là mô hình đầu tiên của OpenAI vượt ngưỡng \"Critical\" (nghiêm trọng) về năng lực an ninh mạng, theo bộ khung tiêu chuẩn mà hãng dùng để đánh giá những khả năng AI có thể gây rủi ro cao."
+          },
+          {
+            "heading": "Lỗi dễ gặp",
+            "body": "Ở mức này, OpenAI đánh giá khi được cung cấp công cụ và quyền truy cập phù hợp, mô hình có thể \"tự tìm các lỗ hổng bảo mật chưa từng được biết đến và phát triển cách khai thác chúng trên nhiều hệ thống được bảo vệ, mà không cần con người hướng dẫn từng bước\"."
+          },
+          {
+            "heading": "Ai nên áp dụng",
+            "body": "\"Đây là mô hình đầu tiên chúng tôi chỉ định ở cấp độ này và yêu cầu các biện pháp bảo vệ mạnh mẽ hơn trong quá trình phát triển và trước khi phát hành\", OpenAI giới thiệu."
+          },
+          {
+            "heading": "Patrick Tech Media đánh giá",
+            "body": "Trong một số thử nghiệm được OpenAI nêu trong bài giới thiệu, hãng cho biết Astra đã đạt 100% trên ExploitBench - bài đánh giá khả năng phát triển công cụ khai thác từ những lỗ hổng có sẵn. Chẳng hạn, Astra khai thác các lỗ hổng này tốt hơn đáng kể so với mô hình GPT-5.6 Sol, trong khi cần ít dữ liệu đầu ra hơn để hoàn thành nhiệm vụ. Trong quá trình thử nghiệm, Astra đã tự phát hiện và khai thác hai lỗ hổng zero-day chưa từng được biết đến, kết hợp chúng vào một chuỗi tấn công. OpenAI cho biết đang phối hợp với các đơn vị duy trì phần mềm để công bố và xử lý hai lỗ hổng này."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "full",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "VnExpress Khoa Hoc",
+            "source_url": "https://vnexpress.net/ai-moi-cua-openai-co-the-tu-tim-va-khai-thac-lo-hong-bao-mat-5115861.html",
+            "region": "VN",
+            "language": "vi",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-02T14:58:03.000Z",
+            "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/02/2026-06-17T154942Z-1529554655-8094-4305-1788360436.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=EDNQWTT64COxzf726TAuaQ",
+            "image_caption": "Ảnh tham khảo từ VnExpress Khoa Hoc.",
+            "image_credit": "VnExpress Khoa Hoc"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-02T14:58:03.000Z",
+        "updated_at": "2026-09-02T14:58:03.000Z",
+        "image": {
+          "src": "https://i2-vnexpress.vnecdn.net/2026/09/02/2026-06-17T154942Z-1529554655-8094-4305-1788360436.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=EDNQWTT64COxzf726TAuaQ",
+          "caption": "Ảnh tham khảo từ VnExpress Khoa Hoc.",
+          "credit": "VnExpress Khoa Hoc",
+          "source_url": "https://vnexpress.net/ai-moi-cua-openai-co-the-tu-tim-va-khai-thac-lo-hong-bao-mat-5115861.html"
+        },
+        "draft_context": {
+          "source_title": "AI mới của OpenAI có thể tự tìm và khai thác lỗ hổng bảo mật",
+          "source_name": "VnExpress Khoa Hoc",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "chips-ai-infra",
+          "content_type_hint": "",
+          "description": "Mô hình Astra của OpenAI có thể tự phát hiện lỗ hổng bảo mật chưa từng được biết đến, sau đó kết hợp chúng thành chuỗi khai thác mà không cần con người hướng dẫn từng bước.",
+          "paragraphs": [
+            "OpenAI ngày 1/9 giới thiệu thêm thông tin về Astra, mô hình AI đang được phát triển và chuẩn bị phát hành, đồng thời cho biết đã phải tăng cường các biện pháp bảo vệ sau khi đánh giá năng lực an ninh mạng của mô hình.",
+            "Theo công ty, Astra là mô hình đầu tiên của OpenAI vượt ngưỡng \"Critical\" (nghiêm trọng) về năng lực an ninh mạng, theo bộ khung tiêu chuẩn mà hãng dùng để đánh giá những khả năng AI có thể gây rủi ro cao.",
+            "Ở mức này, OpenAI đánh giá khi được cung cấp công cụ và quyền truy cập phù hợp, mô hình có thể \"tự tìm các lỗ hổng bảo mật chưa từng được biết đến và phát triển cách khai thác chúng trên nhiều hệ thống được bảo vệ, mà không cần con người hướng dẫn từng bước\".",
+            "\"Đây là mô hình đầu tiên chúng tôi chỉ định ở cấp độ này và yêu cầu các biện pháp bảo vệ mạnh mẽ hơn trong quá trình phát triển và trước khi phát hành\", OpenAI giới thiệu.",
+            "Trong một số thử nghiệm được OpenAI nêu trong bài giới thiệu, hãng cho biết Astra đã đạt 100% trên ExploitBench - bài đánh giá khả năng phát triển công cụ khai thác từ những lỗ hổng có sẵn. Chẳng hạn, Astra khai thác các lỗ hổng này tốt hơn đáng kể so với mô hình GPT-5.6 Sol, trong khi cần ít dữ liệu đầu ra hơn để hoàn thành nhiệm vụ. Trong quá trình thử nghiệm, Astra đã tự phát hiện và khai thác hai lỗ hổng zero-day chưa từng được biết đến, kết hợp chúng vào một chuỗi tấn công. OpenAI cho biết đang phối hợp với các đơn vị duy trì phần mềm để công bố và xử lý hai lỗ hổng này.",
+            "Sam Altman, CEO OpenAI, trong Hội nghị thượng đỉnh G7 diễn ra tại Evian-les-Bains, Pháp, ngày 17/6. Ảnh: Reuters"
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=367",
+          "link": "https://vnexpress.net/ai-moi-cua-openai-co-the-tu-tim-va-khai-thac-lo-hong-bao-mat-5115861.html"
+        }
+      },
+      "first_seen_at": "2026-09-02T17:49:09.535Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-391337426d39-vi",
+        "cluster_id": "feed-391337426d39",
+        "language": "vi",
+        "topic": "apps-software",
+        "content_type": "NewsArticle",
+        "slug": "nhung-ieu-can-lam-truoc-khi-cap-nhat-len-ios-27",
+        "title": "Những điều cần làm trước khi cập nhật lên iOS 27",
+        "summary": "Hệ điều hành iOS 27 dự kiến ra mắt vào mùa thu năm nay, mang lại trải nghiệm Siri mới, nâng cấp Liquid Glass cùng các cải tiến Visual Intelligence cho các dòng máy từ iPhone 11 trở lên. Nhưng trước khi nâng cấp lên phiên bản mới, bạn cần thực hiện một số việc quan trọng để tránh ảnh hưởng tới dữ liệu trên iPhone.",
+        "dek": "Hệ điều hành iOS 27 dự kiến ra mắt vào mùa thu năm nay, mang lại trải nghiệm Siri mới, nâng cấp Liquid Glass cùng các cải tiến Visual Intelligence cho các dòng máy từ iPhone 11 trở lên.",
+        "hook": "Hệ điều hành iOS 27 dự kiến ra mắt vào mùa thu năm nay, mang lại trải nghiệm Siri mới, nâng cấp Liquid Glass cùng các cải tiến Visual Intelligence cho các dòng máy từ iPhone 11 trở lên.",
+        "sections": [
+          {
+            "heading": "Bối cảnh: điều gì đang đổi",
+            "body": "Hệ điều hành iOS 27 dự kiến ra mắt vào mùa thu năm nay, mang lại trải nghiệm Siri mới, nâng cấp Liquid Glass cùng các cải tiến Visual Intelligence cho các dòng máy từ iPhone 11 trở lên. Nhưng trước khi nâng cấp lên phiên bản mới, bạn cần thực hiện một số việc quan trọng để tránh ảnh hưởng tới dữ liệu trên iPhone."
+          },
+          {
+            "heading": "Các nguồn đang khớp nhau ở đâu",
+            "body": "Để phòng ngừa rủi ro phần mềm gặp sự cố làm mất dữ liệu hoặc phải khôi phục cài đặt gốc, việc sao lưu iPhone là ưu tiên bắt buộc trước khi cập nhật . Người dùng có thể chủ động lưu trữ dữ liệu thông qua nền tảng đám mây iCloud hoặc cắm cáp kết nối máy tính để sao lưu qua Finder trên Mac hoặc iTunes trên Windows."
+          },
+          {
+            "heading": "Tác động thực tế với người đọc",
+            "body": "iPhone cần được chuẩn bị một số bước trước khi nâng cấp lên iOS 27."
+          },
+          {
+            "heading": "Ai nên chú ý lúc này",
+            "body": "Dù gói cài đặt dự kiến có kích thước dưới 5 GB, người dùng vẫn cần dọn dẹp bộ nhớ trống từ 18 đến 25 GB để đảm bảo quá trình cập nhật diễn ra trơn tru. Bạn có thể vào mục Dung lượng iPhone (iPhone Storage) trong Cài đặt chung (General) để xóa các tệp đính kèm lớn trong ứng dụng Tin nhắn hoặc hợp nhất các bức ảnh trùng lặp. Bên cạnh đó, tính năng gỡ bỏ ứng dụng không dùng (Offload App) cũng giúp giải phóng bộ nhớ hiệu quả nhưng vẫn bảo lưu trọn vẹn dữ liệu cá nhân khi tải lại."
+          },
+          {
+            "heading": "Điều cần theo dõi tiếp",
+            "body": "Người dùng cần lưu ý kiểm tra tính tương thích của các phần mềm quan trọng như ứng dụng công việc, ứng dụng học tập hoặc ngân hàng vì nhà phát triển có thể chưa kịp tung ra bản vá mới. Việc ghi nhớ chính xác tài khoản Apple ID cùng mật khẩu khóa máy cũng quan trọng nhằm tránh việc phải đưa thiết bị về chế độ Recovery Mode gây mất dữ liệu. Nếu các ứng dụng thiết yếu chưa sẵn sàng, bạn hoàn toàn có thể cân nhắc hoãn cập nhật hoặc dùng máy tính thay thế tạm thời."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "creator-software-stack"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "Thanh Nien Cong Nghe",
+            "source_url": "https://thanhnien.vn/nhung-dieu-can-lam-truoc-khi-cap-nhat-len-ios-27-185260902114739011.htm",
+            "region": "VN",
+            "language": "vi",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-02T07:43:00.000Z",
+            "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/2/ios-17883247315152097872933-25-0-900-1672-crop-17883248257621810320424.jpg",
+            "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+            "image_credit": "Thanh Nien Cong Nghe"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-02T07:43:00.000Z",
+        "updated_at": "2026-09-02T07:43:00.000Z",
+        "image": {
+          "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/2/ios-17883247315152097872933-25-0-900-1672-crop-17883248257621810320424.jpg",
+          "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+          "credit": "Thanh Nien Cong Nghe",
+          "source_url": "https://thanhnien.vn/nhung-dieu-can-lam-truoc-khi-cap-nhat-len-ios-27-185260902114739011.htm"
+        },
+        "draft_context": {
+          "source_title": "Những điều cần làm trước khi cập nhật lên iOS 27",
+          "source_name": "Thanh Nien Cong Nghe",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Để trải nghiệm các tính năng mới mượt mà và tránh rủi ro mất dữ liệu, người dùng iPhone cần thực hiện các bước chuẩn bị kỹ lưỡng trước khi nâng cấp lên iOS 27.",
+          "paragraphs": [
+            "H&#7879; &#273;i&#7873;u h&agrave;nh iOS 27 d&#7921; ki&#7871;n ra m&#7855;t v&agrave;o m&ugrave;a thu n&#259;m nay, mang l&#7841;i tr&#7843;i nghi&#7879;m Siri m&#7899;i, n&acirc;ng c&#7845;p Liquid Glass c&ugrave;ng c&aacute;c c&#7843;i ti&#7871;n Visual Intelligence cho c&aacute;c d&ograve;ng m&aacute;y t&#7915; iPhone 11 tr&#7903; l&ecirc;n. Nh&#432;ng tr&#432;&#7899;c khi n&acirc;ng c&#7845;p l&ecirc;n phi&ecirc;n b&#7843;n m&#7899;i, b&#7841;n c&#7847;n th&#7921;c hi&#7879;n m&#7897;t s&#7889; vi&#7879;c quan tr&#7885;ng &#273;&#7875; tr&aacute;nh &#7843;nh h&#432;&#7903;ng t&#7899;i d&#7919; li&#7879;u tr&ecirc;n iPhone.",
+            "&#272;&#7875; ph&ograve;ng ng&#7915;a r&#7911;i ro ph&#7847;n m&#7873;m g&#7863;p s&#7921; c&#7889; l&agrave;m m&#7845;t d&#7919; li&#7879;u ho&#7863;c ph&#7843;i kh&ocirc;i ph&#7909;c c&agrave;i &#273;&#7863;t g&#7889;c, vi&#7879;c sao l&#432;u iPhone l&agrave; &#432;u ti&ecirc;n b&#7855;t bu&#7897;c tr&#432;&#7899;c khi c&#7853;p nh&#7853;t . Ng&#432;&#7901;i d&ugrave;ng c&oacute; th&#7875; ch&#7911; &#273;&#7897;ng l&#432;u tr&#7919; d&#7919; li&#7879;u th&ocirc;ng qua n&#7873;n t&#7843;ng &#273;&aacute;m m&acirc;y iCloud ho&#7863;c c&#7855;m c&aacute;p k&#7871;t n&#7889;i m&aacute;y t&iacute;nh &#273;&#7875; sao l&#432;u qua Finder tr&ecirc;n Mac ho&#7863;c iTunes tr&ecirc;n Windows.",
+            "iPhone c&#7847;n &#273;&#432;&#7907;c chu&#7849;n b&#7883; m&#7897;t s&#7889; b&#432;&#7899;c tr&#432;&#7899;c khi n&acirc;ng c&#7845;p l&ecirc;n iOS 27",
+            "D&ugrave; g&oacute;i c&agrave;i &#273;&#7863;t d&#7921; ki&#7871;n c&oacute; k&iacute;ch th&#432;&#7899;c d&#432;&#7899;i 5 GB, ng&#432;&#7901;i d&ugrave;ng v&#7851;n c&#7847;n d&#7885;n d&#7865;p b&#7897; nh&#7899; tr&#7889;ng t&#7915; 18 &#273;&#7871;n 25 GB &#273;&#7875; &#273;&#7843;m b&#7843;o qu&aacute; tr&igrave;nh c&#7853;p nh&#7853;t di&#7877;n ra tr&#417;n tru. B&#7841;n c&oacute; th&#7875; v&agrave;o m&#7909;c Dung l&#432;&#7907;ng iPhone (iPhone Storage) trong C&agrave;i &#273;&#7863;t chung (General) &#273;&#7875; x&oacute;a c&aacute;c t&#7879;p &#273;&iacute;nh k&egrave;m l&#7899;n trong &#7913;ng d&#7909;ng Tin nh&#7855;n ho&#7863;c h&#7907;p nh&#7845;t c&aacute;c b&#7913;c &#7843;nh tr&ugrave;ng l&#7863;p. B&ecirc;n c&#7841;nh &#273;&oacute;, t&iacute;nh n&#259;ng g&#7905; b&#7887; &#7913;ng d&#7909;ng kh&ocirc;ng d&ugrave;ng (Offload App) c&#361;ng gi&uacute;p gi&#7843;i ph&oacute;ng b&#7897; nh&#7899; hi&#7879;u qu&#7843; nh&#432;ng v&#7851;n b&#7843;o l&#432;u tr&#7885;n v&#7865;n d&#7919; li&#7879;u c&aacute; nh&acirc;n khi t&#7843;i l&#7841;i.",
+            "Ng&#432;&#7901;i d&ugrave;ng c&#7847;n l&#432;u &yacute; ki&#7875;m tra t&iacute;nh t&#432;&#417;ng th&iacute;ch c&#7911;a c&aacute;c ph&#7847;n m&#7873;m quan tr&#7885;ng nh&#432; &#7913;ng d&#7909;ng c&ocirc;ng vi&#7879;c, &#7913;ng d&#7909;ng h&#7885;c t&#7853;p ho&#7863;c ng&acirc;n h&agrave;ng v&igrave; nh&agrave; ph&aacute;t tri&#7875;n c&oacute; th&#7875; ch&#432;a k&#7883;p tung ra b&#7843;n v&aacute; m&#7899;i. Vi&#7879;c ghi nh&#7899; ch&iacute;nh x&aacute;c t&agrave;i kho&#7843;n Apple ID c&ugrave;ng m&#7853;t kh&#7849;u kh&oacute;a m&aacute;y c&#361;ng quan tr&#7885;ng nh&#7857;m tr&aacute;nh vi&#7879;c ph&#7843;i &#273;&#432;a thi&#7871;t b&#7883; v&#7873; ch&#7871; &#273;&#7897; Recovery Mode g&acirc;y m&#7845;t d&#7919; li&#7879;u. N&#7871;u c&aacute;c &#7913;ng d&#7909;ng thi&#7871;t y&#7871;u ch&#432;a s&#7861;n s&agrave;ng, b&#7841;n ho&agrave;n to&agrave;n c&oacute; th&#7875; c&acirc;n nh&#7855;c ho&atilde;n c&#7853;p nh&#7853;t ho&#7863;c d&ugrave;ng m&aacute;y t&iacute;nh thay th&#7871; t&#7841;m th&#7901;i.",
+            "Qu&aacute; tr&igrave;nh n&acirc;ng c&#7845;p h&#7879; &#273;i&#7873;u h&agrave;nh l&#7899;n c&oacute; th&#7875; k&eacute;o d&agrave;i h&#417;n m&#7897;t ti&#7871;ng &#273;&#7891;ng h&#7891;, v&igrave; v&#7853;y thi&#7871;t b&#7883; c&#7847;n &#273;&#432;&#7907;c c&#7855;m s&#7841;c pin &#273;&#7847;y &#273;&#7911; v&agrave; duy tr&igrave; k&#7871;t n&#7889;i Wi-Fi gia &#273;&igrave;nh &#7893;n &#273;&#7883;nh. Ng&#432;&#7901;i d&ugrave;ng c&#361;ng c&oacute; th&#7875; l&#7921;a ch&#7885;n ch&#7901; &#273;&#7907;i th&ecirc;m m&#7897;t v&agrave;i ng&agrave;y ho&#7863;c v&agrave;i tu&#7847;n &#273;&#7875; l&#7855;ng nghe ph&#7843;n h&#7891;i t&#7915; c&#7897;ng &#273;&#7891;ng c&ocirc;ng ngh&#7879; tr&#432;&#7899;c khi b&#7845;m c&#7853;p nh&#7853;t. Kho&#7843;ng ngh&#7881; n&agrave;y t&#7841;o &#273;i&#7873;u ki&#7879;n &#273;&#7875; Apple x&#7917; l&yacute; c&aacute;c l&#7895;i ph&aacute;t sinh ban &#273;&#7847;u v&agrave; ph&aacute;t h&agrave;nh c&aacute;c b&#7843;n v&aacute; b&#7843;o m&#7853;t ho&agrave;n thi&#7879;n h&#417;n."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=489",
+          "link": "https://thanhnien.vn/nhung-dieu-can-lam-truoc-khi-cap-nhat-len-ios-27-185260902114739011.htm"
+        }
+      },
+      "first_seen_at": "2026-09-02T17:49:09.535Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-40071cdf80de-vi",
+        "cluster_id": "feed-40071cdf80de",
+        "language": "vi",
+        "topic": "ai",
+        "content_type": "NewsArticle",
+        "slug": "anthropic-bi-kien-vi-goi-claude-max-20x-khong-ung-nhu-quang-cao",
+        "title": "Anthropic bị kiện vì gói Claude Max 20x không đúng như quảng cáo",
+        "summary": "Cộng đồng người dùng Claude những ngày qua lan truyền một phát hiện: gói Max 20x giá 200 USD một tháng, tương đương khoảng 5,22 triệu đồng, không cho lượng sử dụng gấp 4 lần so với gói Max 5x giá 100 USD, khoảng 2,61 triệu đồng, dù tên gọi \"5x\" và \"20x\" gợi ý điều đó. Trên hạn mức tính theo tuần, mức chênh lệch thực tế chỉ khoảng 1,7 lần.",
+        "dek": "Cộng đồng người dùng Claude những ngày qua lan truyền một phát hiện: gói Max 20x giá 200 USD một tháng, tương đương khoảng 5,22 triệu đồng, không cho lượng sử dụng gấp 4 lần so với gói Max 5x giá 100 USD, khoảng 2,61 triệu đồng, dù tên gọi \"5x\" và \"20x\" gợi ý điều đó.",
+        "hook": "Cộng đồng người dùng Claude những ngày qua lan truyền một phát hiện: gói Max 20x giá 200 USD một tháng, tương đương khoảng 5,22 triệu đồng, không cho lượng sử dụng gấp 4 lần so với gói Max 5x giá 100 USD, khoảng 2,61 triệu đồng, dù tên gọi \"5x\" và \"20x\" gợi ý điều đó.",
+        "sections": [
+          {
+            "heading": "Điểm nâng cấp đáng chú ý",
+            "body": "Cộng đồng người dùng Claude những ngày qua lan truyền một phát hiện: gói Max 20x giá 200 USD một tháng, tương đương khoảng 5,22 triệu đồng, không cho lượng sử dụng gấp 4 lần so với gói Max 5x giá 100 USD, khoảng 2,61 triệu đồng, dù tên gọi \"5x\" và \"20x\" gợi ý điều đó. Trên hạn mức tính theo tuần, mức chênh lệch thực tế chỉ khoảng 1,7 lần."
+          },
+          {
+            "heading": "Giá và quyền lợi",
+            "body": "Giao diện lựa chọn gói Claude Max 5x và Max 20x trên trang đăng ký của Anthropic."
+          },
+          {
+            "heading": "Những lớp AI kéo giá trị lên",
+            "body": "Số liệu cụ thể nằm trong email Anthropic gửi khách hàng hồi tháng 7/2025, được TechCrunch trích dẫn. Gói Max 5x được cấp 140 đến 280 giờ sử dụng mô hình Sonnet mỗi tuần, cộng 15 đến 35 giờ mô hình Opus. Gói Max 20x được cấp 240 đến 480 giờ Sonnet và 24 đến 40 giờ Opus mỗi tuần. Lấy trung bình, khách hàng trả gấp đôi tiền để lên gói 20x chỉ nhận thêm khoảng 1,7 lần hạn mức tuần, thay vì gấp 4 lần như tên gói thể hiện."
+          },
+          {
+            "heading": "Ai nên để mắt",
+            "body": "Anthropic đặt ra giới hạn 5 giờ và giới hạn tuần đối với lưu lượng sử dụng mỗi tài khoản."
+          },
+          {
+            "heading": "Patrick Tech Media đánh giá",
+            "body": "Khoảng cách giữa quảng cáo và thực tế đã vượt ra khỏi tranh cãi trên mạng xã hội. Ngày 14/6/2026, khách hàng Karl Kahn nộp đơn kiện tập thể lên tòa án liên bang tại California, cáo buộc Anthropic quảng cáo sai lệch hạn mức sử dụng của các gói Max. Theo đơn kiện, Karl Kahn nâng cấp lên gói Max 20x hồi tháng 4/2026 để phục vụ công việc lập trình, nhưng chỉ một phiên làm việc 5 giờ đã tiêu tốn khoảng 15% hạn mức tuần của anh. Đơn kiện dẫn lại đúng những con số hạn mức Anthropic từng công bố qua email tháng 7/2025, xin tòa công nhận tư cách vụ kiện tập thể thay mặt mọi khách hàng đã mua gói Max từ tháng 4/2024. Anthropic từ chối bình luận về vụ kiện."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "GenK AI Registry",
+            "source_url": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn",
+            "region": "VN",
+            "language": "vi",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-01T09:05:00.000Z",
+            "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/1/621992042257042472625194647667851949686004700n-105-0-687-1111-crop-17882534260502003949679.jpg",
+            "image_caption": "Ảnh tham khảo từ GenK AI Registry.",
+            "image_credit": "GenK AI Registry"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-01T09:05:00.000Z",
+        "updated_at": "2026-09-01T09:05:00.000Z",
+        "image": {
+          "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/1/621992042257042472625194647667851949686004700n-105-0-687-1111-crop-17882534260502003949679.jpg",
+          "caption": "Ảnh tham khảo từ GenK AI Registry.",
+          "credit": "GenK AI Registry",
+          "source_url": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
+        },
+        "draft_context": {
+          "source_title": "Anthropic bị kiện vì gói Claude Max 20x không đúng như quảng cáo",
+          "source_name": "GenK AI Registry",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "ai",
+          "content_type_hint": "",
+          "description": "Nhiều khách hàng Claude Max phát hiện gói 200 USD một tháng không mang lại lượng sử dụng gấp 4 lần so với gói 100 USD như tên gọi \"20x\" gợi ý.",
+          "paragraphs": [
+            "C&#7897;ng &#273;&#7891;ng ng&#432;&#7901;i d&ugrave;ng Claude nh&#7919;ng ng&agrave;y qua lan truy&#7873;n m&#7897;t ph&aacute;t hi&#7879;n: g&oacute;i Max 20x gi&aacute; 200 USD m&#7897;t th&aacute;ng, t&#432;&#417;ng &#273;&#432;&#417;ng kho&#7843;ng 5,22 tri&#7879;u &#273;&#7891;ng, kh&ocirc;ng cho l&#432;&#7907;ng s&#7917; d&#7909;ng g&#7845;p 4 l&#7847;n so v&#7899;i g&oacute;i Max 5x gi&aacute; 100 USD, kho&#7843;ng 2,61 tri&#7879;u &#273;&#7891;ng, d&ugrave; t&ecirc;n g&#7885;i \"5x\" v&agrave; \"20x\" g&#7907;i &yacute; &#273;i&#7873;u &#273;&oacute;. Tr&ecirc;n h&#7841;n m&#7913;c t&iacute;nh theo tu&#7847;n, m&#7913;c ch&ecirc;nh l&#7879;ch th&#7921;c t&#7871; ch&#7881; kho&#7843;ng 1,7 l&#7847;n.",
+            "Giao di&#7879;n l&#7921;a ch&#7885;n g&oacute;i Claude Max 5x v&agrave; Max 20x tr&ecirc;n trang &#273;&#259;ng k&yacute; c&#7911;a Anthropic",
+            "Theo trang h&#7895; tr&#7907; c&#7911;a Anthropic, c&aacute;c con s&#7889; 5x v&agrave; 20x ch&#7881; &aacute;p d&#7909;ng cho h&#7841;n m&#7913;c trong m&#7897;t phi&ecirc;n l&agrave;m vi&#7879;c k&eacute;o d&agrave;i 5 gi&#7901;. Ngo&agrave;i h&#7841;n m&#7913;c phi&ecirc;n, c&ocirc;ng ty c&ograve;n &aacute;p th&ecirc;m h&#7841;n m&#7913;c tu&#7847;n v&agrave; th&aacute;ng, t&aacute;ch bi&#7879;t ho&agrave;n to&agrave;n v&#7899;i t&#7927; l&#7879; nh&acirc;n &#273;&#432;&#7907;c qu&#7843;ng c&aacute;o v&agrave; c&oacute; th&#7875; &#273;i&#7873;u ch&#7881;nh t&ugrave;y th&#7901;i &#273;i&#7875;m &#273;&#7875; &#273;&#7843;m b&#7843;o c&ocirc;ng b&#7857;ng gi&#7919;a c&aacute;c kh&aacute;ch h&agrave;ng.",
+            "S&#7889; li&#7879;u c&#7909; th&#7875; n&#7857;m trong email Anthropic g&#7917;i kh&aacute;ch h&agrave;ng h&#7891;i th&aacute;ng 7/2025, &#273;&#432;&#7907;c TechCrunch tr&iacute;ch d&#7851;n. G&oacute;i Max 5x &#273;&#432;&#7907;c c&#7845;p 140 &#273;&#7871;n 280 gi&#7901; s&#7917; d&#7909;ng m&ocirc; h&igrave;nh Sonnet m&#7895;i tu&#7847;n, c&#7897;ng 15 &#273;&#7871;n 35 gi&#7901; m&ocirc; h&igrave;nh Opus. G&oacute;i Max 20x &#273;&#432;&#7907;c c&#7845;p 240 &#273;&#7871;n 480 gi&#7901; Sonnet v&agrave; 24 &#273;&#7871;n 40 gi&#7901; Opus m&#7895;i tu&#7847;n. L&#7845;y trung b&igrave;nh, kh&aacute;ch h&agrave;ng tr&#7843; g&#7845;p &#273;&ocirc;i ti&#7873;n &#273;&#7875; l&ecirc;n g&oacute;i 20x ch&#7881; nh&#7853;n th&ecirc;m kho&#7843;ng 1,7 l&#7847;n h&#7841;n m&#7913;c tu&#7847;n, thay v&igrave; g&#7845;p 4 l&#7847;n nh&#432; t&ecirc;n g&oacute;i th&#7875; hi&#7879;n.",
+            "Anthropic &#273;&#7863;t ra gi&#7899;i h&#7841;n 5 gi&#7901; v&agrave; gi&#7899;i h&#7841;n tu&#7847;n &#273;&#7889;i v&#7899;i l&#432;u l&#432;&#7907;ng s&#7917; d&#7909;ng m&#7895;i t&agrave;i kho&#7843;n",
+            "Kho&#7843;ng c&aacute;ch gi&#7919;a qu&#7843;ng c&aacute;o v&agrave; th&#7921;c t&#7871; &#273;&atilde; v&#432;&#7907;t ra kh&#7887;i tranh c&atilde;i tr&ecirc;n m&#7841;ng x&atilde; h&#7897;i. Ng&agrave;y 14/6/2026, kh&aacute;ch h&agrave;ng Karl Kahn n&#7897;p &#273;&#417;n ki&#7879;n t&#7853;p th&#7875; l&ecirc;n t&ograve;a &aacute;n li&ecirc;n bang t&#7841;i California, c&aacute;o bu&#7897;c Anthropic qu&#7843;ng c&aacute;o sai l&#7879;ch h&#7841;n m&#7913;c s&#7917; d&#7909;ng c&#7911;a c&aacute;c g&oacute;i Max. Theo &#273;&#417;n ki&#7879;n, Karl Kahn n&acirc;ng c&#7845;p l&ecirc;n g&oacute;i Max 20x h&#7891;i th&aacute;ng 4/2026 &#273;&#7875; ph&#7909;c v&#7909; c&ocirc;ng vi&#7879;c l&#7853;p tr&igrave;nh, nh&#432;ng ch&#7881; m&#7897;t phi&ecirc;n l&agrave;m vi&#7879;c 5 gi&#7901; &#273;&atilde; ti&ecirc;u t&#7889;n kho&#7843;ng 15% h&#7841;n m&#7913;c tu&#7847;n c&#7911;a anh. &#272;&#417;n ki&#7879;n d&#7851;n l&#7841;i &#273;&uacute;ng nh&#7919;ng con s&#7889; h&#7841;n m&#7913;c Anthropic t&#7915;ng c&ocirc;ng b&#7889; qua email th&aacute;ng 7/2025, xin t&ograve;a c&ocirc;ng nh&#7853;n t&#432; c&aacute;ch v&#7909; ki&#7879;n t&#7853;p th&#7875; thay m&#7863;t m&#7885;i kh&aacute;ch h&agrave;ng &#273;&atilde; mua g&oacute;i Max t&#7915; th&aacute;ng 4/2024. Anthropic t&#7915; ch&#7889;i b&igrave;nh lu&#7853;n v&#7873; v&#7909; ki&#7879;n."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=440",
+          "link": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
+        }
+      },
+      "first_seen_at": "2026-09-02T17:49:09.535Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-f3df6cb5dd4c-vi",
+        "cluster_id": "feed-f3df6cb5dd4c",
+        "language": "vi",
+        "topic": "ai",
+        "content_type": "NewsArticle",
+        "slug": "chinh-phu-han-quoc-phat-ai-mien-phi-cho-toan-dan-khong-gioi-han-token",
+        "title": "Chính phủ Hàn Quốc phát AI miễn phí cho toàn dân, không giới hạn token",
+        "summary": "Cứ 4 người Hàn Quốc thì có 1 người đang bỏ tiền túi trả phí sử dụng AI. Tính đến tháng 4/2026, ChatGPT đã có 23,45 triệu người dùng hằng tháng tới từ xứ kim chi, và tính trên quy mô quốc gia, hơn 20 triệu người đã quen tay với các công cụ AI tạo sinh miễn phí.",
+        "dek": "Cứ 4 người Hàn Quốc thì có 1 người đang bỏ tiền túi trả phí sử dụng AI.",
+        "hook": "Tính đến tháng 4/2026, ChatGPT đã có 23,45 triệu người dùng hằng tháng tới từ xứ kim chi, và tính trên quy mô quốc gia, hơn 20 triệu người đã quen tay với các công cụ AI tạo sinh miễn phí.",
+        "sections": [
+          {
+            "heading": "Bối cảnh: điều gì đang đổi",
+            "body": "Cứ 4 người Hàn Quốc thì có 1 người đang bỏ tiền túi trả phí sử dụng AI. Tính đến tháng 4/2026, ChatGPT đã có 23,45 triệu người dùng hằng tháng tới từ xứ kim chi, và tính trên quy mô quốc gia, hơn 20 triệu người đã quen tay với các công cụ AI tạo sinh miễn phí. Nói cách khác, gần nửa dân số 52 triệu của Hàn Quốc đã biết truy cập vào dịch vụ AI, đang dùng nó hằng ngày, và một phần đáng kể trong số họ sẵn sàng trả tiền để dùng tốt hơn."
+          },
+          {
+            "heading": "Các nguồn đang khớp nhau ở đâu",
+            "body": "Giữa bối cảnh đó, chính phủ Seoul đã quyết định phát AI miễn phí cho tất cả người dân. Chương trình mang tên \"AI for All - Trí tuệ nhân tạo cho mọi người\" vừa chốt 3 nhà thầu công nghệ vào ngày 28/8/2026, với tham vọng cung cấp dịch vụ AI tạo sinh miễn phí, không giới hạn sử dụng cho toàn bộ người dân."
+          },
+          {
+            "heading": "Tác động thực tế với người đọc",
+            "body": "Ngân sách mà chính quyền dành cho các khoản chi tiêu liên quan đến AI trong năm 2026 đã lên tới 10 nghìn tỷ won (tương đương 189.880 tỷ VNĐ), gấp 3 lần so với năm trước. Đây là phép thử cho một mô hình chưa có tiền lệ trong nhóm G20: AI như dịch vụ công, do nhà nước tổ chức, doanh nghiệp nội địa vận hành, và toàn dân được hưởng."
+          },
+          {
+            "heading": "Ai nên chú ý lúc này",
+            "body": "Điều đáng chú ý của chương trình \"AI for All\" nằm ở chỗ nó được thiết kế hoàn toàn khác một chatbot thông thường. Thay vì là một ứng dụng độc lập để người dùng hỏi đáp mọi chuyện, dịch vụ này được gắn thẳng vào hệ thống hành chính công, biến AI thành cánh tay nối dài của bộ máy nhà nước trong việc phục vụ dân sinh."
+          },
+          {
+            "heading": "Điều cần theo dõi tiếp",
+            "body": "Một người dân bình thường có thể mở ứng dụng lên để đặt lịch khám bệnh, tìm nhà ở phù hợp túi tiền, hay được hướng dẫn từng bước thủ tục khai thuế. Chủ một doanh nghiệp nhỏ có thể nhờ AI tính toán thuế quý tới hoặc kiểm tra xem mình có đủ điều kiện nhận hỗ trợ từ chính phủ hay không. Phụ huynh thì được đề xuất nội dung giáo dục cho con. Tất cả miễn phí, không giới hạn token."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "GenK AI Registry",
+            "source_url": "https://genk.vn/chinh-phu-han-quoc-phat-ai-mien-phi-cho-toan-dan-khong-gioi-han-token-165260831130815748.chn",
+            "region": "VN",
+            "language": "vi",
+            "trust_tier": "established-media",
+            "published_at": "2026-08-31T07:08:00.000Z",
+            "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/31/avatar1788156471730-17881564719331674169229.jpg",
+            "image_caption": "Ảnh tham khảo từ GenK AI Registry.",
+            "image_credit": "GenK AI Registry"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-08-31T07:08:00.000Z",
+        "updated_at": "2026-08-31T07:08:00.000Z",
+        "image": {
+          "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/8/31/avatar1788156471730-17881564719331674169229.jpg",
+          "caption": "Ảnh tham khảo từ GenK AI Registry.",
+          "credit": "GenK AI Registry",
+          "source_url": "https://genk.vn/chinh-phu-han-quoc-phat-ai-mien-phi-cho-toan-dan-khong-gioi-han-token-165260831130815748.chn"
+        },
+        "draft_context": {
+          "source_title": "Chính phủ Hàn Quốc phát AI miễn phí cho toàn dân, không giới hạn token",
+          "source_name": "GenK AI Registry",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "ai",
+          "content_type_hint": "",
+          "description": "Đằng sau tuyên bố hào phóng ấy là một tính toán chiến lược mà bất kỳ quốc gia nào cũng nên để mắt tới.",
+          "paragraphs": [
+            "C&#7913; 4 ng&#432;&#7901;i H&agrave;n Qu&#7889;c th&igrave; c&oacute; 1 ng&#432;&#7901;i &#273;ang b&#7887; ti&#7873;n t&uacute;i tr&#7843; ph&iacute; s&#7917; d&#7909;ng AI. T&iacute;nh &#273;&#7871;n th&aacute;ng 4/2026, ChatGPT &#273;&atilde; c&oacute; 23,45 tri&#7879;u ng&#432;&#7901;i d&ugrave;ng h&#7857;ng th&aacute;ng t&#7899;i t&#7915; x&#7913; kim chi, v&agrave; t&iacute;nh tr&ecirc;n quy m&ocirc; qu&#7889;c gia, h&#417;n 20 tri&#7879;u ng&#432;&#7901;i &#273;&atilde; quen tay v&#7899;i c&aacute;c c&ocirc;ng c&#7909; AI t&#7841;o sinh mi&#7877;n ph&iacute;. N&oacute;i c&aacute;ch kh&aacute;c, g&#7847;n n&#7917;a d&acirc;n s&#7889; 52 tri&#7879;u c&#7911;a H&agrave;n Qu&#7889;c &#273;&atilde; bi&#7871;t truy c&#7853;p v&agrave;o d&#7883;ch v&#7909; AI, &#273;ang d&ugrave;ng n&oacute; h&#7857;ng ng&agrave;y, v&agrave; m&#7897;t ph&#7847;n &#273;&aacute;ng k&#7875; trong s&#7889; h&#7885; s&#7861;n s&agrave;ng tr&#7843; ti&#7873;n &#273;&#7875; d&ugrave;ng t&#7889;t h&#417;n.",
+            "Gi&#7919;a b&#7889;i c&#7843;nh &#273;&oacute;, ch&iacute;nh ph&#7911; Seoul &#273;&atilde; quy&#7871;t &#273;&#7883;nh ph&aacute;t AI mi&#7877;n ph&iacute; cho t&#7845;t c&#7843; ng&#432;&#7901;i d&acirc;n. Ch&#432;&#417;ng tr&igrave;nh mang t&ecirc;n \"AI for All - Tr&iacute; tu&#7879; nh&acirc;n t&#7841;o cho m&#7885;i ng&#432;&#7901;i\" v&#7915;a ch&#7889;t 3 nh&agrave; th&#7847;u c&ocirc;ng ngh&#7879; v&agrave;o ng&agrave;y 28/8/2026, v&#7899;i tham v&#7885;ng cung c&#7845;p d&#7883;ch v&#7909; AI t&#7841;o sinh mi&#7877;n ph&iacute;, kh&ocirc;ng gi&#7899;i h&#7841;n s&#7917; d&#7909;ng cho to&agrave;n b&#7897; ng&#432;&#7901;i d&acirc;n.",
+            "Ng&acirc;n s&aacute;ch m&agrave; ch&iacute;nh quy&#7873;n d&agrave;nh cho c&aacute;c kho&#7843;n chi ti&ecirc;u li&ecirc;n quan &#273;&#7871;n AI trong n&#259;m 2026 &#273;&atilde; l&ecirc;n t&#7899;i 10 ngh&igrave;n t&#7927; won (t&#432;&#417;ng &#273;&#432;&#417;ng 189.880 t&#7927; VN&#272;), g&#7845;p 3 l&#7847;n so v&#7899;i n&#259;m tr&#432;&#7899;c. &#272;&acirc;y l&agrave; ph&eacute;p th&#7917; cho m&#7897;t m&ocirc; h&igrave;nh ch&#432;a c&oacute; ti&#7873;n l&#7879; trong nh&oacute;m G20: AI nh&#432; d&#7883;ch v&#7909; c&ocirc;ng, do nh&agrave; n&#432;&#7899;c t&#7893; ch&#7913;c, doanh nghi&#7879;p n&#7897;i &#273;&#7883;a v&#7853;n h&agrave;nh, v&agrave; to&agrave;n d&acirc;n &#273;&#432;&#7907;c h&#432;&#7903;ng.",
+            "&#272;i&#7873;u &#273;&aacute;ng ch&uacute; &yacute; c&#7911;a ch&#432;&#417;ng tr&igrave;nh \"AI for All\" n&#7857;m &#7903; ch&#7895; n&oacute; &#273;&#432;&#7907;c thi&#7871;t k&#7871; ho&agrave;n to&agrave;n kh&aacute;c m&#7897;t chatbot th&ocirc;ng th&#432;&#7901;ng. Thay v&igrave; l&agrave; m&#7897;t &#7913;ng d&#7909;ng &#273;&#7897;c l&#7853;p &#273;&#7875; ng&#432;&#7901;i d&ugrave;ng h&#7887;i &#273;&aacute;p m&#7885;i chuy&#7879;n, d&#7883;ch v&#7909; n&agrave;y &#273;&#432;&#7907;c g&#7855;n th&#7859;ng v&agrave;o h&#7879; th&#7889;ng h&agrave;nh ch&iacute;nh c&ocirc;ng, bi&#7871;n AI th&agrave;nh c&aacute;nh tay n&#7889;i d&agrave;i c&#7911;a b&#7897; m&aacute;y nh&agrave; n&#432;&#7899;c trong vi&#7879;c ph&#7909;c v&#7909; d&acirc;n sinh.",
+            "M&#7897;t ng&#432;&#7901;i d&acirc;n b&igrave;nh th&#432;&#7901;ng c&oacute; th&#7875; m&#7903; &#7913;ng d&#7909;ng l&ecirc;n &#273;&#7875; &#273;&#7863;t l&#7883;ch kh&aacute;m b&#7879;nh, t&igrave;m nh&agrave; &#7903; ph&ugrave; h&#7907;p t&uacute;i ti&#7873;n, hay &#273;&#432;&#7907;c h&#432;&#7899;ng d&#7851;n t&#7915;ng b&#432;&#7899;c th&#7911; t&#7909;c khai thu&#7871;. Ch&#7911; m&#7897;t doanh nghi&#7879;p nh&#7887; c&oacute; th&#7875; nh&#7901; AI t&iacute;nh to&aacute;n thu&#7871; qu&yacute; t&#7899;i ho&#7863;c ki&#7875;m tra xem m&igrave;nh c&oacute; &#273;&#7911; &#273;i&#7873;u ki&#7879;n nh&#7853;n h&#7895; tr&#7907; t&#7915; ch&iacute;nh ph&#7911; hay kh&ocirc;ng. Ph&#7909; huynh th&igrave; &#273;&#432;&#7907;c &#273;&#7873; xu&#7845;t n&#7897;i dung gi&aacute;o d&#7909;c cho con. T&#7845;t c&#7843; mi&#7877;n ph&iacute;, kh&ocirc;ng gi&#7899;i h&#7841;n token.",
+            "Ba li&ecirc;n minh c&ocirc;ng ngh&#7879; &#273;&#432;&#7907;c l&#7921;a ch&#7885;n cho th&#7845;y quy m&ocirc; c&#7911;a tham v&#7885;ng n&agrave;y. SK Telecom d&#7851;n &#273;&#7847;u li&ecirc;n minh th&#7913; nh&#7845;t, mang theo m&ocirc; h&igrave;nh ng&ocirc;n ng&#7919; A.X K2 v&#7899;i 688 t&#7927; tham s&#7889; c&ugrave;ng c&aacute;c &#273;&#7889;i t&aacute;c nh&#432; Liner, Shinhan Card, Goodoc. KT &#273;&#7913;ng &#273;&#7847;u li&ecirc;n minh th&#7913; hai v&#7899;i m&ocirc; h&igrave;nh Mi:dm K Pro 2.5, li&ecirc;n k&#7871;t c&ugrave;ng Upstage AI, Rebellions, Musinsa v&agrave; c&#7843; &#272;&agrave;i Ph&aacute;t thanh Gi&aacute;o d&#7909;c H&agrave;n Qu&#7889;c. Kakao, nh&agrave; v&#7853;n h&agrave;nh &#7913;ng d&#7909;ng nh&#7855;n tin ph&#7893; bi&#7871;n nh&#7845;t qu&#7889;c gia H&agrave;n Qu&#7889;c, d&#7851;n d&#7855;t li&ecirc;n minh th&#7913; ba b&#7857;ng b&#7897; &#273;&ocirc;i m&ocirc; h&igrave;nh Kanana v&agrave; EXAONE c&#7911;a LG, v&#7899;i s&#7921; tham gia c&#7911;a Lunit (AI y t&#7871;), B&#7879;nh vi&#7879;n &#272;&#7841;i h&#7885;c Qu&#7889;c gia Seoul, Shinhan Bank v&agrave; FuriosaAI."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=543",
+          "link": "https://genk.vn/chinh-phu-han-quoc-phat-ai-mien-phi-cho-toan-dan-khong-gioi-han-token-165260831130815748.chn"
+        }
+      },
+      "first_seen_at": "2026-09-02T17:49:09.535Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-a9aac6f08d3b-en",
+        "cluster_id": "feed-a9aac6f08d3b",
+        "language": "en",
+        "topic": "devices",
+        "content_type": "NewsArticle",
+        "slug": "dell-s-new-14s-laptop-exists-to-challenge-macbook-neo-and-somehow-might-be-even-cheaper",
+        "title": "Dell’s new 14S laptop exists to challenge MacBook Neo and, somehow, might be even cheaper",
+        "summary": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon. Dell is ready to challenge that with its new Dell 14S laptop announced at IFA, and it somehow might be even cheaper.",
+        "dek": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon.",
+        "hook": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon.",
+        "sections": [
+          {
+            "heading": "What changed",
+            "body": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon. Dell is ready to challenge that with its new Dell 14S laptop announced at IFA, and it somehow might be even cheaper."
+          },
+          {
+            "heading": "Price and bundle value",
+            "body": "The Dell 14S is directly positioned as an “affordable” laptop for “students, college, and everyday life.” It features an aluminum build, 21 hours of battery life, and either an Intel Core Ultra 3 or Core Ultra 5 processor. The 16:10 display has 60Hz and 120Hz options while the hardware has two USB-C ports and an HDMI port, as well as a headphone jack."
+          },
+          {
+            "heading": "AI features that change the value",
+            "body": "The Dell 14S is available in the United States this fall. Pricing will be announced closer to availability in each market. What we can say is that the Dell 14S is designed to be complementary to XPS 13 and accessible for students and young adults globally. We’re committed to making sure regional pricing reflects that too."
+          },
+          {
+            "heading": "Who should pay attention",
+            "body": "Amusingly, Dell acknowledges that it already launched a laptop called the “14S” earlier this year, saying that the “old” one is designed for creators, while this “new” model “prioritizes everyday performance, long battery life, portability, colorful design and accessible pricing.” Perfectly not confusing ."
+          },
+          {
+            "heading": "Patrick Tech Media take",
+            "body": "Gemini 3.8 Flash rolling out three weeks after last release Abner Li Sep 2 2026 Google Pics is Workspace’s new ‘pro-level’ AI image creator & editor Abner Li Sep 1 2026 Sept. 2026 Android Drop: Find Hub ‘Remembered’ list, Motion Assist, & Keep in Google Messages Abner Li Sep 1 2026 Qualcomm’s upcoming premium chip has Adreno ‘Neural Fusion’ GPU Andrew Romero Sep 2 2026 Podcast Check out 9to5Google on YouTube for more news:."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "9to5Google",
+            "source_url": "https://9to5google.com/2026/09/02/dell-14s-laptop-announcement/",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-02T17:10:00.000Z",
+            "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2026/09/dell-14s-macbook-neo-rival-1.jpg?quality=82&strip=all&resize=1200,628",
+            "image_caption": "Reference image from 9to5Google.",
+            "image_credit": "9to5Google"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-02T17:10:00.000Z",
+        "updated_at": "2026-09-02T17:10:00.000Z",
+        "image": {
+          "src": "https://9to5google.com/wp-content/uploads/sites/4/2026/09/dell-14s-macbook-neo-rival-1.jpg?quality=82&strip=all&resize=1200,628",
+          "caption": "Reference image from 9to5Google.",
+          "credit": "9to5Google",
+          "source_url": "https://9to5google.com/2026/09/02/dell-14s-laptop-announcement/"
+        },
+        "draft_context": {
+          "source_title": "Dell’s new 14S laptop exists to challenge MacBook Neo and, somehow, might be even cheaper",
+          "source_name": "9to5Google",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Apple’s MacBook Neo has made waves in the laptop world because it’s a remarkably well-built and reliable laptop at a very affordable price – though one that’s a bit higher now thanks to RAMageddon. Dell is ready to challenge that with its new Dell 14S laptop announced at IFA, and it somehow might be even cheaper. more…",
+          "paragraphs": [
+            "Apple&#8217;s MacBook Neo has made waves in the laptop world because it&#8217;s a remarkably well-built and reliable laptop at a very affordable price – though one that&#8217;s a bit higher now thanks to RAMageddon. Dell is ready to challenge that with its new Dell 14S laptop announced at IFA, and it somehow might be even cheaper.",
+            "The Dell 14S is directly positioned as an &#8220;affordable&#8221; laptop for &#8220;students, college, and everyday life.&#8221; It features an aluminum build, 21 hours of battery life, and either an Intel Core Ultra 3 or Core Ultra 5 processor. The 16:10 display has 60Hz and 120Hz options while the hardware has two USB-C ports and an HDMI port, as well as a headphone jack.",
+            "In a Q&A on its blog , Dell directly positions the 14S as a &#8220;compelling&#8221; alternative to the MacBook Neo, though pricing hasn&#8217;t actually been announced at this point. The company hints, though, that it will be cheaper than the XPS 13 that already starts at $699 – in other words, Dell 14S might just be cheaper than the MacBook Neo.",
+            "The Dell 14S is available in the United States this fall. Pricing will be announced closer to availability in each market. What we can say is that the Dell 14S is designed to be complementary to XPS 13 and accessible for students and young adults globally. We’re committed to making sure regional pricing reflects that too.",
+            "Amusingly, Dell acknowledges that it already launched a laptop called the &#8220;14S&#8221; earlier this year, saying that the &#8220;old&#8221; one is designed for creators, while this &#8220;new&#8221; model &#8220;prioritizes everyday performance, long battery life, portability, colorful design and accessible pricing.&#8221; Perfectly not confusing .",
+            "Gemini 3.8 Flash rolling out three weeks after last release Abner Li Sep 2 2026 Google Pics is Workspace’s new ‘pro-level’ AI image creator & editor Abner Li Sep 1 2026 Sept. 2026 Android Drop: Find Hub ‘Remembered’ list, Motion Assist, & Keep in Google Messages Abner Li Sep 1 2026 Qualcomm&#8217;s upcoming premium chip has Adreno &#8216;Neural Fusion&#8217; GPU Andrew Romero Sep 2 2026 Podcast Check out 9to5Google on YouTube for more news:"
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=411",
+          "link": "https://9to5google.com/2026/09/02/dell-14s-laptop-announcement/"
+        }
+      },
+      "first_seen_at": "2026-09-02T17:49:09.535Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-76b0c6726076-en",
+        "cluster_id": "feed-76b0c6726076",
+        "language": "en",
+        "topic": "devices",
+        "content_type": "NewsArticle",
+        "slug": "surfshark-hands-users-a-direct-line-to-its-developers-with-new-beta-program",
+        "title": "Surfshark hands users a direct line to its developers with new beta program",
+        "summary": "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers. For now, the scheme is limited to the company's Windows and Android apps.",
+        "dek": "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers.",
+        "hook": "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "For now, the scheme is limited to the company's Windows and Android apps. It invites everyday users to test, poke at, and help refine tools that are still works in progress, rather than waiting for a polished public release."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "Plenty of the best VPN services make use of beta programs to squash bugs and gather real-world feedback. What Surfshark is leaning on to stand out is the promise of a direct line to the people actually building the product."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Surfshark – the best cheap VPN Surfshark is a fast, easy-to-use VPN that seriously beats the competition when it comes to subscription pricing. Its two-year Starter plan works out at $2.49 a month (plus tax), but we think Surfshark One is the best value plan as it adds an antivirus, data breach monitor, and alternative ID tool starting from the equivalent of $2.79 a month."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "Enrolled testers can try upcoming features and updates before anyone else, then flag any bugs or quirks they run into. The twist is the communication channel: participants are invited into a closed Discord hub built for direct, two-way conversation with Surfshark's developers."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "TechRadar",
+            "source_url": "https://www.techradar.com/vpn/vpn-services/surfshark-hands-users-a-direct-line-to-its-developers-with-new-beta-program",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-02T15:42:03.000Z",
+            "image_url": "https://cdn.mos.cms.futurecdn.net/i8zhkJKdgFso7HtCzMowC9-1920-80.jpg",
+            "image_caption": "Reference image from TechRadar.",
+            "image_credit": "TechRadar"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-02T15:42:03.000Z",
+        "updated_at": "2026-09-02T15:42:03.000Z",
+        "image": {
+          "src": "https://cdn.mos.cms.futurecdn.net/i8zhkJKdgFso7HtCzMowC9-1920-80.jpg",
+          "caption": "Reference image from TechRadar.",
+          "credit": "TechRadar",
+          "source_url": "https://www.techradar.com/vpn/vpn-services/surfshark-hands-users-a-direct-line-to-its-developers-with-new-beta-program"
+        },
+        "draft_context": {
+          "source_title": "Surfshark hands users a direct line to its developers with new beta program",
+          "source_name": "TechRadar",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Surfshark has relaunched its Beta Tester Program Testers get a direct line to the development team Joining is free but available only to Windows, Android users If you like being first in line to try new tools, Surfshark has launched an updated Beta Tester Program that gives users early access to unreleased features, design changes, and app updates. For now, the scheme is limited to the company's Windows and Android apps. It invites everyday users to test, poke at, and help refine tools that are still works in progress, rather than waiting for a polished public release. Plenty of the best VPN services make use of beta programs to squash bugs and gather real-world feedback. What Surfshark is leaning on to stand out is the promise of a direct line to the people actually building the product. Surfshark – the best cheap VPN Surfshark is a fast, easy-to-use VPN that seriously beats the competition when it comes to subscription pricing. Its two-year Starter plan works out at $2.49 a month (plus tax), but we think Surfshark One is the best value plan as it adds an antivirus, data breach monitor, and alternative ID tool starting from the equivalent of $2.79 a month. View Deal What's new in the Beta Tester Program Enrolled testers can try upcoming features and updates before anyone else, then flag any bugs or quirks they run into. The twist is the communication channel: participants are invited into a closed Discord hub built for direct, two-way conversation with Surfshark's developers. The company says input from testers will directly influence feature improvements and even the development of new products. \"Our mission is to build the most beloved security product for everyone, but for that, we need input from our community,\" said Gabriele Sinkeviciute, Head of Product at Surfshark. \"Oftentimes, we are buried so deep into our product that we don't see the small details or inconveniences.\" (Image credit: Future) NEW : Leave No Trace — A weekly newsletter on digital privacy and online surveillance. Leave No Trace investigates the companies and governments putting our digital freedom at risk — and the people fighting back. 📩 Subscribe now to get every edition delivered to your inbox every Friday, launching this September. Why it matters For Surfshark, the appeal is a tighter feedback loop that catches the small annoyances developers tend to miss. The company has been shipping quickly of late, recently rolling out real-time scam text protection , so a structured way to stress-test new tools makes sense. It also puts Surfshark in good company. IPVanish launched a similar beta scheme in August, and Proton VPN has been running its Proton Protocols rewrite in beta across all major apps. Just be aware of the trade-off. Early builds can be buggy; the program is a volunteer effort with no financial reward, and you can opt out whenever you like. How to join Quick heads-up: Surfshark has a beta tester program on Windows and Android that anyone can join. Check out the program here ⬇️https://t.co/Mk6aJh1Sto August 31, 2026 Any active Surfshark subscriber can take part, regardless of plan. On Windows , open the app and head to Settings > App settings, scroll to Beta Testing, and click Join Beta. On Android , open the Surfshark page in the Google Play Store, scroll to the Join Beta section, and tap Join. Once enrolled, you will be invited into the private Discord hub to connect with developers and fellow testers. You can read our full Surfshark review if you want to know how the service performs today. ]]>",
+          "paragraphs": [
+            "The relaunched program pairs early feature access with a closed Discord channel that puts testers in the room with Surfshark's developers",
+            "For now, the scheme is limited to the company's Windows and Android apps. It invites everyday users to test, poke at, and help refine tools that are still works in progress, rather than waiting for a polished public release.",
+            "Plenty of the best VPN services make use of beta programs to squash bugs and gather real-world feedback. What Surfshark is leaning on to stand out is the promise of a direct line to the people actually building the product.",
+            "Surfshark &ndash; the best cheap VPN Surfshark is a fast, easy-to-use VPN that seriously beats the competition when it comes to subscription pricing. Its two-year Starter plan works out at $2.49 a month (plus tax), but we think Surfshark One is the best value plan as it adds an antivirus, data breach monitor, and alternative ID tool starting from the equivalent of $2.79 a month.",
+            "Enrolled testers can try upcoming features and updates before anyone else, then flag any bugs or quirks they run into. The twist is the communication channel: participants are invited into a closed Discord hub built for direct, two-way conversation with Surfshark's developers.",
+            "The company says input from testers will directly influence feature improvements and even the development of new products."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=820",
+          "link": "https://www.techradar.com/vpn/vpn-services/surfshark-hands-users-a-direct-line-to-its-developers-with-new-beta-program"
+        }
+      },
+      "first_seen_at": "2026-09-02T17:49:09.535Z",
       "retry_count": 0,
       "last_retry_at": ""
     }
