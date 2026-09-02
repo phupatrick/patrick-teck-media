@@ -1173,9 +1173,17 @@ function prepareArticlesForPublish(incomingArticles, { now, outputPath, siteUrl,
   });
 
   if (state.articles.length > 0) {
-    const readyArticles = filterPublishReadyArticles(state.articles.map(stripRuntimeArticleFields), "normalized", strictQualityGate);
+    const normalizedArticles = state.articles.map(stripRuntimeArticleFields);
+    const readyArticles = filterPublishReadyArticles(normalizedArticles, "normalized", strictQualityGate);
     if (readyArticles.length > 0) {
       return readyArticles;
+    }
+
+    if (strictQualityGate) {
+      const trustedFallback = filterTrustedSourceFallbackArticles(normalizedArticles, "trusted-source-fallback");
+      if (trustedFallback.length > 0) {
+        return trustedFallback;
+      }
     }
 
   }
@@ -1191,9 +1199,17 @@ function prepareArticlesForPublish(incomingArticles, { now, outputPath, siteUrl,
   });
 
   if (synthesizedState.articles.length > 0) {
-    const readyArticles = filterPublishReadyArticles(synthesizedState.articles.map(stripRuntimeArticleFields), "synthesized", strictQualityGate);
+    const synthesizedArticles = synthesizedState.articles.map(stripRuntimeArticleFields);
+    const readyArticles = filterPublishReadyArticles(synthesizedArticles, "synthesized", strictQualityGate);
     if (readyArticles.length > 0) {
       return readyArticles;
+    }
+
+    if (strictQualityGate) {
+      const trustedFallback = filterTrustedSourceFallbackArticles(synthesizedArticles, "trusted-source-fallback");
+      if (trustedFallback.length > 0) {
+        return trustedFallback;
+      }
     }
   }
 
