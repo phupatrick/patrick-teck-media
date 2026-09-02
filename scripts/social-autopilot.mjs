@@ -51,7 +51,10 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   }));
   const productCandidates = await selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts: socialState.posts, limit: remainingProduct, logger });
   const allCandidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...aiSelectedCandidates, ...productCandidates];
-  const candidates = selectRunCandidates(allCandidates, env.SOCIAL_AUTOPILOT_RUN_LIMIT);
+  const candidates = selectRunCandidates(
+    allCandidates,
+    env.SOCIAL_AUTOPILOT_RUN_LIMIT || env.SOCIAL_AUTOPILOT_LIMIT
+  );
   const published = [];
   const failures = [];
 

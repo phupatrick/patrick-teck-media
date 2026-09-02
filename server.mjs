@@ -131,7 +131,12 @@ const config = {
   socialInformationPostsPerDay: process.env.SOCIAL_INFORMATION_POSTS_PER_DAY || envFromFile.SOCIAL_INFORMATION_POSTS_PER_DAY || "5",
   socialProductPostsPerDay: process.env.SOCIAL_PRODUCT_POSTS_PER_DAY || envFromFile.SOCIAL_PRODUCT_POSTS_PER_DAY || "3",
   socialAiSelectedPostsPerDay: process.env.SOCIAL_AI_SELECTED_POSTS_PER_DAY || envFromFile.SOCIAL_AI_SELECTED_POSTS_PER_DAY || "2",
-  socialAutopilotRunLimit: process.env.SOCIAL_AUTOPILOT_RUN_LIMIT || envFromFile.SOCIAL_AUTOPILOT_RUN_LIMIT || "2",
+  socialAutopilotRunLimit:
+    process.env.SOCIAL_AUTOPILOT_RUN_LIMIT ||
+    process.env.SOCIAL_AUTOPILOT_LIMIT ||
+    envFromFile.SOCIAL_AUTOPILOT_RUN_LIMIT ||
+    envFromFile.SOCIAL_AUTOPILOT_LIMIT ||
+    "2",
   socialAutopilotRotateTopics: process.env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || envFromFile.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "0"
 };
 const rateLimitBuckets = new Map();

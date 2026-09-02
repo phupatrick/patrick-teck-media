@@ -126,7 +126,7 @@ jobs:
         env:
           # Publishing is autonomous in production; set the secret to 0 for an intentional pause.
           SOCIAL_AUTOPILOT_ENABLED: ${{ secrets.SOCIAL_AUTOPILOT_ENABLED || '1' }}
-          SOCIAL_AUTOPILOT_RUN_LIMIT: ${{ secrets.SOCIAL_AUTOPILOT_RUN_LIMIT || '2' }}
+          SOCIAL_AUTOPILOT_RUN_LIMIT: ${{ secrets.SOCIAL_AUTOPILOT_RUN_LIMIT || secrets.SOCIAL_AUTOPILOT_LIMIT || '2' }}
           SOCIAL_AUTOPILOT_ROTATE_TOPICS: ${{ secrets.SOCIAL_AUTOPILOT_ROTATE_TOPICS || '0' }}
           SOCIAL_AI_PROVIDER: ${{ secrets.SOCIAL_AI_PROVIDER || 'gemini' }}
           NEWSROOM_GEMINI_API_KEY: ${{ secrets.NEWSROOM_GEMINI_API_KEY || secrets.SOCIAL_AI_API_KEY || secrets.GEMINI_API_KEY }}
