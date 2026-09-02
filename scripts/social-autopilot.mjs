@@ -1,6 +1,7 @@
 import { loadNewsroomState } from "../src/newsroom-service.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { createPostContent, getRandomTechImage, postFirstComment, safePostToFacebook } from "../src/social-engine.mjs";
+import { generateOfflinePost } from "../src/social-templates.mjs";
 import { pathToFileURL } from "node:url";
 
 const DEFAULT_CONTENT_PATH = "data/newsroom-content.json";
@@ -35,15 +36,8 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   for (const article of candidates) {
     const sourceKey = article.source_key || getSourceKey(article);
     try {
-      const content = await createPostContent({
-        provider: env.SOCIAL_AI_PROVIDER || "offline",
-        apiKey: env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY || "",
-        topic: article.title,
-        pillar: "ai_news",
-        notes: buildArticleNotes(article),
-        sourceArticleUrl: article.href || article.url || "",
-        fetchImpl
-      });
+      const notes = buildArticleNotes(article);
+      const content = await createAutopilotContent({ article, notes, env, fetchImpl, logger });
       const imageUrl = article.image?.src || article.image_url || getRandomTechImage();
       const postId = await safePostToFacebook({
         pageId,
@@ -83,6 +77,24 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const result = { skipped: false, selected: candidates.length, published, failures };
   await sendTelegramReport(result, env, fetchImpl);
   return result;
+}
+
+async function createAutopilotContent({ article, notes, env, fetchImpl, logger }) {
+  try {
+    return await createPostContent({
+      provider: env.SOCIAL_AI_PROVIDER || "offline",
+      apiKey: env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY || "",
+      topic: article.title,
+      pillar: "ai_news",
+      notes,
+      sourceArticleUrl: article.href || article.url || "",
+      fetchImpl
+    });
+  } catch (error) {
+    const message = error.message || String(error);
+    logger.warn?.(`[social-autopilot] AI generation failed; using approved fallback template: ${message}`);
+    return generateOfflinePost({ topic: article.title, pillar: "ai_news", notes });
+  }
 }
 
 function selectCandidates(articles, publishedKeys, limit) {
