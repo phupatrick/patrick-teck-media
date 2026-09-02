@@ -31,6 +31,12 @@ import { PENDING_TTL_MS, applySingleSourcePublicationPolicy, getPendingArticleKe
 import { isUsefulSocialSignal, normalizeSocialSignal } from "../src/openclaw-social-connectors.mjs";
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
 
+{
+  const response = await executeNewsroomCommand("/social", { isAdmin: true });
+  assert.match(response.text, /Bảng điều khiển Facebook/);
+  assert.match(response.text, /\/social post/);
+}
+
 assert.equal(
   selectNewerSnapshot(
     { generated_at: "2026-08-11T19:12:14.298Z", articles: [{ slug: "old" }] },

@@ -58,6 +58,16 @@ const MENU_TEXT = [
   "Chọn một nút bên dưới để quản lý nhanh tòa soạn trên Vercel."
 ].join("\n");
 
+const SOCIAL_MENU_TEXT = [
+  "Bảng điều khiển Facebook",
+  "",
+  "/social post <chủ đề> - tạo bài chờ duyệt",
+  "/social queue - xem các bài đang chờ",
+  "/social ai <gemini|offline> - chọn cách viết bài",
+  "",
+  "Sau khi tạo bài, hãy bấm nút Đăng Facebook để xuất bản."
+].join("\n");
+
 export function createTelegramNewsroomBot(options = {}) {
   const token = String(options.token || "").trim();
   const allowedChatIds = new Set(normalizeIdList(options.allowedChatIds || []));
@@ -399,6 +409,9 @@ export async function executeNewsroomCommand(rawText, context = {}) {
   }
 
   if (command === "/social") {
+    if (!commandText.split(/\s+/)[1]) {
+      return { text: SOCIAL_MENU_TEXT };
+    }
     const socialText = compactCommand(commandText, { post: "/social_post", queue: "/social_queue", ai: "/social_ai" });
     return executeSocialCommand(socialText, context);
   }
