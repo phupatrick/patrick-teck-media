@@ -21,6 +21,9 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   if (String(env.SOCIAL_AUTOPILOT_ENABLED || "").trim() !== "1") {
     return { skipped: true, reason: "SOCIAL_AUTOPILOT_ENABLED is not 1", published: [] };
   }
+  const lease = await acquireAutopilotLease(env, now);
+  if (!lease.acquired) return { skipped: true, reason: "another social autopilot cycle is active", published: [] };
+  try {
 
   const pageId = String(env.FB_PAGE_ID || "").trim();
   const pageToken = String(env.FB_PAGE_ACCESS_TOKEN || "").trim();
@@ -144,6 +147,24 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const result = { skipped: false, selected: candidates.length, published, failures, retriedComments, scheduledType: scheduledType || "next-available" };
   await sendTelegramReport(result, env, fetchImpl);
   return result;
+  } finally {
+    await releaseAutopilotLease(lease);
+  }
+}
+
+const activeLeases = new Map();
+
+async function acquireAutopilotLease(env, now) {
+  const key = "social-autopilot";
+  const ttlMs = Math.max(30_000, Number(env.SOCIAL_AUTOPILOT_LOCK_TTL_MS || 20 * 60 * 1000));
+  const activeUntil = activeLeases.get(key) || 0;
+  if (activeUntil > now.getTime()) return { acquired: false };
+  activeLeases.set(key, now.getTime() + ttlMs);
+  return { acquired: true, key };
+}
+
+async function releaseAutopilotLease(lease) {
+  if (lease?.key) activeLeases.delete(lease.key);
 }
 
 function selectRunCandidates(candidates, configuredLimit) {
