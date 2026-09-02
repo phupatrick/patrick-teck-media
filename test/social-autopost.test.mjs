@@ -54,6 +54,13 @@ try {
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /ai-phone/);
   assert.equal(geminiContent.caption, "Bài có dấu");
+  let productPrompt = "";
+  await createPostContent({
+    provider: "gemini", apiKey: "test-key", topic: "Công cụ AI", pillar: "product_offer", postType: "product_promotion", notes: "Giá tham khảo 99.000 đồng; thời hạn 30 ngày",
+    fetchImpl: async (url, options) => { productPrompt = JSON.parse(options.body).contents?.[0]?.parts?.[0]?.text || ""; return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Giới thiệu sản phẩm", first_comment: "" }) }] } }] }), { status: 200 }); }
+  });
+  assert.match(productPrompt, /mục đích thương mại/);
+  assert.match(productPrompt, /giá\/thời hạn/);
   const originalSocialKey = process.env.SOCIAL_AI_API_KEY;
   const originalNewsroomKey = process.env.NEWSROOM_GEMINI_API_KEY;
   const originalGeminiKey = process.env.GEMINI_API_KEY;

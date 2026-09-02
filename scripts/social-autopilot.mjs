@@ -128,6 +128,7 @@ async function createAutopilotContent({ article, notes, env, fetchImpl, logger }
       apiKey: env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY || "",
       topic: article.title,
       pillar: "ai_news",
+      postType: article.post_type || "information",
       notes,
       sourceArticleUrl: article.href || article.url || "",
       fetchImpl
@@ -136,7 +137,7 @@ async function createAutopilotContent({ article, notes, env, fetchImpl, logger }
   } catch (error) {
     const message = error.message || String(error);
     logger.warn?.(`[social-autopilot] AI generation failed; using approved fallback template: ${message}`);
-    return { ...generateOfflinePost({ topic: article.title, pillar: article.pillar || "ai_news", notes, customCTA: article.custom_cta || "" }), generation_mode: "approved_fallback" };
+    return { ...generateOfflinePost({ topic: article.title, pillar: article.pillar || "ai_news", notes, customCTA: article.custom_cta || "", isProductPromotion: article.post_type === "product_promotion" }), generation_mode: "approved_fallback" };
   }
 }
 

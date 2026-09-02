@@ -32,10 +32,10 @@ export function getRandomTechImage({ random = Math.random } = {}) {
   return TECH_IMAGES[index];
 }
 
-export async function createPostContent({ provider = "offline", apiKey = "", topic, pillar, notes, sourceArticleUrl = "", fetchImpl = fetch } = {}) {
+export async function createPostContent({ provider = "offline", apiKey = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", fetchImpl = fetch } = {}) {
   const normalizedProvider = String(provider || "offline").trim().toLowerCase();
   if (["", "none", "offline"].includes(normalizedProvider)) {
-    return generateOfflinePost({ topic, pillar, notes });
+    return generateOfflinePost({ topic, pillar, notes, isProductPromotion: postType === "product_promotion" });
   }
 
   const resolvedApiKey = String(
@@ -57,7 +57,7 @@ export async function createPostContent({ provider = "offline", apiKey = "", top
   } catch {
     // Learning data is optional; content generation remains available without it.
   }
-  const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, topic, pillar, notes, sourceArticleUrl, learningContext, fetchImpl });
+  const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, topic, pillar, postType, notes, sourceArticleUrl, learningContext, fetchImpl });
   return validatePostContent(result);
 }
 
@@ -96,7 +96,7 @@ export async function postFirstComment({ postId, pageToken, commentText, fetchIm
   return payload?.id || null;
 }
 
-async function requestAiContent({ provider, apiKey, topic, pillar, notes, sourceArticleUrl = "", learningContext = "", fetchImpl }) {
+async function requestAiContent({ provider, apiKey, topic, pillar, postType = "information", notes, sourceArticleUrl = "", learningContext = "", fetchImpl }) {
   if (provider === "gemini") {
     const configuredModel = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "").trim();
     const models = [...new Set([configuredModel, DEFAULT_GEMINI_MODEL, ...COMPATIBLE_GEMINI_MODELS].filter(Boolean))];
@@ -105,7 +105,7 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, source
       const response = await fetchWithTimeout(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, notes, sourceArticleUrl })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
+        body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
       }, 10000);
       const payload = await readResponse(response);
       if (response.ok) return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
@@ -121,7 +121,7 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, source
   const response = await fetchWithTimeout(fetchImpl, `${baseUrl}/v1/chat/completions`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({ model, response_format: { type: "json_object" }, messages: [{ role: "system", content: `${SOCIAL_SYSTEM_PROMPT}${learningContext}` }, { role: "user", content: buildPrompt({ topic, pillar, notes, sourceArticleUrl }) }] })
+    body: JSON.stringify({ model, response_format: { type: "json_object" }, messages: [{ role: "system", content: `${SOCIAL_SYSTEM_PROMPT}${learningContext}` }, { role: "user", content: buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl }) }] })
   }, 10000);
   const payload = await readResponse(response);
   if (!response.ok) {
@@ -130,8 +130,11 @@ async function requestAiContent({ provider, apiKey, topic, pillar, notes, source
   return parseJsonText(payload?.choices?.[0]?.message?.content);
 }
 
-function buildPrompt({ topic, pillar, notes, sourceArticleUrl = "" }) {
-  return `Thương hiệu: Patrick Tech Co. Chủ đề: ${topic || "Công nghệ"}. Trụ cột: ${pillar || "ai_news"}. URL bài nguồn để tham khảo: ${sourceArticleUrl || "không có"}. Dữ liệu đã xác minh: ${notes || ""}. Hãy viết đủ chiều sâu nhưng dễ đọc, ưu tiên lợi ích và quyết định thực tế của người đọc.`;
+function buildPrompt({ topic, pillar, postType = "information", notes, sourceArticleUrl = "" }) {
+  const productRules = postType === "product_promotion"
+    ? "Đây là bài giới thiệu sản phẩm có mục đích thương mại. Phải nói rõ sản phẩm đang được giới thiệu, danh mục, giá/thời hạn nếu có trong dữ liệu, điều kiện sử dụng, giới hạn và kênh mua. Dùng giọng tư vấn nhẹ, không giả làm tin độc lập, không tạo khan hiếm giả, không hứa kết quả, không dùng thuộc tính cá nhân để thuyết phục và không che giấu quan hệ bán hàng."
+    : "Đây là bài thông tin; CTA chỉ nên nhẹ và liên quan trực tiếp đến nội dung. Không biến bài tin thành quảng cáo.";
+  return `Thương hiệu: Patrick Tech Co. Loại bài: ${postType}. ${productRules} Chủ đề: ${topic || "Công nghệ"}. Trụ cột: ${pillar || "ai_news"}. URL bài nguồn để tham khảo: ${sourceArticleUrl || "không có"}. Dữ liệu đã xác minh: ${notes || ""}. Hãy viết đủ chiều sâu nhưng dễ đọc, ưu tiên lợi ích và quyết định thực tế của người đọc.`;
 }
 
 function validatePostContent(value) {

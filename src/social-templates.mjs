@@ -15,7 +15,7 @@ const DEFAULT_COMMENT = [
   "Zalo / Hotline: 0933 684 560"
 ].join("\n");
 
-export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, notes = "", customCTA = "" } = {}) {
+export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, notes = "", customCTA = "", isProductPromotion = false } = {}) {
   const title = normalizeText(topic, "Công nghệ và giải pháp số đáng chú ý");
   const detail = normalizeText(notes, "Làm rõ lợi ích, giới hạn và cách áp dụng phù hợp với nhu cầu thực tế.");
   const cta = normalizeText(customCTA, DEFAULT_CTA);
@@ -55,8 +55,9 @@ export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, n
     ]
   };
 
+  const disclosure = isProductPromotion ? "📣 Bài viết giới thiệu sản phẩm của Patrick Tech Co. Thông tin, giá và tình trạng được tham khảo từ catalog tại thời điểm đăng; vui lòng kiểm tra lại trước khi mua." : "";
   return {
-    caption: [BRAND_HEADER, ...(contentByPillar[pillar] || contentByPillar[CONTENT_PILLARS.AI_NEWS]), DISCUSSION_PROMPT].join("\n\n"),
+    caption: [BRAND_HEADER, disclosure, ...(contentByPillar[pillar] || contentByPillar[CONTENT_PILLARS.AI_NEWS]), DISCUSSION_PROMPT].filter(Boolean).join("\n\n"),
     first_comment: DEFAULT_COMMENT
   };
 }
