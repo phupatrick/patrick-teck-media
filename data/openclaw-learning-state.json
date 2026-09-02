@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T13:06:52.641Z",
+  "generated_at": "2026-09-02T13:16:46.685Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-09-02T13:06:52.641Z",
+    "updated_at": "2026-09-02T13:16:46.685Z",
     "confidence": 0.95,
     "totalSignals": 219,
     "eligibleArticleCount": 75,
@@ -141,9 +141,31 @@
       "Khong publish bai lap cau hoac lap cum tu; can viet lai section bi trung truoc khi len trang.",
       "Trinh bay moi section nhu mot y rieng: heading ro, than doan du y, tranh mot cau dai keo het ca section."
     ],
+    "learningMethods": [
+      "Bandit thích ứng: ưu tiên theo hiệu quả quan sát được",
+      "Điểm chất lượng: kiểm tra độ đầy đủ và khả năng xuất bản",
+      "Phân tích đọc hiểu: đo câu dài, độ rõ và cấu trúc section",
+      "Phân tích tương tác: kết hợp view độc nhất, reaction, bình luận và feedback",
+      "Xếp hạng nguồn: ưu tiên nguồn chính thức và báo chí đáng tin",
+      "Phát hiện trùng lặp: giảm điểm nội dung lặp hoặc quá giống",
+      "Cân bằng chủ đề: tránh để một beat chiếm toàn bộ lịch đăng",
+      "Suy giảm theo thời gian: giảm ảnh hưởng của tín hiệu cũ"
+    ],
+    "qualitySignals": {
+      "readability": 73,
+      "specificity": 34,
+      "originality": 92,
+      "sourceDepth": 25
+    },
     "lastCycleSummary": "Learned from 75 eligible article(s); 943 article(s) excluded from learning; 0 owner feedback item(s); 219 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, security, devices, apps-software, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-09-02T13:16:46.685Z",
+      "totalSignals": 219,
+      "confidence": 0.95,
+      "summary": "Learned from 75 eligible article(s); 943 article(s) excluded from learning; 0 owner feedback item(s); 219 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, security, devices, apps-software, internet-business-tech"
+    },
     {
       "generated_at": "2026-09-02T13:06:52.641Z",
       "totalSignals": 219,
@@ -374,12 +396,6 @@
     },
     {
       "generated_at": "2026-09-01T19:59:31.302Z",
-      "totalSignals": 209,
-      "confidence": 0.95,
-      "summary": "Learned from 74 eligible article(s); 937 article(s) excluded from learning; 0 owner feedback item(s); 209 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, security, devices, apps-software, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-09-01T19:51:14.034Z",
       "totalSignals": 209,
       "confidence": 0.95,
       "summary": "Learned from 74 eligible article(s); 937 article(s) excluded from learning; 0 owner feedback item(s); 209 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, security, devices, apps-software, internet-business-tech"
