@@ -40,7 +40,9 @@ env:
 
 concurrency:
   group: openclaw-manager-${{ github.ref }}
-  cancel-in-progress: false
+  # A manual /up request must not queue behind stale refresh runs. Keeping the
+  # newest cycle prevents duplicate data commits and git rebase conflicts.
+  cancel-in-progress: true
 
 jobs:
   refresh:

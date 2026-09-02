@@ -1013,9 +1013,10 @@ async function requestRefresh(context, reasonPrefix = "telegram") {
       if (reasonPrefix === "telegram-up-more") {
         const requestedAt = new Date().toISOString();
         return [
-          `Đã bắt đầu yêu cầu quét tin mới lúc ${requestedAt}.`,
+          `Đã nhận yêu cầu tự động quét tin lúc ${requestedAt}.`,
+          "Nếu đang có một chu kỳ khác, chu kỳ cũ sẽ được dừng để ưu tiên yêu cầu mới nhất.",
           "GitHub Actions sẽ thu thập nguồn web hiện tại, viết/lọc nội dung và cập nhật kho bài.",
-          "Bot chỉ xác nhận kết quả sau khi chu kỳ xong bằng báo cáo thời gian thực: nguồn, bài quét, bài đạt/giữ lại và bài mới."
+          "Kết quả sẽ được báo sau khi chu kỳ hoàn tất bằng báo cáo thời gian thực: nguồn, bài quét, bài đạt/giữ lại và bài mới."
         ].join("\n");
       }
 
