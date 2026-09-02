@@ -60,6 +60,7 @@ import { createTelegramSellerBot } from "./src/telegram-seller-bot.mjs";
 import { createTelegramNewsroomBot } from "./src/telegram-newsroom-bot.mjs";
 import { createSocialStore } from "./src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "./src/social-bot-handlers.mjs";
+import { runSocialAutopilot } from "./scripts/social-autopilot.mjs";
 import { loadSourceRegistry } from "./scripts/newsroom-refresh.mjs";
 import { createOpenClawControlPlane } from "./src/openclaw-control-plane.mjs";
 import { createOpenClawLearningStore } from "./src/openclaw-learning-store.mjs";
@@ -107,6 +108,7 @@ const config = {
   telegramNewsroomBotToken: process.env.TELEGRAM_NEWSROOM_BOT_TOKEN || envFromFile.TELEGRAM_NEWSROOM_BOT_TOKEN || "",
   telegramNewsroomAllowedChatIds: (process.env.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS || envFromFile.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
   telegramNewsroomAdminUserIds: (process.env.TELEGRAM_NEWSROOM_ADMIN_USER_IDS || envFromFile.TELEGRAM_NEWSROOM_ADMIN_USER_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
+  telegramNewsroomReportChatIds: (process.env.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || envFromFile.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || process.env.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS || envFromFile.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean),
   telegramNewsroomWebhookPath: process.env.TELEGRAM_NEWSROOM_WEBHOOK_PATH || envFromFile.TELEGRAM_NEWSROOM_WEBHOOK_PATH || "/api/telegram/newsroom/webhook",
   telegramNewsroomWebhookSecret: process.env.TELEGRAM_NEWSROOM_WEBHOOK_SECRET || envFromFile.TELEGRAM_NEWSROOM_WEBHOOK_SECRET || "",
   telegramNewsroomAutoWebhook: !isExplicitlyDisabled(process.env.TELEGRAM_NEWSROOM_AUTO_WEBHOOK || envFromFile.TELEGRAM_NEWSROOM_AUTO_WEBHOOK || "1"),
@@ -124,7 +126,10 @@ const config = {
   socialPageId: process.env.FB_PAGE_ID || envFromFile.FB_PAGE_ID || "885195674667440",
   socialPageToken: process.env.FB_PAGE_ACCESS_TOKEN || envFromFile.FB_PAGE_ACCESS_TOKEN || "",
   socialAiProvider: process.env.SOCIAL_AI_PROVIDER || envFromFile.SOCIAL_AI_PROVIDER || "offline",
-  socialAiApiKey: process.env.SOCIAL_AI_API_KEY || envFromFile.SOCIAL_AI_API_KEY || ""
+  socialAiApiKey: process.env.SOCIAL_AI_API_KEY || envFromFile.SOCIAL_AI_API_KEY || "",
+  socialAutopilotEnabled: process.env.SOCIAL_AUTOPILOT_ENABLED || envFromFile.SOCIAL_AUTOPILOT_ENABLED || "1",
+  socialAutopilotLimit: process.env.SOCIAL_AUTOPILOT_LIMIT || envFromFile.SOCIAL_AUTOPILOT_LIMIT || "1",
+  socialAutopilotRotateTopics: process.env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || envFromFile.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "0"
 };
 const rateLimitBuckets = new Map();
 const RATE_LIMIT_RULES = {
@@ -924,6 +929,10 @@ async function handleApi(req, pathname, requestUrl, res, state) {
     return handleOpenClawCronApi(req, res);
   }
 
+  if (pathname === "/api/social/autopilot/cron") {
+    return handleSocialAutopilotCronApi(req, res);
+  }
+
   if (pathname === "/api/openclaw/control") {
     return handleOpenClawControlApi(req, requestUrl, res);
   }
@@ -1150,23 +1159,77 @@ async function handleOpenClawCronApi(req, res) {
     return sendMethodNotAllowed(res, "GET, HEAD, OPTIONS");
   }
 
-  if (config.cronSecret) {
-    const authHeader = String(req.headers.authorization || "");
-    const bearerToken = authHeader.startsWith("Bearer ") ? authHeader.slice("Bearer ".length).trim() : "";
-    if (bearerToken !== config.cronSecret) {
-      return sendJson(res, 401, { error: "Unauthorized." });
-    }
+  if (!isAuthorizedCronRequest(req)) {
+    return sendJson(res, 401, { error: "Unauthorized." });
   }
 
   try {
-    const result = await dispatchNewsroomWorkflow({ reason: "vercel-cron" });
-    return sendJson(res, result.ok ? 200 : 503, {
-      ok: result.ok,
-      mode: result.ok ? "github-workflow-dispatch" : "not-configured",
-      reason: result.reason || ""
+    const [social, workflow] = await Promise.all([
+      runProductionSocialAutopilot(),
+      dispatchNewsroomWorkflow({ reason: "vercel-cron" })
+    ]);
+    const ok = workflow.ok && social.ok;
+    return sendJson(res, ok ? 200 : 503, {
+      ok,
+      mode: workflow.ok ? "github-workflow-dispatch" : "not-configured",
+      reason: workflow.reason || "",
+      social
     });
   } catch (error) {
     return sendJson(res, 500, { error: error.message || "Cron dispatch failed." });
+  }
+}
+
+async function handleSocialAutopilotCronApi(req, res) {
+  const method = normalizeMethod(req.method);
+  if (method !== "GET" && method !== "HEAD") {
+    return sendMethodNotAllowed(res, "GET, HEAD, OPTIONS");
+  }
+
+  if (!isAuthorizedCronRequest(req)) {
+    return sendJson(res, 401, { error: "Unauthorized." });
+  }
+
+  const social = await runProductionSocialAutopilot();
+  return sendJson(res, social.ok ? 200 : 503, { ok: social.ok, social });
+}
+
+function isAuthorizedCronRequest(req) {
+  if (!config.cronSecret) {
+    return false;
+  }
+  const authHeader = String(req.headers.authorization || "");
+  const bearerToken = authHeader.startsWith("Bearer ") ? authHeader.slice("Bearer ".length).trim() : "";
+  return bearerToken === config.cronSecret;
+}
+
+async function runProductionSocialAutopilot() {
+  if (!config.socialPageToken) {
+    return { ok: true, skipped: true, reason: "FB_PAGE_ACCESS_TOKEN is not configured." };
+  }
+
+  try {
+    const result = await runSocialAutopilot({
+      env: {
+        ...process.env,
+        DATABASE_URL: config.databaseUrl,
+        NEWSROOM_CONTENT_PATH: config.contentPath,
+        SOCIAL_STATE_PATH: config.socialStatePath,
+        SOCIAL_AUTOPILOT_ENABLED: config.socialAutopilotEnabled,
+        SOCIAL_AUTOPILOT_LIMIT: config.socialAutopilotLimit,
+        SOCIAL_AUTOPILOT_ROTATE_TOPICS: config.socialAutopilotRotateTopics,
+        SOCIAL_AI_PROVIDER: config.socialAiProvider,
+        SOCIAL_AI_API_KEY: config.socialAiApiKey,
+        FB_PAGE_ID: config.socialPageId,
+        FB_PAGE_ACCESS_TOKEN: config.socialPageToken,
+        TELEGRAM_NEWSROOM_BOT_TOKEN: config.telegramNewsroomBotToken,
+        TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: config.telegramNewsroomReportChatIds.join(",")
+      }
+    });
+    return { ok: result.failures.length === 0, ...result };
+  } catch (error) {
+    console.error("[social-autopilot-cron]", error.message || error);
+    return { ok: false, error: error.message || String(error) };
   }
 }
 
