@@ -27,6 +27,10 @@ on:
         description: "Require a VI/EN pair for this manually requested run"
         required: false
         default: ""
+      force_social_post:
+        description: "Publish one eligible Facebook post outside its normal slot"
+        required: false
+        default: "0"
   schedule:
     - cron: "*/15 * * * *"
     - cron: "17 0 * * *"
@@ -129,6 +133,7 @@ jobs:
           # Publishing is autonomous in production; set the secret to 0 for an intentional pause.
           SOCIAL_AUTOPILOT_ENABLED: ${{ secrets.SOCIAL_AUTOPILOT_ENABLED || '1' }}
           SOCIAL_AUTOPILOT_SCHEDULED: "1"
+          SOCIAL_AUTOPILOT_FORCE: ${{ github.event.inputs.force_social_post || '0' }}
           SOCIAL_AUTOPILOT_RUN_LIMIT: ${{ secrets.SOCIAL_AUTOPILOT_RUN_LIMIT || secrets.SOCIAL_AUTOPILOT_LIMIT || '2' }}
           SOCIAL_AUTOPILOT_ROTATE_TOPICS: ${{ secrets.SOCIAL_AUTOPILOT_ROTATE_TOPICS || '0' }}
           SOCIAL_PRODUCT_COOLDOWN_HOURS: ${{ secrets.SOCIAL_PRODUCT_COOLDOWN_HOURS || '72' }}
