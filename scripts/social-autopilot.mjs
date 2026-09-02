@@ -6,6 +6,9 @@ import { generateOfflinePost } from "../src/social-templates.mjs";
 import { pathToFileURL } from "node:url";
 
 const DEFAULT_CONTENT_PATH = "data/newsroom-content.json";
+const DEFAULT_STORE_CATALOG_URL = "https://patricktechmedia.store/api/products";
+const DEFAULT_INFORMATION_POSTS_PER_DAY = 5;
+const DEFAULT_PRODUCT_POSTS_PER_DAY = 3;
 const DEFAULT_TOPICS = [
   "Cách chọn công cụ AI phù hợp cho công việc hằng ngày",
   "Những thông số công nghệ người mua nên kiểm tra trước khi xuống tiền",
@@ -28,10 +31,15 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const socialState = await store.getState();
   const publishedKeys = new Set(socialState.posts.filter((post) => post.status === "published").map((post) => post.source_key).filter(Boolean));
   const newsroom = await loadNewsroomState({ contentPath: env.NEWSROOM_CONTENT_PATH || DEFAULT_CONTENT_PATH, databaseUrl: env.DATABASE_URL || "" });
-  const limit = Math.max(1, Math.min(20, Number(env.SOCIAL_AUTOPILOT_LIMIT || 3)));
+  const informationLimit = normalizeDailyLimit(env.SOCIAL_INFORMATION_POSTS_PER_DAY, DEFAULT_INFORMATION_POSTS_PER_DAY);
+  const productLimit = normalizeDailyLimit(env.SOCIAL_PRODUCT_POSTS_PER_DAY, DEFAULT_PRODUCT_POSTS_PER_DAY);
   const learnedContext = await loadLearnedContext(env);
-  const articles = selectCandidates(newsroom.articles, publishedKeys, limit, { learnedContext, recentPosts: socialState.posts });
-  const candidates = articles.length ? articles : (String(env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "") === "1" ? DEFAULT_TOPICS.map((topic) => ({ title: topic, summary: "Chủ đề tư vấn công nghệ thực tế từ Patrick Tech Co.", source_key: `topic:${topic}` })).slice(0, limit) : []);
+  const articles = selectCandidates(newsroom.articles, publishedKeys, informationLimit, { learnedContext, recentPosts: socialState.posts });
+  const informationCandidates = articles.length
+    ? articles
+    : (String(env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "") === "1" ? DEFAULT_TOPICS.map((topic) => ({ title: topic, summary: "Chủ đề tư vấn công nghệ thực tế từ Patrick Tech Co.", source_key: `topic:${topic}`, pillar: "workflow_tips", post_type: "information" })).slice(0, informationLimit) : []);
+  const productCandidates = await selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts: socialState.posts, limit: productLimit, logger });
+  const candidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...productCandidates];
   const published = [];
   const failures = [];
 
@@ -78,6 +86,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         candidate_score: article.candidate_score || 0,
         candidate_reasons: article.candidate_reasons || [],
         generation_mode: content.generation_mode || "offline",
+        post_type: article.post_type || "information",
         first_comment_status: firstCommentStatus,
         first_comment_error: firstCommentError
       };
@@ -91,6 +100,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         facebook_url: `https://facebook.com/${postId}`,
         candidate_score: article.candidate_score || 0,
         generation_mode: content.generation_mode || "offline",
+        post_type: article.post_type || "information",
         first_comment_status: firstCommentStatus
       });
     } catch (error) {
@@ -119,8 +129,57 @@ async function createAutopilotContent({ article, notes, env, fetchImpl, logger }
   } catch (error) {
     const message = error.message || String(error);
     logger.warn?.(`[social-autopilot] AI generation failed; using approved fallback template: ${message}`);
-    return { ...generateOfflinePost({ topic: article.title, pillar: "ai_news", notes }), generation_mode: "approved_fallback" };
+    return { ...generateOfflinePost({ topic: article.title, pillar: article.pillar || "ai_news", notes, customCTA: article.custom_cta || "" }), generation_mode: "approved_fallback" };
   }
+}
+
+async function selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts, limit, logger }) {
+  if (limit < 1) return [];
+  try {
+    const response = await fetchImpl(String(env.SOCIAL_PRODUCT_CATALOG_URL || DEFAULT_STORE_CATALOG_URL), {
+      headers: { accept: "application/json", "user-agent": "patrick-tech-media-social-autopilot" },
+      signal: AbortSignal.timeout(15000)
+    });
+    if (!response.ok) throw new Error(`catalog HTTP ${response.status}`);
+    const payload = await response.json();
+    const usedProducts = new Set((Array.isArray(recentPosts) ? recentPosts : []).map((post) => String(post?.source_key || "")).filter((key) => key.startsWith("product:")));
+    return (Array.isArray(payload?.products) ? payload.products : [])
+      .filter(isFacebookEligibleProduct)
+      .filter((product) => !publishedKeys.has(`product:${product.id}`) && !usedProducts.has(`product:${product.id}`))
+      .map(toProductCandidate)
+      .slice(0, limit);
+  } catch (error) {
+    logger.warn?.(`[social-autopilot] Product catalog was unavailable; product promotions skipped: ${error.message || error}`);
+    return [];
+  }
+}
+
+function isFacebookEligibleProduct(product) {
+  const category = String(product?.catalogCategory || "").toLowerCase();
+  const text = `${product?.title || ""} ${product?.description || ""}`.toLowerCase();
+  if (!new Set(["ai", "software"]).has(category)) return false;
+  return !/(add\s*(fam|family|team)|cấp tài khoản|tài khoản riêng|đổi mật khẩu|mail\s*\||password|unban|tăng lượt|tăng tương tác|followers?|views?|subscribers?|bot giá|tool tăng)/i.test(text);
+}
+
+function toProductCandidate(product) {
+  const description = String(product.description || "").replace(/\s+/g, " " ).trim().slice(0, 1800);
+  const price = String(product.priceText || "").trim();
+  return {
+    title: product.title,
+    summary: `Sản phẩm thuộc danh mục ${product.catalogLabelVi || "Công cụ số"}.${price ? ` Giá tham khảo: ${price}.` : ""}`,
+    dek: description,
+    image_url: product.image || product.images?.[0] || "",
+    href: "https://patricktechmedia.store/",
+    source_key: `product:${product.id}`,
+    pillar: "product_offer",
+    post_type: "product_promotion",
+    custom_cta: "Xem danh mục sản phẩm tại patricktechmedia.store hoặc nhắn Zalo 0933 684 560 để nhận tư vấn về tính tương thích, điều kiện sử dụng và hỗ trợ sau mua."
+  };
+}
+
+function normalizeDailyLimit(value, fallback) {
+  const number = Number(value);
+  return Math.max(0, Math.min(10, Number.isFinite(number) ? Math.floor(number) : fallback));
 }
 
 export function selectCandidates(articles, publishedKeys, limit, { learnedContext = {}, recentPosts = [], now = new Date() } = {}) {
@@ -191,8 +250,10 @@ async function sendTelegramReport(result, env, fetchImpl) {
   const token = String(env.TELEGRAM_NEWSROOM_BOT_TOKEN || "").trim();
   const chatIds = String(env.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean);
   if (!token || !chatIds.length) return;
-  const lines = [`Social Autopilot: đã đăng ${result.published.length}/${result.selected} bài.`];
-  lines.push(...result.published.map((item) => `✅ ${item.title} [${item.generation_mode}, score ${item.candidate_score}${item.first_comment_status === "failed" ? ", comment pending" : ""}]\n${item.facebook_url}`));
+  const informationCount = result.published.filter((item) => item.post_type === "information").length;
+  const productCount = result.published.filter((item) => item.post_type === "product_promotion").length;
+  const lines = [`Social Autopilot: đã đăng ${result.published.length}/${result.selected} bài (${informationCount} thông tin, ${productCount} sản phẩm).`];
+  lines.push(...result.published.map((item) => `✅ ${item.title} [${item.post_type}, ${item.generation_mode}, score ${item.candidate_score}${item.first_comment_status === "failed" ? ", comment pending" : ""}]\n${item.facebook_url}`));
   for (const chatId of chatIds) {
     await fetchImpl(`https://api.telegram.org/bot${encodeURIComponent(token)}/sendMessage`, {
       method: "POST",
