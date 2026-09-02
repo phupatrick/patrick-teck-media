@@ -1,11 +1,118 @@
 {
-  "generated_at": "2026-09-02T20:54:43.841Z",
+  "generated_at": "2026-09-02T23:13:57.991Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-00a52b4ba026-en",
+      "cluster_id": "feed-00a52b4ba026",
+      "language": "en",
+      "topic_label": "Devices",
+      "topic_slug": "devices",
+      "topic_accent": "#4e7dff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "uber-beats-waymo-as-first-to-launch-robotaxis-in-london",
+      "title": "Uber beats Waymo as first to launch robotaxis in London",
+      "hook": "Uber beat out Waymo in launching a commercial robotaxi service in London, the city’s first. What makes this worth following is that the signal is getting stronger without being fully settled yet.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Uber beat out Waymo in launching a commercial robotaxi service in London, the city’s first. The vehicles use autonomous driving tech developed by Wayve , a UK-based startup, and will initially feature safety drivers behind the wheel.",
+      "dek": "Uber beat out Waymo in launching a commercial robotaxi service in London, the city’s first. The vehicles use autonomous driving tech developed by Wayve , a UK-based startup, and will initially feature safety drivers behind the wheel. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Uber beat out Waymo in launching a commercial robotaxi service in London, the city’s first. The vehicles use autonomous driving tech developed by Wayve , a UK-based startup, and will initially feature safety drivers behind the wheel."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "The launch is a milestone for Uber, which has been plotting a UK launch with Wayve for several years . In beating Waymo to the punch, it allows Uber to set the standard for the robotaxi experience for thousands of Londoners. It’s also an early test of whether there’s appetite for driverless ridehailing beyond the US and China, where most of the world’s robotaxis are currently clustered. (There’s a smattering in the Middle East, too."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "London-based Uber customers who want to try out these new robot-controlled cars can indicate their preference in the app’s settings. When booking a ride through UberX, Uber Comfort, or Uber Electric, riders may be paired with a Wayve-developed autonomous vehicle, but it’s not a guarantee. Wayve is using Ford Mustang Mach-Es for its fleet, followed by the Nissan Leaf in the future."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Safety drivers will monitor the driving from the front seat, though Uber says they won’t control the driving and will gradually be phased out in favor of fully driverless vehicles. Safety drivers are licensed by Transport for London, the city’s transit authority."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Uber says there will be no geofence — the virtual boundary within which robotaxis are programed to operate — because Wayve’s AV2. 0 system is designed to move “beyond the constraints of traditional AV systems. ” Wayve describes AV2. 0 thusly:."
+        }
+      ],
+      "image": {
+        "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/Photo-1.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+        "alt": "",
+        "caption": "Reference image from The Verge.",
+        "credit": "The Verge",
+        "source_url": "https://www.theverge.com/news/988415/uber-wayve-robotaxi-london-launch"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "The Verge",
+          "source_url": "https://www.theverge.com/news/988415/uber-wayve-robotaxi-london-launch",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-02T21:31:46.000Z",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/Photo-1.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+          "image_caption": "Reference image from The Verge.",
+          "image_credit": "The Verge"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-02T21:31:46.000Z",
+      "updated_at": "2026-09-02T21:31:46.000Z",
+      "href": "/en/news/uber-beats-waymo-as-first-to-launch-robotaxis-in-london",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/uber-beats-waymo-as-first-to-launch-robotaxis-in-london",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "devices",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-02T23:13:57.991Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-dcbe76540e8b-en",
       "cluster_id": "feed-dcbe76540e8b",
@@ -22,20 +129,20 @@
       "author_name": "",
       "author_role_vi": "",
       "author_role_en": "",
-      "summary": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. The racing game, originally released on the Wii U back in 2014 and then updated for the Nintendo Switch in 2017, received what could be the greatest update for the game that could get players back on the track.",
-      "dek": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. The racing game, originally released on the Wii U back in 2014 and then updated for the Nintendo Switch in 2017, received what could be the greatest update for the game that could get players back on the track. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "summary": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. The racing game, originally released on the Wii U back in 2014 and then updated for the Nintendo Switch in 2017, has received what might be the greatest update for the game that could get players back on the track.",
+      "dek": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. The racing game, originally released on the Wii U back in 2014 and then updated for the Nintendo Switch in 2017, has received what might be the greatest update for the game that could get players back on the track. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
       "sections": [
         {
           "heading": "What happened",
-          "body": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. The racing game, originally released on the Wii U back in 2014 and then updated for the Nintendo Switch in 2017, received what could be the greatest update for the game that could get players back on the track."
+          "body": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. The racing game, originally released on the Wii U back in 2014 and then updated for the Nintendo Switch in 2017, has received what might be the greatest update for the game that could get players back on the track."
         },
         {
           "heading": "Where the sources line up",
-          "body": "Nintendo surprise dropped the Version 4. 0. 0 update for Mario Kart 8 Deluxe on Tuesday, which adds a new eight-player, split-screen option when playing the game on the Nintendo Switch 2 , as well as CameraPlay support and support for higher-resolution TVs. It’s the new multiplayer option that has gone viral on social media as gamers are trying to wrap their heads around playing an eight-player race on the Switch 2’s 7. 9-inch screen."
+          "body": "Nintendo on Tuesday unexpectedly dropped the version 4. 0. 0 update for Mario Kart 8 Deluxe, which adds a new eight-player, split-screen option when playing the game on the Nintendo Switch 2 , as well as CameraPlay support and support for higher-resolution TVs. It’s the new multiplayer option that has gone viral on social media, as gamers try to wrap their heads around playing an eight-player race on the Switch 2’s 7. 9-inch screen."
         },
         {
           "heading": "Practical impact for readers",
-          "body": "While this split-screen mode can work on the Switch 2 in handheld mode, it’s clear that the new multiplayer option is designed for gamers to play the game with friends on a TV. This update also expands Mario Kart 8 Deluxe’s multiplayer beyond the four-player limit it had since launch. Instead, up to eight racers can play together, with each racer able to have their own individual Joy-Con, Switch Pro Controller or Switch 2 Pro Controller. Those who paid the $25 for the Mario Kart 8 Deluxe – Booster Course Pass will also have access to all 96 courses in the VS Race multiplayer mode."
+          "body": "While this split-screen mode can work on the Switch 2 in handheld mode, it’s clear that the new multiplayer option is designed for gamers to play with friends on a TV. It expands Mario Kart 8 Deluxe’s multiplayer beyond the four-player limit it has had since launch. Instead, up to eight racers can play together, with each racer able to have their own individual Joy-Con, Switch Pro Controller or Switch 2 Pro Controller. Those who paid the $25 for the Mario Kart 8 Deluxe – Booster Course Pass will also have access to all 96 courses in the VS Race multiplayer mode."
         },
         {
           "heading": "Who should pay attention now",
@@ -111,116 +218,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T20:54:43.841Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-aa2ebc34a86b-en",
-      "cluster_id": "feed-aa2ebc34a86b",
-      "language": "en",
-      "topic_label": "Gaming",
-      "topic_slug": "gaming",
-      "topic_accent": "#ff7a29",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "it-took-two-years-but-dragon-s-dogma-2-finally-has-60fps-on-xbox-series-x-just-as-a-new-gameplay",
-      "title": "It took two years, but Dragon's Dogma 2 finally has 60fps on Xbox Series X, just as a new gameplay trailer for its upcoming DLC expansion drops",
-      "hook": "RSS w3.org/2000/svg\"> View Profile Sign out Search Search Windows Central Features From the Editor's Desk Windows Central LIVE Windows Wrap Windows Central Podcast Videos Gaming By Publisher Activision Blizzard Zenimax & Bethesda Playstation Studios Take 2 By Franchise Call of Duty Forza Halo Minecraft MS Flight Sim Gears of War WoW Platforms & Hardware Xbox PC Gaming Gaming Chairs Indies & ID@Xbox Xbox Game Pass Handheld Gaming PC Controllers Gaming Accessories Editorial Coverage Gaming News Gaming Reviews Gaming Deals Gaming Buying Guides Gaming How To Gaming Features REPLAY Hardware Computers Laptops Desktops Handheld Gaming Mini PCs All-in-Ones (AiO) Components Processors AMD Intel Qualcomm GPUs CPUs Nvidia Storage Mobile & Smart Devices Phones Smart Home Wearable Tech By Brand Acer ASUS Dell HP Lenovo LG MSI Razer Samsung Notebooks Surface Editorial Coverage Hardware Buying Guides Hardware Deals Hardware How To Hardware News Hardware Reviews Hardware Versus Laptop Buying Guides Laptop Deals Laptop How To Laptop News Laptop Reviews Laptop Versus Microsoft Microsoft Core Bing Copilot+ PC Microsoft Copilot Copilot Plus vs Copilot Windows Help Microsoft Surface Windows 10 Windows 10 How To Windows 10 News Windows 11 Windows 11 How To Windows 11 News Office & Teams Microsoft Teams Microsoft Office Microsoft Excel Microsoft Powerpoint Microsoft Word Microsoft Outlook Editorial Coverage How To Guides News Features Software Cloud Storage Cloud Computing Backup OneDrive Collaboration Discord GitHub Reddit Slack Teams Creative Adobe Browsers Microsoft Edge Google Chrome Firefox Opera Operating Systems Chrome OS Steam OS Linux Accessories Input Devices Keyboards Mice Microphones Audio & Visual Headphones Speakers Monitors Webcams Connectivity & Protection Networking Bags & Cases Editorial Coverage Accessories Buying Guides Accessories Deals Accessories How To Accessories Reviews More Home Features View Features From the Editor's Desk Windows Central LIVE Windows Wrap Windows Central Podcast Videos Gaming View Gaming By Publisher Activision Blizzard Zenimax & Bethesda Playstation Studios Take 2 By Franchise Call of Duty Forza Halo Minecraft MS Flight Sim Gears of War WoW Platforms & Hardware Xbox PC Gaming Gaming Chairs Indies & ID@Xbox Xbox Game Pass Handheld Gaming PC Controllers Gaming Accessories Editorial Coverage Gaming News Gaming Reviews Gaming Deals Gaming Buying Guides Gaming How To Gaming Features REPLAY Hardware View Hardware Computers Laptops Desktops Handheld Gaming Mini PCs All-in-Ones (AiO) Components View Components Processors AMD Intel Qualcomm GPUs CPUs Nvidia Storage Mobile & Smart Devices Phones Smart Home Wearable Tech By Brand Acer ASUS Dell HP Lenovo LG MSI Razer Samsung Notebooks Surface Editorial Coverage Hardware Buying Guides Hardware Deals Hardware How To Hardware News Hardware Reviews Hardware Versus Laptop Buying Guides Laptop Deals Laptop How To Laptop News Laptop Reviews Laptop Versus Microsoft View Microsoft Microsoft Core Bing Copilot+ PC Microsoft Copilot Copilot Plus vs Copilot Windows Help Microsoft Surface Windows 10 View Windows 10 Windows 10 How To Windows 10 News Windows 11 View Windows 11 Windows 11 How To Windows 11 News Office & Teams Microsoft Teams Microsoft Office Microsoft Excel Microsoft Powerpoint Microsoft Word Microsoft Outlook Editorial Coverage How To Guides News Features Software View Software Cloud Storage Cloud Computing Backup OneDrive Collaboration Discord GitHub Reddit Slack Teams Creative Adobe Browsers Microsoft Edge Google Chrome Firefox Opera Operating Systems Chrome OS Steam OS Linux Accessories View Accessories Input Devices Keyboards Mice Microphones Audio & Visual Headphones Speakers Monitors Webcams Connectivity & Protection Networking Bags & Cases Editorial Coverage Accessories Buying Guides Accessories Deals Accessories How To Accessories Reviews YOUR NEXT READ:.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Open menu Windows Central 20 years of Microsoft Stories, Community, Culture. RSS w3.org/2000/svg\"> View Profile Sign out Search Search Windows Central Features From the Editor's Desk Windows Central LIVE Windows Wrap Windows Central Podcast Videos Gaming By Publisher Activision Blizzard Zenimax & Bethesda Playstation Studios Take 2 By Franchise Call of Duty Forza Halo Minecraft MS Flight Sim Gears of War WoW Platforms & Hardware Xbox PC Gaming Gaming Chairs Indies & ID@Xbox Xbox Game Pass Handheld Gaming PC Controllers Gaming Accessories Editorial Coverage Gaming News Gaming Reviews Gaming Deals Gaming Buying Guides Gaming How To Gaming Features REPLAY Hardware Computers Laptops Desktops Handheld Gaming Mini PCs All-in-Ones (AiO) Components Processors AMD Intel Qualcomm GPUs CPUs Nvidia Storage Mobile & Smart Devices Phones Smart Home Wearable Tech By Brand Acer ASUS Dell HP Lenovo LG MSI Razer Samsung Notebooks Surface Editorial Coverage Hardware Buying Guides Hardware Deals Hardware How To Hardware News Hardware Reviews Hardware Versus Laptop Buying Guides Laptop Deals Laptop How To Laptop News Laptop Reviews Laptop Versus Microsoft Microsoft Core Bing Copilot+ PC Microsoft Copilot Copilot Plus vs Copilot Windows Help Microsoft Surface Windows 10 Windows 10 How To Windows 10 News Windows 11 Windows 11 How To Windows 11 News Office & Teams Microsoft Teams Microsoft Office Microsoft Excel Microsoft Powerpoint Microsoft Word Microsoft Outlook Editorial Coverage How To Guides News Features Software Cloud Storage Cloud Computing Backup OneDrive Collaboration Discord GitHub Reddit Slack Teams Creative Adobe Browsers Microsoft Edge Google Chrome Firefox Opera Operating Systems Chrome OS Steam OS Linux Accessories Input Devices Keyboards Mice Microphones Audio & Visual Headphones Speakers Monitors Webcams Connectivity & Protection Networking Bags & Cases Editorial Coverage Accessories Buying Guides Accessories Deals Accessories How To Accessories Reviews More Home Features View Features From the Editor's Desk Windows Central LIVE Windows Wrap Windows Central Podcast Videos Gaming View Gaming By Publisher Activision Blizzard Zenimax & Bethesda Playstation Studios Take 2 By Franchise Call of Duty Forza Halo Minecraft MS Flight Sim Gears of War WoW Platforms & Hardware Xbox PC Gaming Gaming Chairs Indies & ID@Xbox Xbox Game Pass Handheld Gaming PC Controllers Gaming Accessories Editorial Coverage Gaming News Gaming Reviews Gaming Deals Gaming Buying Guides Gaming How To Gaming Features REPLAY Hardware View Hardware Computers Laptops Desktops Handheld Gaming Mini PCs All-in-Ones (AiO) Components View Components Processors AMD Intel Qualcomm GPUs CPUs Nvidia Storage Mobile & Smart Devices Phones Smart Home Wearable Tech By Brand Acer ASUS Dell HP Lenovo LG MSI Razer Samsung Notebooks Surface Editorial Coverage Hardware Buying Guides Hardware Deals Hardware How To Hardware News Hardware Reviews Hardware Versus Laptop Buying Guides Laptop Deals Laptop How To Laptop News Laptop Reviews Laptop Versus Microsoft View Microsoft Microsoft Core Bing Copilot+ PC Microsoft Copilot Copilot Plus vs Copilot Windows Help Microsoft Surface Windows 10 View Windows 10 Windows 10 How To Windows 10 News Windows 11 View Windows 11 Windows 11 How To Windows 11 News Office & Teams Microsoft Teams Microsoft Office Microsoft Excel Microsoft Powerpoint Microsoft Word Microsoft Outlook Editorial Coverage How To Guides News Features Software View Software Cloud Storage Cloud Computing Backup OneDrive Collaboration Discord GitHub Reddit Slack Teams Creative Adobe Browsers Microsoft Edge Google Chrome Firefox Opera Operating Systems Chrome OS Steam OS Linux Accessories View Accessories Input Devices Keyboards Mice Microphones Audio & Visual Headphones Speakers Monitors Webcams Connectivity & Protection Networking Bags & Cases Editorial Coverage Accessories Buying Guides Accessories Deals Accessories How To Accessories Reviews YOUR NEXT READ:.",
-      "dek": "Open menu Windows Central 20 years of Microsoft Stories, Community, Culture. RSS w3. org/2000/svg\"> View Profile Sign out Search Search Windows Central Features From the Editor's Desk Windows Central LIVE Windows Wrap Windows Central Podcast Videos Gaming By Publisher Activision Blizzard Zenimax & Bethesda Playstation Studios Take 2 By Franchise Call of Duty Forza Halo Minecraft MS Flight Sim Gears of War WoW Platforms & Hardware Xbox PC Gaming Gaming Chairs Indies & ID@Xbox Xbox Game Pass Handheld Gaming PC Controllers Gaming Accessories Editorial Coverage Gaming News Gaming Reviews Gaming Deals Gaming Buying Guides Gaming How To Gaming Features REPLAY Hardware Computers Laptops Desktops Handheld Gaming Mini PCs All-in-Ones (AiO) Components Processors AMD Intel Qualcomm GPUs CPUs Nvidia Storage Mobile & Smart Devices Phones Smart Home Wearable Tech By Brand Acer ASUS Dell HP Lenovo LG MSI Razer Samsung Notebooks Surface Editorial Coverage Hardware Buying Guides Hardware Deals Hardware How To Hardware News Hardware Reviews Hardware Versus Laptop Buying Guides Laptop Deals Laptop How To Laptop News Laptop Reviews Laptop Versus Microsoft Microsoft Core Bing Copilot+ PC Microsoft Copilot Copilot Plus vs Copilot Windows Help Microsoft Surface Windows 10 Windows 10 How To Windows 10 News Windows 11 Windows 11 How To Windows 11 News Office & Teams Microsoft Teams Microsoft Office Microsoft Excel Microsoft Powerpoint Microsoft Word Microsoft Outlook Editorial Coverage How To Guides News Features Software Cloud Storage Cloud Computing Backup OneDrive Collaboration Discord GitHub Reddit Slack Teams Creative Adobe Browsers Microsoft Edge Google Chrome Firefox Opera Operating Systems Chrome OS Steam OS Linux Accessories Input Devices Keyboards Mice Microphones Audio & Visual Headphones Speakers Monitors Webcams Connectivity & Protection Networking Bags & Cases Editorial Coverage Accessories Buying Guides Accessories Deals Accessories How To Accessories Reviews More Home Features View Features From the Editor's Desk Windows Central LIVE Windows Wrap Windows Central Podcast Videos Gaming View Gaming By Publisher Activision Blizzard Zenimax & Bethesda Playstation Studios Take 2 By Franchise Call of Duty Forza Halo Minecraft MS Flight Sim Gears of War WoW Platforms & Hardware Xbox PC Gaming Gaming Chairs Indies & ID@Xbox Xbox Game Pass Handheld Gaming PC Controllers Gaming Accessories Editorial Coverage Gaming News Gaming Reviews Gaming Deals Gaming Buying Guides Gaming How To Gaming Features REPLAY Hardware View Hardware Computers Laptops Desktops Handheld Gaming Mini PCs All-in-Ones (AiO) Components View Components Processors AMD Intel Qualcomm GPUs CPUs Nvidia Storage Mobile & Smart Devices Phones Smart Home Wearable Tech By Brand Acer ASUS Dell HP Lenovo LG MSI Razer Samsung Notebooks Surface Editorial Coverage Hardware Buying Guides Hardware Deals Hardware How To Hardware News Hardware Reviews Hardware Versus Laptop Buying Guides Laptop Deals Laptop How To Laptop News Laptop Reviews Laptop Versus Microsoft View Microsoft Microsoft Core Bing Copilot+ PC Microsoft Copilot Copilot Plus vs Copilot Windows Help Microsoft Surface Windows 10 View Windows 10 Windows 10 How To Windows 10 News Windows 11 View Windows 11 Windows 11 How To Windows 11 News Office & Teams Microsoft Teams Microsoft Office Microsoft Excel Microsoft Powerpoint Microsoft Word Microsoft Outlook Editorial Coverage How To Guides News Features Software View Software Cloud Storage Cloud Computing Backup OneDrive Collaboration Discord GitHub Reddit Slack Teams Creative Adobe Browsers Microsoft Edge Google Chrome Firefox Opera Operating Systems Chrome OS Steam OS Linux Accessories View Accessories Input Devices Keyboards Mice Microphones Audio & Visual Headphones Speakers Monitors Webcams Connectivity & Protection Networking Bags & Cases Editorial Coverage Accessories Buying Guides Accessories Deals Accessories How To Accessories Reviews YOUR NEXT READ:. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
-      "sections": [
-        {
-          "heading": "What changed",
-          "body": "Open menu Windows Central 20 years of Microsoft Stories, Community, Culture. RSS w3. org/2000/svg\"> View Profile Sign out Search Search Windows Central Features From the Editor's Desk Windows Central LIVE Windows Wrap Windows Central Podcast Videos Gaming By Publisher Activision Blizzard Zenimax & Bethesda Playstation Studios Take 2 By Franchise Call of Duty Forza Halo Minecraft MS Flight Sim Gears of War WoW Platforms & Hardware Xbox PC Gaming Gaming Chairs Indies & ID@Xbox Xbox Game Pass Handheld Gaming PC Controllers Gaming Accessories Editorial Coverage Gaming News Gaming Reviews Gaming Deals Gaming Buying Guides Gaming How To Gaming Features REPLAY Hardware Computers Laptops Desktops Handheld Gaming Mini PCs All-in-Ones (AiO) Components Processors AMD Intel Qualcomm GPUs CPUs Nvidia Storage Mobile & Smart Devices Phones Smart Home Wearable Tech By Brand Acer ASUS Dell HP Lenovo LG MSI Razer Samsung Notebooks Surface Editorial Coverage Hardware Buying Guides Hardware Deals Hardware How To Hardware News Hardware Reviews Hardware Versus Laptop Buying Guides Laptop Deals Laptop How To Laptop News Laptop Reviews Laptop Versus Microsoft Microsoft Core Bing Copilot+ PC Microsoft Copilot Copilot Plus vs Copilot Windows Help Microsoft Surface Windows 10 Windows 10 How To Windows 10 News Windows 11 Windows 11 How To Windows 11 News Office & Teams Microsoft Teams Microsoft Office Microsoft Excel Microsoft Powerpoint Microsoft Word Microsoft Outlook Editorial Coverage How To Guides News Features Software Cloud Storage Cloud Computing Backup OneDrive Collaboration Discord GitHub Reddit Slack Teams Creative Adobe Browsers Microsoft Edge Google Chrome Firefox Opera Operating Systems Chrome OS Steam OS Linux Accessories Input Devices Keyboards Mice Microphones Audio & Visual Headphones Speakers Monitors Webcams Connectivity & Protection Networking Bags & Cases Editorial Coverage Accessories Buying Guides Accessories Deals Accessories How To Accessories Reviews More Home Features View Features From the Editor's Desk Windows Central LIVE Windows Wrap Windows Central Podcast Videos Gaming View Gaming By Publisher Activision Blizzard Zenimax & Bethesda Playstation Studios Take 2 By Franchise Call of Duty Forza Halo Minecraft MS Flight Sim Gears of War WoW Platforms & Hardware Xbox PC Gaming Gaming Chairs Indies & ID@Xbox Xbox Game Pass Handheld Gaming PC Controllers Gaming Accessories Editorial Coverage Gaming News Gaming Reviews Gaming Deals Gaming Buying Guides Gaming How To Gaming Features REPLAY Hardware View Hardware Computers Laptops Desktops Handheld Gaming Mini PCs All-in-Ones (AiO) Components View Components Processors AMD Intel Qualcomm GPUs CPUs Nvidia Storage Mobile & Smart Devices Phones Smart Home Wearable Tech By Brand Acer ASUS Dell HP Lenovo LG MSI Razer Samsung Notebooks Surface Editorial Coverage Hardware Buying Guides Hardware Deals Hardware How To Hardware News Hardware Reviews Hardware Versus Laptop Buying Guides Laptop Deals Laptop How To Laptop News Laptop Reviews Laptop Versus Microsoft View Microsoft Microsoft Core Bing Copilot+ PC Microsoft Copilot Copilot Plus vs Copilot Windows Help Microsoft Surface Windows 10 View Windows 10 Windows 10 How To Windows 10 News Windows 11 View Windows 11 Windows 11 How To Windows 11 News Office & Teams Microsoft Teams Microsoft Office Microsoft Excel Microsoft Powerpoint Microsoft Word Microsoft Outlook Editorial Coverage How To Guides News Features Software View Software Cloud Storage Cloud Computing Backup OneDrive Collaboration Discord GitHub Reddit Slack Teams Creative Adobe Browsers Microsoft Edge Google Chrome Firefox Opera Operating Systems Chrome OS Steam OS Linux Accessories View Accessories Input Devices Keyboards Mice Microphones Audio & Visual Headphones Speakers Monitors Webcams Connectivity & Protection Networking Bags & Cases Editorial Coverage Accessories Buying Guides Accessories Deals Accessories How To Accessories Reviews YOUR NEXT READ:."
-        },
-        {
-          "heading": "Price and bundle value",
-          "body": "Dragon's Dogma 2 has received its biggest patch yet, fixing issues that have been plaguing it since launch, while Capcom unveils a new loot gameplay loop system for its Dark Arisen expansion launching in October, 2026."
-        },
-        {
-          "heading": "AI features that change the value",
-          "body": "Additionally, Capcom dropped a new trailer for Dragon's Dogma 2's upcoming Dark Arisen DLC expansion, which reveals how its new Relic loot system will work to provide players with a satisfying gameplay loop to keep them engaged beyond fighting monsters and experiencing its epic story."
-        },
-        {
-          "heading": "Who should pay attention",
-          "body": "First off, let's cover Dragon's Dogma 2's Title Update 3. 2 since that's the biggest announcement here. It is a gigantic patch worth 67GB that completely changes nearly facet of the game beyond simply boosting its framerates."
-        },
-        {
-          "heading": "Patrick Tech Media take",
-          "body": "Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz. Patrick Tech Media will keep checking Windows Central to see whether the value holds once the rollout broadens."
-        }
-      ],
-      "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/tYnHb4kZfwpQwGiqKjtvJK-1920-80.jpg",
-        "alt": "",
-        "caption": "Reference image from Windows Central.",
-        "credit": "Windows Central",
-        "source_url": "https://www.windowscentral.com/gaming/it-took-two-years-but-dragons-dogma-2-finally-has-60fps-on-xbox-series-x-just-as-a-new-gameplay-trailer-for-its-upcoming-dlc-expansion-drops"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [
-        "gaming-cloud-pass"
-      ],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Windows Central",
-          "source_url": "https://www.windowscentral.com/gaming/it-took-two-years-but-dragons-dogma-2-finally-has-60fps-on-xbox-series-x-just-as-a-new-gameplay-trailer-for-its-upcoming-dlc-expansion-drops",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-02T18:18:36.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/tYnHb4kZfwpQwGiqKjtvJK-1920-80.jpg",
-          "image_caption": "Reference image from Windows Central.",
-          "image_credit": "Windows Central"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-02T18:18:36.000Z",
-      "updated_at": "2026-09-02T18:18:36.000Z",
-      "href": "/en/news/it-took-two-years-but-dragon-s-dogma-2-finally-has-60fps-on-xbox-series-x-just-as-a-new-gameplay",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/it-took-two-years-but-dragon-s-dogma-2-finally-has-60fps-on-xbox-series-x-just-as-a-new-gameplay",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "gaming",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-02T20:54:43.841Z",
+        "generated_at": "2026-09-02T23:13:57.991Z",
         "origin": "local-curated-rss"
       }
     },
@@ -327,7 +325,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T20:54:43.841Z",
+        "generated_at": "2026-09-02T23:13:57.991Z",
         "origin": "local-curated-rss"
       }
     },
@@ -434,7 +432,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T20:54:43.841Z",
+        "generated_at": "2026-09-02T23:13:57.991Z",
         "origin": "local-curated-rss"
       }
     },
@@ -541,7 +539,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T20:54:43.841Z",
+        "generated_at": "2026-09-02T23:13:57.991Z",
         "origin": "local-curated-rss"
       }
     },
@@ -586,7 +584,7 @@
         }
       ],
       "image": {
-        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788366232",
+        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788390779",
         "alt": "",
         "caption": "Ảnh tham khảo từ VOV Cong Nghe.",
         "credit": "VOV Cong Nghe",
@@ -609,7 +607,7 @@
           "language": "vi",
           "trust_tier": "established-media",
           "published_at": "2026-08-28T08:39:15.000Z",
-          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788366232",
+          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788390779",
           "image_caption": "Ảnh tham khảo từ VOV Cong Nghe.",
           "image_credit": "VOV Cong Nghe"
         }
@@ -648,7 +646,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T20:54:43.841Z",
+        "generated_at": "2026-09-02T23:13:57.991Z",
         "origin": "local-curated-rss"
       }
     },
@@ -693,7 +691,7 @@
         }
       ],
       "image": {
-        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/1_93.jpg?v=1788366232",
+        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/1_93.jpg?v=1788390780",
         "alt": "",
         "caption": "Ảnh tham khảo từ VOV Cong Nghe.",
         "credit": "VOV Cong Nghe",
@@ -716,7 +714,7 @@
           "language": "vi",
           "trust_tier": "established-media",
           "published_at": "2026-08-27T07:47:44.000Z",
-          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/1_93.jpg?v=1788366232",
+          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/1_93.jpg?v=1788390780",
           "image_caption": "Ảnh tham khảo từ VOV Cong Nghe.",
           "image_credit": "VOV Cong Nghe"
         }
@@ -755,7 +753,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T20:54:43.841Z",
+        "generated_at": "2026-09-02T23:13:57.991Z",
         "origin": "local-curated-rss"
       }
     },
@@ -862,7 +860,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T20:54:43.841Z",
+        "generated_at": "2026-09-02T23:13:57.991Z",
         "origin": "local-curated-rss"
       }
     }
