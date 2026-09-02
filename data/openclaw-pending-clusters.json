@@ -1,278 +1,6 @@
 {
-  "generated_at": "2026-09-02T10:46:39.809Z",
+  "generated_at": "2026-09-02T10:56:08.288Z",
   "items": [
-    {
-      "article": {
-        "id": "feed-bcf8929cf218-en",
-        "cluster_id": "feed-bcf8929cf218",
-        "language": "en",
-        "topic": "security",
-        "content_type": "NewsArticle",
-        "slug": "uk-cyber-bill-targets-ai-users-not-the-vendors-building-it",
-        "title": "UK cyber bill targets AI users, not the vendors building it",
-        "summary": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill. Cybersecurity minister Baroness Lloyd of Effra argued that regulating AI vendors and frontier model developers through the bill would not prevent hostile actors from misusing their products.",
-        "dek": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill.",
-        "hook": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "Cybersecurity minister Baroness Lloyd of Effra argued that regulating AI vendors and frontier model developers through the bill would not prevent hostile actors from misusing their products."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "Addressing the Grand Committee on Tuesday, she said: \"Bringing providers of AI services, those companies which are at the cutting edge of frontier AI development and their products, into the scope… would not address the harms that can be posed by some AI products and services, or specifically, it would not prevent their misuse by hostile actors.\"."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "The minister said the UK was instead taking \"firm action\" to secure AI through other channels. These include supporting the AI Security Institute (AISI), which works with vendors to test the security of models before their release."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "Lloyd also pointed to the voluntary AI Cyber Security Code of Practice, which informed the first global AI cybersecurity standard, ETSI EN 304 223 ."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "secure-access-kit"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "The Register",
-            "source_url": "https://www.theregister.com/security/2026/09/02/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it/5293738",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-02T09:44:00.000Z",
-            "image_url": "https://image.theregister.com/248400.jpg?imageId=248400&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-            "image_caption": "Reference image from The Register.",
-            "image_credit": "The Register"
-          }
-        ],
-        "author_id": "thao-nguyen",
-        "published_at": "2026-09-02T09:44:00.000Z",
-        "updated_at": "2026-09-02T09:44:00.000Z",
-        "image": {
-          "src": "https://image.theregister.com/248400.jpg?imageId=248400&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-          "caption": "Reference image from The Register.",
-          "credit": "The Register",
-          "source_url": "https://www.theregister.com/security/2026/09/02/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it/5293738"
-        },
-        "draft_context": {
-          "source_title": "UK cyber bill targets AI users, not the vendors building it",
-          "source_name": "The Register",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "internet-business-tech",
-          "content_type_hint": "",
-          "description": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill. Cybersecurity minister Baroness Lloyd of Effra argued that regulating AI vendors and frontier model developers through the bill would not prevent hostile actors from misusing their products. Addressing the Grand Committee on Tuesday, she said: \"Bringing providers of AI services, those companies which are at the cutting edge of frontier AI development and their products, into the scope… would not address the harms that can be posed by some AI products and services, or specifically, it would not prevent their misuse by hostile actors.\" The minister said the UK was instead taking \"firm action\" to secure AI through other channels. These include supporting the AI Security Institute (AISI), which works with vendors to test the security of models before their release. Lloyd also pointed to the voluntary AI Cyber Security Code of Practice, which informed the first global AI cybersecurity standard, ETSI EN 304 223. \"This demonstrates our global leadership and commitment to shaping international technical standards which go wider than some of the issues raised in this bill,\" she claimed. Members of the House of Lords - the upper house in UK parliament - offered numerous arguments for bringing AI within the bill's scope. They cited reports of rogue agentic behavior involving Anthropic and OpenAI, as well as Bill Gates' concerns that commercial incentives are pushing AI development forward without adequate safeguards. Lawmakers also questioned whether companies unable to prevent their agents from misbehaving should be trusted to follow voluntary ethical guidelines that they can rewrite at will. \"Have we not learned from countless experiences before in online safety, privacy, and in AI itself that allowing tech companies to set and mark their own homework endangers the public and our national security?\" asked Baroness Kidron, a Crossbench peer and campaigner for online safety and digital rights. Similarly, Lord Tarassenko, a Crossbench peer and veteran AI researcher, pointed to the recent open letter penned by OpenAI warning that there will soon come a time when AI-orchestrated cyberattacks will become too prevalent to handle. Although the letter was criticized for employing alarmist language while carrying the signatures of companies that profit from AI, peers argued that its warning strengthened the case for regulatory intervention. Kidron and Lloyd also clashed after the minister used a hypothetical healthcare organization to illustrate how the bill would require regulated bodies to secure systems containing AI. Kidron asked: \"If I might ask the noble Lady, the Minister, if I've understood what she said, the NHS must protect itself, but the AI that is attacking it has no requirement under the Bill, no duties, no obligations under the Bill to check itself before it's used in these ways.\" Lloyd said the bill was designed to be technology-agnostic and to impose stricter cybersecurity requirements on key organizations, rather than regulate individual technology providers. She nevertheless said the government was willing to continue discussing AI after Kidron predicted that the issue would return during later stages of the bill's passage. The minister rejected several other amendments, including one that would require certain AI vendors to demonstrate that their products could not cross specified red lines, such as evading human oversight or assisting with the development of chemical weapons. She also dismissed a proposal that would give the Secretary of State last-resort powers to order the shutdown of a datacenter or widely deployed AI system during a security or operational emergency. Lloyd said the bill would instead allow the government to direct regulated entities, including datacenter operators but not AI vendors, to take or cease specified actions when their systems presented a qualifying risk. A power station could, for example, be instructed to stop using a particular AI model. \"We believe this is a more proportionate and effective response, as datacenters operate in highly complex ecosystems and AI systems are often distributed across different datacenters and jurisdictions,\" said Baroness Lloyd. \"It's much less desirable to direct multiple datacenters to shut down, and the impact this could have on services that rely on them, than to direct them to cease using an AI model.\" Despite rejecting the amendments, Lloyd said the government remained willing to discuss AI regulation because of the technology's economic significance. The Grand Committee is scheduled to resume discussions of the CSR Bill when it reconvenes on Thursday. The bill's background The CSR Bill was first proposed in the 2024 King's Speech and introduced in Parliament in November 2025. It attracted attention over the £100,000 daily fines initially proposed for in-scope organizations that failed to protect against specific threats. The legislation builds on the existing categories of operators of essential services and relevant digital service providers while extending the regime to organizations including managed service providers, datacenter operators, and designated critical suppliers. Managed service providers were previously due to be brought within scope through the abandoned 2022 update to the NIS regulations. The broad intention of the bill is to update the NIS 2018 regulations and future-proof the UK's critical infrastructure from cyber threats. However, this week's Grand Committee scrutiny is not the first time the bill has been criticized. In January, shadow deputy PM Sir Oliver Dowden called on the government to rethink its exclusion of local and central government from the CSR bill. The UK's Government Cyber Action Plan, launched hours before the former digital secretary's remarks, promised to hold government to the same standards proposed in the CSR Bill. Like the AI Cyber Security Code of Practice, the action plan lacks any legal obligations. ®",
-          "paragraphs": [
-            "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill.",
-            "Cybersecurity minister Baroness Lloyd of Effra argued that regulating AI vendors and frontier model developers through the bill would not prevent hostile actors from misusing their products.",
-            "Addressing the Grand Committee on Tuesday, she said: \"Bringing providers of AI services, those companies which are at the cutting edge of frontier AI development and their products, into the scope… would not address the harms that can be posed by some AI products and services, or specifically, it would not prevent their misuse by hostile actors.\"",
-            "The minister said the UK was instead taking \"firm action\" to secure AI through other channels. These include supporting the AI Security Institute (AISI), which works with vendors to test the security of models before their release.",
-            "Lloyd also pointed to the voluntary AI Cyber Security Code of Practice, which informed the first global AI cybersecurity standard, ETSI EN 304 223 ."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=5; words=1120",
-          "link": "https://www.theregister.com/security/2026/09/02/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it/5293738"
-        }
-      },
-      "first_seen_at": "2026-09-02T09:50:49.730Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-f19974197dfc-vi",
-        "cluster_id": "feed-f19974197dfc",
-        "language": "vi",
-        "topic": "security",
-        "content_type": "NewsArticle",
-        "slug": "con-nguoi-nam-o-au-trong-vong-lap-bao-mat-co-ai",
-        "title": "Con người nằm ở đâu trong vòng lặp bảo mật “có\" AI?",
-        "summary": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá. Ông Vũ Duy Hiền, Phó Tổng thư ký kiêm Chánh Văn phòng Hiệp hội An ninh mạng Quốc gia phát biểu tại sự kiện.",
-        "dek": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá.",
-        "hook": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá.",
-        "sections": [
-          {
-            "heading": "Bối cảnh: điều gì đang đổi",
-            "body": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá."
-          },
-          {
-            "heading": "Các nguồn đang khớp nhau ở đâu",
-            "body": "Ông Vũ Duy Hiền, Phó Tổng thư ký kiêm Chánh Văn phòng Hiệp hội An ninh mạng Quốc gia phát biểu tại sự kiện."
-          },
-          {
-            "heading": "Tác động thực tế với người đọc",
-            "body": "BSides Hanoi 2026 lần thứ 2 tổ chức tại Hà Nội với chủ đề \"No Human\", diễn ra trong tuần lễ chào mừng Ngày An ninh mạng Việt Nam 06/08. Chương trình năm nay trải rộng trên nhiều chủ đề, từ bảo mật blockchain, điều tra số trong kỷ nguyên Apple Intelligence, hoạt động của các nhóm tấn công có chủ đích (APT), phân tích mã độc, threat intelligence đến ứng dụng AI trong nghiên cứu và phòng thủ. Mỗi nghiên cứu tiếp cận một lát cắt khác nhau, nhưng khi đặt cạnh nhau lại phản ánh những chuyển dịch đang định hình an ninh mạng hiện đại."
-          },
-          {
-            "heading": "Ai nên chú ý lúc này",
-            "body": "Điểm chung đầu tiên là AI đang làm thay đổi cán cân giữa bên tấn công và bên phòng thủ. Những công nghệ giúp chuyên gia tăng tốc phân tích, tự động hóa quy trình và phát hiện mối đe dọa cũng đang được các nhóm tấn công khai thác để gia tăng tốc độ, quy mô và mức độ tinh vi của các chiến dịch. Cuộc cạnh tranh vì thế không còn nằm ở việc ai sở hữu AI, mà ở khả năng khai thác, kiểm soát và sử dụng AI hiệu quả hơn."
-          },
-          {
-            "heading": "Điều cần theo dõi tiếp",
-            "body": "Được tổ chức bởi Công ty CP An ninh mạng Việt Nam (VSEC - thành viên của Tập đoàn Công nghệ G-Group), phối hợp cùng Hiệp hội An ninh mạng quốc gia (NCA) và Hiệp hội Internet Việt Nam (VIA), sự kiện tiếp tục mang tinh thần của chuỗi BSides toàn cầu – một diễn đàn cộng đồng, nơi các nhà nghiên cứu và chuyên gia chia sẻ nghiên cứu thực tiễn, phản biện các xu hướng mới và cùng tìm lời giải cho những thách thức của ngành."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "secure-access-kit"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "CafeBiz Cong Nghe",
-            "source_url": "https://cafebiz.vn/con-nguoi-nam-o-dau-trong-vong-lap-bao-mat-co-ai-176260805201731707.chn",
-            "region": "VN",
-            "language": "vi",
-            "trust_tier": "established-media",
-            "published_at": "2026-08-05T05:59:00.000Z",
-            "image_url": "https://cafebiz.cafebizcdn.vn/thumb_w/1200/162123310254002176/2026/8/5/avatar1785935806832-17859358079941207873429.jpg",
-            "image_caption": "Ảnh tham khảo từ CafeBiz Cong Nghe.",
-            "image_credit": "CafeBiz Cong Nghe"
-          }
-        ],
-        "author_id": "thao-nguyen",
-        "published_at": "2026-08-05T05:59:00.000Z",
-        "updated_at": "2026-08-05T05:59:00.000Z",
-        "image": {
-          "src": "https://cafebiz.cafebizcdn.vn/thumb_w/1200/162123310254002176/2026/8/5/avatar1785935806832-17859358079941207873429.jpg",
-          "caption": "Ảnh tham khảo từ CafeBiz Cong Nghe.",
-          "credit": "CafeBiz Cong Nghe",
-          "source_url": "https://cafebiz.vn/con-nguoi-nam-o-dau-trong-vong-lap-bao-mat-co-ai-176260805201731707.chn"
-        },
-        "draft_context": {
-          "source_title": "Con người nằm ở đâu trong vòng lặp bảo mật “có\" AI?",
-          "source_name": "CafeBiz Cong Nghe",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "internet-business-tech",
-          "content_type_hint": "",
-          "description": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá.",
-          "paragraphs": [
-            "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá.",
-            "Ông Vũ Duy Hiền, Phó Tổng thư ký kiêm Chánh Văn phòng Hiệp hội An ninh mạng Quốc gia phát biểu tại sự kiện",
-            "BSides Hanoi 2026 lần thứ 2 tổ chức tại Hà Nội với chủ đề \"No Human\", diễn ra trong tuần lễ chào mừng Ngày An ninh mạng Việt Nam 06/08. Chương trình năm nay trải rộng trên nhiều chủ đề, từ bảo mật blockchain, điều tra số trong kỷ nguyên Apple Intelligence, hoạt động của các nhóm tấn công có chủ đích (APT), phân tích mã độc, threat intelligence đến ứng dụng AI trong nghiên cứu và phòng thủ. Mỗi nghiên cứu tiếp cận một lát cắt khác nhau, nhưng khi đặt cạnh nhau lại phản ánh những chuyển dịch đang định hình an ninh mạng hiện đại.",
-            "Điểm chung đầu tiên là AI đang làm thay đổi cán cân giữa bên tấn công và bên phòng thủ. Những công nghệ giúp chuyên gia tăng tốc phân tích, tự động hóa quy trình và phát hiện mối đe dọa cũng đang được các nhóm tấn công khai thác để gia tăng tốc độ, quy mô và mức độ tinh vi của các chiến dịch. Cuộc cạnh tranh vì thế không còn nằm ở việc ai sở hữu AI, mà ở khả năng khai thác, kiểm soát và sử dụng AI hiệu quả hơn.",
-            "Được tổ chức bởi Công ty CP An ninh mạng Việt Nam (VSEC - thành viên của Tập đoàn Công nghệ G-Group), phối hợp cùng Hiệp hội An ninh mạng quốc gia (NCA) và Hiệp hội Internet Việt Nam (VIA), sự kiện tiếp tục mang tinh thần của chuỗi BSides toàn cầu – một diễn đàn cộng đồng, nơi các nhà nghiên cứu và chuyên gia chia sẻ nghiên cứu thực tiễn, phản biện các xu hướng mới và cùng tìm lời giải cho những thách thức của ngành.",
-            "Theo ông Trương Đức Lượng, Chủ tịch HĐQT VSEC và thành viên Hội đồng Chuyên môn, BSides được xây dựng như một nền tảng để kết nối cộng đồng bảo mật Việt Nam với cộng đồng quốc tế, khuyến khích chia sẻ tri thức và thúc đẩy sự phát triển bền vững của hệ sinh thái an ninh mạng."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=453",
-          "link": "https://cafebiz.vn/con-nguoi-nam-o-dau-trong-vong-lap-bao-mat-co-ai-176260805201731707.chn"
-        }
-      },
-      "first_seen_at": "2026-09-02T09:55:58.028Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-5f2b84bb07a9-en",
-        "cluster_id": "feed-5f2b84bb07a9",
-        "language": "en",
-        "topic": "gaming",
-        "content_type": "NewsArticle",
-        "slug": "confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-here-s-th",
-        "title": "Confirmed: Over 800 Xbox discs are supported by the disc-to-digital program, and growing. Here's the list.",
-        "summary": "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is. Codenamed Positron, Xbox's disc-to-digital program lets Xbox gamers unlock digital rights to physical games , including things like Xbox Cloud Gaming for streaming on the go, and Xbox Play Anywhere for entitlements on Windows PCs and gaming handhelds like the Xbox Ally.",
-        "dek": "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is.",
-        "hook": "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "Codenamed Positron, Xbox's disc-to-digital program lets Xbox gamers unlock digital rights to physical games , including things like Xbox Cloud Gaming for streaming on the go, and Xbox Play Anywhere for entitlements on Windows PCs and gaming handhelds like the Xbox Ally."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "There's somewhat insanely no downsides whatsoever: simply insert the disc, claim the entitlement from the disc tile's menu, and boom. The game is now digitally attached to your account. If you sell the disc or pass it on, the digital license will transfer from your account to the new owner. You could claim it back too if they return it."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "Watch On I'm told this was ultimately how the original Xbox DRM was supposed to work back in 2013, before bad messaging confused the situation and triggered a massive ill-informed backlash (which was ultimately Microsoft's own fault.)."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "Fast forward to 2026, and people are far more accepting of digital convenience, even as debates over digital rights continue to swirl. PlayStation announced that it will sunset physical discs entirely by 2028, and collectors are not happy. At least Xbox's 2013 DRM has served this system in 2026, Microsoft's manufacturing process for its game discs means that it's able to track rights from physical discs. It's unclear if PlayStation can match it at this time."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": false,
-        "indexable": true,
-        "store_link_mode": "off",
-        "related_store_items": [
-          "gaming-cloud-pass"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "Windows Central",
-            "source_url": "https://www.windowscentral.com/gaming/xbox/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-heres-the-list",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-02T09:52:02.000Z",
-            "image_url": "https://cdn.mos.cms.futurecdn.net/ftDQHZue9WoD59KBGjdfBT-2560-80.png",
-            "image_caption": "Reference image from Windows Central.",
-            "image_credit": "Windows Central"
-          }
-        ],
-        "author_id": "quang-huy",
-        "published_at": "2026-09-02T09:52:02.000Z",
-        "updated_at": "2026-09-02T09:52:02.000Z",
-        "image": {
-          "src": "https://cdn.mos.cms.futurecdn.net/ftDQHZue9WoD59KBGjdfBT-2560-80.png",
-          "caption": "Reference image from Windows Central.",
-          "credit": "Windows Central",
-          "source_url": "https://www.windowscentral.com/gaming/xbox/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-heres-the-list"
-        },
-        "draft_context": {
-          "source_title": "Confirmed: Over 800 Xbox discs are supported by the disc-to-digital program, and growing. Here's the list.",
-          "source_name": "Windows Central",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "Xbox's disc-to-digital program was revealed in full last week, and at first, it seemed too good to be true. Codenamed Positron, Xbox's disc-to-digital program lets Xbox gamers unlock digital rights to physical games , including things like Xbox Cloud Gaming for streaming on the go, and Xbox Play Anywhere for entitlements on Windows PCs and gaming handhelds like the Xbox Ally. DEAL: Get Surfshark VPN 86% OFF with Windows Central 🦈 There's somewhat insanely no downsides whatsoever: simply insert the disc, claim the entitlement from the disc tile's menu, and boom. The game is now digitally attached to your account. If you sell the disc or pass it on, the digital license will transfer from your account to the new owner. You could claim it back too if they return it. I'm told this was ultimately how the original Xbox DRM was supposed to work back in 2013, before bad messaging confused the situation and triggered a massive ill-informed backlash (which was ultimately Microsoft's own fault.) Fast forward to 2026, and people are far more accepting of digital convenience, even as debates over digital rights continue to swirl. PlayStation announced that it will sunset physical discs entirely by 2028, and collectors are not happy. At least Xbox's 2013 DRM has served this system in 2026, Microsoft's manufacturing process for its game discs means that it's able to track rights from physical discs. It's unclear if PlayStation can match it at this time. Either way, you might be wondering exactly how many games are available. XCT.Live (via IdleSloth ) is compiling a database of every disc that is currently compatible with the program, and the list is already quit exhausted. Over 200 completely de-listed games work too, which is phenomenal news for game preservation purposes. The full list of Xbox Disc-to-Digital games (so far) 007 First Light 7 Days to Die 8 To Glory - The Official Game of the PBR 8-Bit RTS Series [PROTOTYPE] A Plague Tale: Innocence (X1) A Plague Tale: Requiem (Win) A Quiet Place: The Road Ahead Ad Infinitum Adventure Time: Finn and Jake Investigations Adventure Time: Pirates of the Enchiridion AEW: Fight Forever Agatha Christie - Death on the Nile Agatha Christie - Hercule Poirot: The First Cases Agatha Christie - The ABC Murders (X1) Agents of Mayhem Agony AI: THE SOMNIUM FILES Nirvana Initiative Airoheart Alan Wake 2 Alan Wake: Remastered Alex Kidd in Miracle World DX Aliens: Fireteam Elite Alone in the Dark (2024) Amerzone - The Explorer's Legacy Among Us Anthem Apex Legends Arcadegeddon ARK: Survival Evolved Armello ARSLAN: THE WARRIORS OF LEGEND Arzette: The Jewel of Faramore Ashes Cricket Assetto Corsa Asterix & Obelix Slap Them All! 2 Asterix & Obelix XXL3: The Crystal Menhir ASTRONEER Atari 50: The Anniversary Celebration Atari Flashback Classics Vol. 1 Atari Flashback Classics Vol. 2 Atari Flashback Classics Vol. 3 Atelier Yumia: The Alchemist of Memories & the Envisioned Land (SX) Atlas Fallen: Reign of Sand (Win) Atomic Heart Attack on Titan Attack on Titan 2 Aven Colony AVICII Invector Back 4 Blood Back to the Future: The Game - 30th Anniversary Ed. (X1) Baja: Edge of Control HD Balatro Baldur's Gate 3 Baldur's Gate and Baldur's Gate II: Enhanced Ed. Banishers: Ghosts of New Eden Banner Saga 3 Barbie: Project Friendship Batman: Arkham Knight Batman: Return to Arkham - Arkham Asylum Batman: Return to Arkham - Arkham City Batman: The Telltale Series (X1) Battle Chasers: Nightwar Battleborn Battlefield 1 Battlefield 2042 (SX) Battlefield 2042 (X1) Battlefield 6 Battlefield V Battlefield: Hardline (X1) Beast Quest Ben 10 Beyond a Steel Sky Biomutant BioShock 2: Remastered BioShock: Infinite - The Complete Ed. BioShock: Remastered Black Desert Black Mirror Blackguards 2 BLADESTORM: Nightmare Blair Witch Blasphemous 2 BlazBlue: Chronophantasma Extend Bleeding Edge Bloodstained: Ritual of the Night (X1) Bomb Rush Cyberfunk Borderlands 2 (X1) Borderlands 3 Borderlands 4 Borderlands: Game of the Year Ed. Borderlands: The Pre-Sequel (X1) Bramble: The Mountain King Bridge Constructor: Portal Brothers: a Tale of Two Sons (X1) Bulletstorm: Full Clip Ed. Burnout Paradise: Remastered Bus Simulator 21 Next Stop Cabela’s African Adventures Call of Duty: Advanced Warfare (X1) Call of Duty: Black Ops 4 Call of Duty: Black Ops 6 Call of Duty: Black Ops Cold War (X1) Call of Duty: Black Ops III (X1) Call of Duty: Infinite Warfare (X1) Call of Duty: Modern Warfare (X1) Call of Duty: Modern Warfare Remastered (X1) Call of Duty: Vanguard (X1) Call of Duty: WWII (X1) Capcom Arcade 2nd Stadium Carmageddon: Max Damage Carnival Games Cars 3: Driven to Win (X1) Cartoon Network: Battle Crashers Castlevania Advance Collection Castlevania Dominus Collection CHAOS;CHILD Charon's Staircase Chicken Run: Eggstraction Chronos: Before the Ashes Clair Obscur: Expedition 33 Clash: Artifacts of Chaos Classified: France '44 Clock Tower: Rewind Company of Heroes 3 Conan Exiles Construction Simulator Constructor Contra: Operation Galuga CONTRA: ROGUE CORPS Control (X1) Control Ultimate Edition (SX) Crackdown 3: Campaign Crash Bandicoot: N. Sane Trilogy Crayola Scoot Cricket 24: The Official Game of the Ashes (X1) Crimson Desert Cris Tales Crysis 2 Remastered Crysis 3 Remastered Crysis Remastered Cuisineer Cuphead Cyberpunk 2077 CYGNI: All Guns Blazing Daemon X Machina: Titanic Scion Danger Zone 2 Dangerous Driving Darksiders Genesis (X1) Darksiders II Deathinitive Ed. Darksiders III (X1) Darksiders Warmastered Ed. DARQ Ultimate Ed. Day of the Tentacle: Remastered DC League of Super-Pets: The Adventures of Krypto and Ace DC's Justice League: Cosmic Chaos DCL-The Game de Blob de Blob 2 Dead Alliance: Multiplayer Ed. Dead Island 2 (X1) Dead Island: Definitive Ed. DEAD OR ALIVE 5 Last Round: Core Fighters DEAD OR ALIVE 6: Core Fighters Dead Rising (X1) Dead Rising 2 (X1) Dead Rising 4 (X1) Dead Rising Deluxe Remaster Dead Space Deadlight: Director's Cut Deadpool (X1) DEATHLOOP Deformers Deliver Us The Moon Demon Turf Desperados III Destroy All Humans! Destroy All Humans! 2 - Reprobed Devil May Cry 5 Devil May Cry 5 Special Ed. Devil May Cry HD Collection Diablo III: Reaper of Souls – Ultimate Evil Ed. Diablo IV DiRT 4 DIRT 5 DiRT Rally Disciples: Liberation Disco Elysium - The Final Cut Dishonored 2 (X1) Dishonored: Death of the Outsider (X1) Dishonored: Definitive Ed. (X1) Disney Classic Games: Aladdin and The Lion King Disney Dreamlight Valley Disney Epic Mickey: Rebrushed Disney Illusion Island Disney Infinity 3.0 (X1) Disneyland Adventures (X1) Divinity: Original Sin - Enhanced Ed. Divinity: Original Sin 2 - Definitive Ed. DmC Devil May Cry: Definitive Ed. Doctor Who: The Edge of Reality Doctor Who: The Lonely Assassins Dolmen Don Bradman Cricket DOOM DOOM + DOOM II DOOM 64 DOOM Eternal (X1) DOOM: The Dark Ages Double Dragon Gaiden: Rise of the Dragons Dragon Age: Inquisition (X1) Dragon Age: The Veilguard Dragon's Dogma 2 Dragon's Dogma: Dark Arisen DreamWorks Dragons Dawn of New Riders DREDGE Dungeons 3 Dying Light Dying Light 2: Stay Human - Reloaded Ed. DYNASTY WARRIORS 8 Empires DYNASTY WARRIORS 9 DYNASTY WARRIORS 9 Empires DYNASTY WARRIORS: ORIGINS EA SPORTS College Football 25 EA SPORTS College Football 26 EA SPORTS FC 25 (X1) EA SPORTS FIFA 17 EA SPORTS FIFA 20 EA SPORTS NHL 16 EA SPORTS Rory McIlroy PGA TOUR Earthfall Earthlock: Festival of Magic eFootball PES 2020 eFootball PES 2021 SEASON UPDATE Elex ELEX II Endling - Extinction is Forever Enotria: The Last Song EVERSPACE 2 Evil Dead: The Game Evil Genius 2: World Domination Evil West Evolve Exoprimal Extinction F1 2015 F1 2016 F1 2017 F1 2018 (X1) F1 2019 (X1) F1 2020 F1 2021 F1 22 F1 23 Fallen Legion Revenants Fallen Legion: Rise to Glory Farming Simulator 15 (X1) FATAL FRAME II: Crimson Butterfly REMAKE FATAL FURY: City of the Wolves FIFA 15 (X1) FIFA 16 (X1) FIFA 21 (X1) FIFA 22 (SX) FIFA 22 (X1) FIFA 23 (X1) Firefighters: Airport Fire Department Fishing Sim World: Pro Tour (X1) Five Nights at Freddy's Five Nights at Freddy's 2 Five Nights at Freddy's 3 Five Nights at Freddy's 4 Five Nights at Freddy's Into the Pit Five Nights at Freddy's: Security Breach Five Nights at Freddy's: Sister Location Flashback 2 FlatOut 4: Total Insanity Flintlock: The Siege of Dawn Fortnite Forza Horizon 4 Friday the 13th: The Game FRONT MISSION 1st: Remake FRONT MISSION 2: Remake Frostpunk (X1) Funko Fusion G.I. Joe: Operation Blackout Game of Thrones - The Telltale Series (X1) Gears 5 Gears of War 4 Gears of War: Ultimate Ed. Gears Tactics Generation Zero Gex Trilogy Ghostbusters: Spirits Unleashed Ecto Ed. Ghostbusters: The Video Game Remastered Ghostbusters Ghostrunner Ghostrunner 2 Goat Simulator (X1) Goat Simulator 3 God of Rock Gotham Knights Gothic Classic GRADIUS ORIGINS Grand Theft Auto III – The Definitive Ed. Grand Theft Auto V (X1) Grand Theft Auto: San Andreas – The Definitive Ed. Grand Theft Auto: Vice City – The Definitive Ed. Grandia HD Collection Gravel GreedFall GRID Grim Fandango Remastered Grounded Hades Halo 5: Guardians Halo Infinite Halo Wars 2 Halo: The Master Chief Collection Halo: The Master Chief Collection (China) Harry Potter: Quidditch Champions Harvest Moon: One World Harvest Moon: The Winds of Anthos Has-Been Heroes Hellblade: Senua's Sacrifice (X1) Hello Neighbor Hello Neighbor 2 Hello Neighbor: Hide and Seek Hi-Fi RUSH High On Life High On Life 2 HITMAN 3 HITMAN 2 Hogwarts Legacy (X1) Hogwarts Legacy (SX) Homefront: The Revolution Hot Wheels Let's Race: Ultimate Speed HOT WHEELS UNLEASHED HOT WHEELS UNLEASHED 2 - Turbocharged HOTEL BARCELONA Hotel Transylvania 3: Monsters Overboard House Flipper 2 Human Fall Flat Immortal: Unchained Immortals of Aveum Indiana Jones and the Great Circle Indivisible (X1) Industry Giant 2 Infinite Air with Mark McMorris Injustice 2 (X1) INSIDE Iron Harvest: Complete Ed. John Carpenter's Toxic Commando John Wick Hex JoJo Siwa: Worldwide Party Journey to the Savage Planet (X1) Jumanji: The Video Game Jumanji: Wild Adventures Jurassic World Evolution Jurassic World Evolution 2 Jurassic World Evolution 3 Ken Follett's The Pillars of the Earth Kena: Bridge of Spirits KeyWe Killer Frequency Killer Instinct Killing Floor 2 Kingdom Come: Deliverance (X1) Kingdom Come: Deliverance II Kingdoms of Amalur: Re-Reckoning Kung Fu Panda Showdown of Legendary Legends L.A. Noire (X1) Legacy of Kain Soul Reaver 1&2 Remastered LEGO 2K Drive LEGO Batman 3: Beyond Gotham (X1) LEGO Batman: Legacy of the Dark Knight LEGO CITY Undercover LEGO DC Super-Villains LEGO Dimensions (X1) LEGO Harry Potter Collection (SX) LEGO Harry Potter Collection (X1) LEGO Jurassic World (X1) LEGO Marvel Super Heroes LEGO Marvel Super Heroes 2 LEGO Marvel's Avengers (X1) LEGO Party! LEGO Star Wars: The Force Awakens (X1) LEGO Star Wars: The Skywalker Saga LEGO The Incredibles LEGO Worlds LEGO Brawls Let's Build a Zoo Let's Sing 2022 Let's Sing 2024 Let's Sing 2026 Let's Sing Country Lichdom: Battlemage Lies of P LOLLIPOP CHAINSAW RePOP Looney Tunes: Wacky World of Sports Lords of the Fallen (2014) Lords of the Fallen (2024) LUNAR Remastered Collection Mad Max Madden NFL 16 (X1) Madden NFL 17 (X1) Madden NFL 18 Madden NFL 19 Madden NFL 21 (X1) Madden NFL 23 All Madden Ed. (X1) (SX) Mafia II: Definitive Ed. Mafia III Mafia: Definitive Ed. (X1) Mafia: The Old Country Maneater MARVEL Cosmic Invasion Marvel Pinball Epic Collection Vol. 1 Marvel's Midnight Suns (SX) Marvel’s Guardians of the Galaxy: The Telltale Series (X1) Mass Effect: Andromeda Mass Effect: Legendary Ed. Matchbox Driving Adventures Mato Anomalies Mega Man 11 Mega Man Legacy Collection 2 Mega Man X Legacy Collection Mega Man X Legacy Collection 2 Mega Man Zero/ZX Legacy Collection Mega Man Legacy Collection METAL GEAR & METAL GEAR 2: Solid Snake Metal Gear Solid - Master Collection Version Metal Gear Solid 2: Sons of Liberty - Master Collection Version Metal Gear Solid 3: Snake Eater - Master Collection Version METAL GEAR SOLID 4: Guns of the Patriots - Master Collection Version Metal Gear Solid V: The Phantom Pain (X1) Metal Gear Solid Δ: Snake Eater METAL GEAR SOLID: Peace Walker - Master Collection Version Metal Gear Survive Metal Slug Tactics Metro Redux Micro Machines World Series Middle-earth: Shadow of Mordor - Game of the Year Ed. Middle-earth: Shadow of War Mighty No. 9 MindsEye Minecraft (X1) Minecraft Dungeons Minecraft Legends Minecraft: Story Mode (X1) Minecraft: Story Mode - Season 2 (X1) Minecraft: (X1) Ed. Mirror's Edge: Catalyst MLB The Show 21 MLB The Show 22 MLB The Show 24 MLB The Show 25 Monster Crown Monster Energy Supercross - The Official Videogame 4 Monster High Skulltimate Secrets Monster Hunter Wilds MONSTER HUNTER: WORLD Monster Jam Steel Titans Monster Jam: Crush It! Mortal Kombat 11 Mortal Kombat X Mortal Kombat: Legacy Kollection Mortal Kombat 1 Mortal Shell: Enhanced Ed. MOTHERGUNSHIP Mount & Blade II: Bannerlord MOUSE: P.I. For Hire Moving Out Moving Out 2 Mutant Football League Mutant Year Zero: Road to Eden MX vs ATV All Out MX vs ATV Legends MX vs. ATV Supercross Encore MXGP2 MXX MY LITTLE PONY: A Maretime Bay Adventure My Time At Portia My Time at Sandrock MySims MySims Kingdom NASCAR Heat 2 NASCAR Heat 4 NASCAR Heat 5 NASCAR Heat Evolution NBA 2K15 (X1) NBA 2K16 (X1) NBA 2K17 (X1) NBA 2K19 NBA 2K20 NBA 2K21 (X1) NBA 2K22 (X1) NBA 2K23 (X1) NBA 2K24 (X1) NBA 2K25 (X1) NBA 2K26 (SX) NBA BOUNCE Necromunda: Hired Gun Need for Speed Need for Speed: Heat Need for Speed: Hot Pursuit Remastered Need for Speed: Payback Need for Speed: Unbound Neptunia Game Maker R:Evolution Neptunia: Sisters VS Sisters NERF Legends Neverwinter Nights: Enhanced Ed. New Tales from the Borderlands NHL 19 NHL 20 NHL 15 Full Game NHL 21 Great Eight Ed. Nickelodeon All-Star Brawl Nickelodeon All-Star Brawl 2 Nickelodeon Kart Racers Nickelodeon Kart Racers 2: Grand Prix Nickelodeon Kart Racers 3: Slime Speedway Nicktoons & The Dice of Destiny NINJA GAIDEN 4 No Man's Sky No More Heroes 3 (X1) No Place Like Home No Straight Roads Northgard Now That's What I Call Sing 2 Now That’s What I Call Sing Observer: System Redux OCCULTIC;NINE Oddworld: Soulstorm Enhanced Ed. OK K.O.! Let's Play Heroes ONRUSH Ori and the Blind Forest: Definitive Ed. Ori and the Will of the Wisps Outcast - A New Beginning Outlast Outlast 2 Overcooked! All You Can Eat Overwatch Painkiller Paleo Pines Past Cure Pathfinder: Kingmaker - Definitive Ed. PAW Patrol The Movie: Adventure City Calls Paw Patrol: On a Roll PAYDAY 2: CRIMEWAVE ED. PAYDAY 3 Pentiment Peppa Pig: World Adventures PGA TOUR 2K25 Phantom Breaker: Battle Grounds Ultimate Phar Lap - Horse Racing Challenge Pharaonic Phoenix Point Pillars of Eternity II: Deadfire (X1) Pillars of Eternity: Complete Ed. PJ Masks: Heroes of the Night Planet Coaster: Console Ed. Plants vs. Zombies: Battle for Neighborville Plants vs. Zombies Garden Warfare 2 Plumbers Don't Wear Ties: Definitive Ed. Police Simulator: Patrol Officers Port Royale 4 Power Rangers: Battle for the Grid PRAGMATA Prey (X1) Pro Evolution Soccer 2015 Pro Evolution Soccer 2016 Pro Evolution Soccer 2017 PRO EVOLUTION SOCCER 2018 PRO EVOLUTION SOCCER 2019 Professional Farmer 2017 Project Cars Project Highrise: Architect's Ed. Project Spark Promenade Prototype 2 PSYCHO-PASS MANDATORY HAPPINESS Psychonauts 2 Quake Quake 2 (2023) R-Type Final 2 R.B.I. Baseball 16 Race with Ryan RAGE 2 (X1) RAID: World War II Raiden III x MIKADO MANIAX Raiden IV x MIKADO remix Rare Replay REANIMAL ReCore Red Dead Redemption 2 Red Faction Guerrilla Re-Mars-tered Redfall Redout 2 Redout: Lightspeed Ed. Remothered: Broken Porcelain Remothered: Tormented Fathers Resident Evil (X1) Resident Evil 0 (X1) Resident Evil 2 Resident Evil 4 (2023) Resident Evil 4 (X1) Resident Evil 5 (X1) Resident Evil 6 (X1) Resident Evil 7: Biohazard Resident Evil 7: Biohazard (Japan) Resident Evil: Requiem Resident Evil: Revelations (X1) Resident Evil: Revelations 2 (X1) Resident Evil: Village Resonance: A Plague Tale Legacy RetroRealms Arcade Return to Monkey Island RICO London RIDE Ride 2 RiME Risk of Rain Risk of Rain 2 RoboCop: Rogue City RoboCop: Rogue City - Unfinished Business Rock Band 4 Rocket Arena Rocket League Rogue Trooper Redux Roman Rumble in Las Vegum - Asterix & Obelix XXL 2 Rugby 15 Rugby League Live 4 Rugby World Cup 2015 Rush: A Disney/Pixar Adventure (X1) Rustler RWBY: Arrowfell S.T.A.L.K.E.R. 2: Heart of Chornobyl Saints Row Saints Row IV: Re-Elected (X1) Saints Row: Gat out of Hell (X1) Saints Row: The Third - Remastered SAMURAI SHODOWN (Standard Ver.) SAMURAI WARRIORS 5 Scar-Lead Salvation Scars Above Scott Pilgrim EX Screamer ScreamRide (X1) Scribblenauts Showdown Sea of Stars: Sunset Ed. Sea of Thieves Session: Skate Sim Severed Steel Shadow Tactics: Blades of the Shogun Shadow Warrior Shadows of Doubt Shadows: Awakening Shantae Advance: Risky Revolution Shaq Fu: A Legend Reborn Shenmue Shenmue II Sherlock Holmes: The Devil's Daughter Shi In Shovel Knight: Treasure Trove (X1) Sid Meier's Civilization VI Sid Meier's Civilization VII (SX) Sifu SILENT HILL f Sine Mora EX Skull Island: Rise of Kong Skylanders Imaginators Skylanders SuperChargers Portal Owner's Pack Slay The Spire Slime Rancher Slime Rancher 2 Sniper Elite 4 Sniper Elite 5 Sniper Elite V2 Remastered Sniper Elite: Resistance SNIPER Ghost Warrior 3 Sniper Ghost Warrior Contracts Snooker 19 Song of the Deep Sophstar Soulstice SOUTH PARK: SNOW DAY! SpongeBob SquarePants: Battle for Bikini Bottom - Rehydrated (X1) SpongeBob SquarePants: The Cosmic Shake SpongeBob SquarePants: The Patrick Star Game SpongeBob SquarePants: Titans of the Tide Spyro: Reignited Trilogy Squirrel with a Gun Star Trek Prodigy: Supernova Star Trek: Resurgence Star Wars - Episode I: Jedi Power Battles Star Wars - Jedi: Fallen Order Star Wars - Jedi: Survivor STAR WARS Zero Company Star Wars: Squadrons STAR WARS Battlefront STAR WARS Battlefront II STAR WARS: Bounty Hunter Stardew Valley (X1) Starfield Starship Troopers: Extermination State of Decay 2: Juggernaut Ed. State of Mind Steelrising - Standard Ed. Stern Pinball Arcade Steven Universe: Save the Light STORY OF SEASONS: A Wonderful Life Strange Brigade Stray Street Fighter 30th Anniversary Collection Street Fighter 6 Street Outlaws: The List Street Power Soccer Streets of Rage 4 Stubbs the Zombie in Rebel Without a Pulse Styx: Shards of Darkness Subnautica Subnautica: Below Zero Sudden Strike 4 - European Battlefields Ed. Suicide Squad: Kill the Justice League Suikoden I&II HD Remaster Gate Rune and Dunan Unification Wars Sunset Overdrive (X1) SUPER BOMBERMAN R SUPER BOMBERMAN R 2 Super Lucky's Tale Surviving Mars (X1) Syberia - The World Before Syberia 3 System Shock Sébastien Loeb Rally EVO Tales from the Borderlands - A Telltale Games Series (X1) Teenage Mutant Ninja Turtles Arcade: Wrath of the Mutants Teenage Mutant Ninja Turtles: Shredder's Revenge Teenage Mutant Ninja Turtles: The Cowabunga Collection Teenage Mutant Ninja Turtles: Mutants in Manhattan Tempest 4000 Temtem Tennis World Tour Terminator 2D: NO FATE TERMINATOR: RESISTANCE Terraria Test Drive Unlimited Solar Crown The Addams Family: Mansion Mayhem The Banner Saga The Banner Saga 2 The Book of Unwritten Tales 2 The Callisto Protocol The Chant The Elder Scrolls IV: Oblivion Remastered The Elder Scrolls Online The Elder Scrolls V: Skyrim Special Ed. (X1) The Elf on the Shelf: Christmas Heroes The Escapists The Eternal Cylinder The Evil Within (X1) The Evil Within 2 (X1) The Falconeer The First Berserker: Khazan The Grinch: Christmas Adventures The Inner World - The Last Wind Monk The Invisible Hours The Jackbox Party Pack 7 The Karate Kid: Street Rumble THE KING OF FIGHTERS XV (SX) The Knight Witch The Last Kids on Earth and the Staff of Doom The Last Stand: Aftermath The LEGO Movie Videogame (X1) The LEGO NINJAGO Movie Video Game The Medium The Occupation The Precinct The Quarry (SX) The Riftbreaker The Sims 4 The Smurfs - Mission Vileaf The Surge (X1) The Survivalists The Technomancer The Texas Chain Saw Massacre (X1) The Town of Light The Unicorn Princess The Voice The Voice, la plus belle voix The Walking Dead Collection - The Telltale Series The Walking Dead: Season 2 (X1) The Walking Dead: The Final Season (X1) The Walking Dead: The Telltale Definitive Series The Witcher 3: Wild Hunt The Witcher 3: Wild Hunt – Complete Ed. The Wolf Among Us theHunter: Call of the Wild (X1) Them's Fightin' Herds This Is the Police This War of Mine: The Little Ones Thymesia Tiny Tina's Wonderlands (SX) Titan Quest Titanfall 2 Tomb Raider I-III Remastered Starring Lara Croft Tony Stewart's All-American Racing Tony Stewart's Sprint Car Racing TopSpin 2K25 (SX) Torment: Tides of Numenera Tour de France 2016 Tower of Guns: Special Ed. TRANSFORMERS: BATTLEGROUNDS TRANSFORMERS: Galactic Trials TRANSFORMERS: Devastation Trepang2 Trine 2: Complete Story Trine 3: The Artifacts of Power Trine 4: The Nightmare Prince Trine 5: A Clockwork Conspiracy Trine Enchanted Ed. Troll & I Tropico 5 - Penultimate Ed. Tropico 6 - Next Gen Ed. TUNIC Turok Turok 2: Seeds of Evil Turok 3: Shadow of Oblivion Remastered TY the Tasmanian Tiger HD UFO ROBOT GRENDIZER – The Feast of the Wolves Ufouria: The Saga 2 UglyDolls: An Imperfect Adventure Undertale Unravel Unravel 2 Vampire: The Masquerade - Bloodlines 2 Vampyr (X1) Victor Vran Vikings - Wolves of Midgard Wanted: Dead Warhammer 40,000: Inquisitor - Martyr Warhammer: Chaosbane (X1) Warhammer: End Times - Vermintide Warhammer: Vermintide 2 WARHAMMER 40,000: Darktide WARHAMMER 40,000: Mechanicus WARHAMMER 40,000: Space Marine 2 WARRIORS OROCHI 4 Wasteland 2: Director's Cut We Happy Few Who Wants to Be a Millionaire? (2020) Wild Hearts Wo Long: Fallen Dynasty Wolfenstein II: The New Colossus (X1) Wolfenstein: The Old Blood (X1) Wolfenstein: Youngblood (X1) World War Z (X1) Worms W.M.D Wreckfest (X1) Wreckreation WUCHANG: Fallen Feathers WWE 2K Battlegrounds WWE 2K15 (X1) WWE 2K16 (X1) WWE 2K17 (X1) WWE 2K18 WWE 2K19 WWE 2K20 WWE 2K22 (SX) WWE 2K22 (X1) WWE 2K23 (X1) WWE 2K24 XCOM 2 Xenon Racer XIII Xuan Yuan Sword 7 Yooka-Laylee (X1) Yooka-Laylee and the Impossible Lair (X1) Yooka-Replaylee You Suck at Parking Complete Ed. Ziggurat Zombie Army 4: Dead War Zombie Army Trilogy Zoo Tycoon: Ultimate Animal Collection Zorro The Chronicles (SX) ŌKAMI HD A huge win for game preservation All the discs. (Image credit: Future via Michael Hoglund) The disc-to-digital program is currently available to Xbox Insiders in the Alpha and Alpha-Skip Ahead rings, and it already seems to be fully functional without any issues generally. I expect it'll roll out more broadly in the coming weeks, and then go live publicly probably by October 2026. Some major publishers are currently not involved in the program, including Sega, Square Enix, Bandai Namco, and Ubisoft. Microsoft is likely working through the legalese with these publishers before some of them come online, but it's also possible that some of these publishers would rather you buy the game twice than enjoy benefits on content you already own. Ubisoft in particularly has been painfully resistant to supporting things like Xbox Play Anywhere, opting instead to push its own Ubisoft Connect PC platform. It has given some Ubisoft games free licenses for Xbox owners on PC, but they don't come with Xbox Achievements and the like, which is irritating. It's fantastic to see that Xbox is standardizing how physical discs should operate in the digital-first era ... it just came too little too late. Perhaps if this had been the default from 2013 onwards, disc-based gaming wouldn't be heading the scrapheap as quickly as it is now. Join us on Reddit at r/WindowsCentral to share your insights and discuss our latest news, reviews, and more. ]]>",
-          "paragraphs": [
-            "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is.",
-            "Codenamed Positron, Xbox's disc-to-digital program lets Xbox gamers unlock digital rights to physical games , including things like Xbox Cloud Gaming for streaming on the go, and Xbox Play Anywhere for entitlements on Windows PCs and gaming handhelds like the Xbox Ally.",
-            "There's somewhat insanely no downsides whatsoever: simply insert the disc, claim the entitlement from the disc tile's menu, and boom. The game is now digitally attached to your account. If you sell the disc or pass it on, the digital license will transfer from your account to the new owner. You could claim it back too if they return it.",
-            "Watch On I'm told this was ultimately how the original Xbox DRM was supposed to work back in 2013, before bad messaging confused the situation and triggered a massive ill-informed backlash (which was ultimately Microsoft's own fault.)",
-            "Fast forward to 2026, and people are far more accepting of digital convenience, even as debates over digital rights continue to swirl. PlayStation announced that it will sunset physical discs entirely by 2028, and collectors are not happy. At least Xbox's 2013 DRM has served this system in 2026, Microsoft's manufacturing process for its game discs means that it's able to track rights from physical discs. It's unclear if PlayStation can match it at this time.",
-            "Either way, you might be wondering exactly how many games are available. XCT.Live (via IdleSloth ) is compiling a database of every disc that is currently compatible with the program, and the list is already quit exhausted. Over 200 completely de-listed games work too, which is phenomenal news for game preservation purposes."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=4141",
-          "link": "https://www.windowscentral.com/gaming/xbox/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-heres-the-list"
-        }
-      },
-      "first_seen_at": "2026-09-02T09:55:58.028Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
     {
       "article": {
         "id": "feed-d16f48691739-en",
@@ -3514,6 +3242,187 @@
     },
     {
       "article": {
+        "id": "feed-dbbcedfb8c26-en",
+        "cluster_id": "feed-dbbcedfb8c26",
+        "language": "en",
+        "topic": "devices",
+        "content_type": "NewsArticle",
+        "slug": "google-finally-brings-some-relief-to-older-chromecast-owners",
+        "title": "Google finally brings some relief to older Chromecast owners",
+        "summary": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up. Affected users should update the Google Home app to the latest version 4.26 or newer and try again.",
+        "dek": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up.",
+        "hook": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up. Affected users should update the Google Home app to the latest version 4.26 or newer and try again. The fix clears up confusion over whether older devices had simply reached the end of their support."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "Google’s oldest Chromecast dongles started running into problems earlier this year, with some users unable to use them with certain apps . Things got worse when an update to the Google Home app left some owners unable to set up their older devices. After weeks of frustrations, Google has finally resolved the setup issue."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "Google confirmed the fix in an update to a Reddit thread where users reported problems setting up older Chromecast and Google Home devices. The company says the issue is resolved and recommends that affected users update the Google Home app to version 4.26 and try setting up their device again."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Google support / Reddit If the device still refuses to set up, Google recommends contacting support. The fix is particularly relevant to owners who found their older Chromecast devices disappearing from the Google Home app or becoming impossible to add after an update."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "Before Google addressed the problem, some users had resorted to workarounds, including installing older versions of the Google Home app or creating a new Home to get their devices working again. Others reported that older Chromecast Audio devices were also affected."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "Android Authority",
+            "source_url": "https://www.androidauthority.com/google-chromecast-setup-problem-fix-3706035/",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-02T10:43:12.000Z",
+            "image_url": "https://www.androidauthority.com/wp-content/uploads/2014/01/Chromecast-Belkin-Miracast-AA-2.jpg",
+            "image_caption": "Reference image from Android Authority.",
+            "image_credit": "Android Authority"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-02T10:43:12.000Z",
+        "updated_at": "2026-09-02T10:43:12.000Z",
+        "image": {
+          "src": "https://www.androidauthority.com/wp-content/uploads/2014/01/Chromecast-Belkin-Miracast-AA-2.jpg",
+          "caption": "Reference image from Android Authority.",
+          "credit": "Android Authority",
+          "source_url": "https://www.androidauthority.com/google-chromecast-setup-problem-fix-3706035/"
+        },
+        "draft_context": {
+          "source_title": "Google finally brings some relief to older Chromecast owners",
+          "source_name": "Android Authority",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up. Affected users should update the Google Home app to the latest version 4.26 or newer and try again. The fix clears up confusion over whether older devices had simply reached the end of their support. Google’s oldest Chromecast dongles started running into problems earlier this year, with some users unable to use them with certain apps . Things got worse when an update to the Google Home app left some owners unable to set up their older devices. After weeks of frustrations, Google has finally resolved the setup issue. Google confirmed the fix in an update to a Reddit thread where users reported problems setting up older Chromecast and Google Home devices. The company says the issue is resolved and recommends that affected users update the Google Home app to version 4.26 and try setting up their device again.",
+          "paragraphs": [
+            "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up. Affected users should update the Google Home app to the latest version 4.26 or newer and try again. The fix clears up confusion over whether older devices had simply reached the end of their support.",
+            "Google’s oldest Chromecast dongles started running into problems earlier this year, with some users unable to use them with certain apps . Things got worse when an update to the Google Home app left some owners unable to set up their older devices. After weeks of frustrations, Google has finally resolved the setup issue.",
+            "Google confirmed the fix in an update to a Reddit thread where users reported problems setting up older Chromecast and Google Home devices. The company says the issue is resolved and recommends that affected users update the Google Home app to version 4.26 and try setting up their device again.",
+            "Google support / Reddit If the device still refuses to set up, Google recommends contacting support. The fix is particularly relevant to owners who found their older Chromecast devices disappearing from the Google Home app or becoming impossible to add after an update.",
+            "Before Google addressed the problem, some users had resorted to workarounds, including installing older versions of the Google Home app or creating a new Home to get their devices working again. Others reported that older Chromecast Audio devices were also affected."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=5; words=412",
+          "link": "https://www.androidauthority.com/google-chromecast-setup-problem-fix-3706035/"
+        }
+      },
+      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-bcf8929cf218-en",
+        "cluster_id": "feed-bcf8929cf218",
+        "language": "en",
+        "topic": "security",
+        "content_type": "NewsArticle",
+        "slug": "uk-cyber-bill-targets-ai-users-not-the-vendors-building-it",
+        "title": "UK cyber bill targets AI users, not the vendors building it",
+        "summary": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill. Cybersecurity minister Baroness Lloyd of Effra argued that regulating AI vendors and frontier model developers through the bill would not prevent hostile actors from misusing their products.",
+        "dek": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill.",
+        "hook": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "Cybersecurity minister Baroness Lloyd of Effra argued that regulating AI vendors and frontier model developers through the bill would not prevent hostile actors from misusing their products."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "Addressing the Grand Committee on Tuesday, she said: \"Bringing providers of AI services, those companies which are at the cutting edge of frontier AI development and their products, into the scope… would not address the harms that can be posed by some AI products and services, or specifically, it would not prevent their misuse by hostile actors.\"."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "The minister said the UK was instead taking \"firm action\" to secure AI through other channels. These include supporting the AI Security Institute (AISI), which works with vendors to test the security of models before their release."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "Lloyd also pointed to the voluntary AI Cyber Security Code of Practice, which informed the first global AI cybersecurity standard, ETSI EN 304 223 ."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "secure-access-kit"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "The Register",
+            "source_url": "https://www.theregister.com/security/2026/09/02/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it/5293738",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-02T09:44:00.000Z",
+            "image_url": "https://image.theregister.com/248400.jpg?imageId=248400&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+            "image_caption": "Reference image from The Register.",
+            "image_credit": "The Register"
+          }
+        ],
+        "author_id": "thao-nguyen",
+        "published_at": "2026-09-02T09:44:00.000Z",
+        "updated_at": "2026-09-02T09:44:00.000Z",
+        "image": {
+          "src": "https://image.theregister.com/248400.jpg?imageId=248400&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+          "caption": "Reference image from The Register.",
+          "credit": "The Register",
+          "source_url": "https://www.theregister.com/security/2026/09/02/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it/5293738"
+        },
+        "draft_context": {
+          "source_title": "UK cyber bill targets AI users, not the vendors building it",
+          "source_name": "The Register",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "internet-business-tech",
+          "content_type_hint": "",
+          "description": "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill. Cybersecurity minister Baroness Lloyd of Effra argued that regulating AI vendors and frontier model developers through the bill would not prevent hostile actors from misusing their products. Addressing the Grand Committee on Tuesday, she said: \"Bringing providers of AI services, those companies which are at the cutting edge of frontier AI development and their products, into the scope… would not address the harms that can be posed by some AI products and services, or specifically, it would not prevent their misuse by hostile actors.\" The minister said the UK was instead taking \"firm action\" to secure AI through other channels. These include supporting the AI Security Institute (AISI), which works with vendors to test the security of models before their release. Lloyd also pointed to the voluntary AI Cyber Security Code of Practice, which informed the first global AI cybersecurity standard, ETSI EN 304 223. \"This demonstrates our global leadership and commitment to shaping international technical standards which go wider than some of the issues raised in this bill,\" she claimed. Members of the House of Lords - the upper house in UK parliament - offered numerous arguments for bringing AI within the bill's scope. They cited reports of rogue agentic behavior involving Anthropic and OpenAI, as well as Bill Gates' concerns that commercial incentives are pushing AI development forward without adequate safeguards. Lawmakers also questioned whether companies unable to prevent their agents from misbehaving should be trusted to follow voluntary ethical guidelines that they can rewrite at will. \"Have we not learned from countless experiences before in online safety, privacy, and in AI itself that allowing tech companies to set and mark their own homework endangers the public and our national security?\" asked Baroness Kidron, a Crossbench peer and campaigner for online safety and digital rights. Similarly, Lord Tarassenko, a Crossbench peer and veteran AI researcher, pointed to the recent open letter penned by OpenAI warning that there will soon come a time when AI-orchestrated cyberattacks will become too prevalent to handle. Although the letter was criticized for employing alarmist language while carrying the signatures of companies that profit from AI, peers argued that its warning strengthened the case for regulatory intervention. Kidron and Lloyd also clashed after the minister used a hypothetical healthcare organization to illustrate how the bill would require regulated bodies to secure systems containing AI. Kidron asked: \"If I might ask the noble Lady, the Minister, if I've understood what she said, the NHS must protect itself, but the AI that is attacking it has no requirement under the Bill, no duties, no obligations under the Bill to check itself before it's used in these ways.\" Lloyd said the bill was designed to be technology-agnostic and to impose stricter cybersecurity requirements on key organizations, rather than regulate individual technology providers. She nevertheless said the government was willing to continue discussing AI after Kidron predicted that the issue would return during later stages of the bill's passage. The minister rejected several other amendments, including one that would require certain AI vendors to demonstrate that their products could not cross specified red lines, such as evading human oversight or assisting with the development of chemical weapons. She also dismissed a proposal that would give the Secretary of State last-resort powers to order the shutdown of a datacenter or widely deployed AI system during a security or operational emergency. Lloyd said the bill would instead allow the government to direct regulated entities, including datacenter operators but not AI vendors, to take or cease specified actions when their systems presented a qualifying risk. A power station could, for example, be instructed to stop using a particular AI model. \"We believe this is a more proportionate and effective response, as datacenters operate in highly complex ecosystems and AI systems are often distributed across different datacenters and jurisdictions,\" said Baroness Lloyd. \"It's much less desirable to direct multiple datacenters to shut down, and the impact this could have on services that rely on them, than to direct them to cease using an AI model.\" Despite rejecting the amendments, Lloyd said the government remained willing to discuss AI regulation because of the technology's economic significance. The Grand Committee is scheduled to resume discussions of the CSR Bill when it reconvenes on Thursday. The bill's background The CSR Bill was first proposed in the 2024 King's Speech and introduced in Parliament in November 2025. It attracted attention over the £100,000 daily fines initially proposed for in-scope organizations that failed to protect against specific threats. The legislation builds on the existing categories of operators of essential services and relevant digital service providers while extending the regime to organizations including managed service providers, datacenter operators, and designated critical suppliers. Managed service providers were previously due to be brought within scope through the abandoned 2022 update to the NIS regulations. The broad intention of the bill is to update the NIS 2018 regulations and future-proof the UK's critical infrastructure from cyber threats. However, this week's Grand Committee scrutiny is not the first time the bill has been criticized. In January, shadow deputy PM Sir Oliver Dowden called on the government to rethink its exclusion of local and central government from the CSR bill. The UK's Government Cyber Action Plan, launched hours before the former digital secretary's remarks, promised to hold government to the same standards proposed in the CSR Bill. Like the AI Cyber Security Code of Practice, the action plan lacks any legal obligations. ®",
+          "paragraphs": [
+            "The UK government has rejected proposals from members of the the House of Lords to bring AI vendors within the scope of the Cyber Security and Resilience (Network and Information Systems) Bill.",
+            "Cybersecurity minister Baroness Lloyd of Effra argued that regulating AI vendors and frontier model developers through the bill would not prevent hostile actors from misusing their products.",
+            "Addressing the Grand Committee on Tuesday, she said: \"Bringing providers of AI services, those companies which are at the cutting edge of frontier AI development and their products, into the scope… would not address the harms that can be posed by some AI products and services, or specifically, it would not prevent their misuse by hostile actors.\"",
+            "The minister said the UK was instead taking \"firm action\" to secure AI through other channels. These include supporting the AI Security Institute (AISI), which works with vendors to test the security of models before their release.",
+            "Lloyd also pointed to the voluntary AI Cyber Security Code of Practice, which informed the first global AI cybersecurity standard, ETSI EN 304 223 ."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=5; words=1120",
+          "link": "https://www.theregister.com/security/2026/09/02/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it/5293738"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
+      },
+      "first_seen_at": "2026-09-02T10:54:29.991Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
         "id": "feed-391337426d39-vi",
         "cluster_id": "feed-391337426d39",
         "language": "vi",
@@ -3599,7 +3508,7 @@
           "link": "https://thanhnien.vn/nhung-dieu-can-lam-truoc-khi-cap-nhat-len-ios-27-185260902114739011.htm"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3688,7 +3597,7 @@
           "link": "https://vnexpress.net/nhieu-lanh-dao-trong-he-sinh-thai-vingroup-thu-nhap-tien-ty-moi-thang-5115485.html"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3776,7 +3685,7 @@
           "link": "https://genk.vn/xiaomi-nghi-gi-khi-ban-dien-thoai-poco-gia-30-trieu-16526090121323739.chn"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3867,7 +3776,7 @@
           "link": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3958,7 +3867,7 @@
           "link": "https://genk.vn/chinh-phu-han-quoc-phat-ai-mien-phi-cho-toan-dan-khong-gioi-han-token-165260831130815748.chn"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4047,42 +3956,42 @@
           "link": "https://www.cnet.com/science/space/are-we-there-yet-startup-wants-to-launch-an-80000-year-mission-to-alpha-centauri/"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
     {
       "article": {
-        "id": "feed-dbbcedfb8c26-en",
-        "cluster_id": "feed-dbbcedfb8c26",
+        "id": "feed-b803547fbf45-en",
+        "cluster_id": "feed-b803547fbf45",
         "language": "en",
         "topic": "devices",
         "content_type": "NewsArticle",
-        "slug": "google-finally-brings-some-relief-to-older-chromecast-owners",
-        "title": "Google finally brings some relief to older Chromecast owners",
-        "summary": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up. Affected users should update the Google Home app to the latest version 4.26 or newer and try again.",
-        "dek": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up.",
-        "hook": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up.",
+        "slug": "philips-hue-bulbs-are-going-cheap-at-amazon-right-now-and-i-m-using-these-rare-discounts-to-fina",
+        "title": "Philips Hue bulbs are going cheap at Amazon right now — and I'm using these rare discounts to finally finish my living-room setup",
+        "summary": "The best Labor Day deal I've seen so far is a two-pack of Philips Hue White & Color Ambiance bulbs for just $46.17 at Amazon (was $76.99). That's the kind of deal I might expect to see on Amazon Prime Day, but this time you don't need to be a Prime member to take advantage.",
+        "dek": "The best Labor Day deal I've seen so far is a two-pack of Philips Hue White & Color Ambiance bulbs for just $46.17 at Amazon (was $76.99).",
+        "hook": "The best Labor Day deal I've seen so far is a two-pack of Philips Hue White & Color Ambiance bulbs for just $46.17 at Amazon (was $76.99).",
         "sections": [
           {
             "heading": "Context: what is changing",
-            "body": "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up. Affected users should update the Google Home app to the latest version 4.26 or newer and try again. The fix clears up confusion over whether older devices had simply reached the end of their support."
+            "body": "The best Labor Day deal I've seen so far is a two-pack of Philips Hue White & Color Ambiance bulbs for just $46.17 at Amazon (was $76.99). That's the kind of deal I might expect to see on Amazon Prime Day, but this time you don't need to be a Prime member to take advantage."
           },
           {
             "heading": "Where the sources line up",
-            "body": "Google’s oldest Chromecast dongles started running into problems earlier this year, with some users unable to use them with certain apps . Things got worse when an update to the Google Home app left some owners unable to set up their older devices. After weeks of frustrations, Google has finally resolved the setup issue."
+            "body": "Looking for more options? Scroll down for my top picks in the Labor Day sale, or check out all today's deals on Philips Hue lights at Amazon ."
           },
           {
             "heading": "Practical impact for readers",
-            "body": "Google confirmed the fix in an update to a Reddit thread where users reported problems setting up older Chromecast and Google Home devices. The company says the issue is resolved and recommends that affected users update the Google Home app to version 4.26 and try setting up their device again."
+            "body": "There's a huge 40% off White & Color Ambiance bulbs at Amazon for Labor Day. These are the premium bulbs compatible with the full range of Hue scenes and effects, and offer the widest range of colors."
           },
           {
             "heading": "Who should pay attention now",
-            "body": "Google support / Reddit If the device still refuses to set up, Google recommends contacting support. The fix is particularly relevant to owners who found their older Chromecast devices disappearing from the Google Home app or becoming impossible to add after an update."
+            "body": "These permanent outdoor lights provide a welcoming glow all year round, and with a tap of the app, can be set to preset or custom themes for holidays and special events. No more climbing up ladders to fit lights for Christmas, Halloween, or parties."
           },
           {
             "heading": "What to watch next",
-            "body": "Before Google addressed the problem, some users had resorted to workarounds, including installing older versions of the Google Home app or creating a new Home to get their devices working again. Others reported that older Chromecast Audio devices were also affected."
+            "body": "Perfect for illuminating paths, edging patios, and adding color to any other part of your yard, this water-resistant strip light can be bent and shaped any way you like, and programmed with preset or custom scenes in the Philips Hue app."
           }
         ],
         "verification_state": "emerging",
@@ -4095,47 +4004,48 @@
         "source_set": [
           {
             "source_type": "press",
-            "source_name": "Android Authority",
-            "source_url": "https://www.androidauthority.com/google-chromecast-setup-problem-fix-3706035/",
+            "source_name": "TechRadar",
+            "source_url": "https://www.techradar.com/seasonal-sales/philips-hue-bulbs-are-going-cheap-at-amazon-right-now-and-im-using-these-rare-discounts-to-finally-finish-my-living-room-setup",
             "region": "Global",
             "language": "en",
             "trust_tier": "established-media",
-            "published_at": "2026-09-02T10:43:12.000Z",
-            "image_url": "https://www.androidauthority.com/wp-content/uploads/2014/01/Chromecast-Belkin-Miracast-AA-2.jpg",
-            "image_caption": "Reference image from Android Authority.",
-            "image_credit": "Android Authority"
+            "published_at": "2026-09-02T10:52:50.000Z",
+            "image_url": "https://cdn.mos.cms.futurecdn.net/avS5EHuw6rPEP8tMdUC255-2000-80.jpg",
+            "image_caption": "Reference image from TechRadar.",
+            "image_credit": "TechRadar"
           }
         ],
         "author_id": "quang-huy",
-        "published_at": "2026-09-02T10:43:12.000Z",
-        "updated_at": "2026-09-02T10:43:12.000Z",
+        "published_at": "2026-09-02T10:52:50.000Z",
+        "updated_at": "2026-09-02T10:52:50.000Z",
         "image": {
-          "src": "https://www.androidauthority.com/wp-content/uploads/2014/01/Chromecast-Belkin-Miracast-AA-2.jpg",
-          "caption": "Reference image from Android Authority.",
-          "credit": "Android Authority",
-          "source_url": "https://www.androidauthority.com/google-chromecast-setup-problem-fix-3706035/"
+          "src": "https://cdn.mos.cms.futurecdn.net/avS5EHuw6rPEP8tMdUC255-2000-80.jpg",
+          "caption": "Reference image from TechRadar.",
+          "credit": "TechRadar",
+          "source_url": "https://www.techradar.com/seasonal-sales/philips-hue-bulbs-are-going-cheap-at-amazon-right-now-and-im-using-these-rare-discounts-to-finally-finish-my-living-room-setup"
         },
         "draft_context": {
-          "source_title": "Google finally brings some relief to older Chromecast owners",
-          "source_name": "Android Authority",
+          "source_title": "Philips Hue bulbs are going cheap at Amazon right now — and I'm using these rare discounts to finally finish my living-room setup",
+          "source_name": "TechRadar",
           "source_type": "press",
           "trust_tier": "established-media",
           "topic_hint": "devices",
           "content_type_hint": "",
-          "description": "TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up. Affected users should update the Google Home app to the latest version 4.26 or newer and try again. The fix clears up confusion over whether older devices had simply reached the end of their support. Google’s oldest Chromecast dongles started running into problems earlier this year, with some users unable to use them with certain apps . Things got worse when an update to the Google Home app left some owners unable to set up their older devices. After weeks of frustrations, Google has finally resolved the setup issue. Google confirmed the fix in an update to a Reddit thread where users reported problems setting up older Chromecast and Google Home devices. The company says the issue is resolved and recommends that affected users update the Google Home app to version 4.26 and try setting up their device again.",
+          "description": "Philips Hue makes the best smart lights around, but installing them in every room can be seriously expensive, so I always wait until big sales events to stock up on bulbs. Amazon's Labor Day Sale is the perfect opportunity, with huge discounts on multi-packs of White & Color Ambiance bulbs, as well as strip lights and lamps to extend my smart lighting setup. The best Labor Day deal I've seen so far is a two-pack of Philips Hue White & Color Ambiance bulbs for just $46.17 at Amazon (was $76.99). That's the kind of deal I might expect to see on Amazon Prime Day, but this time you don't need to be a Prime member to take advantage. Looking for more options? Scroll down for my top picks in the Labor Day sale, or check out all today's deals on Philips Hue lights at Amazon . Today's best Philips Hue deals White & Color Ambiance Bulbs (2 Pack): was $76.99 now $46.17 There's a huge 40% off White & Color Ambiance bulbs at Amazon for Labor Day. These are the premium bulbs compatible with the full range of Hue scenes and effects, and offer the widest range of colors. View Deal Festavia 90ft Permanent Outdoor String Lights: was $399.99 now $216.35 These permanent outdoor lights provide a welcoming glow all year round, and with a tap of the app, can be set to preset or custom themes for holidays and special events. No more climbing up ladders to fit lights for Christmas, Halloween, or parties. View Deal Neon Outdoor 16ft LED Strip Light: was $199.99 now $143.97 Perfect for illuminating paths, edging patios, and adding color to any other part of your yard, this water-resistant strip light can be bent and shaped any way you like, and programmed with preset or custom scenes in the Philips Hue app. View Deal Shop more of today's best Labor Day sales Amazon: 45% off TVs, AirPods, air fryers & vacuums Apple: iPads, AirPods & MacBooks from $99 Appliances: up to $1,200 at Samsung Best Buy: 60% off appliances, TVs, laptops & more Casper: up to 30% off mattresses Dell: laptop deals from $249.99 DreamCloud: up to 60% off mattresses, 66% off bundles Home Depot: 40% off appliances, furniture, grills & tools Lowe's: $1,000 off appliances, patio & tools Nectar: up to 50% off mattresses, deals from $349 Saatva: up to $625 off luxury mattresses Samsung: up to $2,000 off 4K, QLED & OLED TVs Target: 45% off clothing, tech & furniture Walmart: 58% off back-to-school, furniture, & clothing ]]>",
           "paragraphs": [
-            "0 • co/AAGooglePreferredSource\"> Add us as preferred source TL;DR Google has fixed an issue in the Google Home app that prevented some older Chromecast devices from being set up. Affected users should update the Google Home app to the latest version 4.26 or newer and try again. The fix clears up confusion over whether older devices had simply reached the end of their support.",
-            "Google’s oldest Chromecast dongles started running into problems earlier this year, with some users unable to use them with certain apps . Things got worse when an update to the Google Home app left some owners unable to set up their older devices. After weeks of frustrations, Google has finally resolved the setup issue.",
-            "Google confirmed the fix in an update to a Reddit thread where users reported problems setting up older Chromecast and Google Home devices. The company says the issue is resolved and recommends that affected users update the Google Home app to version 4.26 and try setting up their device again.",
-            "Google support / Reddit If the device still refuses to set up, Google recommends contacting support. The fix is particularly relevant to owners who found their older Chromecast devices disappearing from the Google Home app or becoming impossible to add after an update.",
-            "Before Google addressed the problem, some users had resorted to workarounds, including installing older versions of the Google Home app or creating a new Home to get their devices working again. Others reported that older Chromecast Audio devices were also affected."
+            "The best Labor Day deal I've seen so far is a two-pack of Philips Hue White & Color Ambiance bulbs for just $46.17 at Amazon (was $76.99). That's the kind of deal I might expect to see on Amazon Prime Day, but this time you don't need to be a Prime member to take advantage.",
+            "Looking for more options? Scroll down for my top picks in the Labor Day sale, or check out all today's deals on Philips Hue lights at Amazon .",
+            "There's a huge 40% off White & Color Ambiance bulbs at Amazon for Labor Day. These are the premium bulbs compatible with the full range of Hue scenes and effects, and offer the widest range of colors.",
+            "These permanent outdoor lights provide a welcoming glow all year round, and with a tap of the app, can be set to preset or custom themes for holidays and special events. No more climbing up ladders to fit lights for Christmas, Halloween, or parties.",
+            "Perfect for illuminating paths, edging patios, and adding color to any other part of your yard, this water-resistant strip light can be bent and shaped any way you like, and programmed with preset or custom scenes in the Philips Hue app.",
+            "Smart Lights Which Philips Hue lights do I need? Here's my simple guide to the smart lighting range Smart Lights 6 low-cost, big impact Philips Hue accessories to upgrade your smart lighting setup Smart Lights Philips Hue unveils new lamps, upgraded candle bulbs, and smarter switches to upgrade your lighting Smart Lights Should I buy Philips Hue Essential bulbs? Here's what you need to know Seasonal Sales The Lowe's Labor Day sale has everything you need for fall, football season, and Halloween &mdash; here's what I'm buying Seasonal Sales Amazon fights price hikes with its massive Labor Day sale &mdash; 60% off Apple devices, TVs, appliances, smart home and more Latest in Seasonal Sales Seasonal Sales The 23 best Labor Day tech deals at Best Buy &mdash; up to 64% off OLED TVs, MacBooks, laptops and more Seasonal Sales The Lowe's Labor Day sale has everything you need for fall, football season, and Halloween &mdash; here's what I'm buying Seasonal Sales Best Buy's Labor Day appliance sale is live, and the retailer says 'we won&rsquo;t be beat on appliance pricing' &mdash; 45% off Samsung, LG, GE and more Seasonal Sales Home Depot's long-awaited Labor Day sale is live &mdash; appliances, giant-sized skeletons, patio furniture, outdoor tools, and more Seasonal Sales Amazon fights price hikes with its massive Labor Day sale &mdash; 60% off Apple devices, TVs, appliances, smart home and more Seasonal Sales Need a versatile laptop for work? You can save up to $2,480 on HP's 2-in-1 EliteBook X Flip G2i right now Latest in Deals Mattresses Big savings on mattresses in the Tuft & Needle Labor Day sale Mattresses Save up to $1,000 at Beautyrest with incredible Labor Day sale Tech Walmart just launched a massive Lego 'Bricktember' sale &ndash; here are my 12 favorite sets, including 60% off Star Wars, Harry Potter, haunted houses, and Advent Calendars Mattresses Sleep well and save up to $900 on Serta mattresses in Labor Day sale Laptops I've scanned the early Labor Day sales &mdash; these are the 5 gaming laptops actually worth buying from Acer, Alienware, Gigabyte, and others Pro 12 top Amazon Labor Day office deals worth buying today LATEST ARTICLES 1 US and AI bosses ask G20 not to regulate AI because it could hurt America's bottom line 2 What is the release date for Lioness season 3 episode 6 on Paramount+? 3 Save up to $1,000 at Beautyrest with incredible Labor Day sale 4 Sleep well and save up to $900 on Serta mattresses in Labor Day sale 5 Big savings on mattresses in the Tuft & Needle Labor Day sale Useful links Best VPN Best Free VPN Best Web Hosting Service Best Website Builder Best Laptops Best Gaming Laptops Best Gaming PC Best PC Gaming Chair Best Phone Best TV Best Oled TVs Best Smartwatch Best Turntables Best Noise Cancelling Headphones Best Wireless Earbuds Best Office Chairs Best Camera Best Dash Cam Best Drones Best Robot Vacuums TechRadar is part of Future US Inc, an international media group and leading digital publisher. Visit our corporate site ."
           ],
           "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=5; words=412",
-          "link": "https://www.androidauthority.com/google-chromecast-setup-problem-fix-3706035/"
+          "source_depth_reason": "depth=100; paragraphs=6; words=1142",
+          "link": "https://www.techradar.com/seasonal-sales/philips-hue-bulbs-are-going-cheap-at-amazon-right-now-and-im-using-these-rare-discounts-to-finally-finish-my-living-room-setup"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4226,7 +4136,7 @@
           "link": "https://www.macworld.com/article/3140334/should-you-buy-a-mac-mini-now-or-wait.html"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4314,7 +4224,7 @@
           "link": "https://www.macworld.com/article/3223918/apples-loaded-month-set-to-kick-off-with-huge-launch-september-9.html"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4402,7 +4312,284 @@
           "link": "https://www.macworld.com/article/3009184/wavlink-thunderbolt-5-dock-review.html"
         }
       },
-      "first_seen_at": "2026-09-02T10:45:20.097Z",
+      "first_seen_at": "2026-09-02T10:54:42.562Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-f19974197dfc-vi",
+        "cluster_id": "feed-f19974197dfc",
+        "language": "vi",
+        "topic": "security",
+        "content_type": "NewsArticle",
+        "slug": "con-nguoi-nam-o-au-trong-vong-lap-bao-mat-co-ai",
+        "title": "Con người nằm ở đâu trong vòng lặp bảo mật “có\" AI?",
+        "summary": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá. Ông Vũ Duy Hiền, Phó Tổng thư ký kiêm Chánh Văn phòng Hiệp hội An ninh mạng Quốc gia phát biểu tại sự kiện.",
+        "dek": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá.",
+        "hook": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá.",
+        "sections": [
+          {
+            "heading": "Bối cảnh: điều gì đang đổi",
+            "body": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá."
+          },
+          {
+            "heading": "Các nguồn đang khớp nhau ở đâu",
+            "body": "Ông Vũ Duy Hiền, Phó Tổng thư ký kiêm Chánh Văn phòng Hiệp hội An ninh mạng Quốc gia phát biểu tại sự kiện."
+          },
+          {
+            "heading": "Tác động thực tế với người đọc",
+            "body": "BSides Hanoi 2026 lần thứ 2 tổ chức tại Hà Nội với chủ đề \"No Human\", diễn ra trong tuần lễ chào mừng Ngày An ninh mạng Việt Nam 06/08. Chương trình năm nay trải rộng trên nhiều chủ đề, từ bảo mật blockchain, điều tra số trong kỷ nguyên Apple Intelligence, hoạt động của các nhóm tấn công có chủ đích (APT), phân tích mã độc, threat intelligence đến ứng dụng AI trong nghiên cứu và phòng thủ. Mỗi nghiên cứu tiếp cận một lát cắt khác nhau, nhưng khi đặt cạnh nhau lại phản ánh những chuyển dịch đang định hình an ninh mạng hiện đại."
+          },
+          {
+            "heading": "Ai nên chú ý lúc này",
+            "body": "Điểm chung đầu tiên là AI đang làm thay đổi cán cân giữa bên tấn công và bên phòng thủ. Những công nghệ giúp chuyên gia tăng tốc phân tích, tự động hóa quy trình và phát hiện mối đe dọa cũng đang được các nhóm tấn công khai thác để gia tăng tốc độ, quy mô và mức độ tinh vi của các chiến dịch. Cuộc cạnh tranh vì thế không còn nằm ở việc ai sở hữu AI, mà ở khả năng khai thác, kiểm soát và sử dụng AI hiệu quả hơn."
+          },
+          {
+            "heading": "Điều cần theo dõi tiếp",
+            "body": "Được tổ chức bởi Công ty CP An ninh mạng Việt Nam (VSEC - thành viên của Tập đoàn Công nghệ G-Group), phối hợp cùng Hiệp hội An ninh mạng quốc gia (NCA) và Hiệp hội Internet Việt Nam (VIA), sự kiện tiếp tục mang tinh thần của chuỗi BSides toàn cầu – một diễn đàn cộng đồng, nơi các nhà nghiên cứu và chuyên gia chia sẻ nghiên cứu thực tiễn, phản biện các xu hướng mới và cùng tìm lời giải cho những thách thức của ngành."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "secure-access-kit"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "CafeBiz Cong Nghe",
+            "source_url": "https://cafebiz.vn/con-nguoi-nam-o-dau-trong-vong-lap-bao-mat-co-ai-176260805201731707.chn",
+            "region": "VN",
+            "language": "vi",
+            "trust_tier": "established-media",
+            "published_at": "2026-08-05T05:59:00.000Z",
+            "image_url": "https://cafebiz.cafebizcdn.vn/thumb_w/1200/162123310254002176/2026/8/5/avatar1785935806832-17859358079941207873429.jpg",
+            "image_caption": "Ảnh tham khảo từ CafeBiz Cong Nghe.",
+            "image_credit": "CafeBiz Cong Nghe"
+          }
+        ],
+        "author_id": "thao-nguyen",
+        "published_at": "2026-08-05T05:59:00.000Z",
+        "updated_at": "2026-08-05T05:59:00.000Z",
+        "image": {
+          "src": "https://cafebiz.cafebizcdn.vn/thumb_w/1200/162123310254002176/2026/8/5/avatar1785935806832-17859358079941207873429.jpg",
+          "caption": "Ảnh tham khảo từ CafeBiz Cong Nghe.",
+          "credit": "CafeBiz Cong Nghe",
+          "source_url": "https://cafebiz.vn/con-nguoi-nam-o-dau-trong-vong-lap-bao-mat-co-ai-176260805201731707.chn"
+        },
+        "draft_context": {
+          "source_title": "Con người nằm ở đâu trong vòng lặp bảo mật “có\" AI?",
+          "source_name": "CafeBiz Cong Nghe",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "internet-business-tech",
+          "content_type_hint": "",
+          "description": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá.",
+          "paragraphs": [
+            "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá.",
+            "Ông Vũ Duy Hiền, Phó Tổng thư ký kiêm Chánh Văn phòng Hiệp hội An ninh mạng Quốc gia phát biểu tại sự kiện",
+            "BSides Hanoi 2026 lần thứ 2 tổ chức tại Hà Nội với chủ đề \"No Human\", diễn ra trong tuần lễ chào mừng Ngày An ninh mạng Việt Nam 06/08. Chương trình năm nay trải rộng trên nhiều chủ đề, từ bảo mật blockchain, điều tra số trong kỷ nguyên Apple Intelligence, hoạt động của các nhóm tấn công có chủ đích (APT), phân tích mã độc, threat intelligence đến ứng dụng AI trong nghiên cứu và phòng thủ. Mỗi nghiên cứu tiếp cận một lát cắt khác nhau, nhưng khi đặt cạnh nhau lại phản ánh những chuyển dịch đang định hình an ninh mạng hiện đại.",
+            "Điểm chung đầu tiên là AI đang làm thay đổi cán cân giữa bên tấn công và bên phòng thủ. Những công nghệ giúp chuyên gia tăng tốc phân tích, tự động hóa quy trình và phát hiện mối đe dọa cũng đang được các nhóm tấn công khai thác để gia tăng tốc độ, quy mô và mức độ tinh vi của các chiến dịch. Cuộc cạnh tranh vì thế không còn nằm ở việc ai sở hữu AI, mà ở khả năng khai thác, kiểm soát và sử dụng AI hiệu quả hơn.",
+            "Được tổ chức bởi Công ty CP An ninh mạng Việt Nam (VSEC - thành viên của Tập đoàn Công nghệ G-Group), phối hợp cùng Hiệp hội An ninh mạng quốc gia (NCA) và Hiệp hội Internet Việt Nam (VIA), sự kiện tiếp tục mang tinh thần của chuỗi BSides toàn cầu – một diễn đàn cộng đồng, nơi các nhà nghiên cứu và chuyên gia chia sẻ nghiên cứu thực tiễn, phản biện các xu hướng mới và cùng tìm lời giải cho những thách thức của ngành.",
+            "Theo ông Trương Đức Lượng, Chủ tịch HĐQT VSEC và thành viên Hội đồng Chuyên môn, BSides được xây dựng như một nền tảng để kết nối cộng đồng bảo mật Việt Nam với cộng đồng quốc tế, khuyến khích chia sẻ tri thức và thúc đẩy sự phát triển bền vững của hệ sinh thái an ninh mạng."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=453",
+          "link": "https://cafebiz.vn/con-nguoi-nam-o-dau-trong-vong-lap-bao-mat-co-ai-176260805201731707.chn"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
+      },
+      "first_seen_at": "2026-09-02T10:56:08.288Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-5f2b84bb07a9-en",
+        "cluster_id": "feed-5f2b84bb07a9",
+        "language": "en",
+        "topic": "gaming",
+        "content_type": "NewsArticle",
+        "slug": "confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-here-s-th",
+        "title": "Confirmed: Over 800 Xbox discs are supported by the disc-to-digital program, and growing. Here's the list.",
+        "summary": "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is. Codenamed Positron, Xbox's disc-to-digital program lets Xbox gamers unlock digital rights to physical games , including things like Xbox Cloud Gaming for streaming on the go, and Xbox Play Anywhere for entitlements on Windows PCs and gaming handhelds like the Xbox Ally.",
+        "dek": "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is.",
+        "hook": "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "Codenamed Positron, Xbox's disc-to-digital program lets Xbox gamers unlock digital rights to physical games , including things like Xbox Cloud Gaming for streaming on the go, and Xbox Play Anywhere for entitlements on Windows PCs and gaming handhelds like the Xbox Ally."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "There's somewhat insanely no downsides whatsoever: simply insert the disc, claim the entitlement from the disc tile's menu, and boom. The game is now digitally attached to your account. If you sell the disc or pass it on, the digital license will transfer from your account to the new owner. You could claim it back too if they return it."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Watch On I'm told this was ultimately how the original Xbox DRM was supposed to work back in 2013, before bad messaging confused the situation and triggered a massive ill-informed backlash (which was ultimately Microsoft's own fault.)."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "Fast forward to 2026, and people are far more accepting of digital convenience, even as debates over digital rights continue to swirl. PlayStation announced that it will sunset physical discs entirely by 2028, and collectors are not happy. At least Xbox's 2013 DRM has served this system in 2026, Microsoft's manufacturing process for its game discs means that it's able to track rights from physical discs. It's unclear if PlayStation can match it at this time."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [
+          "gaming-cloud-pass"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "Windows Central",
+            "source_url": "https://www.windowscentral.com/gaming/xbox/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-heres-the-list",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-02T09:52:02.000Z",
+            "image_url": "https://cdn.mos.cms.futurecdn.net/ftDQHZue9WoD59KBGjdfBT-2560-80.png",
+            "image_caption": "Reference image from Windows Central.",
+            "image_credit": "Windows Central"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-02T09:52:02.000Z",
+        "updated_at": "2026-09-02T09:52:02.000Z",
+        "image": {
+          "src": "https://cdn.mos.cms.futurecdn.net/ftDQHZue9WoD59KBGjdfBT-2560-80.png",
+          "caption": "Reference image from Windows Central.",
+          "credit": "Windows Central",
+          "source_url": "https://www.windowscentral.com/gaming/xbox/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-heres-the-list"
+        },
+        "draft_context": {
+          "source_title": "Confirmed: Over 800 Xbox discs are supported by the disc-to-digital program, and growing. Here's the list.",
+          "source_name": "Windows Central",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Xbox's disc-to-digital program was revealed in full last week, and at first, it seemed too good to be true. Codenamed Positron, Xbox's disc-to-digital program lets Xbox gamers unlock digital rights to physical games , including things like Xbox Cloud Gaming for streaming on the go, and Xbox Play Anywhere for entitlements on Windows PCs and gaming handhelds like the Xbox Ally. DEAL: Get Surfshark VPN 86% OFF with Windows Central 🦈 There's somewhat insanely no downsides whatsoever: simply insert the disc, claim the entitlement from the disc tile's menu, and boom. The game is now digitally attached to your account. If you sell the disc or pass it on, the digital license will transfer from your account to the new owner. You could claim it back too if they return it. I'm told this was ultimately how the original Xbox DRM was supposed to work back in 2013, before bad messaging confused the situation and triggered a massive ill-informed backlash (which was ultimately Microsoft's own fault.) Fast forward to 2026, and people are far more accepting of digital convenience, even as debates over digital rights continue to swirl. PlayStation announced that it will sunset physical discs entirely by 2028, and collectors are not happy. At least Xbox's 2013 DRM has served this system in 2026, Microsoft's manufacturing process for its game discs means that it's able to track rights from physical discs. It's unclear if PlayStation can match it at this time. Either way, you might be wondering exactly how many games are available. XCT.Live (via IdleSloth ) is compiling a database of every disc that is currently compatible with the program, and the list is already quit exhausted. Over 200 completely de-listed games work too, which is phenomenal news for game preservation purposes. The full list of Xbox Disc-to-Digital games (so far) 007 First Light 7 Days to Die 8 To Glory - The Official Game of the PBR 8-Bit RTS Series [PROTOTYPE] A Plague Tale: Innocence (X1) A Plague Tale: Requiem (Win) A Quiet Place: The Road Ahead Ad Infinitum Adventure Time: Finn and Jake Investigations Adventure Time: Pirates of the Enchiridion AEW: Fight Forever Agatha Christie - Death on the Nile Agatha Christie - Hercule Poirot: The First Cases Agatha Christie - The ABC Murders (X1) Agents of Mayhem Agony AI: THE SOMNIUM FILES Nirvana Initiative Airoheart Alan Wake 2 Alan Wake: Remastered Alex Kidd in Miracle World DX Aliens: Fireteam Elite Alone in the Dark (2024) Amerzone - The Explorer's Legacy Among Us Anthem Apex Legends Arcadegeddon ARK: Survival Evolved Armello ARSLAN: THE WARRIORS OF LEGEND Arzette: The Jewel of Faramore Ashes Cricket Assetto Corsa Asterix & Obelix Slap Them All! 2 Asterix & Obelix XXL3: The Crystal Menhir ASTRONEER Atari 50: The Anniversary Celebration Atari Flashback Classics Vol. 1 Atari Flashback Classics Vol. 2 Atari Flashback Classics Vol. 3 Atelier Yumia: The Alchemist of Memories & the Envisioned Land (SX) Atlas Fallen: Reign of Sand (Win) Atomic Heart Attack on Titan Attack on Titan 2 Aven Colony AVICII Invector Back 4 Blood Back to the Future: The Game - 30th Anniversary Ed. (X1) Baja: Edge of Control HD Balatro Baldur's Gate 3 Baldur's Gate and Baldur's Gate II: Enhanced Ed. Banishers: Ghosts of New Eden Banner Saga 3 Barbie: Project Friendship Batman: Arkham Knight Batman: Return to Arkham - Arkham Asylum Batman: Return to Arkham - Arkham City Batman: The Telltale Series (X1) Battle Chasers: Nightwar Battleborn Battlefield 1 Battlefield 2042 (SX) Battlefield 2042 (X1) Battlefield 6 Battlefield V Battlefield: Hardline (X1) Beast Quest Ben 10 Beyond a Steel Sky Biomutant BioShock 2: Remastered BioShock: Infinite - The Complete Ed. BioShock: Remastered Black Desert Black Mirror Blackguards 2 BLADESTORM: Nightmare Blair Witch Blasphemous 2 BlazBlue: Chronophantasma Extend Bleeding Edge Bloodstained: Ritual of the Night (X1) Bomb Rush Cyberfunk Borderlands 2 (X1) Borderlands 3 Borderlands 4 Borderlands: Game of the Year Ed. Borderlands: The Pre-Sequel (X1) Bramble: The Mountain King Bridge Constructor: Portal Brothers: a Tale of Two Sons (X1) Bulletstorm: Full Clip Ed. Burnout Paradise: Remastered Bus Simulator 21 Next Stop Cabela’s African Adventures Call of Duty: Advanced Warfare (X1) Call of Duty: Black Ops 4 Call of Duty: Black Ops 6 Call of Duty: Black Ops Cold War (X1) Call of Duty: Black Ops III (X1) Call of Duty: Infinite Warfare (X1) Call of Duty: Modern Warfare (X1) Call of Duty: Modern Warfare Remastered (X1) Call of Duty: Vanguard (X1) Call of Duty: WWII (X1) Capcom Arcade 2nd Stadium Carmageddon: Max Damage Carnival Games Cars 3: Driven to Win (X1) Cartoon Network: Battle Crashers Castlevania Advance Collection Castlevania Dominus Collection CHAOS;CHILD Charon's Staircase Chicken Run: Eggstraction Chronos: Before the Ashes Clair Obscur: Expedition 33 Clash: Artifacts of Chaos Classified: France '44 Clock Tower: Rewind Company of Heroes 3 Conan Exiles Construction Simulator Constructor Contra: Operation Galuga CONTRA: ROGUE CORPS Control (X1) Control Ultimate Edition (SX) Crackdown 3: Campaign Crash Bandicoot: N. Sane Trilogy Crayola Scoot Cricket 24: The Official Game of the Ashes (X1) Crimson Desert Cris Tales Crysis 2 Remastered Crysis 3 Remastered Crysis Remastered Cuisineer Cuphead Cyberpunk 2077 CYGNI: All Guns Blazing Daemon X Machina: Titanic Scion Danger Zone 2 Dangerous Driving Darksiders Genesis (X1) Darksiders II Deathinitive Ed. Darksiders III (X1) Darksiders Warmastered Ed. DARQ Ultimate Ed. Day of the Tentacle: Remastered DC League of Super-Pets: The Adventures of Krypto and Ace DC's Justice League: Cosmic Chaos DCL-The Game de Blob de Blob 2 Dead Alliance: Multiplayer Ed. Dead Island 2 (X1) Dead Island: Definitive Ed. DEAD OR ALIVE 5 Last Round: Core Fighters DEAD OR ALIVE 6: Core Fighters Dead Rising (X1) Dead Rising 2 (X1) Dead Rising 4 (X1) Dead Rising Deluxe Remaster Dead Space Deadlight: Director's Cut Deadpool (X1) DEATHLOOP Deformers Deliver Us The Moon Demon Turf Desperados III Destroy All Humans! Destroy All Humans! 2 - Reprobed Devil May Cry 5 Devil May Cry 5 Special Ed. Devil May Cry HD Collection Diablo III: Reaper of Souls – Ultimate Evil Ed. Diablo IV DiRT 4 DIRT 5 DiRT Rally Disciples: Liberation Disco Elysium - The Final Cut Dishonored 2 (X1) Dishonored: Death of the Outsider (X1) Dishonored: Definitive Ed. (X1) Disney Classic Games: Aladdin and The Lion King Disney Dreamlight Valley Disney Epic Mickey: Rebrushed Disney Illusion Island Disney Infinity 3.0 (X1) Disneyland Adventures (X1) Divinity: Original Sin - Enhanced Ed. Divinity: Original Sin 2 - Definitive Ed. DmC Devil May Cry: Definitive Ed. Doctor Who: The Edge of Reality Doctor Who: The Lonely Assassins Dolmen Don Bradman Cricket DOOM DOOM + DOOM II DOOM 64 DOOM Eternal (X1) DOOM: The Dark Ages Double Dragon Gaiden: Rise of the Dragons Dragon Age: Inquisition (X1) Dragon Age: The Veilguard Dragon's Dogma 2 Dragon's Dogma: Dark Arisen DreamWorks Dragons Dawn of New Riders DREDGE Dungeons 3 Dying Light Dying Light 2: Stay Human - Reloaded Ed. DYNASTY WARRIORS 8 Empires DYNASTY WARRIORS 9 DYNASTY WARRIORS 9 Empires DYNASTY WARRIORS: ORIGINS EA SPORTS College Football 25 EA SPORTS College Football 26 EA SPORTS FC 25 (X1) EA SPORTS FIFA 17 EA SPORTS FIFA 20 EA SPORTS NHL 16 EA SPORTS Rory McIlroy PGA TOUR Earthfall Earthlock: Festival of Magic eFootball PES 2020 eFootball PES 2021 SEASON UPDATE Elex ELEX II Endling - Extinction is Forever Enotria: The Last Song EVERSPACE 2 Evil Dead: The Game Evil Genius 2: World Domination Evil West Evolve Exoprimal Extinction F1 2015 F1 2016 F1 2017 F1 2018 (X1) F1 2019 (X1) F1 2020 F1 2021 F1 22 F1 23 Fallen Legion Revenants Fallen Legion: Rise to Glory Farming Simulator 15 (X1) FATAL FRAME II: Crimson Butterfly REMAKE FATAL FURY: City of the Wolves FIFA 15 (X1) FIFA 16 (X1) FIFA 21 (X1) FIFA 22 (SX) FIFA 22 (X1) FIFA 23 (X1) Firefighters: Airport Fire Department Fishing Sim World: Pro Tour (X1) Five Nights at Freddy's Five Nights at Freddy's 2 Five Nights at Freddy's 3 Five Nights at Freddy's 4 Five Nights at Freddy's Into the Pit Five Nights at Freddy's: Security Breach Five Nights at Freddy's: Sister Location Flashback 2 FlatOut 4: Total Insanity Flintlock: The Siege of Dawn Fortnite Forza Horizon 4 Friday the 13th: The Game FRONT MISSION 1st: Remake FRONT MISSION 2: Remake Frostpunk (X1) Funko Fusion G.I. Joe: Operation Blackout Game of Thrones - The Telltale Series (X1) Gears 5 Gears of War 4 Gears of War: Ultimate Ed. Gears Tactics Generation Zero Gex Trilogy Ghostbusters: Spirits Unleashed Ecto Ed. Ghostbusters: The Video Game Remastered Ghostbusters Ghostrunner Ghostrunner 2 Goat Simulator (X1) Goat Simulator 3 God of Rock Gotham Knights Gothic Classic GRADIUS ORIGINS Grand Theft Auto III – The Definitive Ed. Grand Theft Auto V (X1) Grand Theft Auto: San Andreas – The Definitive Ed. Grand Theft Auto: Vice City – The Definitive Ed. Grandia HD Collection Gravel GreedFall GRID Grim Fandango Remastered Grounded Hades Halo 5: Guardians Halo Infinite Halo Wars 2 Halo: The Master Chief Collection Halo: The Master Chief Collection (China) Harry Potter: Quidditch Champions Harvest Moon: One World Harvest Moon: The Winds of Anthos Has-Been Heroes Hellblade: Senua's Sacrifice (X1) Hello Neighbor Hello Neighbor 2 Hello Neighbor: Hide and Seek Hi-Fi RUSH High On Life High On Life 2 HITMAN 3 HITMAN 2 Hogwarts Legacy (X1) Hogwarts Legacy (SX) Homefront: The Revolution Hot Wheels Let's Race: Ultimate Speed HOT WHEELS UNLEASHED HOT WHEELS UNLEASHED 2 - Turbocharged HOTEL BARCELONA Hotel Transylvania 3: Monsters Overboard House Flipper 2 Human Fall Flat Immortal: Unchained Immortals of Aveum Indiana Jones and the Great Circle Indivisible (X1) Industry Giant 2 Infinite Air with Mark McMorris Injustice 2 (X1) INSIDE Iron Harvest: Complete Ed. John Carpenter's Toxic Commando John Wick Hex JoJo Siwa: Worldwide Party Journey to the Savage Planet (X1) Jumanji: The Video Game Jumanji: Wild Adventures Jurassic World Evolution Jurassic World Evolution 2 Jurassic World Evolution 3 Ken Follett's The Pillars of the Earth Kena: Bridge of Spirits KeyWe Killer Frequency Killer Instinct Killing Floor 2 Kingdom Come: Deliverance (X1) Kingdom Come: Deliverance II Kingdoms of Amalur: Re-Reckoning Kung Fu Panda Showdown of Legendary Legends L.A. Noire (X1) Legacy of Kain Soul Reaver 1&2 Remastered LEGO 2K Drive LEGO Batman 3: Beyond Gotham (X1) LEGO Batman: Legacy of the Dark Knight LEGO CITY Undercover LEGO DC Super-Villains LEGO Dimensions (X1) LEGO Harry Potter Collection (SX) LEGO Harry Potter Collection (X1) LEGO Jurassic World (X1) LEGO Marvel Super Heroes LEGO Marvel Super Heroes 2 LEGO Marvel's Avengers (X1) LEGO Party! LEGO Star Wars: The Force Awakens (X1) LEGO Star Wars: The Skywalker Saga LEGO The Incredibles LEGO Worlds LEGO Brawls Let's Build a Zoo Let's Sing 2022 Let's Sing 2024 Let's Sing 2026 Let's Sing Country Lichdom: Battlemage Lies of P LOLLIPOP CHAINSAW RePOP Looney Tunes: Wacky World of Sports Lords of the Fallen (2014) Lords of the Fallen (2024) LUNAR Remastered Collection Mad Max Madden NFL 16 (X1) Madden NFL 17 (X1) Madden NFL 18 Madden NFL 19 Madden NFL 21 (X1) Madden NFL 23 All Madden Ed. (X1) (SX) Mafia II: Definitive Ed. Mafia III Mafia: Definitive Ed. (X1) Mafia: The Old Country Maneater MARVEL Cosmic Invasion Marvel Pinball Epic Collection Vol. 1 Marvel's Midnight Suns (SX) Marvel’s Guardians of the Galaxy: The Telltale Series (X1) Mass Effect: Andromeda Mass Effect: Legendary Ed. Matchbox Driving Adventures Mato Anomalies Mega Man 11 Mega Man Legacy Collection 2 Mega Man X Legacy Collection Mega Man X Legacy Collection 2 Mega Man Zero/ZX Legacy Collection Mega Man Legacy Collection METAL GEAR & METAL GEAR 2: Solid Snake Metal Gear Solid - Master Collection Version Metal Gear Solid 2: Sons of Liberty - Master Collection Version Metal Gear Solid 3: Snake Eater - Master Collection Version METAL GEAR SOLID 4: Guns of the Patriots - Master Collection Version Metal Gear Solid V: The Phantom Pain (X1) Metal Gear Solid Δ: Snake Eater METAL GEAR SOLID: Peace Walker - Master Collection Version Metal Gear Survive Metal Slug Tactics Metro Redux Micro Machines World Series Middle-earth: Shadow of Mordor - Game of the Year Ed. Middle-earth: Shadow of War Mighty No. 9 MindsEye Minecraft (X1) Minecraft Dungeons Minecraft Legends Minecraft: Story Mode (X1) Minecraft: Story Mode - Season 2 (X1) Minecraft: (X1) Ed. Mirror's Edge: Catalyst MLB The Show 21 MLB The Show 22 MLB The Show 24 MLB The Show 25 Monster Crown Monster Energy Supercross - The Official Videogame 4 Monster High Skulltimate Secrets Monster Hunter Wilds MONSTER HUNTER: WORLD Monster Jam Steel Titans Monster Jam: Crush It! Mortal Kombat 11 Mortal Kombat X Mortal Kombat: Legacy Kollection Mortal Kombat 1 Mortal Shell: Enhanced Ed. MOTHERGUNSHIP Mount & Blade II: Bannerlord MOUSE: P.I. For Hire Moving Out Moving Out 2 Mutant Football League Mutant Year Zero: Road to Eden MX vs ATV All Out MX vs ATV Legends MX vs. ATV Supercross Encore MXGP2 MXX MY LITTLE PONY: A Maretime Bay Adventure My Time At Portia My Time at Sandrock MySims MySims Kingdom NASCAR Heat 2 NASCAR Heat 4 NASCAR Heat 5 NASCAR Heat Evolution NBA 2K15 (X1) NBA 2K16 (X1) NBA 2K17 (X1) NBA 2K19 NBA 2K20 NBA 2K21 (X1) NBA 2K22 (X1) NBA 2K23 (X1) NBA 2K24 (X1) NBA 2K25 (X1) NBA 2K26 (SX) NBA BOUNCE Necromunda: Hired Gun Need for Speed Need for Speed: Heat Need for Speed: Hot Pursuit Remastered Need for Speed: Payback Need for Speed: Unbound Neptunia Game Maker R:Evolution Neptunia: Sisters VS Sisters NERF Legends Neverwinter Nights: Enhanced Ed. New Tales from the Borderlands NHL 19 NHL 20 NHL 15 Full Game NHL 21 Great Eight Ed. Nickelodeon All-Star Brawl Nickelodeon All-Star Brawl 2 Nickelodeon Kart Racers Nickelodeon Kart Racers 2: Grand Prix Nickelodeon Kart Racers 3: Slime Speedway Nicktoons & The Dice of Destiny NINJA GAIDEN 4 No Man's Sky No More Heroes 3 (X1) No Place Like Home No Straight Roads Northgard Now That's What I Call Sing 2 Now That’s What I Call Sing Observer: System Redux OCCULTIC;NINE Oddworld: Soulstorm Enhanced Ed. OK K.O.! Let's Play Heroes ONRUSH Ori and the Blind Forest: Definitive Ed. Ori and the Will of the Wisps Outcast - A New Beginning Outlast Outlast 2 Overcooked! All You Can Eat Overwatch Painkiller Paleo Pines Past Cure Pathfinder: Kingmaker - Definitive Ed. PAW Patrol The Movie: Adventure City Calls Paw Patrol: On a Roll PAYDAY 2: CRIMEWAVE ED. PAYDAY 3 Pentiment Peppa Pig: World Adventures PGA TOUR 2K25 Phantom Breaker: Battle Grounds Ultimate Phar Lap - Horse Racing Challenge Pharaonic Phoenix Point Pillars of Eternity II: Deadfire (X1) Pillars of Eternity: Complete Ed. PJ Masks: Heroes of the Night Planet Coaster: Console Ed. Plants vs. Zombies: Battle for Neighborville Plants vs. Zombies Garden Warfare 2 Plumbers Don't Wear Ties: Definitive Ed. Police Simulator: Patrol Officers Port Royale 4 Power Rangers: Battle for the Grid PRAGMATA Prey (X1) Pro Evolution Soccer 2015 Pro Evolution Soccer 2016 Pro Evolution Soccer 2017 PRO EVOLUTION SOCCER 2018 PRO EVOLUTION SOCCER 2019 Professional Farmer 2017 Project Cars Project Highrise: Architect's Ed. Project Spark Promenade Prototype 2 PSYCHO-PASS MANDATORY HAPPINESS Psychonauts 2 Quake Quake 2 (2023) R-Type Final 2 R.B.I. Baseball 16 Race with Ryan RAGE 2 (X1) RAID: World War II Raiden III x MIKADO MANIAX Raiden IV x MIKADO remix Rare Replay REANIMAL ReCore Red Dead Redemption 2 Red Faction Guerrilla Re-Mars-tered Redfall Redout 2 Redout: Lightspeed Ed. Remothered: Broken Porcelain Remothered: Tormented Fathers Resident Evil (X1) Resident Evil 0 (X1) Resident Evil 2 Resident Evil 4 (2023) Resident Evil 4 (X1) Resident Evil 5 (X1) Resident Evil 6 (X1) Resident Evil 7: Biohazard Resident Evil 7: Biohazard (Japan) Resident Evil: Requiem Resident Evil: Revelations (X1) Resident Evil: Revelations 2 (X1) Resident Evil: Village Resonance: A Plague Tale Legacy RetroRealms Arcade Return to Monkey Island RICO London RIDE Ride 2 RiME Risk of Rain Risk of Rain 2 RoboCop: Rogue City RoboCop: Rogue City - Unfinished Business Rock Band 4 Rocket Arena Rocket League Rogue Trooper Redux Roman Rumble in Las Vegum - Asterix & Obelix XXL 2 Rugby 15 Rugby League Live 4 Rugby World Cup 2015 Rush: A Disney/Pixar Adventure (X1) Rustler RWBY: Arrowfell S.T.A.L.K.E.R. 2: Heart of Chornobyl Saints Row Saints Row IV: Re-Elected (X1) Saints Row: Gat out of Hell (X1) Saints Row: The Third - Remastered SAMURAI SHODOWN (Standard Ver.) SAMURAI WARRIORS 5 Scar-Lead Salvation Scars Above Scott Pilgrim EX Screamer ScreamRide (X1) Scribblenauts Showdown Sea of Stars: Sunset Ed. Sea of Thieves Session: Skate Sim Severed Steel Shadow Tactics: Blades of the Shogun Shadow Warrior Shadows of Doubt Shadows: Awakening Shantae Advance: Risky Revolution Shaq Fu: A Legend Reborn Shenmue Shenmue II Sherlock Holmes: The Devil's Daughter Shi In Shovel Knight: Treasure Trove (X1) Sid Meier's Civilization VI Sid Meier's Civilization VII (SX) Sifu SILENT HILL f Sine Mora EX Skull Island: Rise of Kong Skylanders Imaginators Skylanders SuperChargers Portal Owner's Pack Slay The Spire Slime Rancher Slime Rancher 2 Sniper Elite 4 Sniper Elite 5 Sniper Elite V2 Remastered Sniper Elite: Resistance SNIPER Ghost Warrior 3 Sniper Ghost Warrior Contracts Snooker 19 Song of the Deep Sophstar Soulstice SOUTH PARK: SNOW DAY! SpongeBob SquarePants: Battle for Bikini Bottom - Rehydrated (X1) SpongeBob SquarePants: The Cosmic Shake SpongeBob SquarePants: The Patrick Star Game SpongeBob SquarePants: Titans of the Tide Spyro: Reignited Trilogy Squirrel with a Gun Star Trek Prodigy: Supernova Star Trek: Resurgence Star Wars - Episode I: Jedi Power Battles Star Wars - Jedi: Fallen Order Star Wars - Jedi: Survivor STAR WARS Zero Company Star Wars: Squadrons STAR WARS Battlefront STAR WARS Battlefront II STAR WARS: Bounty Hunter Stardew Valley (X1) Starfield Starship Troopers: Extermination State of Decay 2: Juggernaut Ed. State of Mind Steelrising - Standard Ed. Stern Pinball Arcade Steven Universe: Save the Light STORY OF SEASONS: A Wonderful Life Strange Brigade Stray Street Fighter 30th Anniversary Collection Street Fighter 6 Street Outlaws: The List Street Power Soccer Streets of Rage 4 Stubbs the Zombie in Rebel Without a Pulse Styx: Shards of Darkness Subnautica Subnautica: Below Zero Sudden Strike 4 - European Battlefields Ed. Suicide Squad: Kill the Justice League Suikoden I&II HD Remaster Gate Rune and Dunan Unification Wars Sunset Overdrive (X1) SUPER BOMBERMAN R SUPER BOMBERMAN R 2 Super Lucky's Tale Surviving Mars (X1) Syberia - The World Before Syberia 3 System Shock Sébastien Loeb Rally EVO Tales from the Borderlands - A Telltale Games Series (X1) Teenage Mutant Ninja Turtles Arcade: Wrath of the Mutants Teenage Mutant Ninja Turtles: Shredder's Revenge Teenage Mutant Ninja Turtles: The Cowabunga Collection Teenage Mutant Ninja Turtles: Mutants in Manhattan Tempest 4000 Temtem Tennis World Tour Terminator 2D: NO FATE TERMINATOR: RESISTANCE Terraria Test Drive Unlimited Solar Crown The Addams Family: Mansion Mayhem The Banner Saga The Banner Saga 2 The Book of Unwritten Tales 2 The Callisto Protocol The Chant The Elder Scrolls IV: Oblivion Remastered The Elder Scrolls Online The Elder Scrolls V: Skyrim Special Ed. (X1) The Elf on the Shelf: Christmas Heroes The Escapists The Eternal Cylinder The Evil Within (X1) The Evil Within 2 (X1) The Falconeer The First Berserker: Khazan The Grinch: Christmas Adventures The Inner World - The Last Wind Monk The Invisible Hours The Jackbox Party Pack 7 The Karate Kid: Street Rumble THE KING OF FIGHTERS XV (SX) The Knight Witch The Last Kids on Earth and the Staff of Doom The Last Stand: Aftermath The LEGO Movie Videogame (X1) The LEGO NINJAGO Movie Video Game The Medium The Occupation The Precinct The Quarry (SX) The Riftbreaker The Sims 4 The Smurfs - Mission Vileaf The Surge (X1) The Survivalists The Technomancer The Texas Chain Saw Massacre (X1) The Town of Light The Unicorn Princess The Voice The Voice, la plus belle voix The Walking Dead Collection - The Telltale Series The Walking Dead: Season 2 (X1) The Walking Dead: The Final Season (X1) The Walking Dead: The Telltale Definitive Series The Witcher 3: Wild Hunt The Witcher 3: Wild Hunt – Complete Ed. The Wolf Among Us theHunter: Call of the Wild (X1) Them's Fightin' Herds This Is the Police This War of Mine: The Little Ones Thymesia Tiny Tina's Wonderlands (SX) Titan Quest Titanfall 2 Tomb Raider I-III Remastered Starring Lara Croft Tony Stewart's All-American Racing Tony Stewart's Sprint Car Racing TopSpin 2K25 (SX) Torment: Tides of Numenera Tour de France 2016 Tower of Guns: Special Ed. TRANSFORMERS: BATTLEGROUNDS TRANSFORMERS: Galactic Trials TRANSFORMERS: Devastation Trepang2 Trine 2: Complete Story Trine 3: The Artifacts of Power Trine 4: The Nightmare Prince Trine 5: A Clockwork Conspiracy Trine Enchanted Ed. Troll & I Tropico 5 - Penultimate Ed. Tropico 6 - Next Gen Ed. TUNIC Turok Turok 2: Seeds of Evil Turok 3: Shadow of Oblivion Remastered TY the Tasmanian Tiger HD UFO ROBOT GRENDIZER – The Feast of the Wolves Ufouria: The Saga 2 UglyDolls: An Imperfect Adventure Undertale Unravel Unravel 2 Vampire: The Masquerade - Bloodlines 2 Vampyr (X1) Victor Vran Vikings - Wolves of Midgard Wanted: Dead Warhammer 40,000: Inquisitor - Martyr Warhammer: Chaosbane (X1) Warhammer: End Times - Vermintide Warhammer: Vermintide 2 WARHAMMER 40,000: Darktide WARHAMMER 40,000: Mechanicus WARHAMMER 40,000: Space Marine 2 WARRIORS OROCHI 4 Wasteland 2: Director's Cut We Happy Few Who Wants to Be a Millionaire? (2020) Wild Hearts Wo Long: Fallen Dynasty Wolfenstein II: The New Colossus (X1) Wolfenstein: The Old Blood (X1) Wolfenstein: Youngblood (X1) World War Z (X1) Worms W.M.D Wreckfest (X1) Wreckreation WUCHANG: Fallen Feathers WWE 2K Battlegrounds WWE 2K15 (X1) WWE 2K16 (X1) WWE 2K17 (X1) WWE 2K18 WWE 2K19 WWE 2K20 WWE 2K22 (SX) WWE 2K22 (X1) WWE 2K23 (X1) WWE 2K24 XCOM 2 Xenon Racer XIII Xuan Yuan Sword 7 Yooka-Laylee (X1) Yooka-Laylee and the Impossible Lair (X1) Yooka-Replaylee You Suck at Parking Complete Ed. Ziggurat Zombie Army 4: Dead War Zombie Army Trilogy Zoo Tycoon: Ultimate Animal Collection Zorro The Chronicles (SX) ŌKAMI HD A huge win for game preservation All the discs. (Image credit: Future via Michael Hoglund) The disc-to-digital program is currently available to Xbox Insiders in the Alpha and Alpha-Skip Ahead rings, and it already seems to be fully functional without any issues generally. I expect it'll roll out more broadly in the coming weeks, and then go live publicly probably by October 2026. Some major publishers are currently not involved in the program, including Sega, Square Enix, Bandai Namco, and Ubisoft. Microsoft is likely working through the legalese with these publishers before some of them come online, but it's also possible that some of these publishers would rather you buy the game twice than enjoy benefits on content you already own. Ubisoft in particularly has been painfully resistant to supporting things like Xbox Play Anywhere, opting instead to push its own Ubisoft Connect PC platform. It has given some Ubisoft games free licenses for Xbox owners on PC, but they don't come with Xbox Achievements and the like, which is irritating. It's fantastic to see that Xbox is standardizing how physical discs should operate in the digital-first era ... it just came too little too late. Perhaps if this had been the default from 2013 onwards, disc-based gaming wouldn't be heading the scrapheap as quickly as it is now. Join us on Reddit at r/WindowsCentral to share your insights and discuss our latest news, reviews, and more. ]]>",
+          "paragraphs": [
+            "A new database tracking Xbox's new disc-to-digital program shows just how big the scale of the operation really is.",
+            "Codenamed Positron, Xbox's disc-to-digital program lets Xbox gamers unlock digital rights to physical games , including things like Xbox Cloud Gaming for streaming on the go, and Xbox Play Anywhere for entitlements on Windows PCs and gaming handhelds like the Xbox Ally.",
+            "There's somewhat insanely no downsides whatsoever: simply insert the disc, claim the entitlement from the disc tile's menu, and boom. The game is now digitally attached to your account. If you sell the disc or pass it on, the digital license will transfer from your account to the new owner. You could claim it back too if they return it.",
+            "Watch On I'm told this was ultimately how the original Xbox DRM was supposed to work back in 2013, before bad messaging confused the situation and triggered a massive ill-informed backlash (which was ultimately Microsoft's own fault.)",
+            "Fast forward to 2026, and people are far more accepting of digital convenience, even as debates over digital rights continue to swirl. PlayStation announced that it will sunset physical discs entirely by 2028, and collectors are not happy. At least Xbox's 2013 DRM has served this system in 2026, Microsoft's manufacturing process for its game discs means that it's able to track rights from physical discs. It's unclear if PlayStation can match it at this time.",
+            "Either way, you might be wondering exactly how many games are available. XCT.Live (via IdleSloth ) is compiling a database of every disc that is currently compatible with the program, and the list is already quit exhausted. Over 200 completely de-listed games work too, which is phenomenal news for game preservation purposes."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=4141",
+          "link": "https://www.windowscentral.com/gaming/xbox/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-heres-the-list"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
+      },
+      "first_seen_at": "2026-09-02T10:56:08.288Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-3edead39e9b4-vi",
+        "cluster_id": "feed-3edead39e9b4",
+        "language": "vi",
+        "topic": "internet-business-tech",
+        "content_type": "NewsArticle",
+        "slug": "thang-8-2026-cong-nghiep-cong-nghe-so-tang-truong-36",
+        "title": "Tháng 8/2026: Công nghiệp công nghệ số tăng trưởng 36%",
+        "summary": "Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo. Từ ngày 15/7 đến 14/8/2026, Việt Nam có 2.647 công bố quốc tế trên cơ sở dữ liệu Scopus.",
+        "dek": "Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo.",
+        "hook": "Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo.",
+        "sections": [
+          {
+            "heading": "Bối cảnh: điều gì đang đổi",
+            "body": "Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo."
+          },
+          {
+            "heading": "Các nguồn đang khớp nhau ở đâu",
+            "body": "Từ ngày 15/7 đến 14/8/2026, Việt Nam có 2.647 công bố quốc tế trên cơ sở dữ liệu Scopus. Lũy kế đến ngày 15/8, Nền tảng tích hợp, chia sẻ dữ liệu quốc gia (NDXP) đạt 4,7 tỷ giao dịch; 100% địa phương đã kết nối, chia sẻ dữ liệu qua nền tảng này. Đến cuối tháng 8, cả nước có 968 doanh nghiệp khoa học và công nghệ cùng 20 sàn giao dịch khoa học và công nghệ."
+          },
+          {
+            "heading": "Tác động thực tế với người đọc",
+            "body": "Trong lĩnh vực bưu chính, doanh thu dịch vụ tháng 8 ước đạt 9.260 tỷ đồng, tăng 3% so với tháng 7 và 22% so với cùng kỳ năm 2025. Sản lượng bưu gửi đạt khoảng 440 triệu, tăng lần lượt 2,3% và 14%."
+          },
+          {
+            "heading": "Ai nên chú ý lúc này",
+            "body": "Họp báo thường kỳ tháng 8/2026 Bộ Khoa học và Công nghệ Đến ngày 15/8, số tên miền \".vn\" duy trì đạt 699.722 tên miền, tăng 5,5% so với cùng kỳ năm 2025. Trong tháng, có 20.355 tên miền được phát triển mới. Tỷ lệ sử dụng IPv6 đạt 66%, đứng thứ 2 Đông Nam Á và thứ 7 thế giới."
+          },
+          {
+            "heading": "Điều cần theo dõi tiếp",
+            "body": "Đáng chú ý, doanh thu công nghiệp công nghệ số tháng 8 ước đạt 680.586 tỷ đồng, tăng 36% so với cùng kỳ năm trước. Kim ngạch xuất khẩu sản phẩm, hàng hóa công nghệ số đạt khoảng 22,4 tỷ USD, tăng 41%."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "VOV Cong Nghe",
+            "source_url": "https://vov.vn/cong-nghe/tin-cong-nghe/thang-82026-cong-nghiep-cong-nghe-so-tang-truong-36-post1328251.vov",
+            "region": "VN",
+            "language": "vi",
+            "trust_tier": "established-media",
+            "published_at": "2026-08-28T08:39:15.000Z",
+            "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788344418",
+            "image_caption": "Ảnh tham khảo từ VOV Cong Nghe.",
+            "image_credit": "VOV Cong Nghe"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-08-28T08:39:15.000Z",
+        "updated_at": "2026-08-28T08:39:15.000Z",
+        "image": {
+          "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788344418",
+          "caption": "Ảnh tham khảo từ VOV Cong Nghe.",
+          "credit": "VOV Cong Nghe",
+          "source_url": "https://vov.vn/cong-nghe/tin-cong-nghe/thang-82026-cong-nghiep-cong-nghe-so-tang-truong-36-post1328251.vov"
+        },
+        "draft_context": {
+          "source_title": "Tháng 8/2026: Công nghiệp công nghệ số tăng trưởng 36%",
+          "source_name": "VOV Cong Nghe",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Thông tin được Bộ Khoa học và Công nghệ (KH&CN) công bố tại họp báo thường kỳ tháng 8/2026, tổ chức chiều nay (28/8). Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo. Nhiều chỉ số khoa học, công nghệ tăng trưởng Từ ngày 15/7 đến 14/8/2026, Việt Nam có 2.647 công bố quốc tế trên cơ sở dữ liệu Scopus. Lũy kế đến ngày 15/8, Nền tảng tích hợp, chia sẻ dữ liệu quốc gia (NDXP) đạt 4,7 tỷ giao dịch; 100% địa phương đã kết nối, chia sẻ dữ liệu qua nền tảng này. Đến cuối tháng 8, cả nước có 968 doanh nghiệp khoa học và công nghệ cùng 20 sàn giao dịch khoa học và công nghệ. Trong lĩnh vực bưu chính, doanh thu dịch vụ tháng 8 ước đạt 9.260 tỷ đồng, tăng 3% so với tháng 7 và 22% so với cùng kỳ năm 2025. Sản lượng bưu gửi đạt khoảng 440 triệu, tăng lần lượt 2,3% và 14%. Họp báo thường kỳ tháng 8/2026 Bộ Khoa học và Công nghệ Đến ngày 15/8, số tên miền \".vn\" duy trì đạt 699.722 tên miền, tăng 5,5% so với cùng kỳ năm 2025. Trong tháng, có 20.355 tên miền được phát triển mới. Tỷ lệ sử dụng IPv6 đạt 66%, đứng thứ 2 Đông Nam Á và thứ 7 thế giới. Đáng chú ý, doanh thu công nghiệp công nghệ số tháng 8 ước đạt 680.586 tỷ đồng, tăng 36% so với cùng kỳ năm trước. Kim ngạch xuất khẩu sản phẩm, hàng hóa công nghệ số đạt khoảng 22,4 tỷ USD, tăng 41%. Trong tháng, Bộ KH&CN tiếp nhận 18.348 đơn sở hữu công nghiệp, tăng 30,1% so với tháng 8/2025 và cấp 8.473 văn bằng bảo hộ. Công tác tiêu chuẩn, quy chuẩn kỹ thuật đã thẩm định 10 dự thảo tiêu chuẩn Việt Nam (TCVN), trình công bố 23 TCVN. Trong lĩnh vực đo lường, 353 mẫu phương tiện đo được phê duyệt; đồng thời tiếp nhận, kiểm tra 183 lô xăng, diesel, etanol và LPG, với tổng khối lượng khoảng 16,58 triệu tấn, trị giá khoảng 1.217 triệu USD. Tập trung phát triển công nghệ chiến lược Trong tháng 9/2026, Bộ KH&CN sẽ tập trung triển khai các nhiệm vụ về hoàn thiện thể chế, chính sách. Trong đó, Bộ xây dựng Đề án đất hiếm; tập trung sửa đổi, bổ sung Luật Khoa học và Công nghệ và Luật Sở hữu trí tuệ, bảo đảm tiến độ trình Ủy ban Thường vụ Quốc hội xem xét, cho ý kiến trong tháng 9. Bộ cũng xây dựng các nghị định sửa đổi, bổ sung trong lĩnh vực khoa học, công nghệ và đổi mới sáng tạo; đồng thời hoàn thiện, trình Chính phủ, Thủ tướng Chính phủ các đề án, văn bản thuộc Chương trình công tác năm 2026. Về khoa học và công nghệ, Bộ tập trung triển khai Đề án xây dựng các trung tâm nghiên cứu, thử nghiệm và phòng thí nghiệm trọng điểm quốc gia, phục vụ phát triển công nghệ chiến lược; tổ chức triển khai các nhiệm vụ công nghệ chiến lược sau khi được thẩm định, phê duyệt. Bên cạnh đó, Bộ xây dựng định hướng nghiên cứu cơ bản ưu tiên giai đoạn 2026-2030, định hướng đến năm 2035; tiếp tục xây dựng, trình ban hành Chương trình quốc gia về khởi nghiệp sáng tạo giai đoạn 2026-2035. Trong lĩnh vực chuyển đổi số và công nghiệp công nghệ số, Bộ sẽ hoàn thành xây dựng các cơ sở dữ liệu trọng yếu, cơ sở dữ liệu chuyên ngành; triển khai các nền tảng số dùng chung quốc gia và tổ chức Hội nghị Ban Chỉ đạo quốc gia về công nghiệp bán dẫn lần thứ hai năm 2026. Cùng với đó, Bộ KH&CN ưu tiên đầu tư hạ tầng điện, viễn thông tại các thôn, bản chưa có điện, chưa có sóng; tiếp tục phát triển hạ tầng phục vụ công nghiệp ứng dụng năng lượng nguyên tử, công nghiệp không gian vũ trụ, kinh tế tầm thấp và công nghiệp lượng tử. Phát động Giải thưởng “Sản phẩm công nghệ số Make in Viet Nam” năm 2026 Tại họp báo, Bộ KH&CN đã công bố và phát động Giải thưởng “Sản phẩm công nghệ số Make in Viet Nam” năm 2026. Giải thưởng nhằm tôn vinh các sản phẩm công nghệ số do tổ chức, doanh nghiệp Việt Nam nghiên cứu, thiết kế, sáng tạo và sản xuất trong nước, có khả năng giải quyết các bài toán thực tiễn và vươn ra thị trường quốc tế. Được tổ chức thường niên từ năm 2020, Giải thưởng là giải thưởng chính thức trong lĩnh vực công nghệ số, hướng tới khuyến khích các tổ chức, doanh nghiệp làm chủ công nghệ, thúc đẩy đổi mới sáng tạo và nâng cao năng lực cạnh tranh của ngành công nghiệp công nghệ số Việt Nam. Việc tổ chức Giải thưởng cũng góp phần cụ thể hóa Chỉ thị số 01/CT-TTg ngày 14/1/2020 của Thủ tướng Chính phủ về thúc đẩy phát triển doanh nghiệp công nghệ số Việt Nam. Sẽ ứng dụng công nghệ tự động phát hiện, cảnh báo xâm phạm sở hữu trí tuệ VOV.VN - Phó Thủ tướng Hồ Quốc Dũng ký Quyết định số 1624/QĐ-TTg ngày 21/8/2026 sửa đổi, bổ sung một số điều của Quyết định số 1068/QĐ-TTg ngày 22/8/2019 của Thủ tướng Chính phủ phê duyệt Chiến lược sở hữu trí tuệ đến năm 2030.",
+          "paragraphs": [
+            "Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo.",
+            "Từ ngày 15/7 đến 14/8/2026, Việt Nam có 2.647 công bố quốc tế trên cơ sở dữ liệu Scopus. Lũy kế đến ngày 15/8, Nền tảng tích hợp, chia sẻ dữ liệu quốc gia (NDXP) đạt 4,7 tỷ giao dịch; 100% địa phương đã kết nối, chia sẻ dữ liệu qua nền tảng này. Đến cuối tháng 8, cả nước có 968 doanh nghiệp khoa học và công nghệ cùng 20 sàn giao dịch khoa học và công nghệ.",
+            "Trong lĩnh vực bưu chính, doanh thu dịch vụ tháng 8 ước đạt 9.260 tỷ đồng, tăng 3% so với tháng 7 và 22% so với cùng kỳ năm 2025. Sản lượng bưu gửi đạt khoảng 440 triệu, tăng lần lượt 2,3% và 14%.",
+            "Họp báo thường kỳ tháng 8/2026 Bộ Khoa học và Công nghệ Đến ngày 15/8, số tên miền \".vn\" duy trì đạt 699.722 tên miền, tăng 5,5% so với cùng kỳ năm 2025. Trong tháng, có 20.355 tên miền được phát triển mới. Tỷ lệ sử dụng IPv6 đạt 66%, đứng thứ 2 Đông Nam Á và thứ 7 thế giới.",
+            "Đáng chú ý, doanh thu công nghiệp công nghệ số tháng 8 ước đạt 680.586 tỷ đồng, tăng 36% so với cùng kỳ năm trước. Kim ngạch xuất khẩu sản phẩm, hàng hóa công nghệ số đạt khoảng 22,4 tỷ USD, tăng 41%.",
+            "Trong tháng, Bộ KH&CN tiếp nhận 18.348 đơn sở hữu công nghiệp, tăng 30,1% so với tháng 8/2025 và cấp 8.473 văn bằng bảo hộ."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=1307",
+          "link": "https://vov.vn/cong-nghe/tin-cong-nghe/thang-82026-cong-nghiep-cong-nghe-so-tang-truong-36-post1328251.vov"
+        }
+      },
+      "first_seen_at": "2026-09-02T10:56:08.288Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4493,7 +4680,7 @@
           "link": "https://www.techradar.com/how-to-watch/cycling/lloyds-tour-of-britain-2026-free"
         }
       },
-      "first_seen_at": "2026-09-02T10:46:39.809Z",
+      "first_seen_at": "2026-09-02T10:56:08.288Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4583,7 +4770,7 @@
           "link": "https://www.techradar.com/pro/vmware-renewals-force-organizations-to-rethink-infrastructure-strategy"
         }
       },
-      "first_seen_at": "2026-09-02T10:46:39.809Z",
+      "first_seen_at": "2026-09-02T10:56:08.288Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4672,7 +4859,7 @@
           "link": "https://www.macrumors.com/2026/09/02/apple-launching-eight-new-products-next-month/"
         }
       },
-      "first_seen_at": "2026-09-02T10:46:39.809Z",
+      "first_seen_at": "2026-09-02T10:56:08.288Z",
       "retry_count": 0,
       "last_retry_at": ""
     }
