@@ -5843,3 +5843,43 @@ body {
 .latest-more-grid {
   margin-top: 16px;
 }
+
+/* Article desktop layout: use the available canvas without turning the body into a wall of text. */
+@media (min-width: 1101px) {
+  .article-shell,
+  .article-header,
+  .article-layout,
+  .article-content {
+    min-width: 0;
+  }
+
+  .article-layout {
+    grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: start;
+  }
+
+  .article-header h1 {
+    max-width: min(100%, 24ch);
+    letter-spacing: 0;
+  }
+
+  .article-content {
+    width: 100%;
+  }
+
+  .article-summary,
+  .article-section p {
+    max-width: 78ch;
+  }
+
+  .article-rail {
+    justify-items: stretch;
+    min-width: 0;
+  }
+
+  .language-rail-card {
+    width: 100%;
+    max-width: 240px;
+  }
+}

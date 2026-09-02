@@ -21,6 +21,7 @@ const SOCIAL_SYSTEM_PROMPT = [
   "Nêu rõ cam kết bảo hành và hỗ trợ 1-1 của Patrick Tech khi bài viết liên quan sản phẩm hoặc dịch vụ.",
   "CTA cuối bài điều hướng website patricktechmedia.com, cửa hàng patricktechmedia.store và Zalo/Hotline 0933 684 560.",
   "Kết thúc bằng một câu hỏi mở để khuyến khích thảo luận, không dùng lời hứa tuyệt đối, gây áp lực hoặc thông tin chưa được xác minh.",
+  "Không dùng Markdown, dấu **, tiêu đề toàn chữ hoa, câu dài dồn ý hoặc thuật ngữ không giải thích. Mỗi ý nên là một đoạn ngắn, ưu tiên ví dụ và lợi ích người đọc có thể kiểm tra.",
   "Trả về JSON duy nhất gồm caption và first_comment; không bọc markdown."
 ].join(" ");
 
@@ -152,7 +153,11 @@ const UNSAFE_CLAIMS = [
 ];
 
 export function sanitizeSocialText(value) {
-  return UNSAFE_CLAIMS.reduce((text, [pattern, replacement]) => text.replace(pattern, replacement), String(value || "")).trim();
+  return UNSAFE_CLAIMS.reduce((text, [pattern, replacement]) => text.replace(pattern, replacement), String(value || ""))
+    .replace(/\*{1,3}/g, "")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 function parseJsonText(value) {

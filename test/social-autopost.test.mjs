@@ -11,11 +11,12 @@ import path from "node:path";
 const tempPath = path.join(os.tmpdir(), `patrick-social-${Date.now()}.json`);
 try {
   const post = generateOfflinePost({ topic: "AI agent", pillar: "ai_news" });
-  assert.match(post.caption, /AI AGENT/);
+  assert.match(post.caption, /AI agent: Điều gì đáng chú ý\?/);
   assert.match(post.caption, /PATRICK TECH CO\./);
   assert.match(post.caption, /patricktechmedia\.com/);
   assert.match(post.caption, /patricktechmedia\.store/);
   assert.match(post.caption, /Chia sẻ trải nghiệm/);
+  assert.doesNotMatch(post.caption, /\*\*/);
   assert.doesNotMatch(sanitizeSocialText("Đảm bảo 100% và không rủi ro"), /Đảm bảo 100%|không rủi ro/);
   const content = await createPostContent({ topic: "Offline", provider: "offline" });
   assert.ok(content.caption && content.first_comment);

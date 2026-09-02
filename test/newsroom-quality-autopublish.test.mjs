@@ -5,6 +5,32 @@ import path from "node:path";
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
 import { evaluateArticleAutopublishReadiness, isArticleAutopublishReady } from "../src/newsroom-quality.mjs";
 import { isSourceTextContaminated } from "../src/newsroom-source-hygiene.mjs";
+import { areNearDuplicateEditorialSentences, dedupeEditorialLeadCopy } from "../src/newsroom-service.mjs";
+
+assert.equal(
+  areNearDuplicateEditorialSentences(
+    "The rollout gives teams a clearer place to review model access, usage limits, and budget impact.",
+    "The rollout gives teams a clearer place to review model access, usage limits, and budget impact for operators."
+  ),
+  true,
+  "near-duplicate generated sentences should be detected"
+);
+assert.equal(
+  areNearDuplicateEditorialSentences(
+    "The rollout gives teams a clearer place to review model access, usage limits, and budget impact.",
+    "A separate battery test found a measurable improvement during long video exports."
+  ),
+  false,
+  "distinct factual sentences should remain distinct"
+);
+
+const cleanedLead = dedupeEditorialLeadCopy({
+  summary: "The rollout changes account controls and monthly spend for teams.",
+  dek: "The rollout changes account controls and monthly spend for teams. It also adds a clearer approval step.",
+  hook: "The practical question is whether the new controls remove daily friction for operators."
+});
+assert.equal(cleanedLead.dek.includes("adds a clearer approval step"), true, "unique lead detail should survive cleanup");
+assert.equal(cleanedLead.dek.includes("account controls"), false, "repeated lead detail should be removed");
 
 const readyArticle = buildReadyArticle();
 

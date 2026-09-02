@@ -2370,20 +2370,21 @@ function repairEditorialStructure(sections, context) {
 
   return sections.map((section, index) => {
     const keptSentences = [];
+    const sectionSentences = [];
 
     for (const sentence of splitEditorialSentences(section.body)) {
       const signature = makeEditorialSignature(sentence);
       const count = sentenceCounts.get(signature) || 0;
 
-      // The quality gate permits a claim to be introduced and reinforced once.
-      // Drop later copies so generated support text cannot crowd out the article.
-      if (signature && count >= 2) {
+      // Remove exact cross-field repeats and rewritten repeats within one section.
+      if ((signature && count >= 2) || sectionSentences.some((previous) => areNearDuplicateEditorialSentences(previous, sentence))) {
         continue;
       }
 
       if (signature) {
         sentenceCounts.set(signature, count + 1);
       }
+      sectionSentences.push(sentence);
       keptSentences.push(sentence);
     }
 
@@ -2393,6 +2394,28 @@ function repairEditorialStructure(sections, context) {
       body: keptSentences.join(" ").trim() || section.body
     };
   });
+}
+
+export function dedupeEditorialLeadCopy({ summary, dek, hook }) {
+  const seen = [];
+  const values = { summary, dek, hook };
+
+  for (const key of ["summary", "dek", "hook"]) {
+    const original = values[key];
+    const kept = splitEditorialSentences(original).filter((sentence) => {
+      if (seen.some((previous) => areNearDuplicateEditorialSentences(previous, sentence))) {
+        return false;
+      }
+
+      seen.push(sentence);
+      return true;
+    });
+
+    // Keep a usable lead if an unusually repetitive input contains no unique sentence.
+    values[key] = kept.join(" ").trim() || original;
+  }
+
+  return values;
 }
 
 function getEditorialBlueprint(language, contentType) {
@@ -2791,6 +2814,44 @@ function makeEditorialSignature(value) {
     .toLowerCase()
     .replace(/[^a-z0-9\u00c0-\u024f\u1e00-\u1eff]+/gi, " ")
     .trim();
+}
+
+function editorialTokens(value) {
+  return makeEditorialSignature(value)
+    .split(/\s+/)
+    .filter((token) => token.length > 2);
+}
+
+export function areNearDuplicateEditorialSentences(left, right) {
+  const leftSignature = makeEditorialSignature(left);
+  const rightSignature = makeEditorialSignature(right);
+
+  if (!leftSignature || !rightSignature) {
+    return false;
+  }
+
+  if (leftSignature === rightSignature) {
+    return true;
+  }
+
+  const leftTokens = new Set(editorialTokens(left));
+  const rightTokens = new Set(editorialTokens(right));
+  const smallerSize = Math.min(leftTokens.size, rightTokens.size);
+
+  if (smallerSize < 7) {
+    return false;
+  }
+
+  let shared = 0;
+  for (const token of leftTokens) {
+    if (rightTokens.has(token)) {
+      shared += 1;
+    }
+  }
+
+  // Require a very high overlap before treating two factual sentences as the
+  // same claim; editorial support lines often share ordinary topic vocabulary.
+  return shared / smallerSize >= 0.9 && shared / Math.max(leftTokens.size, rightTokens.size) >= 0.8;
 }
 
 function getEditorialTopicKey(topic) {
