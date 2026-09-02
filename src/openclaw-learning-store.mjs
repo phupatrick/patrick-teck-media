@@ -24,6 +24,8 @@ export const DEFAULT_OPENCLAW_LEARNING_STATE = {
     viewInsights: [],
     styleRules: [],
     avoidRules: [],
+    learningMethods: [],
+    qualitySignals: {},
     lastCycleSummary: ""
   },
   cycles: []
@@ -152,6 +154,8 @@ export function normalizeLearningProfile(profile) {
     viewInsights: normalizeTextList(normalized.viewInsights, 8),
     styleRules: normalizeTextList(normalized.styleRules, 12),
     avoidRules: normalizeTextList(normalized.avoidRules, 12),
+    learningMethods: normalizeTextList(normalized.learningMethods, 12),
+    qualitySignals: normalizeQualitySignals(normalized.qualitySignals),
     lastCycleSummary: normalizeText(normalized.lastCycleSummary).slice(0, 500)
   };
 }
@@ -245,6 +249,13 @@ function normalizeWeights(value) {
       .map(([key, weight]) => [normalizeText(key), clampNumber(weight, -100, 100, 0)])
       .filter(([key]) => key)
   );
+}
+
+function normalizeQualitySignals(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value)
+    .map(([key, score]) => [normalizeText(key), clampNumber(score, 0, 100, 0)])
+    .filter(([key]) => key));
 }
 
 function normalizePublicUrl(value) {

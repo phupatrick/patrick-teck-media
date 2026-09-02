@@ -747,6 +747,8 @@ async function buildLearningText(context) {
   const sourceTypeWeights = Object.entries(profile.sourceTypeWeights || {}).slice(0, 5);
   const topViewed = Array.isArray(profile.topViewedArticles) ? profile.topViewedArticles.slice(0, 3) : [];
   const viewInsights = Array.isArray(profile.viewInsights) ? profile.viewInsights.slice(0, 3) : [];
+  const learningMethods = Array.isArray(profile.learningMethods) ? profile.learningMethods.slice(0, 5) : [];
+  const qualitySignals = profile.qualitySignals || {};
   const storageWarning = summary?.storageMode && summary.storageMode !== "neon-postgres"
     ? "WARNING: learning storage is temporary. Add DATABASE_URL on Vercel before relying on feedback."
     : "";
@@ -763,6 +765,8 @@ async function buildLearningText(context) {
     `Tín hiệu học: ${profile.totalSignals || 0}`,
     `Phản hồi của chủ sở hữu: ${summary.feedbackCount || 0}`,
     `Độ tự tin: ${Math.round((profile.confidence || 0) * 100)}%`,
+    `Chất lượng đọc: ${qualitySignals.readability || 0}% | Cụ thể: ${qualitySignals.specificity || 0}% | Độc đáo: ${qualitySignals.originality || 0}%`,
+    `Độ sâu nguồn: ${qualitySignals.sourceDepth || 0}%`,
     summary.storageMode ? `Nguồn hồ sơ: ${summary.storageMode}` : "",
     storageWarning,
     profile.updated_at ? `Cập nhật: ${formatDate(profile.updated_at)}` : "",
@@ -771,6 +775,7 @@ async function buildLearningText(context) {
     sourceTypeWeights.length ? `Nguồn đang ưu tiên: ${sourceTypeWeights.map(([key, value]) => `${formatSourceTypeKey(key)} ${value > 0 ? "+" : ""}${value}`).join(", ")}` : "Nguồn đang ưu tiên: chưa đủ tín hiệu",
     topViewed.length ? `Bài view cao đang học: ${topViewed.map((entry) => `${entry.title} (${entry.views})`).join("; ")}` : "Bài view cao đang học: chưa có dữ liệu view",
     viewInsights.length ? `Bài học từ view: ${viewInsights.map(localizeLearningRule).join(" | ")}` : "",
+    learningMethods.length ? "Công nghệ học đang dùng:\n" + learningMethods.map((method) => `- ${method}`).join("\n") : "",
     "",
     "Quy tắc đang học:",
     ...((profile.styleRules || []).slice(0, 4).map((rule) => `- ${localizeLearningRule(rule)}`)),

@@ -67,6 +67,17 @@ export function buildOpenClawLearningProfile({ articles = [], platformState = {}
   const viewInsights = buildViewInsights(topViewedArticles);
   const styleRules = buildStyleRules({ articleSignals, feedback: actionableFeedback });
   const avoidRules = buildAvoidRules({ articleSignals, feedback: actionableFeedback });
+  const learningMethods = [
+    "Bandit thích ứng: ưu tiên theo hiệu quả quan sát được",
+    "Điểm chất lượng: kiểm tra độ đầy đủ và khả năng xuất bản",
+    "Phân tích đọc hiểu: đo câu dài, độ rõ và cấu trúc section",
+    "Phân tích tương tác: kết hợp view độc nhất, reaction, bình luận và feedback",
+    "Xếp hạng nguồn: ưu tiên nguồn chính thức và báo chí đáng tin",
+    "Phát hiện trùng lặp: giảm điểm nội dung lặp hoặc quá giống",
+    "Cân bằng chủ đề: tránh để một beat chiếm toàn bộ lịch đăng",
+    "Suy giảm theo thời gian: giảm ảnh hưởng của tín hiệu cũ"
+  ];
+  const qualitySignals = buildQualitySignalSummary(articleSignals);
   const lastCycleSummary = [
     `Learned from ${learningSignals.length} eligible article(s)`,
     `${articleSignals.filter((signal) => !signal.learningEligible).length} article(s) excluded from learning`,
@@ -90,6 +101,8 @@ export function buildOpenClawLearningProfile({ articles = [], platformState = {}
     viewInsights,
     styleRules,
     avoidRules,
+    learningMethods,
+    qualitySignals,
     lastCycleSummary
   };
 }
@@ -117,6 +130,7 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
     const score = qualityScore - 78 + readinessScore + freshnessScore + viewScore + positiveReactions * 5 + articleComments.length * 3 + ownerScore;
     const sourceType = normalizeText(article.source_set?.[0]?.source_type || "unknown") || "unknown";
     const learningEligible = readiness.ready;
+    const qualitySignals = analyzeContentSignals(article);
 
     return {
       id: normalizeText(article.id || article.href || article.slug),
@@ -132,7 +146,8 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
       learningSignalCount: 1 + engagementSignalCount,
       learningEligible,
       readiness,
-      ownerFeedback
+      ownerFeedback,
+      qualitySignals
     };
   });
   const orphanViewSignals = viewStats
@@ -141,6 +156,35 @@ function buildArticleSignals({ articles, platformState, feedback, now }) {
     .map(buildOrphanViewSignal);
 
   return [...articleSignals, ...orphanViewSignals];
+}
+
+function analyzeContentSignals(article) {
+  const text = [article.title, article.summary, article.dek, article.hook, ...(article.sections || []).map((section) => section?.body)]
+    .filter(Boolean).join(" ");
+  const sentences = text.split(/[.!?]+/).map((value) => value.trim()).filter(Boolean);
+  const words = text.split(/\s+/).filter(Boolean);
+  const longSentences = sentences.filter((sentence) => sentence.split(/\s+/).length > 34).length;
+  const uniqueSentences = new Set(sentences.map((sentence) => sentence.toLowerCase().replace(/\W+/g, " ").trim())).size;
+  const sourceTypes = new Set((article.source_set || []).map((source) => source?.source_type).filter(Boolean));
+  return {
+    readability: Math.max(0, Math.min(100, 100 - longSentences * 12)),
+    specificity: Math.max(0, Math.min(100, Math.round(words.filter((word) => /\d|%|\$|₫/.test(word)).length / Math.max(1, words.length) * 1000))),
+    originality: Math.round(uniqueSentences / Math.max(1, sentences.length) * 100),
+    sourceDepth: Math.min(100, sourceTypes.size * 25)
+  };
+}
+
+function buildQualitySignalSummary(articleSignals) {
+  const eligible = articleSignals.filter((signal) => signal.learningEligible);
+  const average = (key) => eligible.length
+    ? Math.round(eligible.reduce((sum, signal) => sum + (signal.qualitySignals?.[key] || 0), 0) / eligible.length)
+    : 0;
+  return {
+    readability: average("readability"),
+    specificity: average("specificity"),
+    originality: average("originality"),
+    sourceDepth: average("sourceDepth")
+  };
 }
 
 function buildOrphanViewSignal(entry) {
