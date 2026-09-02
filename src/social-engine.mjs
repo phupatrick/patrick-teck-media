@@ -65,7 +65,7 @@ export function resolveApiKeys(requestKey = "") {
   ].map((key) => String(key || "").trim()).filter(Boolean))];
 }
 
-export async function postToFacebook({ pageId, pageToken, caption, imageUrl = "", fetchImpl = fetch, timeoutMs = 10000 } = {}) {
+export async function postToFacebook({ pageId, pageToken, caption, imageUrl = "", fetchImpl = fetch, timeoutMs = 10000, returnDetails = false } = {}) {
   if (!pageId || !pageToken) throw new Error("Facebook Page ID and access token are required.");
   const usePhoto = Boolean(String(imageUrl || "").trim());
   const endpoint = `https://graph.facebook.com/v20.0/${encodeURIComponent(pageId)}/${usePhoto ? "photos" : "feed"}`;
@@ -76,15 +76,40 @@ export async function postToFacebook({ pageId, pageToken, caption, imageUrl = ""
   if (!response.ok) throw new Error(payload?.error?.message || `Facebook publishing failed with HTTP ${response.status}.`);
   const id = String(payload?.id || payload?.post_id || "").trim();
   if (!id) throw new Error("Facebook did not return a post ID.");
-  return id;
+  if (!returnDetails) return id;
+  return getFacebookPostDetails({ pageId, postId: id, pageToken, fetchImpl, timeoutMs });
 }
 
-export async function safePostToFacebook({ pageId, pageToken, caption, imageUrl = "", fetchImpl = fetch, timeoutMs = 10000 } = {}) {
+export async function safePostToFacebook({ pageId, pageToken, caption, imageUrl = "", fetchImpl = fetch, timeoutMs = 10000, returnDetails = false } = {}) {
   try {
-    return await postToFacebook({ pageId, pageToken, caption, imageUrl, fetchImpl, timeoutMs });
+    return await postToFacebook({ pageId, pageToken, caption, imageUrl, fetchImpl, timeoutMs, returnDetails });
   } catch (error) {
     if (!String(imageUrl || "").trim()) throw error;
-    return postToFacebook({ pageId, pageToken, caption, imageUrl: "", fetchImpl, timeoutMs });
+    return postToFacebook({ pageId, pageToken, caption, imageUrl: "", fetchImpl, timeoutMs, returnDetails });
+  }
+}
+
+async function getFacebookPostDetails({ pageId, postId, pageToken, fetchImpl, timeoutMs }) {
+  const fallback = {
+    id: postId,
+    permalink_url: `https://www.facebook.com/${encodeURIComponent(pageId)}/posts/${encodeURIComponent(postId)}`,
+    is_published: null,
+    verification_status: "unverified"
+  };
+  try {
+    const fields = "id,permalink_url,is_published,privacy";
+    const url = `https://graph.facebook.com/v20.0/${encodeURIComponent(postId)}?fields=${fields}&access_token=${encodeURIComponent(pageToken)}`;
+    const response = await fetchWithTimeout(fetchImpl, url, { headers: { accept: "application/json" } }, timeoutMs);
+    const payload = await readResponse(response);
+    if (!response.ok) return { ...fallback, verification_error: payload?.error?.message || `Facebook verification failed with HTTP ${response.status}.` };
+    return {
+      ...fallback,
+      ...payload,
+      permalink_url: payload?.permalink_url || fallback.permalink_url,
+      verification_status: payload?.is_published === false ? "not_published" : "verified"
+    };
+  } catch (error) {
+    return { ...fallback, verification_error: error.message || String(error) };
   }
 }
 

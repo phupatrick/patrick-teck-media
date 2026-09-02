@@ -31,10 +31,11 @@ export async function handleSocialCallback(callbackData, context = {}) {
     if (!post || post.status !== "pending_approval") throw new Error("Bai viet khong con trong hang cho duyet.");
     if (action === "reject") { post.status = "rejected"; post.updated_at = new Date().toISOString(); result = "Da huy bai viet Facebook."; return state; }
     const config = { ...context.defaults, ...state.config };
-    const fbPostId = await safePostToFacebook({ pageId: config.fb_page_id, pageToken: config.fb_page_token, caption: post.caption, imageUrl: post.image_url, fetchImpl: context.fetch });
+    const facebookPost = await safePostToFacebook({ pageId: config.fb_page_id, pageToken: config.fb_page_token, caption: post.caption, imageUrl: post.image_url, fetchImpl: context.fetch, returnDetails: true });
+    const fbPostId = facebookPost.id;
     if (post.first_comment) await postFirstComment({ postId: fbPostId, pageToken: config.fb_page_token, commentText: post.first_comment, fetchImpl: context.fetch });
-    post.status = "published"; post.fb_post_id = fbPostId; post.published_at = new Date().toISOString(); post.updated_at = post.published_at;
-    result = `✅ ĐÃ ĐĂNG LÊN FANPAGE THÀNH CÔNG!\nhttps://facebook.com/${fbPostId}`;
+    post.status = "published"; post.fb_post_id = fbPostId; post.facebook_url = facebookPost.permalink_url; post.facebook_verification_status = facebookPost.verification_status; post.facebook_verification_error = facebookPost.verification_error || ""; post.published_at = new Date().toISOString(); post.updated_at = post.published_at;
+    result = `✅ ĐÃ ĐĂNG LÊN FANPAGE THÀNH CÔNG!\n${facebookPost.permalink_url}`;
     return state;
     });
     return { text: result, replyMarkup: { inline_keyboard: [] } };

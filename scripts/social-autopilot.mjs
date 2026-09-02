@@ -71,13 +71,15 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
       const notes = buildArticleNotes(article);
       const content = await createAutopilotContent({ article, notes, env, fetchImpl, logger });
       const imageUrl = article.image?.src || article.image_url || getRandomTechImage();
-      const postId = await safePostToFacebook({
+      const facebookPost = await safePostToFacebook({
         pageId,
         pageToken,
         caption: content.caption,
         imageUrl,
-        fetchImpl
+        fetchImpl,
+        returnDetails: true
       });
+      const postId = facebookPost.id;
       const publishedAt = now.toISOString();
       const record = {
         id: `autopilot_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
@@ -89,6 +91,9 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         image_url: imageUrl,
         status: "published",
         fb_post_id: String(postId),
+        facebook_url: facebookPost.permalink_url,
+        facebook_verification_status: facebookPost.verification_status,
+        facebook_verification_error: facebookPost.verification_error || "",
         created_at: publishedAt,
         published_at: publishedAt,
         updated_at: publishedAt,
@@ -132,7 +137,8 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
       });
       published.push({
         title: article.title,
-        facebook_url: `https://facebook.com/${postId}`,
+        facebook_url: facebookPost.permalink_url,
+        facebook_verification_status: facebookPost.verification_status,
         candidate_score: article.candidate_score || 0,
         generation_mode: content.generation_mode || "offline",
         post_type: article.post_type || "information",
