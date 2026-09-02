@@ -169,6 +169,10 @@ function buildArticleNotes(article) {
 }
 
 async function sendTelegramReport(result, env, fetchImpl) {
+  if (!Array.isArray(result.published) || result.published.length === 0) {
+    console.log("No successfully published Facebook posts; Telegram notification skipped.");
+    return;
+  }
   const token = String(env.TELEGRAM_NEWSROOM_BOT_TOKEN || "").trim();
   const chatIds = String(env.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean);
   if (!token || !chatIds.length) return;

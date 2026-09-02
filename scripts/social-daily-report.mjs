@@ -6,10 +6,12 @@ export async function runSocialDailyReport({ env = process.env, fetchImpl = fetc
   const chatIds = String(env.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || env.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean);
   const top = stats.topWinningPosts[0]?.topic || "Chưa có bài nổi bật";
   const text = [`📊 BÁO CÁO SOCIAL AUTOPILOT`, `Bài xuất bản hôm nay: ${stats.totalPostsToday}`, `Reactions: ${stats.totalReactions} | Comments: ${stats.totalComments} | Shares: ${stats.totalShares}`, `Bài hiệu quả nhất: ${top}`, `Trụ cột đang ưu tiên: ${stats.learnedContext.winning_pillars.join(", ")}`].join("\n");
-  if (token && chatIds.length) {
+  // Successful Facebook posts are announced immediately by social-autopilot.
+  // The daily job updates learning data only, avoiding duplicate Telegram messages.
+  if (token && chatIds.length && String(env.SOCIAL_DAILY_REPORT_ENABLED || "").trim() === "1") {
     for (const chatId of chatIds) await fetchImpl(`https://api.telegram.org/bot${encodeURIComponent(token)}/sendMessage`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ chat_id: chatId, text }) });
   }
-  return { ...stats, delivered: Boolean(token && chatIds.length), recipients: chatIds.length };
+  return { ...stats, delivered: Boolean(token && chatIds.length && String(env.SOCIAL_DAILY_REPORT_ENABLED || "").trim() === "1"), recipients: chatIds.length };
 }
 
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].replaceAll("\\", "/"))) {

@@ -28,6 +28,14 @@ const cycle = manager.manager || {};
 const refresh = manager.newsroom?.refresh || {};
 const newsroom = manager.newsroom || {};
 const refreshedCount = extractRefreshedCount(refresh.output);
+
+// This channel is an alert for completed publication only, not a cycle log.
+// Keep operational warnings in GitHub/Vercel logs so they do not flood Telegram.
+if (!Number.isFinite(refreshedCount) || refreshedCount < 1) {
+  console.log("No successfully published newsroom articles; Telegram notification skipped.");
+  process.exit(0);
+}
+
 const heldCount = countHeldCandidates(refresh.warnings);
 const publishedLine = refreshedCount === null
   ? "Kết quả đăng: chưa đọc được số lượng từ refresh"
@@ -39,7 +47,7 @@ const message = [
   formatCycleWindow(cycle.startedAt, cycle.finishedAt),
   cycle.trigger?.reason ? `Yêu cầu: ${cycle.trigger.reason}` : "",
   cycle.trigger?.source ? `Kích hoạt: ${cycle.trigger.source}` : "",
-  `Thu thập: ${formatRefreshMode(refresh.mode)}${refreshedCount === null ? "" : ` - ${refreshedCount} bài nguồn mới`}`,
+  `Thu thập: ${formatRefreshMode(refresh.mode)} - ${refreshedCount} bài nguồn mới`,
   publishedLine,
   `Nguồn lỗi/cần kiểm tra: ${sourceWarningCount}`,
   `Kho bài: ${newsroom.articleCountBefore ?? articles.length} - ${articles.length} (${formatDelta(newsroom.articleCountDelta)})`,
