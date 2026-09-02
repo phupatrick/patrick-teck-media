@@ -3,7 +3,7 @@ import { generateOfflinePost } from "../src/social-templates.mjs";
 import { createPostContent, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
-import { selectCandidates } from "../scripts/social-autopilot.mjs";
+import { runSocialAutopilot, selectCandidates } from "../scripts/social-autopilot.mjs";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -121,6 +121,25 @@ try {
   assert.match(callback.text, /ĐÃ ĐĂNG LÊN FANPAGE THÀNH CÔNG/);
   assert.match(callbackToast, /Đang xử lý/);
   assert.deepEqual(callback.replyMarkup, { inline_keyboard: [] });
+  const commentFailurePath = path.join(os.tmpdir(), `patrick-social-comment-${Date.now()}.json`);
+  const publishThenCommentFailStore = createSocialStore({ statePath: commentFailurePath });
+  const autopilotResult = await runSocialAutopilot({
+    env: {
+      SOCIAL_AUTOPILOT_ENABLED: "1", FB_PAGE_ID: "page", FB_PAGE_ACCESS_TOKEN: "token",
+      NEWSROOM_CONTENT_PATH: path.join(os.tmpdir(), `patrick-social-empty-${Date.now()}.json`),
+      SOCIAL_STATE_PATH: commentFailurePath, SOCIAL_AUTOPILOT_ROTATE_TOPICS: "1", SOCIAL_AUTOPILOT_LIMIT: "1"
+    },
+    fetchImpl: async (url) => {
+      if (url.includes("/feed")) return new Response(JSON.stringify({ id: "post-123" }), { status: 200 });
+      if (url.includes("/comments")) return new Response(JSON.stringify({ error: { message: "comment unavailable" } }), { status: 500 });
+      return new Response(JSON.stringify({ error: { message: "no AI" } }), { status: 500 });
+    },
+    logger: { warn() {} }
+  });
+  assert.equal(autopilotResult.published.length, 1);
+  assert.equal(autopilotResult.failures.length, 0);
+  assert.equal((await publishThenCommentFailStore.getPosts())[0].first_comment_status, "failed");
   fs.rmSync(callbackPath, { force: true });
+  fs.rmSync(commentFailurePath, { force: true });
   console.log("social-autopost.test.mjs passed");
 } finally { fs.rmSync(tempPath, { force: true }); }

@@ -48,7 +48,19 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         imageUrl,
         fetchImpl
       });
-      if (content.first_comment) await postFirstComment({ postId, pageToken, commentText: content.first_comment, fetchImpl });
+      let firstCommentStatus = "not_requested";
+      let firstCommentError = "";
+      if (content.first_comment) {
+        try {
+          await postFirstComment({ postId, pageToken, commentText: content.first_comment, fetchImpl });
+          firstCommentStatus = "published";
+        } catch (error) {
+          // The Facebook post is already live. Persist it and retry the comment separately later.
+          firstCommentStatus = "failed";
+          firstCommentError = error.message || String(error);
+          logger.warn?.(`[social-autopilot] First comment failed for ${article.title}: ${firstCommentError}`);
+        }
+      }
       const record = {
         id: `autopilot_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
         topic: article.title,
@@ -65,7 +77,9 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         autopilot: true,
         candidate_score: article.candidate_score || 0,
         candidate_reasons: article.candidate_reasons || [],
-        generation_mode: content.generation_mode || "offline"
+        generation_mode: content.generation_mode || "offline",
+        first_comment_status: firstCommentStatus,
+        first_comment_error: firstCommentError
       };
       await store.update((draft) => {
         draft.posts.unshift(record);
@@ -76,7 +90,8 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         title: article.title,
         facebook_url: `https://facebook.com/${postId}`,
         candidate_score: article.candidate_score || 0,
-        generation_mode: content.generation_mode || "offline"
+        generation_mode: content.generation_mode || "offline",
+        first_comment_status: firstCommentStatus
       });
     } catch (error) {
       failures.push({ title: article.title, error: error.message || String(error) });
@@ -177,8 +192,7 @@ async function sendTelegramReport(result, env, fetchImpl) {
   const chatIds = String(env.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean);
   if (!token || !chatIds.length) return;
   const lines = [`Social Autopilot: đã đăng ${result.published.length}/${result.selected} bài.`];
-  lines.push(...result.published.map((item) => `✅ ${item.title} [${item.generation_mode}, score ${item.candidate_score}]\n${item.facebook_url}`));
-  lines.push(...result.failures.map((item) => `❌ ${item.title}: ${item.error}`));
+  lines.push(...result.published.map((item) => `✅ ${item.title} [${item.generation_mode}, score ${item.candidate_score}${item.first_comment_status === "failed" ? ", comment pending" : ""}]\n${item.facebook_url}`));
   for (const chatId of chatIds) {
     await fetchImpl(`https://api.telegram.org/bot${encodeURIComponent(token)}/sendMessage`, {
       method: "POST",
