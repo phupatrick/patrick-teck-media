@@ -1075,7 +1075,7 @@ const SOURCE_TOPIC_HINTS = [
   const geminiConfig = getNewsroomGeminiConfig(env);
   if (geminiConfig.apiKey && incomingArticles.length < queuedCandidates.length) {
     const readySourceKeys = new Set(incomingArticles.flatMap(articleSourceKeys));
-    const limit = clampInteger(env.NEWSROOM_GEMINI_LIMIT, 1, 20, 12);
+    const limit = clampInteger(env.NEWSROOM_GEMINI_LIMIT, 1, 30, 20);
     const candidatesForGemini = queuedCandidates
       .filter((article) => !articleSourceKeys(article).some((key) => readySourceKeys.has(key)))
       .slice(0, limit);
@@ -1697,7 +1697,7 @@ function writeFeedHttpCache(filePath, value) {
 }
 
 export function selectCuratedSourceDrafts(articles, env = process.env) {
-  const limit = clampInteger(env?.NEWSROOM_AUTOPUBLISH_LIMIT, 1, 20, 10);
+  const limit = clampInteger(env?.NEWSROOM_AUTOPUBLISH_LIMIT, 1, 30, 15);
   const minimumVietnamese = clampInteger(env?.NEWSROOM_AUTOPUBLISH_MIN_VI, 0, limit, Math.min(limit, Math.max(2, Math.ceil(limit * 0.4))));
   const topicFloor = ["security", "internet-business-tech", "devices", "apps-software", "gaming"];
   const seenLinks = new Set();
