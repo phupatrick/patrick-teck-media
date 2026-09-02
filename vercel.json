@@ -10,10 +10,6 @@
     {
       "path": "/api/openclaw/cron",
       "schedule": "0 1 * * *"
-    },
-    {
-      "path": "/api/social/autopilot/cron",
-      "schedule": "*/15 * * * *"
     }
   ],
   "rewrites": [
