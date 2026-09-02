@@ -760,6 +760,7 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
               )
               .join("")}
             ${renderCompactSources(article, copy)}
+            ${renderRelatedStories(relatedStories, language, copy)}
           </div>
 
           <aside class="article-rail">
@@ -2078,6 +2079,26 @@ function shouldShowShopeePromotion(state, { language, placement, shopeeCount }) 
 function getStoreLandingHref(language) {
   const storeUrl = String(process.env.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store").replace(/\/+$/, "");
   return `${storeUrl}/?utm_source=patricktechmedia&utm_medium=newsroom_banner`;
+}
+
+function renderRelatedStories(stories, language, copy) {
+  const unique = [];
+  const seen = new Set();
+  for (const story of Array.isArray(stories) ? stories : []) {
+    if (!story?.href || !story?.title || seen.has(story.href)) continue;
+    seen.add(story.href);
+    unique.push(story);
+    if (unique.length === 3) break;
+  }
+  if (!unique.length) return "";
+  return `
+    <section class="article-section related-stories" aria-label="${escapeHtml(copy.relatedLabel)}">
+      <h2>${escapeHtml(copy.relatedLabel)}</h2>
+      <div class="related-story-list">
+        ${unique.map((story) => `<a class="related-story-link" href="${story.href}"><span>${escapeHtml(story.topic_label || story.content_type_label || "Patrick Tech Media")}</span><strong>${escapeHtml(story.title)}</strong></a>`).join("")}
+      </div>
+    </section>
+  `;
 }
 
 export function renderCoursesPage(state, language, adsConfig) {

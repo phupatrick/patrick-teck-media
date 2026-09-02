@@ -5726,6 +5726,41 @@ body {
   }
 }
 
+.related-stories {
+  display: grid;
+  gap: 12px;
+}
+
+.related-story-list {
+  display: grid;
+  gap: 8px;
+}
+
+.related-story-link {
+  display: grid;
+  gap: 3px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.related-story-link span {
+  color: var(--accent-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.related-story-link strong {
+  font-family: var(--font-head);
+  line-height: 1.35;
+}
+
+.related-story-link:hover strong {
+  text-decoration: underline;
+}
+
 /* Keep the compact header actions together; Courses precedes Write. */
 @media (max-width: 767px) {
   .topbar-actions {

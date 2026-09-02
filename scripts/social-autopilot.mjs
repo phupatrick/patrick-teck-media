@@ -1,5 +1,6 @@
 import { loadNewsroomState } from "../src/newsroom-service.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
+import { createDocumentStore } from "../src/document-store.mjs";
 import { createPostContent, getRandomTechImage, postFirstComment, safePostToFacebook } from "../src/social-engine.mjs";
 import { generateOfflinePost } from "../src/social-templates.mjs";
 import { pathToFileURL } from "node:url";
@@ -28,7 +29,8 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const publishedKeys = new Set(socialState.posts.filter((post) => post.status === "published").map((post) => post.source_key).filter(Boolean));
   const newsroom = await loadNewsroomState({ contentPath: env.NEWSROOM_CONTENT_PATH || DEFAULT_CONTENT_PATH, databaseUrl: env.DATABASE_URL || "" });
   const limit = Math.max(1, Math.min(20, Number(env.SOCIAL_AUTOPILOT_LIMIT || 1)));
-  const articles = selectCandidates(newsroom.articles, publishedKeys, limit);
+  const learnedContext = await loadLearnedContext(env);
+  const articles = selectCandidates(newsroom.articles, publishedKeys, limit, { learnedContext, recentPosts: socialState.posts });
   const candidates = articles.length ? articles : (String(env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "") === "1" ? DEFAULT_TOPICS.map((topic) => ({ title: topic, summary: "Chủ đề tư vấn công nghệ thực tế từ Patrick Tech Co.", source_key: `topic:${topic}` })).slice(0, limit) : []);
   const published = [];
   const failures = [];
@@ -60,14 +62,22 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         created_at: new Date().toISOString(),
         published_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-        autopilot: true
+        autopilot: true,
+        candidate_score: article.candidate_score || 0,
+        candidate_reasons: article.candidate_reasons || [],
+        generation_mode: content.generation_mode || "offline"
       };
       await store.update((draft) => {
         draft.posts.unshift(record);
         draft.updated_at = record.updated_at;
         return draft;
       });
-      published.push({ title: article.title, facebook_url: `https://facebook.com/${postId}` });
+      published.push({
+        title: article.title,
+        facebook_url: `https://facebook.com/${postId}`,
+        candidate_score: article.candidate_score || 0,
+        generation_mode: content.generation_mode || "offline"
+      });
     } catch (error) {
       failures.push({ title: article.title, error: error.message || String(error) });
       logger.warn?.(`[social-autopilot] Failed for ${article.title}: ${error.message || error}`);
@@ -81,7 +91,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
 
 async function createAutopilotContent({ article, notes, env, fetchImpl, logger }) {
   try {
-    return await createPostContent({
+    const content = await createPostContent({
       provider: env.SOCIAL_AI_PROVIDER || "offline",
       apiKey: env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY || "",
       topic: article.title,
@@ -90,20 +100,63 @@ async function createAutopilotContent({ article, notes, env, fetchImpl, logger }
       sourceArticleUrl: article.href || article.url || "",
       fetchImpl
     });
+    return { ...content, generation_mode: "gemini" };
   } catch (error) {
     const message = error.message || String(error);
     logger.warn?.(`[social-autopilot] AI generation failed; using approved fallback template: ${message}`);
-    return generateOfflinePost({ topic: article.title, pillar: "ai_news", notes });
+    return { ...generateOfflinePost({ topic: article.title, pillar: "ai_news", notes }), generation_mode: "approved_fallback" };
   }
 }
 
-function selectCandidates(articles, publishedKeys, limit) {
+export function selectCandidates(articles, publishedKeys, limit, { learnedContext = {}, recentPosts = [], now = new Date() } = {}) {
+  const recentTopics = new Set(
+    (Array.isArray(recentPosts) ? recentPosts : [])
+      .filter((post) => post?.status === "published")
+      .filter((post) => new Date(now).getTime() - Date.parse(post.published_at || post.created_at || 0) < 1000 * 60 * 60 * 72)
+      .map((post) => topicKey(post.topic))
+      .filter(Boolean)
+  );
+  const winners = new Set((Array.isArray(learnedContext.top_winning_topics) ? learnedContext.top_winning_topics : []).map(topicKey));
+
   return (Array.isArray(articles) ? articles : [])
     .filter((article) => article && article.title && !publishedKeys.has(getSourceKey(article)))
     .filter((article) => article.language === "vi" || !article.language)
-    .sort((left, right) => Date.parse(right.updated_at || right.published_at || 0) - Date.parse(left.updated_at || left.published_at || 0))
+    .map((article) => scoreCandidate(article, { recentTopics, winners, now }))
+    .sort((left, right) => right.candidate_score - left.candidate_score || Date.parse(right.updated_at || right.published_at || 0) - Date.parse(left.updated_at || left.published_at || 0))
     .slice(0, limit)
     .map((article) => ({ ...article, source_key: getSourceKey(article) }));
+}
+
+async function loadLearnedContext(env) {
+  const learnedStore = createDocumentStore({
+    documentKey: "social:learned_context",
+    fallbackPath: env.SOCIAL_LEARNED_CONTEXT_PATH || "data/social-learned-context.json",
+    initialValue: {},
+    databaseUrl: env.DATABASE_URL || ""
+  });
+  return learnedStore.read();
+}
+
+function scoreCandidate(article, { recentTopics, winners, now }) {
+  const reasons = [];
+  let score = 0;
+  const ageHours = Math.max(0, (new Date(now).getTime() - Date.parse(article.updated_at || article.published_at || 0)) / 3600000);
+  if (ageHours <= 12) { score += 34; reasons.push("moi-cap-nhat"); }
+  else if (ageHours <= 48) { score += 22; reasons.push("con-moi"); }
+  else if (ageHours <= 168) { score += 8; }
+  if (article.verification_state === "verified") { score += 24; reasons.push("da-xac-minh"); }
+  else if (article.verification_state === "emerging") { score += 10; }
+  if (article.hero_image?.kind === "source" || article.image?.src || article.image_url) { score += 14; reasons.push("co-anh-nguon"); }
+  const quality = Math.max(0, Math.min(20, Number(article.quality_score || 0) / 5));
+  if (quality) { score += quality; reasons.push("chat-luong-bien-tap"); }
+  const topic = topicKey(article.topic || article.topic_label || article.title);
+  if (winners.has(topic)) { score += 7; reasons.push("chu-de-da-hieu-qua"); }
+  if (recentTopics.has(topic)) { score -= 20; reasons.push("tranh-lap-chu-de"); }
+  return { ...article, candidate_score: Math.round(score), candidate_reasons: reasons };
+}
+
+function topicKey(value) {
+  return String(value || "").trim().toLocaleLowerCase("vi");
 }
 
 function getSourceKey(article) {
@@ -120,7 +173,7 @@ async function sendTelegramReport(result, env, fetchImpl) {
   const chatIds = String(env.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean);
   if (!token || !chatIds.length) return;
   const lines = [`Social Autopilot: đã đăng ${result.published.length}/${result.selected} bài.`];
-  lines.push(...result.published.map((item) => `✅ ${item.title}\n${item.facebook_url}`));
+  lines.push(...result.published.map((item) => `✅ ${item.title} [${item.generation_mode}, score ${item.candidate_score}]\n${item.facebook_url}`));
   lines.push(...result.failures.map((item) => `❌ ${item.title}: ${item.error}`));
   for (const chatId of chatIds) {
     await fetchImpl(`https://api.telegram.org/bot${encodeURIComponent(token)}/sendMessage`, {

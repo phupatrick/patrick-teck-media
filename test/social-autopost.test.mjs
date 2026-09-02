@@ -3,6 +3,7 @@ import { generateOfflinePost } from "../src/social-templates.mjs";
 import { createPostContent, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
+import { selectCandidates } from "../scripts/social-autopilot.mjs";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -19,6 +20,12 @@ try {
   const content = await createPostContent({ topic: "Offline", provider: "offline" });
   assert.ok(content.caption && content.first_comment);
   assert.match(getRandomTechImage({ random: () => 0 }), /^https:\/\/images\.unsplash\.com\//);
+  const candidates = selectCandidates([
+    { id: "repeated", title: "Tin AI cũ", language: "vi", topic: "ai", updated_at: "2026-08-30T12:00:00.000Z", verification_state: "verified", image_url: "https://images.example.com/old.jpg" },
+    { id: "fresh", title: "Tin hạ tầng mới", language: "vi", topic: "infrastructure", updated_at: "2026-09-02T06:00:00.000Z", verification_state: "verified", image_url: "https://images.example.com/new.jpg", quality_score: 90 }
+  ], new Set(), 2, { recentPosts: [{ status: "published", topic: "ai", published_at: "2026-09-01T12:00:00.000Z" }], now: new Date("2026-09-02T07:00:00.000Z") });
+  assert.equal(candidates[0].id, "fresh");
+  assert.ok(candidates[0].candidate_score > candidates.at(-1).candidate_score);
   const publishUrls = [];
   const fallbackPostId = await safePostToFacebook({ pageId: "page", pageToken: "token", caption: "Fallback", imageUrl: "https://images.example.com/broken.jpg", fetchImpl: async (url) => {
     publishUrls.push(url);
