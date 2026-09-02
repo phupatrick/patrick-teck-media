@@ -3,6 +3,7 @@ import { createSocialStore } from "../src/social-store.mjs";
 import { createDocumentStore } from "../src/document-store.mjs";
 import { createPostContent, getRandomTechImage, postFirstComment, safePostToFacebook } from "../src/social-engine.mjs";
 import { generateOfflinePost } from "../src/social-templates.mjs";
+import { getScheduledPostType, isProductCooldownComplete, selectScheduledCandidates } from "../src/social-scheduler.mjs";
 import { pathToFileURL } from "node:url";
 
 const DEFAULT_CONTENT_PATH = "data/newsroom-content.json";
@@ -16,7 +17,7 @@ const DEFAULT_TOPICS = [
   "Bảo mật tài khoản số: ba việc nên làm ngay hôm nay"
 ];
 
-export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch, logger = console } = {}) {
+export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch, logger = console, now = new Date() } = {}) {
   if (String(env.SOCIAL_AUTOPILOT_ENABLED || "").trim() !== "1") {
     return { skipped: true, reason: "SOCIAL_AUTOPILOT_ENABLED is not 1", published: [] };
   }
@@ -30,12 +31,13 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
     databaseUrl: env.DATABASE_URL || ""
   });
   const socialState = await store.getState();
+  const retriedComments = await retryFailedFirstComments({ store, posts: socialState.posts, pageToken, fetchImpl, logger, now, env });
   const publishedKeys = new Set(socialState.posts.filter((post) => post.status === "published").map((post) => post.source_key).filter(Boolean));
   const newsroom = await loadNewsroomState({ contentPath: env.NEWSROOM_CONTENT_PATH || DEFAULT_CONTENT_PATH, databaseUrl: env.DATABASE_URL || "" });
   const informationLimit = normalizeDailyLimit(env.SOCIAL_INFORMATION_POSTS_PER_DAY, DEFAULT_INFORMATION_POSTS_PER_DAY);
   const productLimit = normalizeDailyLimit(env.SOCIAL_PRODUCT_POSTS_PER_DAY, DEFAULT_PRODUCT_POSTS_PER_DAY);
   const aiSelectedLimit = normalizeDailyLimit(env.SOCIAL_AI_SELECTED_POSTS_PER_DAY, DEFAULT_AI_SELECTED_POSTS_PER_DAY);
-  const quota = getDailyQuota(socialState.posts, { now: new Date(), timeZone: env.SOCIAL_TIMEZONE || "Asia/Ho_Chi_Minh", limits: { information: informationLimit, product_promotion: productLimit, ai_selected: aiSelectedLimit } });
+  const quota = getDailyQuota(socialState.posts, { now, timeZone: env.SOCIAL_TIMEZONE || "Asia/Ho_Chi_Minh", limits: { information: informationLimit, product_promotion: productLimit, ai_selected: aiSelectedLimit } });
   const remainingInformation = quota.remaining.information;
   const remainingAiSelected = quota.remaining.ai_selected;
   const remainingProduct = quota.remaining.product_promotion;
@@ -49,12 +51,14 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
     pillar: article.pillar || "ai_news",
     post_type: "ai_selected"
   }));
-  const productCandidates = await selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts: socialState.posts, limit: remainingProduct, logger });
+  const productCandidates = await selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts: socialState.posts, limit: remainingProduct, logger, now });
   const allCandidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...aiSelectedCandidates, ...productCandidates];
-  const candidates = selectRunCandidates(
-    allCandidates,
-    env.SOCIAL_AUTOPILOT_RUN_LIMIT || env.SOCIAL_AUTOPILOT_LIMIT
-  );
+  const scheduled = String(env.SOCIAL_AUTOPILOT_SCHEDULED || "").trim() === "1";
+  const forced = String(env.SOCIAL_AUTOPILOT_FORCE || "").trim() === "1";
+  const scheduledType = getScheduledPostType({ now, timeZone: env.SOCIAL_TIMEZONE || "Asia/Ho_Chi_Minh", force: forced });
+  if (scheduled && !scheduledType && !forced) return { skipped: true, reason: "outside scheduled publishing slot", published: [], failures: [], retriedComments };
+  const configuredLimit = scheduled && !forced ? 1 : normalizeDailyLimit(env.SOCIAL_AUTOPILOT_RUN_LIMIT || env.SOCIAL_AUTOPILOT_LIMIT, 1);
+  const candidates = selectScheduledCandidates(allCandidates, scheduled && !forced ? scheduledType : "", configuredLimit);
   const published = [];
   const failures = [];
 
@@ -71,6 +75,34 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         imageUrl,
         fetchImpl
       });
+      const publishedAt = now.toISOString();
+      const record = {
+        id: `autopilot_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+        topic: article.title,
+        source_key: sourceKey,
+        source_url: article.href || article.url || "",
+        caption: content.caption,
+        first_comment: content.first_comment,
+        image_url: imageUrl,
+        status: "published",
+        fb_post_id: String(postId),
+        created_at: publishedAt,
+        published_at: publishedAt,
+        updated_at: publishedAt,
+        autopilot: true,
+        candidate_score: article.candidate_score || 0,
+        candidate_reasons: article.candidate_reasons || [],
+        generation_mode: content.generation_mode || "offline",
+        post_type: article.post_type || "information",
+        first_comment_status: content.first_comment ? "pending" : "not_requested",
+        first_comment_error: "",
+        first_comment_retry_count: 0
+      };
+      await store.update((draft) => {
+        draft.posts.unshift(record);
+        draft.updated_at = publishedAt;
+        return draft;
+      });
       let firstCommentStatus = "not_requested";
       let firstCommentError = "";
       if (content.first_comment) {
@@ -84,30 +116,15 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
           logger.warn?.(`[social-autopilot] First comment failed for ${article.title}: ${firstCommentError}`);
         }
       }
-      const record = {
-        id: `autopilot_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-        topic: article.title,
-        source_key: sourceKey,
-        source_url: article.href || article.url || "",
-        caption: content.caption,
-        first_comment: content.first_comment,
-        image_url: imageUrl,
-        status: "published",
-        fb_post_id: String(postId),
-        created_at: new Date().toISOString(),
-        published_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-        autopilot: true,
-        candidate_score: article.candidate_score || 0,
-        candidate_reasons: article.candidate_reasons || [],
-        generation_mode: content.generation_mode || "offline",
-        post_type: article.post_type || "information",
-        first_comment_status: firstCommentStatus,
-        first_comment_error: firstCommentError
-      };
       await store.update((draft) => {
-        draft.posts.unshift(record);
-        draft.updated_at = record.updated_at;
+        const target = draft.posts.find((item) => item.id === record.id);
+        if (target) {
+          target.first_comment_status = firstCommentStatus;
+          target.first_comment_error = firstCommentError;
+          target.first_comment_last_attempt_at = content.first_comment ? new Date().toISOString() : "";
+          target.updated_at = new Date().toISOString();
+        }
+        draft.updated_at = new Date().toISOString();
         return draft;
       });
       published.push({
@@ -124,7 +141,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
     }
   }
 
-  const result = { skipped: false, selected: candidates.length, published, failures };
+  const result = { skipped: false, selected: candidates.length, published, failures, retriedComments, scheduledType: scheduledType || "next-available" };
   await sendTelegramReport(result, env, fetchImpl);
   return result;
 }
@@ -154,7 +171,7 @@ async function createAutopilotContent({ article, notes, env, fetchImpl, logger }
   }
 }
 
-async function selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts, limit, logger }) {
+async function selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts, limit, logger, now }) {
   if (limit < 1) return [];
   try {
     const response = await fetchImpl(String(env.SOCIAL_PRODUCT_CATALOG_URL || DEFAULT_STORE_CATALOG_URL), {
@@ -163,16 +180,49 @@ async function selectProductCandidates({ env, fetchImpl, publishedKeys, recentPo
     });
     if (!response.ok) throw new Error(`catalog HTTP ${response.status}`);
     const payload = await response.json();
-    const usedProducts = new Set((Array.isArray(recentPosts) ? recentPosts : []).map((post) => String(post?.source_key || "")).filter((key) => key.startsWith("product:")));
     return (Array.isArray(payload?.products) ? payload.products : [])
       .filter(isFacebookEligibleProduct)
-      .filter((product) => !publishedKeys.has(`product:${product.id}`) && !usedProducts.has(`product:${product.id}`))
+      .filter((product) => !publishedKeys.has(`product:${product.id}`))
+      .filter((product) => isProductCooldownComplete(recentPosts, `product:${product.id}`, { now, cooldownHours: env.SOCIAL_PRODUCT_COOLDOWN_HOURS || 72 }))
       .map(toProductCandidate)
       .slice(0, limit);
   } catch (error) {
     logger.warn?.(`[social-autopilot] Product catalog was unavailable; product promotions skipped: ${error.message || error}`);
     return [];
   }
+}
+
+async function retryFailedFirstComments({ store, posts, pageToken, fetchImpl, logger, now, env }) {
+  const retryDelayMs = Math.max(0, Number(env.SOCIAL_FIRST_COMMENT_RETRY_DELAY_MS || 30000));
+  const retryLimit = Math.max(0, Number(env.SOCIAL_FIRST_COMMENT_RETRY_LIMIT || 3));
+  const due = (Array.isArray(posts) ? posts : []).filter((post) => {
+    if (post?.status !== "published" || post?.first_comment_status !== "failed" || !post?.fb_post_id || !post?.first_comment) return false;
+    if (Number(post.first_comment_retry_count || 0) >= retryLimit) return false;
+    const lastAttempt = Date.parse(post.first_comment_last_attempt_at || post.updated_at || post.published_at || 0);
+    return !Number.isFinite(lastAttempt) || now.getTime() - lastAttempt >= retryDelayMs;
+  }).slice(0, 3);
+  const retried = [];
+  for (const post of due) {
+    try {
+      await postFirstComment({ postId: post.fb_post_id, pageToken, commentText: post.first_comment, fetchImpl });
+      await store.update((draft) => {
+        const target = draft.posts.find((item) => item.id === post.id);
+        if (target) { target.first_comment_status = "published"; target.first_comment_error = ""; target.first_comment_last_attempt_at = now.toISOString(); target.updated_at = now.toISOString(); }
+        return draft;
+      });
+      retried.push({ id: post.id, status: "published" });
+    } catch (error) {
+      const message = error.message || String(error);
+      logger.warn?.(`[social-autopilot] First comment retry failed for ${post.topic}: ${message}`);
+      await store.update((draft) => {
+        const target = draft.posts.find((item) => item.id === post.id);
+        if (target) { target.first_comment_retry_count = Number(target.first_comment_retry_count || 0) + 1; target.first_comment_last_attempt_at = now.toISOString(); target.first_comment_error = message; target.updated_at = now.toISOString(); }
+        return draft;
+      });
+      retried.push({ id: post.id, status: "failed" });
+    }
+  }
+  return retried;
 }
 
 function isFacebookEligibleProduct(product) {
