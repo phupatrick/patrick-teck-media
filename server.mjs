@@ -128,7 +128,7 @@ const config = {
   socialAiProvider: process.env.SOCIAL_AI_PROVIDER || envFromFile.SOCIAL_AI_PROVIDER || "offline",
   socialAiApiKey: process.env.SOCIAL_AI_API_KEY || envFromFile.SOCIAL_AI_API_KEY || "",
   socialAutopilotEnabled: process.env.SOCIAL_AUTOPILOT_ENABLED || envFromFile.SOCIAL_AUTOPILOT_ENABLED || "1",
-  socialAutopilotLimit: process.env.SOCIAL_AUTOPILOT_LIMIT || envFromFile.SOCIAL_AUTOPILOT_LIMIT || "1",
+  socialAutopilotLimit: process.env.SOCIAL_AUTOPILOT_LIMIT || envFromFile.SOCIAL_AUTOPILOT_LIMIT || "3",
   socialAutopilotRotateTopics: process.env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || envFromFile.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "0"
 };
 const rateLimitBuckets = new Map();

@@ -28,7 +28,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const socialState = await store.getState();
   const publishedKeys = new Set(socialState.posts.filter((post) => post.status === "published").map((post) => post.source_key).filter(Boolean));
   const newsroom = await loadNewsroomState({ contentPath: env.NEWSROOM_CONTENT_PATH || DEFAULT_CONTENT_PATH, databaseUrl: env.DATABASE_URL || "" });
-  const limit = Math.max(1, Math.min(20, Number(env.SOCIAL_AUTOPILOT_LIMIT || 1)));
+  const limit = Math.max(1, Math.min(20, Number(env.SOCIAL_AUTOPILOT_LIMIT || 3)));
   const learnedContext = await loadLearnedContext(env);
   const articles = selectCandidates(newsroom.articles, publishedKeys, limit, { learnedContext, recentPosts: socialState.posts });
   const candidates = articles.length ? articles : (String(env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "") === "1" ? DEFAULT_TOPICS.map((topic) => ({ title: topic, summary: "Chủ đề tư vấn công nghệ thực tế từ Patrick Tech Co.", source_key: `topic:${topic}` })).slice(0, limit) : []);
