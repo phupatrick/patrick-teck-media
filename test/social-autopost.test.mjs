@@ -3,7 +3,7 @@ import { generateOfflinePost } from "../src/social-templates.mjs";
 import { createPostContent, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
-import { runSocialAutopilot, selectCandidates } from "../scripts/social-autopilot.mjs";
+import { getDailyQuota, runSocialAutopilot, selectCandidates } from "../scripts/social-autopilot.mjs";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -26,6 +26,17 @@ try {
   ], new Set(), 2, { recentPosts: [{ status: "published", topic: "ai", published_at: "2026-09-01T12:00:00.000Z" }], now: new Date("2026-09-02T07:00:00.000Z") });
   assert.equal(candidates[0].id, "fresh");
   assert.ok(candidates[0].candidate_score > candidates.at(-1).candidate_score);
+  const duplicateCandidates = selectCandidates([
+    { href: "https://example.com/same", title: "Bài trùng A", language: "vi" },
+    { href: "https://example.com/same", title: "Bài trùng B", language: "vi" }
+  ], new Set(), 5);
+  assert.equal(duplicateCandidates.length, 1);
+  const quota = getDailyQuota([
+    { status: "published", post_type: "information", published_at: "2026-09-02T00:30:00.000Z" },
+    { status: "published", post_type: "product_promotion", published_at: "2026-09-01T17:30:00.000Z" },
+    { status: "pending", post_type: "information", published_at: "2026-09-02T01:00:00.000Z" }
+  ], { now: new Date("2026-09-02T07:00:00.000Z"), limits: { information: 5, ai_selected: 2, product_promotion: 3 } });
+  assert.deepEqual(quota, { information: 1, ai_selected: 0, product_promotion: 1, remaining: { information: 4, ai_selected: 2, product_promotion: 2 } });
   const publishUrls = [];
   const fallbackPostId = await safePostToFacebook({ pageId: "page", pageToken: "token", caption: "Fallback", imageUrl: "https://images.example.com/broken.jpg", fetchImpl: async (url) => {
     publishUrls.push(url);

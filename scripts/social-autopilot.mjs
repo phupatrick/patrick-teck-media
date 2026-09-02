@@ -35,17 +35,21 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const informationLimit = normalizeDailyLimit(env.SOCIAL_INFORMATION_POSTS_PER_DAY, DEFAULT_INFORMATION_POSTS_PER_DAY);
   const productLimit = normalizeDailyLimit(env.SOCIAL_PRODUCT_POSTS_PER_DAY, DEFAULT_PRODUCT_POSTS_PER_DAY);
   const aiSelectedLimit = normalizeDailyLimit(env.SOCIAL_AI_SELECTED_POSTS_PER_DAY, DEFAULT_AI_SELECTED_POSTS_PER_DAY);
+  const quota = getDailyQuota(socialState.posts, { now: new Date(), timeZone: env.SOCIAL_TIMEZONE || "Asia/Ho_Chi_Minh", limits: { information: informationLimit, product_promotion: productLimit, ai_selected: aiSelectedLimit } });
+  const remainingInformation = quota.remaining.information;
+  const remainingAiSelected = quota.remaining.ai_selected;
+  const remainingProduct = quota.remaining.product_promotion;
   const learnedContext = await loadLearnedContext(env);
-  const articles = selectCandidates(newsroom.articles, publishedKeys, informationLimit + aiSelectedLimit, { learnedContext, recentPosts: socialState.posts });
+  const articles = selectCandidates(newsroom.articles, publishedKeys, remainingInformation + remainingAiSelected, { learnedContext, recentPosts: socialState.posts });
   const informationCandidates = articles.length
-    ? articles.slice(0, informationLimit)
-    : (String(env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "") === "1" ? DEFAULT_TOPICS.map((topic) => ({ title: topic, summary: "Chủ đề tư vấn công nghệ thực tế từ Patrick Tech Co.", source_key: `topic:${topic}`, pillar: "workflow_tips", post_type: "information" })).slice(0, informationLimit) : []);
-  const aiSelectedCandidates = articles.slice(informationLimit, informationLimit + aiSelectedLimit).map((article) => ({
+    ? articles.slice(0, remainingInformation)
+    : (String(env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "") === "1" ? DEFAULT_TOPICS.map((topic) => ({ title: topic, summary: "Chủ đề tư vấn công nghệ thực tế từ Patrick Tech Co.", source_key: `topic:${topic}`, pillar: "workflow_tips", post_type: "information" })).slice(0, remainingInformation) : []);
+  const aiSelectedCandidates = articles.slice(remainingInformation, remainingInformation + remainingAiSelected).map((article) => ({
     ...article,
     pillar: article.pillar || "ai_news",
     post_type: "ai_selected"
   }));
-  const productCandidates = await selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts: socialState.posts, limit: productLimit, logger });
+  const productCandidates = await selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts: socialState.posts, limit: remainingProduct, logger });
   const candidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...aiSelectedCandidates, ...productCandidates];
   const published = [];
   const failures = [];
@@ -127,7 +131,7 @@ async function createAutopilotContent({ article, notes, env, fetchImpl, logger }
       provider: env.SOCIAL_AI_PROVIDER || "offline",
       apiKey: env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY || "",
       topic: article.title,
-      pillar: "ai_news",
+      pillar: article.pillar || "ai_news",
       postType: article.post_type || "information",
       notes,
       sourceArticleUrl: article.href || article.url || "",
@@ -200,13 +204,44 @@ export function selectCandidates(articles, publishedKeys, limit, { learnedContex
   );
   const winners = new Set((Array.isArray(learnedContext.top_winning_topics) ? learnedContext.top_winning_topics : []).map(topicKey));
 
+  const seenKeys = new Set();
   return (Array.isArray(articles) ? articles : [])
     .filter((article) => article && article.title && !publishedKeys.has(getSourceKey(article)))
     .filter((article) => article.language === "vi" || !article.language)
+    .filter((article) => {
+      const key = getSourceKey(article);
+      if (!key || seenKeys.has(key)) return false;
+      seenKeys.add(key);
+      return true;
+    })
     .map((article) => scoreCandidate(article, { recentTopics, winners, now }))
     .sort((left, right) => right.candidate_score - left.candidate_score || Date.parse(right.updated_at || right.published_at || 0) - Date.parse(left.updated_at || left.published_at || 0))
     .slice(0, limit)
     .map((article) => ({ ...article, source_key: getSourceKey(article) }));
+}
+
+export function getDailyQuota(posts, { now = new Date(), timeZone = "Asia/Ho_Chi_Minh", limits = {} } = {}) {
+  const today = calendarDayKey(now, timeZone);
+  const quota = { information: 0, ai_selected: 0, product_promotion: 0 };
+  for (const post of Array.isArray(posts) ? posts : []) {
+    if (post?.status !== "published" || calendarDayKey(post.published_at || post.created_at, timeZone) !== today) continue;
+    const type = post.post_type === "product_promotion" || post.post_type === "ai_selected" ? post.post_type : "information";
+    quota[type] += 1;
+  }
+  return {
+    ...quota,
+    remaining: {
+      information: Math.max(0, Number(limits.information || 0) - quota.information),
+      ai_selected: Math.max(0, Number(limits.ai_selected || 0) - quota.ai_selected),
+      product_promotion: Math.max(0, Number(limits.product_promotion || 0) - quota.product_promotion)
+    }
+  };
+}
+
+function calendarDayKey(value, timeZone) {
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "";
+  return new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).format(date);
 }
 
 async function loadLearnedContext(env) {
