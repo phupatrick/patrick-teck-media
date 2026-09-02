@@ -50,7 +50,8 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
     post_type: "ai_selected"
   }));
   const productCandidates = await selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts: socialState.posts, limit: remainingProduct, logger });
-  const candidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...aiSelectedCandidates, ...productCandidates];
+  const allCandidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...aiSelectedCandidates, ...productCandidates];
+  const candidates = selectRunCandidates(allCandidates, env.SOCIAL_AUTOPILOT_RUN_LIMIT);
   const published = [];
   const failures = [];
 
@@ -123,6 +124,11 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const result = { skipped: false, selected: candidates.length, published, failures };
   await sendTelegramReport(result, env, fetchImpl);
   return result;
+}
+
+function selectRunCandidates(candidates, configuredLimit) {
+  const limit = normalizeDailyLimit(configuredLimit, 10);
+  return (Array.isArray(candidates) ? candidates : []).slice(0, limit);
 }
 
 async function createAutopilotContent({ article, notes, env, fetchImpl, logger }) {
