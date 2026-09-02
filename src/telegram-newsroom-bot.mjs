@@ -41,9 +41,10 @@ const HELP_TEXT = [
   "/up - yêu cầu tạo thêm bài tự động",
   "",
   "NHÓM FACEBOOK",
-  "/social post <chủ đề> - soạn bài chờ duyệt",
-  "/social queue - xem bài Facebook chờ duyệt",
-  "/social ai <provider> - đổi AI viết bài",
+  "/social - chạy tự động: quét, viết, chọn ảnh và đăng Facebook",
+  "/social queue - xem hàng đợi hoặc lỗi cần xử lý",
+  "/social post <chủ đề> - công cụ thủ công dự phòng",
+  "/social ai <provider> - tùy chọn nâng cao, không cần dùng khi tự động",
   "",
   "HỆ THỐNG",
   "/id - lấy mã cấu hình; /menu - mở nút điều khiển",
@@ -61,11 +62,13 @@ const MENU_TEXT = [
 const SOCIAL_MENU_TEXT = [
   "Bảng điều khiển Facebook",
   "",
-  "/social post <chủ đề> - tạo bài chờ duyệt",
-  "/social queue - xem các bài đang chờ",
-  "/social ai <gemini|offline> - chọn cách viết bài",
+  "Chế độ tự động đang bật: bot tự quét chủ đề, viết bài, chọn ảnh và đăng Facebook.",
   "",
-  "Sau khi tạo bài, hãy bấm nút Đăng Facebook để xuất bản."
+  "Gửi /social để bắt đầu một chu kỳ tự động ngay.",
+  "/social queue - xem hàng đợi hoặc lỗi cần xử lý",
+  "/social post <chủ đề> - chỉ dùng khi cần tạo bài thủ công",
+  "",
+  "Bot sẽ chỉ báo Telegram khi bài đăng thành công hoặc khi cần xử lý lỗi."
 ].join("\n");
 
 export function createTelegramNewsroomBot(options = {}) {
@@ -410,7 +413,11 @@ export async function executeNewsroomCommand(rawText, context = {}) {
 
   if (command === "/social") {
     if (!commandText.split(/\s+/)[1]) {
-      return { text: SOCIAL_MENU_TEXT };
+      const automationResult = await requestRefresh(context, "telegram-social-autopilot");
+      const fallbackHint = automationResult.startsWith("Chưa bật")
+        ? "\n\nLệnh dự phòng khi hệ thống tự động chưa được cấu hình: /social post <chủ đề>"
+        : "";
+      return { text: `Bảng điều khiển Facebook\n\n${automationResult}${fallbackHint}` };
     }
     const socialText = compactCommand(commandText, { post: "/social_post", queue: "/social_queue", ai: "/social_ai" });
     return executeSocialCommand(socialText, context);
