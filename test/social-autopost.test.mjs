@@ -127,7 +127,7 @@ try {
     env: {
       SOCIAL_AUTOPILOT_ENABLED: "1", FB_PAGE_ID: "page", FB_PAGE_ACCESS_TOKEN: "token",
       NEWSROOM_CONTENT_PATH: path.join(os.tmpdir(), `patrick-social-empty-${Date.now()}.json`),
-      SOCIAL_STATE_PATH: commentFailurePath, SOCIAL_AUTOPILOT_ROTATE_TOPICS: "1", SOCIAL_INFORMATION_POSTS_PER_DAY: "1", SOCIAL_PRODUCT_POSTS_PER_DAY: "0"
+      SOCIAL_STATE_PATH: commentFailurePath, SOCIAL_AUTOPILOT_ROTATE_TOPICS: "1", SOCIAL_INFORMATION_POSTS_PER_DAY: "1", SOCIAL_AI_SELECTED_POSTS_PER_DAY: "0", SOCIAL_PRODUCT_POSTS_PER_DAY: "0"
     },
     fetchImpl: async (url) => {
       if (url.includes("/feed")) return new Response(JSON.stringify({ id: "post-123" }), { status: 200 });

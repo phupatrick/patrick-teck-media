@@ -9,6 +9,7 @@ const DEFAULT_CONTENT_PATH = "data/newsroom-content.json";
 const DEFAULT_STORE_CATALOG_URL = "https://patricktechmedia.store/api/products";
 const DEFAULT_INFORMATION_POSTS_PER_DAY = 5;
 const DEFAULT_PRODUCT_POSTS_PER_DAY = 3;
+const DEFAULT_AI_SELECTED_POSTS_PER_DAY = 2;
 const DEFAULT_TOPICS = [
   "Cách chọn công cụ AI phù hợp cho công việc hằng ngày",
   "Những thông số công nghệ người mua nên kiểm tra trước khi xuống tiền",
@@ -33,13 +34,19 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const newsroom = await loadNewsroomState({ contentPath: env.NEWSROOM_CONTENT_PATH || DEFAULT_CONTENT_PATH, databaseUrl: env.DATABASE_URL || "" });
   const informationLimit = normalizeDailyLimit(env.SOCIAL_INFORMATION_POSTS_PER_DAY, DEFAULT_INFORMATION_POSTS_PER_DAY);
   const productLimit = normalizeDailyLimit(env.SOCIAL_PRODUCT_POSTS_PER_DAY, DEFAULT_PRODUCT_POSTS_PER_DAY);
+  const aiSelectedLimit = normalizeDailyLimit(env.SOCIAL_AI_SELECTED_POSTS_PER_DAY, DEFAULT_AI_SELECTED_POSTS_PER_DAY);
   const learnedContext = await loadLearnedContext(env);
-  const articles = selectCandidates(newsroom.articles, publishedKeys, informationLimit, { learnedContext, recentPosts: socialState.posts });
+  const articles = selectCandidates(newsroom.articles, publishedKeys, informationLimit + aiSelectedLimit, { learnedContext, recentPosts: socialState.posts });
   const informationCandidates = articles.length
-    ? articles
+    ? articles.slice(0, informationLimit)
     : (String(env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "") === "1" ? DEFAULT_TOPICS.map((topic) => ({ title: topic, summary: "Chủ đề tư vấn công nghệ thực tế từ Patrick Tech Co.", source_key: `topic:${topic}`, pillar: "workflow_tips", post_type: "information" })).slice(0, informationLimit) : []);
+  const aiSelectedCandidates = articles.slice(informationLimit, informationLimit + aiSelectedLimit).map((article) => ({
+    ...article,
+    pillar: article.pillar || "ai_news",
+    post_type: "ai_selected"
+  }));
   const productCandidates = await selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts: socialState.posts, limit: productLimit, logger });
-  const candidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...productCandidates];
+  const candidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...aiSelectedCandidates, ...productCandidates];
   const published = [];
   const failures = [];
 
@@ -251,8 +258,9 @@ async function sendTelegramReport(result, env, fetchImpl) {
   const chatIds = String(env.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || "").split(",").map((value) => value.trim()).filter(Boolean);
   if (!token || !chatIds.length) return;
   const informationCount = result.published.filter((item) => item.post_type === "information").length;
+  const aiSelectedCount = result.published.filter((item) => item.post_type === "ai_selected").length;
   const productCount = result.published.filter((item) => item.post_type === "product_promotion").length;
-  const lines = [`Social Autopilot: đã đăng ${result.published.length}/${result.selected} bài (${informationCount} thông tin, ${productCount} sản phẩm).`];
+  const lines = [`Social Autopilot: đã đăng ${result.published.length}/${result.selected} bài (${informationCount} thông tin, ${aiSelectedCount} AI tự chọn, ${productCount} sản phẩm).`];
   lines.push(...result.published.map((item) => `✅ ${item.title} [${item.post_type}, ${item.generation_mode}, score ${item.candidate_score}${item.first_comment_status === "failed" ? ", comment pending" : ""}]\n${item.facebook_url}`));
   for (const chatId of chatIds) {
     await fetchImpl(`https://api.telegram.org/bot${encodeURIComponent(token)}/sendMessage`, {

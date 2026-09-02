@@ -130,6 +130,7 @@ const config = {
   socialAutopilotEnabled: process.env.SOCIAL_AUTOPILOT_ENABLED || envFromFile.SOCIAL_AUTOPILOT_ENABLED || "1",
   socialInformationPostsPerDay: process.env.SOCIAL_INFORMATION_POSTS_PER_DAY || envFromFile.SOCIAL_INFORMATION_POSTS_PER_DAY || "5",
   socialProductPostsPerDay: process.env.SOCIAL_PRODUCT_POSTS_PER_DAY || envFromFile.SOCIAL_PRODUCT_POSTS_PER_DAY || "3",
+  socialAiSelectedPostsPerDay: process.env.SOCIAL_AI_SELECTED_POSTS_PER_DAY || envFromFile.SOCIAL_AI_SELECTED_POSTS_PER_DAY || "2",
   socialAutopilotRotateTopics: process.env.SOCIAL_AUTOPILOT_ROTATE_TOPICS || envFromFile.SOCIAL_AUTOPILOT_ROTATE_TOPICS || "0"
 };
 const rateLimitBuckets = new Map();
@@ -1219,6 +1220,7 @@ async function runProductionSocialAutopilot() {
         SOCIAL_AUTOPILOT_ENABLED: config.socialAutopilotEnabled,
         SOCIAL_INFORMATION_POSTS_PER_DAY: config.socialInformationPostsPerDay,
         SOCIAL_PRODUCT_POSTS_PER_DAY: config.socialProductPostsPerDay,
+        SOCIAL_AI_SELECTED_POSTS_PER_DAY: config.socialAiSelectedPostsPerDay,
         SOCIAL_AUTOPILOT_ROTATE_TOPICS: config.socialAutopilotRotateTopics,
         SOCIAL_AI_PROVIDER: config.socialAiProvider,
         SOCIAL_AI_API_KEY: config.socialAiApiKey,
