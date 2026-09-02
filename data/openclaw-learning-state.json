@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T13:51:34.999Z",
+  "generated_at": "2026-09-02T13:55:07.742Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,7 +8,7 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-09-02T13:51:34.999Z",
+    "updated_at": "2026-09-02T13:55:07.742Z",
     "confidence": 0.95,
     "totalSignals": 219,
     "eligibleArticleCount": 75,
@@ -160,6 +160,12 @@
     "lastCycleSummary": "Learned from 75 eligible article(s); 943 article(s) excluded from learning; 0 owner feedback item(s); 219 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, security, devices, apps-software, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-09-02T13:55:07.742Z",
+      "totalSignals": 219,
+      "confidence": 0.95,
+      "summary": "Learned from 75 eligible article(s); 943 article(s) excluded from learning; 0 owner feedback item(s); 219 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, security, devices, apps-software, internet-business-tech"
+    },
     {
       "generated_at": "2026-09-02T13:51:34.999Z",
       "totalSignals": 219,
@@ -390,12 +396,6 @@
     },
     {
       "generated_at": "2026-09-01T20:30:03.005Z",
-      "totalSignals": 209,
-      "confidence": 0.95,
-      "summary": "Learned from 74 eligible article(s); 937 article(s) excluded from learning; 0 owner feedback item(s); 209 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, security, devices, apps-software, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-09-01T20:24:51.808Z",
       "totalSignals": 209,
       "confidence": 0.95,
       "summary": "Learned from 74 eligible article(s); 937 article(s) excluded from learning; 0 owner feedback item(s); 209 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, security, devices, apps-software, internet-business-tech"
