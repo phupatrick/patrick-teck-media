@@ -78,9 +78,9 @@ function createGracefulFallback({ topic, pillar, notes, postType, sourceArticleU
   });
   return {
     ...fallback,
-    caption: `(Nội dung tạo từ Template dự phòng do API đang quá tải quota)\n\n${fallback.caption}`,
     generation_mode: "approved_fallback",
-    fallback_reason: "ai_providers_unavailable"
+    fallback_reason: "ai_providers_unavailable",
+    fallback_note: "(Nội dung tạo từ Template dự phòng do API đang quá tải quota)"
   };
 }
 

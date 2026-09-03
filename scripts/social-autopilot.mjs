@@ -111,6 +111,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         candidate_score: article.candidate_score || 0,
         candidate_reasons: article.candidate_reasons || [],
         generation_mode: content.generation_mode || "offline",
+        fallback_note: content.fallback_note || "",
         post_type: article.post_type || "information",
         post_status: "published",
         comment_status: content.first_comment ? "retrying" : "not_requested",
@@ -163,7 +164,8 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         candidate_score: article.candidate_score || 0,
         generation_mode: content.generation_mode || "offline",
         post_type: article.post_type || "information",
-        first_comment_status: firstCommentStatus
+        first_comment_status: firstCommentStatus,
+        fallback_note: content.fallback_note || ""
       });
     } catch (error) {
       failures.push({ title: article.title, error: error.message || String(error) });
@@ -211,11 +213,11 @@ async function createAutopilotContent({ article, notes, env, fetchImpl, logger }
       sourceArticleUrl: article.href || article.url || "",
       fetchImpl
     });
-    return { ...content, generation_mode: "gemini" };
+    return { ...content, generation_mode: content.generation_mode || "gemini" };
   } catch (error) {
     const message = error.message || String(error);
     logger.warn?.(`[social-autopilot] AI generation failed; using approved fallback template: ${message}`);
-    return { ...generateOfflinePost({ topic: article.title, pillar: article.pillar || "ai_news", notes, customCTA: article.custom_cta || "", isProductPromotion: article.post_type === "product_promotion" }), generation_mode: "approved_fallback" };
+    return { ...generateOfflinePost({ topic: article.title, pillar: article.pillar || "ai_news", notes, customCTA: article.custom_cta || "", isProductPromotion: article.post_type === "product_promotion" }), generation_mode: "approved_fallback", fallback_note: "(Nội dung tạo từ Template dự phòng do API đang quá tải quota)" };
   }
 }
 
@@ -423,7 +425,7 @@ async function sendTelegramReport(result, env, fetchImpl) {
   const aiSelectedCount = result.published.filter((item) => item.post_type === "ai_selected").length;
   const productCount = result.published.filter((item) => item.post_type === "product_promotion").length;
   const lines = [`Social Autopilot: Meta đã xác minh công khai ${result.published.length}/${result.selected} bài (${informationCount} thông tin, ${aiSelectedCount} AI tự chọn, ${productCount} sản phẩm).`];
-  lines.push(...result.published.map((item) => `✅ ${item.title} [${item.post_type}, ${item.generation_mode}, score ${item.candidate_score}${item.first_comment_status === "failed" ? ", comment pending" : ""}]\n${item.facebook_url}`));
+  lines.push(...result.published.map((item) => `✅ ${item.title} [${item.post_type}, ${item.generation_mode}, score ${item.candidate_score}${item.first_comment_status === "failed" ? ", comment pending" : ""}]${item.fallback_note ? `\n${item.fallback_note}` : ""}\n${item.facebook_url}`));
   for (const chatId of chatIds) {
     await fetchImpl(`https://api.telegram.org/bot${encodeURIComponent(token)}/sendMessage`, {
       method: "POST",

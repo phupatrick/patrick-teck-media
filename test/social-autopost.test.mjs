@@ -44,7 +44,8 @@ try {
         : new Response(JSON.stringify({ error: { message: "insufficient balance" } }), { status: 402 })
     });
     assert.equal(gracefulFallback.generation_mode, "approved_fallback");
-    assert.match(gracefulFallback.caption, /^\(Nội dung tạo từ Template dự phòng do API đang quá tải quota\)/);
+    assert.doesNotMatch(gracefulFallback.caption, /Nội dung tạo từ Template dự phòng/);
+    assert.equal(gracefulFallback.fallback_note, "(Nội dung tạo từ Template dự phòng do API đang quá tải quota)");
     const fallbackLines = gracefulFallback.caption.split(/\n+/).map((line) => line.trim()).filter(Boolean);
     assert.ok(fallbackLines.indexOf("🌟 PATRICK TECH CO. | CÔNG NGHỆ DỄ HIỂU, GIÁ TRỊ RÕ RÀNG") > 0);
     assert.match(gracefulFallback.caption, /⚡/);
@@ -201,7 +202,8 @@ try {
       fetchImpl: async () => new Response(JSON.stringify({ error: { message: "API key not valid" } }), { status: 401 })
     });
     assert.equal(missingProviderFallback.generation_mode, "approved_fallback");
-    assert.match(missingProviderFallback.caption, /Template dự phòng/);
+    assert.doesNotMatch(missingProviderFallback.caption, /Template dự phòng/);
+    assert.equal(missingProviderFallback.fallback_note, "(Nội dung tạo từ Template dự phòng do API đang quá tải quota)");
   } finally {
     if (originalSocialKey === undefined) delete process.env.SOCIAL_AI_API_KEY;
     else process.env.SOCIAL_AI_API_KEY = originalSocialKey;
