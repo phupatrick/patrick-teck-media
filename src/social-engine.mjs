@@ -30,7 +30,7 @@ const CANDIDATE_MODELS = [
   "gemini-3.6-flash",
   "gemini-3-flash-preview"
 ].filter(Boolean);
-const GEMINI_REQUEST_TIMEOUT_MS = 30_000;
+const GEMINI_REQUEST_TIMEOUT_MS = 60_000;
 
 export function getRandomTechImage({ random = Math.random } = {}) {
   const index = Math.min(TECH_IMAGES.length - 1, Math.max(0, Math.floor(Number(random()) * TECH_IMAGES.length)));
@@ -185,7 +185,15 @@ async function requestAiContent({ provider, apiKeys, model = "", topic, pillar, 
       const response = await fetchWithTimeout(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(candidate)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl })}` }] }],
+          generationConfig: {
+            responseMimeType: "application/json",
+            temperature: 0.7,
+            maxOutputTokens: 1500,
+            thinkingConfig: { thinkingBudget: 0 }
+          }
+        })
       }, GEMINI_REQUEST_TIMEOUT_MS);
       const payload = await readResponse(response);
       if (response.ok) {

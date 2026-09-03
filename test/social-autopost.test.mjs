@@ -68,6 +68,9 @@ try {
     }
   });
   assert.match(geminiRequest.url, /gemini-3\.6-flash:generateContent/);
+  assert.equal(geminiRequest.body.generationConfig.temperature, 0.7);
+  assert.equal(geminiRequest.body.generationConfig.maxOutputTokens, 1500);
+  assert.equal(geminiRequest.body.generationConfig.thinkingConfig.thinkingBudget, 0);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /phân tích sâu 3 điểm/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /ai-phone/);
