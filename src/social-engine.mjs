@@ -26,7 +26,7 @@ const SOCIAL_SYSTEM_PROMPT = [
 ].join(" ");
 
 const DEFAULT_GEMINI_MODEL = "gemini-1.5-flash";
-const GEMINI_MODELS = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"];
+const FALLBACK_GEMINI_MODELS = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-1.5-pro"];
 const GEMINI_REQUEST_TIMEOUT_MS = 30_000;
 
 export function getRandomTechImage({ random = Math.random } = {}) {
@@ -34,7 +34,7 @@ export function getRandomTechImage({ random = Math.random } = {}) {
   return TECH_IMAGES[index];
 }
 
-export async function createPostContent({ provider = "offline", apiKey = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", fetchImpl = fetch } = {}) {
+export async function createPostContent({ provider = "offline", apiKey = "", model = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", fetchImpl = fetch } = {}) {
   const normalizedProvider = String(provider || "offline").trim().toLowerCase();
   if (["", "none", "offline"].includes(normalizedProvider)) {
     return generateOfflinePost({ topic, pillar, notes, isProductPromotion: postType === "product_promotion" });
@@ -53,7 +53,7 @@ export async function createPostContent({ provider = "offline", apiKey = "", top
   } catch {
     // Learning data is optional; content generation remains available without it.
   }
-  const result = await requestAiContent({ provider: normalizedProvider, apiKeys, topic, pillar, postType, notes, sourceArticleUrl, learningContext, fetchImpl });
+  const result = await requestAiContent({ provider: normalizedProvider, apiKeys, model, topic, pillar, postType, notes, sourceArticleUrl, learningContext, fetchImpl });
   return validatePostContent(result);
 }
 
@@ -173,37 +173,38 @@ export async function postFirstCommentWithRetry({ postId, pageToken, commentText
   throw lastError;
 }
 
-async function requestAiContent({ provider, apiKeys, topic, pillar, postType = "information", notes, sourceArticleUrl = "", learningContext = "", fetchImpl }) {
+async function requestAiContent({ provider, apiKeys, model = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", learningContext = "", fetchImpl }) {
   if (provider === "gemini") {
-    const configuredModel = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "").trim();
-    const models = [...new Set([configuredModel, ...GEMINI_MODELS].filter(Boolean))];
+    const preferredModel = String(model || process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "").trim();
+    const candidateModels = [...new Set([preferredModel, ...FALLBACK_GEMINI_MODELS].filter(Boolean))];
     const errors = [];
-    for (const apiKey of apiKeys) for (const model of models) {
-      const response = await fetchWithTimeout(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+    for (const apiKey of apiKeys) for (const candidate of candidateModels) {
+      const response = await fetchWithTimeout(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(candidate)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
       }, GEMINI_REQUEST_TIMEOUT_MS);
       const payload = await readResponse(response);
       if (response.ok) {
-        console.log(`[Gemini] Tạo nội dung thành công với model: ${model}`);
+        console.log(`[Gemini] Tạo nội dung thành công với model: ${candidate}`);
         return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
       }
       const detail = payload?.error?.message || payload?.raw || "Google returned an unknown error.";
-      errors.push(`${model}: HTTP ${response.status}: ${detail}`);
-      console.warn(`[Gemini] Model ${model} failed: HTTP ${response.status}: ${detail}`);
-      if (![404, 429, 500, 502, 503, 504].includes(response.status)) break;
-      if (errors.length < apiKeys.length * models.length) await delayForGeminiRetry(errors.length);
+      errors.push(`${candidate}: HTTP ${response.status}: ${detail}`);
+      console.warn(`[Gemini] Model ${candidate} failed: HTTP ${response.status}: ${detail}`);
+      if ([404, 429, 500, 502, 503, 504].includes(response.status) && errors.length < apiKeys.length * candidateModels.length) {
+        await delayForGeminiRetry(errors.length);
+      }
     }
     throw new Error(`Gemini API failed: ${errors.join(" | ")}`);
   }
 
   const baseUrl = provider === "deepseek" ? "https://api.deepseek.com" : "https://api.openai.com";
-  const model = provider === "deepseek" ? "deepseek-chat" : "gpt-4o-mini";
+  const providerModel = provider === "deepseek" ? "deepseek-chat" : "gpt-4o-mini";
   const response = await fetchWithTimeout(fetchImpl, `${baseUrl}/v1/chat/completions`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKeys[0]}` },
-    body: JSON.stringify({ model, response_format: { type: "json_object" }, messages: [{ role: "system", content: `${SOCIAL_SYSTEM_PROMPT}${learningContext}` }, { role: "user", content: buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl }) }] })
+    body: JSON.stringify({ model: providerModel, response_format: { type: "json_object" }, messages: [{ role: "system", content: `${SOCIAL_SYSTEM_PROMPT}${learningContext}` }, { role: "user", content: buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl }) }] })
   }, 10000);
   const payload = await readResponse(response);
   if (!response.ok) {
