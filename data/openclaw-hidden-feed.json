@@ -1,11 +1,118 @@
 {
-  "generated_at": "2026-09-03T13:07:30.756Z",
+  "generated_at": "2026-09-03T13:48:13.430Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-713229802ecb-en",
+      "cluster_id": "feed-713229802ecb",
+      "language": "en",
+      "topic_label": "Internet & Business Tech",
+      "topic_slug": "internet-business-tech",
+      "topic_accent": "#9bff45",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "htc-challenges-meta-for-the-us-smart-glasses-market-with-vive-eagle",
+      "title": "HTC challenges Meta for the US smart glasses market with Vive Eagle",
+      "hook": "0 • HTC Add Android Authority on Google: Preferred Source Google Discover TL DR After first introducing its Vive Eagle smart glasses last year, HTC is bringing the wearable to the US.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "0 • HTC Add Android Authority on Google: Preferred Source Google Discover TL DR After first introducing its Vive Eagle smart glasses last year, HTC is bringing the wearable to the US. The smart glasses offer a 12MP camera, your choice of OpenAI or Gemini AI assistance, and can easily charge on the go.",
+      "dek": "0 • HTC Add Android Authority on Google: Preferred Source Google Discover TL DR After first introducing its Vive Eagle smart glasses last year, HTC is bringing the wearable to the US.",
+      "sections": [
+        {
+          "heading": "What changed",
+          "body": "The smart glasses offer a 12MP camera, your choice of OpenAI or Gemini AI assistance, and can easily charge on the go. Pricing starts at $499 for standard or sun lenses, or $599 for photochromic."
+        },
+        {
+          "heading": "Price and bundle value",
+          "body": "HTC may not be in the phone business any longer, but the company has discovered new niches to fill, as we’ve seen with the HTC Vive VR platform. This time last year, we heard about plans to expand Vive into smart glasses with the launch of the Vive Eagle smart glasses . Earlier this summer, we learned that the Vive Eagle was finally coming to the US in September, and today we’ve got the full details on that debut, ready to share."
+        },
+        {
+          "heading": "AI features that change the value",
+          "body": "HTC For the US market, HTC is giving us a choice of two frame styles in a variety of colors: “square” frames (above) in coffee, black, and berry red, as well as round frames (below) in charcoal, clear brown, and navy. You also have a pick of lens options — there’s a Zeiss lens by default, but you can also go with sunglasses or even photochromic lenses."
+        },
+        {
+          "heading": "Who should pay attention",
+          "body": "The hardware is equipped with 4GB of RAM and is powered by Qualcomm’s Snapdragon AR1 chip. The onboard 12MP ultrawide camera records up to 10 minutes of video at once, and can even do slo-mo for a minute straight. You can livestream to YouTube or Twitch, and capture in 2K resolution vertical format for social media. You’ve got 32GB of encrypted on-board storage to house your clips."
+        },
+        {
+          "heading": "Patrick Tech Media take",
+          "body": "Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz. Patrick Tech Media will keep checking Android Authority to see whether the value holds once the rollout broadens."
+        }
+      ],
+      "image": {
+        "src": "https://www.androidauthority.com/wp-content/uploads/2026/09/htc-vive-eagle-round-brown.jpg",
+        "alt": "",
+        "caption": "Reference image from Android Authority.",
+        "credit": "Android Authority",
+        "source_url": "https://www.androidauthority.com/htc-vive-eagle-us-3706492/"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Android Authority",
+          "source_url": "https://www.androidauthority.com/htc-vive-eagle-us-3706492/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-03T13:00:39.000Z",
+          "image_url": "https://www.androidauthority.com/wp-content/uploads/2026/09/htc-vive-eagle-round-brown.jpg",
+          "image_caption": "Reference image from Android Authority.",
+          "image_credit": "Android Authority"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-03T13:00:39.000Z",
+      "updated_at": "2026-09-03T13:00:39.000Z",
+      "href": "/en/news/htc-challenges-meta-for-the-us-smart-glasses-market-with-vive-eagle",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/htc-challenges-meta-for-the-us-smart-glasses-market-with-vive-eagle",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "internet-business-tech",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-03T13:48:13.430Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-297484aa9293-en",
       "cluster_id": "feed-297484aa9293",
@@ -109,7 +216,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T13:07:30.756Z",
+        "generated_at": "2026-09-03T13:48:13.430Z",
         "origin": "local-curated-rss"
       }
     },
@@ -216,223 +323,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T13:07:30.756Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-c3b4a6cff74f-en",
-      "cluster_id": "feed-c3b4a6cff74f",
-      "language": "en",
-      "topic_label": "Security",
-      "topic_slug": "security",
-      "topic_accent": "#1de59c",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "2-8-million-people-affected-by-data-breach-at-baylor-genetics-testing-and-diagnostic-firm",
-      "title": "2.8 million people affected by data breach at Baylor Genetics testing and diagnostic firm",
-      "hook": "In a security update posted on its website earlier this week, the company said it spotted the intrusion in a “limited portion” of its IT environment on or around June 15.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "In a security update posted on its website earlier this week, the company said it spotted the intrusion in a “limited portion” of its IT environment on or around June 15. Subsequent investigation determined that both patients and employees have had their data stolen, including those who are not working at Baylor anymore.",
-      "dek": "In a security update posted on its website earlier this week, the company said it spotted the intrusion in a “limited portion” of its IT environment on or around June 15.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Subsequent investigation determined that both patients and employees have had their data stolen, including those who are not working at Baylor anymore."
-        },
-        {
-          "heading": "Where the sources line up",
-          "body": "For patients, crooks stole names, dates of birth, medical testing information, laboratory test results, and “potentially health insurance information, as well as Social Security number”. SSNs, Baylor Genetics stressed, were taken from a “very limited subset of patients”."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Regardless, fraudsters who know the details about medical testing and lab results have more than enough information to launch highly sophisticated, personalized phishing attacks that can lead to ransomware infections, business email compromise, and more."
-        },
-        {
-          "heading": "Who should pay attention now",
-          "body": "For certain current and former employees, the attackers nabbed Social Security numbers, government-issued identification numbers, and financial account information, ideal for wire fraud."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "US healthcare software giant Unlimited Technology Systems admits hackers may have stolen sensitive data of 3. 8 million people Healthtech firm CareCloud reveals March 2026 data breach impacted 3. 7 million patients 2. 6 million DentaQuest accounts exposed by data breach – ShinyHunters claim 234GB of data stolen In the security update, the company did not discuss the identity of the attackers, or the number of affected individuals. However, in a separate report filed with the US Department of Health and Human Services, Baylor reported the number of victims as 2,810,878. It added that at the time of publication, there was no evidence of confirmed identity theft , fraud, or misuse of personal information stolen in the attack."
-        }
-      ],
-      "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/9DcUT2RtbvGV8dbUy5P8MA-2560-80.jpg",
-        "alt": "",
-        "caption": "Reference image from TechRadar.",
-        "credit": "TechRadar",
-        "source_url": "https://www.techradar.com/pro/security/2-8-million-people-affected-by-data-breach-at-baylor-genetics-testing-and-diagnostic-firm"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "secure-access-kit"
-      ],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechRadar",
-          "source_url": "https://www.techradar.com/pro/security/2-8-million-people-affected-by-data-breach-at-baylor-genetics-testing-and-diagnostic-firm",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-03T11:05:00.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/9DcUT2RtbvGV8dbUy5P8MA-2560-80.jpg",
-          "image_caption": "Reference image from TechRadar.",
-          "image_credit": "TechRadar"
-        }
-      ],
-      "author_id": "thao-nguyen",
-      "published_at": "2026-09-03T11:05:00.000Z",
-      "updated_at": "2026-09-03T11:05:00.000Z",
-      "href": "/en/news/2-8-million-people-affected-by-data-breach-at-baylor-genetics-testing-and-diagnostic-firm",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/2-8-million-people-affected-by-data-breach-at-baylor-genetics-testing-and-diagnostic-firm",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "security",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T13:07:30.756Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-d6e0edd6fd6a-en",
-      "cluster_id": "feed-d6e0edd6fd6a",
-      "language": "en",
-      "topic_label": "Internet & Business Tech",
-      "topic_slug": "internet-business-tech",
-      "topic_accent": "#9bff45",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "anker-s-soundcore-is-bringing-its-incredible-call-quality-to-more-headphones",
-      "title": "Anker’s Soundcore is bringing its incredible call quality to more headphones",
-      "hook": "After introducing the Thus processing chip in April and releasing it with the Liberty 5 Pro series earbuds , Soundcore is bringing it to more audio products.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "After introducing the Thus processing chip in April and releasing it with the Liberty 5 Pro series earbuds , Soundcore is bringing it to more audio products. The Thus chip is behind the best call quality I’ve ever heard from a pair of earbuds or headphones, virtually eliminating ambient sounds from the speaker’s environment.",
-      "dek": "After introducing the Thus processing chip in April and releasing it with the Liberty 5 Pro series earbuds , Soundcore is bringing it to more audio products.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "The Thus chip is behind the best call quality I’ve ever heard from a pair of earbuds or headphones, virtually eliminating ambient sounds from the speaker’s environment. At IFA 2026 in Berlin, Soundcore announced the Space 2 Pro headphones, AeroClip 2 and AeroClip 2 Pro open clip earbuds, and Liberty Buds 2."
-        },
-        {
-          "heading": "Where the sources line up",
-          "body": "The Space 2 Pro will be the first headphones to use the Thus chip and use a 6-microphone array for voice isolation. There are also eight microphones for the headphones’ adaptive active noise cancellation (ANC), which Soundcore claims is 1. 5 times stronger than the ANC on the Space One Pro headphones across the 20Hz to 2,000Hz frequency range. (This covers the most important sound distractions including airplane drones and HVAC systems, as well as normal conversation."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Soundcore’s latest version of its HearID listening preference test will create customized sound profiles, and the headphones support high-res audio via LDAC. Soundcore says the Space 2 Pro will get 60 hours of listening time at 50 percent volume (30 with ANC on) or 20 hours of talk time on a single charge. They launch on September 22 for $200, come in three colors — gray, white, and black — and will be available in the US, EU, and UK."
-        },
-        {
-          "heading": "Who should pay attention now",
-          "body": "Soundcore is also expanding its clip earbuds offerings, updating the AeroClip and adding a Pro version. The AeroClip 2 looks to be similar to the AeroClip, but with the Thus chip, will retail for $170 (the same price as the original AeroClip), and come in black, red, white, and blue at launch on September 22 ."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "The AeroClip 2 Pro will include Soundcore’s AI note-taking capability, which was also on the Liberty 5 Pro Max. But unlike the Liberty 5 Pro Max, with the AeroClip 2 Pro you can record online meetings and phone calls in addition to in-person interactions. The AeroClip 2 Pro includes a free AI transcription starter plan with 120 minutes per month for 24 months and the ability to subscribe for more transcription minutes. The 2 Pro clip earbuds use 11mm dual-diaphragm drivers, support LDAC hi-res audio, and should provide 10 hours of playback at 50 percent volume, with 30 hours total with the charging case. There’s no firm launch date or pricing yet for the 2 Pro, but we expect them later this year ."
-        }
-      ],
-      "image": {
-        "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/soundcore-space-2-pro-lifestyle.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
-        "alt": "",
-        "caption": "Reference image from The Verge.",
-        "credit": "The Verge",
-        "source_url": "https://www.theverge.com/tech/986330/soundcore-headphones-earbuds-announcement-ifa-2026"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "The Verge",
-          "source_url": "https://www.theverge.com/tech/986330/soundcore-headphones-earbuds-announcement-ifa-2026",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-03T10:05:47.000Z",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/soundcore-space-2-pro-lifestyle.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
-          "image_caption": "Reference image from The Verge.",
-          "image_credit": "The Verge"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-03T10:05:47.000Z",
-      "updated_at": "2026-09-03T10:05:47.000Z",
-      "href": "/en/news/anker-s-soundcore-is-bringing-its-incredible-call-quality-to-more-headphones",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/anker-s-soundcore-is-bringing-its-incredible-call-quality-to-more-headphones",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "internet-business-tech",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T13:07:30.756Z",
+        "generated_at": "2026-09-03T13:48:13.430Z",
         "origin": "local-curated-rss"
       }
     },
@@ -539,7 +430,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T13:07:30.756Z",
+        "generated_at": "2026-09-03T13:48:13.430Z",
         "origin": "local-curated-rss"
       }
     },
@@ -584,7 +475,7 @@
         }
       ],
       "image": {
-        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788440637",
+        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788443235",
         "alt": "",
         "caption": "Ảnh tham khảo từ VOV Cong Nghe.",
         "credit": "VOV Cong Nghe",
@@ -607,7 +498,7 @@
           "language": "vi",
           "trust_tier": "established-media",
           "published_at": "2026-08-28T08:39:15.000Z",
-          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788440637",
+          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788443235",
           "image_caption": "Ảnh tham khảo từ VOV Cong Nghe.",
           "image_credit": "VOV Cong Nghe"
         }
@@ -646,7 +537,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T13:07:30.756Z",
+        "generated_at": "2026-09-03T13:48:13.430Z",
         "origin": "local-curated-rss"
       }
     },
@@ -753,7 +644,114 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T13:07:30.756Z",
+        "generated_at": "2026-09-03T13:48:13.430Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-2456c17a64f4-vi",
+      "cluster_id": "feed-2456c17a64f4",
+      "language": "vi",
+      "topic_label": "Thiết bị",
+      "topic_slug": "thiet-bi",
+      "topic_accent": "#4e7dff",
+      "content_type": "NewsArticle",
+      "content_type_label": "Tin nhanh",
+      "path_segment": "tin-tuc",
+      "slug": "thu-nghiem-thiet-bi-5g-tai-trung-ong-make-in-viet-nam-tien-ra-the-gioi",
+      "title": "Thử nghiệm thiết bị 5G tại Trung Đông, Make in Viet Nam tiến ra thế giới",
+      "hook": "Tại Hội nghị Di động Thế giới 2025 (MWC 2025), Tổng công ty Công nghiệp Công nghệ cao Viettel (Tập đoàn Viettel) vừa công bố thử nghiệm thiết bị 5G với Công ty Emirates Integrated Telecommunications (Du), nhà mạng hàng đầu khu vực Trung Đông.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Tại Hội nghị Di động Thế giới 2025 (MWC 2025), Tổng công ty Công nghiệp Công nghệ cao Viettel (Tập đoàn Viettel) vừa công bố thử nghiệm thiết bị 5G với Công ty Emirates Integrated Telecommunications (Du), nhà mạng hàng đầu khu vực Trung Đông. Theo đó, hai bên đã ký biên bản ghi nhớ về việc hợp tác triển khai, thử nghiệm và thương mại hóa các giải pháp 5G tại khu vực Trung Đông.",
+      "dek": "Tại Hội nghị Di động Thế giới 2025 (MWC 2025), Tổng công ty Công nghiệp Công nghệ cao Viettel (Tập đoàn Viettel) vừa công bố thử nghiệm thiết bị 5G với Công ty Emirates Integrated Telecommunications (Du), nhà mạng hàng đầu khu vực Trung Đông.",
+      "sections": [
+        {
+          "heading": "Điều gì đã xảy ra",
+          "body": "Tại Hội nghị Di động Thế giới 2025 (MWC 2025), Tổng công ty Công nghiệp Công nghệ cao Viettel (Tập đoàn Viettel) vừa công bố thử nghiệm thiết bị 5G với Công ty Emirates Integrated Telecommunications (Du), nhà mạng hàng đầu khu vực Trung Đông."
+        },
+        {
+          "heading": "Các nguồn đang khớp nhau ở đâu",
+          "body": "Theo đó, hai bên đã ký biên bản ghi nhớ về việc hợp tác triển khai, thử nghiệm và thương mại hóa các giải pháp 5G tại khu vực Trung Đông. Giai đoạn đầu của quá trình thử nghiệm trên mạng lưới gồm 2 hạng mục, mạng 5G OpenRAN công cộng (5G OpenRAN public network) và mạng 5G riêng (5G Private Network)."
+        },
+        {
+          "heading": "Dữ kiện hiện có",
+          "body": "Việc triển khai các giải pháp 5G sẽ đặt nền móng cho các ứng dụng đột phá như thành phố thông minh, trải nghiệm thực tế ảo/tăng cường (VR/AR) và Internet vạn vật trong công nghiệp (IoT). Sự kiện này góp phần khẳng định năng lực công nghệ của Việt Nam trên bản đồ viễn thông toàn cầu."
+        },
+        {
+          "heading": "Ai nên chú ý lúc này",
+          "body": "Các thiết bị 5G Make in Viet Nam sẽ được thử nghiệm tại Trung Đông. Ảnh: NVCC Bình luận sau khi công bố thử nghiệm thiết bị 5G với đại diện đến từ Việt Nam, ông Fahad Al Hassawi, Tổng Giám đốc Du cho rằng, sự hợp tác này là một bước tiến quan trọng nhằm cung cấp các giải pháp kết nối sẵn sàng cho tương lai."
+        },
+        {
+          "heading": "Điều chưa rõ",
+          "body": "“ Việc tích hợp 5G Private và OpenRAN sẽ giúp chúng tôi xây dựng hệ sinh thái viễn thông thế hệ mới, mang lại giá trị cho doanh nghiệp, chính phủ và cộng đồng \", đại diện nhà mạng đến từ Trung Đông nói. Các thử nghiệm thành công sẽ mở đường cho việc triển khai thương mại 5G quy mô lớn ở quốc gia này."
+        }
+      ],
+      "image": {
+        "src": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/3/10/thu-nghiem-thiet-bi-5g-tai-trung-dong-make-in-viet-nam-tien-ra-the-gioi-54668.jpeg?width=0&s=9QIIAgL_xjI5SkAPuf1R4g",
+        "alt": "",
+        "caption": "Ảnh tham khảo từ VietnamNet Cong Nghe.",
+        "credit": "VietnamNet Cong Nghe",
+        "source_url": "https://vietnamnet.vn/thu-nghiem-thiet-bi-5g-tai-trung-dong-make-in-viet-nam-tien-ra-the-gioi-2378296.html"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "VietnamNet Cong Nghe",
+          "source_url": "https://vietnamnet.vn/thu-nghiem-thiet-bi-5g-tai-trung-dong-make-in-viet-nam-tien-ra-the-gioi-2378296.html",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2025-03-10T04:29:24.000Z",
+          "image_url": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/3/10/thu-nghiem-thiet-bi-5g-tai-trung-dong-make-in-viet-nam-tien-ra-the-gioi-54668.jpeg?width=0&s=9QIIAgL_xjI5SkAPuf1R4g",
+          "image_caption": "Ảnh tham khảo từ VietnamNet Cong Nghe.",
+          "image_credit": "VietnamNet Cong Nghe"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2025-03-10T04:29:24.000Z",
+      "updated_at": "2025-03-10T04:29:24.000Z",
+      "href": "/vi/tin-tuc/thu-nghiem-thiet-bi-5g-tai-trung-ong-make-in-viet-nam-tien-ra-the-gioi",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/thu-nghiem-thiet-bi-5g-tai-trung-ong-make-in-viet-nam-tien-ra-the-gioi",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "devices",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-03T13:48:13.430Z",
         "origin": "local-curated-rss"
       }
     }
