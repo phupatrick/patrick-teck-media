@@ -27,6 +27,17 @@ try {
   assert.match(post.first_comment, /bảo hành 1-1/);
   assert.match(post.caption, /Chia sẻ trải nghiệm/);
   assert.doesNotMatch(post.caption, /\*\*/);
+  const cursorPost = generateOfflinePost({ topic: "Cursor Composer và VS Code", pillar: "product_offer" });
+  assert.match(cursorPost.caption, /Composer và chỉnh sửa đa tệp/);
+  assert.match(cursorPost.caption, /Tab Autocomplete/);
+  assert.doesNotMatch(cursorPost.caption, /giảm 60%|không giới hạn request/);
+  const claudePost = generateOfflinePost({ topic: "Claude Sonnet cho refactor", pillar: "ai_news" });
+  assert.match(claudePost.caption, /Artifacts/);
+  const deepSeekPost = generateOfflinePost({ topic: "DeepSeek API key", pillar: "product_offer" });
+  assert.match(deepSeekPost.caption, /tương thích OpenAI/);
+  const genericPost = generateOfflinePost({ topic: "Tối ưu quy trình số", pillar: "workflow_tips" });
+  assert.match(genericPost.caption, /Tự động hóa phần việc lặp lại/);
+  assert.doesNotMatch(genericPost.caption, /Làm rõ lợi ích|Cân nhắc chi phí|Thử ở quy mô nhỏ/);
   assert.doesNotMatch(sanitizeSocialText("Đảm bảo 100% và không rủi ro"), /Đảm bảo 100%|không rủi ro/);
   const content = await createPostContent({ topic: "Offline", provider: "offline" });
   assert.ok(content.caption && content.first_comment);
