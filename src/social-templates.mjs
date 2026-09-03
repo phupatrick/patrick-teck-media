@@ -16,10 +16,11 @@ const DEFAULT_COMMENT = [
   "🛡️ Hỗ trợ cài đặt và bảo hành 1-1 theo điều kiện sản phẩm."
 ].join("\n");
 
-export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, notes = "", customCTA = "", isProductPromotion = false } = {}) {
+export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, notes = "", customCTA = "", mediaUrl = "", storeUrl = "", isProductPromotion = false } = {}) {
   const title = normalizeText(topic, "Công nghệ và giải pháp số đáng chú ý");
   const detail = normalizeText(notes, "Làm rõ lợi ích, giới hạn và cách áp dụng phù hợp với nhu cầu thực tế.");
-  const cta = normalizeText(customCTA, DEFAULT_CTA);
+  const defaultCta = storeUrl ? DEFAULT_CTA.replace("https://patricktechmedia.store/", String(storeUrl).trim()) : DEFAULT_CTA;
+  const cta = normalizeText(customCTA, defaultCta);
 
   const contentByPillar = {
     [CONTENT_PILLARS.AI_NEWS]: [

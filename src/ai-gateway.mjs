@@ -38,7 +38,7 @@ export async function callGeminiJson({ apiKey, model = "", payload, fetchImpl = 
       const detail = body?.error?.message || body?.raw || "Google returned an unknown error.";
       const error = `${candidate}: HTTP ${response.status}: ${detail}`;
       errors.push(error);
-      if (!failoverReason && isQuotaError(response.status, body)) failoverReason = "quota";
+      if (!failoverReason) failoverReason = isQuotaError(response.status, body) ? "quota" : "provider";
       console.warn(`[Gemini] ${label} failed: ${error}`);
     } catch (error) {
       const detail = error?.message || String(error);
@@ -52,7 +52,9 @@ export async function callGeminiJson({ apiKey, model = "", payload, fetchImpl = 
   if (deepSeekKey && failoverReason) {
     console.warn(failoverReason === "quota"
       ? "[AIGateway] Gemini bị quá tải quota (HTTP 429), đang tự động chuyển sang DeepSeek API..."
-      : "[AIGateway] Gemini gặp lỗi mạng, đang tự động chuyển sang DeepSeek API...");
+      : failoverReason === "network"
+        ? "[AIGateway] Gemini gặp lỗi mạng, đang tự động chuyển sang DeepSeek API..."
+        : "[AIGateway] Gemini thất bại, đang tự động chuyển sang DeepSeek API...");
     try {
       const result = await callDeepSeekAPI({
         apiKey: deepSeekKey,

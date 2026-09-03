@@ -30,6 +30,31 @@ try {
   assert.doesNotMatch(sanitizeSocialText("Đảm bảo 100% và không rủi ro"), /Đảm bảo 100%|không rủi ro/);
   const content = await createPostContent({ topic: "Offline", provider: "offline" });
   assert.ok(content.caption && content.first_comment);
+  const originalDeepSeekKey = process.env.DEEPSEEK_API_KEY;
+  try {
+    process.env.DEEPSEEK_API_KEY = "deepseek-failing-key";
+    const gracefulFallback = await createPostContent({
+      provider: "gemini",
+      apiKey: "gemini-failing-key",
+      topic: "Công cụ AI cho công việc",
+      pillar: "ai_news",
+      notes: "Dữ liệu kiểm thử đã xác minh",
+      fetchImpl: async (url) => url.includes("generativelanguage.googleapis.com")
+        ? new Response(JSON.stringify({ error: { message: "quota exceeded" } }), { status: 429 })
+        : new Response(JSON.stringify({ error: { message: "insufficient balance" } }), { status: 402 })
+    });
+    assert.equal(gracefulFallback.generation_mode, "approved_fallback");
+    assert.match(gracefulFallback.caption, /^\(Nội dung tạo từ Template dự phòng do API đang quá tải quota\)/);
+    const fallbackLines = gracefulFallback.caption.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+    assert.ok(fallbackLines.indexOf("🌟 PATRICK TECH CO. | CÔNG NGHỆ DỄ HIỂU, GIÁ TRỊ RÕ RÀNG") > 0);
+    assert.match(gracefulFallback.caption, /⚡/);
+    assert.match(gracefulFallback.caption, /📌/);
+    assert.match(gracefulFallback.caption, /💡/);
+    assert.match(gracefulFallback.caption, /patricktechmedia\.store/);
+  } finally {
+    if (originalDeepSeekKey === undefined) delete process.env.DEEPSEEK_API_KEY;
+    else process.env.DEEPSEEK_API_KEY = originalDeepSeekKey;
+  }
   assert.match(getRandomTechImage({ random: () => 0 }), /^https:\/\/images\.unsplash\.com\//);
   const candidates = selectCandidates([
     { id: "repeated", title: "Tin AI cũ", language: "vi", topic: "ai", updated_at: "2026-08-30T12:00:00.000Z", verification_state: "verified", image_url: "https://images.example.com/old.jpg" },
@@ -170,14 +195,13 @@ try {
     });
     assert.match(fallbackUrls[0], /gemini-3-flash-preview:generateContent/);
 
-    await assert.rejects(
-      createPostContent({
-        provider: "gemini",
-        apiKey: "request-key",
-        fetchImpl: async () => new Response(JSON.stringify({ error: { message: "API key not valid" } }), { status: 401 })
-      }),
-      /Social content API failed: .*HTTP 401: API key not valid/
-    );
+    const missingProviderFallback = await createPostContent({
+      provider: "gemini",
+      apiKey: "request-key",
+      fetchImpl: async () => new Response(JSON.stringify({ error: { message: "API key not valid" } }), { status: 401 })
+    });
+    assert.equal(missingProviderFallback.generation_mode, "approved_fallback");
+    assert.match(missingProviderFallback.caption, /Template dự phòng/);
   } finally {
     if (originalSocialKey === undefined) delete process.env.SOCIAL_AI_API_KEY;
     else process.env.SOCIAL_AI_API_KEY = originalSocialKey;

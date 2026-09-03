@@ -37,7 +37,7 @@ export function getRandomTechImage({ random = Math.random } = {}) {
   return TECH_IMAGES[index];
 }
 
-export async function createPostContent({ provider = "offline", apiKey = "", model = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", fetchImpl = fetch } = {}) {
+export async function createPostContent({ provider = "offline", apiKey = "", model = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", mediaUrl = "", storeUrl = "", fetchImpl = fetch } = {}) {
   const normalizedProvider = String(provider || "offline").trim().toLowerCase();
   if (["", "none", "offline"].includes(normalizedProvider)) {
     return generateOfflinePost({ topic, pillar, notes, isProductPromotion: postType === "product_promotion" });
@@ -45,7 +45,8 @@ export async function createPostContent({ provider = "offline", apiKey = "", mod
 
   const resolvedApiKey = resolveGeminiApiKey({ apiKey });
   if (!resolvedApiKey) {
-    throw new Error(`Missing API key for social provider "${normalizedProvider}".`);
+    console.warn(`[social-engine] No API key for ${normalizedProvider}; using rich offline template.`);
+    return createGracefulFallback({ topic, pillar, notes, postType, sourceArticleUrl, mediaUrl, storeUrl });
   }
 
   let learningContext = "";
@@ -56,8 +57,31 @@ export async function createPostContent({ provider = "offline", apiKey = "", mod
   } catch {
     // Learning data is optional; content generation remains available without it.
   }
-  const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, model, topic, pillar, postType, notes, sourceArticleUrl, learningContext, fetchImpl });
-  return validatePostContent(result);
+  try {
+    const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, model, topic, pillar, postType, notes, sourceArticleUrl, learningContext, fetchImpl });
+    return validatePostContent(result);
+  } catch (error) {
+    const reason = error?.message || String(error);
+    console.warn(`[social-engine] AI providers unavailable; using rich offline template: ${reason}`);
+    return createGracefulFallback({ topic, pillar, notes, postType, sourceArticleUrl, mediaUrl, storeUrl });
+  }
+}
+
+function createGracefulFallback({ topic, pillar, notes, postType, sourceArticleUrl, mediaUrl = "", storeUrl = "" }) {
+  const fallback = generateOfflinePost({
+    topic,
+    pillar,
+    notes,
+    mediaUrl,
+    storeUrl: storeUrl || "https://patricktechmedia.store/",
+    isProductPromotion: postType === "product_promotion"
+  });
+  return {
+    ...fallback,
+    caption: `(Nội dung tạo từ Template dự phòng do API đang quá tải quota)\n\n${fallback.caption}`,
+    generation_mode: "approved_fallback",
+    fallback_reason: "ai_providers_unavailable"
+  };
 }
 
 export function resolveApiKeys(requestKey = "") {
