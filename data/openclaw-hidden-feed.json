@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T16:03:58.228Z",
+  "generated_at": "2026-09-03T16:20:50.375Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -7,78 +7,80 @@
   },
   "articles": [
     {
-      "id": "feed-132a28b0c3cd-en",
-      "cluster_id": "feed-132a28b0c3cd",
+      "id": "feed-df39fb082709-en",
+      "cluster_id": "feed-df39fb082709",
       "language": "en",
-      "topic_label": "Devices",
-      "topic_slug": "devices",
-      "topic_accent": "#4e7dff",
+      "topic_label": "Security",
+      "topic_slug": "security",
+      "topic_accent": "#1de59c",
       "content_type": "NewsArticle",
       "content_type_label": "News",
       "path_segment": "news",
-      "slug": "lenovo-just-put-nvidia-s-arm-superchip-in-two-yoga-laptops-but-professionals-might-be-more-enthu",
-      "title": "Lenovo just put NVIDIA's Arm superchip in two Yoga laptops, but professionals might be more enthused by their AI-centric memory configurations",
-      "hook": "Nvidia's RTX Spark headlines Lenovo's Yoga refresh at IFA, with two laptops, two pen-first tablets, and up to 128GB of unified memory.",
+      "slug": "ai-driven-development-lifecycle-using-amazon-bedrock-agentcore",
+      "title": "AI-driven development lifecycle using Amazon Bedrock AgentCore",
+      "hook": "Engineering teams adopting the AI-Driven Development Lifecycle (AI-DLC) with Amazon Bedrock AgentCore and coding agents like Kiro often struggle with the gap between conceptual frameworks and working code.",
       "author_name": "",
       "author_role_vi": "",
       "author_role_en": "",
-      "summary": "Nvidia's RTX Spark headlines Lenovo's Yoga refresh at IFA, with two laptops, two pen-first tablets, and up to 128GB of unified memory. While the Lenovo Yoga 9n is limited to a 16-channel 256-bit 64GB LPDDR5X configuration, the Pro SKU doubles this to 128 GB.",
-      "dek": "Nvidia's RTX Spark headlines Lenovo's Yoga refresh at IFA, with two laptops, two pen-first tablets, and up to 128GB of unified memory.",
+      "summary": "Engineering teams adopting the AI-Driven Development Lifecycle (AI-DLC) with Amazon Bedrock AgentCore and coding agents like Kiro often struggle with the gap between conceptual frameworks and working code. Amazon Bedrock AgentCore is a service for building, connecting, and optimizing agents at scale with any framework or model.",
+      "dek": "Engineering teams adopting the AI-Driven Development Lifecycle (AI-DLC) with Amazon Bedrock AgentCore and coding agents like Kiro often struggle with the gap between conceptual frameworks and working code.",
       "sections": [
         {
           "heading": "What happened",
-          "body": "Nvidia's RTX Spark headlines Lenovo's Yoga refresh at IFA, with two laptops, two pen-first tablets, and up to 128GB of unified memory."
+          "body": "Amazon Bedrock AgentCore is a service for building, connecting, and optimizing agents at scale with any framework or model. AI-DLC positions AI as a central collaborator across the software development lifecycle, handling routine execution while humans retain oversight of critical decisions. This post closes that gap with working reference implementations."
         },
         {
           "heading": "Where the sources line up",
-          "body": "While the Lenovo Yoga 9n is limited to a 16-channel 256-bit 64GB LPDDR5X configuration, the Pro SKU doubles this to 128 GB."
+          "body": "This post walks through the architecture, design decisions, and key code patterns behind two reference implementations that demonstrate AI-DLC construction phase patterns using Amazon Bedrock AgentCore, Kiro, and local agentic coding tools. The first generates Mermaid entity relationship diagrams from SQL schemas using AgentCore runtime, a capability of Amazon Bedrock AgentCore. The second provides automated code security analysis through a multi-agent architecture that uses AgentCore Gateway, a capability of Amazon Bedrock AgentCore, and AgentCore memory, a capability of Amazon Bedrock AgentCore, along with external tool integrations. Together, they illustrate how to structure AI-driven workflows that maintain human-in-the-loop governance while accelerating delivery. Both implementations link to complete deployment instructions in their respective GitHub repositories."
         },
         {
           "heading": "Practical impact for readers",
-          "body": "The change allows the Yoga Pro 9n to run large models on-device, an impressive feat for a device that weighs only 1. 65kg but houses a capable Blackwell RTX GPU that can muster as many as 6144 cores for local AI needs."
+          "body": "The AI-DLC construction phase positions AI to propose architecture, generate implementation plans, produce code, and create deployment artifacts, with team members providing clarification on technical decisions in real time. The implementations described here map directly to this pattern:."
         },
         {
           "heading": "Who should pay attention now",
-          "body": "The underlying silicon is NVIDIA's RTX Spark, unveiled on May 31 ahead of GTC Taipei and long rumored under the codename N1X. Both laptops pair a 20-core Grace-class Arm CPU with a Blackwell RTX GPU with 6,144 CUDA cores, roughly comparable to a laptop with a GeForce RTX 5070, co-developed with MediaTek and joined by Nvidia's proprietary coherent chip-to-chip interconnect (NVLink-C2C)."
+          "body": "Both systems share a common architectural foundation built on AgentCore, demonstrating how teams can compose AI-driven workflows from modular, manageable components."
         },
         {
           "heading": "What is still unclear",
-          "body": "The Lenovo Yoga Pro 9n is the performance-centric model, offering 2 NVMe SSD slots and a total advertised storage capacity of 4 TB, while the non-Pro model caps at 2 TB. It also offers an extremely color-accurate 15. 3-inch 2. 5K PureSight Pro OLED that runs from 48 to 165Hz at 1100 nits peak brightness, plus a large 92. 5 Whr battery with rapid charging that lets it eke out an advertised 3 hours of battery life after 15 minutes of charging. It also offers 2 USB-A and 2 USB-C (USB4) ports the latter support DisplayPort 2. 1 and USB PD 3. 0 for power users, and it also includes an HDMI 2. 1 connection and an SD port."
+          "body": "This AWS Samples project auto-generates Mermaid ER diagrams from SQL schema files using an agentic AI workflow on Amazon Bedrock AgentCore. After SQL code is checked in by developers, the Amazon Simple Storage Service (Amazon S3) trigger and AWS Lambda function-based workflow invokes the AgentCore runtime, which parses the data definition language (DDL) to produce an . mmd diagram saved back to Amazon S3. It reads only schema metadata (tables, constraints, and foreign keys), never row data, making it a clean reference for schema-to-diagram automation."
         }
       ],
       "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/AcyLnQZRWcT4KmdyLmF46i-2000-80.png",
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21366-featured-image.png",
         "alt": "",
-        "caption": "Reference image from TechRadar.",
-        "credit": "TechRadar",
-        "source_url": "https://www.techradar.com/pro/lenovo-just-put-nvidias-arm-superchip-in-two-yoga-laptops-but-professionals-might-be-more-enthused-by-their-ai-centric-memory-configurations"
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/"
       },
-      "verification_state": "emerging",
+      "verification_state": "verified",
       "quality_score": 96,
       "ad_eligible": true,
-      "show_editorial_label": false,
+      "show_editorial_label": true,
       "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
       "editorial_focus": [],
       "source_set": [
         {
-          "source_type": "press",
-          "source_name": "TechRadar",
-          "source_url": "https://www.techradar.com/pro/lenovo-just-put-nvidias-arm-superchip-in-two-yoga-laptops-but-professionals-might-be-more-enthused-by-their-ai-centric-memory-configurations",
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
           "region": "Global",
           "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-03T16:00:00.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/AcyLnQZRWcT4KmdyLmF46i-2000-80.png",
-          "image_caption": "Reference image from TechRadar.",
-          "image_credit": "TechRadar"
+          "trust_tier": "official",
+          "published_at": "2026-09-03T16:16:28.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21366-featured-image.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
         }
       ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-03T16:00:00.000Z",
-      "updated_at": "2026-09-03T16:00:00.000Z",
-      "href": "/en/news/lenovo-just-put-nvidia-s-arm-superchip-in-two-yoga-laptops-but-professionals-might-be-more-enthu",
+      "author_id": "thao-nguyen",
+      "published_at": "2026-09-03T16:16:28.000Z",
+      "updated_at": "2026-09-03T16:16:28.000Z",
+      "href": "/en/news/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore",
       "readiness": {
         "ready": true,
         "missing": [],
@@ -102,121 +104,14 @@
           "sourceCleanliness": true
         }
       },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/lenovo-just-put-nvidia-s-arm-superchip-in-two-yoga-laptops-but-professionals-might-be-more-enthu",
+      "canonicalUrl": "https://patricktechmedia.com/en/news/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore",
       "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
+      "editorial_label": "Verified",
+      "topic": "security",
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T16:03:58.228Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-fb7b83db29b0-en",
-      "cluster_id": "feed-fb7b83db29b0",
-      "language": "en",
-      "topic_label": "Devices",
-      "topic_slug": "devices",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "lenovo-s-thinkcentre-x-ultra-puts-128gb-of-unified-memory-in-a-1-6-liter-box-and-you-can-cluster",
-      "title": "Lenovo's ThinkCentre X Ultra puts 128GB of unified memory in a 1.6-liter box, and you can cluster four of them together",
-      "hook": "Lenovo capped the ThinkCentre X Ultra at 128GB on a chip that supports up to 192GB, but you can interlink four of them together.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Lenovo capped the ThinkCentre X Ultra at 128GB on a chip that supports up to 192GB, but you can interlink four of them together. The company calls this offering a new class of desktop for agentic AI, and it can be configured to cluster up to four systems, effectively pooling processing power and memory to run large AI models locally.",
-      "dek": "Lenovo capped the ThinkCentre X Ultra at 128GB on a chip that supports up to 192GB, but you can interlink four of them together.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Lenovo capped the ThinkCentre X Ultra at 128GB on a chip that supports up to 192GB, but you can interlink four of them together."
-        },
-        {
-          "heading": "Where the sources line up",
-          "body": "The company calls this offering a new class of desktop for agentic AI, and it can be configured to cluster up to four systems, effectively pooling processing power and memory to run large AI models locally. The added compute and memory capacity lets users run longer context windows and multi-agent workflows without turning to cloud-hosted alternatives, while keeping data localized."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "The Ryzen AI Max+ PRO 495 is the flagship of AMD's Gorgon Halo refresh, pairing 16 Zen 5 cores with a 40-compute-unit Radeon 8065S integrated GPU and an NPU rated at roughly 55 TOPS. Its defining trait is the shared memory pool: the CPU and GPU address the same LPDDR5X memory under the hood, so it can effectively hold and run models that a discrete, consumer-grade GPU with 24GB or 32GB of VRAM cannot."
-        },
-        {
-          "heading": "Who should pay attention now",
-          "body": "Lenovo pairs it with its enterprise-class ThinkShield security, AMD's PRO technologies, and DASH out-of-band manageability, plus the self-healing BIOS that runs across the ThinkCentre line, and integrates the AMD Ryzen AI Developer Center for preconfigured tools, models, and workflows across both Windows and Linux."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "The Yoga laptops unveiled alongside it also reach 128GB of unified memory, but they don't offer the ability to cluster together for more memory or the additional hardware you may not need for a localized AI server. The price might be an issue for many looking to hook up four of these devices together however, assuming a device cost of $3700 for a 128GB model, one would need nearly $15,000 before factoring in connectivity costs to build a 512GB memory cluster based on the ThinkCentre X Ultra."
-        }
-      ],
-      "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/R6LuaJe4a7BAAD7CBMgQUG-2560-80.jpg",
-        "alt": "",
-        "caption": "Reference image from TechRadar.",
-        "credit": "TechRadar",
-        "source_url": "https://www.techradar.com/pro/lenovos-thinkcentre-x-ultra-puts-128gb-of-unified-memory-in-a-1-6-liter-box-and-you-can-cluster-four-of-them-together"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechRadar",
-          "source_url": "https://www.techradar.com/pro/lenovos-thinkcentre-x-ultra-puts-128gb-of-unified-memory-in-a-1-6-liter-box-and-you-can-cluster-four-of-them-together",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-03T16:00:00.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/R6LuaJe4a7BAAD7CBMgQUG-2560-80.jpg",
-          "image_caption": "Reference image from TechRadar.",
-          "image_credit": "TechRadar"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-03T16:00:00.000Z",
-      "updated_at": "2026-09-03T16:00:00.000Z",
-      "href": "/en/news/lenovo-s-thinkcentre-x-ultra-puts-128gb-of-unified-memory-in-a-1-6-liter-box-and-you-can-cluster",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/lenovo-s-thinkcentre-x-ultra-puts-128gb-of-unified-memory-in-a-1-6-liter-box-and-you-can-cluster",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T16:03:58.228Z",
+        "generated_at": "2026-09-03T16:20:50.375Z",
         "origin": "local-curated-rss"
       }
     },
@@ -323,7 +218,114 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T16:03:58.228Z",
+        "generated_at": "2026-09-03T16:20:50.375Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-827dc71d1537-en",
+      "cluster_id": "feed-827dc71d1537",
+      "language": "en",
+      "topic_label": "Internet & Business Tech",
+      "topic_slug": "internet-business-tech",
+      "topic_accent": "#9bff45",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
+      "title": "How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys",
+      "hook": "WhatsApp is the world's largest messaging platform, serving billions of users globally. What makes it worth reading is how it could change how digital users react, work, or spend.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.",
+      "dek": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "\"What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide,\" says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. Passkeys offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent."
+        }
+      ],
+      "image": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
+        "alt": "",
+        "caption": "Reference image from Android Developers Blog.",
+        "credit": "Android Developers Blog",
+        "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Android Developers Blog",
+          "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-28T17:10:10.680Z",
+          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
+          "image_caption": "Reference image from Android Developers Blog.",
+          "image_credit": "Android Developers Blog"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-28T17:10:10.680Z",
+      "updated_at": "2026-08-28T17:10:10.680Z",
+      "href": "/en/news/how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": "Verified",
+      "topic": "internet-business-tech",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-03T16:20:50.375Z",
         "origin": "local-curated-rss"
       }
     },
@@ -430,7 +432,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T16:03:58.228Z",
+        "generated_at": "2026-09-03T16:20:50.375Z",
         "origin": "local-curated-rss"
       }
     },
@@ -537,7 +539,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T16:03:58.228Z",
+        "generated_at": "2026-09-03T16:20:50.375Z",
         "origin": "local-curated-rss"
       }
     },
@@ -644,7 +646,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T16:03:58.228Z",
+        "generated_at": "2026-09-03T16:20:50.375Z",
         "origin": "local-curated-rss"
       }
     }

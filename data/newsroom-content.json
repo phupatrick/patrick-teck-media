@@ -1,6 +1,109 @@
 {
-  "generated_at": "2026-09-03T16:03:58.296Z",
+  "generated_at": "2026-09-03T16:20:50.444Z",
   "articles": [
+    {
+      "id": "feed-df39fb082709-en",
+      "cluster_id": "feed-df39fb082709",
+      "language": "en",
+      "topic_label": "Security",
+      "topic_slug": "security",
+      "topic_accent": "#1de59c",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "ai-driven-development-lifecycle-using-amazon-bedrock-agentcore",
+      "title": "AI-driven development lifecycle using Amazon Bedrock AgentCore",
+      "hook": "Engineering teams adopting the AI-Driven Development Lifecycle (AI-DLC) with Amazon Bedrock AgentCore and coding agents like Kiro often struggle with the gap between conceptual frameworks and working code.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Engineering teams adopting the AI-Driven Development Lifecycle (AI-DLC) with Amazon Bedrock AgentCore and coding agents like Kiro often struggle with the gap between conceptual frameworks and working code. Amazon Bedrock AgentCore is a service for building, connecting, and optimizing agents at scale with any framework or model.",
+      "dek": "Engineering teams adopting the AI-Driven Development Lifecycle (AI-DLC) with Amazon Bedrock AgentCore and coding agents like Kiro often struggle with the gap between conceptual frameworks and working code.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Amazon Bedrock AgentCore is a service for building, connecting, and optimizing agents at scale with any framework or model. AI-DLC positions AI as a central collaborator across the software development lifecycle, handling routine execution while humans retain oversight of critical decisions. This post closes that gap with working reference implementations."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "This post walks through the architecture, design decisions, and key code patterns behind two reference implementations that demonstrate AI-DLC construction phase patterns using Amazon Bedrock AgentCore, Kiro, and local agentic coding tools. The first generates Mermaid entity relationship diagrams from SQL schemas using AgentCore runtime, a capability of Amazon Bedrock AgentCore. The second provides automated code security analysis through a multi-agent architecture that uses AgentCore Gateway, a capability of Amazon Bedrock AgentCore, and AgentCore memory, a capability of Amazon Bedrock AgentCore, along with external tool integrations. Together, they illustrate how to structure AI-driven workflows that maintain human-in-the-loop governance while accelerating delivery. Both implementations link to complete deployment instructions in their respective GitHub repositories."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The AI-DLC construction phase positions AI to propose architecture, generate implementation plans, produce code, and create deployment artifacts, with team members providing clarification on technical decisions in real time. The implementations described here map directly to this pattern:."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Both systems share a common architectural foundation built on AgentCore, demonstrating how teams can compose AI-driven workflows from modular, manageable components."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "This AWS Samples project auto-generates Mermaid ER diagrams from SQL schema files using an agentic AI workflow on Amazon Bedrock AgentCore. After SQL code is checked in by developers, the Amazon Simple Storage Service (Amazon S3) trigger and AWS Lambda function-based workflow invokes the AgentCore runtime, which parses the data definition language (DDL) to produce an . mmd diagram saved back to Amazon S3. It reads only schema metadata (tables, constraints, and foreign keys), never row data, making it a clean reference for schema-to-diagram automation."
+        }
+      ],
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21366-featured-image.png",
+        "alt": "",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-03T16:16:28.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21366-featured-image.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2026-09-03T16:16:28.000Z",
+      "updated_at": "2026-09-03T16:16:28.000Z",
+      "href": "/en/news/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": "Verified",
+      "topic": "security"
+    },
     {
       "id": "feed-132a28b0c3cd-en",
       "cluster_id": "feed-132a28b0c3cd",
