@@ -4,6 +4,7 @@ import { createPostContent, getFacebookPostDetails, getRandomTechImage, postToFa
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
 import { getDailyQuota, runSocialAutopilot, selectCandidates } from "../scripts/social-autopilot.mjs";
+import { callGeminiJson } from "../src/ai-gateway.mjs";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -82,6 +83,47 @@ try {
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /ai-phone/);
   assert.equal(geminiContent.caption, "Bài có dấu");
+  let deepSeekRequest = null;
+  const deepSeekContent = await callGeminiJson({
+    apiKey: "gemini-test-key",
+    env: { DEEPSEEK_API_KEY: "deepseek-test-key" },
+    payload: { contents: [{ parts: [{ text: "Viết JSON về kiểm thử" }] }] },
+    fallbackModels: ["gemini-test-model"],
+    fetchImpl: async (url, options) => {
+      if (url.includes("generativelanguage.googleapis.com")) {
+        return new Response(JSON.stringify({ error: { message: "quota exceeded" } }), { status: 429 });
+      }
+      deepSeekRequest = { url, body: JSON.parse(options.body), authorization: options.headers.Authorization };
+      return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ caption: "Bài do DeepSeek", first_comment: "Liên hệ Patrick Tech" }) } }] }), { status: 200 });
+    },
+    label: "Social failover test"
+  });
+  assert.equal(deepSeekContent.candidates[0].content.parts[0].text, JSON.stringify({ caption: "Bài do DeepSeek", first_comment: "Liên hệ Patrick Tech" }));
+  assert.equal(deepSeekRequest.url, "https://api.deepseek.com/chat/completions");
+  assert.equal(deepSeekRequest.body.model, "deepseek-chat");
+  assert.deepEqual(deepSeekRequest.body.response_format, { type: "json_object" });
+  assert.equal(deepSeekRequest.authorization, "Bearer deepseek-test-key");
+  let resourceExhaustedFallbackCalled = false;
+  const resourceExhaustedContent = await callGeminiJson({
+    apiKey: "gemini-test-key",
+    env: { DEEPSEEK_API_KEY: "deepseek-test-key" },
+    payload: { contents: [{ parts: [{ text: "Viết JSON khi hết hạn mức" }] }] },
+    fallbackModels: ["gemini-test-model"],
+    fetchImpl: async (url) => {
+      if (url.includes("generativelanguage.googleapis.com")) {
+        return new Response(JSON.stringify({
+          error: { status: "RESOURCE_EXHAUSTED", message: "quota exhausted" }
+        }), { status: 400 });
+      }
+      resourceExhaustedFallbackCalled = true;
+      return new Response(JSON.stringify({
+        choices: [{ message: { content: JSON.stringify({ caption: "Bài dự phòng quota", first_comment: "Liên hệ Patrick Tech" }) } }]
+      }), { status: 200 });
+    },
+    label: "Resource exhausted fallback test"
+  });
+  assert.equal(resourceExhaustedFallbackCalled, true);
+  assert.equal(resourceExhaustedContent.provider, "deepseek");
   let productPrompt = "";
   await createPostContent({
     provider: "gemini", apiKey: "test-key", topic: "Công cụ AI", pillar: "product_offer", postType: "product_promotion", notes: "Giá tham khảo 99.000 đồng; thời hạn 30 ngày",
