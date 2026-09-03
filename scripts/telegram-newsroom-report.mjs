@@ -10,6 +10,7 @@ const contentPath = process.env.NEWSROOM_CONTENT_PATH || "data/newsroom-content.
 const managerStatePath = process.env.OPENCLAW_MANAGER_STATE_PATH || "data/openclaw-manager-state.json";
 const learningStatePath = process.env.OPENCLAW_LEARNING_STATE_PATH || "data/openclaw-learning-state.json";
 const pendingQueuePath = process.env.OPENCLAW_PENDING_QUEUE_PATH || "data/openclaw-pending-clusters.json";
+const reportStatePath = process.env.TELEGRAM_NEWSROOM_REPORT_STATE_PATH || "data/telegram-newsroom-report-state.json";
 
 if (!token || chatIds.length === 0) {
   console.log("Bỏ qua báo cáo Telegram vì chưa cấu hình token hoặc chat nhận báo cáo.");
@@ -22,16 +23,18 @@ const learning = readJson(learningStatePath);
 const pending = Array.isArray(readJson(pendingQueuePath).items) ? readJson(pendingQueuePath).items : [];
 const translationWarnings = pending.filter((item) => Number(item?.retry_count || 0) >= 3);
 const articles = Array.isArray(content.articles) ? content.articles : [];
-const latest = selectLatestNewsArticles(articles, 5);
 const learningProfile = learning.profile || {};
 const cycle = manager.manager || {};
 const refresh = manager.newsroom?.refresh || {};
 const newsroom = manager.newsroom || {};
+const reportState = readJson(reportStatePath);
+const reportedArticleIds = new Set(Array.isArray(reportState.reported_article_ids) ? reportState.reported_article_ids : []);
+const latest = preferVietnameseArticles(selectNewlyPublishedArticles(articles, cycle, reportedArticleIds, 5), articles);
 const refreshedCount = extractRefreshedCount(refresh.output);
 
 // This channel is an alert for completed publication only, not a cycle log.
 // Keep operational warnings in GitHub/Vercel logs so they do not flood Telegram.
-if (!Number.isFinite(refreshedCount) || refreshedCount < 1) {
+if (!Number.isFinite(refreshedCount) || refreshedCount < 1 || latest.length === 0) {
   console.log("No successfully published newsroom articles; Telegram notification skipped.");
   process.exit(0);
 }
@@ -73,6 +76,12 @@ const message = [
 for (const chatId of chatIds) {
   await sendTelegramMessage({ token, chatId, text: message });
 }
+writeJson(reportStatePath, {
+  reported_article_ids: [...latest.map((article) => article.id || article.href || article.slug), ...reportedArticleIds]
+    .filter(Boolean)
+    .slice(0, 500),
+  updated_at: new Date().toISOString()
+});
 
 console.log(`Đã gửi báo cáo Telegram đến ${chatIds.length} chat.`);
 
@@ -82,6 +91,12 @@ function readJson(targetPath) {
   } catch {
     return {};
   }
+}
+
+function writeJson(targetPath, value) {
+  const output = path.resolve(rootDir, targetPath);
+  fs.mkdirSync(path.dirname(output), { recursive: true });
+  fs.writeFileSync(output, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
 function normalizeIdList(values) {
@@ -95,12 +110,27 @@ function sortByPublishedDesc(left, right) {
   return Date.parse(right.published_at || right.updated_at || 0) - Date.parse(left.published_at || left.updated_at || 0);
 }
 
-function selectLatestNewsArticles(sourceArticles, limit) {
+function selectNewlyPublishedArticles(sourceArticles, cycle, reportedArticleIds, limit) {
+  const startedAt = Date.parse(cycle?.startedAt || 0);
+  const freshSinceCycle = Number.isFinite(startedAt) && startedAt > 0;
   const news = sourceArticles
     .filter((article) => article?.content_type === "NewsArticle" && article.verification_state !== "trend")
+    .filter((article) => !reportedArticleIds.has(article.id || article.href || article.slug))
+    .filter((article) => !freshSinceCycle || Date.parse(article.updated_at || article.published_at || 0) >= startedAt)
     .sort(sortByPublishedDesc);
 
-  return (news.length ? news : sourceArticles.slice().sort(sortByPublishedDesc)).slice(0, limit);
+  return news.slice(0, limit);
+}
+
+function preferVietnameseArticles(candidates, sourceArticles) {
+  const all = Array.isArray(sourceArticles) ? sourceArticles : [];
+  return candidates.map((article) => {
+    if (article?.language === "vi") return article;
+    const vietnamesePair = all.find((candidate) => candidate?.language === "vi"
+      && String(candidate?.cluster_id || "")
+      && String(candidate.cluster_id) === String(article?.cluster_id || ""));
+    return vietnamesePair || article;
+  });
 }
 
 function formatCycleWindow(startedAt, finishedAt) {

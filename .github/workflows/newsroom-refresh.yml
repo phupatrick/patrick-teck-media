@@ -102,6 +102,7 @@ jobs:
           NEWSROOM_TRANSLATION_ENDPOINT: ${{ secrets.NEWSROOM_TRANSLATION_ENDPOINT }}
           NEWSROOM_TRANSLATION_API_KEY: ${{ secrets.NEWSROOM_TRANSLATION_API_KEY }}
           NEWSROOM_TRANSLATION_MODEL: ${{ secrets.NEWSROOM_TRANSLATION_MODEL }}
+          NEWSROOM_TRANSLATION_USE_GEMINI: "1"
           NEWSROOM_GEMINI_API_KEY: ${{ secrets.NEWSROOM_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
           NEWSROOM_GEMINI_MODEL: ${{ secrets.NEWSROOM_GEMINI_MODEL || 'gemini-1.5-flash' }}
           NEWSROOM_GEMINI_LIMIT: "30"
@@ -166,7 +167,7 @@ jobs:
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}
           TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: ${{ secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || secrets.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS }}
-          SOCIAL_DAILY_REPORT_ENABLED: "0"
+          SOCIAL_DAILY_REPORT_ENABLED: "1"
         run: node scripts/social-daily-report.mjs
 
       - name: Sync generated data to cloud storage

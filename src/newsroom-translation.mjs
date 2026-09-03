@@ -1,16 +1,16 @@
 const TRANSLATABLE_FIELDS = ["title", "summary", "dek", "hook", "sections"];
 
 export function createNewsroomTranslator(options = {}) {
-  const endpoint = String(options.endpoint || process.env.NEWSROOM_TRANSLATION_ENDPOINT || "").trim();
-  const apiKey = String(options.apiKey || process.env.NEWSROOM_TRANSLATION_API_KEY || "").trim();
-  const model = String(options.model || process.env.NEWSROOM_TRANSLATION_MODEL || "").trim();
+  const endpoint = String(options.endpoint !== undefined ? options.endpoint : process.env.NEWSROOM_TRANSLATION_ENDPOINT || "").trim();
+  const apiKey = String(options.apiKey !== undefined ? options.apiKey : process.env.NEWSROOM_TRANSLATION_API_KEY || process.env.NEWSROOM_GEMINI_API_KEY || process.env.SOCIAL_AI_API_KEY || process.env.GEMINI_API_KEY || "").trim();
+  const model = String(options.model !== undefined ? options.model : process.env.NEWSROOM_TRANSLATION_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "gemini-1.5-flash").trim();
   const fetchImpl = options.fetch || fetch;
   const sleep = options.sleep || ((milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)));
 
   return {
-    enabled: Boolean(endpoint && apiKey && model),
+    enabled: Boolean(apiKey && model),
     async translateArticle(article, targetLanguage) {
-      if (!endpoint || !apiKey || !model) {
+      if (!apiKey || !model) {
         throw new Error("Newsroom translation provider is not configured.");
       }
 
@@ -20,7 +20,9 @@ export function createNewsroomTranslator(options = {}) {
       let lastError;
       for (let attempt = 0; attempt < 3; attempt += 1) {
         try {
-          translated = await requestTranslation({ endpoint, apiKey, model, article, sourceLanguage, target, fetchImpl });
+          translated = endpoint
+            ? await requestTranslation({ endpoint, apiKey, model, article, sourceLanguage, target, fetchImpl })
+            : await requestGeminiTranslation({ apiKey, model, article, sourceLanguage, target, fetchImpl });
           break;
         } catch (error) {
           lastError = error;
@@ -32,6 +34,23 @@ export function createNewsroomTranslator(options = {}) {
       return validateTranslation(translated);
     }
   };
+}
+
+async function requestGeminiTranslation({ apiKey, model, article, sourceLanguage, target, fetchImpl }) {
+  const models = [...new Set([model, "gemini-2.0-flash", "gemini-1.5-pro", "gemini-3.6-flash"].filter(Boolean))];
+  const input = JSON.stringify({ source_language: sourceLanguage, target_language: target, article: selectFields(article) });
+  const errors = [];
+  for (const candidate of models) {
+    const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(candidate)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contents: [{ parts: [{ text: `Translate this technology newsroom article. Return only valid JSON with title, summary, dek, hook, and sections. Keep facts, numbers, names, citations, and product terms unchanged. Do not add claims. sections must be an array of objects with heading and body.\n\n${input}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.2 } })
+    });
+    const payload = await response.json();
+    if (response.ok) return parseTranslationJson(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
+    errors.push(`${candidate}: HTTP ${response.status}: ${payload?.error?.message || "Google returned an unknown error."}`);
+  }
+  throw new Error(`Newsroom Gemini translation failed: ${errors.join(" | ")}`);
 }
 
 async function requestTranslation({ endpoint, apiKey, model, article, sourceLanguage, target, fetchImpl }) {

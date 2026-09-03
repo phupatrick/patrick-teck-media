@@ -26,7 +26,7 @@ const SOCIAL_SYSTEM_PROMPT = [
 ].join(" ");
 
 const DEFAULT_GEMINI_MODEL = "gemini-1.5-flash";
-const GEMINI_MODELS = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"];
+const GEMINI_MODELS = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro", "gemini-3.6-flash"];
 
 export function getRandomTechImage({ random = Math.random } = {}) {
   const index = Math.min(TECH_IMAGES.length - 1, Math.max(0, Math.floor(Number(random()) * TECH_IMAGES.length)));
@@ -219,7 +219,13 @@ const UNSAFE_CLAIMS = [
   [/cam kết lợi nhuận/gi, "giá trị tham khảo, không cam kết lợi nhuận"],
   [/đảm bảo 100%/gi, "hướng đến kết quả phù hợp"],
   [/không rủi ro/gi, "cần đánh giá rủi ro trước khi dùng"],
-  [/hack tài khoản/gi, "bảo vệ và khôi phục quyền truy cập đúng quy trình"]
+  [/hack tài khoản/gi, "bảo vệ và khôi phục quyền truy cập đúng quy trình"],
+  [/\bhack\b/gi, "bảo mật"],
+  [/\bcrack\b/gi, "bản quyền"],
+  [/\btut\b/gi, "hướng dẫn"],
+  [/lách/gi, "tối ưu"],
+  [/rẻ bèo/gi, "chi phí hợp lý"],
+  [/tài khoản lậu/gi, "tài khoản bản quyền"]
 ];
 
 export function sanitizeSocialText(value) {

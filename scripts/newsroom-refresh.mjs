@@ -1230,10 +1230,11 @@ async function ensureBilingualCandidates(articles, env, now, outputPath) {
   }
 
   const existing = readExistingArticles(outputPath || "data/newsroom-content.json");
+  const useGeminiTranslation = /^(1|true|yes|on)$/i.test(String(env.NEWSROOM_TRANSLATION_USE_GEMINI || ""));
   const translator = createNewsroomTranslator({
     endpoint: env.NEWSROOM_TRANSLATION_ENDPOINT,
-    apiKey: env.NEWSROOM_TRANSLATION_API_KEY,
-    model: env.NEWSROOM_TRANSLATION_MODEL
+    apiKey: env.NEWSROOM_TRANSLATION_API_KEY || (useGeminiTranslation ? env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY : ""),
+    model: env.NEWSROOM_TRANSLATION_MODEL || (useGeminiTranslation ? env.NEWSROOM_GEMINI_MODEL || "gemini-1.5-flash" : "")
   });
   const byCluster = new Map();
 

@@ -1544,9 +1544,13 @@ function normalizeSiteUrl(value) {
 }
 
 export function buildPublicArticleUrl(siteUrl, article = {}) {
+  const preferredVietnameseSlug = String(article?.slug_vi || "").trim().replace(/^\/+|\/+$/g, "");
+  if (preferredVietnameseSlug) {
+    return `${normalizeSiteUrl(siteUrl)}/vi/tin-tuc/${preferredVietnameseSlug}`;
+  }
   const href = String(article?.href || article?.article_href || "").trim();
 
-  if (/^https?:\/\//i.test(href)) {
+  if (/^https?:\/\//i.test(href) && !(/\/en\//i.test(href) && article?.has_vietnamese_translation)) {
     return href;
   }
 
@@ -1559,7 +1563,7 @@ export function buildPublicArticleUrl(siteUrl, article = {}) {
     return "";
   }
 
-  const language = String(article?.language || "vi").trim().toLowerCase() === "en" ? "en" : "vi";
+  const language = article?.has_vietnamese_translation ? "vi" : String(article?.language || "vi").trim().toLowerCase() === "en" ? "en" : "vi";
   const fallbackSegments = {
     NewsArticle: { vi: "tin-tuc", en: "news" },
     EvergreenGuide: { vi: "huong-dan", en: "guides" },
