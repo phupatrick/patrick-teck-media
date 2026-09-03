@@ -69,12 +69,14 @@ export async function postToFacebook({ pageId, pageToken, caption, imageUrl = ""
   if (!pageId || !pageToken) throw new Error("Facebook Page ID and access token are required.");
   const usePhoto = Boolean(String(imageUrl || "").trim());
   const endpoint = `https://graph.facebook.com/v20.0/${encodeURIComponent(pageId)}/${usePhoto ? "photos" : "feed"}`;
-  const body = new URLSearchParams({ access_token: pageToken, [usePhoto ? "caption" : "message"]: String(caption || "") });
+  const body = new URLSearchParams({ access_token: pageToken, published: "true", [usePhoto ? "caption" : "message"]: String(caption || "") });
   if (usePhoto) body.set("url", String(imageUrl).trim());
   const response = await fetchWithTimeout(fetchImpl, endpoint, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body }, timeoutMs);
   const payload = await readResponse(response);
   if (!response.ok) throw new Error(payload?.error?.message || `Facebook publishing failed with HTTP ${response.status}.`);
-  const id = String(payload?.id || payload?.post_id || "").trim();
+  // The photo edge returns both a photo id and a Page feed post id. The feed
+  // post id is the only id suitable for a public permalink and First Comment.
+  const id = String(payload?.post_id || payload?.id || "").trim();
   if (!id) throw new Error("Facebook did not return a post ID.");
   if (!returnDetails) return id;
   return getFacebookPostDetails({ pageId, postId: id, pageToken, fetchImpl, timeoutMs });
@@ -106,7 +108,11 @@ async function getFacebookPostDetails({ pageId, postId, pageToken, fetchImpl, ti
       ...fallback,
       ...payload,
       permalink_url: payload?.permalink_url || fallback.permalink_url,
-      verification_status: payload?.is_published === false ? "not_published" : "verified"
+      verification_status: payload?.is_published === true && payload?.permalink_url
+        ? "verified"
+        : payload?.is_published === false
+          ? "not_published"
+          : "unverified"
     };
   } catch (error) {
     return { ...fallback, verification_error: error.message || String(error) };

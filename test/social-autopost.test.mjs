@@ -48,6 +48,8 @@ try {
   assert.equal(fallbackPostId, "text-123");
   assert.match(publishUrls[0], /\/photos$/);
   assert.match(publishUrls[1], /\/feed$/);
+  const pagePostId = await postToFacebook({ pageId: "page", pageToken: "token", caption: "Published photo", imageUrl: "https://images.example.com/photo.jpg", fetchImpl: async () => new Response(JSON.stringify({ id: "photo-123", post_id: "page_456" }), { status: 200 }) });
+  assert.equal(pagePostId, "page_456");
   await assert.rejects(postToFacebook({ pageId: "page", pageToken: "token", caption: "Timeout", timeoutMs: 5, fetchImpl: () => new Promise(() => {}) }), /Request timeout after 5ms/);
   let geminiRequest = null;
   const geminiContent = await createPostContent({
