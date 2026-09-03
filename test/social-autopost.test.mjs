@@ -11,10 +11,15 @@ import path from "node:path";
 const tempPath = path.join(os.tmpdir(), `patrick-social-${Date.now()}.json`);
 try {
   const post = generateOfflinePost({ topic: "AI agent", pillar: "ai_news" });
-  assert.match(post.caption, /AI agent: Điều gì đáng chú ý\?/);
+  assert.match(post.caption, /🌟 PATRICK TECH CO./);
+  assert.match(post.caption, /Công nghệ dễ tiếp cận hơn/);
+  assert.match(post.caption, /⚡/);
+  assert.match(post.caption, /📌/);
+  assert.match(post.caption, /💡/);
   assert.match(post.caption, /PATRICK TECH CO\./);
   assert.match(post.caption, /patricktechmedia\.com/);
   assert.match(post.caption, /patricktechmedia\.store/);
+  assert.match(post.first_comment, /bảo hành 1-1/);
   assert.match(post.caption, /Chia sẻ trải nghiệm/);
   assert.doesNotMatch(post.caption, /\*\*/);
   assert.doesNotMatch(sanitizeSocialText("Đảm bảo 100% và không rủi ro"), /Đảm bảo 100%|không rủi ro/);
@@ -71,7 +76,9 @@ try {
   assert.equal(geminiRequest.body.generationConfig.temperature, 0.7);
   assert.equal(geminiRequest.body.generationConfig.maxOutputTokens, 1500);
   assert.equal(geminiRequest.body.generationConfig.thinkingConfig.thinkingBudget, 0);
-  assert.match(geminiRequest.body.contents[0].parts[0].text, /phân tích sâu 3 điểm/);
+  assert.match(geminiRequest.body.contents[0].parts[0].text, /🌟 PATRICK TECH CO./);
+  assert.match(geminiRequest.body.contents[0].parts[0].text, /tối đa 120 ký tự/);
+  assert.match(geminiRequest.body.contents[0].parts[0].text, /⚡, 📌, 💡/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /ai-phone/);
   assert.equal(geminiContent.caption, "Bài có dấu");

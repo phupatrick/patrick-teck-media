@@ -5,14 +5,15 @@ export const CONTENT_PILLARS = {
   TRUST_SUPPORT: "trust_support"
 };
 
-const DEFAULT_CTA = "📩 Nhắn Zalo 0933 684 560 để được tư vấn gói phù hợp, hỗ trợ cài đặt và bảo hành 1-1 từ Patrick Tech. Xem bài viết tại patricktechmedia.com/vi/ hoặc sản phẩm tại patricktechmedia.store.";
-const BRAND_HEADER = "⚡ PATRICK TECH CO. | Công nghệ thực tế, hỗ trợ rõ ràng";
+const DEFAULT_CTA = "📩 Xem tin công nghệ: https://patricktechmedia.com/vi/ | Xem giải pháp: https://patricktechmedia.store/ | Zalo/Hotline 0933 684 560 để được hỗ trợ và bảo hành 1-1.";
+const BRAND_HEADER = "🌟 PATRICK TECH CO. | CÔNG NGHỆ DỄ HIỂU, GIÁ TRỊ RÕ RÀNG";
+const BRAND_TAGLINE = "Công nghệ dễ tiếp cận hơn – Giá hợp lý hơn – Hỗ trợ tận tâm hơn.";
 const DISCUSSION_PROMPT = "💬 Bạn đang dùng công cụ nào cho nhu cầu này? Chia sẻ trải nghiệm để mọi người cùng tham khảo.";
 const DEFAULT_COMMENT = [
-  "📌 Thông tin và hỗ trợ chính thức của Patrick Tech Co.",
-  "Website: https://patricktechmedia.com/vi/",
-  "Store: https://patricktechmedia.store/",
-  "Zalo / Hotline: 0933 684 560"
+  "📌 Tòa soạn Patrick Tech Media: https://patricktechmedia.com/vi/",
+  "🛒 Cửa hàng Patrick Tech: https://patricktechmedia.store/",
+  "📞 Zalo / Hotline: 0933 684 560",
+  "🛡️ Hỗ trợ cài đặt và bảo hành 1-1 theo điều kiện sản phẩm."
 ].join("\n");
 
 export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, notes = "", customCTA = "", isProductPromotion = false } = {}) {
@@ -22,34 +23,34 @@ export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, n
 
   const contentByPillar = {
     [CONTENT_PILLARS.AI_NEWS]: [
-      `🔥 ${title}: Điều gì đáng chú ý?`,
-      `🔎 Điểm 1 - Công nghệ hoạt động ra sao: ${detail}`,
-      "⚙️ Điểm 2 - Tính năng và tác động thực tế: Hãy đối chiếu khả năng xử lý, mức tương thích, độ ổn định và chi phí vận hành trước khi đưa công cụ vào công việc.",
-      "💡 Điểm 3 - Có đáng dùng không: Lợi ích chỉ rõ ràng khi tính năng giải quyết đúng nhu cầu; hãy thử ở quy mô nhỏ và kiểm tra giới hạn, quyền riêng tư cùng chính sách cập nhật.",
+      `Hook: ${title.slice(0, 100)}`,
+      `⚡ Công nghệ: ${detail}`,
+      "📌 Cân nhắc chi phí: Đối chiếu khả năng xử lý, mức tương thích và chi phí vận hành trước khi đưa công cụ vào công việc.",
+      "💡 Quyết định thực tế: Thử ở quy mô nhỏ, kiểm tra giới hạn, quyền riêng tư và chính sách cập nhật.",
       `✅ Kết luận: ${cta}`,
       "#PatrickTechCo #AI #CôngNghệ #TechNews"
     ],
     [CONTENT_PILLARS.WORKFLOW_TIPS]: [
-      `🚀 ${title}: Áp dụng thế nào cho hiệu quả?`,
-      `🧭 Bước 1 - Xác định đầu ra: ${detail}`,
-      "🛠️ Bước 2 - Thiết kế quy trình: Chia việc thành các bước nhỏ, lưu mẫu thao tác, phân quyền dữ liệu và đặt điểm kiểm tra trước khi kết quả được gửi đi.",
-      "📊 Bước 3 - Đo hiệu quả: So sánh thời gian, chi phí, tỷ lệ lỗi và chất lượng đầu ra trước và sau khi áp dụng; chỉ mở rộng khi kết quả ổn định.",
+      `Hook: ${title.slice(0, 100)}`,
+      `⚡ Đầu ra cần rõ: ${detail}`,
+      "📌 Quy trình gọn: Chia việc thành bước nhỏ, lưu mẫu thao tác và kiểm tra dữ liệu trước khi gửi.",
+      "💡 Đo hiệu quả: So sánh thời gian, chi phí và tỷ lệ lỗi trước khi mở rộng.",
       `✅ Kết luận: ${cta}`,
       "#PatrickTechCo #Workflow #AIProductivity"
     ],
     [CONTENT_PILLARS.PRODUCT_OFFER]: [
-      `🛒 ${title}: Kiểm tra gì trước khi mua?`,
-      `📋 Điểm 1 - Tính năng và thông số: ${detail}`,
-      "💰 Điểm 2 - Giá trị và chi phí: So sánh giá, thời hạn, hạn mức, thiết bị hỗ trợ và chi phí phát sinh với nhu cầu thực tế thay vì chỉ nhìn vào mức giá niêm yết.",
-      "🛡️ Điểm 3 - Hậu mãi: Xác nhận phạm vi bảo hành, thời gian phản hồi, cách xử lý khi lỗi và kênh hỗ trợ trước khi thanh toán.",
+      `Hook: ${title.slice(0, 100)}`,
+      `⚡ Tính năng: ${detail}`,
+      "📌 Chi phí rõ ràng: So sánh giá, thời hạn, hạn mức và thiết bị hỗ trợ với nhu cầu thực tế.",
+      "💡 Hậu mãi: Xác nhận phạm vi bảo hành, thời gian phản hồi và cách xử lý khi lỗi trước khi thanh toán.",
       `✅ Lý do nên cân nhắc: ${cta}`,
       "#PatrickTechCo #TàiKhoảnAI #APIKey"
     ],
     [CONTENT_PILLARS.TRUST_SUPPORT]: [
-      `🤝 ${title}: Hỗ trợ không dừng ở bán hàng`,
-      `✅ Điểm 1 - Minh bạch: ${detail}`,
-      "🔧 Điểm 2 - Xử lý thực tế: Patrick Tech kiểm tra nguyên nhân, hướng dẫn từng bước và ưu tiên giải pháp phù hợp với thiết bị, tài khoản và quy trình của khách hàng.",
-      "📞 Điểm 3 - Đồng hành sau bàn giao: Khách hàng có kênh liên hệ rõ ràng, được cập nhật tiến độ và biết trước phạm vi bảo hành cũng như thời gian hỗ trợ.",
+      `Hook: ${title.slice(0, 100)}`,
+      `⚡ Minh bạch: ${detail}`,
+      "📌 Xử lý thực tế: Patrick Tech kiểm tra nguyên nhân, hướng dẫn từng bước và ưu tiên giải pháp phù hợp.",
+      "💡 Đồng hành sau bàn giao: Có kênh liên hệ rõ ràng, cập nhật tiến độ và phạm vi bảo hành.",
       `🌟 Cam kết: ${cta}`,
       "#PatrickTechCo #HỗTrợTậnTâm #DịchVụSố"
     ]
@@ -57,7 +58,7 @@ export function generateOfflinePost({ topic, pillar = CONTENT_PILLARS.AI_NEWS, n
 
   const disclosure = isProductPromotion ? "📣 Bài viết giới thiệu sản phẩm của Patrick Tech Co. Thông tin, giá và tình trạng được tham khảo từ catalog tại thời điểm đăng; vui lòng kiểm tra lại trước khi mua." : "";
   return {
-    caption: [BRAND_HEADER, disclosure, ...(contentByPillar[pillar] || contentByPillar[CONTENT_PILLARS.AI_NEWS]), DISCUSSION_PROMPT].filter(Boolean).join("\n\n"),
+    caption: [BRAND_HEADER, BRAND_TAGLINE, disclosure, ...(contentByPillar[pillar] || contentByPillar[CONTENT_PILLARS.AI_NEWS]), DISCUSSION_PROMPT].filter(Boolean).join("\n\n"),
     first_comment: DEFAULT_COMMENT
   };
 }
