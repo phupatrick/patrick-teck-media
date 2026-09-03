@@ -2182,6 +2182,32 @@ const tests = [
     }
   },
   {
+    name: "keeps older Vietnamese stories visible when no story is fresh enough for the masthead",
+    run() {
+      const scenario = buildScenarioState([
+        makeScenarioArticle({
+          language: "vi",
+          slug: "older-vietnamese-story",
+          title: "Older Vietnamese story remains discoverable",
+          published_at: "2026-04-08T10:00:00.000Z",
+          updated_at: "2026-04-08T10:00:00.000Z"
+        }),
+        makeScenarioArticle({
+          language: "vi",
+          slug: "another-vietnamese-story",
+          title: "Another Vietnamese story remains discoverable",
+          published_at: "2026-04-07T10:00:00.000Z",
+          updated_at: "2026-04-07T10:00:00.000Z"
+        })
+      ], { now: "2026-04-10T12:00:00.000Z" });
+      const homeHtml = renderHomePage(scenario, "vi", { client: "", slots: {} });
+
+      assert.match(homeHtml, /Mới nhất hiện có/);
+      assert.match(homeHtml, /older-vietnamese-story/);
+      assert.doesNotMatch(homeHtml, /Chưa có bài mới trong 48 giờ qua\./);
+    }
+  },
+  {
     name: "lets OpenClaw tune the front page through web control state",
     run() {
       const gamingArticle = makeScenarioArticle({

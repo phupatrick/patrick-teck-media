@@ -236,7 +236,11 @@ function buildPrompt({ topic, pillar, postType = "information", notes, sourceArt
 }
 
 function validatePostContent(value) {
-  const caption = sanitizeSocialText(String(value?.caption || "").trim());
+  const rawCaption = String(value?.caption || "").trim();
+  if (/(cam kết lợi nhuận|lợi nhuận chắc chắn|đảm bảo\s*100\s*%|không rủi ro|lãi suất chắc chắn|giàu nhanh)/i.test(rawCaption)) {
+    throw new Error("AI response contains an unverifiable financial or deceptive claim.");
+  }
+  const caption = sanitizeSocialText(rawCaption);
   const firstComment = String(value?.first_comment || value?.firstComment || "").trim();
   if (!caption) throw new Error("AI response has no caption.");
   return { caption: caption.slice(0, 6000), first_comment: firstComment.slice(0, 1800) };

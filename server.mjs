@@ -71,7 +71,11 @@ const publicDir = path.join(__dirname, "public");
 const envFromFile = loadEnvFile(path.join(__dirname, ".env"));
 const DEFAULT_SESSION_SECRET = "patrick-tech-media-dev-secret";
 const rawSiteUrl = process.env.SITE_URL || envFromFile.SITE_URL || "https://patricktechmedia.com";
-const sessionSecretResolution = resolveSessionSecret(process.env.SESSION_SECRET || envFromFile.SESSION_SECRET || "", rawSiteUrl);
+const sessionSecretResolution = resolveSessionSecret(
+  process.env.SESSION_SECRET || envFromFile.SESSION_SECRET || "",
+  rawSiteUrl,
+  process.env.NODE_ENV || envFromFile.NODE_ENV || ""
+);
 
 const config = {
   port: Number(process.env.PORT || envFromFile.PORT || 3000),
@@ -2126,15 +2130,15 @@ function isExplicitlyDisabled(value) {
   return /^(0|false|no|off)$/i.test(String(value || "").trim());
 }
 
-function resolveSessionSecret(value, siteUrl) {
+function resolveSessionSecret(value, siteUrl, nodeEnvironment = "") {
   const trimmed = String(value || "").trim();
-  const isProductionLike = /^https:\/\//i.test(siteUrl) && !/localhost|127\.0\.0\.1/i.test(siteUrl);
+  const isProduction = String(nodeEnvironment).trim().toLowerCase() === "production";
 
   if (trimmed && trimmed !== DEFAULT_SESSION_SECRET) {
     return { value: trimmed, warning: "" };
   }
 
-  if (!isProductionLike) {
+  if (!isProduction) {
     return { value: trimmed || DEFAULT_SESSION_SECRET, warning: "" };
   }
 

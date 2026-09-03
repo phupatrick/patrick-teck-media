@@ -75,6 +75,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
       const notes = buildArticleNotes(article);
       const content = await createAutopilotContent({ article, notes, env, fetchImpl, logger });
       const imageUrl = article.image?.src || article.image_url || getRandomTechImage();
+      validateFacebookCaption({ caption: content.caption, postType: article.post_type });
       const facebookPost = await safePostToFacebook({
         pageId,
         pageToken,
@@ -276,11 +277,28 @@ async function retryFailedFirstComments({ store, posts, pageToken, fetchImpl, lo
   return retried;
 }
 
-function isFacebookEligibleProduct(product) {
+export function isFacebookEligibleProduct(product) {
   const category = String(product?.catalogCategory || "").toLowerCase();
-  const text = `${product?.title || ""} ${product?.description || ""}`.toLowerCase();
+  const text = `${product?.title || ""} ${product?.description || ""} ${product?.terms || ""}`.toLowerCase();
   if (!new Set(["ai", "software"]).has(category)) return false;
-  return !/(add\s*(fam|family|team)|cấp tài khoản|tài khoản riêng|đổi mật khẩu|mail\s*\||password|unban|tăng lượt|tăng tương tác|followers?|views?|subscribers?|bot giá|tool tăng)/i.test(text);
+  // Meta-risky digital-access offers are quarantined instead of being disguised.
+  const prohibitedAccessOffer = /(add\s*(fam|family|team)|shared\s*account|tài khoản\s*(dùng chung|riêng|chung|slot)|suất\s*(tài khoản|dùng)|cho thuê tài khoản|thuê tài khoản|đổi mật khẩu|mail\s*\||password|email\s*\+\s*pass|cấp tài khoản|kích hoạt tài khoản|bán tài khoản|tài khoản lậu|unban|lách\s*(khu vực|region)|vượt\s*(khu vực|giới hạn)|tăng lượt|tăng tương tác|followers?|views?|subscribers?|bot giá|tool tăng)/i;
+  return !prohibitedAccessOffer.test(text);
+}
+
+export function validateFacebookCaption({ caption, postType = "information" } = {}) {
+  const text = String(caption || "").trim();
+  if (!text) throw new Error("Facebook caption is empty.");
+  const unsafeClaim = /(cam kết lợi nhuận|lợi nhuận chắc chắn|đảm bảo\s*100\s*%|không rủi ro|lãi suất chắc chắn|thu nhập thụ động đảm bảo|giàu nhanh|hoàn tiền chắc chắn)/i;
+  if (unsafeClaim.test(text)) throw new Error("Facebook caption quarantined: unverifiable financial or deceptive claim.");
+  if (postType === "product_promotion") {
+    const prohibitedCommercialAccess = /(tài khoản\s*(dùng chung|riêng|chung|slot)|suất\s*(tài khoản|dùng)|cho thuê tài khoản|thuê tài khoản|đổi mật khẩu|mail\s*\||email\s*\+\s*pass|password|cấp tài khoản|kích hoạt tài khoản|bán tài khoản|tài khoản lậu|unban|lách\s*(khu vực|region)|vượt\s*(khu vực|giới hạn))/i;
+    if (prohibitedCommercialAccess.test(text)) throw new Error("Facebook caption quarantined: prohibited or ambiguous account-access offer.");
+    if (!/Bài viết giới thiệu sản phẩm|mục đích thương mại|sản phẩm đang được giới thiệu/i.test(text)) {
+      throw new Error("Facebook caption quarantined: commercial disclosure is missing.");
+    }
+  }
+  return true;
 }
 
 function toProductCandidate(product) {

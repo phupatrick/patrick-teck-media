@@ -31,7 +31,7 @@ export function renderHomePage(state, language, adsConfig) {
     .filter(Boolean)
     .sort(sortStoriesByDateDesc);
   const mastheadReferenceTime = Date.parse(state.runtime?.generatedAt || "");
-  const mastheadLatestStories = mastheadCandidates
+  const freshMastheadStories = mastheadCandidates
     .filter((article) => {
       const timestamp = Date.parse(article.updated_at || article.published_at || "");
       return Number.isFinite(mastheadReferenceTime)
@@ -41,6 +41,15 @@ export function renderHomePage(state, language, adsConfig) {
     })
     .filter((article, index, stories) => stories.findIndex((entry) => entry.href === article.href) === index)
     .slice(0, 3);
+  const mastheadLatestStories = freshMastheadStories.length
+    ? freshMastheadStories
+    : mastheadCandidates
+      .filter((article, index, stories) => stories.findIndex((entry) => entry.href === article.href) === index)
+      .slice(0, 3);
+  const mastheadUsesFallback = !freshMastheadStories.length && mastheadLatestStories.length > 0;
+  const mastheadTitle = mastheadUsesFallback
+    ? (language === "vi" ? "Mới nhất hiện có" : "Latest available")
+    : copy.updateTitle;
   const latestPrimaryStories = safeLatestStories.slice(0, 3);
   const latestMoreStories = safeLatestStories.slice(3);
   const latestMoreLabel = language === "vi" ? "Xem thêm" : "See more";
@@ -76,7 +85,7 @@ export function renderHomePage(state, language, adsConfig) {
             </div>
           </div>
           <p class="eyebrow">${copy.updateLabel}</p>
-          <h2>${copy.updateTitle}</h2>
+          <h2>${mastheadTitle}</h2>
           <div class="masthead-brief-list">
             ${mastheadLatestStories.length
               ? mastheadLatestStories.map((article) => renderMastheadItem(article, language)).join("")
