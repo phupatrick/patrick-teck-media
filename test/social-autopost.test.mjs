@@ -12,6 +12,10 @@ import path from "node:path";
 const tempPath = path.join(os.tmpdir(), `patrick-social-${Date.now()}.json`);
 try {
   const post = generateOfflinePost({ topic: "AI agent", pillar: "ai_news" });
+  const captionLines = post.caption.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  assert.ok(captionLines[0].length <= 120);
+  assert.match(captionLines[0], /^AI agent$/);
+  assert.ok(captionLines.indexOf("🌟 PATRICK TECH CO. | CÔNG NGHỆ DỄ HIỂU, GIÁ TRỊ RÕ RÀNG") > 0);
   assert.match(post.caption, /🌟 PATRICK TECH CO./);
   assert.match(post.caption, /Công nghệ dễ tiếp cận hơn/);
   assert.match(post.caption, /⚡/);
@@ -78,7 +82,11 @@ try {
   assert.equal(geminiRequest.body.generationConfig.maxOutputTokens, 1500);
   assert.equal(geminiRequest.body.generationConfig.thinkingConfig.thinkingBudget, 0);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /🌟 PATRICK TECH CO./);
-  assert.match(geminiRequest.body.contents[0].parts[0].text, /tối đa 120 ký tự/);
+  const socialPrompt = geminiRequest.body.contents[0].parts[0].text;
+  assert.match(socialPrompt, /Dòng đầu tiên là Hook/);
+  assert.match(socialPrompt, /Ngay sau Hook là Header/);
+  assert.ok(socialPrompt.indexOf("Dòng đầu tiên là Hook") < socialPrompt.indexOf("Ngay sau Hook là Header"));
+  assert.match(socialPrompt, /tối đa 120 ký tự/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /⚡, 📌, 💡/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /ai-phone/);
