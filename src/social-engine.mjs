@@ -1,5 +1,6 @@
 import { generateOfflinePost } from "./social-templates.mjs";
 import { createDocumentStore } from "./document-store.mjs";
+import { callGeminiJson, resolveGeminiApiKey } from "./ai-gateway.mjs";
 
 const TECH_IMAGES = [
   "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85",
@@ -27,12 +28,8 @@ const SOCIAL_SYSTEM_PROMPT = [
   "Không dùng Markdown hoặc dấu **. Trả về JSON duy nhất gồm caption và first_comment; không bọc markdown."
 ].join(" ");
 
-const CANDIDATE_MODELS = [
-  process.env.SOCIAL_AI_MODEL,
-  "gemini-3.6-flash",
-  "gemini-3-flash-preview"
-].filter(Boolean);
-const GEMINI_REQUEST_TIMEOUT_MS = 60_000;
+const CANDIDATE_MODELS = ["gemini-3-flash-preview", "gemini-3.6-flash"];
+const GEMINI_REQUEST_TIMEOUT_MS = 35_000;
 
 export function getRandomTechImage({ random = Math.random } = {}) {
   const index = Math.min(TECH_IMAGES.length - 1, Math.max(0, Math.floor(Number(random()) * TECH_IMAGES.length)));
@@ -45,8 +42,8 @@ export async function createPostContent({ provider = "offline", apiKey = "", mod
     return generateOfflinePost({ topic, pillar, notes, isProductPromotion: postType === "product_promotion" });
   }
 
-  const apiKeys = resolveApiKeys(apiKey);
-  if (!apiKeys.length) {
+  const resolvedApiKey = resolveGeminiApiKey({ apiKey });
+  if (!resolvedApiKey) {
     throw new Error(`Missing API key for social provider "${normalizedProvider}".`);
   }
 
@@ -58,7 +55,7 @@ export async function createPostContent({ provider = "offline", apiKey = "", mod
   } catch {
     // Learning data is optional; content generation remains available without it.
   }
-  const result = await requestAiContent({ provider: normalizedProvider, apiKeys, model, topic, pillar, postType, notes, sourceArticleUrl, learningContext, fetchImpl });
+  const result = await requestAiContent({ provider: normalizedProvider, apiKey: resolvedApiKey, model, topic, pillar, postType, notes, sourceArticleUrl, learningContext, fetchImpl });
   return validatePostContent(result);
 }
 
@@ -178,57 +175,27 @@ export async function postFirstCommentWithRetry({ postId, pageToken, commentText
   throw lastError;
 }
 
-async function requestAiContent({ provider, apiKeys, model = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", learningContext = "", fetchImpl }) {
+async function requestAiContent({ provider, apiKey, model = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", learningContext = "", fetchImpl }) {
   if (provider === "gemini") {
-    const requestedModel = String(model || "").trim();
-    const candidateModels = [...new Set([requestedModel, ...CANDIDATE_MODELS].filter(Boolean))];
-    const errors = [];
-    for (const apiKey of apiKeys) for (const candidate of candidateModels) {
-      const response = await fetchWithTimeout(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(candidate)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl })}` }] }],
-          generationConfig: {
-            responseMimeType: "application/json",
-            temperature: 0.7,
-            maxOutputTokens: 1500,
-            thinkingConfig: { thinkingBudget: 0 }
-          }
-        })
-      }, GEMINI_REQUEST_TIMEOUT_MS);
-      const payload = await readResponse(response);
-      if (response.ok) {
-        console.log(`[Gemini] Tạo nội dung thành công với model: ${candidate}`);
-        return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
-      }
-      const detail = payload?.error?.message || payload?.raw || "Google returned an unknown error.";
-      errors.push(`${candidate}: HTTP ${response.status}: ${detail}`);
-      console.warn(`[Gemini] Model ${candidate} failed: HTTP ${response.status}: ${detail}`);
-      if ([404, 429, 500, 502, 503, 504].includes(response.status) && errors.length < apiKeys.length * candidateModels.length) {
-        await delayForGeminiRetry(errors.length);
-      }
-    }
-    throw new Error(`Gemini API failed: ${errors.join(" | ")}`);
+    const payload = await callGeminiJson({ apiKey, model, fallbackModels: CANDIDATE_MODELS, fetchImpl, timeoutMs: GEMINI_REQUEST_TIMEOUT_MS, label: "Social content" , payload: {
+      contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl })}` }] }],
+      generationConfig: { responseMimeType: "application/json", temperature: 0.7, maxOutputTokens: 1500, thinkingConfig: { thinkingBudget: 0 } }
+    }});
+    return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
   }
 
   const baseUrl = provider === "deepseek" ? "https://api.deepseek.com" : "https://api.openai.com";
   const providerModel = provider === "deepseek" ? "deepseek-chat" : "gpt-4o-mini";
   const response = await fetchWithTimeout(fetchImpl, `${baseUrl}/v1/chat/completions`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKeys[0]}` },
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
     body: JSON.stringify({ model: providerModel, response_format: { type: "json_object" }, messages: [{ role: "system", content: `${SOCIAL_SYSTEM_PROMPT}${learningContext}` }, { role: "user", content: buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl }) }] })
-  }, 10000);
+  }, 35_000);
   const payload = await readResponse(response);
   if (!response.ok) {
     throw new Error(`${provider} API failed (HTTP ${response.status}): ${payload?.error?.message || payload?.raw || "Provider returned an unknown error."}`);
   }
   return parseJsonText(payload?.choices?.[0]?.message?.content);
-}
-
-async function delayForGeminiRetry(attempt) {
-  const milliseconds = [1000, 2000, 4000][Math.min(2, Math.max(0, attempt - 1))];
-  await new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
 async function delay(milliseconds) {

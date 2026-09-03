@@ -78,7 +78,7 @@ function pushManagedChanges() {
 
   console.warn(`OpenClaw push was rejected; rebasing generated changes onto origin/${branch} and retrying.`);
   runCommand("git", ["fetch", "origin", branch], "Unable to fetch the latest OpenClaw branch.");
-  runCommand("git", ["rebase", `origin/${branch}`], "Unable to rebase OpenClaw-generated changes.");
+  runCommand("git", ["rebase", "-X", "ours", `origin/${branch}`], "Unable to rebase OpenClaw-generated changes.");
   runCommand("git", ["push", "origin", "HEAD"], "Unable to push OpenClaw-managed files after rebasing.");
 }
 

@@ -72,7 +72,7 @@ try {
       return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài có dấu", first_comment: "Liên hệ 0933 684 560" }) }] } }] }), { status: 200 });
     }
   });
-  assert.match(geminiRequest.url, /gemini-3\.6-flash:generateContent/);
+  assert.match(geminiRequest.url, /gemini-3-flash-preview:generateContent/);
   assert.equal(geminiRequest.body.generationConfig.temperature, 0.7);
   assert.equal(geminiRequest.body.generationConfig.maxOutputTokens, 1500);
   assert.equal(geminiRequest.body.generationConfig.thinkingConfig.thinkingBudget, 0);
@@ -118,7 +118,7 @@ try {
         return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài dự phòng", first_comment: "" }) }] } }] }), { status: 200 });
       }
     });
-    assert.match(fallbackUrls[0], /gemini-3\.6-flash:generateContent/);
+    assert.match(fallbackUrls[0], /gemini-3-flash-preview:generateContent/);
 
     await assert.rejects(
       createPostContent({
@@ -126,7 +126,7 @@ try {
         apiKey: "request-key",
         fetchImpl: async () => new Response(JSON.stringify({ error: { message: "API key not valid" } }), { status: 401 })
       }),
-      /Gemini API failed: .*HTTP 401: API key not valid/
+      /Social content API failed: .*HTTP 401: API key not valid/
     );
   } finally {
     if (originalSocialKey === undefined) delete process.env.SOCIAL_AI_API_KEY;
@@ -155,7 +155,7 @@ try {
       : { id: "123_456" }), { status: 200 }),
     answerCallbackQuery: (text) => { callbackToast = text; }
   });
-  assert.match(callback.text, /META XÁC MINH CÔNG KHAI/);
+  assert.match(callback.text, /ĐÃ ĐĂNG LÊN FANPAGE THÀNH CÔNG/);
   assert.match(callbackToast, /Đang xử lý/);
   assert.deepEqual(callback.replyMarkup, { inline_keyboard: [] });
   const commentFailurePath = path.join(os.tmpdir(), `patrick-social-comment-${Date.now()}.json`);
@@ -176,7 +176,7 @@ try {
   });
   assert.equal(autopilotResult.published.length, 1);
   assert.equal(autopilotResult.failures.length, 0);
-  assert.equal((await publishThenCommentFailStore.getPosts())[0].first_comment_status, "failed");
+  assert.equal((await publishThenCommentFailStore.getPosts())[0].comment_status, "retrying");
   fs.rmSync(callbackPath, { force: true });
   fs.rmSync(commentFailurePath, { force: true });
   console.log("social-autopost.test.mjs passed");

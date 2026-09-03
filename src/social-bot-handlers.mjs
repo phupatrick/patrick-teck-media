@@ -33,11 +33,33 @@ export async function handleSocialCallback(callbackData, context = {}) {
     const config = { ...context.defaults, ...state.config };
     const facebookPost = await safePostToFacebook({ pageId: config.fb_page_id, pageToken: config.fb_page_token, caption: post.caption, imageUrl: post.image_url, fetchImpl: context.fetch, returnDetails: true });
     const fbPostId = facebookPost.id;
-    if (post.first_comment) await postFirstCommentWithRetry({ postId: fbPostId, pageToken: config.fb_page_token, commentText: post.first_comment, fetchImpl: context.fetch, logger: console });
-    post.status = "published"; post.fb_post_id = fbPostId; post.facebook_url = facebookPost.permalink_url; post.facebook_verification_status = "verified"; post.facebook_verification_error = ""; post.published_at = new Date().toISOString(); post.updated_at = post.published_at;
-    result = `✅ BÀI VIẾT ĐÃ ĐƯỢC META XÁC MINH CÔNG KHAI!\n${facebookPost.permalink_url}`;
+    post.status = "published"; post.post_status = "published"; post.fb_post_id = fbPostId; post.facebook_url = facebookPost.permalink_url; post.facebook_verification_status = "verified"; post.facebook_verification_error = ""; post.published_at = new Date().toISOString(); post.updated_at = post.published_at;
+    post.comment_status = post.first_comment ? "retrying" : "not_requested";
+    result = `✅ ĐÃ ĐĂNG LÊN FANPAGE THÀNH CÔNG!\n${facebookPost.permalink_url}${post.comment_status === "retrying" ? "\nℹ️ Bình luận đầu sẽ được tự động thử lại." : ""}`;
     return state;
     });
+    const publishedState = await context.store.getState();
+    const publishedPost = publishedState.posts.find((item) => item.id === id);
+    const config = { ...context.defaults, ...publishedState.config };
+    if (publishedPost?.first_comment) {
+      try {
+        await postFirstCommentWithRetry({ postId: publishedPost.fb_post_id, pageToken: config.fb_page_token, commentText: publishedPost.first_comment, fetchImpl: context.fetch, logger: console });
+        await context.store.update((draft) => {
+          const target = draft.posts.find((item) => item.id === id);
+          if (target) { target.comment_status = "published"; target.updated_at = new Date().toISOString(); }
+          return draft;
+        });
+        result = result.replace("\nℹ️ Bình luận đầu sẽ được tự động thử lại.", "");
+      } catch (error) {
+        const message = error.message || String(error);
+        console.warn(`[social] First Comment deferred after successful Facebook post: ${message}`);
+        await context.store.update((draft) => {
+          const target = draft.posts.find((item) => item.id === id);
+          if (target) { target.comment_status = "retrying"; target.comment_error = message; target.updated_at = new Date().toISOString(); }
+          return draft;
+        });
+      }
+    }
     return { text: result, replyMarkup: { inline_keyboard: [] } };
   } finally {
     processingLocks.delete(id);

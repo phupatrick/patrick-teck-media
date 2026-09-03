@@ -675,6 +675,10 @@ export async function sendTelegramMessage({ token, chatId, text, extra = {} }) {
   });
 }
 
+export function escapeTelegramMarkdownV2(value) {
+  return String(value || "").replace(/([_\*\[\]()~`>#+\-=|{}.!\\])/g, "\\$1");
+}
+
 export async function sendTelegramPhoto({ token, chatId, photo, caption = "", extra = {} }) {
   const normalizedToken = String(token || "").trim();
   const normalizedChatId = String(chatId || "").trim();

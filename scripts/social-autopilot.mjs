@@ -107,6 +107,8 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         candidate_reasons: article.candidate_reasons || [],
         generation_mode: content.generation_mode || "offline",
         post_type: article.post_type || "information",
+        post_status: "published",
+        comment_status: content.first_comment ? "retrying" : "not_requested",
         first_comment_status: content.first_comment ? "pending" : "not_requested",
         first_comment_error: "",
         first_comment_retry_count: 0
@@ -132,7 +134,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
           firstCommentStatus = "published";
         } catch (error) {
           // The Facebook post is already live. Persist it and retry the comment separately later.
-          firstCommentStatus = "failed";
+          firstCommentStatus = "retrying";
           firstCommentError = error.message || String(error);
           logger.warn?.(`[social-autopilot] First comment failed for ${article.title}: ${firstCommentError}`);
         }
@@ -141,6 +143,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         const target = draft.posts.find((item) => item.id === record.id);
         if (target) {
           target.first_comment_status = firstCommentStatus;
+          target.comment_status = firstCommentStatus;
           target.first_comment_error = firstCommentError;
           target.first_comment_last_attempt_at = content.first_comment ? new Date().toISOString() : "";
           target.updated_at = new Date().toISOString();
@@ -236,7 +239,8 @@ async function retryFailedFirstComments({ store, posts, pageToken, fetchImpl, lo
   const retryDelayMs = Math.max(0, Number(env.SOCIAL_FIRST_COMMENT_RETRY_DELAY_MS || 30000));
   const retryLimit = Math.max(0, Number(env.SOCIAL_FIRST_COMMENT_RETRY_LIMIT || 3));
   const due = (Array.isArray(posts) ? posts : []).filter((post) => {
-    if (post?.status !== "published" || post?.first_comment_status !== "failed" || !post?.fb_post_id || !post?.first_comment) return false;
+    const commentNeedsRetry = ["failed", "retrying"].includes(post?.first_comment_status) || post?.comment_status === "retrying";
+    if (post?.status !== "published" || !commentNeedsRetry || !post?.fb_post_id || !post?.first_comment) return false;
     if (Number(post.first_comment_retry_count || 0) >= retryLimit) return false;
     const lastAttempt = Date.parse(post.first_comment_last_attempt_at || post.updated_at || post.published_at || 0);
     return !Number.isFinite(lastAttempt) || now.getTime() - lastAttempt >= retryDelayMs;
@@ -247,7 +251,7 @@ async function retryFailedFirstComments({ store, posts, pageToken, fetchImpl, lo
       await postFirstCommentWithRetry({ postId: post.fb_post_id, pageToken, commentText: post.first_comment, fetchImpl, delayMs: 0, retries: 2, logger });
       await store.update((draft) => {
         const target = draft.posts.find((item) => item.id === post.id);
-        if (target) { target.first_comment_status = "published"; target.first_comment_error = ""; target.first_comment_last_attempt_at = now.toISOString(); target.updated_at = now.toISOString(); }
+        if (target) { target.first_comment_status = "published"; target.comment_status = "published"; target.first_comment_error = ""; target.comment_error = ""; target.first_comment_last_attempt_at = now.toISOString(); target.updated_at = now.toISOString(); }
         return draft;
       });
       retried.push({ id: post.id, status: "published" });
@@ -256,7 +260,7 @@ async function retryFailedFirstComments({ store, posts, pageToken, fetchImpl, lo
       logger.warn?.(`[social-autopilot] First comment retry failed for ${post.topic}: ${message}`);
       await store.update((draft) => {
         const target = draft.posts.find((item) => item.id === post.id);
-        if (target) { target.first_comment_retry_count = Number(target.first_comment_retry_count || 0) + 1; target.first_comment_last_attempt_at = now.toISOString(); target.first_comment_error = message; target.updated_at = now.toISOString(); }
+        if (target) { target.first_comment_retry_count = Number(target.first_comment_retry_count || 0) + 1; target.comment_status = "retrying"; target.first_comment_last_attempt_at = now.toISOString(); target.first_comment_error = message; target.comment_error = message; target.updated_at = now.toISOString(); }
         return draft;
       });
       retried.push({ id: post.id, status: "failed" });

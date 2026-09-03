@@ -1234,7 +1234,7 @@ async function ensureBilingualCandidates(articles, env, now, outputPath) {
   const translator = createNewsroomTranslator({
     endpoint: env.NEWSROOM_TRANSLATION_ENDPOINT,
     apiKey: env.NEWSROOM_TRANSLATION_API_KEY || (useGeminiTranslation ? env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY : ""),
-    model: env.NEWSROOM_TRANSLATION_MODEL || (useGeminiTranslation ? env.NEWSROOM_GEMINI_MODEL || "gemini-1.5-flash" : "")
+    model: env.NEWSROOM_TRANSLATION_MODEL || (useGeminiTranslation ? env.NEWSROOM_GEMINI_MODEL || "gemini-3-flash-preview" : "")
   });
   const byCluster = new Map();
 
