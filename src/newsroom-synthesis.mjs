@@ -1,6 +1,7 @@
 ﻿import crypto from "node:crypto";
 
 import { repairEncodingArtifacts } from "./text-repair.mjs";
+import { callGeminiJson } from "./ai-gateway.mjs";
 
 const SOURCE_TYPE_PRIORITY = {
   "official-site": 30,
@@ -109,6 +110,65 @@ function rebalanceCompanionImages(articles) {
   return entries
     .sort((left, right) => left.index - right.index)
     .map(({ article }) => assigned.find((entry) => entry.article === article)?.result || article);
+}
+
+// Gemini improves wording only after deterministic clustering has established the facts and sources.
+export async function enhanceMultiSourceSynthesisWithGemini(articles, options = {}) {
+  const pool = Array.isArray(articles) ? articles : [];
+  const apiKey = String(options.apiKey || options.env?.NEWSROOM_GEMINI_API_KEY || process.env.NEWSROOM_GEMINI_API_KEY || options.env?.GEMINI_API_KEY || process.env.GEMINI_API_KEY || "").trim();
+  if (!apiKey) return pool;
+
+  const fetchImpl = options.fetchImpl || fetch;
+  const env = options.env || process.env;
+  const model = String(options.model || env.NEWSROOM_GEMINI_MODEL || "gemini-3-flash-preview").trim();
+  const fallbackModels = ["gemini-3.6-flash"];
+
+  return Promise.all(pool.map(async (article) => {
+    if (!article || Number(article?.research_context?.source_count || article?.source_set?.length || 0) < 2) return article;
+    const facts = article.research_context?.source_facts;
+    if (!Array.isArray(facts) || facts.length < 2) return article;
+
+    const prompt = `Bạn là biên tập viên công nghệ của Patrick Tech Media. Tổng hợp bài viết tiếng Việt từ đúng các dữ kiện nguồn được cung cấp. Không suy đoán, không thêm số liệu, không lặp ý và không biến nhận định thành sự thật. Trả về JSON hợp lệ gồm: dek (đúng 2 câu ngắn), hook (mở bài thu hút nhưng trung thực), key_points (3 đến 5 object có heading và body). Mỗi điểm phải gắn với dữ kiện nguồn phù hợp khi có thể.\n\n${JSON.stringify({ title: article.title, topic: article.topic, sources: facts })}`;
+    try {
+      const response = await callGeminiJson({
+        apiKey,
+        model,
+        fallbackModels,
+        env,
+        fetchImpl,
+        label: "Newsroom synthesis",
+        payload: {
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { responseMimeType: "application/json", temperature: 0.3, thinkingConfig: { thinkingBudget: 0 } }
+        }
+      });
+      const result = parseSynthesisResult(response?.candidates?.[0]?.content?.parts?.[0]?.text);
+      if (!result) return article;
+      const sections = result.key_points?.length >= 3
+        ? result.key_points.map((point) => ({ heading: point.heading, body: point.body }))
+        : article.sections;
+      return { ...article, dek: result.dek, hook: result.hook, sections };
+    } catch (error) {
+      console.warn(`[Gemini] Newsroom synthesis enhancement skipped: ${error?.message || error}`);
+      return article;
+    }
+  }));
+}
+
+function parseSynthesisResult(value) {
+  try {
+    const cleaned = String(value || "").trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "");
+    const parsed = JSON.parse(cleaned);
+    const dek = String(parsed?.dek || "").trim();
+    const hook = String(parsed?.hook || "").trim();
+    const keyPoints = Array.isArray(parsed?.key_points) ? parsed.key_points
+      .map((point) => ({ heading: String(point?.heading || "").trim(), body: String(point?.body || "").trim() }))
+      .filter((point) => point.heading && point.body) : [];
+    if (!dek || !hook || keyPoints.length < 3 || (dek.match(/[.!?。！？]/g) || []).length < 2) return null;
+    return { dek, hook, key_points: keyPoints };
+  } catch {
+    return null;
+  }
 }
 
 function pickDistinctCompanionImage(article, usedSrcs, candidates = collectCompanionImageCandidates(article)) {

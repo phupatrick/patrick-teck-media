@@ -4,7 +4,10 @@ const TRANSLATABLE_FIELDS = ["title", "summary", "dek", "hook", "sections"];
 
 export function createNewsroomTranslator(options = {}) {
   const endpoint = String(options.endpoint !== undefined ? options.endpoint : process.env.NEWSROOM_TRANSLATION_ENDPOINT || "").trim();
-  const apiKey = resolveGeminiApiKey({ apiKey: options.apiKey !== undefined ? options.apiKey : process.env.NEWSROOM_TRANSLATION_API_KEY });
+  const defaultApiKey = endpoint
+    ? process.env.NEWSROOM_TRANSLATION_API_KEY
+    : process.env.NEWSROOM_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
+  const apiKey = resolveGeminiApiKey({ apiKey: options.apiKey !== undefined ? options.apiKey : defaultApiKey });
   const model = String(options.model !== undefined ? options.model : process.env.NEWSROOM_TRANSLATION_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "gemini-3-flash-preview").trim();
   const fetchImpl = options.fetch || fetch;
   const sleep = options.sleep || ((milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)));
@@ -41,8 +44,8 @@ export function createNewsroomTranslator(options = {}) {
 async function requestGeminiTranslation({ apiKey, model, article, sourceLanguage, target, fetchImpl }) {
   const input = JSON.stringify({ source_language: sourceLanguage, target_language: target, article: selectFields(article) });
   const payload = await callGeminiJson({ apiKey, model, fetchImpl, label: "Newsroom translation", payload: {
-    contents: [{ parts: [{ text: `Translate this technology newsroom article. Return only valid JSON with title, summary, dek, hook, and sections. Keep facts, numbers, names, citations, and product terms unchanged. Do not add claims. sections must be an array of objects with heading and body.\n\n${input}` }] }],
-    generationConfig: { responseMimeType: "application/json", temperature: 0.2, thinkingConfig: { thinkingBudget: 0 } }
+    contents: [{ parts: [{ text: `Bạn là Biên tập viên dịch thuật công nghệ cao cấp của toà soạn Patrick Tech Media (https://patricktechmedia.com/vi/). Dịch bài viết sang tiếng Việt chuẩn văn phong báo chí công nghệ hiện đại, tự nhiên và chính xác. Giữ nguyên cấu trúc Markdown, code blocks, bảng biểu, liên kết trích dẫn nguồn, số liệu, tên riêng và thuật ngữ kỹ thuật; không bịa thêm thông tin. Chỉ trả về JSON hợp lệ với title, summary, dek, hook và sections; sections là mảng các object gồm heading và body.\n\n${input}` }] }],
+    generationConfig: { responseMimeType: "application/json", temperature: 0.3, thinkingConfig: { thinkingBudget: 0 } }
   }});
   return parseTranslationJson(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
 }

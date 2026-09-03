@@ -22,7 +22,7 @@ import {
   getTopicPage,
   sortStoriesByFreshnessAndHeat
 } from "../src/newsroom-service.mjs";
-import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
+import { aggregateIncomingDrafts, buildEditorialCompanionArticles, enhanceMultiSourceSynthesisWithGemini } from "../src/newsroom-synthesis.mjs";
 import { evaluateArticleAutopublishReadiness, evaluateArticleReadiness } from "../src/newsroom-quality.mjs";
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
 import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
@@ -138,6 +138,57 @@ const tests = [
       const readiness = evaluateArticleAutopublishReadiness(article);
       assert.equal(readiness.checks.sourceBreadth, true);
       assert.equal(readiness.missing.includes("sourceBreadth"), false);
+    }
+  },
+  {
+    name: "enhances multi-source synthesis with Gemini without losing source metadata",
+    async run() {
+      let requestedUrl = "";
+      let requestedBody = "";
+      const enhanced = await enhanceMultiSourceSynthesisWithGemini([
+        makeScenarioArticle({
+          title: "Galaxy S26 FE có pin lớn hơn",
+          source_set: [
+            { source_name: "Samsung Newsroom", source_url: "https://example.com/samsung" },
+            { source_name: "GenK Mobile", source_url: "https://example.com/genk" }
+          ],
+          research_context: {
+            source_count: 2,
+            source_facts: [
+              { source_name: "Samsung Newsroom", source_url: "https://example.com/samsung", facts: ["Pin 4.900 mAh."] },
+              { source_name: "GenK Mobile", source_url: "https://example.com/genk", facts: ["Giá khởi điểm 699 USD."] }
+            ]
+          }
+        })
+      ], {
+        apiKey: "test-key",
+        fetchImpl: async (url, options) => {
+          requestedUrl = url;
+          requestedBody = options.body;
+          return {
+            ok: true,
+            status: 200,
+            async text() {
+              return JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({
+                dek: "Mẫu máy mới tăng thời lượng sử dụng. Giá bán được đặt trong phân khúc cận cao cấp.",
+                hook: "Pin lớn hơn và mức giá 699 USD đang tạo khác biệt ở phân khúc cận cao cấp.",
+                key_points: [
+                  { heading: "Pin", body: "Dung lượng pin đạt 4.900 mAh theo nguồn công bố." },
+                  { heading: "Giá", body: "Mức giá khởi điểm được ghi nhận là 699 USD." },
+                  { heading: "Bối cảnh", body: "Sản phẩm cạnh tranh trong nhóm máy cận cao cấp." }
+                ]
+              }) }] } }] });
+            }
+          };
+        }
+      });
+      const [article] = enhanced;
+      assert.match(requestedUrl, /gemini-3-flash-preview/);
+      assert.match(requestedBody, /Không suy đoán/);
+      assert.match(article.sections[1].body, /699 USD/);
+      assert.match(article.hook, /Pin lớn hơn/);
+      assert.equal(article.research_context.source_count, 2);
+      assert.equal(article.sections.length, 3);
     }
   },
   {
@@ -2936,6 +2987,7 @@ function makeScenarioArticle(overrides) {
     indexable: true,
     store_link_mode: "soft",
     related_store_items: ["ai-workspace-bundle"],
+    research_context: overrides.research_context,
     source_set: overrides.source_set || [
       { source_type: "official-site", source_name: "Scenario Official", source_url: "https://example.com/scenario", image_url: "https://images.example.com/scenario.jpg" },
       { source_type: "press", source_name: "Scenario Press", source_url: "https://example.com/scenario-press" }

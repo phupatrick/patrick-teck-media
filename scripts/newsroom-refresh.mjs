@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { normalizeArticles, publishArticles } from "./newsroom-publish.mjs";
-import { aggregateIncomingDrafts, buildEditorialCompanionArticles } from "../src/newsroom-synthesis.mjs";
+import { aggregateIncomingDrafts, buildEditorialCompanionArticles, enhanceMultiSourceSynthesisWithGemini } from "../src/newsroom-synthesis.mjs";
 import { repairEncodingArtifacts } from "../src/text-repair.mjs";
 import { createNewsroomTranslator } from "../src/newsroom-translation.mjs";
 import { enrichArticleWithGemini, getNewsroomGeminiConfig } from "../src/newsroom-gemini.mjs";
@@ -1064,13 +1064,14 @@ const SOURCE_TOPIC_HINTS = [
   }
 
   const publishOptions = {
+    env,
     now,
     outputPath,
     siteUrl: env.SITE_URL || "https://patricktechmedia.com",
     storeUrl: env.PATRICK_TECH_STORE_URL || "https://patricktechmedia.store",
     strictQualityGate: isStrictAutopublishQualityGateEnabled(env)
   };
-  incomingArticles = prepareArticlesForPublish(queuedCandidates, publishOptions);
+  incomingArticles = await prepareArticlesForPublish(queuedCandidates, publishOptions);
 
   const geminiConfig = getNewsroomGeminiConfig(env);
   if (geminiConfig.apiKey && incomingArticles.length < queuedCandidates.length) {
@@ -1089,7 +1090,7 @@ const SOURCE_TOPIC_HINTS = [
     }
     if (enriched.length > 0) {
       const enrichedByKey = new Map(enriched.flatMap((article) => articleSourceKeys(article).map((key) => [key, article])));
-      incomingArticles = prepareArticlesForPublish(
+      incomingArticles = await prepareArticlesForPublish(
         queuedCandidates.map((article) => enrichedByKey.get(articleSourceKeys(article)[0]) || article),
         publishOptions
       );
@@ -1159,7 +1160,7 @@ const SOURCE_TOPIC_HINTS = [
   return { ...result, sourceLabel };
 }
 
-function prepareArticlesForPublish(incomingArticles, { now, outputPath, siteUrl, storeUrl, strictQualityGate = false }) {
+async function prepareArticlesForPublish(incomingArticles, { env = process.env, now, outputPath, siteUrl, storeUrl, strictQualityGate = false }) {
   const historicalArticles = readExistingArticles(outputPath || "data/newsroom-content.json");
   const contextualArticles = buildHistoricalContextArticles(incomingArticles, historicalArticles, now);
   const publishCandidates = [...incomingArticles, ...contextualArticles];
@@ -1188,7 +1189,10 @@ function prepareArticlesForPublish(incomingArticles, { now, outputPath, siteUrl,
 
   }
 
-  const synthesizedArticles = aggregateIncomingDrafts(publishCandidates, now);
+  const synthesizedArticles = await enhanceMultiSourceSynthesisWithGemini(
+    aggregateIncomingDrafts(publishCandidates, now),
+    { env, model: env.NEWSROOM_GEMINI_MODEL, apiKey: env.NEWSROOM_GEMINI_API_KEY || env.GEMINI_API_KEY }
+  );
   const synthesizedState = buildNewsroomState({
     siteUrl,
     storeUrl,
@@ -1233,7 +1237,7 @@ async function ensureBilingualCandidates(articles, env, now, outputPath) {
   const useGeminiTranslation = /^(1|true|yes|on)$/i.test(String(env.NEWSROOM_TRANSLATION_USE_GEMINI || ""));
   const translator = createNewsroomTranslator({
     endpoint: env.NEWSROOM_TRANSLATION_ENDPOINT,
-    apiKey: env.NEWSROOM_TRANSLATION_API_KEY || (useGeminiTranslation ? env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY : ""),
+    apiKey: env.NEWSROOM_TRANSLATION_API_KEY || (useGeminiTranslation ? env.NEWSROOM_GEMINI_API_KEY || env.GEMINI_API_KEY : ""),
     model: env.NEWSROOM_TRANSLATION_MODEL || (useGeminiTranslation ? env.NEWSROOM_GEMINI_MODEL || "gemini-3-flash-preview" : "")
   });
   const byCluster = new Map();
