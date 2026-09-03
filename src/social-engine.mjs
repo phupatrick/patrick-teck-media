@@ -79,7 +79,7 @@ export async function postToFacebook({ pageId, pageToken, caption, imageUrl = ""
   const id = String(payload?.post_id || payload?.id || "").trim();
   if (!id) throw new Error("Facebook did not return a post ID.");
   if (!returnDetails) return id;
-  return getFacebookPostDetails({ pageId, postId: id, pageToken, fetchImpl, timeoutMs });
+  return verifyFacebookPost({ pageId, postId: id, pageToken, fetchImpl, timeoutMs });
 }
 
 export async function safePostToFacebook({ pageId, pageToken, caption, imageUrl = "", fetchImpl = fetch, timeoutMs = 10000, returnDetails = false } = {}) {
@@ -91,7 +91,7 @@ export async function safePostToFacebook({ pageId, pageToken, caption, imageUrl 
   }
 }
 
-async function getFacebookPostDetails({ pageId, postId, pageToken, fetchImpl, timeoutMs }) {
+export async function getFacebookPostDetails({ pageId, postId, pageToken, fetchImpl = fetch, timeoutMs = 10000 }) {
   const fallback = {
     id: postId,
     permalink_url: `https://www.facebook.com/${encodeURIComponent(pageId)}/posts/${encodeURIComponent(postId)}`,
@@ -99,7 +99,7 @@ async function getFacebookPostDetails({ pageId, postId, pageToken, fetchImpl, ti
     verification_status: "unverified"
   };
   try {
-    const fields = "id,permalink_url,is_published,privacy";
+    const fields = "id,permalink_url,is_published,is_hidden,privacy";
     const url = `https://graph.facebook.com/v20.0/${encodeURIComponent(postId)}?fields=${fields}&access_token=${encodeURIComponent(pageToken)}`;
     const response = await fetchWithTimeout(fetchImpl, url, { headers: { accept: "application/json" } }, timeoutMs);
     const payload = await readResponse(response);
@@ -117,6 +117,26 @@ async function getFacebookPostDetails({ pageId, postId, pageToken, fetchImpl, ti
   } catch (error) {
     return { ...fallback, verification_error: error.message || String(error) };
   }
+}
+
+export async function verifyFacebookPost({ pageId, postId, pageToken, fetchImpl = fetch, timeoutMs = 10000, attempts = 4, delayMs = 3000, logger = console } = {}) {
+  let details;
+  const totalAttempts = Math.max(1, Number(attempts) || 1);
+  for (let attempt = 1; attempt <= totalAttempts; attempt += 1) {
+    details = await getFacebookPostDetails({ pageId, postId, pageToken, fetchImpl, timeoutMs });
+    if (details.verification_status === "verified" && details.is_hidden !== true) return details;
+    if (attempt < totalAttempts) {
+      logger.warn?.(`[Facebook] Public visibility check ${attempt}/${totalAttempts} is not verified yet.`);
+      await delay(delayMs);
+    }
+  }
+  const cause = details?.verification_error
+    || (details?.is_hidden === true
+      ? "Meta marked the post as hidden. Check Page quality, audience restrictions, and publishing authorization."
+      : details?.is_published === false
+        ? "Meta accepted the request but the post is not published. Check Page restrictions and publishing authorization."
+        : "Meta did not confirm a public permalink after the verification window.");
+  throw new Error(`Facebook post ${postId} was not publicly verified: ${cause}`);
 }
 
 export async function getFacebookPermalink({ pageId = "", postId, pageToken, fetchImpl = fetch, timeoutMs = 10000 } = {}) {

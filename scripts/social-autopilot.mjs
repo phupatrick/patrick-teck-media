@@ -81,7 +81,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
       });
       const postId = facebookPost.id;
       console.log("====================================================");
-      console.log("[FACEBOOK PUBLISHED SUCCESS]");
+      console.log("[FACEBOOK PUBLICLY VERIFIED]");
       console.log(`Post ID: ${postId}`);
       console.log(`Public permalink: ${facebookPost.permalink_url}`);
       console.log("====================================================");
@@ -97,7 +97,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         status: "published",
         fb_post_id: String(postId),
         facebook_url: facebookPost.permalink_url,
-        facebook_verification_status: facebookPost.verification_status,
+        facebook_verification_status: "verified",
         facebook_verification_error: facebookPost.verification_error || "",
         created_at: publishedAt,
         published_at: publishedAt,
@@ -395,7 +395,7 @@ async function sendTelegramReport(result, env, fetchImpl) {
   const informationCount = result.published.filter((item) => item.post_type === "information").length;
   const aiSelectedCount = result.published.filter((item) => item.post_type === "ai_selected").length;
   const productCount = result.published.filter((item) => item.post_type === "product_promotion").length;
-  const lines = [`Social Autopilot: đã đăng ${result.published.length}/${result.selected} bài (${informationCount} thông tin, ${aiSelectedCount} AI tự chọn, ${productCount} sản phẩm).`];
+  const lines = [`Social Autopilot: Meta đã xác minh công khai ${result.published.length}/${result.selected} bài (${informationCount} thông tin, ${aiSelectedCount} AI tự chọn, ${productCount} sản phẩm).`];
   lines.push(...result.published.map((item) => `✅ ${item.title} [${item.post_type}, ${item.generation_mode}, score ${item.candidate_score}${item.first_comment_status === "failed" ? ", comment pending" : ""}]\n${item.facebook_url}`));
   for (const chatId of chatIds) {
     await fetchImpl(`https://api.telegram.org/bot${encodeURIComponent(token)}/sendMessage`, {

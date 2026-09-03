@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { generateOfflinePost } from "../src/social-templates.mjs";
-import { createPostContent, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
+import { createPostContent, getFacebookPostDetails, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
 import { getDailyQuota, runSocialAutopilot, selectCandidates } from "../scripts/social-autopilot.mjs";
@@ -50,6 +50,10 @@ try {
   assert.match(publishUrls[1], /\/feed$/);
   const pagePostId = await postToFacebook({ pageId: "page", pageToken: "token", caption: "Published photo", imageUrl: "https://images.example.com/photo.jpg", fetchImpl: async () => new Response(JSON.stringify({ id: "photo-123", post_id: "page_456" }), { status: 200 }) });
   assert.equal(pagePostId, "page_456");
+  const verifiedDetails = await getFacebookPostDetails({ pageId: "page", postId: "page_456", pageToken: "token", fetchImpl: async () => new Response(JSON.stringify({ id: "page_456", is_published: true, is_hidden: false, permalink_url: "https://facebook.example/posts/page_456" }), { status: 200 }) });
+  assert.equal(verifiedDetails.verification_status, "verified");
+  const hiddenDetails = await getFacebookPostDetails({ pageId: "page", postId: "page_456", pageToken: "token", fetchImpl: async () => new Response(JSON.stringify({ id: "page_456", is_published: true, is_hidden: true, permalink_url: "https://facebook.example/posts/page_456" }), { status: 200 }) });
+  assert.equal(hiddenDetails.is_hidden, true);
   await assert.rejects(postToFacebook({ pageId: "page", pageToken: "token", caption: "Timeout", timeoutMs: 5, fetchImpl: () => new Promise(() => {}) }), /Request timeout after 5ms/);
   let geminiRequest = null;
   const geminiContent = await createPostContent({
@@ -136,10 +140,12 @@ try {
     isAdmin: true,
     store: callbackStore,
     defaults: { fb_page_id: "page", fb_page_token: "token" },
-    fetch: async () => new Response(JSON.stringify({ id: "123_456" }), { status: 200 }),
+    fetch: async (url) => new Response(JSON.stringify(String(url).includes("123_456?fields=")
+      ? { id: "123_456", is_published: true, is_hidden: false, permalink_url: "https://facebook.example/posts/123_456" }
+      : { id: "123_456" }), { status: 200 }),
     answerCallbackQuery: (text) => { callbackToast = text; }
   });
-  assert.match(callback.text, /ĐÃ ĐĂNG LÊN FANPAGE THÀNH CÔNG/);
+  assert.match(callback.text, /META XÁC MINH CÔNG KHAI/);
   assert.match(callbackToast, /Đang xử lý/);
   assert.deepEqual(callback.replyMarkup, { inline_keyboard: [] });
   const commentFailurePath = path.join(os.tmpdir(), `patrick-social-comment-${Date.now()}.json`);
@@ -152,6 +158,7 @@ try {
     },
     fetchImpl: async (url) => {
       if (url.includes("/feed")) return new Response(JSON.stringify({ id: "post-123" }), { status: 200 });
+      if (url.includes("post-123?fields=")) return new Response(JSON.stringify({ id: "post-123", is_published: true, is_hidden: false, permalink_url: "https://facebook.example/posts/post-123" }), { status: 200 });
       if (url.includes("/comments")) return new Response(JSON.stringify({ error: { message: "comment unavailable" } }), { status: 500 });
       return new Response(JSON.stringify({ error: { message: "no AI" } }), { status: 500 });
     },
