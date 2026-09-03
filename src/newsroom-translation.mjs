@@ -37,7 +37,7 @@ export function createNewsroomTranslator(options = {}) {
 }
 
 async function requestGeminiTranslation({ apiKey, model, article, sourceLanguage, target, fetchImpl }) {
-  const models = [...new Set([model, "gemini-2.0-flash", "gemini-1.5-pro", "gemini-3.6-flash"].filter(Boolean))];
+  const models = [...new Set([model, "gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"].filter(Boolean))];
   const input = JSON.stringify({ source_language: sourceLanguage, target_language: target, article: selectFields(article) });
   const errors = [];
   for (const candidate of models) {

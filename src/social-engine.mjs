@@ -26,7 +26,8 @@ const SOCIAL_SYSTEM_PROMPT = [
 ].join(" ");
 
 const DEFAULT_GEMINI_MODEL = "gemini-1.5-flash";
-const GEMINI_MODELS = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro", "gemini-3.6-flash"];
+const GEMINI_MODELS = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"];
+const GEMINI_REQUEST_TIMEOUT_MS = 30_000;
 
 export function getRandomTechImage({ random = Math.random } = {}) {
   const index = Math.min(TECH_IMAGES.length - 1, Math.max(0, Math.floor(Number(random()) * TECH_IMAGES.length)));
@@ -182,7 +183,7 @@ async function requestAiContent({ provider, apiKeys, topic, pillar, postType = "
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
-      }, 10000);
+      }, GEMINI_REQUEST_TIMEOUT_MS);
       const payload = await readResponse(response);
       if (response.ok) {
         console.log(`[Gemini] Tạo nội dung thành công với model: ${model}`);
