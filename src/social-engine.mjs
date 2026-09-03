@@ -25,8 +25,11 @@ const SOCIAL_SYSTEM_PROMPT = [
   "Trả về JSON duy nhất gồm caption và first_comment; không bọc markdown."
 ].join(" ");
 
-const DEFAULT_GEMINI_MODEL = "gemini-1.5-flash";
-const FALLBACK_GEMINI_MODELS = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-1.5-pro"];
+const CANDIDATE_MODELS = [
+  process.env.SOCIAL_AI_MODEL,
+  "gemini-3.6-flash",
+  "gemini-3-flash-preview"
+].filter(Boolean);
 const GEMINI_REQUEST_TIMEOUT_MS = 30_000;
 
 export function getRandomTechImage({ random = Math.random } = {}) {
@@ -175,8 +178,8 @@ export async function postFirstCommentWithRetry({ postId, pageToken, commentText
 
 async function requestAiContent({ provider, apiKeys, model = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", learningContext = "", fetchImpl }) {
   if (provider === "gemini") {
-    const preferredModel = String(model || process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "").trim();
-    const candidateModels = [...new Set([preferredModel, ...FALLBACK_GEMINI_MODELS].filter(Boolean))];
+    const requestedModel = String(model || "").trim();
+    const candidateModels = [...new Set([requestedModel, ...CANDIDATE_MODELS].filter(Boolean))];
     const errors = [];
     for (const apiKey of apiKeys) for (const candidate of candidateModels) {
       const response = await fetchWithTimeout(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(candidate)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
