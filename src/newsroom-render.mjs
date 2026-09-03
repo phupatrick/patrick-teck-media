@@ -1238,7 +1238,7 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
           <a class="lang-pill course-nav-link" href="/${language}/courses">${language === "vi" ? "Khóa học" : "Courses"}</a>
           <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Viết bài" : "Write"}</a>
           <a class="lang-pill" href="/${language}/login">${language === "vi" ? "Đăng nhập" : "Login"}</a>
-          <a class="lang-pill" href="${languageSwitchPath}">${language === "vi" ? "EN" : "VI"}</a><span class="sr-only">${language === "vi" ? "English" : "Ti?ng Vi?t"}</span>
+          <a class="lang-pill" href="${languageSwitchPath}" data-language-switch data-target-language="${alternateLanguage}">${language === "vi" ? "EN" : "VI"}</a><span class="sr-only">${language === "vi" ? "English" : "Ti?ng Vi?t"}</span>
           <a class="lang-pill subtle" href="https://patricktechmedia.store" rel="noopener noreferrer">${copy.storeLabel}</a>
         </div>
       </header>

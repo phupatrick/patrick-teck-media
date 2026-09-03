@@ -459,7 +459,7 @@ function renderPlatformLayout({ state, language, title, description, path, conte
           <a class="lang-pill" href="/${language}/portal">${copy.portalNavLabel}</a>
           <a class="lang-pill" href="/${language}/login">${copy.loginNavLabel}</a>
           <a class="lang-pill subtle" href="https://patricktechmedia.store" rel="noopener noreferrer">${copy.storeLabel}</a>
-          <a class="lang-pill" href="${alternatePath}">${language === "vi" ? "EN" : "VI"}</a>
+          <a class="lang-pill" href="${alternatePath}" data-language-switch data-target-language="${language === "vi" ? "en" : "vi"}">${language === "vi" ? "EN" : "VI"}</a>
         </div>
       </header>
       <main class="page-body">

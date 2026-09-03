@@ -1592,7 +1592,7 @@ const tests = [
       const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1] || "";
 
       assert.doesNotMatch(html, /hreflang="en"/);
-      assert.match(html, /class="lang-pill" href="\/en\/">EN<\/a>/);
+      assert.match(html, /class="lang-pill" href="\/en\/" data-language-switch data-target-language="en">EN<\/a>/);
       assert.ok(description.length <= 160);
       assert.doesNotMatch(description, /Open menu|View Profile/i);
       assert.match(html, /"@type":"Article"/);

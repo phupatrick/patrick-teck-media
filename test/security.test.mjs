@@ -4,6 +4,32 @@ import { server } from "../server.mjs";
 
 const tests = [
   {
+    name: "redirects the root by Geo-IP and honors the preferred language cookie",
+    async run(baseUrl) {
+      const vietnam = await fetch(`${baseUrl}/`, {
+        headers: { "x-vercel-ip-country": "VN" },
+        redirect: "manual"
+      });
+      assert.equal(vietnam.status, 302);
+      assert.equal(vietnam.headers.get("location"), "/vi/");
+
+      const international = await fetch(`${baseUrl}/`, {
+        headers: { "x-vercel-ip-country": "US" },
+        redirect: "manual"
+      });
+      assert.equal(international.status, 302);
+      assert.equal(international.headers.get("location"), "/en/");
+
+      const preferredEnglish = await fetch(`${baseUrl}/`, {
+        headers: { "x-vercel-ip-country": "VN", Cookie: "preferred_lang=en" },
+        redirect: "manual"
+      });
+      assert.equal(preferredEnglish.status, 302);
+      assert.equal(preferredEnglish.headers.get("location"), "/en/");
+      assert.match(preferredEnglish.headers.get("vary") || "", /Cookie/);
+    }
+  },
+  {
     name: "serves login pages with security headers and csrf-protected forms",
     async run(baseUrl) {
       const response = await fetch(`${baseUrl}/vi/login`, { redirect: "manual" });
@@ -16,6 +42,7 @@ const tests = [
       assert.equal(response.headers.get("referrer-policy"), "strict-origin-when-cross-origin");
       assert.match(response.headers.get("permissions-policy") || "", /camera=\(\)/);
       assert.match(html, /name="csrf_token"/);
+      assert.match(html, /data-language-switch data-target-language="en"/);
     }
   },
   {

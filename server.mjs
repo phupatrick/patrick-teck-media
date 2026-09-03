@@ -396,6 +396,15 @@ async function handleRequest(req, res) {
       return sendJson(res, invalidRequest.statusCode, { error: invalidRequest.message });
     }
 
+    if (pathname === "/" || pathname === "/index.html") {
+      const targetLanguage = resolveUserLanguage(req);
+      return redirect(res, `/${targetLanguage}/`, {
+        extraHeaders: {
+          Vary: "Accept-Language, x-vercel-ip-country, cf-ipcountry, Cookie"
+        }
+      });
+    }
+
     if (await tryStatic(pathname, requestUrl, res)) {
       return;
     }
@@ -411,10 +420,6 @@ async function handleRequest(req, res) {
     const trafficGuardDecision = enforceTrafficGuard(req, pathname, requestUrl);
     if (trafficGuardDecision) {
       return sendRateLimitResponse(res, pathname, trafficGuardDecision);
-    }
-
-    if (pathname === "/") {
-      return redirect(res, "/vi/");
     }
 
     if (pathname === "/store") {
@@ -1740,12 +1745,32 @@ function safeReturnPath(candidate, language) {
   return value;
 }
 
-function redirect(res, location) {
+export function resolveUserLanguage(req = {}) {
+  const headers = req.headers || {};
+  const cookieHeader = String(headers.cookie || "");
+  const cookieMatch = cookieHeader.match(/(?:^|;)\s*preferred_lang=(vi|en)(?:;|$)/i);
+  if (cookieMatch) {
+    return cookieMatch[1].toLowerCase();
+  }
+
+  const country = String(headers["x-vercel-ip-country"] || headers["cf-ipcountry"] || "").trim().toUpperCase();
+  if (country === "VN") {
+    return "vi";
+  }
+  if (country) {
+    return "en";
+  }
+
+  return String(headers["accept-language"] || "").toLowerCase().includes("vi") ? "vi" : "en";
+}
+
+function redirect(res, location, options = {}) {
   res.writeHead(
     302,
     createResponseHeaders({
       location,
-      cacheControl: "no-store"
+      cacheControl: "no-store",
+      extraHeaders: options.extraHeaders || {}
     })
   );
   res.end();

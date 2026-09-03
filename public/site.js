@@ -5,6 +5,21 @@ initLiveDesk();
 initAuthTabs();
 initImageFallbacks();
 initPullToRefresh();
+initLanguageSwitcher();
+
+function initLanguageSwitcher() {
+  for (const link of document.querySelectorAll("[data-language-switch]")) {
+    link.addEventListener("click", (event) => {
+      const targetLanguage = link.dataset.targetLanguage === "vi" ? "vi" : "en";
+      const href = link.getAttribute("href");
+      if (!href) return;
+
+      event.preventDefault();
+      document.cookie = `preferred_lang=${targetLanguage}; Path=/; Max-Age=31536000; SameSite=Lax`;
+      window.location.assign(href);
+    });
+  }
+}
 
 function initBackdropMotion() {
   return;
