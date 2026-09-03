@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T18:04:44.203Z",
+  "generated_at": "2026-09-03T18:31:42.387Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -143,7 +143,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T18:04:44.202Z",
+        "generated_at": "2026-09-03T18:31:42.387Z",
         "origin": "local-curated-rss"
       }
     },
@@ -289,7 +289,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T18:04:44.203Z",
+        "generated_at": "2026-09-03T18:31:42.387Z",
         "origin": "local-curated-rss"
       }
     },
@@ -430,7 +430,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T18:04:44.203Z",
+        "generated_at": "2026-09-03T18:31:42.387Z",
         "origin": "local-curated-rss"
       }
     },
@@ -572,7 +572,151 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T18:04:44.203Z",
+        "generated_at": "2026-09-03T18:31:42.387Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-debf521da5f1-en",
+      "cluster_id": "feed-debf521da5f1",
+      "language": "en",
+      "topic_label": "Internet & Business Tech",
+      "topic_slug": "internet-business-tech",
+      "topic_accent": "#9bff45",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "build-custom-flows-in-minutes-with-the-flow-creator-agent",
+      "title": "Build custom flows in minutes with the Flow Creator agent",
+      "hook": "Suggestions GitLab Duo Agent Platform Code Suggestions (AI) CI/CD GitLab on AWS GitLab on Google Cloud Why GitLab?",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "To search repositories and projects, login to gitlab.com . Suggestions GitLab Duo Agent Platform Code Suggestions (AI) CI/CD GitLab on AWS GitLab on Google Cloud Why GitLab?",
+      "dek": "Suggestions GitLab Duo Agent Platform Code Suggestions (AI) CI/CD GitLab on AWS GitLab on Google Cloud Why GitLab?",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "To search repositories and projects, login to gitlab. com . Platform Execution & Workflows CI/CD Source Code Management Agile Delivery Security & Governance Application Security Testing Governance & Compliance Supply Chain Security Context & AI Agentic Orchestration Context Graph Visibility & Measurement Explore the Platform Why GitLab One platform for speed with control across your software lifecycle."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "Solutions Outcomes DevOps Modernization Security Modernization AI Modernization By size Enterprise Small Business Startups Industries Financial Services Public Sector Telecommunications Automotive Education Aerospace View all Solutions GitLab Transcend Catch our latest innovations announced at the last Transcend."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Pricing Resources Discover Docs University Demo Series Demo Hub Services Connect Blog Community Customers Partners Events View all resources What’s new in GitLab Stay updated with our latest features and improvements."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Describe the automation you want in plain English, and get back a complete, runnable flow definition ready to register from the AI Catalog."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Custom Flows already let teams turn manual, multi-step work into automation that runs on GitLab events. But writing one meant learning the Flow Registry schema first. That requirement is a real barrier. The people who understand a workflow best aren’t always the same ones who know a YAML schema."
+        }
+      ],
+      "image": {
+        "src": "https://res.cloudinary.com/about-gitlab-com/image/upload/v1787143586/nrl2nvddlghnnjtmuxoa.png",
+        "alt": "",
+        "caption": "Reference image from GitLab Blog.",
+        "credit": "GitLab Blog",
+        "source_url": "https://about.gitlab.com/blog/flow-creator-agent/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "GitLab Blog",
+          "source_url": "https://about.gitlab.com/blog/flow-creator-agent/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-20T00:00:00.000Z",
+          "image_url": "https://res.cloudinary.com/about-gitlab-com/image/upload/v1787143586/nrl2nvddlghnnjtmuxoa.png",
+          "image_caption": "Reference image from GitLab Blog.",
+          "image_credit": "GitLab Blog"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-20T00:00:00.000Z",
+      "updated_at": "2026-08-20T00:00:00.000Z",
+      "href": "/en/news/build-custom-flows-in-minutes-with-the-flow-creator-agent",
+      "draft_context": {
+        "source_title": "Build custom flows in minutes with the Flow Creator agent",
+        "source_name": "GitLab Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "apps-software",
+        "content_type_hint": "",
+        "description": "Custom Flows already let teams turn manual, multi-step work into automation that runs on GitLab events. But writing one meant learning the Flow Registry schema first. That requirement is a real barrier. The people who understand a workflow best aren’t always the same ones who know a YAML schema. In GitLab 19.3, the Flow Creator agent removes that requirement. Describe the flow you want in your own words, and it responds with a complete, runnable definition. When good automations stopped at the schema Consider two people who know exactly what should be automated, but not how to build it. The security analyst triages vulnerability reports every day and knows which patterns are false positives and who owns each affected dependency. None of that knowledge is captured in a schema they have never used. The planning lead knows what should happen next when a work item changes status. The automation is obvious to them. The Flow Registry syntax is not. Writing a flow meant learning that schema before any of this knowledge could become automation. That requirement limited who could author flows to people with schema familiarity, not people with process knowledge. The result is a gap between who understands the work and who can automate it. That gap effectively slows down automations across the entire software lifecycle especially where bottlenecks already lurk. Bring flow building to everyone who understands the work Flow Creator is a foundational agent within GitLab Duo Agent Platform, available via Agentic Chat. Invoke the agent, describe what you want the flow to do in plain language, and it produces a complete flow definition. For example, \"When a work item is created with the label security-triage , check it against our known false-positive patterns, find the affected dependency and its owner, and post a severity assessment as a comment.\" This simple explanation gives the agent a trigger, steps, and an output target. You don't have to get the description perfect on the first try either. If something is ambiguous or missing, like which project the flow should target or whether a step needs human approval, the agent confirms before it builds instead of guessing and returning a flow that runs against the wrong project or skips a needed approval. Guardrails hold as the author pool grows More people building flows does not mean looser guardrails. Every flow runs through a scoped service account under composite identity, so it can never reach further than the permissions of the person who ran it. That account is scoped to the top-level group and cannot access resources outside of its bounds. Authoring a flow and enabling it stay separate: Anyone can describe a flow to Flow Creator, but enabling one still requires the Maintainer role or higher. Group Owners and instance administrators can turn Custom Flows off entirely. See Flow Creator in action: How it works Flow Creator does three things behind the scenes: Reads current documentation. The agent checks the Flow Registry documentation before every response, rather than answering from what it learned during training. Applies rules. These rules encode failure patterns seen in real flows, so common mistakes get caught before a session even starts. Runs a pre-output checklist. This check happens before any YAML is generated, catching issues early rather than after registration. Each rule corresponds to ways flows break today: Missing project_id. The flow runs but has no clear target, so it acts against the wrong project or against nothing. Broken human in the loop gates. A flow meant to pause for approval proceeds without it. Wrong sends_response_to targets. The flow completes and writes its output somewhere nobody is looking. Missing stopping instructions. The agent keeps working beyond task completion. The output is a full, runnable definition, not a fragment to assemble. Paste it into the configuration editor when you create a flow from a project or from the AI Catalog . Then, choose whether the flow is private, restricted, or public, and add the triggers that should start it. Run your first custom flow Flow Creator ships in GitLab 19.3 as part of GitLab Duo Agent Platform. If you have been waiting on someone else to write your automation, you don’t have to anymore. Read the Custom Flows documentation to see how to register and enable a flow, then describe the one you want to Flow Creator. Start a free trial of GitLab Duo Agent Platform . On the Free tier, you can sign up in a few simple steps . If you're already on GitLab Premium or Ultimate, you can turn on Duo Agent Platform and use the GitLab Credits included with your subscription .",
+        "paragraphs": [
+          "To search repositories and projects, login to gitlab.com . Suggestions GitLab Duo Agent Platform Code Suggestions (AI) CI/CD GitLab on AWS GitLab on Google Cloud Why GitLab? Platform Execution & Workflows CI/CD Source Code Management Agile Delivery Security & Governance Application Security Testing Governance & Compliance Supply Chain Security Context & AI Agentic Orchestration Context Graph Visibility & Measurement Explore the Platform Why GitLab One platform for speed with control across your software lifecycle.",
+          "Solutions Outcomes DevOps Modernization Security Modernization AI Modernization By size Enterprise Small Business Startups Industries Financial Services Public Sector Telecommunications Automotive Education Aerospace View all Solutions GitLab Transcend Catch our latest innovations announced at the last Transcend.",
+          "Pricing Resources Discover Docs University Demo Series Demo Hub Services Connect Blog Community Customers Partners Events View all resources What’s new in GitLab Stay updated with our latest features and improvements.",
+          "Describe the automation you want in plain English, and get back a complete, runnable flow definition ready to register from the AI Catalog.",
+          "Custom Flows already let teams turn manual, multi-step work into automation that runs on GitLab events. But writing one meant learning the Flow Registry schema first. That requirement is a real barrier. The people who understand a workflow best aren’t always the same ones who know a YAML schema.",
+          "In GitLab 19.3, the Flow Creator agent removes that requirement. Describe the flow you want in your own words, and it responds with a complete, runnable definition."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=1011",
+        "link": "https://about.gitlab.com/blog/flow-creator-agent/"
+      },
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Verified",
+      "title_vi": "",
+      "title_en": "Build custom flows in minutes with the Flow Creator agent",
+      "dek_vi": "",
+      "dek_en": "Suggestions GitLab Duo Agent Platform Code Suggestions (AI) CI/CD GitLab on AWS GitLab on Google Cloud Why GitLab?",
+      "body_vi": "",
+      "body_en": "What happened\nTo search repositories and projects, login to gitlab. com . Platform Execution & Workflows CI/CD Source Code Management Agile Delivery Security & Governance Application Security Testing Governance & Compliance Supply Chain Security Context & AI Agentic Orchestration Context Graph Visibility & Measurement Explore the Platform Why GitLab One platform for speed with control across your software lifecycle.\n\nWhere the sources line up\nSolutions Outcomes DevOps Modernization Security Modernization AI Modernization By size Enterprise Small Business Startups Industries Financial Services Public Sector Telecommunications Automotive Education Aerospace View all Solutions GitLab Transcend Catch our latest innovations announced at the last Transcend.\n\nPractical impact for readers\nPricing Resources Discover Docs University Demo Series Demo Hub Services Connect Blog Community Customers Partners Events View all resources What’s new in GitLab Stay updated with our latest features and improvements.\n\nWho should pay attention now\nDescribe the automation you want in plain English, and get back a complete, runnable flow definition ready to register from the AI Catalog.\n\nWhat is still unclear\nCustom Flows already let teams turn manual, multi-step work into automation that runs on GitLab events. But writing one meant learning the Flow Registry schema first. That requirement is a real barrier. The people who understand a workflow best aren’t always the same ones who know a YAML schema.",
+      "slug_vi": "build-custom-flows-in-minutes-with-the-flow-creator-agent",
+      "slug_en": "build-custom-flows-in-minutes-with-the-flow-creator-agent",
+      "category": "social",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://about.gitlab.com/blog/flow-creator-agent/"
+      ],
+      "image_url": "https://res.cloudinary.com/about-gitlab-com/image/upload/v1787143586/nrl2nvddlghnnjtmuxoa.png",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/build-custom-flows-in-minutes-with-the-flow-creator-agent",
+      "storeUrl": "https://patricktechmedia.store",
+      "topic": "internet-business-tech",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-03T18:31:42.387Z",
         "origin": "local-curated-rss"
       }
     },
@@ -714,7 +858,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T18:04:44.203Z",
+        "generated_at": "2026-09-03T18:31:42.387Z",
         "origin": "local-curated-rss"
       }
     },
@@ -856,7 +1000,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T18:04:44.203Z",
+        "generated_at": "2026-09-03T18:31:42.387Z",
         "origin": "local-curated-rss"
       }
     }
