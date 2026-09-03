@@ -1,100 +1,6 @@
 {
-  "generated_at": "2026-09-03T23:01:54.690Z",
+  "generated_at": "2026-09-03T23:35:13.412Z",
   "items": [
-    {
-      "article": {
-        "id": "feed-bbece90f7f9f-en",
-        "cluster_id": "feed-bbece90f7f9f",
-        "language": "en",
-        "topic": "ai",
-        "content_type": "NewsArticle",
-        "slug": "openai-s-astra-model-has-ai-researchers-spooked-here-s-why",
-        "title": "OpenAI’s Astra model has AI researchers spooked. Here’s why",
-        "summary": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community. GPT-6 Astra, which OpenAI describes as its most advanced model to date, was announced Thursday afternoon , and for now it’s available only to members of OpenAI’s Daybreak cybersecurity program.",
-        "dek": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community.",
-        "hook": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "GPT-6 Astra, which OpenAI describes as its most advanced model to date, was announced Thursday afternoon , and for now it’s available only to members of OpenAI’s Daybreak cybersecurity program. The model will be released in the coming days to paid OpenAI and ChatGPT subscribers, including those on Pro, Plus, Enterprise, and Business accounts, as well as via the OpenAI API."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "Arrived just days after the launch of Anthropic’s Claude Fable 5.1 and Mythos 5.1 , Astra marks a “jump” in AI capabilities, OpenAI president Greg Brockman said , boasting that the new model “can really do anything a human can do with a computer.”."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "Astra is also OpenAI’s first model to reach the “critical” threshold of the company’s “preparedness framework” due to its extreme cybersecurity skills, meaning it could carry out “end-to-end” attacks on “hardened targets” on its own, among other capabilities."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "OpenAI previously paused work on Astra to bolster its safeguards before announcing earlier this week that the model is “consistently more likely to respect explicit safety restrictions and warnings” than GPT-5.6 Sol, the OpenAI model involved in the now infamous Hugging Face attack ."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": true,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "ai-workspace-bundle"
-        ],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "PCWorld",
-            "source_url": "https://www.pcworld.com/article/3226859/openais-astra-model-has-ai-researchers-spooked-heres-why.html",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-03T20:41:56.000Z",
-            "image_url": "https://www.pcworld.com/wp-content/uploads/2026/09/3226859-0-34582300-1788468133-ChatGPT-on-iPad-with-keyboard.jpg?quality=50&strip=all&w=1024",
-            "image_caption": "Reference image from PCWorld.",
-            "image_credit": "PCWorld"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-03T20:41:56.000Z",
-        "updated_at": "2026-09-03T20:41:56.000Z",
-        "image": {
-          "src": "https://www.pcworld.com/wp-content/uploads/2026/09/3226859-0-34582300-1788468133-ChatGPT-on-iPad-with-keyboard.jpg?quality=50&strip=all&w=1024",
-          "caption": "Reference image from PCWorld.",
-          "credit": "PCWorld",
-          "source_url": "https://www.pcworld.com/article/3226859/openais-astra-model-has-ai-researchers-spooked-heres-why.html"
-        },
-        "draft_context": {
-          "source_title": "OpenAI’s Astra model has AI researchers spooked. Here’s why",
-          "source_name": "PCWorld",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "devices",
-          "content_type_hint": "",
-          "description": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community. GPT-6 Astra, which OpenAI describes as its most advanced model to date, was announced Thursday afternoon , and for now it’s available only to members of OpenAI’s Daybreak cybersecurity program. The model will be released in the coming days to paid OpenAI and ChatGPT subscribers, including those on Pro, Plus, Enterprise, and Business accounts, as well as via the OpenAI API. Arrived just days after the launch of Anthropic’s Claude Fable 5.1 and Mythos 5.1 , Astra marks a “jump” in AI capabilities, OpenAI president Greg Brockman said , boasting that the new model “can really do anything a human can do with a computer.” Astra is also OpenAI’s first model to reach the “critical” threshold of the company’s “preparedness framework” due to its extreme cybersecurity skills, meaning it could carry out “end-to-end” attacks on “hardened targets” on its own, among other capabilities. OpenAI previously paused work on Astra to bolster its safeguards before announcing earlier this week that the model is “consistently more likely to respect explicit safety restrictions and warnings” than GPT-5.6 Sol, the OpenAI model involved in the now infamous Hugging Face attack . Despite OpenAI’s assurances, AI experts remain worried about Astra. The new model is said to employ a reasoning technique known variously as “recurrent depth” or “opaque recurrence,” which (as TechCrunch describes ) makes its “chain of thought” much harder to read. Keeping tabs on a frontier AI model’s thinking is, obviously, a big deal when it comes to preventing the kinds of rogue AI hacks we’ve been hearing about over the past several weeks, and the potential of losing that kind of surveillance has spooked top AI researchers. “If this is true, OpenAI seems to be violating one of the few redlines that exist in the AI community,” wrote Steven Adler , a former OpenAI safety lead, on X. Buck Shlegeris, CEO of Redwood Research, echoed Adler’s worries. “I don’t know whether Astra is much less CoT [chain of thought] monitorable than previous models,” Shlegeris posted on X . “But if OpenAI pushes this technique further, they’ll have the option to massively increase the recurrence and totally destroy CoT monitorability.” OpenAI chief scientist Jakub Pachocki has pushed back on the concerns . “OpenAI has worked to preserve and utilize chain-of-thought monitoring since our very first reasoning models,” Pachocki wrote. “We deeply care about this technique, as it can give us a view into how model alignment generalizes from its training distribution.” Another former OpenAI researcher, Daniel Kokotajlo, responded to Pachocki that even if OpenAI doesn’t “go further” with recurrent depth reasoning, “others might.” On Thursday, Pachocki suggested it wasn’t recurrent depth per se that was making new frontier AI models harder to monitor, but rather the fact that “more capable models can perform harder tasks using fewer language tokens” or even “no language tokens.” I’ll be keeping an eye out for Astra to hit my ChatGPT plan, so stay tuned for my first impressions.",
-          "paragraphs": [
-            "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community.",
-            "GPT-6 Astra, which OpenAI describes as its most advanced model to date, was announced Thursday afternoon , and for now it&rsquo;s available only to members of OpenAI&rsquo;s Daybreak cybersecurity program. The model will be released in the coming days to paid OpenAI and ChatGPT subscribers, including those on Pro, Plus, Enterprise, and Business accounts, as well as via the OpenAI API.",
-            "Arrived just days after the launch of Anthropic&rsquo;s Claude Fable 5.1 and Mythos 5.1 , Astra marks a &ldquo;jump&rdquo; in AI capabilities, OpenAI president Greg Brockman said , boasting that the new model &ldquo;can really do anything a human can do with a computer.&rdquo;",
-            "Astra is also OpenAI&rsquo;s first model to reach the &ldquo;critical&rdquo; threshold of the company&rsquo;s &ldquo;preparedness framework&rdquo; due to its extreme cybersecurity skills, meaning it could carry out &ldquo;end-to-end&rdquo; attacks on &ldquo;hardened targets&rdquo; on its own, among other capabilities.",
-            "OpenAI previously paused work on Astra to bolster its safeguards before announcing earlier this week that the model is &ldquo;consistently more likely to respect explicit safety restrictions and warnings&rdquo; than GPT-5.6 Sol, the OpenAI model involved in the now infamous Hugging Face attack .",
-            "Despite OpenAI&rsquo;s assurances, AI experts remain worried about Astra. The new model is said to employ a reasoning technique known variously as &ldquo;recurrent depth&rdquo; or &ldquo;opaque recurrence,&rdquo; which (as TechCrunch describes ) makes its &ldquo;chain of thought&rdquo; much harder to read."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=763",
-          "link": "https://www.pcworld.com/article/3226859/openais-astra-model-has-ai-researchers-spooked-heres-why.html"
-        },
-        "single_source_exception": true,
-        "is_single_source": true,
-        "editorial_label": "Tin nhanh xác thực"
-      },
-      "first_seen_at": "2026-09-03T22:10:32.449Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
     {
       "article": {
         "id": "feed-030f520d2086-vi",
@@ -8799,6 +8705,189 @@
     },
     {
       "article": {
+        "id": "feed-24ba66ca83fc-en",
+        "cluster_id": "feed-24ba66ca83fc",
+        "language": "en",
+        "topic": "chips-ai-infra",
+        "content_type": "NewsArticle",
+        "slug": "hugging-face-is-too-important-to-fall-into-nvidia-s-hands",
+        "title": "Hugging Face is too important to fall into Nvidia's hands",
+        "summary": "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process. Tobias Mann Tobias Mann SYSTEMS EDITOR Published thu 3 Sep 2026 // 23:15 UTC 9B, promises not to squeeze too hard 9 hours ago Zuck's Muse to Spark joy with open weights release 'soon' 23 hours ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 1 day ago AI agents carried out every step of this ransomware attack – then left the victim an 80-page security audit 1 day ago OPINION Nvidia on Thursday announced an agreement to acquire open source AI evangelist and model depot Hugging Face for $12.9 billion in a deal that's expected to close next year, assuming regulators don't get in the way.",
+        "dek": "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process.",
+        "hook": "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process. Regulators should take note."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "Tobias Mann Tobias Mann SYSTEMS EDITOR Published thu 3 Sep 2026 // 23:15 UTC 9B, promises not to squeeze too hard 9 hours ago Zuck's Muse to Spark joy with open weights release 'soon' 23 hours ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 1 day ago AI agents carried out every step of this ransomware attack – then left the victim an 80-page security audit 1 day ago OPINION Nvidia on Thursday announced an agreement to acquire open source AI evangelist and model depot Hugging Face for $12.9 billion in a deal that's expected to close next year, assuming regulators don't get in the way."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "As antitrust magnets go, Nvidia buying Hugging Face takes the cake. You wouldn't let an automaker acquire the primary means of fuel distribution. Nor would you let it buy the primary means by which the mechanics are trained. Yet, Nvidia's acquisition of Hugging Face is tantamount to both."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Unfortunately, the Trump administration likely lacks both the competence and teeth necessary to litigate the case, something that probably factored into CEO Jensen Huang's decision to buy Hugging Face now."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "To understand why Nvidia's latest acquisition is so troublesome, we need to talk about just how important Hugging Face has become to the broader AI ecosystem. Have you seen the XKCD comic in which a piece of open source software maintained by a single developer is holding up all of modern infrastructure? It could be argued that Hugging Face is that piece for the AI industry."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "The Register",
+            "source_url": "https://www.theregister.com/ai-and-ml/2026/09/03/hugging-face-is-too-important-to-fall-into-nvidias-hands/5294363",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-03T22:15:26.000Z",
+            "image_url": "https://image.theregister.com/5294373.jpg?imageId=5294373&x=0&y=11.61&cropw=100&croph=76.79&panox=0&panoy=11.61&panow=100&panoh=76.79&width=1200&height=683",
+            "image_caption": "Reference image from The Register.",
+            "image_credit": "The Register"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-03T22:15:26.000Z",
+        "updated_at": "2026-09-03T22:15:26.000Z",
+        "image": {
+          "src": "https://image.theregister.com/5294373.jpg?imageId=5294373&x=0&y=11.61&cropw=100&croph=76.79&panox=0&panoy=11.61&panow=100&panoh=76.79&width=1200&height=683",
+          "caption": "Reference image from The Register.",
+          "credit": "The Register",
+          "source_url": "https://www.theregister.com/ai-and-ml/2026/09/03/hugging-face-is-too-important-to-fall-into-nvidias-hands/5294363"
+        },
+        "draft_context": {
+          "source_title": "Hugging Face is too important to fall into Nvidia's hands",
+          "source_name": "The Register",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "internet-business-tech",
+          "content_type_hint": "",
+          "description": "OPINION Nvidia on Thursday announced an agreement to acquire open source AI evangelist and model depot Hugging Face for $12.9 billion in a deal that's expected to close next year, assuming regulators don't get in the way. They should get in the way. As antitrust magnets go, Nvidia buying Hugging Face takes the cake. You wouldn't let an automaker acquire the primary means of fuel distribution. Nor would you let it buy the primary means by which the mechanics are trained. Yet, Nvidia's acquisition of Hugging Face is tantamount to both. Unfortunately, the Trump administration likely lacks both the competence and teeth necessary to litigate the case, something that probably factored into CEO Jensen Huang's decision to buy Hugging Face now. To understand why Nvidia's latest acquisition is so troublesome, we need to talk about just how important Hugging Face has become to the broader AI ecosystem. Have you seen the XKCD comic in which a piece of open source software maintained by a single developer is holding up all of modern infrastructure? It could be argued that Hugging Face is that piece for the AI industry. Founded in 2016, the AI model repository has become the beating heart of the machine learning community. When a new open weights model drops, Hugging Face is the first place people look. A key element of its success has been its unrelenting commitment to open source AI, which has made it a sort of Switzerland for researchers, enthusiasts, and software devs to collaborate on neutral ground. If you've ever downloaded an open weights model, it almost certainly came from Hugging Face, whether you knew it or not. No matter how fervently Nvidia promises not to pollute Hugging Face's hallowed ground, the temptation to use the platform to advance its hardware and software interests will inevitably prove too great for Huang and his lieutenants to resist for long. In spite of this, Hugging Face CEO Clem Delangue sang Nvidia's praises on Thursday, casting the acquisition and the capital it will bring as an opportunity to grow the company's user base from around 18 million today to more than 100 million in the years to come. Yet, just a year ago Hugging Face rebuffed a $500 million investment by Nvidia, suggesting Delangue knows he's just made a deal with the devil. That said, with a cool $1 billion earmarked for Hugging Face employees joining Nvidia, Delangue and his cohort are going to have plenty of Benjamins with which to wipe away any tears of regret. What does buying Hugging Face actually get Nvidia? Nvidia would probably prefer to paint the acquisition as an altruistic move to provide financial security to one of the most important AI resources on the internet today. The case certainly can be made that Hugging Face is that one brick holding up the rest of the AI ecosystem. If it ever did exhaust its runway, the consequences would be catastrophic. And Hugging Face's business is capital-intensive. Storing petabytes' worth of AI models and datasets isn't cheap, nor is the bandwidth required to continuously serve those models at scale. Nvidia's involvement all but ensures Hugging Face never has to worry about infrastructure demand going forward. But while the benefits of Nvidia's patronage are obvious, so is the potential harm to the GPU giant's competitors. Despite frequent comparisons to GitHub, Hugging Face is more than a place for storing and sharing model weights and training data. For example, Hugging Face is home to arguably the most comprehensive documentation on AI development on the internet. It wouldn't be hard for Nvidia to use its newfound position to ensure its products are always better documented than its competitors'. You can claim until your face is red that the platform is still \"open,\" but just because something is open doesn't mean it's unbiased. Then there are Hugging Face's considerable software contributions. If you weren't aware, the popular local AI inference engine llama.cpp became part of Hugging Face earlier this year. Meanwhile, Hugging Face's Transformers Python library — not to be confused with the model architecture — is a key piece of major inference platforms like vLLM and SGLang, which compete directly with Nvidia's own TRT-LLM offering. The acquisition puts Nvidia in a prime position to prioritize its own hardware and software products. The AI arms dealer wouldn't necessarily need to do something as brash as ending support for competing platforms. It could simply ensure that the models and frameworks it favors are always better documented, and run first on its kit. One method to tip the scales would be to flood Hugging Face with cheap Nvidia-based compute. Hugging Face has offered compute resources in the form of its inference endpoints, providers, and Spaces for several years now. To supply this compute, Hugging Face worked with numerous providers across a range of hardware, including major cloud providers, inference-as-a-service vendors, and chip designers such as Nvidia, AMD, Cerebras, SambaNova, and Groq. As Hugging Face's parent company, Nvidia would be in the position to subsidize compute through its various partners and economically incentivize developers to build for its hardware first. The GPU slinger would have to be subtle. Tying a certain percentage of a neocloud's compute allocations to low-cost educational and development resources would be one way to do it without raising too many suspicions. No matter how you slice it, nor how much Nvidia insists it's totally not going to thumb the scales, its acquisition of Hugging Face has a high likelihood of harming competition. Hugging Face works better as AI Switzerland than it does as part of the most powerful company in the industry. ®",
+          "paragraphs": [
+            "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process. Regulators should take note",
+            "Tobias Mann Tobias Mann SYSTEMS EDITOR Published thu 3 Sep 2026 // 23:15 UTC 9B, promises not to squeeze too hard 9 hours ago Zuck's Muse to Spark joy with open weights release 'soon' 23 hours ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 1 day ago AI agents carried out every step of this ransomware attack – then left the victim an 80-page security audit 1 day ago OPINION Nvidia on Thursday announced an agreement to acquire open source AI evangelist and model depot Hugging Face for $12.9 billion in a deal that's expected to close next year, assuming regulators don't get in the way.",
+            "As antitrust magnets go, Nvidia buying Hugging Face takes the cake. You wouldn't let an automaker acquire the primary means of fuel distribution. Nor would you let it buy the primary means by which the mechanics are trained. Yet, Nvidia's acquisition of Hugging Face is tantamount to both.",
+            "Unfortunately, the Trump administration likely lacks both the competence and teeth necessary to litigate the case, something that probably factored into CEO Jensen Huang's decision to buy Hugging Face now.",
+            "To understand why Nvidia's latest acquisition is so troublesome, we need to talk about just how important Hugging Face has become to the broader AI ecosystem. Have you seen the XKCD comic in which a piece of open source software maintained by a single developer is holding up all of modern infrastructure? It could be argued that Hugging Face is that piece for the AI industry.",
+            "Founded in 2016, the AI model repository has become the beating heart of the machine learning community. When a new open weights model drops, Hugging Face is the first place people look. A key element of its success has been its unrelenting commitment to open source AI, which has made it a sort of Switzerland for researchers, enthusiasts, and software devs to collaborate on neutral ground."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=1278",
+          "link": "https://www.theregister.com/ai-and-ml/2026/09/03/hugging-face-is-too-important-to-fall-into-nvidias-hands/5294363"
+        }
+      },
+      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-bbece90f7f9f-en",
+        "cluster_id": "feed-bbece90f7f9f",
+        "language": "en",
+        "topic": "ai",
+        "content_type": "NewsArticle",
+        "slug": "openai-s-astra-model-has-ai-researchers-spooked-here-s-why",
+        "title": "OpenAI’s Astra model has AI researchers spooked. Here’s why",
+        "summary": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community. GPT-6 Astra, which OpenAI describes as its most advanced model to date, was announced Thursday afternoon , and for now it’s available only to members of OpenAI’s Daybreak cybersecurity program.",
+        "dek": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community.",
+        "hook": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "GPT-6 Astra, which OpenAI describes as its most advanced model to date, was announced Thursday afternoon , and for now it’s available only to members of OpenAI’s Daybreak cybersecurity program. The model will be released in the coming days to paid OpenAI and ChatGPT subscribers, including those on Pro, Plus, Enterprise, and Business accounts, as well as via the OpenAI API."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "Arrived just days after the launch of Anthropic’s Claude Fable 5.1 and Mythos 5.1 , Astra marks a “jump” in AI capabilities, OpenAI president Greg Brockman said , boasting that the new model “can really do anything a human can do with a computer.”."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Astra is also OpenAI’s first model to reach the “critical” threshold of the company’s “preparedness framework” due to its extreme cybersecurity skills, meaning it could carry out “end-to-end” attacks on “hardened targets” on its own, among other capabilities."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "OpenAI previously paused work on Astra to bolster its safeguards before announcing earlier this week that the model is “consistently more likely to respect explicit safety restrictions and warnings” than GPT-5.6 Sol, the OpenAI model involved in the now infamous Hugging Face attack ."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "PCWorld",
+            "source_url": "https://www.pcworld.com/article/3226859/openais-astra-model-has-ai-researchers-spooked-heres-why.html",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-03T20:41:56.000Z",
+            "image_url": "https://www.pcworld.com/wp-content/uploads/2026/09/3226859-0-34582300-1788468133-ChatGPT-on-iPad-with-keyboard.jpg?quality=50&strip=all&w=1024",
+            "image_caption": "Reference image from PCWorld.",
+            "image_credit": "PCWorld"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-03T20:41:56.000Z",
+        "updated_at": "2026-09-03T20:41:56.000Z",
+        "image": {
+          "src": "https://www.pcworld.com/wp-content/uploads/2026/09/3226859-0-34582300-1788468133-ChatGPT-on-iPad-with-keyboard.jpg?quality=50&strip=all&w=1024",
+          "caption": "Reference image from PCWorld.",
+          "credit": "PCWorld",
+          "source_url": "https://www.pcworld.com/article/3226859/openais-astra-model-has-ai-researchers-spooked-heres-why.html"
+        },
+        "draft_context": {
+          "source_title": "OpenAI’s Astra model has AI researchers spooked. Here’s why",
+          "source_name": "PCWorld",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community. GPT-6 Astra, which OpenAI describes as its most advanced model to date, was announced Thursday afternoon , and for now it’s available only to members of OpenAI’s Daybreak cybersecurity program. The model will be released in the coming days to paid OpenAI and ChatGPT subscribers, including those on Pro, Plus, Enterprise, and Business accounts, as well as via the OpenAI API. Arrived just days after the launch of Anthropic’s Claude Fable 5.1 and Mythos 5.1 , Astra marks a “jump” in AI capabilities, OpenAI president Greg Brockman said , boasting that the new model “can really do anything a human can do with a computer.” Astra is also OpenAI’s first model to reach the “critical” threshold of the company’s “preparedness framework” due to its extreme cybersecurity skills, meaning it could carry out “end-to-end” attacks on “hardened targets” on its own, among other capabilities. OpenAI previously paused work on Astra to bolster its safeguards before announcing earlier this week that the model is “consistently more likely to respect explicit safety restrictions and warnings” than GPT-5.6 Sol, the OpenAI model involved in the now infamous Hugging Face attack . Despite OpenAI’s assurances, AI experts remain worried about Astra. The new model is said to employ a reasoning technique known variously as “recurrent depth” or “opaque recurrence,” which (as TechCrunch describes ) makes its “chain of thought” much harder to read. Keeping tabs on a frontier AI model’s thinking is, obviously, a big deal when it comes to preventing the kinds of rogue AI hacks we’ve been hearing about over the past several weeks, and the potential of losing that kind of surveillance has spooked top AI researchers. “If this is true, OpenAI seems to be violating one of the few redlines that exist in the AI community,” wrote Steven Adler , a former OpenAI safety lead, on X. Buck Shlegeris, CEO of Redwood Research, echoed Adler’s worries. “I don’t know whether Astra is much less CoT [chain of thought] monitorable than previous models,” Shlegeris posted on X . “But if OpenAI pushes this technique further, they’ll have the option to massively increase the recurrence and totally destroy CoT monitorability.” OpenAI chief scientist Jakub Pachocki has pushed back on the concerns . “OpenAI has worked to preserve and utilize chain-of-thought monitoring since our very first reasoning models,” Pachocki wrote. “We deeply care about this technique, as it can give us a view into how model alignment generalizes from its training distribution.” Another former OpenAI researcher, Daniel Kokotajlo, responded to Pachocki that even if OpenAI doesn’t “go further” with recurrent depth reasoning, “others might.” On Thursday, Pachocki suggested it wasn’t recurrent depth per se that was making new frontier AI models harder to monitor, but rather the fact that “more capable models can perform harder tasks using fewer language tokens” or even “no language tokens.” I’ll be keeping an eye out for Astra to hit my ChatGPT plan, so stay tuned for my first impressions.",
+          "paragraphs": [
+            "Another day, another major frontier AI release, except this particular OpenAI model is causing more jitters than usual in the AI community.",
+            "GPT-6 Astra, which OpenAI describes as its most advanced model to date, was announced Thursday afternoon , and for now it&rsquo;s available only to members of OpenAI&rsquo;s Daybreak cybersecurity program. The model will be released in the coming days to paid OpenAI and ChatGPT subscribers, including those on Pro, Plus, Enterprise, and Business accounts, as well as via the OpenAI API.",
+            "Arrived just days after the launch of Anthropic&rsquo;s Claude Fable 5.1 and Mythos 5.1 , Astra marks a &ldquo;jump&rdquo; in AI capabilities, OpenAI president Greg Brockman said , boasting that the new model &ldquo;can really do anything a human can do with a computer.&rdquo;",
+            "Astra is also OpenAI&rsquo;s first model to reach the &ldquo;critical&rdquo; threshold of the company&rsquo;s &ldquo;preparedness framework&rdquo; due to its extreme cybersecurity skills, meaning it could carry out &ldquo;end-to-end&rdquo; attacks on &ldquo;hardened targets&rdquo; on its own, among other capabilities.",
+            "OpenAI previously paused work on Astra to bolster its safeguards before announcing earlier this week that the model is &ldquo;consistently more likely to respect explicit safety restrictions and warnings&rdquo; than GPT-5.6 Sol, the OpenAI model involved in the now infamous Hugging Face attack .",
+            "Despite OpenAI&rsquo;s assurances, AI experts remain worried about Astra. The new model is said to employ a reasoning technique known variously as &ldquo;recurrent depth&rdquo; or &ldquo;opaque recurrence,&rdquo; which (as TechCrunch describes ) makes its &ldquo;chain of thought&rdquo; much harder to read."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=763",
+          "link": "https://www.pcworld.com/article/3226859/openais-astra-model-has-ai-researchers-spooked-heres-why.html"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
+      },
+      "first_seen_at": "2026-09-03T23:33:23.959Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
         "id": "feed-8581207e9048-vi",
         "cluster_id": "feed-8581207e9048",
         "language": "vi",
@@ -8883,7 +8972,7 @@
           "link": "https://dantri.com.vn/cong-nghe/chatgpt-claude-va-grok-gap-su-co-toan-cau-20260903221629887.htm"
         }
       },
-      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8937,7 +9026,7 @@
             "language": "vi",
             "trust_tier": "established-media",
             "published_at": "2026-09-03T00:00:00.000Z",
-            "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-09/1_0.jpg?v=1788475221",
+            "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-09/1_0.jpg?v=1788478453",
             "image_caption": "Ảnh tham khảo từ VOV Cong Nghe.",
             "image_credit": "VOV Cong Nghe"
           }
@@ -8946,7 +9035,7 @@
         "published_at": "2026-09-03T00:00:00.000Z",
         "updated_at": "2026-09-03T00:00:00.000Z",
         "image": {
-          "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-09/1_0.jpg?v=1788475221",
+          "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-09/1_0.jpg?v=1788478453",
           "caption": "Ảnh tham khảo từ VOV Cong Nghe.",
           "credit": "VOV Cong Nghe",
           "source_url": "https://vov.vn/cong-nghe/sanh-dieu/sau-7-the-he-galaxy-s27-van-mac-ket-voi-sac-25w-post1329372.vov"
@@ -8972,7 +9061,7 @@
           "link": "https://vov.vn/cong-nghe/sanh-dieu/sau-7-the-he-galaxy-s27-van-mac-ket-voi-sac-25w-post1329372.vov"
         }
       },
-      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -9063,7 +9152,7 @@
           "link": "https://genk.vn/anthropic-bi-kien-vi-goi-claude-max-20x-khong-dung-nhu-quang-cao-165260901160623203.chn"
         }
       },
-      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -9151,7 +9240,7 @@
           "link": "https://genk.vn/vivo-ra-mat-dien-thoai-nhu-iphone-air-nhung-pin-7050mah-165260902182942914.chn"
         }
       },
-      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -9245,7 +9334,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -9336,42 +9425,42 @@
           "link": "https://arstechnica.com/gaming/2026/09/xbox-imposes-harsh-new-time-limits-for-game-pass-game-streaming/"
         }
       },
-      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
     {
       "article": {
-        "id": "feed-24ba66ca83fc-en",
-        "cluster_id": "feed-24ba66ca83fc",
+        "id": "feed-0faa8f6b3ce1-en",
+        "cluster_id": "feed-0faa8f6b3ce1",
         "language": "en",
-        "topic": "chips-ai-infra",
+        "topic": "ai",
         "content_type": "NewsArticle",
-        "slug": "hugging-face-is-too-important-to-fall-into-nvidia-s-hands",
-        "title": "Hugging Face is too important to fall into Nvidia's hands",
-        "summary": "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process. Tobias Mann Tobias Mann SYSTEMS EDITOR Published thu 3 Sep 2026 // 23:15 UTC 9B, promises not to squeeze too hard 9 hours ago Zuck's Muse to Spark joy with open weights release 'soon' 23 hours ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 1 day ago AI agents carried out every step of this ransomware attack – then left the victim an 80-page security audit 1 day ago OPINION Nvidia on Thursday announced an agreement to acquire open source AI evangelist and model depot Hugging Face for $12.9 billion in a deal that's expected to close next year, assuming regulators don't get in the way.",
-        "dek": "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process.",
-        "hook": "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process.",
+        "slug": "openai-says-gpt-6-astra-is-the-most-intelligent-and-aligned-model-in-the-world",
+        "title": "OpenAI says GPT-6 Astra is 'the most intelligent and aligned model in the world'",
+        "summary": "Smith Collection/gado/Getty Images Add Engadget on Google: Preferred Source Google Discover A little under two months after releasing its last major model family to the public, GPT-5.6 Sol, Terra and Luna , OpenAI is back with an entirely new one: GPT-6 Astra , what it claims is \"the most intelligent and aligned model in the world.\" Following the company's decision to slow frontier model development in August after one of its models hacked AI platform Hugging Face , it may also be the last major AI model it releases for a while. GPT-6 Astra excels at computer-use and browsing, and handling tasks in the domains of software engineering, cybersecurity, science and general professional work, according to OpenAI.",
+        "dek": "Smith Collection/gado/Getty Images Add Engadget on Google: Preferred Source Google Discover A little under two months after releasing its last major model family to the public, GPT-5.6 Sol, Terra and Luna , OpenAI is back with an entirely new one: GPT-6 Astra , what it claims is \"the most intelligent and aligned model in the world.\" Following the company's decision to slow frontier model development in August after one of its models hacked AI platform Hugging Face , it may also be the last major AI model it releases for a while.",
+        "hook": "Smith Collection/gado/Getty Images Add Engadget on Google: Preferred Source Google Discover A little under two months after releasing its last major model family to the public, GPT-5.6 Sol, Terra and Luna , OpenAI is back with an entirely new one: GPT-6 Astra , what it claims is \"the most intelligent and aligned model in the world.\" Following the company's decision to slow frontier model development in August after one of its models hacked AI platform Hugging Face , it may also be the last major AI model it releases for a while.",
         "sections": [
           {
-            "heading": "Context: what is changing",
-            "body": "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process. Regulators should take note."
+            "heading": "What changed",
+            "body": "Smith Collection/gado/Getty Images Add Engadget on Google: Preferred Source Google Discover A little under two months after releasing its last major model family to the public, GPT-5.6 Sol, Terra and Luna , OpenAI is back with an entirely new one: GPT-6 Astra , what it claims is \"the most intelligent and aligned model in the world.\" Following the company's decision to slow frontier model development in August after one of its models hacked AI platform Hugging Face , it may also be the last major AI model it releases for a while."
           },
           {
-            "heading": "Where the sources line up",
-            "body": "Tobias Mann Tobias Mann SYSTEMS EDITOR Published thu 3 Sep 2026 // 23:15 UTC 9B, promises not to squeeze too hard 9 hours ago Zuck's Muse to Spark joy with open weights release 'soon' 23 hours ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 1 day ago AI agents carried out every step of this ransomware attack – then left the victim an 80-page security audit 1 day ago OPINION Nvidia on Thursday announced an agreement to acquire open source AI evangelist and model depot Hugging Face for $12.9 billion in a deal that's expected to close next year, assuming regulators don't get in the way."
+            "heading": "Price and bundle value",
+            "body": "GPT-6 Astra excels at computer-use and browsing, and handling tasks in the domains of software engineering, cybersecurity, science and general professional work, according to OpenAI. A flashy demo video the company released alongside the launch shows Astra handling everything from 3D modeling to building slideshows, and often taking care of multiple tasks across different domains at the same time (like ordering food while coding a game). Key to Astra's appeal is its ability to handle these multi-step workflows on your computer and in and out of your browser. It's also allegedly able to do those complex tasks with \"strong visual judgment,\" OpenAI says, and without drifting from its original directions or prompt."
           },
           {
-            "heading": "Practical impact for readers",
-            "body": "As antitrust magnets go, Nvidia buying Hugging Face takes the cake. You wouldn't let an automaker acquire the primary means of fuel distribution. Nor would you let it buy the primary means by which the mechanics are trained. Yet, Nvidia's acquisition of Hugging Face is tantamount to both."
+            "heading": "AI features that change the value",
+            "body": "That raises the larger question of whether the AI model can be used and deployed responsibly. For example, Astra is particularly skilled at cybersecurity. OpenAI says the model scored a perfect score on ExploitBench, a benchmark for determining a model's ability to exploit software vulnerabilities, which was a big jump up from GPT-5.6 Sol's score of 78.5%. The company also tested Astra on SRE-Bench, a benchmark that measures a model's ability to reverse engineer software binaries without raw source code, and found that \"Astra solved 88.0% of tasks in a single attempt and 99.2% within four attempts, compared with 55.9% and 68.7% for GPT-5.6 Sol, respectively.\"."
           },
           {
-            "heading": "Who should pay attention now",
-            "body": "Unfortunately, the Trump administration likely lacks both the competence and teeth necessary to litigate the case, something that probably factored into CEO Jensen Huang's decision to buy Hugging Face now."
+            "heading": "Who should pay attention",
+            "body": "Astra's improved alignment — covering everything from its ability to follow templates to its ability to speak more transparently — should improve safety, but OpenAI says it's also built the model to not comply with advanced cybersecurity tasks. The company says stronger protections will also help Astra better withstand jailbreak requests while also improving the company's ability to monitor misuse."
           },
           {
-            "heading": "What to watch next",
-            "body": "To understand why Nvidia's latest acquisition is so troublesome, we need to talk about just how important Hugging Face has become to the broader AI ecosystem. Have you seen the XKCD comic in which a piece of open source software maintained by a single developer is holding up all of modern infrastructure? It could be argued that Hugging Face is that piece for the AI industry."
+            "heading": "Patrick Tech Media take",
+            "body": "OpenAI says that GPT-6 Astra is \"rolling out today to a limited set of organizations and over the coming days will become available to all ChatGPT Plus, Pro, Business, and Enterprise users, as well as through the OpenAI API and AWS.\" For developers using the OpenAI API, Astra costs $10 per million input tokens and $50 per million output tokens."
           }
         ],
         "verification_state": "emerging",
@@ -9379,53 +9468,146 @@
         "ad_eligible": true,
         "show_editorial_label": false,
         "indexable": true,
-        "store_link_mode": "off",
-        "related_store_items": [],
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "Engadget",
+            "source_url": "https://www.engadget.com/2250814/openai-says-gpt-6-astra-is-the-most-intelligent-and-aligned-model-in-the-world/",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-03T22:58:12.000Z",
+            "image_url": "https://www.engadget.com/img/gallery/openai-says-gpt-6-astra-is-the-most-intelligent-and-aligned-model-in-the-world/l-intro-1788476205.jpg",
+            "image_caption": "Reference image from Engadget.",
+            "image_credit": "Engadget"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-03T22:58:12.000Z",
+        "updated_at": "2026-09-03T22:58:12.000Z",
+        "image": {
+          "src": "https://www.engadget.com/img/gallery/openai-says-gpt-6-astra-is-the-most-intelligent-and-aligned-model-in-the-world/l-intro-1788476205.jpg",
+          "caption": "Reference image from Engadget.",
+          "credit": "Engadget",
+          "source_url": "https://www.engadget.com/2250814/openai-says-gpt-6-astra-is-the-most-intelligent-and-aligned-model-in-the-world/"
+        },
+        "draft_context": {
+          "source_title": "OpenAI says GPT-6 Astra is 'the most intelligent and aligned model in the world'",
+          "source_name": "Engadget",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "The new frontier model is particularly competent at agentic, computer-use tasks.",
+          "paragraphs": [
+            "Smith Collection/gado/Getty Images Add Engadget on Google: Preferred Source Google Discover A little under two months after releasing its last major model family to the public, GPT-5.6 Sol, Terra and Luna , OpenAI is back with an entirely new one: GPT-6 Astra , what it claims is \"the most intelligent and aligned model in the world.\" Following the company's decision to slow frontier model development in August after one of its models hacked AI platform Hugging Face , it may also be the last major AI model it releases for a while.",
+            "GPT-6 Astra excels at computer-use and browsing, and handling tasks in the domains of software engineering, cybersecurity, science and general professional work, according to OpenAI. A flashy demo video the company released alongside the launch shows Astra handling everything from 3D modeling to building slideshows, and often taking care of multiple tasks across different domains at the same time (like ordering food while coding a game). Key to Astra's appeal is its ability to handle these multi-step workflows on your computer and in and out of your browser. It's also allegedly able to do those complex tasks with \"strong visual judgment,\" OpenAI says, and without drifting from its original directions or prompt.",
+            "As with other model launches, the company has a new tranche of benchmarks to justify Astra's improved abilities, including a 98.6% score on ARC-AGI-3, one of the industry's benchmarks for measuring an AI's ability to solve unfamiliar problems. VentureBeat notes that the score has some caveats, namely that AIs that have been put through the benchmark aren't all configured in the same way, and different system architecture (like whether they have persistent memory, for example) can produce different results. Other improvements are more clear-cut: Astra scored 57.7% on Terminal Bench 4.0, a coding benchmark, and 59.3% on the Agent's Last Exam, a benchmark for measuring an AI's agentic capabilities, notably higher than GPT-5.6 Sol. OpenAI included even more benchmarks in its announcement, but in short, Astra is now at the top of most leaderboards in terms of performance.",
+            "That raises the larger question of whether the AI model can be used and deployed responsibly. For example, Astra is particularly skilled at cybersecurity. OpenAI says the model scored a perfect score on ExploitBench, a benchmark for determining a model's ability to exploit software vulnerabilities, which was a big jump up from GPT-5.6 Sol's score of 78.5%. The company also tested Astra on SRE-Bench, a benchmark that measures a model's ability to reverse engineer software binaries without raw source code, and found that \"Astra solved 88.0% of tasks in a single attempt and 99.2% within four attempts, compared with 55.9% and 68.7% for GPT-5.6 Sol, respectively.\"",
+            "Astra's improved alignment — covering everything from its ability to follow templates to its ability to speak more transparently — should improve safety, but OpenAI says it's also built the model to not comply with advanced cybersecurity tasks. The company says stronger protections will also help Astra better withstand jailbreak requests while also improving the company's ability to monitor misuse.",
+            "OpenAI says that GPT-6 Astra is \"rolling out today to a limited set of organizations and over the coming days will become available to all ChatGPT Plus, Pro, Business, and Enterprise users, as well as through the OpenAI API and AWS.\" For developers using the OpenAI API, Astra costs $10 per million input tokens and $50 per million output tokens."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=579",
+          "link": "https://www.engadget.com/2250814/openai-says-gpt-6-astra-is-the-most-intelligent-and-aligned-model-in-the-world/"
+        }
+      },
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-87102e0e5a6b-en",
+        "cluster_id": "feed-87102e0e5a6b",
+        "language": "en",
+        "topic": "ai",
+        "content_type": "NewsArticle",
+        "slug": "openai-throws-astra-into-the-top-tier-model-ring",
+        "title": "OpenAI throws Astra into the top-tier model ring",
+        "summary": "OpenAI slow-walks debut of delayed GPT-6, with Trusted Access Program participants getting first shot. After a brief training pause to reflect on the inadequacy of its AI security measures, OpenAI has released GPT-6 Astra, initially for those in its Trusted Access Program.",
+        "dek": "OpenAI slow-walks debut of delayed GPT-6, with Trusted Access Program participants getting first shot.",
+        "hook": "OpenAI slow-walks debut of delayed GPT-6, with Trusted Access Program participants getting first shot.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "OpenAI slow-walks debut of delayed GPT-6, with Trusted Access Program participants getting first shot."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "After a brief training pause to reflect on the inadequacy of its AI security measures, OpenAI has released GPT-6 Astra, initially for those in its Trusted Access Program."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "Assuming all goes well and there are no more incidents like the Hugging Face hack , the AI biz in a few days will allow Plus, Pro, Business, and Enterprise subscribers to try out what the company describes as \"our most intelligent model yet, with state-of-the-art performance in computer use, browsing, software engineering, science, and professional work.\"."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "GPT-6 Astra arrives just two days after rival Anthropic debuted Fable 5.1, at the same eye-watering price : $10 per million input tokens and $50 per million output tokens."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "Astra, OpenAI says, is the first of its models to reach the \"Critical\" level for cybersecurity capabilities under its Preparedness Framework . The 22-page policy document has been panned [PDF] by researchers, who argue that it \"allows OpenAI’s CEO to deploy even more dangerous capabilities, especially if other AI developers do so.\"."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
         "source_set": [
           {
             "source_type": "press",
             "source_name": "The Register",
-            "source_url": "https://www.theregister.com/ai-and-ml/2026/09/03/hugging-face-is-too-important-to-fall-into-nvidias-hands/5294363",
+            "source_url": "https://www.theregister.com/ai-and-ml/2026/09/03/openai-throws-astra-into-the-top-tier-model-ring/5294378",
             "region": "Global",
             "language": "en",
             "trust_tier": "established-media",
-            "published_at": "2026-09-03T22:15:26.000Z",
-            "image_url": "https://image.theregister.com/5294373.jpg?imageId=5294373&x=0&y=11.61&cropw=100&croph=76.79&panox=0&panoy=11.61&panow=100&panoh=76.79&width=1200&height=683",
+            "published_at": "2026-09-03T22:42:22.000Z",
+            "image_url": "https://image.theregister.com/5294386.jpg?imageId=5294386&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
             "image_caption": "Reference image from The Register.",
             "image_credit": "The Register"
           }
         ],
-        "author_id": "quang-huy",
-        "published_at": "2026-09-03T22:15:26.000Z",
-        "updated_at": "2026-09-03T22:15:26.000Z",
+        "author_id": "mai-linh",
+        "published_at": "2026-09-03T22:42:22.000Z",
+        "updated_at": "2026-09-03T22:42:22.000Z",
         "image": {
-          "src": "https://image.theregister.com/5294373.jpg?imageId=5294373&x=0&y=11.61&cropw=100&croph=76.79&panox=0&panoy=11.61&panow=100&panoh=76.79&width=1200&height=683",
+          "src": "https://image.theregister.com/5294386.jpg?imageId=5294386&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
           "caption": "Reference image from The Register.",
           "credit": "The Register",
-          "source_url": "https://www.theregister.com/ai-and-ml/2026/09/03/hugging-face-is-too-important-to-fall-into-nvidias-hands/5294363"
+          "source_url": "https://www.theregister.com/ai-and-ml/2026/09/03/openai-throws-astra-into-the-top-tier-model-ring/5294378"
         },
         "draft_context": {
-          "source_title": "Hugging Face is too important to fall into Nvidia's hands",
+          "source_title": "OpenAI throws Astra into the top-tier model ring",
           "source_name": "The Register",
           "source_type": "press",
           "trust_tier": "established-media",
           "topic_hint": "internet-business-tech",
           "content_type_hint": "",
-          "description": "OPINION Nvidia on Thursday announced an agreement to acquire open source AI evangelist and model depot Hugging Face for $12.9 billion in a deal that's expected to close next year, assuming regulators don't get in the way. They should get in the way. As antitrust magnets go, Nvidia buying Hugging Face takes the cake. You wouldn't let an automaker acquire the primary means of fuel distribution. Nor would you let it buy the primary means by which the mechanics are trained. Yet, Nvidia's acquisition of Hugging Face is tantamount to both. Unfortunately, the Trump administration likely lacks both the competence and teeth necessary to litigate the case, something that probably factored into CEO Jensen Huang's decision to buy Hugging Face now. To understand why Nvidia's latest acquisition is so troublesome, we need to talk about just how important Hugging Face has become to the broader AI ecosystem. Have you seen the XKCD comic in which a piece of open source software maintained by a single developer is holding up all of modern infrastructure? It could be argued that Hugging Face is that piece for the AI industry. Founded in 2016, the AI model repository has become the beating heart of the machine learning community. When a new open weights model drops, Hugging Face is the first place people look. A key element of its success has been its unrelenting commitment to open source AI, which has made it a sort of Switzerland for researchers, enthusiasts, and software devs to collaborate on neutral ground. If you've ever downloaded an open weights model, it almost certainly came from Hugging Face, whether you knew it or not. No matter how fervently Nvidia promises not to pollute Hugging Face's hallowed ground, the temptation to use the platform to advance its hardware and software interests will inevitably prove too great for Huang and his lieutenants to resist for long. In spite of this, Hugging Face CEO Clem Delangue sang Nvidia's praises on Thursday, casting the acquisition and the capital it will bring as an opportunity to grow the company's user base from around 18 million today to more than 100 million in the years to come. Yet, just a year ago Hugging Face rebuffed a $500 million investment by Nvidia, suggesting Delangue knows he's just made a deal with the devil. That said, with a cool $1 billion earmarked for Hugging Face employees joining Nvidia, Delangue and his cohort are going to have plenty of Benjamins with which to wipe away any tears of regret. What does buying Hugging Face actually get Nvidia? Nvidia would probably prefer to paint the acquisition as an altruistic move to provide financial security to one of the most important AI resources on the internet today. The case certainly can be made that Hugging Face is that one brick holding up the rest of the AI ecosystem. If it ever did exhaust its runway, the consequences would be catastrophic. And Hugging Face's business is capital-intensive. Storing petabytes' worth of AI models and datasets isn't cheap, nor is the bandwidth required to continuously serve those models at scale. Nvidia's involvement all but ensures Hugging Face never has to worry about infrastructure demand going forward. But while the benefits of Nvidia's patronage are obvious, so is the potential harm to the GPU giant's competitors. Despite frequent comparisons to GitHub, Hugging Face is more than a place for storing and sharing model weights and training data. For example, Hugging Face is home to arguably the most comprehensive documentation on AI development on the internet. It wouldn't be hard for Nvidia to use its newfound position to ensure its products are always better documented than its competitors'. You can claim until your face is red that the platform is still \"open,\" but just because something is open doesn't mean it's unbiased. Then there are Hugging Face's considerable software contributions. If you weren't aware, the popular local AI inference engine llama.cpp became part of Hugging Face earlier this year. Meanwhile, Hugging Face's Transformers Python library — not to be confused with the model architecture — is a key piece of major inference platforms like vLLM and SGLang, which compete directly with Nvidia's own TRT-LLM offering. The acquisition puts Nvidia in a prime position to prioritize its own hardware and software products. The AI arms dealer wouldn't necessarily need to do something as brash as ending support for competing platforms. It could simply ensure that the models and frameworks it favors are always better documented, and run first on its kit. One method to tip the scales would be to flood Hugging Face with cheap Nvidia-based compute. Hugging Face has offered compute resources in the form of its inference endpoints, providers, and Spaces for several years now. To supply this compute, Hugging Face worked with numerous providers across a range of hardware, including major cloud providers, inference-as-a-service vendors, and chip designers such as Nvidia, AMD, Cerebras, SambaNova, and Groq. As Hugging Face's parent company, Nvidia would be in the position to subsidize compute through its various partners and economically incentivize developers to build for its hardware first. The GPU slinger would have to be subtle. Tying a certain percentage of a neocloud's compute allocations to low-cost educational and development resources would be one way to do it without raising too many suspicions. No matter how you slice it, nor how much Nvidia insists it's totally not going to thumb the scales, its acquisition of Hugging Face has a high likelihood of harming competition. Hugging Face works better as AI Switzerland than it does as part of the most powerful company in the industry. ®",
+          "description": "After a brief training pause to reflect on the inadequacy of its AI security measures, OpenAI has released GPT-6 Astra, initially for those in its Trusted Access Program. Assuming all goes well and there are no more incidents like the Hugging Face hack, the AI biz in a few days will allow Plus, Pro, Business, and Enterprise subscribers to try out what the company describes as \"our most intelligent model yet, with state-of-the-art performance in computer use, browsing, software engineering, science, and professional work.\" GPT-6 Astra arrives just two days after rival Anthropic debuted Fable 5.1, at the same eye-watering price: $10 per million input tokens and $50 per million output tokens. Astra, OpenAI says, is the first of its models to reach the \"Critical\" level for cybersecurity capabilities under its Preparedness Framework. The 22-page policy document has been panned [PDF] by researchers, who argue that it \"allows OpenAI’s CEO to deploy even more dangerous capabilities, especially if other AI developers do so.\" And here we are. OpenAI's cautionary but upbeat assessment of Astra describes it as \"a significant step up in cyber capabilities.\" \"This means that, with the right tools and access, GPT‑6 Astra can find previously unknown security flaws and develop new ways to exploit them across many well-protected systems without a person guiding each step,\" the company said. OpenAI goes on to argue not to worry since Astra is more robust than prior models, better aligned, more comprehensively monitored, and safer in high-risk scenarios. \"[W]e built a new evaluation informed by the Hugging Face incident that evaluates whether a model facing a difficult or impossible task will go beyond its intended scope,\" OpenAI said. \"Compared to GPT‑5.6 Sol, which without production safeguards went beyond the authorized target 48 percent of the time, GPT‑6 Astra did this in 0 percent of cases.\" Other longstanding AI model problems are also said to have been reduced. On OpenAI's internal hallucination benchmark, Astra scored 2 percent, down from 9.4 percent for GPT-5.6 Sol. And Astra is said to be three times less likely than GPT-5.6 Sol to misrepresent what it can do. \"GPT-6 Astra surpasses the human baseline in action efficiency on ARC-AGI-3,\" said Greg Kamradt, president of ARC Prize Foundation, in a blog post. \"It used fewer actions than the median tested human on 96 percent of levels.\" But it does so at far greater cost – about $360 per game in GPU-forged tokens compared to $0.00067 per game if one had to purchase electricity from the grid to run a human brain. Fable 5.1 hasn't been publicly evaluated on ARC-AGI-3, but for version two of the test it scored 90 percent, compared to 95 percent for Astra. According to Artificial Analysis, GPT-6 Astra matches GPT-5.6 Sol on its Intelligent Index with a score of 61, five points less than Claude Fable 5.1 and also trailing Meta Muse Spark 1.3. In terms of its competency as a coding agent, Astra scores 67, on par with Opus 5, Fable 5, and Muse Spark 1.3. But Fable 5.1 in Claude Code tops current coding agent scores at 70. Fable 5.1, however, appears to be significantly more expensive on a cost per task basis. Artificial Analysis' numbers put Fable 5.1 at $9.18 per task, compared to $4.72 per task with GPT-6 Astra. Astra brings with it improvements in the Codex harness, which OpenAI claims result in a 1.9x faster task completion rate. Codex has also incorporated a new approach to context maintenance – retaining prior session text to inform future work. \"In Codex, Astra can keep notes across context windows, preserving accumulated details without repeatedly compressing them into a single summary,\" the company explains. \"Earlier context windows remain searchable, so Astra can find requirements or test results from previous messages and tool outputs – even if that information wasn’t captured in its notes.\" This feature is currently experimental and must be enabled through the Codex config.toml file until it becomes the default in a few weeks.®",
           "paragraphs": [
-            "$12.9 billion deal will inevitably cement Nvidia's market dominance and harm competition in the process. Regulators should take note",
-            "Tobias Mann Tobias Mann SYSTEMS EDITOR Published thu 3 Sep 2026 // 23:15 UTC 9B, promises not to squeeze too hard 9 hours ago Zuck's Muse to Spark joy with open weights release 'soon' 23 hours ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 1 day ago AI agents carried out every step of this ransomware attack – then left the victim an 80-page security audit 1 day ago OPINION Nvidia on Thursday announced an agreement to acquire open source AI evangelist and model depot Hugging Face for $12.9 billion in a deal that's expected to close next year, assuming regulators don't get in the way.",
-            "As antitrust magnets go, Nvidia buying Hugging Face takes the cake. You wouldn't let an automaker acquire the primary means of fuel distribution. Nor would you let it buy the primary means by which the mechanics are trained. Yet, Nvidia's acquisition of Hugging Face is tantamount to both.",
-            "Unfortunately, the Trump administration likely lacks both the competence and teeth necessary to litigate the case, something that probably factored into CEO Jensen Huang's decision to buy Hugging Face now.",
-            "To understand why Nvidia's latest acquisition is so troublesome, we need to talk about just how important Hugging Face has become to the broader AI ecosystem. Have you seen the XKCD comic in which a piece of open source software maintained by a single developer is holding up all of modern infrastructure? It could be argued that Hugging Face is that piece for the AI industry.",
-            "Founded in 2016, the AI model repository has become the beating heart of the machine learning community. When a new open weights model drops, Hugging Face is the first place people look. A key element of its success has been its unrelenting commitment to open source AI, which has made it a sort of Switzerland for researchers, enthusiasts, and software devs to collaborate on neutral ground."
+            "OpenAI slow-walks debut of delayed GPT-6, with Trusted Access Program participants getting first shot",
+            "After a brief training pause to reflect on the inadequacy of its AI security measures, OpenAI has released GPT-6 Astra, initially for those in its Trusted Access Program.",
+            "Assuming all goes well and there are no more incidents like the Hugging Face hack , the AI biz in a few days will allow Plus, Pro, Business, and Enterprise subscribers to try out what the company describes as \"our most intelligent model yet, with state-of-the-art performance in computer use, browsing, software engineering, science, and professional work.\"",
+            "GPT-6 Astra arrives just two days after rival Anthropic debuted Fable 5.1, at the same eye-watering price : $10 per million input tokens and $50 per million output tokens.",
+            "Astra, OpenAI says, is the first of its models to reach the \"Critical\" level for cybersecurity capabilities under its Preparedness Framework . The 22-page policy document has been panned [PDF] by researchers, who argue that it \"allows OpenAI’s CEO to deploy even more dangerous capabilities, especially if other AI developers do so.\"",
+            "And here we are. OpenAI's cautionary but upbeat assessment of Astra describes it as \"a significant step up in cyber capabilities.\""
           ],
           "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=1278",
-          "link": "https://www.theregister.com/ai-and-ml/2026/09/03/hugging-face-is-too-important-to-fall-into-nvidias-hands/5294363"
+          "source_depth_reason": "depth=100; paragraphs=6; words=864",
+          "link": "https://www.theregister.com/ai-and-ml/2026/09/03/openai-throws-astra-into-the-top-tier-model-ring/5294378"
         }
       },
-      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -9513,7 +9695,100 @@
           "link": "https://www.androidauthority.com/ugreen-smart-home-hubs-3706574/"
         }
       },
-      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-e44d994ac611-en",
+        "cluster_id": "feed-e44d994ac611",
+        "language": "en",
+        "topic": "ai",
+        "content_type": "NewsArticle",
+        "slug": "introducing-comprehensive-audit-logs-for-gemini-notebook-in-the-workspace-admin-console",
+        "title": "Introducing comprehensive audit logs for Gemini Notebook in the Workspace Admin console",
+        "summary": "Google Workspace administrators can now access comprehensive audit logs for Gemini Notebook in the Admin console, providing greater insights into how the application is used across their organizations. This update introduces full visibility into Gemini Notebook actions, allowing administrators to review usage and audit data access in the security investigation tool and audit and investigation tool .",
+        "dek": "Google Workspace administrators can now access comprehensive audit logs for Gemini Notebook in the Admin console, providing greater insights into how the application is used across their organizations.",
+        "hook": "Google Workspace administrators can now access comprehensive audit logs for Gemini Notebook in the Admin console, providing greater insights into how the application is used across their organizations.",
+        "sections": [
+          {
+            "heading": "What changed",
+            "body": "Google Workspace administrators can now access comprehensive audit logs for Gemini Notebook in the Admin console, providing greater insights into how the application is used across their organizations. This update introduces full visibility into Gemini Notebook actions, allowing administrators to review usage and audit data access in the security investigation tool and audit and investigation tool ."
+          },
+          {
+            "heading": "Price and bundle value",
+            "body": "Administrators can track a wide range of user actions across multiple categories, including notebook visibility, user identity, IP address, and resource context. These audit logs can be exported and reviewed using BigQuery or accessed directly within the Admin console using the security investigation tool. These monitoring capabilities help administrators meet regulatory compliance requirements, understand collaboration patterns, and protect company data within their digital environments."
+          },
+          {
+            "heading": "AI features that change the value",
+            "body": "On the “What’s new in Google Workspace?” Help Center page, learn about new products and features launching in Google Workspace, including smaller changes that haven’t been announced on the Google Workspace Updates blog."
+          },
+          {
+            "heading": "Who should pay attention",
+            "body": "Discover how a diverse range of organizations, from small businesses and nimble startups to globally recognized Fortune 500 corporations, leverage the collaborative power of Google Workspace. Explore examples of how teams of are streamlining workflows and driving productivity by utilizing Google-Workspace."
+          },
+          {
+            "heading": "Patrick Tech Media take",
+            "body": "Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz. Patrick Tech Media will keep checking Google Workspace Updates to see whether the value holds once the rollout broadens."
+          }
+        ],
+        "verification_state": "verified",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "official-site",
+            "source_name": "Google Workspace Updates",
+            "source_url": "http://workspaceupdates.googleblog.com/2026/08/introducing-comprehensive-audit-logs-for-Gemini-Notebook-in-the-Workspace-Admin-console.html",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "official",
+            "published_at": "2026-09-03T21:48:05.341Z",
+            "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOVtPmVrWkxfPYUlCEjfAgD1_YpeR-UD-N4KJLtfDgrxoEdsW5wStz0PeI8VRNxubUXUSpD_-RBln9VbEeJZITU94WOpstIEAiYQvQqezUdHuL4ug8VSWCZr30nbdj91WTKXS8KmRHthk1yFA_VYbfqbk5xbnUm97-tUemxJwkQTF3ZIr2ScXARls89i8/w1200-h630-p-k-no-nu/Introducing%20comprehensive%20audit%20logs%20for%20Gemini%20Notebook%20in%20the%20Workspace%20Admin%20console%20-%207020.png",
+            "image_caption": "Reference image from Google Workspace Updates.",
+            "image_credit": "Google Workspace Updates"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-09-03T21:48:05.341Z",
+        "updated_at": "2026-09-03T21:48:05.341Z",
+        "image": {
+          "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOVtPmVrWkxfPYUlCEjfAgD1_YpeR-UD-N4KJLtfDgrxoEdsW5wStz0PeI8VRNxubUXUSpD_-RBln9VbEeJZITU94WOpstIEAiYQvQqezUdHuL4ug8VSWCZr30nbdj91WTKXS8KmRHthk1yFA_VYbfqbk5xbnUm97-tUemxJwkQTF3ZIr2ScXARls89i8/w1200-h630-p-k-no-nu/Introducing%20comprehensive%20audit%20logs%20for%20Gemini%20Notebook%20in%20the%20Workspace%20Admin%20console%20-%207020.png",
+          "caption": "Reference image from Google Workspace Updates.",
+          "credit": "Google Workspace Updates",
+          "source_url": "http://workspaceupdates.googleblog.com/2026/08/introducing-comprehensive-audit-logs-for-Gemini-Notebook-in-the-Workspace-Admin-console.html"
+        },
+        "draft_context": {
+          "source_title": "Introducing comprehensive audit logs for Gemini Notebook in the Workspace Admin console",
+          "source_name": "Google Workspace Updates",
+          "source_type": "official-site",
+          "trust_tier": "official",
+          "topic_hint": "apps-software",
+          "content_type_hint": "",
+          "description": "Google Workspace administrators can now access comprehensive audit logs for Gemini Notebook in the Admin console, providing greater insights into how the application is used across their organizations. This update introduces full visibility into Gemini Notebook actions, allowing administrators to review usage and audit data access in the security investigation tool and audit and investigation tool . Gemini Notebook log events in the ‘Audit and Investigation’ tool in the Admin console. Additional details Administrators can track a wide range of user actions across multiple categories, including notebook visibility, user identity, IP address, and resource context. These audit logs can be exported and reviewed using BigQuery or accessed directly within the Admin console using the security investigation tool. These monitoring capabilities help administrators meet regulatory compliance requirements, understand collaboration patterns, and protect company data within their digital environments. Note: While audit log storage itself follows standard Workspace regional routing policies, Gemini Notebook user data—such as notebooks, sources, and chat histories—is stored globally and does not currently support data regionalization. Getting started Admins: Gemini Notebook audit logs will be available by default in the Workspace Admin console, but exporting audit logs to BigQuery will be disabled until turned on. Visit the Help Center to learn more about Gemini Notebook log events , schema in BigQuery and setting up service log exports to BigQuery . End users: There is no end user setting for this feature. Rollout pace Rapid Release and Scheduled Release domains: Gradual rollout (up to 15 days for feature visibility) started on September 3, 2026 Availability Available to all Google Workspace customers that have access to the security investigation tool and audit and investigation tool Resources Google Workspace Admin Help: Gemini Notebook log events",
+          "paragraphs": [
+            "Google Workspace administrators can now access comprehensive audit logs for Gemini Notebook in the Admin console, providing greater insights into how the application is used across their organizations. This update introduces full visibility into Gemini Notebook actions, allowing administrators to review usage and audit data access in the security investigation tool and audit and investigation tool .",
+            "Administrators can track a wide range of user actions across multiple categories, including notebook visibility, user identity, IP address, and resource context. These audit logs can be exported and reviewed using BigQuery or accessed directly within the Admin console using the security investigation tool. These monitoring capabilities help administrators meet regulatory compliance requirements, understand collaboration patterns, and protect company data within their digital environments.",
+            "Note: While audit log storage itself follows standard Workspace regional routing policies, Gemini Notebook user data&#8212;such as notebooks, sources, and chat histories&#8212;is stored globally and does not currently support data regionalization.",
+            "On the &#8220;What&#8217;s new in Google Workspace?&#8221; Help Center page, learn about new products and features launching in Google Workspace, including smaller changes that haven&#8217;t been announced on the Google Workspace Updates blog.",
+            "Discover how a diverse range of organizations, from small businesses and nimble startups to globally recognized Fortune 500 corporations, leverage the collaborative power of Google Workspace. Explore examples of how teams of are streamlining workflows and driving productivity by utilizing Google-Workspace."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=5; words=510",
+          "link": "http://workspaceupdates.googleblog.com/2026/08/introducing-comprehensive-audit-logs-for-Gemini-Notebook-in-the-Workspace-Admin-console.html"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Xác thực chính thức"
+      },
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -9606,7 +9881,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-03T22:59:20.067Z",
+      "first_seen_at": "2026-09-03T23:33:53.287Z",
       "retry_count": 0,
       "last_retry_at": ""
     }
