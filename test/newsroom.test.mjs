@@ -31,7 +31,7 @@ import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsr
 import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
 import { selectNewerSnapshot } from "../src/document-store.mjs";
 import { PENDING_TTL_MS, applySingleSourcePublicationPolicy, getPendingArticleKey, getSourceQualityTier, hasTrustedSource, preparePendingArticles } from "../src/newsroom-pending-queue.mjs";
-import { isUsefulSocialSignal, normalizeSocialSignal } from "../src/openclaw-social-connectors.mjs";
+import { fetchHackerNewsSignals, fetchStackExchangeSignals, isUsefulSocialSignal, normalizeSocialSignal } from "../src/openclaw-social-connectors.mjs";
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
 
 {
@@ -114,6 +114,19 @@ assert.deepEqual(
 assert.equal(isUsefulSocialSignal("A".repeat(80)), false);
 assert.equal(isUsefulSocialSignal("OpenAI announced a benchmark update with new release details and practical feature notes for developers."), true);
 assert.equal(normalizeSocialSignal({ title: "A release update", summary: "The project announced a benchmark release with concrete feature details for developers and operators.", url: "https://example.com/release" })?.discovery_only, true);
+
+{
+  const hackerNews = await fetchHackerNewsSignals("AI", {
+    fetchImpl: async () => new Response(JSON.stringify({ hits: [{ title: "New AI model release update", story_text: "A concrete benchmark and feature update for developers.", url: "https://example.com/hn", created_at: "2026-09-04T08:00:00Z" }] }), { status: 200 })
+  });
+  assert.equal(hackerNews[0].source_name, "Hacker News");
+  assert.equal(hackerNews[0].discovery_only, true);
+  const stackExchange = await fetchStackExchangeSignals("artificial-intelligence", {
+    fetchImpl: async () => new Response(JSON.stringify({ items: [{ title: "How do I benchmark an AI feature update?", body: "<p>Implementation details for a practical benchmark.</p>", link: "https://stackoverflow.com/questions/1", last_activity_date: 1788508800 }] }), { status: 200 })
+  });
+  assert.equal(stackExchange[0].source_name, "Stack Overflow [artificial-intelligence]");
+  assert.equal(stackExchange[0].discovery_only, true);
+}
 
 const state = createState();
 {

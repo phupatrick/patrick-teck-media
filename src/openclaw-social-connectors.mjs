@@ -3,6 +3,8 @@ export const SOCIAL_KEYWORD_PATTERN = /\b(announcing|announced|released|release|
 export const REDDIT_SOURCES = ["LocalLLaMA", "MachineLearning", "technology", "ChatGPT"];
 export const X_HANDLES = ["sama", "OpenAI", "karpathy", "ylecun", "AnthropicAI", "GoogleDeepMind"];
 export const GITHUB_RELEASES = ["vllm-project/vllm", "ollama/ollama", "langchain-ai/langchain"];
+export const HACKER_NEWS_QUERIES = ["AI", "LLM", "cybersecurity", "semiconductor"];
+export const STACK_EXCHANGE_TAGS = ["artificial-intelligence", "machine-learning", "cybersecurity"];
 
 export function isUsefulSocialSignal(value) {
   const text = String(value || "").replace(/\s+/g, " ").trim();
@@ -17,12 +19,14 @@ export function normalizeSocialSignal(input, defaults = {}) {
   return { title, summary, url, published_at: input?.published_at || new Date().toISOString(), source_name: String(input?.source_name || defaults.source_name || "Social signal").trim(), source_type: String(input?.source_type || defaults.source_type || "community").trim(), trust_tier: String(input?.trust_tier || defaults.trust_tier || "community").trim(), topic_hint: String(input?.topic_hint || defaults.topic_hint || "ai").trim(), discovery_only: true };
 }
 
-export async function fetchSocialSignals({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, redditSources = REDDIT_SOURCES, xHandles = X_HANDLES, youtubeChannelIds = [], githubReleases = GITHUB_RELEASES } = {}) {
+export async function fetchSocialSignals({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, redditSources = REDDIT_SOURCES, xHandles = X_HANDLES, youtubeChannelIds = [], githubReleases = GITHUB_RELEASES, hackerNewsQueries = HACKER_NEWS_QUERIES, stackExchangeTags = STACK_EXCHANGE_TAGS } = {}) {
   const groups = await Promise.all([
     Promise.all(redditSources.map((subreddit) => fetchRedditSignals(subreddit, { fetchImpl, timeoutMs }))),
     Promise.all(xHandles.map((handle) => fetchXSignals(handle, { fetchImpl, timeoutMs }))),
     Promise.all(youtubeChannelIds.map((channelId) => fetchYouTubeSignals(channelId, { fetchImpl, timeoutMs }))),
-    Promise.all(githubReleases.map((repository) => fetchGitHubReleaseSignals(repository, { fetchImpl, timeoutMs })))
+    Promise.all(githubReleases.map((repository) => fetchGitHubReleaseSignals(repository, { fetchImpl, timeoutMs }))),
+    Promise.all(hackerNewsQueries.map((query) => fetchHackerNewsSignals(query, { fetchImpl, timeoutMs }))),
+    Promise.all(stackExchangeTags.map((tag) => fetchStackExchangeSignals(tag, { fetchImpl, timeoutMs })))
   ]);
   const seen = new Set();
   return groups.flat(2).filter((signal) => signal && !seen.has(signal.url) && seen.add(signal.url));
@@ -59,6 +63,33 @@ export async function fetchGitHubReleaseSignals(repository, options = {}) {
   if (!safeRepository) return [];
   const xml = await fetchText("https://github.com/" + safeRepository + "/releases.atom", options);
   return parseFeedEntries(xml).map((entry) => normalizeSocialSignal({ ...entry, source_name: safeRepository + " releases" }, { source_type: "official-site", trust_tier: "official", topic_hint: "ai" })).filter(Boolean);
+}
+
+export async function fetchHackerNewsSignals(query, options = {}) {
+  const safeQuery = String(query || "").trim();
+  if (!safeQuery) return [];
+  const encodedQuery = encodeURIComponent(safeQuery);
+  const payload = await fetchJson(`https://hn.algolia.com/api/v1/search_by_date?query=${encodedQuery}&tags=story&hitsPerPage=10`, options);
+  return (payload?.hits || []).map((hit) => normalizeSocialSignal({
+    title: hit?.title,
+    summary: [hit?.story_text, hit?.url ? `Release or feature link: ${hit.url}` : ""].filter(Boolean).join(" "),
+    url: hit?.url || (hit?.objectID ? `https://news.ycombinator.com/item?id=${hit.objectID}` : ""),
+    published_at: hit?.created_at,
+    source_name: "Hacker News"
+  }, { source_type: "community", trust_tier: "community", topic_hint: "ai" })).filter(Boolean);
+}
+
+export async function fetchStackExchangeSignals(tag, options = {}) {
+  const safeTag = String(tag || "").trim().replace(/[^A-Za-z0-9+#.-]/g, "");
+  if (!safeTag) return [];
+  const payload = await fetchJson(`https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&tagged=${encodeURIComponent(safeTag)}&site=stackoverflow&pagesize=10&filter=withbody`, options);
+  return (payload?.items || []).map((item) => normalizeSocialSignal({
+    title: item?.title,
+    summary: [item?.body, "Developer feature update and implementation discussion."].filter(Boolean).join(" "),
+    url: item?.link,
+    published_at: item?.last_activity_date ? new Date(item.last_activity_date * 1000).toISOString() : "",
+    source_name: `Stack Overflow [${safeTag}]`
+  }, { source_type: "community", trust_tier: "community", topic_hint: safeTag === "cybersecurity" ? "security" : "ai" })).filter(Boolean);
 }
 
 async function fetchJson(url, options) {
