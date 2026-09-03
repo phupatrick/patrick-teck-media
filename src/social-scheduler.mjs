@@ -3,7 +3,9 @@ const DEFAULT_SLOTS = [
   [11, 0, "information"], [12, 30, "ai_selected"],
   [14, 0, "information"], [15, 30, "product_promotion"],
   [17, 0, "information"], [18, 30, "ai_selected"],
-  [20, 0, "information"], [21, 30, "product_promotion"]
+  [20, 0, "information"], [21, 30, "product_promotion"],
+  [22, 30, "web_digest"], [22, 45, "web_digest"], [23, 0, "web_digest"],
+  [23, 15, "web_digest"], [23, 30, "web_digest"]
 ];
 
 export function getScheduledPostType({ now = new Date(), timeZone = "Asia/Ho_Chi_Minh", toleranceMinutes = 20, force = false } = {}) {

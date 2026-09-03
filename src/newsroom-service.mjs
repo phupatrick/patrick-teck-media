@@ -5,7 +5,7 @@ import {
   isArticlePublishReady,
   stripGenericEditorialPadding
 } from "./newsroom-quality.mjs";
-import { createNewsroomStore, normalizeNewsroomPayload } from "./newsroom-store.mjs";
+import { createNewsroomStore, normalizeNewsroomPayload, normalizeUnifiedArticle } from "./newsroom-store.mjs";
 import { createOpenClawWebStore, normalizeOpenClawWebState } from "./openclaw-web-store.mjs";
 import { repairEncodingArtifacts } from "./text-repair.mjs";
 import { hasSourceTextContamination } from "./newsroom-source-hygiene.mjs";
@@ -380,7 +380,7 @@ export function buildNewsroomState(options = {}) {
 }
 
 export function getHomeData(state, language) {
-  const localized = getArticlesForLanguage(state, language);
+  const localized = getRankedFeedArticles(state.articles, { lang: language, limit: Number.MAX_SAFE_INTEGER });
   const prioritized = sortStoriesForFrontPage(
     localized,
     state.runtime.generatedAt,
@@ -1326,6 +1326,33 @@ export function getArticlesForLanguage(state, language) {
     .sort((left, right) => sortByDateDesc(left.published_at, right.published_at));
 }
 
+export function getRankedFeedArticles(articles, { lang = "vi", category = "", limit = 20, now = new Date() } = {}) {
+  const targetLanguage = lang === "en" ? "en" : "vi";
+  const requestedCategory = category ? normalizeUnifiedArticle({ topic: category }).category : "";
+  const targetWeights = targetLanguage === "vi"
+    ? { vn: 1.65, global: 1.0 }
+    : { global: 1.7, vn: 1.0 };
+  const anchor = new Date(now).getTime();
+
+  return (Array.isArray(articles) ? articles : [])
+    .filter((article) => article?.language === targetLanguage)
+    .map((article, index) => {
+      const unified = normalizeUnifiedArticle(article);
+      const categoryMatch = !requestedCategory || unified.category === requestedCategory;
+      const timestamp = Date.parse(unified.updated_at || unified.published_at || "");
+      const ageHours = Number.isFinite(anchor) && Number.isFinite(timestamp) ? Math.max(0, (anchor - timestamp) / 3600000) : 9999;
+      const recency = Math.max(0, 36 - Math.min(36, ageHours)) / 3;
+      const heat = Math.max(0, Math.min(100, Number(unified.hot_score || 0))) * 0.55;
+      const quality = Math.max(0, Math.min(100, Number(unified.quality_score || 0))) * 0.2;
+      const geo = targetWeights[unified.geo_scope] || 1;
+      return { article: unified, categoryMatch, score: (heat + quality + recency) * geo, index };
+    })
+    .filter((entry) => entry.categoryMatch)
+    .sort((left, right) => right.score - left.score || Date.parse(right.article.published_at || 0) - Date.parse(left.article.published_at || 0) || left.index - right.index)
+    .slice(0, Math.max(0, Number(limit) || 0))
+    .map(({ article }) => article);
+}
+
 export function getArticleByRoute(state, language, segment, slug) {
   return state.articleMap.get(makeArticleKey(language, segment, slug)) || null;
 }
@@ -1938,6 +1965,8 @@ function normalizeExternalArticle(article, { topics, contentTypeMeta, expandEdit
     updated_at: article.updated_at || article.published_at || new Date().toISOString(),
     href: article.href || `/${language}/${typeMeta.segments[language]}/${article.slug}`
   };
+
+  Object.assign(normalizedArticle, normalizeUnifiedArticle({ ...article, ...normalizedArticle }));
 
   normalizedArticle.readiness = evaluateArticleReadiness(normalizedArticle);
   return normalizedArticle;

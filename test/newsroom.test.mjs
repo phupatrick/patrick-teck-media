@@ -21,7 +21,10 @@ import {
   getRadarData,
   getTopicPage,
   sortStoriesByFreshnessAndHeat
+  ,getRankedFeedArticles
 } from "../src/newsroom-service.mjs";
+import { normalizeNewsroomPayload, normalizeUnifiedArticle } from "../src/newsroom-store.mjs";
+import { selectHotWebDigestCandidates } from "../scripts/social-autopilot.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles, enhanceMultiSourceSynthesisWithGemini } from "../src/newsroom-synthesis.mjs";
 import { evaluateArticleAutopublishReadiness, evaluateArticleReadiness } from "../src/newsroom-quality.mjs";
 import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
@@ -30,6 +33,26 @@ import { selectNewerSnapshot } from "../src/document-store.mjs";
 import { PENDING_TTL_MS, applySingleSourcePublicationPolicy, getPendingArticleKey, getSourceQualityTier, hasTrustedSource, preparePendingArticles } from "../src/newsroom-pending-queue.mjs";
 import { isUsefulSocialSignal, normalizeSocialSignal } from "../src/openclaw-social-connectors.mjs";
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
+
+{
+  const normalized = normalizeUnifiedArticle({ id: "unified-1", cluster_id: "cluster-1", language: "vi", title: "Tin Việt", topic: "apps-software", region: "VN", sections: [{ heading: "Chi tiết", body: "Nội dung" }] });
+  assert.equal(normalized.category, "software");
+  assert.equal(normalized.geo_scope, "vn");
+  assert.equal(normalized.body_vi, "Chi tiết\nNội dung");
+  const paired = normalizeNewsroomPayload({ articles: [normalized, { id: "unified-1-en", cluster_id: "cluster-1", language: "en", title: "English story", topic: "apps-software" }] }).articles;
+  assert.equal(paired[0].title_en, "English story");
+  const ranked = getRankedFeedArticles([
+    { id: "vn", language: "vi", title: "Tin Việt", topic: "ai", geo_scope: "vn", hot_score: 60, published_at: "2026-09-04T08:00:00Z" },
+    { id: "global", language: "vi", title: "Global story", topic: "ai", geo_scope: "global", hot_score: 60, published_at: "2026-09-04T08:00:00Z" }
+  ], { lang: "vi", now: "2026-09-04T09:00:00Z", limit: 2 });
+  assert.equal(ranked[0].id, "vn");
+  const digest = selectHotWebDigestCandidates([
+    { id: "hot", language: "vi", title: "Tin nóng", href: "/vi/tin-tuc/hot", hot_score: 90, published_at: "2026-09-04T08:00:00Z" },
+    { id: "old", language: "vi", title: "Tin cũ", href: "/vi/tin-tuc/old", hot_score: 100, published_at: "2026-09-01T08:00:00Z" },
+    { id: "en", language: "en", title: "English", href: "/en/news/en", hot_score: 100, published_at: "2026-09-04T08:00:00Z" }
+  ], new Set(), 5, { now: "2026-09-04T09:00:00Z" });
+  assert.deepEqual(digest.map((article) => article.id), ["hot"]);
+}
 
 {
   const response = await executeNewsroomCommand("/social", { isAdmin: true });

@@ -11,6 +11,7 @@ const DEFAULT_STORE_CATALOG_URL = "https://patricktechmedia.store/api/products";
 const DEFAULT_INFORMATION_POSTS_PER_DAY = 5;
 const DEFAULT_PRODUCT_POSTS_PER_DAY = 3;
 const DEFAULT_AI_SELECTED_POSTS_PER_DAY = 2;
+const DEFAULT_WEB_DIGEST_POSTS_PER_DAY = 5;
 const DEFAULT_TOPICS = [
   "Cách chọn công cụ AI phù hợp cho công việc hằng ngày",
   "Những thông số công nghệ người mua nên kiểm tra trước khi xuống tiền",
@@ -40,10 +41,12 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const informationLimit = normalizeDailyLimit(env.SOCIAL_INFORMATION_POSTS_PER_DAY, DEFAULT_INFORMATION_POSTS_PER_DAY);
   const productLimit = normalizeDailyLimit(env.SOCIAL_PRODUCT_POSTS_PER_DAY, DEFAULT_PRODUCT_POSTS_PER_DAY);
   const aiSelectedLimit = normalizeDailyLimit(env.SOCIAL_AI_SELECTED_POSTS_PER_DAY, DEFAULT_AI_SELECTED_POSTS_PER_DAY);
-  const quota = getDailyQuota(socialState.posts, { now, timeZone: env.SOCIAL_TIMEZONE || "Asia/Ho_Chi_Minh", limits: { information: informationLimit, product_promotion: productLimit, ai_selected: aiSelectedLimit } });
+  const webDigestLimit = normalizeDailyLimit(env.SOCIAL_WEB_DIGEST_POSTS_PER_DAY, DEFAULT_WEB_DIGEST_POSTS_PER_DAY);
+  const quota = getDailyQuota(socialState.posts, { now, timeZone: env.SOCIAL_TIMEZONE || "Asia/Ho_Chi_Minh", limits: { information: informationLimit, product_promotion: productLimit, ai_selected: aiSelectedLimit, web_digest: webDigestLimit } });
   const remainingInformation = quota.remaining.information;
   const remainingAiSelected = quota.remaining.ai_selected;
   const remainingProduct = quota.remaining.product_promotion;
+  const remainingWebDigest = quota.remaining.web_digest;
   const learnedContext = await loadLearnedContext(env);
   const articles = selectCandidates(newsroom.articles, publishedKeys, remainingInformation + remainingAiSelected, { learnedContext, recentPosts: socialState.posts });
   const informationCandidates = articles.length
@@ -55,7 +58,8 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
     post_type: "ai_selected"
   }));
   const productCandidates = await selectProductCandidates({ env, fetchImpl, publishedKeys, recentPosts: socialState.posts, limit: remainingProduct, logger, now });
-  const allCandidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...aiSelectedCandidates, ...productCandidates];
+  const webDigestCandidates = selectHotWebDigestCandidates(newsroom.articles, publishedKeys, remainingWebDigest, { now });
+  const allCandidates = [...informationCandidates.map((article) => ({ ...article, pillar: article.pillar || "ai_news", post_type: "information" })), ...aiSelectedCandidates, ...productCandidates, ...webDigestCandidates];
   const scheduled = String(env.SOCIAL_AUTOPILOT_SCHEDULED || "").trim() === "1";
   const forced = String(env.SOCIAL_AUTOPILOT_FORCE || "").trim() === "1";
   const scheduledType = getScheduledPostType({ now, timeZone: env.SOCIAL_TIMEZONE || "Asia/Ho_Chi_Minh", force: forced });
@@ -99,6 +103,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         facebook_url: facebookPost.permalink_url,
         facebook_verification_status: "verified",
         facebook_verification_error: facebookPost.verification_error || "",
+        permalink_url: facebookPost.permalink_url,
         created_at: publishedAt,
         published_at: publishedAt,
         updated_at: publishedAt,
@@ -326,9 +331,12 @@ export function selectCandidates(articles, publishedKeys, limit, { learnedContex
 export function getDailyQuota(posts, { now = new Date(), timeZone = "Asia/Ho_Chi_Minh", limits = {} } = {}) {
   const today = calendarDayKey(now, timeZone);
   const quota = { information: 0, ai_selected: 0, product_promotion: 0 };
+  const tracksDigest = Object.prototype.hasOwnProperty.call(limits, "web_digest") || (Array.isArray(posts) && posts.some((post) => post?.post_type === "web_digest"));
+  if (tracksDigest) quota.web_digest = 0;
   for (const post of Array.isArray(posts) ? posts : []) {
     if (post?.status !== "published" || calendarDayKey(post.published_at || post.created_at, timeZone) !== today) continue;
-    const type = post.post_type === "product_promotion" || post.post_type === "ai_selected" ? post.post_type : "information";
+    const type = ["product_promotion", "ai_selected", "web_digest"].includes(post.post_type) ? post.post_type : "information";
+    if (type === "web_digest" && !tracksDigest) continue;
     quota[type] += 1;
   }
   return {
@@ -336,9 +344,24 @@ export function getDailyQuota(posts, { now = new Date(), timeZone = "Asia/Ho_Chi
     remaining: {
       information: Math.max(0, Number(limits.information || 0) - quota.information),
       ai_selected: Math.max(0, Number(limits.ai_selected || 0) - quota.ai_selected),
-      product_promotion: Math.max(0, Number(limits.product_promotion || 0) - quota.product_promotion)
+      product_promotion: Math.max(0, Number(limits.product_promotion || 0) - quota.product_promotion),
+      ...(tracksDigest ? { web_digest: Math.max(0, Number(limits.web_digest || 0) - quota.web_digest) } : {})
     }
   };
+}
+
+export function selectHotWebDigestCandidates(articles, publishedKeys, limit = 5, { now = new Date() } = {}) {
+  const cutoff = new Date(now).getTime() - 24 * 60 * 60 * 1000;
+  const seen = new Set();
+  return (Array.isArray(articles) ? articles : [])
+    .filter((article) => article?.language === "vi" || !article?.language)
+    .filter((article) => article?.title && (article.href || article.url || article.slug))
+    .filter((article) => !publishedKeys?.has(getSourceKey(article)))
+    .filter((article) => { const key = getSourceKey(article); if (seen.has(key)) return false; seen.add(key); return true; })
+    .filter((article) => { const published = Date.parse(article.published_at || article.updated_at || 0); return !Number.isFinite(published) || published >= cutoff; })
+    .sort((left, right) => Number(right.hot_score || 0) - Number(left.hot_score || 0) || Number(right.quality_score || 0) - Number(left.quality_score || 0) || Date.parse(right.published_at || right.updated_at || 0) - Date.parse(left.published_at || left.updated_at || 0))
+    .slice(0, Math.max(0, Number(limit) || 0))
+    .map((article) => ({ ...article, pillar: "web_digest", post_type: "web_digest", custom_cta: `Đọc bản đầy đủ tại ${article.href || article.url || "https://patricktechmedia.com/vi/"}` , source_key: getSourceKey(article) }));
 }
 
 function calendarDayKey(value, timeZone) {
