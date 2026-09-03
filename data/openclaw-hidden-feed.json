@@ -1,11 +1,120 @@
 {
-  "generated_at": "2026-09-02T23:13:57.991Z",
+  "generated_at": "2026-09-03T01:11:44.587Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-23df432782cc-en",
+      "cluster_id": "feed-23df432782cc",
+      "language": "en",
+      "topic_label": "Security",
+      "topic_slug": "security",
+      "topic_accent": "#1de59c",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "impersonating-it-support-how-threat-actors-turn-a-remote-session-into-enterprise-wide-access",
+      "title": "Impersonating IT support: how threat actors turn a remote session into enterprise-wide access",
+      "hook": "Risk to enterprise environments Attack chain overview Mitigation and response recommendations Once remote control is established via RMM tools, the threat actor uses PowerShell to download and silently install a malicious MSI package, which in turn stages a portable Node.js runtime and an obfuscated JavaScript implant that provides persistent command execution and command and control (C2).",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Risk to enterprise environments Attack chain overview Mitigation and response recommendations Once remote control is established via RMM tools, the threat actor uses PowerShell to download and silently install a malicious MSI package, which in turn stages a portable Node.js runtime and an obfuscated JavaScript implant that provides persistent command execution and command and control (C2). Unlike commodity phishing that ends with an infostealer, this campaign follows a full hands-on-keyboard playbook.",
+      "dek": "Risk to enterprise environments Attack chain overview Mitigation and response recommendations Once remote control is established via RMM tools, the threat actor uses PowerShell to download and silently install a malicious MSI package, which in turn stages a portable Node.js runtime and an obfuscated JavaScript implant that provides persistent command execution and command and control (C2).",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Risk to enterprise environments Attack chain overview Mitigation and response recommendations Once remote control is established via RMM tools, the threat actor uses PowerShell to download and silently install a malicious MSI package, which in turn stages a portable Node. js runtime and an obfuscated JavaScript implant that provides persistent command execution and command and control (C2)."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "Unlike commodity phishing that ends with an infostealer, this campaign follows a full hands-on-keyboard playbook. After the implant is deployed, the threat actor performs extensive host and Active Directory reconnaissance, periodically captures screenshots of the victim’s desktop, executes follow-on payloads through trusted Windows binaries, and pivots across the enterprise over Windows Remote Management (WinRM) toward high-value assets such as domain controllers. The intrusion relies heavily on legitimate tooling, including Microsoft Teams, remote support software, Windows Installer, Node. js, and native administrative protocols, allowing the activity to blend into expected enterprise operations at nearly every stage."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "This intrusion pattern is especially high-impact because it hands an external operator credential-backed, interactive access to internal infrastructure. The reconnaissance and lateral movement patterns observed: domain enumeration, server discovery, and WinRM pivoting toward identity systems, are consistent with intrusion activity that can precede data theft, extortion, ransomware deployment, or other follow-on objectives, in which threat actors map the environment, escalate privileges, disable security controls, exfiltrate business-relevant data, and ultimately deploy ransomware across the organization."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "In this blog, we share our analysis of this attack chain, from initial Microsoft Teams contact through internal lateral movement, along with mitigation and hunting guidance to help defenders detect and disrupt this user-initiated access pathway before it escalates into broader compromise."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "By abusing enterprise collaboration workflows instead of traditional email-based phishing, the threat actor initiates contact through Microsoft Teams in a way that appears consistent with routine IT support. Microsoft Teams applies multiple security controls at the point of first external contact, including external tenant labeling, Accept/Block prompts, message previews, and phishing indicators, but this attack chain depends on convincing the user to bypass those warnings and voluntarily grant remote access through legitimate support tools."
+        }
+      ],
+      "image": {
+        "src": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
+        "alt": "",
+        "caption": "Reference image from Microsoft Security.",
+        "credit": "Microsoft Security",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Microsoft Security",
+          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T22:51:18.000Z",
+          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
+          "image_caption": "Reference image from Microsoft Security.",
+          "image_credit": "Microsoft Security"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2026-09-02T22:51:18.000Z",
+      "updated_at": "2026-09-02T22:51:18.000Z",
+      "href": "/en/news/impersonating-it-support-how-threat-actors-turn-a-remote-session-into-enterprise-wide-access",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/impersonating-it-support-how-threat-actors-turn-a-remote-session-into-enterprise-wide-access",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": "Verified",
+      "topic": "security",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-03T01:11:44.587Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-00a52b4ba026-en",
       "cluster_id": "feed-00a52b4ba026",
@@ -109,7 +218,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T23:13:57.991Z",
+        "generated_at": "2026-09-03T01:11:44.587Z",
         "origin": "local-curated-rss"
       }
     },
@@ -218,7 +327,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T23:13:57.991Z",
+        "generated_at": "2026-09-03T01:11:44.587Z",
         "origin": "local-curated-rss"
       }
     },
@@ -325,7 +434,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T23:13:57.991Z",
+        "generated_at": "2026-09-03T01:11:44.587Z",
         "origin": "local-curated-rss"
       }
     },
@@ -432,114 +541,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T23:13:57.991Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-827dc71d1537-en",
-      "cluster_id": "feed-827dc71d1537",
-      "language": "en",
-      "topic_label": "Internet & Business Tech",
-      "topic_slug": "internet-business-tech",
-      "topic_accent": "#9bff45",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
-      "title": "How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys",
-      "hook": "WhatsApp is the world's largest messaging platform, serving billions of users globally. What makes it worth reading is how it could change how digital users react, work, or spend.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.",
-      "dek": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging."
-        },
-        {
-          "heading": "Where the sources line up",
-          "body": "\"What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide,\" says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft."
-        },
-        {
-          "heading": "Who should pay attention now",
-          "body": "For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. Passkeys offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent."
-        }
-      ],
-      "image": {
-        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
-        "alt": "",
-        "caption": "Reference image from Android Developers Blog.",
-        "credit": "Android Developers Blog",
-        "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html"
-      },
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "official-site",
-          "source_name": "Android Developers Blog",
-          "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-08-28T17:10:10.680Z",
-          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
-          "image_caption": "Reference image from Android Developers Blog.",
-          "image_credit": "Android Developers Blog"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-28T17:10:10.680Z",
-      "updated_at": "2026-08-28T17:10:10.680Z",
-      "href": "/en/news/how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Verified",
-      "topic": "internet-business-tech",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-02T23:13:57.991Z",
+        "generated_at": "2026-09-03T01:11:44.587Z",
         "origin": "local-curated-rss"
       }
     },
@@ -584,7 +586,7 @@
         }
       ],
       "image": {
-        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788390779",
+        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788394844",
         "alt": "",
         "caption": "Ảnh tham khảo từ VOV Cong Nghe.",
         "credit": "VOV Cong Nghe",
@@ -607,7 +609,7 @@
           "language": "vi",
           "trust_tier": "established-media",
           "published_at": "2026-08-28T08:39:15.000Z",
-          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788390779",
+          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788394844",
           "image_caption": "Ảnh tham khảo từ VOV Cong Nghe.",
           "image_credit": "VOV Cong Nghe"
         }
@@ -646,114 +648,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T23:13:57.991Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-159f83e975e3-vi",
-      "cluster_id": "feed-159f83e975e3",
-      "language": "vi",
-      "topic_label": "Thiết bị",
-      "topic_slug": "thiet-bi",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "apple-chuan-bi-su-kien-iphone-khac-la-nhat-trong-nhieu-nam",
-      "title": "Apple chuẩn bị sự kiện iPhone khác lạ nhất trong nhiều năm",
-      "hook": "Nội dung thông báo về sự kiện sắp tới của Apple Theo thông tin từ Bloomberg, Apple có thể sẽ ra mắt iPhone 18 theo hai đợt khác nhau.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Nội dung thông báo về sự kiện sắp tới của Apple Theo thông tin từ Bloomberg, Apple có thể sẽ ra mắt iPhone 18 theo hai đợt khác nhau. Cụ thể, vào sáng 9/9, chỉ có các mẫu iPhone 18 Pro, 18 Pro Max và một phiên bản màn hình gập, dự kiến được gọi là iPhone Ultra, sẽ được giới thiệu.",
-      "dek": "Nội dung thông báo về sự kiện sắp tới của Apple Theo thông tin từ Bloomberg, Apple có thể sẽ ra mắt iPhone 18 theo hai đợt khác nhau.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Cụ thể, vào sáng 9/9, chỉ có các mẫu iPhone 18 Pro, 18 Pro Max và một phiên bản màn hình gập, dự kiến được gọi là iPhone Ultra, sẽ được giới thiệu. Hai màu sắc mới, đỏ anh đào và xanh lam nhạt, cũng có thể được công bố trong sự kiện này. Các mẫu còn lại, bao gồm iPhone 18 tiêu chuẩn, iPhone Air 2 và iPhone 18E, sẽ được phát hành vào khoảng tháng 3/2027."
-        },
-        {
-          "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Nếu Apple thực hiện kế hoạch này, các phiên bản cao cấp với nhiều tính năng sẽ ra mắt vào mùa thu năm nay, trong khi các tùy chọn giá rẻ hơn sẽ phải chờ đến năm sau. Điều đó có thể giúp công ty duy trì dòng doanh thu ổn định trong suốt cả năm."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Về iPhone Ultra, hiện tại vẫn còn nhiều điều chưa được xác nhận. Mặc dù dự kiến ra mắt vào tháng 9/2026, thông tin về chiếc iPhone màn hình gập đầu tiên của Apple vẫn còn là một bí ẩn. Dự kiến, iPhone Ultra sẽ có giá trên 2. 000 USD, trở thành chiếc điện thoại đắt nhất trong dòng sản phẩm năm 2026. Theo báo cáo từ Bloomberg, những người thử nghiệm ban đầu đã bày tỏ sự yêu thích với sản phẩm này và sẵn sàng chi trả mức giá cao."
-        },
-        {
-          "heading": "Ai nên chú ý lúc này",
-          "body": "Ảnh: MACRUMORS iPhone Ultra là mẫu smartphone được Apple nghiên cứu và phát triển trong suốt một thập kỷ qua. Sản phẩm hứa hẹn có thiết kế khác biệt với chiều rộng lớn hơn chiều cao, mang lại cảm giác cầm nắm tương tự như iPad. Tin đồn cho biết, đây sẽ là chiếc iPhone mỏng nhất từ trước đến nay với độ dày chỉ 4,5mm, nhờ vào công nghệ màn hình mới từ Sony. Tuy nhiên, để đạt được độ mỏng này, Apple có thể sẽ phải hy sinh một camera sau và quay trở lại sử dụng Touch ID thay vì nhận diện khuôn mặt. Dù vậy, chất lượng hiển thị, độ sáng và thời lượng pin của iPhone Ultra sẽ không bị ảnh hưởng."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "VOV. VN - Bản cập nhật iOS 26. 6. 1 vừa được Apple phát hành nhằm mang đến các bản vá bảo mật cần thiết cho iPhone trước thềm iOS 27."
-        }
-      ],
-      "image": {
-        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/1_93.jpg?v=1788390780",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ VOV Cong Nghe.",
-        "credit": "VOV Cong Nghe",
-        "source_url": "https://vov.vn/cong-nghe/apple-chuan-bi-su-kien-iphone-khac-la-nhat-trong-nhieu-nam-post1327817.vov"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "VOV Cong Nghe",
-          "source_url": "https://vov.vn/cong-nghe/apple-chuan-bi-su-kien-iphone-khac-la-nhat-trong-nhieu-nam-post1327817.vov",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-27T07:47:44.000Z",
-          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/1_93.jpg?v=1788390780",
-          "image_caption": "Ảnh tham khảo từ VOV Cong Nghe.",
-          "image_credit": "VOV Cong Nghe"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-27T07:47:44.000Z",
-      "updated_at": "2026-08-27T07:47:44.000Z",
-      "href": "/vi/tin-tuc/apple-chuan-bi-su-kien-iphone-khac-la-nhat-trong-nhieu-nam",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/apple-chuan-bi-su-kien-iphone-khac-la-nhat-trong-nhieu-nam",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-02T23:13:57.991Z",
+        "generated_at": "2026-09-03T01:11:44.587Z",
         "origin": "local-curated-rss"
       }
     },
@@ -860,7 +755,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-02T23:13:57.991Z",
+        "generated_at": "2026-09-03T01:11:44.587Z",
         "origin": "local-curated-rss"
       }
     }
