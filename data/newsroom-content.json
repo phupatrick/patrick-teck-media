@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T20:57:38.171Z",
+  "generated_at": "2026-09-03T21:24:22.188Z",
   "articles": [
     {
       "id": "editorial-ai-package-watch-en",
@@ -43,11 +43,11 @@
         }
       ],
       "image": {
-        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5LMGon8DbvIb75H_NX_sx-bv3oZdCH0fI7MNaovk7fUKW416L0sBvXFFMxIywQ5fkZz8Oitaef7ZyqSmAlcXlZMD-2trC1cWq6W99epBcQ7eZe97reUsFk7Cpdlb-FjEdZ0QvJVxLi5M2VZ3vSbpL_elrrPyPTzYxqKy9irfz5h7lc4xlmNiL8V2X_Wk/w1200-h630-p-k-no-nu/View%20supporting%20calendar%20delegates%20in%20meeting%20guest%20list%20-%207060.png",
+        "src": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
         "alt": "Which AI plans are adding practical value?",
-        "caption": "Reference image from Google Workspace Updates.",
-        "credit": "Google Workspace Updates",
-        "source_url": "http://workspaceupdates.googleblog.com/2026/07/view-supporting-calendar-delegates-in-meeting-guest-list.html"
+        "caption": "Reference image from Microsoft Security.",
+        "credit": "Microsoft Security",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
       },
       "verification_state": "verified",
       "quality_score": 96,
@@ -162,8 +162,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-03T20:52:26.998Z",
-      "updated_at": "2026-09-03T20:57:38.171Z",
+      "published_at": "2026-09-03T21:15:53.000Z",
+      "updated_at": "2026-09-03T21:24:22.188Z",
       "href": "/en/compare/which-ai-plan-feels-more-useful-right-now",
       "readiness": {
         "ready": true,
@@ -212,7 +212,7 @@
         "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
         "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
       ],
-      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5LMGon8DbvIb75H_NX_sx-bv3oZdCH0fI7MNaovk7fUKW416L0sBvXFFMxIywQ5fkZz8Oitaef7ZyqSmAlcXlZMD-2trC1cWq6W99epBcQ7eZe97reUsFk7Cpdlb-FjEdZ0QvJVxLi5M2VZ3vSbpL_elrrPyPTzYxqKy9irfz5h7lc4xlmNiL8V2X_Wk/w1200-h630-p-k-no-nu/View%20supporting%20calendar%20delegates%20in%20meeting%20guest%20list%20-%207060.png",
+      "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -390,8 +390,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-03T20:52:26.998Z",
-      "updated_at": "2026-09-03T20:57:38.171Z",
+      "published_at": "2026-09-03T21:15:53.000Z",
+      "updated_at": "2026-09-03T21:24:22.188Z",
       "href": "/en/guides/how-to-use-ai-plans-without-duplicate-app-spend",
       "readiness": {
         "ready": true,
@@ -441,6 +441,232 @@
         "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
       ],
       "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21366-featured-image.png",
+      "draft_context": {
+        "historical_context": true,
+        "historical_context_sources": [
+          "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
+          "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
+          "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+          "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
+          "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+          "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
+          "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
+          "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
+        ]
+      }
+    },
+    {
+      "id": "editorial-practical-tech-tips-en",
+      "cluster_id": "editorial-practical-tech-tips",
+      "language": "en",
+      "topic_label": "Apps & Software",
+      "topic_slug": "apps-software",
+      "topic_accent": "#17c9ff",
+      "content_type": "EvergreenGuide",
+      "content_type_label": "Guides",
+      "path_segment": "guides",
+      "slug": "the-practical-tech-tips-worth-saving-right-now",
+      "title": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
+      "hook": "If breaking news sets the pace of a newsroom, strong how-to pieces are what keep readers returning: they turn product changes into actions people can use instead of another attractive headline. What makes this worth saving is that readers can use it right after finishing the piece instead of filing it away as another clever headline. The real win in this kind of piece is helping readers move faster the same day instead of piling on another guide that looks smart and stays unused.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "The ones that matter are the tips that make work faster, reduce mistakes, or prevent readers from choosing the wrong tool while AI and apps keep changing release by release. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.",
+      "dek": "What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.",
+      "sections": [
+        {
+          "heading": "The first guides worth saving",
+          "body": "The common thread across these pieces is practical work: storage, collaboration, note-taking, information retrieval, or using AI to shorten a step that repeats every day. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece."
+        },
+        {
+          "heading": "Which tips are usable right away",
+          "body": "The tips worth keeping usually do not require people to rewire their whole habit stack or add three extra setup layers. The fewer moving parts, the faster the value shows. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded."
+        },
+        {
+          "heading": "The easiest mistakes to make",
+          "body": "The most common mistake is seeing a clever tip and applying it immediately while ignoring the setup layer: access rights, regional rollout, account configuration, or plan limits. That is where a good trick looks correct and still disappoints in the result. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams."
+        },
+        {
+          "heading": "Where this really helps in work",
+          "body": "This style of guide is most useful for readers juggling documents, meetings, internal messaging, search, and multiple apps at once. If a tip removes one repeated step, it usually matters more than a feature that only looks good in the announcement."
+        },
+        {
+          "heading": "Patrick Tech Media takeaway",
+          "body": "The tips worth saving are not always the most surprising ones they are the ones that save the most time. That is why Patrick Tech Media is pushing deeper into practical AI and app guidance instead of leaving it at the edge of the newsroom. From 10 early signals, the piece keeps 8 references that are useful for locking the main details in place."
+        }
+      ],
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2026/09/03/Incident-response-guide-for-AWS-CloudTrail-investigations-Part-2.jpg",
+        "alt": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
+        "caption": "Reference image from AWS Security Blog.",
+        "credit": "AWS Security Blog",
+        "source_url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "full",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "editorial_focus": [
+        "tips",
+        "guide",
+        "apps-software"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-03T16:16:28.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21366-featured-image.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "NVIDIA Blog",
+          "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-03T13:00:35.000Z",
+          "image_url": "https://blogs.nvidia.com/wp-content/uploads/2026/09/gfn-thursday-9-3-blog-1920x1080-logo.jpg",
+          "image_caption": "Reference image from NVIDIA Blog.",
+          "image_credit": "NVIDIA Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Microsoft Security",
+          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T22:51:18.000Z",
+          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
+          "image_caption": "Reference image from Microsoft Security.",
+          "image_credit": "Microsoft Security"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Google Workspace Updates",
+          "source_url": "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T16:22:23.482Z",
+          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9pirh0dCkAdCtVEOIBKwIL06wFbO-39HX4jUqEo_yCFYXt-kP0HLXpGJoDIkIX8NL9qWj6IU6jKgcczjfqyev9isHvgAx8lWk0KaLS5ci1-O6_hkpCsRU5kBySWS_6VrbkbJaRvgvm5bRtqrm7DqKJiupHVv9DgejKSnpAXG5A8nLe4AUuFFImbcM0rs/w1200-h630-p-k-no-nu/Custom%20instructions%20for%20Gemini%20in%20Workspace%20now%20available%20in%20more%20apps%20-%206926%20-%201.png",
+          "image_caption": "Reference image from Google Workspace Updates.",
+          "image_credit": "Google Workspace Updates"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Microsoft 365 Developer Blog",
+          "source_url": "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T10:14:00.000Z",
+          "image_url": "https://devblogs.microsoft.com/microsoft365dev/wp-content/uploads/sites/73/2026/09/spfx-dev-skills-blog-post.webp",
+          "image_caption": "Reference image from Microsoft 365 Developer Blog.",
+          "image_credit": "Microsoft 365 Developer Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Google Workspace Updates",
+          "source_url": "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-28T22:08:21.726Z",
+          "image_url": "",
+          "image_caption": "",
+          "image_credit": "Google Workspace Updates"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-07T16:22:50.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "AWS News Blog",
+          "source_url": "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-06T22:58:00.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2025/07/07/AgentCore-icon3.png",
+          "image_caption": "Reference image from AWS News Blog.",
+          "image_credit": "AWS News Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-09-03T21:15:53.000Z",
+      "updated_at": "2026-09-03T21:24:22.188Z",
+      "href": "/en/guides/the-practical-tech-tips-worth-saving-right-now",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/guides/the-practical-tech-tips-worth-saving-right-now",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "apps-software",
+      "title_vi": "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật",
+      "title_en": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
+      "dek_vi": "Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.",
+      "dek_en": "What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.",
+      "body_vi": "Ba hướng dẫn đáng lưu trước\nĐiểm chung của nhóm bài này là chúng đều chạm vào việc thật: lưu trữ, cộng tác, ghi chú, tìm kiếm thông tin hoặc dùng AI để rút ngắn một bước đang lặp lại hằng ngày. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nMẹo nào dùng được ngay\nMẹo đáng giữ lại thường là mẹo không cần đổi quá nhiều thói quen hoặc cài thêm ba bốn lớp phụ trợ. Càng ít bước, giá trị càng dễ lộ ra ngay. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.\n\nNhững lỗi dễ gặp nhất\nSai lầm phổ biến nhất là thấy mẹo hay rồi áp dụng ngay nhưng bỏ qua điều kiện đầu vào: quyền truy cập, khu vực mở tính năng, cấu hình tài khoản hay giới hạn của gói đang dùng. Đó là lúc mẹo trông đúng nhưng kết quả cuối vẫn hẫng. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành.\n\nNên áp dụng vào việc gì\nNhóm người đọc hợp nhất với dạng bài này là người đang xử lý tài liệu, họp, nhắn tin nội bộ, tìm lại thông tin và làm việc với nhiều ứng dụng cùng lúc. Nếu một mẹo giúp cắt bớt một bước lặp, nó sẽ có giá trị cao hơn nhiều so với một tính năng chỉ đẹp trong bản giới thiệu.\n\nPatrick Tech Media chốt lại\nMẹo công nghệ đáng giữ lại không phải là mẹo gây ngạc nhiên nhất, mà là mẹo đỡ mất thời gian nhất. Từ 10 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.",
+      "body_en": "The first guides worth saving\nThe common thread across these pieces is practical work: storage, collaboration, note-taking, information retrieval, or using AI to shorten a step that repeats every day. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhich tips are usable right away\nThe tips worth keeping usually do not require people to rewire their whole habit stack or add three extra setup layers. The fewer moving parts, the faster the value shows. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.\n\nThe easiest mistakes to make\nThe most common mistake is seeing a clever tip and applying it immediately while ignoring the setup layer: access rights, regional rollout, account configuration, or plan limits. That is where a good trick looks correct and still disappoints in the result. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams.\n\nWhere this really helps in work\nThis style of guide is most useful for readers juggling documents, meetings, internal messaging, search, and multiple apps at once. If a tip removes one repeated step, it usually matters more than a feature that only looks good in the announcement.\n\nPatrick Tech Media takeaway\nThe tips worth saving are not always the most surprising ones they are the ones that save the most time. That is why Patrick Tech Media is pushing deeper into practical AI and app guidance instead of leaving it at the edge of the newsroom. From 10 early signals, the piece keeps 8 references that are useful for locking the main details in place.",
+      "slug_vi": "the-practical-tech-tips-worth-saving-right-now",
+      "slug_en": "the-practical-tech-tips-worth-saving-right-now",
+      "category": "software",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
+        "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
+        "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+        "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
+        "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+        "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
+        "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
+        "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
+      ],
+      "image_url": "https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2026/09/03/Incident-response-guide-for-AWS-CloudTrail-investigations-Part-2.jpg",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -616,8 +842,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-03T20:52:26.998Z",
-      "updated_at": "2026-09-03T20:57:38.171Z",
+      "published_at": "2026-09-03T20:57:38.171Z",
+      "updated_at": "2026-09-03T21:24:22.188Z",
       "href": "/en/compare/what-google-just-changed-in-ai-plans",
       "readiness": {
         "ready": true,
@@ -668,232 +894,6 @@
         "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
       ],
       "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFBCcf2DgoyALZfGoWleTCCD9yLjN3LfyrumoIGs9dRTYYByQAS8Dah9HI5G9lMmy1c7G0q682Khv-SZvMXFQumHoS9hUamjlo3CR1GvR0kpUePlR3llUdf72YUS53Oebuwfr5NtEEaOGFHo9xQopisIgWdyeQf-yurWQ9JXDtqeELLYymZo3hHbutaQs/w1200-h630-p-k-no-nu/Visual%20screenshots%20in%20Google%20Meet%20meeting%20notes%20will%20soon%20be%20generally%20available,%20pre-configure%20admin%20settings%20in%20advance%20-%206637.png",
-      "draft_context": {
-        "historical_context": true,
-        "historical_context_sources": [
-          "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
-          "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
-          "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
-          "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
-          "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-          "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
-          "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
-          "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
-        ]
-      }
-    },
-    {
-      "id": "editorial-practical-tech-tips-en",
-      "cluster_id": "editorial-practical-tech-tips",
-      "language": "en",
-      "topic_label": "Apps & Software",
-      "topic_slug": "apps-software",
-      "topic_accent": "#17c9ff",
-      "content_type": "EvergreenGuide",
-      "content_type_label": "Guides",
-      "path_segment": "guides",
-      "slug": "the-practical-tech-tips-worth-saving-right-now",
-      "title": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
-      "hook": "If breaking news sets the pace of a newsroom, strong how-to pieces are what keep readers returning: they turn product changes into actions people can use instead of another attractive headline. What makes this worth saving is that readers can use it right after finishing the piece instead of filing it away as another clever headline. The real win in this kind of piece is helping readers move faster the same day instead of piling on another guide that looks smart and stays unused.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "The ones that matter are the tips that make work faster, reduce mistakes, or prevent readers from choosing the wrong tool while AI and apps keep changing release by release. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.",
-      "dek": "What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.",
-      "sections": [
-        {
-          "heading": "The first guides worth saving",
-          "body": "The common thread across these pieces is practical work: storage, collaboration, note-taking, information retrieval, or using AI to shorten a step that repeats every day. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece."
-        },
-        {
-          "heading": "Which tips are usable right away",
-          "body": "The tips worth keeping usually do not require people to rewire their whole habit stack or add three extra setup layers. The fewer moving parts, the faster the value shows. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded."
-        },
-        {
-          "heading": "The easiest mistakes to make",
-          "body": "The most common mistake is seeing a clever tip and applying it immediately while ignoring the setup layer: access rights, regional rollout, account configuration, or plan limits. That is where a good trick looks correct and still disappoints in the result. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams."
-        },
-        {
-          "heading": "Where this really helps in work",
-          "body": "This style of guide is most useful for readers juggling documents, meetings, internal messaging, search, and multiple apps at once. If a tip removes one repeated step, it usually matters more than a feature that only looks good in the announcement."
-        },
-        {
-          "heading": "Patrick Tech Media takeaway",
-          "body": "The tips worth saving are not always the most surprising ones they are the ones that save the most time. That is why Patrick Tech Media is pushing deeper into practical AI and app guidance instead of leaving it at the edge of the newsroom. From 10 early signals, the piece keeps 8 references that are useful for locking the main details in place."
-        }
-      ],
-      "image": {
-        "src": "https://blogs.nvidia.com/wp-content/uploads/2026/08/agentic-ai-press-osaia-5518050-1280x680-r2.png",
-        "alt": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
-        "caption": "Reference image from NVIDIA Blog.",
-        "credit": "NVIDIA Blog",
-        "source_url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance-contributions/"
-      },
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "full",
-      "related_store_items": [
-        "creator-software-stack"
-      ],
-      "editorial_focus": [
-        "tips",
-        "guide",
-        "apps-software"
-      ],
-      "source_set": [
-        {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-03T16:16:28.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21366-featured-image.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "NVIDIA Blog",
-          "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-03T13:00:35.000Z",
-          "image_url": "https://blogs.nvidia.com/wp-content/uploads/2026/09/gfn-thursday-9-3-blog-1920x1080-logo.jpg",
-          "image_caption": "Reference image from NVIDIA Blog.",
-          "image_credit": "NVIDIA Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Microsoft Security",
-          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T22:51:18.000Z",
-          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
-          "image_caption": "Reference image from Microsoft Security.",
-          "image_credit": "Microsoft Security"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Google Workspace Updates",
-          "source_url": "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T16:22:23.482Z",
-          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9pirh0dCkAdCtVEOIBKwIL06wFbO-39HX4jUqEo_yCFYXt-kP0HLXpGJoDIkIX8NL9qWj6IU6jKgcczjfqyev9isHvgAx8lWk0KaLS5ci1-O6_hkpCsRU5kBySWS_6VrbkbJaRvgvm5bRtqrm7DqKJiupHVv9DgejKSnpAXG5A8nLe4AUuFFImbcM0rs/w1200-h630-p-k-no-nu/Custom%20instructions%20for%20Gemini%20in%20Workspace%20now%20available%20in%20more%20apps%20-%206926%20-%201.png",
-          "image_caption": "Reference image from Google Workspace Updates.",
-          "image_credit": "Google Workspace Updates"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Microsoft 365 Developer Blog",
-          "source_url": "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T10:14:00.000Z",
-          "image_url": "https://devblogs.microsoft.com/microsoft365dev/wp-content/uploads/sites/73/2026/09/spfx-dev-skills-blog-post.webp",
-          "image_caption": "Reference image from Microsoft 365 Developer Blog.",
-          "image_credit": "Microsoft 365 Developer Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Google Workspace Updates",
-          "source_url": "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-08-28T22:08:21.726Z",
-          "image_url": "",
-          "image_caption": "",
-          "image_credit": "Google Workspace Updates"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-08-07T16:22:50.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "AWS News Blog",
-          "source_url": "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-08-06T22:58:00.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2025/07/07/AgentCore-icon3.png",
-          "image_caption": "Reference image from AWS News Blog.",
-          "image_credit": "AWS News Blog"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-09-03T20:52:26.998Z",
-      "updated_at": "2026-09-03T20:57:38.171Z",
-      "href": "/en/guides/the-practical-tech-tips-worth-saving-right-now",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/guides/the-practical-tech-tips-worth-saving-right-now",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "apps-software",
-      "title_vi": "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật",
-      "title_en": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
-      "dek_vi": "Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.",
-      "dek_en": "What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.",
-      "body_vi": "Ba hướng dẫn đáng lưu trước\nĐiểm chung của nhóm bài này là chúng đều chạm vào việc thật: lưu trữ, cộng tác, ghi chú, tìm kiếm thông tin hoặc dùng AI để rút ngắn một bước đang lặp lại hằng ngày. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nMẹo nào dùng được ngay\nMẹo đáng giữ lại thường là mẹo không cần đổi quá nhiều thói quen hoặc cài thêm ba bốn lớp phụ trợ. Càng ít bước, giá trị càng dễ lộ ra ngay. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.\n\nNhững lỗi dễ gặp nhất\nSai lầm phổ biến nhất là thấy mẹo hay rồi áp dụng ngay nhưng bỏ qua điều kiện đầu vào: quyền truy cập, khu vực mở tính năng, cấu hình tài khoản hay giới hạn của gói đang dùng. Đó là lúc mẹo trông đúng nhưng kết quả cuối vẫn hẫng. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành.\n\nNên áp dụng vào việc gì\nNhóm người đọc hợp nhất với dạng bài này là người đang xử lý tài liệu, họp, nhắn tin nội bộ, tìm lại thông tin và làm việc với nhiều ứng dụng cùng lúc. Nếu một mẹo giúp cắt bớt một bước lặp, nó sẽ có giá trị cao hơn nhiều so với một tính năng chỉ đẹp trong bản giới thiệu.\n\nPatrick Tech Media chốt lại\nMẹo công nghệ đáng giữ lại không phải là mẹo gây ngạc nhiên nhất, mà là mẹo đỡ mất thời gian nhất. Từ 10 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.",
-      "body_en": "The first guides worth saving\nThe common thread across these pieces is practical work: storage, collaboration, note-taking, information retrieval, or using AI to shorten a step that repeats every day. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhich tips are usable right away\nThe tips worth keeping usually do not require people to rewire their whole habit stack or add three extra setup layers. The fewer moving parts, the faster the value shows. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.\n\nThe easiest mistakes to make\nThe most common mistake is seeing a clever tip and applying it immediately while ignoring the setup layer: access rights, regional rollout, account configuration, or plan limits. That is where a good trick looks correct and still disappoints in the result. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams.\n\nWhere this really helps in work\nThis style of guide is most useful for readers juggling documents, meetings, internal messaging, search, and multiple apps at once. If a tip removes one repeated step, it usually matters more than a feature that only looks good in the announcement.\n\nPatrick Tech Media takeaway\nThe tips worth saving are not always the most surprising ones they are the ones that save the most time. That is why Patrick Tech Media is pushing deeper into practical AI and app guidance instead of leaving it at the edge of the newsroom. From 10 early signals, the piece keeps 8 references that are useful for locking the main details in place.",
-      "slug_vi": "the-practical-tech-tips-worth-saving-right-now",
-      "slug_en": "the-practical-tech-tips-worth-saving-right-now",
-      "category": "software",
-      "geo_scope": "global",
-      "hot_score": 50,
-      "source_urls": [
-        "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
-        "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
-        "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
-        "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
-        "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-        "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
-        "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
-        "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
-      ],
-      "image_url": "https://blogs.nvidia.com/wp-content/uploads/2026/08/agentic-ai-press-osaia-5518050-1280x680-r2.png",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -1027,7 +1027,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T20:57:38.125Z",
+        "generated_at": "2026-09-03T21:24:22.119Z",
         "origin": "local-curated-rss"
       },
       "topic": "gaming"
@@ -1149,7 +1149,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T20:57:38.125Z",
+        "generated_at": "2026-09-03T21:24:22.119Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -1276,7 +1276,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T20:57:38.125Z",
+        "generated_at": "2026-09-03T21:24:22.119Z",
         "origin": "local-curated-rss"
       }
     },
@@ -5981,7 +5981,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T20:57:38.125Z",
+        "generated_at": "2026-09-03T21:24:22.119Z",
         "origin": "local-curated-rss"
       }
     },
@@ -6813,7 +6813,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T20:57:38.125Z",
+        "generated_at": "2026-09-03T21:24:22.119Z",
         "origin": "local-curated-rss"
       }
     },
@@ -22228,7 +22228,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T20:57:38.125Z",
+        "generated_at": "2026-09-03T21:24:22.119Z",
         "origin": "local-curated-rss"
       }
     },
@@ -30338,7 +30338,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T20:57:38.125Z",
+        "generated_at": "2026-09-03T21:24:22.119Z",
         "origin": "local-curated-rss"
       }
     }
