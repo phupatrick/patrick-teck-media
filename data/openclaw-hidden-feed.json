@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T17:29:03.170Z",
+  "generated_at": "2026-09-03T17:40:51.394Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -111,766 +111,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-cd73b9d6d7fe-en",
-      "cluster_id": "feed-cd73b9d6d7fe",
-      "language": "en",
-      "topic_label": "Security",
-      "topic_slug": "security",
-      "topic_accent": "#1de59c",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "cybercrooks-trawl-fishbrain-to-net-password-hashes",
-      "title": "Ứng dụng câu cá Fishbrain bị tấn công, lộ dữ liệu của hơn 20 triệu người dùng",
-      "hook": "Khi những kẻ lừa đảo mạng (cybercrooks) đi 'câu' chính những người đi câu, hơn 20 triệu người dùng Fishbrain đang đứng trước rủi ro bị tấn công dây chuyền từ các mã băm mật khẩu bị đánh cắp.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Fishbrain AB vừa báo cáo một vụ vi phạm dữ liệu nghiêm trọng xảy ra vào ngày 19/8, khiến thông tin cá nhân và mã băm mật khẩu của hàng triệu cần thủ có nguy cơ bị giải mã.",
-      "dek": "Vụ tấn công nhắm vào nền tảng mạng xã hội dành cho ngư dân lớn nhất thế giới, làm rò rỉ tên, email và mã băm mật khẩu, buộc công ty phải thực hiện lệnh đặt lại mật khẩu trên toàn hệ thống.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Fishbrain AB, đơn vị sở hữu ứng dụng câu cá cùng tên với hơn 20 triệu người dùng, đã chính thức thông báo về một vụ xâm nhập hệ thống xảy ra vào ngày 19/8. Công ty đã gửi báo cáo chi tiết về vụ việc này tới Văn phòng Tổng chưởng lý California trong tuần này sau khi phát hiện các tác nhân đe dọa chưa xác định đã truy cập trái phép vào môi trường dữ liệu của họ."
-        },
-        {
-          "heading": "Thay đổi kỹ thuật và dữ liệu bị ảnh hưởng",
-          "body": "Các tin tặc đã thu thập được một lượng lớn dữ liệu người dùng bao gồm: tên, ngày sinh, địa chỉ email, số điện thoại, tên người dùng Fishbrain, thông tin quốc gia, mã băm mật khẩu (password hashes) và muối (salts). Mặc dù mật khẩu không được lưu trữ dưới dạng văn bản thuần túy (plaintext), Fishbrain xác nhận rằng các mã băm này có khả năng bị giải mã bởi các công cụ của tội phạm mạng."
-        },
-        {
-          "heading": "The evidence so far",
-          "body": "Với mã băm và muối trong tay, kẻ tấn công có thể sử dụng phần cứng riêng để thực hiện các nỗ lực đoán mật khẩu cho đến khi khôi phục được thông tin đăng nhập gốc. Fishbrain đã thực hiện biện pháp khẩn cấp là đặt lại toàn bộ mật khẩu của người dùng. Khách hàng buộc phải tạo mật khẩu mới trong lần đăng nhập tiếp theo để đảm bảo an toàn cho tài khoản."
-        },
-        {
-          "heading": "Giới hạn và rủi ro tiềm ẩn",
-          "body": "Fishbrain hiện chưa công bố thuật toán băm cụ thể mà họ sử dụng cũng như quy mô chính xác của số lượng người dùng bị ảnh hưởng trong tổng số 20 triệu thành viên. Rủi ro lớn nhất hiện nay là tấn công nhồi nhét thông tin (credential stuffing) nếu người dùng sử dụng chung mật khẩu Fishbrain cho các dịch vụ trực tuyến khác, cũng như nguy cơ bị lừa đảo (phishing) từ các thông tin cá nhân bị lộ."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Công ty đang tiếp tục rà soát các biện pháp bảo mật dữ liệu và thắt chặt kiểm soát truy cập vào môi trường bị ảnh hưởng. Người dùng cần đặc biệt lưu ý thay đổi mật khẩu ở các nền tảng khác nếu dùng chung thông tin với Fishbrain và cảnh giác với các email hoặc tin nhắn lạ sử dụng dữ liệu cá nhân của mình để làm mồi nhử cho các cuộc tấn công tiếp theo."
-        }
-      ],
-      "image": {
-        "src": "https://image.theregister.com/4093857.jpg?imageId=4093857&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-        "alt": "",
-        "caption": "Reference image from The Register.",
-        "credit": "The Register",
-        "source_url": "https://www.theregister.com/cyber-crime/2026/09/03/cybercrooks-trawl-fishbrain-to-net-password-hashes/5294158"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "secure-access-kit"
-      ],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "The Register",
-          "source_url": "https://www.theregister.com/cyber-crime/2026/09/03/cybercrooks-trawl-fishbrain-to-net-password-hashes/5294158",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-03T12:45:00.000Z",
-          "image_url": "https://image.theregister.com/4093857.jpg?imageId=4093857&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-          "image_caption": "Reference image from The Register.",
-          "image_credit": "The Register"
-        }
-      ],
-      "author_id": "thao-nguyen",
-      "published_at": "2026-09-03T12:45:00.000Z",
-      "updated_at": "2026-09-03T12:45:00.000Z",
-      "href": "/en/news/cybercrooks-trawl-fishbrain-to-net-password-hashes",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/cybercrooks-trawl-fishbrain-to-net-password-hashes",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Emerging",
-      "topic": "security",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-124b129bd418-en",
-      "cluster_id": "feed-124b129bd418",
-      "language": "en",
-      "topic_label": "Security",
-      "topic_slug": "security",
-      "topic_accent": "#1de59c",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "microsoft-wants-to-make-windows-11-secure-by-default-but-some-gamers-are-up-in-arms-about-this-s",
-      "title": "Microsoft tự động kích hoạt tính năng bảo mật trên Windows 11: Bước tiến an toàn hay 'kẻ thù' của game thủ",
-      "hook": "Liệu bạn có sẵn sàng đánh đổi 10% hiệu suất chơi game để lấy một hệ thống 'bất khả xâm phạm' trước các cuộc tấn công mã độc thế hệ mới?",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Microsoft đang triển khai tự động tính năng bảo vệ tính toàn vẹn bộ nhớ (memory integrity) trên các máy tính Windows 11 đủ điều kiện nhằm tăng cường bảo mật hệ thống, bất chấp những tranh cãi về việc làm giảm hiệu suất chơi game.",
-      "dek": "Quyết định của Microsoft trong việc ưu tiên bảo mật mặc định đang gây ra làn sóng phản đối từ cộng đồng người dùng yêu cầu hiệu năng cao, đặc biệt là các game thủ lo ngại về tình trạng sụt giảm khung hình.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Microsoft vừa công bố kế hoạch triển khai tính năng bảo vệ tính toàn vẹn bộ nhớ (memory integrity) cho các máy tính Windows 11 đủ điều kiện. Theo gã khổng lồ phần mềm, bảo mật hoạt động tốt nhất khi được tích hợp sẵn ngay từ đầu thay vì chỉ là các lớp bổ sung sau này. Thông qua các bản cập nhật chất lượng, Windows 11 sẽ tự động kích hoạt tính năng này cùng với VBS (Virtualization Based Security) để hiện thực hóa cam kết về một hệ điều hành an toàn ngay từ thiết kế ban đầu."
-        },
-        {
-          "heading": "Thay đổi kỹ thuật: Thắt chặt kiểm soát nhân hệ thống",
-          "body": "Thay đổi trọng tâm nằm ở việc bảo vệ các trình điều khiển chế độ nhân (kernel-mode drivers) – phần cốt lõi của hệ điều hành có quyền truy cập trực tiếp vào phần cứng. Bằng cách kích hoạt VBS và tính toàn vẹn bộ nhớ, Windows 11 tạo ra một lớp phòng thủ kiên cố hơn, khiến các lỗ hổng bảo mật khó bị khai thác hơn. Tuy nhiên, việc kích hoạt VBS từ lâu đã được biết đến là một yếu tố gây ảnh hưởng đến tài nguyên hệ thống do yêu cầu ảo hóa để bảo mật."
-        },
-        {
-          "heading": "The evidence so far",
-          "body": "Cộng đồng game thủ đang chia rẽ sâu sắc trước thay đổi này. Một số người dùng báo cáo mức giảm khung hình (FPS) lên tới 10%, trong khi những người khác phàn nàn về tình trạng giật lag (stuttering) ở các mức khung hình thấp (1% lows) ngay cả trên cấu hình mạnh như RTX 5080 hay Ryzen 9800X3D. Ngược lại, nhiều ý kiến cho rằng trên các nền tảng phần cứng hiện đại, tác động này là không đáng kể và sự đánh đổi cho một hệ thống an toàn là hoàn toàn xứng đáng."
-        },
-        {
-          "heading": "Giới hạn và rủi ro: Những đối tượng chịu ảnh hưởng lớn nhất",
-          "body": "Rủi ro lớn nhất thuộc về nhóm người dùng sở hữu các dàn máy cũ nhưng vẫn nằm trong danh sách đủ điều kiện cập nhật, nơi tác động hiệu năng có thể cảm nhận rõ rệt hơn. Ngoài ra, Microsoft từng bị chỉ trích trong quá khứ vì âm thầm kích hoạt VBS mà không thông báo rõ ràng. Dù người dùng vẫn có quyền tắt tính năng này thủ công, việc tự động kích hoạt có thể gây khó chịu cho những ai ưu tiên hiệu suất tuyệt đối hơn là các lớp bảo mật bổ sung."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Quyết định của Microsoft được đưa ra trong bối cảnh các mối đe dọa từ AI đang gia tăng, cho phép kẻ xấu tạo ra mã độc nhanh chóng và tinh vi hơn. Việc tăng cường bảo vệ nhân hệ thống có thể trở thành yêu cầu bắt buộc trong tương lai gần. Người dùng cần theo dõi liệu Microsoft có cung cấp thông báo minh bạch hơn khi kích hoạt tính năng này hay không, đồng thời cân nhắc giữa nhu cầu giải trí mượt mà và sự an toàn của dữ liệu cá nhân trước các cuộc tấn công hiện đại."
-        }
-      ],
-      "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/Kvd2C5GUQeqhGqTh6M3w66-2560-80.jpg",
-        "alt": "",
-        "caption": "Reference image from TechRadar.",
-        "credit": "TechRadar",
-        "source_url": "https://www.techradar.com/computing/windows/microsoft-wants-to-make-windows-11-secure-by-default-but-some-gamers-are-up-in-arms-about-this-security-feature-that-wrecks-their-frame-rates"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "secure-access-kit"
-      ],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechRadar",
-          "source_url": "https://www.techradar.com/computing/windows/microsoft-wants-to-make-windows-11-secure-by-default-but-some-gamers-are-up-in-arms-about-this-security-feature-that-wrecks-their-frame-rates",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-03T12:12:32.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/Kvd2C5GUQeqhGqTh6M3w66-2560-80.jpg",
-          "image_caption": "Reference image from TechRadar.",
-          "image_credit": "TechRadar"
-        }
-      ],
-      "author_id": "thao-nguyen",
-      "published_at": "2026-09-03T12:12:32.000Z",
-      "updated_at": "2026-09-03T12:12:32.000Z",
-      "href": "/en/news/microsoft-wants-to-make-windows-11-secure-by-default-but-some-gamers-are-up-in-arms-about-this-s",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/microsoft-wants-to-make-windows-11-secure-by-default-but-some-gamers-are-up-in-arms-about-this-s",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Emerging",
-      "topic": "security",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-56f72de99aa2-en",
-      "cluster_id": "feed-56f72de99aa2",
-      "language": "en",
-      "topic_label": "Apps & Software",
-      "topic_slug": "apps-software",
-      "topic_accent": "#17c9ff",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "how-an-aws-team-detects-dashboard-content-failures-at-scale-using-amazon-bedrock",
-      "title": "Cách AWS dùng Amazon Bedrock để phát hiện lỗi nội dung dashboard ở quy mô lớn",
-      "hook": "Bạn sẽ làm gì khi máy chủ báo 'Healthy', API phản hồi tốt, nhưng người dùng lại thấy một biểu đồ trống rỗng ngay trước cuộc họp quan trọng?",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Đội ngũ AWS đã xây dựng giải pháp tự động hóa việc kiểm tra nội dung lớp cuối (last-mile), sử dụng mô hình ngôn ngữ lớn (LLM) để phát hiện các biểu đồ trống hoặc sai lệch số liệu mà các hệ thống giám sát hạ tầng truyền thống thường bỏ sót.",
-      "dek": "Bằng cách kết hợp AI trên Amazon Bedrock với kiến trúc serverless, AWS đã giảm thời gian phát hiện lỗi từ 72 giờ xuống còn dưới 1 giờ, đảm bảo tính toàn vẹn cho hàng trăm dashboard quản trị.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Trong các hệ thống Business Intelligence (BI) quy mô lớn, các công cụ như Amazon CloudWatch Synthetics thường chỉ xác nhận dịch vụ đang chạy hoặc trang web đã tải. Tuy nhiên, lỗi nội dung (content failure) như biểu đồ trống, dữ liệu cũ hoặc sai số do cấu hình bộ lọc vẫn xảy ra âm thầm. Dữ liệu thực tế cho thấy chưa đến 1% các lỗi này được người dùng báo cáo, khiến chúng trở nên vô hình đối với các kênh hỗ trợ phản ứng nhanh, trong khi rủi ro tăng cao khi dữ liệu này được nạp vào các hệ thống AI tạo báo cáo cho lãnh đạo."
-        },
-        {
-          "heading": "Thay đổi kỹ thuật: Quy trình xác thực 5 giai đoạn",
-          "body": "Giải pháp sử dụng kiến trúc serverless gồm 5 giai đoạn: (1) Lập lịch qua Amazon EventBridge và quản lý danh mục bằng Amazon Redshift (2) Chụp ảnh màn hình dashboard qua AWS Lambda và ẩn danh dữ liệu nhạy cảm bằng Amazon Rekognition (3) Phân tích AI song song bằng mô hình Anthropic Claude trên Amazon Bedrock để kiểm tra tính toàn vẹn thị giác và tính nhất quán của con số (4) Định tuyến cảnh báo qua Slack và tạo ticket tự động (5) Lưu trữ dữ liệu đo lường để phân tích xu hướng."
-        },
-        {
-          "heading": "The evidence so far",
-          "body": "Sau 30 ngày triển khai, hệ thống đã thực hiện 153. 000 lượt kiểm tra trên hàng trăm dashboard, phát hiện 802 trường hợp lỗi nội dung (tỷ lệ 0,52%). Quan trọng nhất, thời gian phát hiện lỗi trung bình (MTTD) đã giảm từ mức tối đa 72 giờ xuống còn dưới 1 giờ. Cơ chế xác thực số liệu cũng giúp phát hiện các lỗi hệ thống ảnh hưởng đến cả một nhóm chỉ số liên quan trước khi chúng tiếp cận đến người tiêu dùng dữ liệu cuối cùng."
-        },
-        {
-          "heading": "Giới hạn và rủi ro: Bài học về độ chính xác của AI",
-          "body": "Thách thức lớn nhất là các trường hợp gây nhiễu (false positives), ví dụ như một biểu đồ trống do bộ lọc thực sự không có dữ liệu chứ không phải do lỗi hệ thống. Đội ngũ kỹ thuật nhấn mạnh việc ưu tiên suy luận ngữ cảnh hơn là tốc độ thô. Ngoài ra, một rủi ro khác là khả năng tính toán của LLM ban đầu AI được dùng để so sánh số liệu nhưng vẫn xảy ra sai sót về logic làm tròn hoặc đơn vị, gây ảnh hưởng đến lòng tin của người dùng vào hệ thống cảnh báo."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Trong giai đoạn tiếp theo, AWS tập trung vào ba khả năng mới: Kiểm tra tính nhất quán chéo giữa các dashboard khác nhau trong ứng dụng AWS Insights Xây dựng hệ thống khuyến nghị tự động dựa trên dữ liệu lịch sử để gợi ý cách khắc phục lỗi và phát triển phân tích dự báo để dự đoán các vấn đề trước khi chúng thực sự tác động đến người dùng. Nguyên tắc cốt lõi vẫn là: dùng AI cho các tác vụ ngữ cảnh (nhìn, đọc, điều hướng) và dùng mã nguồn xác định (deterministic code) cho các quyết định cần độ chính xác tuyệt đối."
-        }
-      ],
-      "image": {
-        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21432-featured-image.png",
-        "alt": "",
-        "caption": "Reference image from AWS ML Blog.",
-        "credit": "AWS ML Blog",
-        "source_url": "https://aws.amazon.com/blogs/machine-learning/how-an-aws-team-detects-dashboard-content-failures-at-scale-using-amazon-bedrock/"
-      },
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "creator-software-stack"
-      ],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/how-an-aws-team-detects-dashboard-content-failures-at-scale-using-amazon-bedrock/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T18:21:20.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21432-featured-image.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-09-02T18:21:20.000Z",
-      "updated_at": "2026-09-02T18:21:20.000Z",
-      "href": "/en/news/how-an-aws-team-detects-dashboard-content-failures-at-scale-using-amazon-bedrock",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/how-an-aws-team-detects-dashboard-content-failures-at-scale-using-amazon-bedrock",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Verified",
-      "topic": "apps-software",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-d64f89ace728-en",
-      "cluster_id": "feed-d64f89ace728",
-      "language": "en",
-      "topic_label": "Devices",
-      "topic_slug": "devices",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "from-code-to-diagrams-agentic-architecture-documentation-with-amazon-bedrock-agentcore",
-      "title": "Tự động hóa sơ đồ kiến trúc bằng Amazon Bedrock AgentCore: Từ mã nguồn đến tài liệu thông minh",
-      "hook": "Bạn đã bao giờ dành hàng giờ để vẽ sơ đồ kiến trúc chỉ để thấy nó trở nên lỗi thời ngay sau khi mã nguồn được cập nhật? Một công ty môi giới tài chính toàn cầu đã giải quyết triệt để vấn đề này bằng cách tự động hóa việc tạo 140 sơ đồ mỗi tuần với chi phí chưa đến 1 USD cho mỗi lần thực hiện.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Amazon Bedrock AgentCore cung cấp giải pháp sử dụng các tác nhân tự trị (autonomous agents) để phân tích mã nguồn, tự động tạo và cập nhật sơ đồ kiến trúc, giải quyết bài toán tài liệu bị lỗi thời trong phát triển phần mềm.",
-      "dek": "Bằng cách kết hợp AgentCore, AWS CodePipeline và Amazon Bedrock Knowledge Bases, các đội ngũ phát triển có thể duy trì hệ thống tài liệu kiến trúc luôn khớp với mã nguồn thực tế mà không tốn công sức thủ công.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Trong các môi trường phát triển nhanh, tài liệu kiến trúc thường trở thành 'nút thắt' khi mã nguồn thay đổi hàng ngày nhưng sơ đồ lại được cập nhật hàng tuần hoặc hàng tháng. Sự chậm trễ này tạo ra các lỗ hổng kiến thức, làm chậm quá trình tiếp nhận nhân viên mới và gây rủi ro trong các đợt kiểm tra tuân thủ (compliance). Đặc biệt với kiến trúc microservices, việc hiểu rõ các phụ thuộc và luồng tin nhắn là cực kỳ quan trọng để ngăn chặn các lỗi dây chuyền, nhưng việc vẽ thủ công các mối quan hệ này lại tốn quá nhiều thời gian."
-        },
-        {
-          "heading": "Thay đổi kỹ thuật: Tiếp cận bằng tác nhân tự trị (Agentic Approach)",
-          "body": "Giải pháp sử dụng Amazon Bedrock AgentCore để vận hành một tác nhân tự trị có khả năng tự sửa lỗi. Thay vì chỉ gọi API một lần, tác nhân này thực hiện quy trình lặp: phân tích cấu trúc mã nguồn . NET, tạo cú pháp sơ đồ Mermaid, kiểm tra lỗi cú pháp và tự động điều chỉnh nếu có sai sót. Quy trình này đạt độ tin cậy 95% so với mức 65% của các phương pháp truyền thống. Sau đó, sơ đồ được chuyển đổi sang định dạng SVG và tích hợp vào Amazon Bedrock Knowledge Bases, cho phép tìm kiếm bằng ngôn ngữ tự nhiên thông qua mô hình Amazon Titan Text Embeddings v2."
-        },
-        {
-          "heading": "The evidence so far",
-          "body": "Tại một tổ chức dịch vụ tài chính lớn, giải pháp này đã chạy thực tế từ quý 1 năm 2026 trên 20 kho mã nguồn. Kết quả ghi nhận rất ấn tượng: thời gian bàn giao dự án giảm từ 10 ngày xuống còn 3 ngày, sự cố sản xuất giảm 30% và thời gian tiếp nhận lập trình viên mới rút ngắn từ 4 tuần xuống còn 1 tuần. Việc chuẩn bị hồ sơ kiểm tra kiến trúc vốn mất 2 tuần nay chỉ còn 2 ngày. Về mặt chi phí, mỗi lần tạo tài liệu cho một kho mã nguồn trung bình (1. 500 tệp) chỉ tốn khoảng 0,28 USD."
-        },
-        {
-          "heading": "Giới hạn và rủi ro: Những điều cần lưu ý",
-          "body": "Mặc dù có khả năng tự sửa lỗi cao, giải pháp vẫn phụ thuộc vào chất lượng của mô hình ngôn ngữ lớn (LLM) được chọn trong Amazon Bedrock. Chi phí có thể tăng tuyến tính theo số lượng kho mã nguồn và tần suất cập nhật (ví dụ: 100 kho mã nguồn cập nhật hàng tuần tốn khoảng 112 USD/tháng). Ngoài ra, hệ thống yêu cầu cấu trúc mã nguồn phải tuân thủ các quy ước tiêu chuẩn (như thư mục src/ trong . NET) để tác nhân có thể phân tích chính xác các thành phần quan trọng và loại bỏ các tệp rác hoặc tệp thử nghiệm."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Bước tiếp theo cho các doanh nghiệp là tích hợp hệ thống này vào các nền tảng quản lý tri thức nội bộ như Confluence hoặc Wiki. Việc theo dõi khả năng hỗ trợ hội thoại đa lượt (multi-turn conversation) của Amazon Bedrock Knowledge Bases sẽ giúp các kiến trúc sư có thể 'trò chuyện' với sơ đồ để khám phá các khía cạnh sâu hơn của hệ thống. Đồng thời, việc mở rộng khả năng lọc siêu dữ liệu (metadata filtering) sẽ giúp tinh chỉnh các truy vấn tìm kiếm chính xác hơn cho từng dự án cụ thể trong các hệ thống quy mô lớn."
-        }
-      ],
-      "image": {
-        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/28/ML-20745-featured-image.png",
-        "alt": "",
-        "caption": "Reference image from AWS ML Blog.",
-        "credit": "AWS ML Blog",
-        "source_url": "https://aws.amazon.com/blogs/machine-learning/from-code-to-diagrams-agentic-architecture-documentation-with-amazon-bedrock-agentcore/"
-      },
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/from-code-to-diagrams-agentic-architecture-documentation-with-amazon-bedrock-agentcore/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T18:18:47.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/28/ML-20745-featured-image.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-02T18:18:47.000Z",
-      "updated_at": "2026-09-02T18:18:47.000Z",
-      "href": "/en/news/from-code-to-diagrams-agentic-architecture-documentation-with-amazon-bedrock-agentcore",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/from-code-to-diagrams-agentic-architecture-documentation-with-amazon-bedrock-agentcore",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Verified",
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-b803547fbf45-en",
-      "cluster_id": "feed-b803547fbf45",
-      "language": "en",
-      "topic_label": "Devices",
-      "topic_slug": "devices",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "philips-hue-bulbs-are-going-cheap-at-amazon-right-now-and-i-m-using-these-rare-discounts-to-fina",
-      "title": "Cơ hội hoàn thiện hệ thống chiếu sáng thông minh với đợt giảm giá Philips Hue cực lớn trên Amazon",
-      "hook": "Bạn đã bao giờ trì hoãn việc lắp đặt đèn thông minh vì chi phí quá đắt đỏ? Đợt giảm giá 40% này chính là câu trả lời để bạn hoàn thiện ngôi nhà mơ ước của mình.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Sự kiện Labor Day trên Amazon đang mang đến những mức giảm giá hiếm hoi cho các dòng đèn Philips Hue cao cấp, bao gồm bộ đôi bóng đèn White & Color Ambiance giảm từ 76,99 USD xuống còn 46,17 USD.",
-      "dek": "Từ bóng đèn trong nhà đến hệ thống dây LED ngoài trời, đây là thời điểm vàng để người dùng nâng cấp không gian sống mà không cần tư cách thành viên Prime.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Philips Hue được đánh giá là thương hiệu đèn thông minh tốt nhất hiện nay, nhưng rào cản lớn nhất đối với người dùng chính là chi phí lắp đặt cho toàn bộ ngôi nhà. Thông thường, các mức giảm giá sâu chỉ xuất hiện vào các dịp như Prime Day dành riêng cho thành viên đăng ký trước. Tuy nhiên, đợt giảm giá Labor Day hiện tại trên Amazon cho phép mọi khách hàng tiếp cận các sản phẩm cao cấp với mức giá ưu đãi mà không cần điều kiện kèm theo."
-        },
-        {
-          "heading": "Những thay đổi về kỹ thuật và danh mục sản phẩm",
-          "body": "Đợt giảm giá này tập trung vào các dòng sản phẩm chủ lực có khả năng tùy biến cao. Đáng chú ý nhất là bộ đôi bóng đèn White & Color Ambiance hỗ trợ đầy đủ các ngữ cảnh (scenes) và hiệu ứng của hệ sinh thái Hue. Bên cạnh đó, các giải pháp ngoài trời như dây đèn Festavia dài 90ft và dải đèn Neon Outdoor 16ft cũng được giảm giá mạnh, cho phép uốn cong tạo hình và điều khiển qua ứng dụng để thiết lập các chủ đề ánh sáng tùy chỉnh."
-        },
-        {
-          "heading": "The evidence so far",
-          "body": "Việc giảm giá sâu cho các thiết bị ngoài trời như Festavia giúp người dùng loại bỏ việc phải leo thang để lắp đặt đèn vào mỗi dịp lễ hội như Giáng sinh hay Halloween, vì đây là hệ thống đèn cố định có thể thay đổi màu sắc theo sự kiện qua app. Trong nhà, việc sở hữu bộ đôi bóng đèn với giá chỉ hơn 46 USD giúp việc mở rộng hệ thống chiếu sáng thông minh trở nên dễ dàng hơn, mang lại dải màu rộng nhất cho phòng khách hoặc phòng ngủ."
-        },
-        {
-          "heading": "Giới hạn và rủi ro cần lưu ý",
-          "body": "Mặc dù mức giảm giá lên tới 40% là rất hấp dẫn, nhưng các ưu đãi này thường chỉ diễn ra trong thời gian ngắn của sự kiện Labor Day. Người dùng cần lưu ý rằng để tận dụng tối đa các tính năng thông minh và đồng bộ hóa phức tạp của Philips Hue, đôi khi cần có thêm các phụ kiện điều khiển trong hệ sinh thái mà không phải lúc nào cũng nằm trong danh mục giảm giá sâu nhất."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Người tiêu dùng nên theo dõi biến động giá của các gói combo (multi-packs) vì đây là cách tiết kiệm hiệu quả nhất để phủ xanh ánh sáng thông minh cho toàn bộ căn hộ. Ngoài ra, việc Amazon tung ra các mức giá tương đương Prime Day cho người dùng phổ thông có thể là tín hiệu cho thấy sự cạnh tranh gay gắt hơn giữa các nhà bán lẻ trong các đợt sale lớn sắp tới."
-        }
-      ],
-      "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/avS5EHuw6rPEP8tMdUC255-2000-80.jpg",
-        "alt": "",
-        "caption": "Reference image from TechRadar.",
-        "credit": "TechRadar",
-        "source_url": "https://www.techradar.com/seasonal-sales/philips-hue-bulbs-are-going-cheap-at-amazon-right-now-and-im-using-these-rare-discounts-to-finally-finish-my-living-room-setup"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "TechRadar",
-          "source_url": "https://www.techradar.com/seasonal-sales/philips-hue-bulbs-are-going-cheap-at-amazon-right-now-and-im-using-these-rare-discounts-to-finally-finish-my-living-room-setup",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-02T10:52:50.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/avS5EHuw6rPEP8tMdUC255-2000-80.jpg",
-          "image_caption": "Reference image from TechRadar.",
-          "image_credit": "TechRadar"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-02T10:52:50.000Z",
-      "updated_at": "2026-09-02T10:52:50.000Z",
-      "href": "/en/news/philips-hue-bulbs-are-going-cheap-at-amazon-right-now-and-i-m-using-these-rare-discounts-to-fina",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/philips-hue-bulbs-are-going-cheap-at-amazon-right-now-and-i-m-using-these-rare-discounts-to-fina",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Emerging",
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-5f2b84bb07a9-en",
-      "cluster_id": "feed-5f2b84bb07a9",
-      "language": "en",
-      "topic_label": "Gaming",
-      "topic_slug": "gaming",
-      "topic_accent": "#ff7a29",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-here-s-th",
-      "title": "Xbox xác nhận chương trình chuyển đổi đĩa sang kỹ thuật số: Hơn 800 tựa game được hỗ trợ",
-      "hook": "Bạn sở hữu hàng chồng đĩa game Xbox cũ nhưng lại muốn sự tiện lợi của việc chơi game không cần đĩa? Microsoft vừa biến điều không tưởng thành hiện thực với dự án Positron.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Chương trình mang mã hiệu Positron của Xbox cho phép người dùng mở khóa bản quyền kỹ thuật số từ đĩa vật lý, hỗ trợ chơi trên đám mây và PC, với danh sách tương thích đang mở rộng nhanh chóng.",
-      "dek": "Từ đĩa vật lý sang quyền lợi kỹ thuật số: Bước đi chiến lược của Microsoft nhằm bảo tồn trò chơi và tối ưu hóa hệ sinh thái Xbox trong kỷ nguyên số.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Chương trình chuyển đổi đĩa sang kỹ thuật số (disc-to-digital) của Xbox, tên mã là Positron, thực chất là sự hiện thực hóa tầm nhìn về quản lý bản quyền số (DRM) mà Microsoft từng dự định áp dụng từ năm 2013. Tại thời điểm đó, thông điệp truyền thông kém hiệu quả đã dẫn đến làn sóng phản đối dữ dội từ người dùng. Tuy nhiên, đến năm 2026, khi sự tiện lợi của kỹ thuật số trở nên phổ biến và đối thủ PlayStation có kế hoạch khai tử đĩa vật lý vào năm 2028, Microsoft đã tận dụng quy trình sản xuất đĩa đặc thù để cho phép theo dõi quyền sở hữu từ đĩa vật lý sang tài khoản số."
-        },
-        {
-          "heading": "Thay đổi kỹ thuật: Quy trình xác thực đơn giản",
-          "body": "Cơ chế hoạt động của Positron được đánh giá là cực kỳ đơn giản và không có nhược điểm: người dùng chỉ cần cho đĩa vào máy, chọn mục xác nhận quyền sở hữu từ menu của trò chơi. Ngay lập tức, trò chơi sẽ được gắn vào tài khoản kỹ thuật số, mở ra các quyền lợi như Xbox Cloud Gaming để chơi di động và Xbox Play Anywhere để trải nghiệm trên Windows PC hoặc các thiết bị cầm tay như Xbox Ally. Đặc biệt, nếu người dùng bán hoặc chuyển nhượng đĩa, giấy phép kỹ thuật số sẽ tự động chuyển từ tài khoản cũ sang chủ sở hữu mới."
-        },
-        {
-          "heading": "The evidence so far",
-          "body": "Dữ liệu từ XCT. Live cho thấy đã có hơn 800 đĩa game được hỗ trợ, bao gồm cả những bom tấn như Alan Wake 2, Baldur's Gate 3 và Cyberpunk 2077. Đáng chú ý, danh sách này bao gồm hơn 200 tựa game đã bị gỡ khỏi các cửa hàng trực tuyến (de-listed), biến đây trở thành một thắng lợi lớn cho nỗ lực bảo tồn trò chơi điện tử. Người dùng giờ đây có thể tận hưởng kho game vật lý của mình trên nhiều nền tảng khác nhau mà không cần phải mua lại phiên bản kỹ thuật số."
-        },
-        {
-          "heading": "Giới hạn và rủi ro: Sự vắng bóng của các ông lớn",
-          "body": "Mặc dù danh sách hỗ trợ rất dài, nhiều nhà phát hành lớn vẫn chưa tham gia vào chương trình này, tiêu biểu là Sega, Square Enix, Bandai Namco và Ubisoft. Microsoft hiện đang phải đàm phán các điều khoản pháp lý với các đối tác này. Một số nhà phát hành như Ubisoft vốn có truyền thống ưu tiên nền tảng riêng (Ubisoft Connect) và hạn chế hỗ trợ các tính năng đồng bộ như Xbox Play Anywhere, dấy lên lo ngại rằng họ có thể muốn người dùng phải mua game lần thứ hai thay vì cấp quyền miễn phí."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Hiện tại, tính năng này mới chỉ giới hạn cho người dùng Xbox Insider thuộc nhóm Alpha và Alpha-Skip Ahead. Dự kiến, chương trình sẽ được mở rộng dần trong những tuần tới và có khả năng sẽ ra mắt chính thức cho toàn bộ công chúng vào khoảng tháng 10 năm 2026. Đây sẽ là bài kiểm tra quan trọng để xem liệu các nhà phát hành bên thứ ba có chấp nhận tiêu chuẩn hóa quyền lợi đĩa vật lý trong kỷ nguyên ưu tiên kỹ thuật số hay không."
-        }
-      ],
-      "image": {
-        "src": "https://cdn.mos.cms.futurecdn.net/ftDQHZue9WoD59KBGjdfBT-2560-80.png",
-        "alt": "",
-        "caption": "Reference image from Windows Central.",
-        "credit": "Windows Central",
-        "source_url": "https://www.windowscentral.com/gaming/xbox/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-heres-the-list"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [
-        "gaming-cloud-pass"
-      ],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Windows Central",
-          "source_url": "https://www.windowscentral.com/gaming/xbox/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-heres-the-list",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-02T09:52:02.000Z",
-          "image_url": "https://cdn.mos.cms.futurecdn.net/ftDQHZue9WoD59KBGjdfBT-2560-80.png",
-          "image_caption": "Reference image from Windows Central.",
-          "image_credit": "Windows Central"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-02T09:52:02.000Z",
-      "updated_at": "2026-09-02T09:52:02.000Z",
-      "href": "/en/news/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-here-s-th",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/confirmed-over-800-xbox-discs-are-supported-by-the-disc-to-digital-program-and-growing-here-s-th",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Emerging",
-      "topic": "gaming",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-bcf8929cf218-en",
-      "cluster_id": "feed-bcf8929cf218",
-      "language": "en",
-      "topic_label": "Security",
-      "topic_slug": "security",
-      "topic_accent": "#1de59c",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "uk-cyber-bill-targets-ai-users-not-the-vendors-building-it",
-      "title": "Chính phủ Anh bác bỏ đề xuất đưa các nhà cung cấp AI vào dự luật an ninh mạng mới",
-      "hook": "Liệu việc để các gã khổng lồ công nghệ tự 'chấm điểm bài tập về nhà' có đang đặt an ninh quốc gia vào thế nguy hiểm?",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Chính phủ Anh đã chính thức từ chối các đề xuất đưa các nhà phát triển AI và mô hình biên giới vào phạm vi điều chỉnh của Dự luật An ninh mạng và Khả năng phục hồi (CSR), thay vào đó tập trung vào trách nhiệm của người dùng và các tổ chức vận hành hạ tầng thiết yếu.",
-      "dek": "Bất chấp những cảnh báo về rủi ro từ các tác nhân AI và áp lực từ Thượng viện, Bộ trưởng An ninh mạng Baroness Lloyd of Effra khẳng định việc quản lý trực tiếp các nhà cung cấp sẽ không ngăn chặn được sự lạm dụng từ các tác nhân thù địch.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Dự luật An ninh mạng và Khả năng phục hồi (CSR) được giới thiệu lần đầu trong Bài phát biểu của Nhà vua năm 2024 và chính thức đưa ra Quốc hội vào tháng 11/2025. Mục tiêu cốt lõi của dự luật là cập nhật các quy định NIS 2018, mở rộng phạm vi bảo vệ hạ tầng tới các nhà cung cấp dịch vụ quản lý (MSP), nhà vận hành trung tâm dữ liệu và các nhà cung cấp quan trọng. Dự luật này từng gây chú ý với mức phạt lên tới 100. 000 bảng Anh mỗi ngày đối với các tổ chức không tuân thủ các tiêu chuẩn bảo vệ trước các mối đe dọa cụ thể."
-        },
-        {
-          "heading": "Thay đổi kỹ thuật: Tập trung vào thực thể vận hành thay vì nhà cung cấp",
-          "body": "Chính phủ Anh duy trì quan điểm dự luật phải mang tính 'trung lập về công nghệ'. Thay vì áp đặt nghĩa vụ lên các nhà phát triển AI như OpenAI hay Anthropic, dự luật yêu cầu các tổ chức được quản lý (như NHS hoặc các nhà máy điện) phải tự đảm bảo an toàn cho hệ thống của mình. Một thay đổi đáng chú ý là chính phủ có quyền chỉ đạo các thực thể ngừng sử dụng một mô hình AI cụ thể nếu nó gây ra rủi ro, thay vì ra lệnh đóng cửa toàn bộ trung tâm dữ liệu – một biện pháp được coi là cân bằng và hiệu quả hơn trong hệ sinh thái kỹ thuật số phức tạp."
-        },
-        {
-          "heading": "The evidence so far",
-          "body": "Theo lập luận của Bộ trưởng Lloyd, việc đưa các nhà cung cấp AI vào phạm vi dự luật sẽ không giải quyết được tận gốc các tác hại hoặc sự lạm dụng của các tác nhân thù địch. Thay vào đó, Anh ưu tiên các kênh khác như Viện An ninh AI (AISI) để kiểm tra mô hình trước khi phát hành và Bộ quy tắc thực hành an ninh mạng AI tự nguyện. Điều này đồng nghĩa với việc các tổ chức hạ tầng thiết yếu tại Anh sẽ phải chịu trách nhiệm pháp lý cao nhất trong việc sàng lọc và giám sát các công cụ AI mà họ triển khai."
-        },
-        {
-          "heading": "Giới hạn và rủi ro: Mối lo ngại về việc 'tự chấm điểm'",
-          "body": "Các thành viên Thượng viện, điển hình là Baroness Kidron, đã chỉ trích gay gắt cách tiếp cận này, cho rằng nó lặp lại sai lầm từ các lĩnh vực an toàn trực tuyến và quyền riêng tư khi để các công ty công nghệ tự đặt ra quy tắc. Rủi ro lớn nhất được chỉ ra là các tác nhân AI có thể thực hiện các cuộc tấn công mạng quy mô lớn hoặc vượt khỏi sự kiểm soát của con người, trong khi các nhà cung cấp chúng lại không có nghĩa vụ pháp lý trực tiếp theo dự luật này để ngăn chặn các hành vi đó ngay từ đầu."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Mặc dù bác bỏ các sửa đổi hiện tại, bao gồm cả quyền đóng cửa khẩn cấp các hệ thống AI, chính phủ Anh cho biết vẫn sẵn sàng thảo luận thêm về quản lý AI do tầm quan trọng kinh tế của nó. Các phiên thảo luận tiếp theo của Ủy ban Grand sẽ tiếp tục làm rõ liệu các hướng dẫn tự nguyện có đủ sức nặng hay không, hoặc liệu áp lực từ các báo cáo về hành vi sai lệch của AI có buộc chính phủ phải đưa ra một khung pháp lý riêng biệt cho các nhà phát triển mô hình biên giới trong tương lai."
-        }
-      ],
-      "image": {
-        "src": "https://image.theregister.com/248400.jpg?imageId=248400&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-        "alt": "",
-        "caption": "Reference image from The Register.",
-        "credit": "The Register",
-        "source_url": "https://www.theregister.com/security/2026/09/02/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it/5293738"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "secure-access-kit"
-      ],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "The Register",
-          "source_url": "https://www.theregister.com/security/2026/09/02/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it/5293738",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-02T09:44:00.000Z",
-          "image_url": "https://image.theregister.com/248400.jpg?imageId=248400&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-          "image_caption": "Reference image from The Register.",
-          "image_credit": "The Register"
-        }
-      ],
-      "author_id": "thao-nguyen",
-      "published_at": "2026-09-02T09:44:00.000Z",
-      "updated_at": "2026-09-02T09:44:00.000Z",
-      "href": "/en/news/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/uk-cyber-bill-targets-ai-users-not-the-vendors-building-it",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Emerging",
-      "topic": "security",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
+        "generated_at": "2026-09-03T17:40:51.394Z",
         "origin": "local-curated-rss"
       }
     },
@@ -977,7 +218,114 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
+        "generated_at": "2026-09-03T17:40:51.394Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-827dc71d1537-en",
+      "cluster_id": "feed-827dc71d1537",
+      "language": "en",
+      "topic_label": "Internet & Business Tech",
+      "topic_slug": "internet-business-tech",
+      "topic_accent": "#9bff45",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
+      "title": "How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys",
+      "hook": "WhatsApp is the world's largest messaging platform, serving billions of users globally. What makes it worth reading is how it could change how digital users react, work, or spend.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.",
+      "dek": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "\"What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide,\" says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. Passkeys offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent."
+        }
+      ],
+      "image": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
+        "alt": "",
+        "caption": "Reference image from Android Developers Blog.",
+        "credit": "Android Developers Blog",
+        "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Android Developers Blog",
+          "source_url": "https://android-developers.googleblog.com/2026/08/whatsapp-passkeys-secure-sign-in.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-28T17:10:10.680Z",
+          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAONWXboSifa5iIBDqZhlyepp3OtXMzKrhnluPZqHKLlQ-oUE7xmHG9l0eVz7z4a_Xlan3w7Wr-FwhTZFQ2mcPqgzOGv3G7Sny756QYTIwczo_D3OG_gSWcxvDJFXQDd4lPhUTqXwgiCCadfA6WAT_lUVgRr6GyozoYCnkPY6wSXNqfqJGC-HV6MNduY/s2048/ANDDM_Passkeys_Metacard.png",
+          "image_caption": "Reference image from Android Developers Blog.",
+          "image_credit": "Android Developers Blog"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-08-28T17:10:10.680Z",
+      "updated_at": "2026-08-28T17:10:10.680Z",
+      "href": "/en/news/how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/how-whatsapp-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": "Verified",
+      "topic": "internet-business-tech",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-03T17:40:51.394Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1084,223 +432,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-195a1903bc60-vi",
-      "cluster_id": "feed-195a1903bc60",
-      "language": "vi",
-      "topic_label": "Thiết bị",
-      "topic_slug": "thiet-bi",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "vi-sao-ien-thoai-hien-ai-ngay-cang-kho-nghe-radio-fm",
-      "title": "Vì sao điện thoại hiện đại ngày càng khó nghe radio FM",
-      "hook": "Bạn có bao giờ thắc mắc tại sao chiếc smartphone nghìn đô của mình lại không thể thực hiện một tác vụ đơn giản là nghe radio miễn phí như những chiếc điện thoại 'cục gạch' ngày xưa?",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Mặc dù radio FM vẫn giữ vị trí quan trọng trong đời sống và là công cụ khẩn cấp hữu ích, việc bắt sóng trên smartphone ngày nay đang trở nên khó khăn do sự thay đổi trong thiết kế phần cứng và chiến lược của các nhà sản xuất.",
-      "dek": "Từ một tính năng tiêu chuẩn, bộ dò đài FM đang dần biến mất hoặc bị vô hiệu hóa trên các dòng điện thoại thông minh đời mới để nhường chỗ cho công nghệ phát trực tuyến.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Dù các dịch vụ phát trực tuyến đang chiếm ưu thế, radio FM và AM vẫn đóng vai trò quan trọng trong nhịp sống hàng ngày, đặc biệt là trên ô tô hoặc tại các không gian công cộng. Đây là nguồn cung cấp tin tức, âm nhạc và trò chuyện miễn phí mà không cần đăng ký. Tuy nhiên, thực tế hiện nay hầu hết người dùng không còn sử dụng đài FM đúng nghĩa, mà chỉ giữ chúng như một phần của bộ dụng cụ khẩn cấp."
-        },
-        {
-          "heading": "Thay đổi kỹ thuật: Sự chuyển dịch từ analog sang modem 5G",
-          "body": "Sự phát triển của modem trong điện thoại đã ảnh hưởng trực tiếp đến khả năng thu sóng. Kể từ khi Qualcomm ra mắt hỗ trợ 5G vào năm 2019 với bộ phận modem độc lập, các cải tiến công nghệ đã ưu tiên khả năng phát trực tuyến trên 5G và Wi-Fi. Điều này dẫn đến việc lược bỏ bộ dò đài FM để tối ưu hóa không gian và hiệu suất cho các kết nối hiện đại."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Hiện nay, nhiều thiết bị dù có bộ dò đài nhưng việc bắt sóng vẫn rất khó khăn. Samsung chỉ cung cấp tính năng này cho một số khu vực nhất định. Ngay cả trên các dòng máy mới như Galaxy S25 tại Hàn Quốc, người dùng phải sử dụng tai nghe USB-C làm ăng-ten và bị hạn chế các tính năng như ghi lại chương trình. Điều này cho thấy nhiều điện thoại Galaxy có thể đã bị vô hiệu hóa bộ thu sóng FM từ phần mềm hoặc phần cứng."
-        },
-        {
-          "heading": "Giới hạn và rủi ro: Sự thất bại của các liên minh cứu vãn FM",
-          "body": "Các nỗ lực duy trì radio FM trên smartphone đã gặp thất bại lớn. Năm 2013, Emmis Communications từng chi 15 triệu USD mỗi năm để đưa ứng dụng NextRadio lên các thiết bị của Sprint, nhưng thỏa thuận đã chấm dứt vào năm 2016 do nhu cầu khách hàng giảm sút. Việc thiếu sự ủng hộ từ các nhà sản xuất và sự ngừng hoạt động của các ứng dụng trung gian như NextRadio khiến khả năng tiếp cận sóng FM ngày càng bị thu hẹp."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "Dù đang dần biến mất trên các dòng flagship, FM vẫn có thể xuất hiện như một lựa chọn khả thi tại những khu vực có nguồn lực hạn chế. Người dùng cũng cần lưu ý về vòng đời thiết bị, khi Samsung sắp ngừng hỗ trợ cập nhật cho 10 mẫu điện thoại Galaxy cũ, điều này có thể thúc đẩy làn sóng nâng cấp lên các thiết bị mới - nơi mà tính năng radio FM truyền thống gần như đã bị loại bỏ hoàn toàn."
-        }
-      ],
-      "image": {
-        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/1_90.jpg?v=1788344419",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ VOV Cong Nghe.",
-        "credit": "VOV Cong Nghe",
-        "source_url": "https://vov.vn/cong-nghe/vi-sao-dien-thoai-hien-dai-ngay-cang-kho-nghe-radio-fm-post1327563.vov"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "VOV Cong Nghe",
-          "source_url": "https://vov.vn/cong-nghe/vi-sao-dien-thoai-hien-dai-ngay-cang-kho-nghe-radio-fm-post1327563.vov",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-27T00:00:00.000Z",
-          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/1_90.jpg?v=1788344419",
-          "image_caption": "Ảnh tham khảo từ VOV Cong Nghe.",
-          "image_credit": "VOV Cong Nghe"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-27T00:00:00.000Z",
-      "updated_at": "2026-08-27T00:00:00.000Z",
-      "href": "/vi/tin-tuc/vi-sao-ien-thoai-hien-ai-ngay-cang-kho-nghe-radio-fm",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/vi-sao-ien-thoai-hien-ai-ngay-cang-kho-nghe-radio-fm",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Emerging",
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-f19974197dfc-vi",
-      "cluster_id": "feed-f19974197dfc",
-      "language": "vi",
-      "topic_label": "Bảo mật",
-      "topic_slug": "bao-mat",
-      "topic_accent": "#1de59c",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "con-nguoi-nam-o-au-trong-vong-lap-bao-mat-co-ai",
-      "title": "Con người nằm ở đâu trong vòng lặp bảo mật “có” AI",
-      "hook": "Trong kỷ nguyên số hóa, liệu AI sẽ thay thế hoàn toàn hay chỉ là công cụ hỗ trợ con người trong cuộc chiến bảo mật thông tin?",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Sáng 05/08/2026, sự kiện BSides Hanoi lần thứ 2 chính thức diễn ra tại Hà Nội để tìm ra câu trả lời về mối quan hệ giữa con người và AI trong hệ thống bảo mật thời số hoá.",
-      "dek": "Sự kiện BSides Hanoi 2026 tập trung thảo luận về vai trò then chốt của con người khi AI ngày càng can thiệp sâu vào các hệ thống an ninh mạng hiện đại.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Sáng ngày 05/08/2026, cộng đồng an ninh mạng đã quy tụ tại Hà Nội để tham dự sự kiện BSides Hanoi lần thứ 2. Đây là diễn đàn quan trọng nhằm thảo luận về những thách thức và cơ hội trong việc bảo vệ hệ thống thông tin trước sự bùng nổ của công nghệ. Sự kiện có sự tham dự và phát biểu của ông Vũ Duy Hiền, Phó Tổng thư ký kiêm Chánh Văn phòng Hiệp hội An ninh mạng Quốc gia."
-        },
-        {
-          "heading": "Sự thay đổi kỹ thuật trong hệ thống bảo mật",
-          "body": "Hệ thống bảo mật hiện nay đang chuyển dịch mạnh mẽ sang mô hình 'có AI'. Việc tích hợp trí tuệ nhân tạo không còn là xu hướng mà đã trở thành một phần tất yếu trong vòng lặp bảo mật, giúp tự động hóa các quy trình nhận diện và phản ứng với các mối đe dọa trong thời gian thực."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Sự kiện tập trung phân tích vị trí của con người trong vòng lặp bảo mật. AI đóng vai trò tối ưu hóa hiệu suất, nhưng con người vẫn là nhân tố quyết định trong việc quản lý và điều phối các hệ thống an ninh mạng phức tạp trong thời đại số hóa."
-        },
-        {
-          "heading": "Giới hạn và rủi ro tiềm ẩn",
-          "body": "Dù AI mang lại nhiều lợi ích, việc xác định ranh giới trách nhiệm giữa con người và máy móc vẫn là một thách thức. Sự phụ thuộc quá mức vào AI hoặc thiếu sự giám sát của con người trong các kịch bản bảo mật nhạy cảm có thể dẫn đến những lỗ hổng mới."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "Cộng đồng an ninh mạng cần tiếp tục quan sát cách thức AI tiến hóa để hỗ trợ con người tốt hơn. Những kết luận từ BSides Hanoi 2026 sẽ là tiền đề để xây dựng các chiến lược bảo mật bền vững, nơi con người và AI phối hợp nhịp nhàng để đối phó với các cuộc tấn công mạng ngày càng tinh vi."
-        }
-      ],
-      "image": {
-        "src": "https://cafebiz.cafebizcdn.vn/thumb_w/1200/162123310254002176/2026/8/5/avatar1785935806832-17859358079941207873429.jpg",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ CafeBiz Cong Nghe.",
-        "credit": "CafeBiz Cong Nghe",
-        "source_url": "https://cafebiz.vn/con-nguoi-nam-o-dau-trong-vong-lap-bao-mat-co-ai-176260805201731707.chn"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
-      "indexable": true,
-      "store_link_mode": "soft",
-      "related_store_items": [
-        "secure-access-kit"
-      ],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "CafeBiz Cong Nghe",
-          "source_url": "https://cafebiz.vn/con-nguoi-nam-o-dau-trong-vong-lap-bao-mat-co-ai-176260805201731707.chn",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-05T05:59:00.000Z",
-          "image_url": "https://cafebiz.cafebizcdn.vn/thumb_w/1200/162123310254002176/2026/8/5/avatar1785935806832-17859358079941207873429.jpg",
-          "image_caption": "Ảnh tham khảo từ CafeBiz Cong Nghe.",
-          "image_credit": "CafeBiz Cong Nghe"
-        }
-      ],
-      "author_id": "thao-nguyen",
-      "published_at": "2026-08-05T05:59:00.000Z",
-      "updated_at": "2026-08-05T05:59:00.000Z",
-      "href": "/vi/tin-tuc/con-nguoi-nam-o-au-trong-vong-lap-bao-mat-co-ai",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/con-nguoi-nam-o-au-trong-vong-lap-bao-mat-co-ai",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Emerging",
-      "topic": "security",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
+        "generated_at": "2026-09-03T17:40:51.394Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1407,7 +539,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
+        "generated_at": "2026-09-03T17:40:51.394Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1514,7 +646,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T17:29:03.170Z",
+        "generated_at": "2026-09-03T17:40:51.394Z",
         "origin": "local-curated-rss"
       }
     }
