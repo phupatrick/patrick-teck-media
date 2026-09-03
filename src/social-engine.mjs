@@ -26,7 +26,7 @@ const SOCIAL_SYSTEM_PROMPT = [
 ].join(" ");
 
 const DEFAULT_GEMINI_MODEL = "gemini-1.5-flash";
-const COMPATIBLE_GEMINI_MODELS = ["gemini-2.5-flash"];
+const GEMINI_MODELS = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"];
 
 export function getRandomTechImage({ random = Math.random } = {}) {
   const index = Math.min(TECH_IMAGES.length - 1, Math.max(0, Math.floor(Number(random()) * TECH_IMAGES.length)));
@@ -113,6 +113,11 @@ async function getFacebookPostDetails({ pageId, postId, pageToken, fetchImpl, ti
   }
 }
 
+export async function getFacebookPermalink({ pageId = "", postId, pageToken, fetchImpl = fetch, timeoutMs = 10000 } = {}) {
+  const details = await getFacebookPostDetails({ pageId, postId, pageToken, fetchImpl, timeoutMs });
+  return details.permalink_url;
+}
+
 export async function postFirstComment({ postId, pageToken, commentText, fetchImpl = fetch, timeoutMs = 10000 } = {}) {
   if (!postId || !pageToken || !commentText) return null;
   const response = await fetchWithTimeout(fetchImpl, `https://graph.facebook.com/v20.0/${encodeURIComponent(postId)}/comments`, {
@@ -125,10 +130,26 @@ export async function postFirstComment({ postId, pageToken, commentText, fetchIm
   return payload?.id || null;
 }
 
+export async function postFirstCommentWithRetry({ postId, pageToken, commentText, fetchImpl = fetch, timeoutMs = 10000, delayMs = 3500, retries = 2, logger = console } = {}) {
+  if (!postId || !pageToken || !commentText) return null;
+  await delay(delayMs);
+  let lastError;
+  for (let attempt = 0; attempt <= Math.max(0, Number(retries) || 0); attempt += 1) {
+    try {
+      return await postFirstComment({ postId, pageToken, commentText, fetchImpl, timeoutMs });
+    } catch (error) {
+      lastError = error;
+      logger.warn?.(`[Facebook] First Comment attempt ${attempt + 1} failed: ${error.message || error}`);
+      if (attempt < retries) await delay(2000);
+    }
+  }
+  throw lastError;
+}
+
 async function requestAiContent({ provider, apiKeys, topic, pillar, postType = "information", notes, sourceArticleUrl = "", learningContext = "", fetchImpl }) {
   if (provider === "gemini") {
     const configuredModel = String(process.env.SOCIAL_AI_MODEL || process.env.GEMINI_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "").trim();
-    const models = [...new Set([configuredModel, DEFAULT_GEMINI_MODEL, ...COMPATIBLE_GEMINI_MODELS].filter(Boolean))];
+    const models = [...new Set([configuredModel, ...GEMINI_MODELS].filter(Boolean))];
     const errors = [];
     for (const apiKey of apiKeys) for (const model of models) {
       const response = await fetchWithTimeout(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`, {
@@ -137,11 +158,15 @@ async function requestAiContent({ provider, apiKeys, topic, pillar, postType = "
         body: JSON.stringify({ contents: [{ parts: [{ text: `${SOCIAL_SYSTEM_PROMPT}${learningContext}\n\n${buildPrompt({ topic, pillar, postType, notes, sourceArticleUrl })}` }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.6 } })
       }, 10000);
       const payload = await readResponse(response);
-      if (response.ok) return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
+      if (response.ok) {
+        console.log(`[Gemini] Tạo nội dung thành công với model: ${model}`);
+        return parseJsonText(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
+      }
       const detail = payload?.error?.message || payload?.raw || "Google returned an unknown error.";
       errors.push(`${model}: HTTP ${response.status}: ${detail}`);
+      console.warn(`[Gemini] Model ${model} failed: HTTP ${response.status}: ${detail}`);
       if (![404, 429, 500, 502, 503, 504].includes(response.status)) break;
-      await delayForGeminiRetry(errors.length);
+      if (errors.length < apiKeys.length * models.length) await delayForGeminiRetry(errors.length);
     }
     throw new Error(`Gemini API failed: ${errors.join(" | ")}`);
   }
@@ -163,6 +188,11 @@ async function requestAiContent({ provider, apiKeys, topic, pillar, postType = "
 async function delayForGeminiRetry(attempt) {
   const milliseconds = [1000, 2000, 4000][Math.min(2, Math.max(0, attempt - 1))];
   await new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+async function delay(milliseconds) {
+  const duration = Math.max(0, Number(milliseconds) || 0);
+  if (duration) await new Promise((resolve) => setTimeout(resolve, duration));
 }
 
 function buildPrompt({ topic, pillar, postType = "information", notes, sourceArticleUrl = "" }) {

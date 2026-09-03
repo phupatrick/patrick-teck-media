@@ -1,7 +1,7 @@
 import { loadNewsroomState } from "../src/newsroom-service.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { createDocumentStore } from "../src/document-store.mjs";
-import { createPostContent, getRandomTechImage, postFirstComment, safePostToFacebook } from "../src/social-engine.mjs";
+import { createPostContent, getRandomTechImage, postFirstCommentWithRetry, safePostToFacebook } from "../src/social-engine.mjs";
 import { generateOfflinePost } from "../src/social-templates.mjs";
 import { getScheduledPostType, isProductCooldownComplete, selectScheduledCandidates } from "../src/social-scheduler.mjs";
 import { pathToFileURL } from "node:url";
@@ -80,6 +80,11 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
         returnDetails: true
       });
       const postId = facebookPost.id;
+      console.log("====================================================");
+      console.log("[FACEBOOK PUBLISHED SUCCESS]");
+      console.log(`Post ID: ${postId}`);
+      console.log(`Public permalink: ${facebookPost.permalink_url}`);
+      console.log("====================================================");
       const publishedAt = now.toISOString();
       const record = {
         id: `autopilot_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
@@ -115,7 +120,15 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
       let firstCommentError = "";
       if (content.first_comment) {
         try {
-          await postFirstComment({ postId, pageToken, commentText: content.first_comment, fetchImpl });
+          await postFirstCommentWithRetry({
+            postId,
+            pageToken,
+            commentText: content.first_comment,
+            fetchImpl,
+            delayMs: env.SOCIAL_FIRST_COMMENT_DELAY_MS || 3500,
+            retries: 2,
+            logger
+          });
           firstCommentStatus = "published";
         } catch (error) {
           // The Facebook post is already live. Persist it and retry the comment separately later.
@@ -231,7 +244,7 @@ async function retryFailedFirstComments({ store, posts, pageToken, fetchImpl, lo
   const retried = [];
   for (const post of due) {
     try {
-      await postFirstComment({ postId: post.fb_post_id, pageToken, commentText: post.first_comment, fetchImpl });
+      await postFirstCommentWithRetry({ postId: post.fb_post_id, pageToken, commentText: post.first_comment, fetchImpl, delayMs: 0, retries: 2, logger });
       await store.update((draft) => {
         const target = draft.posts.find((item) => item.id === post.id);
         if (target) { target.first_comment_status = "published"; target.first_comment_error = ""; target.first_comment_last_attempt_at = now.toISOString(); target.updated_at = now.toISOString(); }
