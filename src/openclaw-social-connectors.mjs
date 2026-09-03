@@ -5,6 +5,9 @@ export const X_HANDLES = ["sama", "OpenAI", "karpathy", "ylecun", "AnthropicAI",
 export const GITHUB_RELEASES = ["vllm-project/vllm", "ollama/ollama", "langchain-ai/langchain"];
 export const HACKER_NEWS_QUERIES = ["AI", "LLM", "cybersecurity", "semiconductor"];
 export const STACK_EXCHANGE_TAGS = ["artificial-intelligence", "machine-learning", "cybersecurity"];
+export const ARXIV_QUERIES = ["cat:cs.AI", "cat:cs.LG", "cat:cs.CR"];
+export const GDELT_QUERIES = ["artificial intelligence", "cybersecurity", "semiconductor"];
+export const DEV_TO_TAGS = ["ai", "opensource", "cybersecurity"];
 
 export function isUsefulSocialSignal(value) {
   const text = String(value || "").replace(/\s+/g, " ").trim();
@@ -19,14 +22,17 @@ export function normalizeSocialSignal(input, defaults = {}) {
   return { title, summary, url, published_at: input?.published_at || new Date().toISOString(), source_name: String(input?.source_name || defaults.source_name || "Social signal").trim(), source_type: String(input?.source_type || defaults.source_type || "community").trim(), trust_tier: String(input?.trust_tier || defaults.trust_tier || "community").trim(), topic_hint: String(input?.topic_hint || defaults.topic_hint || "ai").trim(), discovery_only: true };
 }
 
-export async function fetchSocialSignals({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, redditSources = REDDIT_SOURCES, xHandles = X_HANDLES, youtubeChannelIds = [], githubReleases = GITHUB_RELEASES, hackerNewsQueries = HACKER_NEWS_QUERIES, stackExchangeTags = STACK_EXCHANGE_TAGS } = {}) {
+export async function fetchSocialSignals({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, redditSources = REDDIT_SOURCES, xHandles = X_HANDLES, youtubeChannelIds = [], githubReleases = GITHUB_RELEASES, hackerNewsQueries = HACKER_NEWS_QUERIES, stackExchangeTags = STACK_EXCHANGE_TAGS, arxivQueries = ARXIV_QUERIES, gdeltQueries = GDELT_QUERIES, devToTags = DEV_TO_TAGS } = {}) {
   const groups = await Promise.all([
     Promise.all(redditSources.map((subreddit) => fetchRedditSignals(subreddit, { fetchImpl, timeoutMs }))),
     Promise.all(xHandles.map((handle) => fetchXSignals(handle, { fetchImpl, timeoutMs }))),
     Promise.all(youtubeChannelIds.map((channelId) => fetchYouTubeSignals(channelId, { fetchImpl, timeoutMs }))),
     Promise.all(githubReleases.map((repository) => fetchGitHubReleaseSignals(repository, { fetchImpl, timeoutMs }))),
     Promise.all(hackerNewsQueries.map((query) => fetchHackerNewsSignals(query, { fetchImpl, timeoutMs }))),
-    Promise.all(stackExchangeTags.map((tag) => fetchStackExchangeSignals(tag, { fetchImpl, timeoutMs })))
+    Promise.all(stackExchangeTags.map((tag) => fetchStackExchangeSignals(tag, { fetchImpl, timeoutMs }))),
+    Promise.all(arxivQueries.map((query) => fetchArxivSignals(query, { fetchImpl, timeoutMs }))),
+    Promise.all(gdeltQueries.map((query) => fetchGdeltSignals(query, { fetchImpl, timeoutMs }))),
+    Promise.all(devToTags.map((tag) => fetchDevToSignals(tag, { fetchImpl, timeoutMs })))
   ]);
   const seen = new Set();
   return groups.flat(2).filter((signal) => signal && !seen.has(signal.url) && seen.add(signal.url));
@@ -92,6 +98,40 @@ export async function fetchStackExchangeSignals(tag, options = {}) {
   }, { source_type: "community", trust_tier: "community", topic_hint: safeTag === "cybersecurity" ? "security" : "ai" })).filter(Boolean);
 }
 
+export async function fetchArxivSignals(query, options = {}) {
+  const safeQuery = String(query || "").trim().replace(/[^A-Za-z0-9:._+() -]/g, "");
+  if (!safeQuery) return [];
+  const xml = await fetchText("https://export.arxiv.org/api/query?search_query=" + encodeURIComponent(safeQuery) + "&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending", options);
+  return parseFeedEntries(xml).map((entry) => normalizeSocialSignal({ ...entry, source_name: "arXiv research", source_type: "research" }, { trust_tier: "official", topic_hint: "ai" })).filter(Boolean);
+}
+
+export async function fetchGdeltSignals(query, options = {}) {
+  const safeQuery = String(query || "").trim();
+  if (!safeQuery) return [];
+  const url = "https://api.gdeltproject.org/api/v2/doc/doc?query=" + encodeURIComponent(safeQuery) + "&mode=artlist&format=json&maxrecords=10&sort=HybridRel";
+  const payload = await fetchJson(url, options);
+  return (payload?.articles || []).map((article) => normalizeSocialSignal({
+    title: article?.title,
+    summary: [article?.seendate, article?.domain, "International technology news discovery signal."].filter(Boolean).join(" "),
+    url: article?.url,
+    published_at: article?.seendate,
+    source_name: article?.domain ? "GDELT " + article.domain : "GDELT news"
+  }, { source_type: "press", trust_tier: "community", topic_hint: "internet-business-tech" })).filter(Boolean);
+}
+
+export async function fetchDevToSignals(tag, options = {}) {
+  const safeTag = String(tag || "").trim().replace(/[^A-Za-z0-9_-]/g, "");
+  if (!safeTag) return [];
+  const payload = await fetchJson("https://dev.to/api/articles?tag=" + encodeURIComponent(safeTag) + "&top=7&per_page=10", options);
+  return (Array.isArray(payload) ? payload : []).map((article) => normalizeSocialSignal({
+    title: article?.title,
+    summary: [article?.description, article?.tag_list?.join(" "), "Developer implementation discussion."].filter(Boolean).join(" "),
+    url: article?.url,
+    published_at: article?.published_at || article?.created_at,
+    source_name: "DEV Community"
+  }, { source_type: "community", trust_tier: "community", topic_hint: safeTag === "cybersecurity" ? "security" : "ai" })).filter(Boolean);
+}
+
 async function fetchJson(url, options) {
   const text = await fetchText(url, { ...options, accept: "application/json" });
   try { return JSON.parse(text); } catch { return {}; }
@@ -108,7 +148,7 @@ async function fetchText(url, { fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_M
 
 function parseFeedEntries(xml) {
   const blocks = [...String(xml || "").matchAll(/<(?:item|entry)\b[\s\S]*?<\/(?:item|entry)>/gi)].map((match) => match[0]);
-  return blocks.map((block) => ({ title: readTag(block, "title"), summary: readTag(block, "description") || readTag(block, "summary") || readTag(block, "content"), url: String(block).match(/<link\b[^>]*href=["']([^"']+)["']/i)?.[1] || readTag(block, "link"), published_at: readTag(block, "pubDate") || readTag(block, "published") || readTag(block, "updated") }));
+  return blocks.map((block) => ({ title: readTag(block, "title"), summary: readTag(block, "description") || readTag(block, "summary") || readTag(block, "content"), url: String(block).match(/<link\b[^>]*href=["']([^"']+)["']/i)?.[1] || readTag(block, "link") || readTag(block, "id"), published_at: readTag(block, "pubDate") || readTag(block, "published") || readTag(block, "updated") }));
 }
 
 function readTag(xml, tag) {

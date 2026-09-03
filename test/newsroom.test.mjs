@@ -31,7 +31,7 @@ import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsr
 import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
 import { selectNewerSnapshot } from "../src/document-store.mjs";
 import { PENDING_TTL_MS, applySingleSourcePublicationPolicy, getPendingArticleKey, getSourceQualityTier, hasTrustedSource, preparePendingArticles } from "../src/newsroom-pending-queue.mjs";
-import { fetchHackerNewsSignals, fetchStackExchangeSignals, isUsefulSocialSignal, normalizeSocialSignal } from "../src/openclaw-social-connectors.mjs";
+import { fetchArxivSignals, fetchDevToSignals, fetchGdeltSignals, fetchHackerNewsSignals, fetchStackExchangeSignals, isUsefulSocialSignal, normalizeSocialSignal } from "../src/openclaw-social-connectors.mjs";
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
 
 {
@@ -126,6 +126,21 @@ assert.equal(normalizeSocialSignal({ title: "A release update", summary: "The pr
   });
   assert.equal(stackExchange[0].source_name, "Stack Overflow [artificial-intelligence]");
   assert.equal(stackExchange[0].discovery_only, true);
+  const arxiv = await fetchArxivSignals("cat:cs.AI", {
+    fetchImpl: async () => new Response("<feed><entry><title>New AI model release update</title><summary>A concrete benchmark and feature update for developers and researchers.</summary><id>https://arxiv.org/abs/1</id><published>2026-09-04T08:00:00Z</published></entry></feed>", { status: 200 })
+  });
+  assert.equal(arxiv[0].source_name, "arXiv research");
+  assert.equal(arxiv[0].discovery_only, true);
+  const gdelt = await fetchGdeltSignals("artificial intelligence", {
+    fetchImpl: async () => new Response(JSON.stringify({ articles: [{ title: "AI feature release update", url: "https://example.com/gdelt", seendate: "20260904080000", domain: "example.com" }] }), { status: 200 })
+  });
+  assert.equal(gdelt[0].source_name, "GDELT example.com");
+  assert.equal(gdelt[0].discovery_only, true);
+  const devTo = await fetchDevToSignals("ai", {
+    fetchImpl: async () => new Response(JSON.stringify([{ title: "AI implementation update", description: "A concrete benchmark and feature release for developers.", url: "https://dev.to/example/ai", tag_list: ["ai"], published_at: "2026-09-04T08:00:00Z" }]), { status: 200 })
+  });
+  assert.equal(devTo[0].source_name, "DEV Community");
+  assert.equal(devTo[0].discovery_only, true);
 }
 
 const state = createState();
