@@ -29,7 +29,12 @@ const refresh = manager.newsroom?.refresh || {};
 const newsroom = manager.newsroom || {};
 const reportState = readJson(reportStatePath);
 const reportedArticleIds = new Set(Array.isArray(reportState.reported_article_ids) ? reportState.reported_article_ids : []);
-const latest = preferVietnameseArticles(selectNewlyPublishedArticles(articles, cycle, reportedArticleIds, 5), articles);
+const latest = preferVietnameseArticles(
+  selectNewlyPublishedArticles(articles, cycle, reportedArticleIds, 5),
+  articles,
+  reportedArticleIds,
+  cycle
+);
 const refreshedCount = extractRefreshedCount(refresh.output);
 
 // This channel is an alert for completed publication only, not a cycle log.
@@ -77,7 +82,7 @@ for (const chatId of chatIds) {
   await sendTelegramMessage({ token, chatId, text: message });
 }
 writeJson(reportStatePath, {
-  reported_article_ids: [...latest.map((article) => article.id || article.href || article.slug), ...reportedArticleIds]
+  reported_article_ids: [...getReportArticleIds(latest, articles), ...reportedArticleIds]
     .filter(Boolean)
     .slice(0, 500),
   updated_at: new Date().toISOString()
@@ -122,15 +127,31 @@ function selectNewlyPublishedArticles(sourceArticles, cycle, reportedArticleIds,
   return news.slice(0, limit);
 }
 
-function preferVietnameseArticles(candidates, sourceArticles) {
+function preferVietnameseArticles(candidates, sourceArticles, reportedArticleIds, cycle) {
   const all = Array.isArray(sourceArticles) ? sourceArticles : [];
+  const startedAt = Date.parse(cycle?.startedAt || 0);
   return candidates.map((article) => {
     if (article?.language === "vi") return article;
     const vietnamesePair = all.find((candidate) => candidate?.language === "vi"
       && String(candidate?.cluster_id || "")
-      && String(candidate.cluster_id) === String(article?.cluster_id || ""));
+      && String(candidate.cluster_id) === String(article?.cluster_id || "")
+      && !reportedArticleIds.has(candidate.id || candidate.href || candidate.slug)
+      && (!Number.isFinite(startedAt) || Date.parse(candidate.updated_at || candidate.published_at || 0) >= startedAt));
     return vietnamesePair || article;
   });
+}
+
+function getReportArticleIds(selectedArticles, sourceArticles) {
+  const selected = Array.isArray(selectedArticles) ? selectedArticles : [];
+  const all = Array.isArray(sourceArticles) ? sourceArticles : [];
+  const clusterIds = new Set(selected.map((article) => article?.cluster_id).filter(Boolean).map(String));
+  const ids = [
+    ...selected.map((article) => article?.id || article?.href || article?.slug),
+    ...all
+    .filter((article) => clusterIds.has(String(article?.cluster_id || "")))
+    .map((article) => article.id || article.href || article.slug)
+  ];
+  return [...new Set(ids.filter(Boolean))];
 }
 
 function formatCycleWindow(startedAt, finishedAt) {
