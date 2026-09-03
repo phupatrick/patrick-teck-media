@@ -1,6 +1,233 @@
 {
-  "generated_at": "2026-09-03T21:43:59.152Z",
+  "generated_at": "2026-09-03T22:12:27.803Z",
   "articles": [
+    {
+      "id": "editorial-google-ai-plan-watch-en",
+      "cluster_id": "editorial-google-ai-plan-watch",
+      "language": "en",
+      "topic_label": "AI",
+      "topic_slug": "ai",
+      "topic_accent": "#56e7ff",
+      "content_type": "ComparisonPage",
+      "content_type_label": "Compare",
+      "path_segment": "compare",
+      "slug": "what-google-just-changed-in-ai-plans",
+      "title": "What Google just changed in AI plans: 5 TB, Workspace, and NotebookLM are now part of the same value fight",
+      "hook": "Google used to look like a collection of separate AI pieces. The current move is about making those pieces feel like one package people can justify paying for. This piece sits on 8 source layers, but the real value is showing why the story should not be skimmed past too quickly. The useful part of this story is that it shows the real utility layer instead of leaving readers outside another upgrade framed in launch language.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Google is shifting the AI plan battle onto more practical ground: larger storage, deeper Gemini inside Workspace, and a NotebookLM stack that feels closer to a real research assistant. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. The real story is not the 5 TB number by itself, but the way Google is bundling storage, models, and workflow tools into a more persuasive package.",
+      "dek": "Individual users will read the price and storage first, while business buyers will go straight to integrated Gemini, privacy promises, and how much AI now feels native inside everyday work. The most useful part of a comparison is that every option gets pulled onto the same table before any conclusion is made. Taken together, those layers show Google selling a usable AI ecosystem rather than a single model access tier.",
+      "sections": [
+        {
+          "heading": "What Google just changed in its AI plans",
+          "body": "Google is shifting the AI plan battle onto more practical ground: larger storage, deeper Gemini inside Workspace, and a NotebookLM stack that feels closer to a real research assistant. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece."
+        },
+        {
+          "heading": "Where the value actually increased",
+          "body": "The most visible gain is in reducing how many separate bills users need for storage, Gemini, NotebookLM, and creative tooling. The most useful part of a comparison is that every option gets pulled onto the same table before any conclusion is made. The trustworthy part of a comparison is not a fast verdict, but the discipline of asking the same question across multiple options first."
+        },
+        {
+          "heading": "The part worth checking before paying",
+          "body": "The part worth checking closely is regional availability, which model tiers are truly unlocked, and whether privacy promises stay consistent from Docs and Gmail through Meet. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams. This is usually the layer that decides whether a plan is genuinely worth paying for, especially for readers who store, collaborate, and use AI inside the same ecosystem."
+        },
+        {
+          "heading": "Where Google sits against the rest of the field",
+          "body": "Google is strongest where AI meets storage and productivity, but that also means every change is tested against real daily usefulness, not launch-page energy. From 8 early signals, the piece keeps 8 references that are useful for locking the main details in place."
+        },
+        {
+          "heading": "Patrick Tech Media take",
+          "body": "Patrick Tech Media sees this as a shift from selling AI as a feature line to selling it as a workflow system. If Google can hold price discipline while making Workspace and NotebookLM feel more coherent, this will be one of the easiest premium AI bundles to justify this year. The next question is how quickly the shift reaches real products and who feels it first in everyday work."
+        }
+      ],
+      "image": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFBCcf2DgoyALZfGoWleTCCD9yLjN3LfyrumoIGs9dRTYYByQAS8Dah9HI5G9lMmy1c7G0q682Khv-SZvMXFQumHoS9hUamjlo3CR1GvR0kpUePlR3llUdf72YUS53Oebuwfr5NtEEaOGFHo9xQopisIgWdyeQf-yurWQ9JXDtqeELLYymZo3hHbutaQs/w1200-h630-p-k-no-nu/Visual%20screenshots%20in%20Google%20Meet%20meeting%20notes%20will%20soon%20be%20generally%20available,%20pre-configure%20admin%20settings%20in%20advance%20-%206637.png",
+        "alt": "What Google just changed in AI plans: 5 TB, Workspace, and NotebookLM are now part of the same value fight",
+        "caption": "Reference image from Google Workspace Updates.",
+        "credit": "Google Workspace Updates",
+        "source_url": "http://workspaceupdates.googleblog.com/2026/07/visual-screenshots-in-google-meet-meeting-notes-will-soon-be-generally-available-pre-configure-admin-settings-in-advance.html"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "full",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "editorial_focus": [
+        "ai-package",
+        "comparison",
+        "ai",
+        "provider-google"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-03T16:16:28.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21366-featured-image.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "NVIDIA Blog",
+          "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-03T13:00:35.000Z",
+          "image_url": "https://blogs.nvidia.com/wp-content/uploads/2026/09/gfn-thursday-9-3-blog-1920x1080-logo.jpg",
+          "image_caption": "Reference image from NVIDIA Blog.",
+          "image_credit": "NVIDIA Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Microsoft Security",
+          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T22:51:18.000Z",
+          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
+          "image_caption": "Reference image from Microsoft Security.",
+          "image_credit": "Microsoft Security"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Google Workspace Updates",
+          "source_url": "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T16:22:23.482Z",
+          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9pirh0dCkAdCtVEOIBKwIL06wFbO-39HX4jUqEo_yCFYXt-kP0HLXpGJoDIkIX8NL9qWj6IU6jKgcczjfqyev9isHvgAx8lWk0KaLS5ci1-O6_hkpCsRU5kBySWS_6VrbkbJaRvgvm5bRtqrm7DqKJiupHVv9DgejKSnpAXG5A8nLe4AUuFFImbcM0rs/w1200-h630-p-k-no-nu/Custom%20instructions%20for%20Gemini%20in%20Workspace%20now%20available%20in%20more%20apps%20-%206926%20-%201.png",
+          "image_caption": "Reference image from Google Workspace Updates.",
+          "image_credit": "Google Workspace Updates"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Microsoft 365 Developer Blog",
+          "source_url": "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T10:14:00.000Z",
+          "image_url": "https://devblogs.microsoft.com/microsoft365dev/wp-content/uploads/sites/73/2026/09/spfx-dev-skills-blog-post.webp",
+          "image_caption": "Reference image from Microsoft 365 Developer Blog.",
+          "image_credit": "Microsoft 365 Developer Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Google Workspace Updates",
+          "source_url": "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-28T22:08:21.726Z",
+          "image_url": "",
+          "image_caption": "",
+          "image_credit": "Google Workspace Updates"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-07T16:22:50.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "AWS News Blog",
+          "source_url": "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-08-06T22:58:00.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2025/07/07/AgentCore-icon3.png",
+          "image_caption": "Reference image from AWS News Blog.",
+          "image_credit": "AWS News Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-09-03T22:00:34.000Z",
+      "updated_at": "2026-09-03T22:12:27.803Z",
+      "href": "/en/compare/what-google-just-changed-in-ai-plans",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/compare/what-google-just-changed-in-ai-plans",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "ai",
+      "title_vi": "Google vừa đổi gì trong các gói AI: 5TB, Workspace và NotebookLM đang kéo giá trị đi đâu",
+      "title_en": "What Google just changed in AI plans: 5 TB, Workspace, and NotebookLM are now part of the same value fight",
+      "dek_vi": "Người dùng cá nhân nhìn vào giá và dung lượng, còn doanh nghiệp sẽ nhìn sâu hơn vào Gemini tích hợp, quyền riêng tư dữ liệu và khả năng biến AI thành một phần mặc định của luồng việc. Điều đáng đọc nhất trong bài so sánh là chỗ mọi lựa chọn được kéo về cùng một bàn cân trước khi kết luận được đưa ra. Khi ba lớp đó cùng dịch chuyển, Google không còn bán một model riêng lẻ mà đang bán cả một hệ sinh thái AI dùng được hàng ngày.",
+      "dek_en": "Individual users will read the price and storage first, while business buyers will go straight to integrated Gemini, privacy promises, and how much AI now feels native inside everyday work. The most useful part of a comparison is that every option gets pulled onto the same table before any conclusion is made. Taken together, those layers show Google selling a usable AI ecosystem rather than a single model access tier.",
+      "body_vi": "Google vừa thay gì trong gói AI\nGoogle đang kéo cuộc đua gói AI sang một mặt bằng mới: dung lượng tăng, Workspace ăn Gemini sâu hơn, còn NotebookLM được đẩy lên vai trò trợ lý nghiên cứu thật sự. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nGiá trị tăng ở đâu\nGiá trị tăng rõ nhất nằm ở việc người dùng không còn phải tách riêng lưu trữ, Gemini, NotebookLM và các lớp hỗ trợ sáng tạo thành quá nhiều hóa đơn nhỏ. Điều đáng đọc nhất trong bài so sánh là chỗ mọi lựa chọn được kéo về cùng một bàn cân trước khi kết luận được đưa ra. Phần đáng tin của một bài so sánh không nằm ở kết luận thật nhanh, mà ở việc đặt cùng một câu hỏi lên nhiều lựa chọn rồi mới chốt.\n\nĐiểm nên soi kỹ trước khi xuống tiền\nThứ nên soi kỹ là giới hạn vùng, model nào thực sự được mở khóa, và liệu các lời hứa về quyền riêng tư doanh nghiệp có đi xuyên suốt từ Docs, Gmail tới Meet hay không. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành. Đây thường là nơi quyết định gói nào thật sự đáng tiền, nhất là với người vừa lưu trữ dữ liệu, vừa cộng tác, vừa dùng AI trong cùng một hệ sinh thái.\n\nGoogle đang đứng ở đâu so với phần còn lại\nSo với phần còn lại của thị trường, Google đang lợi ở lớp tích hợp sâu vào công cụ làm việc, nhưng cũng bị soi kỹ hơn ở chỗ mọi thay đổi phải chứng minh được giá trị thật chứ không chỉ đẹp trên slide. Từ 8 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.\n\nPatrick Tech Media đánh giá\nPatrick Tech Media nhìn câu chuyện này như một bước chuyển từ bán AI theo cảm hứng sang bán AI theo bài toán công việc thật. Nếu Google giữ được giá, tăng được dung lượng và làm NotebookLM hay Workspace bớt rời rạc, đây sẽ là một trong những gói dễ hút người dùng trả phí nhất năm. Điểm cần theo dõi tiếp là liệu thay đổi này có đi vào sản phẩm dùng thật nhanh đến đâu và ai sẽ chạm nó đầu tiên trong công việc hằng ngày.",
+      "body_en": "What Google just changed in its AI plans\nGoogle is shifting the AI plan battle onto more practical ground: larger storage, deeper Gemini inside Workspace, and a NotebookLM stack that feels closer to a real research assistant. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhere the value actually increased\nThe most visible gain is in reducing how many separate bills users need for storage, Gemini, NotebookLM, and creative tooling. The most useful part of a comparison is that every option gets pulled onto the same table before any conclusion is made. The trustworthy part of a comparison is not a fast verdict, but the discipline of asking the same question across multiple options first.\n\nThe part worth checking before paying\nThe part worth checking closely is regional availability, which model tiers are truly unlocked, and whether privacy promises stay consistent from Docs and Gmail through Meet. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams. This is usually the layer that decides whether a plan is genuinely worth paying for, especially for readers who store, collaborate, and use AI inside the same ecosystem.\n\nWhere Google sits against the rest of the field\nGoogle is strongest where AI meets storage and productivity, but that also means every change is tested against real daily usefulness, not launch-page energy. From 8 early signals, the piece keeps 8 references that are useful for locking the main details in place.\n\nPatrick Tech Media take\nPatrick Tech Media sees this as a shift from selling AI as a feature line to selling it as a workflow system. If Google can hold price discipline while making Workspace and NotebookLM feel more coherent, this will be one of the easiest premium AI bundles to justify this year. The next question is how quickly the shift reaches real products and who feels it first in everyday work.",
+      "slug_vi": "what-google-just-changed-in-ai-plans",
+      "slug_en": "what-google-just-changed-in-ai-plans",
+      "category": "ai",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
+        "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
+        "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+        "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
+        "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+        "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
+        "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
+        "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
+      ],
+      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFBCcf2DgoyALZfGoWleTCCD9yLjN3LfyrumoIGs9dRTYYByQAS8Dah9HI5G9lMmy1c7G0q682Khv-SZvMXFQumHoS9hUamjlo3CR1GvR0kpUePlR3llUdf72YUS53Oebuwfr5NtEEaOGFHo9xQopisIgWdyeQf-yurWQ9JXDtqeELLYymZo3hHbutaQs/w1200-h630-p-k-no-nu/Visual%20screenshots%20in%20Google%20Meet%20meeting%20notes%20will%20soon%20be%20generally%20available,%20pre-configure%20admin%20settings%20in%20advance%20-%206637.png",
+      "draft_context": {
+        "historical_context": true,
+        "historical_context_sources": [
+          "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
+          "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
+          "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+          "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
+          "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+          "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
+          "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
+          "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
+        ]
+      }
+    },
     {
       "id": "editorial-ai-package-watch-en",
       "cluster_id": "editorial-ai-package-watch",
@@ -162,8 +389,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-03T21:24:22.188Z",
-      "updated_at": "2026-09-03T21:43:59.152Z",
+      "published_at": "2026-09-03T21:43:59.152Z",
+      "updated_at": "2026-09-03T22:12:27.803Z",
       "href": "/en/compare/which-ai-plan-feels-more-useful-right-now",
       "readiness": {
         "ready": true,
@@ -390,8 +617,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-03T21:24:22.188Z",
-      "updated_at": "2026-09-03T21:43:59.152Z",
+      "published_at": "2026-09-03T21:43:59.152Z",
+      "updated_at": "2026-09-03T22:12:27.803Z",
       "href": "/en/guides/how-to-use-ai-plans-without-duplicate-app-spend",
       "readiness": {
         "ready": true,
@@ -615,8 +842,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-03T21:24:22.188Z",
-      "updated_at": "2026-09-03T21:43:59.152Z",
+      "published_at": "2026-09-03T21:43:59.152Z",
+      "updated_at": "2026-09-03T22:12:27.803Z",
       "href": "/en/guides/the-practical-tech-tips-worth-saving-right-now",
       "readiness": {
         "ready": true,
@@ -667,233 +894,6 @@
         "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
       ],
       "image_url": "https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2026/09/03/Incident-response-guide-for-AWS-CloudTrail-investigations-Part-2.jpg",
-      "draft_context": {
-        "historical_context": true,
-        "historical_context_sources": [
-          "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
-          "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
-          "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
-          "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
-          "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-          "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
-          "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
-          "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
-        ]
-      }
-    },
-    {
-      "id": "editorial-google-ai-plan-watch-en",
-      "cluster_id": "editorial-google-ai-plan-watch",
-      "language": "en",
-      "topic_label": "AI",
-      "topic_slug": "ai",
-      "topic_accent": "#56e7ff",
-      "content_type": "ComparisonPage",
-      "content_type_label": "Compare",
-      "path_segment": "compare",
-      "slug": "what-google-just-changed-in-ai-plans",
-      "title": "What Google just changed in AI plans: 5 TB, Workspace, and NotebookLM are now part of the same value fight",
-      "hook": "Google used to look like a collection of separate AI pieces. The current move is about making those pieces feel like one package people can justify paying for. This piece sits on 8 source layers, but the real value is showing why the story should not be skimmed past too quickly. The useful part of this story is that it shows the real utility layer instead of leaving readers outside another upgrade framed in launch language.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Google is shifting the AI plan battle onto more practical ground: larger storage, deeper Gemini inside Workspace, and a NotebookLM stack that feels closer to a real research assistant. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. The real story is not the 5 TB number by itself, but the way Google is bundling storage, models, and workflow tools into a more persuasive package.",
-      "dek": "Individual users will read the price and storage first, while business buyers will go straight to integrated Gemini, privacy promises, and how much AI now feels native inside everyday work. The most useful part of a comparison is that every option gets pulled onto the same table before any conclusion is made. Taken together, those layers show Google selling a usable AI ecosystem rather than a single model access tier.",
-      "sections": [
-        {
-          "heading": "What Google just changed in its AI plans",
-          "body": "Google is shifting the AI plan battle onto more practical ground: larger storage, deeper Gemini inside Workspace, and a NotebookLM stack that feels closer to a real research assistant. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece."
-        },
-        {
-          "heading": "Where the value actually increased",
-          "body": "The most visible gain is in reducing how many separate bills users need for storage, Gemini, NotebookLM, and creative tooling. The most useful part of a comparison is that every option gets pulled onto the same table before any conclusion is made. The trustworthy part of a comparison is not a fast verdict, but the discipline of asking the same question across multiple options first."
-        },
-        {
-          "heading": "The part worth checking before paying",
-          "body": "The part worth checking closely is regional availability, which model tiers are truly unlocked, and whether privacy promises stay consistent from Docs and Gmail through Meet. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams. This is usually the layer that decides whether a plan is genuinely worth paying for, especially for readers who store, collaborate, and use AI inside the same ecosystem."
-        },
-        {
-          "heading": "Where Google sits against the rest of the field",
-          "body": "Google is strongest where AI meets storage and productivity, but that also means every change is tested against real daily usefulness, not launch-page energy. From 8 early signals, the piece keeps 8 references that are useful for locking the main details in place."
-        },
-        {
-          "heading": "Patrick Tech Media take",
-          "body": "Patrick Tech Media sees this as a shift from selling AI as a feature line to selling it as a workflow system. If Google can hold price discipline while making Workspace and NotebookLM feel more coherent, this will be one of the easiest premium AI bundles to justify this year. The next question is how quickly the shift reaches real products and who feels it first in everyday work."
-        }
-      ],
-      "image": {
-        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFBCcf2DgoyALZfGoWleTCCD9yLjN3LfyrumoIGs9dRTYYByQAS8Dah9HI5G9lMmy1c7G0q682Khv-SZvMXFQumHoS9hUamjlo3CR1GvR0kpUePlR3llUdf72YUS53Oebuwfr5NtEEaOGFHo9xQopisIgWdyeQf-yurWQ9JXDtqeELLYymZo3hHbutaQs/w1200-h630-p-k-no-nu/Visual%20screenshots%20in%20Google%20Meet%20meeting%20notes%20will%20soon%20be%20generally%20available,%20pre-configure%20admin%20settings%20in%20advance%20-%206637.png",
-        "alt": "What Google just changed in AI plans: 5 TB, Workspace, and NotebookLM are now part of the same value fight",
-        "caption": "Reference image from Google Workspace Updates.",
-        "credit": "Google Workspace Updates",
-        "source_url": "http://workspaceupdates.googleblog.com/2026/07/visual-screenshots-in-google-meet-meeting-notes-will-soon-be-generally-available-pre-configure-admin-settings-in-advance.html"
-      },
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "full",
-      "related_store_items": [
-        "ai-workspace-bundle"
-      ],
-      "editorial_focus": [
-        "ai-package",
-        "comparison",
-        "ai",
-        "provider-google"
-      ],
-      "source_set": [
-        {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-03T16:16:28.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21366-featured-image.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "NVIDIA Blog",
-          "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-03T13:00:35.000Z",
-          "image_url": "https://blogs.nvidia.com/wp-content/uploads/2026/09/gfn-thursday-9-3-blog-1920x1080-logo.jpg",
-          "image_caption": "Reference image from NVIDIA Blog.",
-          "image_credit": "NVIDIA Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Microsoft Security",
-          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T22:51:18.000Z",
-          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
-          "image_caption": "Reference image from Microsoft Security.",
-          "image_credit": "Microsoft Security"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Google Workspace Updates",
-          "source_url": "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T16:22:23.482Z",
-          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9pirh0dCkAdCtVEOIBKwIL06wFbO-39HX4jUqEo_yCFYXt-kP0HLXpGJoDIkIX8NL9qWj6IU6jKgcczjfqyev9isHvgAx8lWk0KaLS5ci1-O6_hkpCsRU5kBySWS_6VrbkbJaRvgvm5bRtqrm7DqKJiupHVv9DgejKSnpAXG5A8nLe4AUuFFImbcM0rs/w1200-h630-p-k-no-nu/Custom%20instructions%20for%20Gemini%20in%20Workspace%20now%20available%20in%20more%20apps%20-%206926%20-%201.png",
-          "image_caption": "Reference image from Google Workspace Updates.",
-          "image_credit": "Google Workspace Updates"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Microsoft 365 Developer Blog",
-          "source_url": "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T10:14:00.000Z",
-          "image_url": "https://devblogs.microsoft.com/microsoft365dev/wp-content/uploads/sites/73/2026/09/spfx-dev-skills-blog-post.webp",
-          "image_caption": "Reference image from Microsoft 365 Developer Blog.",
-          "image_credit": "Microsoft 365 Developer Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Google Workspace Updates",
-          "source_url": "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-08-28T22:08:21.726Z",
-          "image_url": "",
-          "image_caption": "",
-          "image_credit": "Google Workspace Updates"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-08-07T16:22:50.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "AWS News Blog",
-          "source_url": "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-08-06T22:58:00.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2025/07/07/AgentCore-icon3.png",
-          "image_caption": "Reference image from AWS News Blog.",
-          "image_credit": "AWS News Blog"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-09-03T21:24:22.188Z",
-      "updated_at": "2026-09-03T21:43:59.152Z",
-      "href": "/en/compare/what-google-just-changed-in-ai-plans",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/compare/what-google-just-changed-in-ai-plans",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "ai",
-      "title_vi": "Google vừa đổi gì trong các gói AI: 5TB, Workspace và NotebookLM đang kéo giá trị đi đâu",
-      "title_en": "What Google just changed in AI plans: 5 TB, Workspace, and NotebookLM are now part of the same value fight",
-      "dek_vi": "Người dùng cá nhân nhìn vào giá và dung lượng, còn doanh nghiệp sẽ nhìn sâu hơn vào Gemini tích hợp, quyền riêng tư dữ liệu và khả năng biến AI thành một phần mặc định của luồng việc. Điều đáng đọc nhất trong bài so sánh là chỗ mọi lựa chọn được kéo về cùng một bàn cân trước khi kết luận được đưa ra. Khi ba lớp đó cùng dịch chuyển, Google không còn bán một model riêng lẻ mà đang bán cả một hệ sinh thái AI dùng được hàng ngày.",
-      "dek_en": "Individual users will read the price and storage first, while business buyers will go straight to integrated Gemini, privacy promises, and how much AI now feels native inside everyday work. The most useful part of a comparison is that every option gets pulled onto the same table before any conclusion is made. Taken together, those layers show Google selling a usable AI ecosystem rather than a single model access tier.",
-      "body_vi": "Google vừa thay gì trong gói AI\nGoogle đang kéo cuộc đua gói AI sang một mặt bằng mới: dung lượng tăng, Workspace ăn Gemini sâu hơn, còn NotebookLM được đẩy lên vai trò trợ lý nghiên cứu thật sự. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nGiá trị tăng ở đâu\nGiá trị tăng rõ nhất nằm ở việc người dùng không còn phải tách riêng lưu trữ, Gemini, NotebookLM và các lớp hỗ trợ sáng tạo thành quá nhiều hóa đơn nhỏ. Điều đáng đọc nhất trong bài so sánh là chỗ mọi lựa chọn được kéo về cùng một bàn cân trước khi kết luận được đưa ra. Phần đáng tin của một bài so sánh không nằm ở kết luận thật nhanh, mà ở việc đặt cùng một câu hỏi lên nhiều lựa chọn rồi mới chốt.\n\nĐiểm nên soi kỹ trước khi xuống tiền\nThứ nên soi kỹ là giới hạn vùng, model nào thực sự được mở khóa, và liệu các lời hứa về quyền riêng tư doanh nghiệp có đi xuyên suốt từ Docs, Gmail tới Meet hay không. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành. Đây thường là nơi quyết định gói nào thật sự đáng tiền, nhất là với người vừa lưu trữ dữ liệu, vừa cộng tác, vừa dùng AI trong cùng một hệ sinh thái.\n\nGoogle đang đứng ở đâu so với phần còn lại\nSo với phần còn lại của thị trường, Google đang lợi ở lớp tích hợp sâu vào công cụ làm việc, nhưng cũng bị soi kỹ hơn ở chỗ mọi thay đổi phải chứng minh được giá trị thật chứ không chỉ đẹp trên slide. Từ 8 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.\n\nPatrick Tech Media đánh giá\nPatrick Tech Media nhìn câu chuyện này như một bước chuyển từ bán AI theo cảm hứng sang bán AI theo bài toán công việc thật. Nếu Google giữ được giá, tăng được dung lượng và làm NotebookLM hay Workspace bớt rời rạc, đây sẽ là một trong những gói dễ hút người dùng trả phí nhất năm. Điểm cần theo dõi tiếp là liệu thay đổi này có đi vào sản phẩm dùng thật nhanh đến đâu và ai sẽ chạm nó đầu tiên trong công việc hằng ngày.",
-      "body_en": "What Google just changed in its AI plans\nGoogle is shifting the AI plan battle onto more practical ground: larger storage, deeper Gemini inside Workspace, and a NotebookLM stack that feels closer to a real research assistant. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhere the value actually increased\nThe most visible gain is in reducing how many separate bills users need for storage, Gemini, NotebookLM, and creative tooling. The most useful part of a comparison is that every option gets pulled onto the same table before any conclusion is made. The trustworthy part of a comparison is not a fast verdict, but the discipline of asking the same question across multiple options first.\n\nThe part worth checking before paying\nThe part worth checking closely is regional availability, which model tiers are truly unlocked, and whether privacy promises stay consistent from Docs and Gmail through Meet. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams. This is usually the layer that decides whether a plan is genuinely worth paying for, especially for readers who store, collaborate, and use AI inside the same ecosystem.\n\nWhere Google sits against the rest of the field\nGoogle is strongest where AI meets storage and productivity, but that also means every change is tested against real daily usefulness, not launch-page energy. From 8 early signals, the piece keeps 8 references that are useful for locking the main details in place.\n\nPatrick Tech Media take\nPatrick Tech Media sees this as a shift from selling AI as a feature line to selling it as a workflow system. If Google can hold price discipline while making Workspace and NotebookLM feel more coherent, this will be one of the easiest premium AI bundles to justify this year. The next question is how quickly the shift reaches real products and who feels it first in everyday work.",
-      "slug_vi": "what-google-just-changed-in-ai-plans",
-      "slug_en": "what-google-just-changed-in-ai-plans",
-      "category": "ai",
-      "geo_scope": "global",
-      "hot_score": 50,
-      "source_urls": [
-        "https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/",
-        "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
-        "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
-        "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
-        "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-        "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html",
-        "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
-        "https://aws.amazon.com/blogs/aws/runtime-instances-persistent-compute-for-production-ai-agents-on-amazon-bedrock-agentcore/"
-      ],
-      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFBCcf2DgoyALZfGoWleTCCD9yLjN3LfyrumoIGs9dRTYYByQAS8Dah9HI5G9lMmy1c7G0q682Khv-SZvMXFQumHoS9hUamjlo3CR1GvR0kpUePlR3llUdf72YUS53Oebuwfr5NtEEaOGFHo9xQopisIgWdyeQf-yurWQ9JXDtqeELLYymZo3hHbutaQs/w1200-h630-p-k-no-nu/Visual%20screenshots%20in%20Google%20Meet%20meeting%20notes%20will%20soon%20be%20generally%20available,%20pre-configure%20admin%20settings%20in%20advance%20-%206637.png",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -1027,7 +1027,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T21:43:59.082Z",
+        "generated_at": "2026-09-03T22:12:27.731Z",
         "origin": "local-curated-rss"
       },
       "topic": "gaming"
@@ -1276,7 +1276,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T21:43:59.083Z",
+        "generated_at": "2026-09-03T22:12:27.731Z",
         "origin": "local-curated-rss"
       }
     },
@@ -5981,7 +5981,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T21:43:59.083Z",
+        "generated_at": "2026-09-03T22:12:27.731Z",
         "origin": "local-curated-rss"
       }
     },
@@ -6573,7 +6573,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T21:43:59.083Z",
+        "generated_at": "2026-09-03T22:12:27.731Z",
         "origin": "local-curated-rss"
       }
     },
@@ -6813,7 +6813,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T21:43:59.083Z",
+        "generated_at": "2026-09-03T22:12:27.731Z",
         "origin": "local-curated-rss"
       }
     },
@@ -22228,7 +22228,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T21:43:59.083Z",
+        "generated_at": "2026-09-03T22:12:27.731Z",
         "origin": "local-curated-rss"
       }
     },
@@ -30338,7 +30338,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T21:43:59.083Z",
+        "generated_at": "2026-09-03T22:12:27.731Z",
         "origin": "local-curated-rss"
       }
     }
