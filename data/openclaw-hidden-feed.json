@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T05:57:04.244Z",
+  "generated_at": "2026-09-03T11:01:21.922Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -7,8 +7,8 @@
   },
   "articles": [
     {
-      "id": "feed-23df432782cc-en",
-      "cluster_id": "feed-23df432782cc",
+      "id": "feed-4fa39a7c296e-en",
+      "cluster_id": "feed-4fa39a7c296e",
       "language": "en",
       "topic_label": "Security",
       "topic_slug": "security",
@@ -16,47 +16,47 @@
       "content_type": "NewsArticle",
       "content_type_label": "News",
       "path_segment": "news",
-      "slug": "impersonating-it-support-how-threat-actors-turn-a-remote-session-into-enterprise-wide-access",
-      "title": "Impersonating IT support: how threat actors turn a remote session into enterprise-wide access",
-      "hook": "Risk to enterprise environments Attack chain overview Mitigation and response recommendations Once remote control is established via RMM tools, the threat actor uses PowerShell to download and silently install a malicious MSI package, which in turn stages a portable Node.js runtime and an obfuscated JavaScript implant that provides persistent command execution and command and control (C2).",
+      "slug": "anker-eufy-at-ifa-2026-new-security-cameras-plus-a-robot-vacuum-and-a-robot-lawnmower",
+      "title": "Anker Eufy at IFA 2026: New security cameras, plus a robot vacuum and a robot lawnmower",
+      "hook": "The Eufy NVR Security System E50 is a multi-camera system that has a hybrid 2K fixed bullet and 4K PTZ dual-lens design.",
       "author_name": "",
       "author_role_vi": "",
       "author_role_en": "",
-      "summary": "Risk to enterprise environments Attack chain overview Mitigation and response recommendations Once remote control is established via RMM tools, the threat actor uses PowerShell to download and silently install a malicious MSI package, which in turn stages a portable Node.js runtime and an obfuscated JavaScript implant that provides persistent command execution and command and control (C2). Unlike commodity phishing that ends with an infostealer, this campaign follows a full hands-on-keyboard playbook.",
-      "dek": "Risk to enterprise environments Attack chain overview Mitigation and response recommendations Once remote control is established via RMM tools, the threat actor uses PowerShell to download and silently install a malicious MSI package, which in turn stages a portable Node.js runtime and an obfuscated JavaScript implant that provides persistent command execution and command and control (C2).",
+      "summary": "Eufy Anker's Eufy brand showcased several new devices at IFA 2026. The new product lineup includes several additions in security cameras.",
+      "dek": "Eufy Anker's Eufy brand showcased several new devices at IFA 2026. The new product lineup includes several additions in security cameras. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
       "sections": [
         {
           "heading": "What happened",
-          "body": "Risk to enterprise environments Attack chain overview Mitigation and response recommendations Once remote control is established via RMM tools, the threat actor uses PowerShell to download and silently install a malicious MSI package, which in turn stages a portable Node. js runtime and an obfuscated JavaScript implant that provides persistent command execution and command and control (C2)."
+          "body": "The Eufy NVR Security System E50 is a multi-camera system that has a hybrid 2K fixed bullet and 4K PTZ dual-lens design. It also uses the brand's OmniTrack AI tracking system and auto-framing. It is available now for buyers in the US, Canada and Australia, with the four-camera kit starting at $999 and the eight-camera option starting at $1,599."
         },
         {
           "heading": "Where the sources line up",
-          "body": "Unlike commodity phishing that ends with an infostealer, this campaign follows a full hands-on-keyboard playbook. After the implant is deployed, the threat actor performs extensive host and Active Directory reconnaissance, periodically captures screenshots of the victim’s desktop, executes follow-on payloads through trusted Windows binaries, and pivots across the enterprise over Windows Remote Management (WinRM) toward high-value assets such as domain controllers. The intrusion relies heavily on legitimate tooling, including Microsoft Teams, remote support software, Windows Installer, Node. js, and native administrative protocols, allowing the activity to blend into expected enterprise operations at nearly every stage."
+          "body": "The Eufy Video Doorbell S4 is both a wired video doorbell and security camera that offers 9 MP resolution. It has a 180-degree field of view and uses the OmniTrack system. The device will be available in many markets later in September with a starting cost of $299."
         },
         {
           "heading": "Practical impact for readers",
-          "body": "This intrusion pattern is especially high-impact because it hands an external operator credential-backed, interactive access to internal infrastructure. The reconnaissance and lateral movement patterns observed: domain enumeration, server discovery, and WinRM pivoting toward identity systems, are consistent with intrusion activity that can precede data theft, extortion, ransomware deployment, or other follow-on objectives, in which threat actors map the environment, escalate privileges, disable security controls, exfiltrate business-relevant data, and ultimately deploy ransomware across the organization."
+          "body": "The Eufy Window Camera E10 offers 24/7 recording with 2. 5K resolution, F1. 0 color night vision. Thanks to a 25-degree adjustable tilt, the camera should have minimal blind spots. The camera retails for $70 and will be available starting later in 2026."
         },
         {
           "heading": "Who should pay attention now",
-          "body": "In this blog, we share our analysis of this attack chain, from initial Microsoft Teams contact through internal lateral movement, along with mitigation and hunting guidance to help defenders detect and disrupt this user-initiated access pathway before it escalates into broader compromise."
+          "body": "The final security product launch is the Eufy Fall Detection Sensor. This device uses mmWave for radar-based fall detection. It has two-way talk built in and without requiring any cameras or wearables, it can provide safety without being intrusive."
         },
         {
           "heading": "What is still unclear",
-          "body": "By abusing enterprise collaboration workflows instead of traditional email-based phishing, the threat actor initiates contact through Microsoft Teams in a way that appears consistent with routine IT support. Microsoft Teams applies multiple security controls at the point of first external contact, including external tenant labeling, Accept/Block prompts, message previews, and phishing indicators, but this attack chain depends on convincing the user to bypass those warnings and voluntarily grant remote access through legitimate support tools."
+          "body": "Eufy On the appliance side, the Eufy brand also showed off a vacuum and a lawnmower. The Robot Vacuum Omni E35 has been granted the Maternal and Infant Cleaning Robot mark from Tüv and Asthma & Allergy Friendly certification from the Asthma and Allergy Foundation of America. It can sterilize and remove dust mites, and the vacuum has a multi-cyclone filtration system and a self-cleaning roller mop. It will be available in the EU and UK on September 4, which is also the pre-order date for the US ahead of a September 25 launch. The vacuum will have early bird pricing of $900 and a usual cost of $1100."
         }
       ],
       "image": {
-        "src": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
+        "src": "https://www.engadget.com/img/gallery/anker-eufy-at-ifa-2026-new-security-cameras-plus-a-robot-vacuum-and-a-robot-lawnmower/l-intro-1788299392.jpg",
         "alt": "",
-        "caption": "Reference image from Microsoft Security.",
-        "credit": "Microsoft Security",
-        "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
+        "caption": "Reference image from Engadget.",
+        "credit": "Engadget",
+        "source_url": "https://www.engadget.com/2249106/anker-eufy-at-ifa-2026-new-security-cameras-plus-a-robot-vacuum-and-a-robot-lawnmower/"
       },
-      "verification_state": "verified",
+      "verification_state": "emerging",
       "quality_score": 96,
       "ad_eligible": true,
-      "show_editorial_label": true,
+      "show_editorial_label": false,
       "indexable": true,
       "store_link_mode": "soft",
       "related_store_items": [
@@ -65,22 +65,22 @@
       "editorial_focus": [],
       "source_set": [
         {
-          "source_type": "official-site",
-          "source_name": "Microsoft Security",
-          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+          "source_type": "press",
+          "source_name": "Engadget",
+          "source_url": "https://www.engadget.com/2249106/anker-eufy-at-ifa-2026-new-security-cameras-plus-a-robot-vacuum-and-a-robot-lawnmower/",
           "region": "Global",
           "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T22:51:18.000Z",
-          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
-          "image_caption": "Reference image from Microsoft Security.",
-          "image_credit": "Microsoft Security"
+          "trust_tier": "established-media",
+          "published_at": "2026-09-03T07:30:00.000Z",
+          "image_url": "https://www.engadget.com/img/gallery/anker-eufy-at-ifa-2026-new-security-cameras-plus-a-robot-vacuum-and-a-robot-lawnmower/l-intro-1788299392.jpg",
+          "image_caption": "Reference image from Engadget.",
+          "image_credit": "Engadget"
         }
       ],
       "author_id": "thao-nguyen",
-      "published_at": "2026-09-02T22:51:18.000Z",
-      "updated_at": "2026-09-02T22:51:18.000Z",
-      "href": "/en/news/impersonating-it-support-how-threat-actors-turn-a-remote-session-into-enterprise-wide-access",
+      "published_at": "2026-09-03T07:30:00.000Z",
+      "updated_at": "2026-09-03T07:30:00.000Z",
+      "href": "/en/news/anker-eufy-at-ifa-2026-new-security-cameras-plus-a-robot-vacuum-and-a-robot-lawnmower",
       "readiness": {
         "ready": true,
         "missing": [],
@@ -104,444 +104,14 @@
           "sourceCleanliness": true
         }
       },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/impersonating-it-support-how-threat-actors-turn-a-remote-session-into-enterprise-wide-access",
+      "canonicalUrl": "https://patricktechmedia.com/en/news/anker-eufy-at-ifa-2026-new-security-cameras-plus-a-robot-vacuum-and-a-robot-lawnmower",
       "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": "Verified",
+      "editorial_label": null,
       "topic": "security",
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-03T05:57:04.243Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-00a52b4ba026-en",
-      "cluster_id": "feed-00a52b4ba026",
-      "language": "en",
-      "topic_label": "Devices",
-      "topic_slug": "devices",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "uber-beats-waymo-as-first-to-launch-robotaxis-in-london",
-      "title": "Uber beats Waymo as first to launch robotaxis in London",
-      "hook": "Uber beat out Waymo in launching a commercial robotaxi service in London, the city’s first. What makes this worth following is that the signal is getting stronger without being fully settled yet.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Uber beat out Waymo in launching a commercial robotaxi service in London, the city’s first. The vehicles use autonomous driving tech developed by Wayve , a UK-based startup, and will initially feature safety drivers behind the wheel.",
-      "dek": "Uber beat out Waymo in launching a commercial robotaxi service in London, the city’s first. The vehicles use autonomous driving tech developed by Wayve , a UK-based startup, and will initially feature safety drivers behind the wheel. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Uber beat out Waymo in launching a commercial robotaxi service in London, the city’s first. The vehicles use autonomous driving tech developed by Wayve , a UK-based startup, and will initially feature safety drivers behind the wheel."
-        },
-        {
-          "heading": "Where the sources line up",
-          "body": "The launch is a milestone for Uber, which has been plotting a UK launch with Wayve for several years . In beating Waymo to the punch, it allows Uber to set the standard for the robotaxi experience for thousands of Londoners. It’s also an early test of whether there’s appetite for driverless ridehailing beyond the US and China, where most of the world’s robotaxis are currently clustered. (There’s a smattering in the Middle East, too."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "London-based Uber customers who want to try out these new robot-controlled cars can indicate their preference in the app’s settings. When booking a ride through UberX, Uber Comfort, or Uber Electric, riders may be paired with a Wayve-developed autonomous vehicle, but it’s not a guarantee. Wayve is using Ford Mustang Mach-Es for its fleet, followed by the Nissan Leaf in the future."
-        },
-        {
-          "heading": "Who should pay attention now",
-          "body": "Safety drivers will monitor the driving from the front seat, though Uber says they won’t control the driving and will gradually be phased out in favor of fully driverless vehicles. Safety drivers are licensed by Transport for London, the city’s transit authority."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Uber says there will be no geofence — the virtual boundary within which robotaxis are programed to operate — because Wayve’s AV2. 0 system is designed to move “beyond the constraints of traditional AV systems. ” Wayve describes AV2. 0 thusly:."
-        }
-      ],
-      "image": {
-        "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/Photo-1.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
-        "alt": "",
-        "caption": "Reference image from The Verge.",
-        "credit": "The Verge",
-        "source_url": "https://www.theverge.com/news/988415/uber-wayve-robotaxi-london-launch"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "The Verge",
-          "source_url": "https://www.theverge.com/news/988415/uber-wayve-robotaxi-london-launch",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-02T21:31:46.000Z",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/Photo-1.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
-          "image_caption": "Reference image from The Verge.",
-          "image_credit": "The Verge"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-02T21:31:46.000Z",
-      "updated_at": "2026-09-02T21:31:46.000Z",
-      "href": "/en/news/uber-beats-waymo-as-first-to-launch-robotaxis-in-london",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/uber-beats-waymo-as-first-to-launch-robotaxis-in-london",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T05:57:04.244Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-dcbe76540e8b-en",
-      "cluster_id": "feed-dcbe76540e8b",
-      "language": "en",
-      "topic_label": "Gaming",
-      "topic_slug": "gaming",
-      "topic_accent": "#ff7a29",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "mario-kart-8-deluxe-s-surprise-switch-2-update-brings-multiplayer-mayhem",
-      "title": "Mario Kart 8 Deluxe’s Surprise Switch 2 Update Brings Multiplayer Mayhem",
-      "hook": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. What makes this worth following is that the signal is getting stronger without being fully settled yet.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. The racing game, originally released on the Wii U back in 2014 and then updated for the Nintendo Switch in 2017, has received what might be the greatest update for the game that could get players back on the track.",
-      "dek": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. The racing game, originally released on the Wii U back in 2014 and then updated for the Nintendo Switch in 2017, has received what might be the greatest update for the game that could get players back on the track. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "Mario Kart 8 Deluxe is seemingly the game that Nintendo refuses to move on from. The racing game, originally released on the Wii U back in 2014 and then updated for the Nintendo Switch in 2017, has received what might be the greatest update for the game that could get players back on the track."
-        },
-        {
-          "heading": "Where the sources line up",
-          "body": "Nintendo on Tuesday unexpectedly dropped the version 4. 0. 0 update for Mario Kart 8 Deluxe, which adds a new eight-player, split-screen option when playing the game on the Nintendo Switch 2 , as well as CameraPlay support and support for higher-resolution TVs. It’s the new multiplayer option that has gone viral on social media, as gamers try to wrap their heads around playing an eight-player race on the Switch 2’s 7. 9-inch screen."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "While this split-screen mode can work on the Switch 2 in handheld mode, it’s clear that the new multiplayer option is designed for gamers to play with friends on a TV. It expands Mario Kart 8 Deluxe’s multiplayer beyond the four-player limit it has had since launch. Instead, up to eight racers can play together, with each racer able to have their own individual Joy-Con, Switch Pro Controller or Switch 2 Pro Controller. Those who paid the $25 for the Mario Kart 8 Deluxe – Booster Course Pass will also have access to all 96 courses in the VS Race multiplayer mode."
-        },
-        {
-          "heading": "Who should pay attention now",
-          "body": "CameraPlay support was also added on Tuesday. This feature, which made its debut on the Switch 2, lets players connect a USB camera to their console during multiplayer and online matches so other players can see their faces while playing. Nintendo sells an official USB camera for the console, but there are many alternatives that work just as well."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Another welcome change in the update is shortened loading times when playing on the Switch 2. Players should notice it takes less time to start races and battles when playing."
-        }
-      ],
-      "image": {
-        "src": "https://www.cnet.com/wp-content/uploads/sites/2/MK8D_FreeUpdate_8Players.jpg",
-        "alt": "",
-        "caption": "Reference image from CNET News.",
-        "credit": "CNET News",
-        "source_url": "https://www.cnet.com/tech/gaming/mario-kart-8-deluxes-surprise-switch-2-update-brings-multiplayer-mayhem/"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [
-        "gaming-cloud-pass"
-      ],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "CNET News",
-          "source_url": "https://www.cnet.com/tech/gaming/mario-kart-8-deluxes-surprise-switch-2-update-brings-multiplayer-mayhem/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-02T20:36:36.000Z",
-          "image_url": "https://www.cnet.com/wp-content/uploads/sites/2/MK8D_FreeUpdate_8Players.jpg",
-          "image_caption": "Reference image from CNET News.",
-          "image_credit": "CNET News"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-02T20:36:36.000Z",
-      "updated_at": "2026-09-02T20:36:36.000Z",
-      "href": "/en/news/mario-kart-8-deluxe-s-surprise-switch-2-update-brings-multiplayer-mayhem",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/mario-kart-8-deluxe-s-surprise-switch-2-update-brings-multiplayer-mayhem",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "gaming",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T05:57:04.244Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-67fa71878fd3-vi",
-      "cluster_id": "feed-67fa71878fd3",
-      "language": "vi",
-      "topic_label": "Thiết bị",
-      "topic_slug": "thiet-bi",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "xiaomi-nghi-gi-khi-ban-ien-thoai-poco-gia-30-trieu",
-      "title": "Xiaomi nghĩ gì khi bán điện thoại POCO giá 30 triệu",
-      "hook": "POCO F9 Ultra vừa ra mắt tại Việt Nam với giá niêm yết cao nhất lên tới 39. Điều khiến câu chuyện này đáng theo dõi là tín hiệu đã bắt đầu dày lên, nhưng vẫn chưa đến mức có thể chốt hạ.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "POCO F9 Ultra vừa ra mắt tại Việt Nam với giá niêm yết cao nhất lên tới 39.990.000 đồng cho bản 16 GB + 1 TB. Con số này khiến không ít người dùng lâu năm của thương hiệu phải nhìn lại: 8 năm trước, chính POCO ra đời với sứ mệnh ngược lại hoàn toàn, bán điện thoại cấu hình cao cấp với giá chỉ khoảng 300 USD.",
-      "dek": "POCO F9 Ultra vừa ra mắt tại Việt Nam với giá niêm yết cao nhất lên tới 39. 990. 000 đồng cho bản 16 GB + 1 TB. Con số này khiến không ít người dùng lâu năm của thương hiệu phải nhìn lại: 8 năm trước, chính POCO ra đời với sứ mệnh ngược lại hoàn toàn, bán điện thoại cấu hình cao cấp với giá chỉ khoảng 300 USD. Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "POCO F9 Ultra vừa ra mắt tại Việt Nam với giá niêm yết cao nhất lên tới 39. 990. 000 đồng cho bản 16 GB + 1 TB. Con số này khiến không ít người dùng lâu năm của thương hiệu phải nhìn lại: 8 năm trước, chính POCO ra đời với sứ mệnh ngược lại hoàn toàn, bán điện thoại cấu hình cao cấp với giá chỉ khoảng 300 USD."
-        },
-        {
-          "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Năm 2018, Xiaomi lập ra Pocophone như một nhánh sản phẩm để thử nghiệm ý tưởng táo bạo: bán cấu hình cao cấp với giá chỉ bằng một nửa. Chiếc máy đầu tiên, POCO F1, ra mắt tại Ấn Độ và sau đó là Việt Nam với giá chính hãng 7,9 triệu đồng, dùng chip Snapdragon 845 ngang hàng các điện thoại cao cấp giá 700 đến 1. 000 USD cùng thời điểm. Alvin Tse, người đứng đầu POCO khi đó, chia sẻ trong một phỏng vấn năm 2018 rằng mục tiêu là \"mở ra nhu cầu tiêu dùng mới\" bằng cách đưa công nghệ cao cấp đến mức giá chưa từng có. Máy sau đó bán ra tại 50 thị trường và trở thành hiện tượng trong giới yêu công nghệ."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Năm 2020, Xiaomi quyết định tách POCO thành thương hiệu độc lập, tách làm 2 đợt, thị trường Ấn Độ vào tháng 1 và toàn cầu vào tháng 11. Manu Kumar Jain, khi đó là Phó chủ tịch Xiaomi kiêm Giám đốc điều hành Xiaomi Ấn Độ, tuyên bố: \"Bắt đầu như một thương hiệu con, POCO đã xây dựng được bản sắc riêng chỉ trong thời gian ngắn. Chúng tôi cảm thấy đây là thời điểm phù hợp để POCO tự vận hành\" . Thương hiệu được cho sẽ có đội ngũ và chiến lược thị trường riêng, tách khỏi công ty mẹ."
-        },
-        {
-          "heading": "Ai nên chú ý lúc này",
-          "body": "Tuy nhiên, sự độc lập đó dần mờ nhạt theo thời gian. Tháng 10/2024, Xiaomi thông báo sẽ đóng cửa toàn bộ website po. co cùng các phiên bản khu vực tại Anh, Pháp, Đức. Đến 31/12/2024, website chính thức ngừng hoạt động, ứng dụng POCO Store cũng bị khai tử. Kể từ POCO X7 series ra mắt ngày 9/1/2025, mọi sản phẩm POCO chỉ còn được bán qua website mi. com của Xiaomi. Việc bảo hành, chăm sóc khách hàng trên thực tế vẫn luôn do Xiaomi đảm nhiệm từ trước đến nay, nhưng việc gộp hẳn kênh bán hàng khiến ranh giới \"độc lập\" mà POCO từng công bố năm 2020 gần như không còn ý nghĩa về mặt vận hành."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "Giá bán của POCO cũng đi theo một đường thẳng khác, đường đi lên. Từ 300 USD của F1 năm 2018, đến năm ngoái POCO F8 Ultra ra mắt quốc tế với giá khởi điểm 729 USD (khoảng 19 triệu đồng), và năm nay POCO F9 Ultra niêm yết tại Việt Nam từ 29. 000 đồng cho bản thấp nhất."
-        }
-      ],
-      "image": {
-        "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/1/genk-poco-f9-ultra-32-1788263247997451379438-34-0-872-1600-crop-1788272996417801400630.jpg",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ GenK Mobile Registry.",
-        "credit": "GenK Mobile Registry",
-        "source_url": "https://genk.vn/xiaomi-nghi-gi-khi-ban-dien-thoai-poco-gia-30-trieu-16526090121323739.chn"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "GenK Mobile Registry",
-          "source_url": "https://genk.vn/xiaomi-nghi-gi-khi-ban-dien-thoai-poco-gia-30-trieu-16526090121323739.chn",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-01T14:30:00.000Z",
-          "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/1/genk-poco-f9-ultra-32-1788263247997451379438-34-0-872-1600-crop-1788272996417801400630.jpg",
-          "image_caption": "Ảnh tham khảo từ GenK Mobile Registry.",
-          "image_credit": "GenK Mobile Registry"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-01T14:30:00.000Z",
-      "updated_at": "2026-09-01T14:30:00.000Z",
-      "href": "/vi/tin-tuc/xiaomi-nghi-gi-khi-ban-ien-thoai-poco-gia-30-trieu",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/xiaomi-nghi-gi-khi-ban-ien-thoai-poco-gia-30-trieu",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T05:57:04.244Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-3edead39e9b4-vi",
-      "cluster_id": "feed-3edead39e9b4",
-      "language": "vi",
-      "topic_label": "Internet & Doanh nghiệp số",
-      "topic_slug": "internet-doanh-nghiep-so",
-      "topic_accent": "#9bff45",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "thang-8-2026-cong-nghiep-cong-nghe-so-tang-truong-36",
-      "title": "Tháng 8/2026: Công nghiệp công nghệ số tăng trưởng 36%",
-      "hook": "Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo. Từ ngày 15/7 đến 14/8/2026, Việt Nam có 2.647 công bố quốc tế trên cơ sở dữ liệu Scopus.",
-      "dek": "Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Theo Bộ KH&CN, trong tháng 8, Bộ tiếp tục triển khai đồng bộ các nhiệm vụ về hoàn thiện thể chế, phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, tập trung vào công nghệ chiến lược, trí tuệ nhân tạo (AI), hạ tầng số, công nghiệp công nghệ số và nâng cao năng lực nghiên cứu, đổi mới sáng tạo."
-        },
-        {
-          "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Từ ngày 15/7 đến 14/8/2026, Việt Nam có 2. 647 công bố quốc tế trên cơ sở dữ liệu Scopus. Lũy kế đến ngày 15/8, Nền tảng tích hợp, chia sẻ dữ liệu quốc gia (NDXP) đạt 4,7 tỷ giao dịch 100% địa phương đã kết nối, chia sẻ dữ liệu qua nền tảng này. Đến cuối tháng 8, cả nước có 968 doanh nghiệp khoa học và công nghệ cùng 20 sàn giao dịch khoa học và công nghệ."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Trong lĩnh vực bưu chính, doanh thu dịch vụ tháng 8 ước đạt 9. 260 tỷ đồng, tăng 3% so với tháng 7 và 22% so với cùng kỳ năm 2025. Sản lượng bưu gửi đạt khoảng 440 triệu, tăng lần lượt 2,3% và 14%."
-        },
-        {
-          "heading": "Ai nên chú ý lúc này",
-          "body": "Họp báo thường kỳ tháng 8/2026 Bộ Khoa học và Công nghệ Đến ngày 15/8, số tên miền \". vn\" duy trì đạt 699. 722 tên miền, tăng 5,5% so với cùng kỳ năm 2025. Trong tháng, có 20. 355 tên miền được phát triển mới. Tỷ lệ sử dụng IPv6 đạt 66%, đứng thứ 2 Đông Nam Á và thứ 7 thế giới."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "Đáng chú ý, doanh thu công nghiệp công nghệ số tháng 8 ước đạt 680. 586 tỷ đồng, tăng 36% so với cùng kỳ năm trước. Kim ngạch xuất khẩu sản phẩm, hàng hóa công nghệ số đạt khoảng 22,4 tỷ USD, tăng 41%."
-        }
-      ],
-      "image": {
-        "src": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788414727",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ VOV Cong Nghe.",
-        "credit": "VOV Cong Nghe",
-        "source_url": "https://vov.vn/cong-nghe/tin-cong-nghe/thang-82026-cong-nghiep-cong-nghe-so-tang-truong-36-post1328251.vov"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "VOV Cong Nghe",
-          "source_url": "https://vov.vn/cong-nghe/tin-cong-nghe/thang-82026-cong-nghiep-cong-nghe-so-tang-truong-36-post1328251.vov",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-08-28T08:39:15.000Z",
-          "image_url": "https://media.vov.vn/sites/default/files/styles/og_image/public/2026-08/hop-bao_1.jpg?v=1788414727",
-          "image_caption": "Ảnh tham khảo từ VOV Cong Nghe.",
-          "image_credit": "VOV Cong Nghe"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-08-28T08:39:15.000Z",
-      "updated_at": "2026-08-28T08:39:15.000Z",
-      "href": "/vi/tin-tuc/thang-8-2026-cong-nghiep-cong-nghe-so-tang-truong-36",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/thang-8-2026-cong-nghiep-cong-nghe-so-tang-truong-36",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "internet-business-tech",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-03T05:57:04.244Z",
+        "generated_at": "2026-09-03T11:01:21.922Z",
         "origin": "local-curated-rss"
       }
     }
