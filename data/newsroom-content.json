@@ -1,6 +1,128 @@
 {
-  "generated_at": "2026-09-04T18:28:49.021Z",
+  "generated_at": "2026-09-04T21:01:15.633Z",
   "articles": [
+    {
+      "id": "feed-7179eda8351b-en",
+      "cluster_id": "feed-7179eda8351b",
+      "language": "en",
+      "topic_label": "Devices",
+      "topic_slug": "devices",
+      "topic_accent": "#4e7dff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "kingston-s-speedy-nv3-1tb-pcie-4-0-ssd-is-down-to-157-at-newegg-for-labor-day",
+      "title": "Kingston's speedy NV3 1TB PCIe 4.0 SSD is down to $157 at Newegg for Labor Day",
+      "hook": "An established name in the storage arena, Kingston built the NV3 as the successor to its popular NV2 line, and the jump to a Gen 4x4 controller brings a meaningful speed increase - it can hit read speeds up to 6,000MB/s.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "An established name in the storage arena, Kingston built the NV3 as the successor to its popular NV2 line, and the jump to a Gen 4x4 controller brings a meaningful speed increase - it can hit read speeds up to 6,000MB/s. PCIe 4.0 x4 NVMe M.2 2280 SSD rated for read/write speeds up to 6,000/4,000MB/s, with lower power consumption and reduced heat versus the previous NV2 generation.",
+      "dek": "An established name in the storage arena, Kingston built the NV3 as the successor to its popular NV2 line, and the jump to a Gen 4x4 controller brings a meaningful speed increase - it can hit read speeds up to 6,000MB/s.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "An established name in the storage arena, Kingston built the NV3 as the successor to its popular NV2 line, and the jump to a Gen 4x4 controller brings a meaningful speed increase - it can hit read speeds up to 6,000MB/s."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "PCIe 4. 0 x4 NVMe M. 2 2280 SSD rated for read/write speeds up to 6,000/4,000MB/s, with lower power consumption and reduced heat versus the previous NV2 generation."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "The headline number is up to 6,000MB/s of sequential read performance, and independent testing has generally found the NV3 hits close to its rated speeds, putting it in the same territory as several established TLC-based drives despite using cheaper QLC NAND."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Kingston keeps costs down with a DRAM-less design that relies on Host Memory Buffer, borrowing a slice of system RAM instead of including a dedicated cache chip. For typical use, booting, loading applications, and gaming, that trade-off is barely noticeable, and it's part of how Kingston is able to price the NV3 competitively."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "The single-sided M. 2 2280 layout keeps the drive slim enough for thin laptops and small-form-factor desktops, and Kingston's reputation for reliable, mainstream storage gives some reassurance on a component you don't want to think about after installing it."
+        }
+      ],
+      "image": {
+        "src": "https://cdn.mos.cms.futurecdn.net/7SpB5kE86vFir24FviEo66-2000-80.jpg",
+        "alt": "",
+        "caption": "Reference image from TechRadar.",
+        "credit": "TechRadar",
+        "source_url": "https://www.techradar.com/pro/kingstons-speedy-nv3-1tb-pcie-4-0-ssd-is-down-to-usd157-at-newegg-for-labor-day"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "TechRadar",
+          "source_url": "https://www.techradar.com/pro/kingstons-speedy-nv3-1tb-pcie-4-0-ssd-is-down-to-usd157-at-newegg-for-labor-day",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-04T18:45:00.000Z",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/7SpB5kE86vFir24FviEo66-2000-80.jpg",
+          "image_caption": "Reference image from TechRadar.",
+          "image_credit": "TechRadar"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-04T18:45:00.000Z",
+      "updated_at": "2026-09-04T18:45:00.000Z",
+      "href": "/en/news/kingston-s-speedy-nv3-1tb-pcie-4-0-ssd-is-down-to-157-at-newegg-for-labor-day",
+      "title_vi": "",
+      "title_en": "Kingston's speedy NV3 1TB PCIe 4.0 SSD is down to $157 at Newegg for Labor Day",
+      "dek_vi": "",
+      "dek_en": "An established name in the storage arena, Kingston built the NV3 as the successor to its popular NV2 line, and the jump to a Gen 4x4 controller brings a meaningful speed increase - it can hit read speeds up to 6,000MB/s.",
+      "body_vi": "",
+      "body_en": "What happened\nAn established name in the storage arena, Kingston built the NV3 as the successor to its popular NV2 line, and the jump to a Gen 4x4 controller brings a meaningful speed increase - it can hit read speeds up to 6,000MB/s.\n\nWhere the sources line up\nPCIe 4. 0 x4 NVMe M. 2 2280 SSD rated for read/write speeds up to 6,000/4,000MB/s, with lower power consumption and reduced heat versus the previous NV2 generation.\n\nPractical impact for readers\nThe headline number is up to 6,000MB/s of sequential read performance, and independent testing has generally found the NV3 hits close to its rated speeds, putting it in the same territory as several established TLC-based drives despite using cheaper QLC NAND.\n\nWho should pay attention now\nKingston keeps costs down with a DRAM-less design that relies on Host Memory Buffer, borrowing a slice of system RAM instead of including a dedicated cache chip. For typical use, booting, loading applications, and gaming, that trade-off is barely noticeable, and it's part of how Kingston is able to price the NV3 competitively.\n\nWhat is still unclear\nThe single-sided M. 2 2280 layout keeps the drive slim enough for thin laptops and small-form-factor desktops, and Kingston's reputation for reliable, mainstream storage gives some reassurance on a component you don't want to think about after installing it.",
+      "slug_vi": "kingston-s-speedy-nv3-1tb-pcie-4-0-ssd-is-down-to-157-at-newegg-for-labor-day",
+      "slug_en": "kingston-s-speedy-nv3-1tb-pcie-4-0-ssd-is-down-to-157-at-newegg-for-labor-day",
+      "category": "devices",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://www.techradar.com/pro/kingstons-speedy-nv3-1tb-pcie-4-0-ssd-is-down-to-usd157-at-newegg-for-labor-day"
+      ],
+      "image_url": "https://cdn.mos.cms.futurecdn.net/7SpB5kE86vFir24FviEo66-2000-80.jpg",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/kingston-s-speedy-nv3-1tb-pcie-4-0-ssd-is-down-to-157-at-newegg-for-labor-day",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-04T21:01:15.565Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "devices"
+    },
     {
       "id": "feed-c532eb7d5411-en",
       "cluster_id": "feed-c532eb7d5411",
@@ -486,7 +608,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-04T18:28:48.948Z",
+        "generated_at": "2026-09-04T21:01:15.565Z",
         "origin": "local-curated-rss"
       },
       "topic": "internet-business-tech"
@@ -730,7 +852,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-04T18:28:48.948Z",
+        "generated_at": "2026-09-04T21:01:15.565Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -2247,7 +2369,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-04T18:28:48.948Z",
+        "generated_at": "2026-09-04T21:01:15.565Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -2369,7 +2491,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-04T18:28:48.948Z",
+        "generated_at": "2026-09-04T21:01:15.565Z",
         "origin": "local-curated-rss"
       },
       "topic": "internet-business-tech"
@@ -2491,7 +2613,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-04T18:28:48.948Z",
+        "generated_at": "2026-09-04T21:01:15.565Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -8407,7 +8529,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-04T11:41:04.672Z",
+        "generated_at": "2026-09-04T21:01:15.565Z",
         "origin": "local-curated-rss"
       }
     },
