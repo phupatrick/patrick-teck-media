@@ -6,6 +6,7 @@ initAuthTabs();
 initImageFallbacks();
 initPullToRefresh();
 initLanguageSwitcher();
+initEditorialMotion();
 
 function initLanguageSwitcher() {
   for (const link of document.querySelectorAll("[data-language-switch]")) {

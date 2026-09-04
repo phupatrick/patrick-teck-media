@@ -151,6 +151,21 @@ const state = createState();
   const html = renderArticlePage(fallbackState, "vi", fallbackArticle, [], { client: "", slots: {} });
   assert.match(html, /category-fallback/);
   assert.doesNotMatch(html, /Ảnh đang cập nhật|Image updating/);
+  assert.equal((html.match(/category-fallback-topic/g) || []).length, 1);
+}
+{
+  const captionState = structuredClone(state);
+  const captionArticle = captionState.articles[0];
+  captionArticle.hero_image = {
+    kind: "source",
+    src: "https://images.example.com/article.jpg",
+    alt: "Minh họa bài viết",
+    caption: "Ảnh tham khảo cho bài: nội dung nội bộ",
+    credit: "Nguồn ảnh"
+  };
+  const html = renderArticlePage(captionState, "vi", captionArticle, [], { client: "", slots: {} });
+  assert.doesNotMatch(html, /<figcaption|Ảnh tham khảo cho bài:|Nguồn ảnh/);
+  assert.match(html, /alt="Minh họa bài viết"/);
 }
 const tests = [
   {

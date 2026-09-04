@@ -915,6 +915,7 @@ export function renderStorePage(state, language, adsConfig) {
         <p class="eyebrow">${title}</p>
         <h1>${heroTitle}</h1>
         <p>${escapeHtml(intro)}</p>
+        <a class="store-newsroom-link" href="/${language}/">📰 ${isVietnamese ? "Đọc tin công nghệ tại Patrick Tech Media" : "Read technology news at Patrick Tech Media"}</a>
       </section>
 
       ${
@@ -952,7 +953,7 @@ export function renderStorePage(state, language, adsConfig) {
                     );
 
                     return `
-                      <article class="story-card store-card catalog-card" data-story-card data-status="all" data-search="${searchText}">
+                      <article class="story-card store-card catalog-card" data-story-card data-signal-shell data-status="all" data-search="${searchText}">
                         <div class="catalog-card-topline">
                           <span class="pill">${escapeHtml(categoryNames.get(product.category_id) || product.category_name || (isVietnamese ? "Khác" : "General"))}</span>
                           <strong class="catalog-price">${escapeHtml(formatCatalogPrice(product.price, product.currency))}</strong>
@@ -1687,7 +1688,6 @@ function renderArticleHero(article) {
       <div class="story-image-fallback article-image-fallback" aria-hidden="true">
         ${renderImagePlaceholder(article, "article-placeholder-card")}
       </div>
-      <figcaption>${escapeHtml(article.hero_image.caption)}${article.hero_image.credit ? ` <span>${escapeHtml(article.hero_image.credit)}</span>` : ""}</figcaption>
     </figure>
   `;
 }
@@ -1868,7 +1868,6 @@ function escapeRegex(value) {
 function renderImagePlaceholder(article, className) {
   return `
     <div class="${className} category-fallback category-fallback-${escapeHtml(article.topic || "default")}" role="img" aria-label="${escapeHtml(article.topic_label || article.title)}">
-      <span class="category-fallback-mark">${escapeHtml(String(article.topic_label || "Tech").slice(0, 2).toUpperCase())}</span>
       <span class="category-fallback-topic">${escapeHtml(article.topic_label || "Tech")}</span>
     </div>
   `;

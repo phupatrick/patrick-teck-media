@@ -5883,3 +5883,118 @@ body {
     max-width: 240px;
   }
 }
+
+/* Final UI pass: keep the bright editorial system calm, legible, and touch-friendly. */
+.topbar {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.story-card,
+.catalog-card,
+.store-card {
+  border-radius: min(22px, var(--radius-lg));
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.story-card:hover,
+.catalog-card:hover,
+.store-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 32px rgba(42, 72, 117, 0.12);
+}
+
+.story-media,
+.stack-media,
+.article-hero-media {
+  overflow: hidden;
+}
+
+.story-media img,
+.stack-media img,
+.article-hero-media img {
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-card:hover .story-media img,
+.stack-item:hover .stack-media img,
+.article-hero-media:hover img {
+  transform: scale(1.035);
+}
+
+.category-fallback-topic {
+  max-width: 100%;
+  margin-left: auto;
+}
+
+.catalog-price {
+  color: #087f5b;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-weight: 800;
+}
+
+.store-newsroom-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 14px;
+  padding: 10px 15px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  color: var(--accent);
+  background: var(--surface);
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.store-newsroom-link:hover,
+.store-newsroom-link:focus-visible {
+  background: var(--accent-deep);
+  transform: translateY(-1px);
+}
+
+.catalog-grid {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    top: 6px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    scroll-snap-type: inline proximity;
+  }
+
+  .catalog-card {
+    scroll-snap-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar,
+  .story-card,
+  .catalog-card,
+  .store-card,
+  .story-media img,
+  .stack-media img,
+  .article-hero-media img,
+  .store-newsroom-link {
+    transition: none;
+  }
+
+  .story-card:hover,
+  .catalog-card:hover,
+  .store-card:hover,
+  .store-newsroom-link:hover {
+    transform: none;
+  }
+}
