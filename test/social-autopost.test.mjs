@@ -193,6 +193,23 @@ try {
   assert.equal(groqContent.model, "llama-3.3-70b-versatile");
   assert.equal(groqRequest.body.model, "llama-3.3-70b-versatile");
   assert.equal(groqRequest.authorization, "Bearer groq-test-key");
+  const groqModelsTried = [];
+  const groqFallbackContent = await callGeminiJson({
+    apiKey: "gemini-404-test-key",
+    env: { GROQ_API_KEY: "groq-test-key" },
+    payload: { contents: [{ parts: [{ text: "Viết JSON qua Groq fallback" }] }] },
+    fallbackModels: ["gemini-test-model"],
+    fetchImpl: async (url, options) => {
+      if (url.includes("generativelanguage.googleapis.com")) return new Response(JSON.stringify({ error: { message: "quota exceeded" } }), { status: 429 });
+      const request = JSON.parse(options.body);
+      groqModelsTried.push(request.model);
+      if (request.model === "llama-3.3-70b-versatile") return new Response(JSON.stringify({ error: { message: "model not found" } }), { status: 404 });
+      return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ caption: "Bài do Groq fallback", first_comment: "Liên hệ Patrick Tech" }) } }] }), { status: 200 });
+    },
+    label: "Groq model fallback test"
+  });
+  assert.deepEqual(groqModelsTried, ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]);
+  assert.equal(groqFallbackContent.model, "llama-3.1-8b-instant");
   let resourceExhaustedFallbackCalled = false;
   const resourceExhaustedContent = await callGeminiJson({
     apiKey: "gemini-test-key",

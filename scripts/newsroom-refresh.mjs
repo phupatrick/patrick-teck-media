@@ -183,18 +183,28 @@ export function selectActiveSourceFeeds(feeds, env = process.env) {
       uniqueFeeds.set(canonicalizeFeedUrl(normalized.url), normalized);
     }
   }
-  const validFeeds = [...uniqueFeeds.values()];
+  const preferred = /^(VnExpress So Hoa|GenK Tin ICT|Tinhte|The Verge|TechCrunch)$/i;
+  const validFeeds = [...uniqueFeeds.values()].sort((left, right) => {
+    const priorityDifference = Number(preferred.test(right.name)) - Number(preferred.test(left.name));
+    if (priorityDifference !== 0) return priorityDifference;
+    return left.name.localeCompare(right.name);
+  });
   const maxFeeds = clampInteger(env.NEWSROOM_MAX_ACTIVE_FEEDS, 1, 250, 120);
   if (validFeeds.length <= maxFeeds) {
     return validFeeds;
   }
 
-  const shardCount = Math.max(1, Math.ceil(validFeeds.length / maxFeeds));
+  const priorityFeeds = validFeeds.filter((feed) => preferred.test(feed.name));
+  const remainingFeeds = validFeeds.filter((feed) => !preferred.test(feed.name));
+  const remainingCapacity = Math.max(0, maxFeeds - priorityFeeds.length);
+  if (!remainingCapacity) return priorityFeeds.slice(0, maxFeeds);
+  const shardCount = Math.max(1, Math.ceil(remainingFeeds.length / remainingCapacity));
   const configuredShard = parsePositiveInteger(env.NEWSROOM_SOURCE_SHARD, 0);
   const dayNumber = Math.floor(Date.now() / 86_400_000);
   const shard = configuredShard > 0 ? (configuredShard - 1) % shardCount : dayNumber % shardCount;
-  const rotated = validFeeds.slice(shard * maxFeeds).concat(validFeeds.slice(0, shard * maxFeeds));
-  return rotated.slice(0, maxFeeds);
+  const offset = shard * remainingCapacity;
+  const rotated = remainingFeeds.slice(offset).concat(remainingFeeds.slice(0, offset));
+  return [...priorityFeeds, ...rotated.slice(0, remainingCapacity)];
 }
 
 function resolveFeedLimit(baseLimit, env) {

@@ -200,7 +200,7 @@ export async function getFacebookPermalink({ pageId = "", postId, pageToken, fet
   return details.permalink_url;
 }
 
-export async function postFirstComment({ postId, pageToken, commentText, fetchImpl = fetch, timeoutMs = 10000 } = {}) {
+export async function postFirstComment({ postId, pageToken, commentText, fetchImpl = fetch, timeoutMs = 25000 } = {}) {
   if (!postId || !pageToken || !commentText) return null;
   const response = await fetchWithTimeout(fetchImpl, `https://graph.facebook.com/v20.0/${encodeURIComponent(postId)}/comments`, {
     method: "POST",
@@ -212,7 +212,7 @@ export async function postFirstComment({ postId, pageToken, commentText, fetchIm
   return payload?.id || null;
 }
 
-export async function postFirstCommentWithRetry({ postId, pageToken, commentText, fetchImpl = fetch, timeoutMs = 10000, delayMs = 3500, retries = 2, logger = console } = {}) {
+export async function postFirstCommentWithRetry({ postId, pageToken, commentText, fetchImpl = fetch, timeoutMs = 25000, delayMs = 4000, retries = 2, logger = console } = {}) {
   if (!postId || !pageToken || !commentText) return null;
   await delay(delayMs);
   let lastError;
