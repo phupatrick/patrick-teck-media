@@ -1469,7 +1469,12 @@ const tests = [
     run() {
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
       assert.match(homeHtml, /class="ribbon-item quick-news-item"/);
-      assert.match(homeHtml, /class="rank-badge-num">01<\/span>/);
+      assert.match(homeHtml, /class="clean-rank-num">01<\/span>/);
+      assert.match(homeHtml, /hot-featured-card/);
+      assert.match(homeHtml, /hot-featured-body/);
+      assert.match(homeHtml, /stacked-article-card/);
+      assert.match(homeHtml, /headline-title/);
+      assert.match(homeHtml, /tag-pill/);
       assert.match(homeHtml, /class="clean-cat-pill">AI<\/span>/);
       assert.doesNotMatch(homeHtml, /○/);
     }

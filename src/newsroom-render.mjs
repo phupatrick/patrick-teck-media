@@ -344,15 +344,15 @@ function renderShowcaseSection({
 
   return `
     <section class="${className}"${id ? ` id="${id}"` : ""}>
-      <article class="guide-showcase-lead topic-${lead.topic}" data-signal-shell>
+      <article class="guide-showcase-lead stacked-article-card topic-${lead.topic}" data-signal-shell>
         ${renderStoryImage(lead, "guide-showcase-media")}
         <div class="guide-showcase-copy">
           <div class="story-meta-line">
             <span class="pill">${escapeHtml(lead.content_type_label)}</span>
-            <span>${escapeHtml(lead.topic_label)}</span>
+            <span class="tag-pill">${escapeHtml(lead.topic_label)}</span>
             <span>${escapeHtml(formatPublishDate(language, lead.published_at))}</span>
           </div>
-          <h2><a href="${lead.href}">${escapeHtml(getDisplayHeadline(lead.title, 70))}</a></h2>
+          <h2 class="headline-title"><a href="${lead.href}">${escapeHtml(getDisplayHeadline(lead.title, 70))}</a></h2>
           ${renderHomepageExcerpt(lead, "story-hook", excerptLength)}
           <a class="read-link" href="${lead.href}">${readLabel}</a>
         </div>
@@ -1348,15 +1348,15 @@ function renderStoryCard(article, language) {
 function renderStackItem(article, language, withBadge) {
   const displayTitle = getDisplayHeadline(article.title, 76);
   return `
-    <article class="stack-item">
+    <article class="stack-item stacked-article-card">
       <div class="stack-row">
         ${renderStoryImage(article, "stack-media")}
         <div class="stack-copy">
           <div class="stack-topline">
-            <span>${escapeHtml(article.topic_label)}</span>
+            <span class="tag-pill">${escapeHtml(article.topic_label)}</span>
             ${withBadge && article.editorial_label ? `<span>${escapeHtml(article.editorial_label)}</span>` : ""}
           </div>
-          <a href="${article.href}">${escapeHtml(displayTitle)}</a>
+          <a class="headline-title" href="${article.href}">${escapeHtml(displayTitle)}</a>
           <span class="stack-date">${escapeHtml(formatPublishDate(language, article.published_at))}</span>
         </div>
       </div>
@@ -1402,10 +1402,10 @@ function renderLeadFeature(article, language, copy) {
 
   const displayTitle = getDisplayHeadline(article.title, 54);
   return `
-    <article class="lead-feature topic-${article.topic}" data-signal-shell>
+    <article class="lead-feature hot-featured-card topic-${article.topic}" data-signal-shell>
       ${renderStoryImage(article, "lead-feature-media", true)}
       <div class="lead-feature-overlay"></div>
-      <div class="lead-feature-copy">
+      <div class="lead-feature-copy hot-featured-body">
         <div class="lead-feature-topline">
           <span class="pill hot-pill">${copy.hotLabel}</span>
           <span>${escapeHtml(article.topic_label)}</span>
@@ -1457,7 +1457,7 @@ function renderRibbonItem(article, language, index) {
   const displayTitle = getDisplayHeadline(article.title, 68);
   return `
       <a class="ribbon-item quick-news-item" href="${article.href}">
-        <span class="rank-badge-num">${String(index + 1).padStart(2, "0")}</span>
+        <span class="clean-rank-num">${String(index + 1).padStart(2, "0")}</span>
         <span class="ribbon-copy">
           <strong class="item-headline">${escapeHtml(displayTitle)}</strong>
           <span class="meta-row"><span class="clean-cat-pill">${escapeHtml(article.topic_label)}</span><time>${escapeHtml(formatPublishDate(language, article.published_at))}</time></span>
@@ -1476,7 +1476,7 @@ function renderMastheadItem(article, language, index = 0) {
 
   return `
     <a class="masthead-brief-item recent-item-link" href="${article.href}">
-      <span class="rank-badge-num">${String(index + 1).padStart(2, "0")}</span>
+      <span class="clean-rank-num">${String(index + 1).padStart(2, "0")}</span>
       <span class="masthead-item-copy"><strong class="item-headline recent-item-title">${escapeHtml(displayTitle)}</strong><span class="meta-row recent-item-meta"><span class="clean-cat-pill">${escapeHtml(article.topic_label)}</span><time>${escapeHtml(formatPublishDate(language, article.published_at))}</time></span></span>
     </a>
   `;
