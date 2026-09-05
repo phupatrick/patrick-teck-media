@@ -153,6 +153,24 @@ try {
   assert.equal(deepSeekRequest.body.model, "deepseek-chat");
   assert.deepEqual(deepSeekRequest.body.response_format, { type: "json_object" });
   assert.equal(deepSeekRequest.authorization, "Bearer deepseek-test-key");
+  let groqRequest = null;
+  const groqContent = await callGeminiJson({
+    apiKey: "gemini-test-key",
+    env: { GROQ_API_KEY: "groq-test-key", DEEPSEEK_API_KEY: "deepseek-test-key" },
+    payload: { contents: [{ parts: [{ text: "Viết JSON qua Groq" }] }] },
+    fallbackModels: ["gemini-test-model"],
+    fetchImpl: async (url, options) => {
+      if (url.includes("generativelanguage.googleapis.com")) return new Response(JSON.stringify({ error: { message: "quota exceeded" } }), { status: 429 });
+      assert.match(url, /api\.groq\.com\/openai\/v1\/chat\/completions/);
+      groqRequest = { body: JSON.parse(options.body), authorization: options.headers.Authorization };
+      return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ caption: "Bài do Groq", first_comment: "Liên hệ Patrick Tech" }) } }] }), { status: 200 });
+    },
+    label: "Groq quota fallback test"
+  });
+  assert.equal(groqContent.provider, "groq");
+  assert.equal(groqContent.model, "llama-3.3-70b-versatile");
+  assert.equal(groqRequest.body.model, "llama-3.3-70b-versatile");
+  assert.equal(groqRequest.authorization, "Bearer groq-test-key");
   let resourceExhaustedFallbackCalled = false;
   const resourceExhaustedContent = await callGeminiJson({
     apiKey: "gemini-test-key",

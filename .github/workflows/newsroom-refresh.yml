@@ -102,6 +102,7 @@ jobs:
           NEWSROOM_TRANSLATION_MODEL: ${{ secrets.NEWSROOM_TRANSLATION_MODEL }}
           NEWSROOM_TRANSLATION_USE_GEMINI: "1"
           NEWSROOM_GEMINI_API_KEY: ${{ secrets.NEWSROOM_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           NEWSROOM_GEMINI_MODEL: ${{ secrets.NEWSROOM_GEMINI_MODEL || 'gemini-3-flash-preview' }}
           NEWSROOM_GEMINI_LIMIT: "30"
           NEWSROOM_MAX_ACTIVE_FEEDS: "180"
@@ -143,6 +144,7 @@ jobs:
           SOCIAL_AI_API_KEY: ${{ secrets.SOCIAL_AI_API_KEY || secrets.NEWSROOM_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.NEWSROOM_GEMINI_API_KEY || secrets.SOCIAL_AI_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID || '885195674667440' }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}

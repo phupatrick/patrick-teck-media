@@ -1,6 +1,7 @@
 const DEFAULT_MODELS = ["gemini-3-flash-preview", "gemini-3.6-flash"];
 const DEFAULT_TIMEOUT_MS = 35_000;
 const DEEPSEEK_MODEL = "deepseek-chat";
+const GROQ_MODEL = "llama-3.3-70b-versatile";
 
 export function resolveGeminiApiKey({ apiKey = "", env = process.env } = {}) {
   return String(apiKey || env.NEWSROOM_GEMINI_API_KEY || env.SOCIAL_AI_API_KEY || env.GEMINI_API_KEY || "").trim();
@@ -48,13 +49,22 @@ export async function callGeminiJson({ apiKey, model = "", payload, fetchImpl = 
     }
   }
 
+  const groqKey = String(env.GROQ_API_KEY || "").trim();
+  if (groqKey && failoverReason === "quota") {
+    console.warn("[AIGateway] Gemini bị quá tải quota (HTTP 429), đang tự động chuyển sang Groq API...");
+    try {
+      const result = await callGroqAPI({ apiKey: groqKey, payload, fetchImpl, timeoutMs, label });
+      console.log("[AIGateway] Đã tạo nội dung thành công qua Groq API dự phòng.");
+      return result;
+    } catch (error) {
+      errors.push(`Groq: ${error?.message || String(error)}`);
+      console.warn(`[Groq] ${label} failed: ${error?.message || error}`);
+    }
+  }
+
   const deepSeekKey = String(env.DEEPSEEK_API_KEY || "").trim();
   if (deepSeekKey && failoverReason) {
-    console.warn(failoverReason === "quota"
-      ? "[AIGateway] Gemini bị quá tải quota (HTTP 429), đang tự động chuyển sang DeepSeek API..."
-      : failoverReason === "network"
-        ? "[AIGateway] Gemini gặp lỗi mạng, đang tự động chuyển sang DeepSeek API..."
-        : "[AIGateway] Gemini thất bại, đang tự động chuyển sang DeepSeek API...");
+    console.warn("[AIGateway] AI provider trước đó không khả dụng, đang tự động chuyển sang DeepSeek API...");
     try {
       const result = await callDeepSeekAPI({
         apiKey: deepSeekKey,
@@ -72,6 +82,43 @@ export async function callGeminiJson({ apiKey, model = "", payload, fetchImpl = 
   }
 
   throw new Error(`${label} API failed: ${errors.join(" | ")}`);
+}
+
+export async function callGroqAPI({ apiKey = "", payload = {}, systemPrompt = "", userPrompt = "", jsonOutput = true, fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, label = "Groq" } = {}) {
+  const key = String(apiKey || process.env.GROQ_API_KEY || "").trim();
+  if (!key) throw new Error(`${label} API key is missing. Set GROQ_API_KEY.`);
+
+  const contents = Array.isArray(payload.contents) ? payload.contents : [];
+  const inferredUserPrompt = contents
+    .flatMap((content) => Array.isArray(content?.parts) ? content.parts : [])
+    .map((part) => String(part?.text || "").trim())
+    .filter(Boolean)
+    .join("\n\n");
+  const body = {
+    model: GROQ_MODEL,
+    messages: [
+      { role: "system", content: String(systemPrompt || payload.systemInstruction?.parts?.map((part) => part.text).join("\n") || "") },
+      { role: "user", content: String(userPrompt || inferredUserPrompt) }
+    ],
+    ...(jsonOutput ? { response_format: { type: "json_object" } } : {}),
+    temperature: 0.7,
+    max_tokens: 2000
+  };
+  const response = await fetchWithTimeout(fetchImpl, "https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+    body: JSON.stringify(body)
+  }, timeoutMs);
+  const result = await readJson(response);
+  if (!response.ok) throw new Error(`HTTP ${response.status}: ${result?.error?.message || result?.raw || "Groq returned an unknown error."}`);
+  const content = result?.choices?.[0]?.message?.content;
+  const text = Array.isArray(content) ? content.map((part) => typeof part === "string" ? part : part?.text || "").join("") : content;
+  if (!text) throw new Error("Groq returned no content.");
+  if (jsonOutput) {
+    try { JSON.parse(String(text).trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "")); }
+    catch { throw new Error("Groq returned invalid JSON."); }
+  }
+  return { candidates: [{ content: { parts: [{ text }] } }], provider: "groq", model: GROQ_MODEL };
 }
 
 export async function callDeepSeekAPI({ apiKey = "", payload = {}, systemPrompt = "", userPrompt = "", jsonOutput = true, fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, label = "DeepSeek" } = {}) {
