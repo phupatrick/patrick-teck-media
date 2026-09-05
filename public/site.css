@@ -2641,6 +2641,43 @@ h3 {
 .btn-showroom-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.42); }
 @media (max-width: 800px) { .headline-ribbon-track { grid-template-columns: 1fr; } .store-showroom-banner { padding: 22px 20px; } }
 
+/* Clean editorial layout: scoped to the newsroom homepage only. */
+body:has(.frontpage-masthead) { background: #f8fafc; color: #334155; }
+body:has(.frontpage-masthead) .page-body { max-width: 1240px; }
+body:has(.frontpage-masthead) .frontpage-masthead.hero-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(340px, 1fr); gap: 28px; margin: 32px 0; padding: 0; background: transparent; border: 0; box-shadow: none; }
+body:has(.frontpage-masthead) .clean-card { border: 1px solid #e2e8f0; border-radius: 14px; background: #fff; box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.05); }
+body:has(.frontpage-masthead) .hero-main-banner { min-width: 0; padding: 28px; }
+body:has(.frontpage-masthead) .hero-main-banner::after, body:has(.frontpage-masthead) .frontpage-masthead::before { display: none; }
+body:has(.frontpage-masthead) .editorial-badge { width: fit-content; margin: 0 0 14px; padding: 4px 10px; border-radius: 6px; background: #eff6ff; color: #2563eb; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.04em; }
+body:has(.frontpage-masthead) .hero-big-title { max-width: 16ch; margin: 0 0 14px; color: #0f172a; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.16; letter-spacing: 0; }
+body:has(.frontpage-masthead) .hero-subtitle { max-width: 60ch; color: #475569; font-size: 1rem; line-height: 1.65; }
+body:has(.frontpage-masthead) .hero-recent-box { display: block; padding: 22px; color: #334155; }
+body:has(.frontpage-masthead) .masthead-founder { margin-bottom: 16px; }
+body:has(.frontpage-masthead) .masthead-founder strong, body:has(.frontpage-masthead) .masthead-brief h2 { color: #0f172a; }
+body:has(.frontpage-masthead) .recent-header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 2px solid #f1f5f9; }
+body:has(.frontpage-masthead) .recent-header-row .eyebrow { margin: 0; color: #64748b; }
+body:has(.frontpage-masthead) .recent-header-title { display: flex; align-items: center; gap: 8px; margin: 0; color: #0f172a; font-size: 1rem; }
+body:has(.frontpage-masthead) .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; }
+body:has(.frontpage-masthead) .recent-list-clean { gap: 9px; }
+body:has(.frontpage-masthead) .recent-item-link { display: flex; gap: 12px; padding: 10px 12px; border: 1px solid #edf2f7; border-radius: 8px; background: #f8fafc; }
+body:has(.frontpage-masthead) .recent-item-link:hover { background: #eff6ff; border-color: #bfdbfe; }
+body:has(.frontpage-masthead) .recent-item-title { color: #0f172a; font-size: 0.92rem; line-height: 1.4; }
+body:has(.frontpage-masthead) .recent-item-meta { color: #64748b; }
+body:has(.frontpage-masthead) .frontpage-hero { grid-template-columns: minmax(0, 1.4fr) minmax(340px, 1fr); gap: 28px; }
+body:has(.frontpage-masthead) .lead-feature, body:has(.frontpage-masthead) .lead-mini, body:has(.frontpage-masthead) .stack-item { min-width: 0; }
+body:has(.frontpage-masthead) .lead-feature h2, body:has(.frontpage-masthead) .lead-mini h3, body:has(.frontpage-masthead) .story-card h3, body:has(.frontpage-masthead) .stack-item a { max-width: 100%; overflow-wrap: anywhere; }
+body:has(.frontpage-masthead) .trending-strip-wrap { padding: 20px; border: 1px solid #e2e8f0; border-radius: 14px; background: #fff; box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.05); }
+body:has(.frontpage-masthead) .headline-ribbon-track { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+body:has(.frontpage-masthead) .quick-news-item { min-width: 0; padding: 8px 4px; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+body:has(.frontpage-masthead) .quick-news-item:hover { background: #f8fafc; transform: none; }
+body:has(.frontpage-masthead) .item-headline { color: #1e293b; overflow-wrap: anywhere; }
+body:has(.frontpage-masthead) .categories-balanced-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+body:has(.frontpage-masthead) .category-column-box { min-width: 0; padding: 20px; border: 1px solid #e2e8f0; border-radius: 14px; background: #fff; box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.05); }
+body:has(.frontpage-masthead) .category-column-box::before, body:has(.frontpage-masthead) .category-column-box::after { display: none; }
+@media (max-width: 992px) { body:has(.frontpage-masthead) .categories-balanced-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } body:has(.frontpage-masthead) .headline-ribbon-track { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { body:has(.frontpage-masthead) .frontpage-masthead.hero-grid, body:has(.frontpage-masthead) .frontpage-hero { grid-template-columns: 1fr; } body:has(.frontpage-masthead) .lead-feature { display: flex; flex-direction: column; min-height: auto; } body:has(.frontpage-masthead) .lead-feature-media, body:has(.frontpage-masthead) .lead-feature-media img { position: static; min-height: 0; height: auto; max-height: none; aspect-ratio: 16 / 9; } body:has(.frontpage-masthead) .lead-feature-overlay { display: none; } body:has(.frontpage-masthead) .lead-feature-copy { position: static; min-height: auto; padding: 18px; background: #fff; color: #0f172a; } body:has(.frontpage-masthead) .lead-feature h2 a, body:has(.frontpage-masthead) .lead-feature-hook, body:has(.frontpage-masthead) .lead-feature-topline, body:has(.frontpage-masthead) .lead-feature-source { color: #0f172a; } }
+@media (max-width: 640px) { body:has(.frontpage-masthead) .categories-balanced-grid, body:has(.frontpage-masthead) .headline-ribbon-track { grid-template-columns: 1fr; } body:has(.frontpage-masthead) .hero-main-banner, body:has(.frontpage-masthead) .hero-recent-box { padding: 20px; } }
+
 .article-layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(250px, 0.55fr);
   margin-top: 24px;

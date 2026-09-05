@@ -1475,6 +1475,18 @@ const tests = [
     }
   },
   {
+    name: "uses balanced newsroom layout classes without changing the Store renderer",
+    run() {
+      const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
+      const storeHtml = renderStorePage(state, "vi", { client: "", slots: {} });
+      assert.match(homeHtml, /frontpage-masthead hero-grid/);
+      assert.match(homeHtml, /hero-recent-box/);
+      assert.match(homeHtml, /categories-balanced-grid/);
+      assert.match(homeHtml, /category-column-box/);
+      assert.doesNotMatch(storeHtml, /categories-balanced-grid|hero-recent-box/);
+    }
+  },
+  {
     name: "shows active Shopee bot links in both homepage ad slots",
     run() {
       const stateWithShopee = {

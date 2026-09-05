@@ -62,18 +62,18 @@ export function renderHomePage(state, language, adsConfig) {
     title: copy.homeTitle,
     description: state.site.description[language],
     content: `
-      <section class="frontpage-masthead" data-signal-shell>
-        <div class="frontpage-masthead-copy">
-          <p class="eyebrow">${escapeHtml(heroEyebrow)}</p>
-          <h1>${escapeHtml(heroTitle)}</h1>
-          <p class="frontpage-masthead-text">${escapeHtml(heroText)}</p>
+      <section class="frontpage-masthead hero-grid" data-signal-shell>
+        <div class="frontpage-masthead-copy clean-card hero-main-banner">
+          <p class="eyebrow editorial-badge">${escapeHtml(heroEyebrow)}</p>
+          <h1 class="hero-big-title">${escapeHtml(heroTitle)}</h1>
+          <p class="frontpage-masthead-text hero-subtitle">${escapeHtml(heroText)}</p>
           <div class="hero-badges">
             <span>${copy.badgeSignals}</span>
             <span>${copy.badgeAds}</span>
             <span>${copy.badgeBilingual}</span>
           </div>
         </div>
-        <aside class="masthead-brief" data-signal-shell>
+        <aside class="masthead-brief clean-card hero-recent-box" data-signal-shell>
           <div class="masthead-founder">
             <picture>
               <source srcset="/founder-thumb.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" media="(max-width: 760px)" />
@@ -84,9 +84,8 @@ export function renderHomePage(state, language, adsConfig) {
               <span>${escapeHtml(founderRole)}</span>
             </div>
           </div>
-          <p class="eyebrow">${copy.updateLabel}</p>
-          <h2>${mastheadTitle}</h2>
-          <div class="masthead-brief-list">
+          <div class="recent-header-row"><p class="eyebrow">${copy.updateLabel}</p><h2 class="recent-header-title"><span class="live-dot" aria-hidden="true"></span>${mastheadTitle}</h2></div>
+          <div class="masthead-brief-list recent-list-clean">
             ${mastheadLatestStories.length
               ? mastheadLatestStories.map((article, index) => renderMastheadItem(article, language, index)).join("")
               : `<p class="masthead-empty">${language === "vi" ? "Chưa có bài mới trong 48 giờ qua." : "No new stories in the last 48 hours."}</p>`}
@@ -122,7 +121,7 @@ export function renderHomePage(state, language, adsConfig) {
         excerptLength: 88
       })}
 
-      <section class="headline-ribbon" id="latest" data-ribbon-marquee data-signal-shell>
+      <section class="headline-ribbon trending-strip-wrap" id="latest" data-ribbon-marquee data-signal-shell>
         <div class="headline-ribbon-track" data-ribbon-track>
           ${ribbonStories.map((article, index) => renderRibbonItem(article, language, index)).join("")}
         </div>
@@ -177,11 +176,11 @@ export function renderHomePage(state, language, adsConfig) {
         excerptLength: 82
       })}
 
-      <section class="topic-band">
+      <section class="topic-band categories-balanced-grid">
         ${home.topicSections
           .map(
             (topic) => `
-              <article class="topic-column" style="--topic-accent:${topic.accent}" data-signal-shell>
+              <article class="topic-column category-column-box" style="--topic-accent:${topic.accent}" data-signal-shell>
                 <div class="topic-title-row">
                   <h3><a href="/${language}/topics/${topic.slug}">${escapeHtml(topic.label)}</a></h3>
                   <a class="mini-link" href="/${language}/topics/${topic.slug}">${copy.moreLabel}</a>
@@ -1476,9 +1475,9 @@ function renderMastheadItem(article, language, index = 0) {
   const displayTitle = getDisplayHeadline(article.title, 64);
 
   return `
-    <a class="masthead-brief-item" href="${article.href}">
+    <a class="masthead-brief-item recent-item-link" href="${article.href}">
       <span class="rank-badge-num">${String(index + 1).padStart(2, "0")}</span>
-      <span class="masthead-item-copy"><strong class="item-headline">${escapeHtml(displayTitle)}</strong><span class="meta-row"><span class="clean-cat-pill">${escapeHtml(article.topic_label)}</span><time>${escapeHtml(formatPublishDate(language, article.published_at))}</time></span></span>
+      <span class="masthead-item-copy"><strong class="item-headline recent-item-title">${escapeHtml(displayTitle)}</strong><span class="meta-row recent-item-meta"><span class="clean-cat-pill">${escapeHtml(article.topic_label)}</span><time>${escapeHtml(formatPublishDate(language, article.published_at))}</time></span></span>
     </a>
   `;
 }
