@@ -298,6 +298,10 @@ export function validateFacebookCaption({ caption, postType = "information" } = 
       throw new Error("Facebook caption quarantined: commercial disclosure is missing.");
     }
   }
+  const lines = text.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  if (!lines[0] || lines[0].length > 120 || !lines.some((line) => line.startsWith("🌟 PATRICK TECH CO.")) || !["⚡", "📌", "💡"].every((icon) => lines.some((line) => line.startsWith(icon))) || lines.length < 7) {
+    throw new Error("Facebook caption quarantined: required paragraph structure is missing.");
+  }
   return true;
 }
 

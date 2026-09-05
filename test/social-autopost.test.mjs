@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { generateOfflinePost } from "../src/social-templates.mjs";
-import { createPostContent, fetchContextualPexelsImage, getFacebookPostDetails, getPexelsSearchQuery, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
+import { createPostContent, fetchContextualPexelsImage, formatFacebookCaption, getFacebookPostDetails, getPexelsSearchQuery, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
 import { getDailyQuota, isFacebookEligibleProduct, runSocialAutopilot, selectCandidates, validateFacebookCaption } from "../scripts/social-autopilot.mjs";
@@ -39,11 +39,14 @@ try {
   assert.match(genericPost.caption, /Tự động hóa phần việc lặp lại/);
   assert.doesNotMatch(genericPost.caption, /Làm rõ lợi ích|Cân nhắc chi phí|Thử ở quy mô nhỏ/);
   assert.doesNotMatch(sanitizeSocialText("Đảm bảo 100% và không rủi ro"), /Đảm bảo 100%|không rủi ro/);
+  const oneLineCaption = formatFacebookCaption("Hook ngắn 🌟 PATRICK TECH CO. | TIN MỚI ⚡ Ý một 📌 Ý hai 💡 Ý ba 💬 Bạn nghĩ sao? 📩 https://patricktechmedia.com/vi/");
+  assert.match(oneLineCaption, /Hook ngắn\n\n🌟 PATRICK TECH CO./);
+  assert.match(oneLineCaption, /⚡ Ý một\n\n📌 Ý hai\n\n💡 Ý ba/);
   assert.equal(isFacebookEligibleProduct({ catalogCategory: "ai", title: "GPT Plus", description: "Shared GPT Plus account, email + password" }), false);
   assert.equal(isFacebookEligibleProduct({ catalogCategory: "ai", title: "API usage guide", description: "Hướng dẫn dùng API chính thức, không cung cấp quyền truy cập tài khoản" }), true);
   assert.throws(() => validateFacebookCaption({ postType: "product_promotion", caption: "Giới thiệu sản phẩm: lợi nhuận chắc chắn và không rủi ro." }), /quarantined/);
   assert.throws(() => validateFacebookCaption({ postType: "product_promotion", caption: "Một sản phẩm công nghệ với thông tin tham khảo." }), /commercial disclosure/);
-  assert.equal(validateFacebookCaption({ postType: "product_promotion", caption: "📣 Bài viết giới thiệu sản phẩm của Patrick Tech Co. Thông tin được tham khảo từ catalog tại thời điểm đăng." }), true);
+  assert.equal(validateFacebookCaption({ postType: "product_promotion", caption: "Hook sản phẩm rõ ràng\n\n🌟 PATRICK TECH CO. | SẢN PHẨM CÔNG NGHỆ\n\n⚡ Điểm chính một.\n\n📌 Điểm chính hai.\n\n💡 Điểm chính ba.\n\n💬 Bạn cần tư vấn thêm điểm nào?\n\n📣 Bài viết giới thiệu sản phẩm của Patrick Tech Co. Thông tin được tham khảo từ catalog tại thời điểm đăng." }), true);
   const content = await createPostContent({ topic: "Offline", provider: "offline" });
   assert.ok(content.caption && content.first_comment);
   const originalDeepSeekKey = process.env.DEEPSEEK_API_KEY;
@@ -133,7 +136,7 @@ try {
     sourceArticleUrl: "https://patricktechmedia.com/vi/news/ai-phone",
     fetchImpl: async (url, options) => {
       geminiRequest = { url, body: JSON.parse(options.body) };
-      return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài có dấu", first_comment: "Liên hệ 0933 684 560" }) }] } }] }), { status: 200 });
+      return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify({ caption: "Bài có dấu 🌟 PATRICK TECH CO. | ĐIỆN THOẠI AI ⚡ Điểm một 📌 Điểm hai 💡 Điểm ba 💬 Bạn nghĩ sao? 📩 https://patricktechmedia.com/vi/", first_comment: "Liên hệ 0933 684 560" }) }] } }] }), { status: 200 });
     }
   });
   assert.match(geminiRequest.url, /gemini-3-flash-preview:generateContent/);
@@ -149,7 +152,9 @@ try {
   assert.match(geminiRequest.body.contents[0].parts[0].text, /⚡, 📌, 💡/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /bảo hành/);
   assert.match(geminiRequest.body.contents[0].parts[0].text, /ai-phone/);
-  assert.equal(geminiContent.caption, "Bài có dấu");
+  assert.match(geminiContent.caption, /Bài có dấu/);
+  assert.match(geminiContent.caption, /🌟 PATRICK TECH CO./);
+  assert.match(geminiContent.caption, /\n\n⚡/);
   let deepSeekRequest = null;
   const deepSeekContent = await callGeminiJson({
     apiKey: "gemini-test-key",

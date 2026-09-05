@@ -25,6 +25,7 @@ import {
   ,getRankedFeedArticles
 } from "../src/newsroom-service.mjs";
 import { normalizeNewsroomPayload, normalizeUnifiedArticle } from "../src/newsroom-store.mjs";
+import { isTechnologyArticle } from "../src/newsroom-quality.mjs";
 import { selectHotWebDigestCandidates } from "../scripts/social-autopilot.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles, enhanceMultiSourceSynthesisWithGemini } from "../src/newsroom-synthesis.mjs";
 import { evaluateArticleAutopublishReadiness, evaluateArticleReadiness } from "../src/newsroom-quality.mjs";
@@ -58,6 +59,11 @@ import { publishArticles } from "../scripts/newsroom-publish.mjs";
   assert.equal(mapped[0].feed.name, "Hacker News Top Stories");
   assert.equal(mapped[0].feed.sourceType, "community");
   assert.match(mapped[0].item.link, /^https:\/\/example\.com\//);
+}
+
+{
+  assert.equal(isTechnologyArticle({ title: "Trường Chính trị tỉnh Quảng Ngãi đạt chuẩn mức 1", summary: "Lễ công bố và hoạt động đào tạo cán bộ địa phương." }), false);
+  assert.equal(isTechnologyArticle({ title: "Microsoft mở rộng Copilot trong Windows cho doanh nghiệp", summary: "Bản cập nhật phần mềm có thêm tính năng AI." }), true);
 }
 
 {

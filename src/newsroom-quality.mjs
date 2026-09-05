@@ -75,7 +75,33 @@ export function evaluateArticleReadiness(article) {
 }
 
 export function isArticlePublishReady(article) {
-  return evaluateArticleReadiness(article).ready;
+  return isTechnologyArticle(article) && evaluateArticleReadiness(article).ready;
+}
+
+const TECHNOLOGY_TITLE_PATTERNS = [
+  /\b(ai|artificial intelligence|chatgpt|openai|gemini|claude|copilot|deepseek|llm|model|agent|robot|chip|gpu|cpu|npu|semiconductor|iphone|android|pixel|macbook|laptop|smartphone|tablet|windows|macos|linux|software|app|cloud|database|cyber|security|malware|ransomware|privacy|game|gaming|steam|playstation|xbox|nintendo|facebook|instagram|tiktok|youtube|threads|google|microsoft|apple|nvidia|amd|intel|qualcomm|wifi|5g|router|internet|viễn thông|bảo mật|trí tuệ nhân tạo|phần mềm|thiết bị|chip|mạng xã hội|trò chơi)\b/i
+];
+
+const OFF_TOPIC_PATTERNS = [
+  /trường chính trị|tỉnh ủy|ban bí thư|học viện chính trị|đảng bộ|quy hoạch cán bộ|lễ công bố|hội nghị kol|nghệ sĩ|nghệ thuật biểu diễn|ca sĩ|diễn viên|hoa hậu|thể thao|du lịch|ẩm thực|nấu ăn|sức khỏe|bệnh viện|bệnh nhân|tử vi/i
+];
+
+export function isTechnologyArticle(article) {
+  const title = normalizeText(article?.title);
+  const supportingCopy = normalizeText([
+    article?.summary,
+    article?.dek,
+    article?.hook,
+    ...(Array.isArray(article?.sections) ? article.sections.flatMap((section) => [section?.heading, section?.body]) : [])
+  ].join(" \n"));
+  const titleIsTechnical = TECHNOLOGY_TITLE_PATTERNS.some((pattern) => pattern.test(title));
+  const hasOffTopicSignal = OFF_TOPIC_PATTERNS.some((pattern) => pattern.test(`${title} ${supportingCopy}`));
+
+  // A civic, entertainment, or lifestyle article is not made technical merely
+  // by a passing reference to digital infrastructure or social media. Articles
+  // already classified into a newsroom technology beat remain eligible unless
+  // they carry one of these clear off-topic signals.
+  return !hasOffTopicSignal || titleIsTechnical;
 }
 
 export function evaluateArticleAutopublishReadiness(article) {

@@ -268,9 +268,10 @@ function validatePostContent(value) {
   if (/(cam kết lợi nhuận|lợi nhuận chắc chắn|đảm bảo\s*100\s*%|không rủi ro|lãi suất chắc chắn|giàu nhanh)/i.test(rawCaption)) {
     throw new Error("AI response contains an unverifiable financial or deceptive claim.");
   }
-  const caption = sanitizeSocialText(rawCaption);
+  const caption = formatFacebookCaption(rawCaption);
   const firstComment = String(value?.first_comment || value?.firstComment || "").trim();
   if (!caption) throw new Error("AI response has no caption.");
+  assertFacebookCaptionStructure(caption);
   return { caption: caption.slice(0, 6000), first_comment: firstComment.slice(0, 1800) };
 }
 
@@ -293,6 +294,26 @@ export function sanitizeSocialText(value) {
     .replace(/[ \t]+\n/g, "\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+export function formatFacebookCaption(value) {
+  const normalized = sanitizeSocialText(value);
+  if (!normalized) return "";
+  return normalized
+    .replace(/\s*(?=🌟|⚡|📌|💡|💬|📩|🛒|#PatrickTech)/g, "\n\n")
+    .replace(/^\n+/, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function assertFacebookCaptionStructure(caption) {
+  const lines = caption.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  const hasHook = lines[0] && lines[0].length <= 120;
+  const hasBrand = lines.some((line) => line.startsWith("🌟 PATRICK TECH CO."));
+  const hasPoints = ["⚡", "📌", "💡"].every((icon) => lines.some((line) => line.startsWith(icon)));
+  if (!hasHook || !hasBrand || !hasPoints || lines.length < 7) {
+    throw new Error("AI response does not meet the required Facebook paragraph structure.");
+  }
 }
 
 function parseJsonText(value) {
