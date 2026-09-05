@@ -28,9 +28,11 @@ try {
   assert.match(post.caption, /Chia sẻ trải nghiệm/);
   assert.doesNotMatch(post.caption, /\*\*/);
   const cursorPost = generateOfflinePost({ topic: "Cursor Composer và VS Code", pillar: "product_offer" });
-  assert.match(cursorPost.caption, /Composer và chỉnh sửa đa tệp/);
+  assert.match(cursorPost.caption, /Composer và Codebase Indexing/);
+  assert.match(cursorPost.caption, /xem diff trước khi áp dụng/);
   assert.match(cursorPost.caption, /Tab Autocomplete/);
   assert.doesNotMatch(cursorPost.caption, /giảm 60%|không giới hạn request/);
+  assert.doesNotMatch(cursorPost.caption, /Trong thời đại 4\.0|Không thể phủ nhận|Hãy cùng khám phá|giải pháp tuyệt vời|Trong bối cảnh hiện nay/);
   const claudePost = generateOfflinePost({ topic: "Claude Sonnet cho refactor", pillar: "ai_news" });
   assert.match(claudePost.caption, /Artifacts/);
   const deepSeekPost = generateOfflinePost({ topic: "DeepSeek API key", pillar: "product_offer" });
@@ -76,7 +78,11 @@ try {
     else process.env.DEEPSEEK_API_KEY = originalDeepSeekKey;
   }
   assert.match(getRandomTechImage({ random: () => 0 }), /^https:\/\/images\.unsplash\.com\//);
-  assert.equal(getPexelsSearchQuery("Cursor AI và VS Code"), "coding programming");
+  assert.equal(getPexelsSearchQuery("Cursor AI và VS Code"), "programmer code setup dark");
+  assert.equal(getPexelsSearchQuery("NVIDIA chip bán dẫn"), "computer microchip semiconductor circuit");
+  assert.equal(getPexelsSearchQuery("Claude và ChatGPT"), "artificial intelligence neural network technology");
+  assert.equal(getPexelsSearchQuery("iPhone thiết bị"), "modern smartphone technology gadget");
+  assert.equal(getPexelsSearchQuery("bài viết công nghệ khác"), "cyber technology workspace dark");
   let pexelsRequest = null;
   const pexelsImage = await fetchContextualPexelsImage({
     topic: "Cursor AI",
@@ -88,7 +94,7 @@ try {
   });
   assert.equal(pexelsImage, "https://images.pexels.com/photo.jpg");
   assert.match(pexelsRequest.url, /api\.pexels\.com\/v1\/search/);
-  assert.match(pexelsRequest.url, /query=coding(%20|\+)programming/);
+  assert.match(pexelsRequest.url, /query=programmer(%20|\+)code(%20|\+)setup(%20|\+)dark/);
   assert.match(pexelsRequest.url, /orientation=landscape/);
   assert.equal(pexelsRequest.options.headers.Authorization, "pexels-test-key");
   assert.equal(await fetchContextualPexelsImage({ topic: "Cursor AI", apiKey: "", fallback: () => "https://fallback.example/image.jpg" }), "https://fallback.example/image.jpg");

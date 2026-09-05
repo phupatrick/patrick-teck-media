@@ -13,19 +13,27 @@ const TECH_IMAGES = [
   "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85"
 ];
 
+const CONTENT_ARCHETYPES = [
+  "So sánh trực diện: nêu rõ khi nào nên chọn công cụ A, khi nào nên dùng công cụ B.",
+  "Mẹo workflow thực chiến: chỉ ra một quy trình cụ thể, điểm nghẽn và cách đo thời gian hoặc tỷ lệ lỗi.",
+  "Bóc tách chi phí và rủi ro: đối chiếu khoản phí, hạn mức, quyền truy cập và điều kiện bảo hành khi có dữ liệu.",
+  "Điểm tin từ tòa soạn: giải thích thay đổi kỹ thuật này ảnh hưởng thế nào đến công việc hằng ngày."
+];
+
 const SOCIAL_SYSTEM_PROMPT = [
-  "Bạn là biên tập viên Social Autopilot của Patrick Tech Co.",
-  "Viết bài Facebook bằng tiếng Việt có dấu đầy đủ, tự nhiên, chính xác và không dùng tiếng Việt không dấu.",
+  "Bạn là Giám đốc Nội dung và kỹ sư công nghệ thực chiến của Patrick Tech Co.",
+  "Viết tiếng Việt có dấu, nói thẳng vào tính năng, giới hạn, chi phí và tác động trong workflow; tuyệt đối không dùng văn mẫu sáo rỗng như Trong thời đại 4.0, Không thể phủ nhận, Hãy cùng khám phá, giải pháp tuyệt vời, hoặc Trong bối cảnh hiện nay.",
+  "Mỗi bài phải dùng một archetype được truyền trong dữ liệu và luân phiên giữa bốn hướng: so sánh trực diện, mẹo workflow, bóc tách chi phí/rủi ro, hoặc điểm tin giải thích tác động.",
+  "Bắt buộc gọi tên tính năng kỹ thuật cụ thể phù hợp chủ đề, như Composer, Codebase Indexing, Tab Autocomplete, Artifacts, context window, MoE, API latency, token throughput, Docker, Terminal integration hoặc quyền quản trị; chỉ dùng thông số khi dữ liệu nguồn đã xác minh và không tự bịa số liệu.",
   "Cấu trúc caption bắt buộc theo đúng thứ tự sau và không thêm phần nào trước Hook:",
-  "1) Dòng đầu tiên là Hook giật tít tối đa 120 ký tự, đánh trúng nỗi đau chi phí, so sánh công cụ trực diện hoặc nêu đòn bẩy giá trị dựa trên dữ liệu đã xác minh; không giật gân sai sự thật.",
+  "1) Dòng đầu tiên là Hook giật tít tối đa 120 ký tự, phải chứa từ khóa chính của chủ đề và đánh vào chi phí, hiệu suất hoặc so sánh công cụ mà không giật gân sai sự thật.",
   "2) Ngay sau Hook là Header: 🌟 PATRICK TECH CO. | [TIÊU ĐỀ IN HOA, NGẮN GỌN]. Dòng kế tiếp đúng nguyên văn: Công nghệ dễ tiếp cận hơn – Giá hợp lý hơn – Hỗ trợ tận tâm hơn.",
-  "Thân bài bắt buộc có đúng 3 gạch đầu dòng ngắn, lần lượt mở đầu bằng ⚡, 📌, 💡; ưu tiên câu ngắn, dễ đọc trên điện thoại và giải thích lợi ích, giới hạn cùng quyết định thực tế.",
-  "Không bịa giá, thông số, tính năng, thời điểm hoặc cam kết ngoài dữ liệu được cung cấp.",
-  "Với sản phẩm/dịch vụ, nêu rõ điểm mạnh, giới hạn, mức giá nếu có dữ liệu và trường hợp nên dùng.",
-  "Nêu rõ cam kết bảo hành và hỗ trợ 1-1 của Patrick Tech khi bài viết liên quan sản phẩm hoặc dịch vụ.",
+  "Thân bài bắt buộc có đúng 3 gạch đầu dòng ngắn, lần lượt mở đầu bằng ⚡, 📌, 💡. ⚡ phải nêu cơ chế hoặc tính năng kỹ thuật; 📌 phải nêu hiệu suất, workflow, giới hạn hoặc cách kiểm chứng; 💡 phải nêu bài toán chi phí và hỗ trợ Patrick Tech nhưng không bịa giá hay cam kết.",
+  "Không dùng các từ hack, crack, tut, lách, rẻ bèo, tài khoản lậu hoặc cam kết 100% trong caption. Không hứa lợi nhuận, không khẳng định không rủi ro và không đưa số liệu chưa có trong dữ liệu nguồn.",
+  "Với sản phẩm/dịch vụ, nói rõ đây là nội dung thương mại, nêu giá/thời hạn/chính sách chỉ khi có dữ liệu và nêu điều kiện bảo hành, hỗ trợ 1-1.",
   "Sau đúng 3 gạch đầu dòng, thêm đúng một câu hỏi mở để khuyến khích thảo luận hai chiều.",
   "Ngay sau câu hỏi là Dual-CTA có đủ hai link https://patricktechmedia.com/vi/ và https://patricktechmedia.store/, kèm Zalo/Hotline 0933 684 560.",
-  "first_comment phải dùng Unicode dễ đọc và có: link tòa soạn, link store, Zalo/Hotline và cam kết hỗ trợ/bảo hành 1-1.",
+  "first_comment phải dùng Unicode dễ đọc và có link tòa soạn, link store, Zalo/Hotline và cam kết hỗ trợ/bảo hành 1-1.",
   "Không dùng Markdown hoặc dấu **. Trả về JSON duy nhất gồm caption và first_comment; không bọc markdown."
 ].join(" ");
 
@@ -41,11 +49,11 @@ const PEXELS_TIMEOUT_MS = 10_000;
 
 export function getPexelsSearchQuery(topic = "") {
   const value = String(topic || "").toLowerCase();
-  if (/(cursor|vs\s*code|visual studio|coding|programming|developer)/i.test(value)) return "coding programming";
-  if (/(claude|anthropic|chatgpt|openai|gpt|gemini|llm|ai agent)/i.test(value)) return "artificial intelligence";
-  if (/(anker|phone|iphone|android|pixel|gadget|device|laptop|smartphone)/i.test(value)) return "technology gadget";
-  if (/(security|cyber|password|privacy)/i.test(value)) return "cybersecurity technology";
-  return "technology";
+  if (/(cursor|vs\s*code|visual studio|coding|programming|developer|lập trình)/i.test(value)) return "programmer code setup dark";
+  if (/(claude|anthropic|chatgpt|openai|gpt|gemini|llm|ai agent|trí tuệ nhân tạo)/i.test(value)) return "artificial intelligence neural network technology";
+  if (/(chip|bán dẫn|semiconductor|nvidia|intel|amd|qualcomm|gpu|cpu|npu)/i.test(value)) return "computer microchip semiconductor circuit";
+  if (/(anker|phone|iphone|android|pixel|gadget|device|laptop|smartphone|thiết bị|điện thoại)/i.test(value)) return "modern smartphone technology gadget";
+  return "cyber technology workspace dark";
 }
 
 export async function fetchContextualPexelsImage({ topic = "", apiKey = process.env.PEXELS_API_KEY, fetchImpl = fetch, fallback = getRandomTechImage, timeoutMs = PEXELS_TIMEOUT_MS } = {}) {
