@@ -1043,7 +1043,11 @@ const SOURCE_TOPIC_HINTS = [
     const registryFeeds = loadSourceRegistry(env);
     const effectiveFallbackFeeds = normalizeFallbackFeeds([...registryFeeds, ...fallbackFeeds], env);
     console.info(`Newsroom source pool: ${registryFeeds.length + fallbackFeeds.length} configured, ${effectiveFallbackFeeds.length} active this cycle.`);
-    incomingArticles = await fetchFallbackArticles(now, effectiveFallbackFeeds, env);
+    const [rssArticles, hackerNewsArticles] = await Promise.all([
+      fetchFallbackArticles(now, effectiveFallbackFeeds, env),
+      fetchHackerNewsTopStories(now, { env })
+    ]);
+    incomingArticles = [...rssArticles, ...hackerNewsArticles];
     sourceLabel = "curated-rss";
   }
 
@@ -1694,6 +1698,55 @@ async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
   // companion drafts remain useful editorial inputs, but their synthesized
   // source records cannot prove the trust tier of a particular report.
   return selectCuratedSourceDrafts(allArticles, env);
+}
+
+export async function fetchHackerNewsTopStories(timestamp = new Date().toISOString(), { env = process.env, fetchImpl = fetch, mapItem = mapFeedItem } = {}) {
+  if (String(env?.NEWSROOM_HACKER_NEWS_ENABLED ?? "1").trim() === "0") return [];
+  const limit = clampInteger(env?.NEWSROOM_HACKER_NEWS_LIMIT, 1, 30, 12);
+  const feed = {
+    name: "Hacker News Top Stories",
+    url: "https://news.ycombinator.com/",
+    language: "en",
+    region: "Global",
+    sourceType: "community",
+    trustTier: "community",
+    topicHint: "internet-business-tech",
+    limit
+  };
+  try {
+    const topStoriesResponse = await fetchImpl("https://hacker-news.firebaseio.com/v0/topstories.json", {
+      headers: { Accept: "application/json", "User-Agent": "patrick-tech-media-refresh/1.0" }
+    });
+    if (!topStoriesResponse.ok) throw new Error(`Hacker News top stories returned ${topStoriesResponse.status}`);
+    const topStoryIds = await readJsonResponse(topStoriesResponse);
+    if (!Array.isArray(topStoryIds)) throw new Error("Hacker News top stories response was not an array.");
+    const candidates = topStoryIds.slice(0, limit * 3);
+    const stories = await mapWithConcurrency(candidates, 4, async (id) => {
+      const response = await fetchImpl(`https://hacker-news.firebaseio.com/v0/item/${encodeURIComponent(id)}.json`, {
+        headers: { Accept: "application/json", "User-Agent": "patrick-tech-media-refresh/1.0" }
+      });
+      if (!response.ok) return null;
+      const item = await readJsonResponse(response);
+      if (item?.type !== "story" || !item?.url || !item?.title) return null;
+      return mapItem(feed, {
+        title: item.title,
+        link: item.url,
+        description: item.title,
+        content: item.text || "",
+        pubDate: item.time ? new Date(Number(item.time) * 1000).toISOString() : timestamp,
+        imageUrl: ""
+      }, timestamp);
+    });
+    return (await Promise.all(stories)).filter(Boolean).slice(0, limit);
+  } catch (error) {
+    console.warn(`Skipping Hacker News Top Stories: ${error?.message || error}`);
+    return [];
+  }
+}
+
+async function readJsonResponse(response) {
+  const text = await response.text();
+  try { return JSON.parse(text); } catch { return null; }
 }
 
 function articleSourceKeys(article) {

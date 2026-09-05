@@ -1,7 +1,7 @@
 import { loadNewsroomState } from "../src/newsroom-service.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { createDocumentStore } from "../src/document-store.mjs";
-import { createPostContent, getRandomTechImage, postFirstCommentWithRetry, safePostToFacebook } from "../src/social-engine.mjs";
+import { createPostContent, fetchContextualPexelsImage, getRandomTechImage, postFirstCommentWithRetry, safePostToFacebook } from "../src/social-engine.mjs";
 import { generateOfflinePost } from "../src/social-templates.mjs";
 import { getScheduledPostType, isProductCooldownComplete, selectScheduledCandidates } from "../src/social-scheduler.mjs";
 import { pathToFileURL } from "node:url";
@@ -74,7 +74,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
     try {
       const notes = buildArticleNotes(article);
       const content = await createAutopilotContent({ article, notes, env, fetchImpl, logger });
-      const imageUrl = article.image?.src || article.image_url || getRandomTechImage();
+      const imageUrl = article.image?.src || article.image_url || await fetchContextualPexelsImage({ topic: article.title, fetchImpl });
       validateFacebookCaption({ caption: content.caption, postType: article.post_type });
       const facebookPost = await safePostToFacebook({
         pageId,

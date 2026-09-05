@@ -37,6 +37,34 @@ export function getRandomTechImage({ random = Math.random } = {}) {
   return TECH_IMAGES[index];
 }
 
+const PEXELS_TIMEOUT_MS = 10_000;
+
+export function getPexelsSearchQuery(topic = "") {
+  const value = String(topic || "").toLowerCase();
+  if (/(cursor|vs\s*code|visual studio|coding|programming|developer)/i.test(value)) return "coding programming";
+  if (/(claude|anthropic|chatgpt|openai|gpt|gemini|llm|ai agent)/i.test(value)) return "artificial intelligence";
+  if (/(anker|phone|iphone|android|pixel|gadget|device|laptop|smartphone)/i.test(value)) return "technology gadget";
+  if (/(security|cyber|password|privacy)/i.test(value)) return "cybersecurity technology";
+  return "technology";
+}
+
+export async function fetchContextualPexelsImage({ topic = "", apiKey = process.env.PEXELS_API_KEY, fetchImpl = fetch, fallback = getRandomTechImage, timeoutMs = PEXELS_TIMEOUT_MS } = {}) {
+  const key = String(apiKey || "").trim();
+  if (!key) return fallback();
+  try {
+    const query = getPexelsSearchQuery(topic);
+    const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=1&orientation=landscape`;
+    const response = await fetchWithTimeout(fetchImpl, url, { headers: { Authorization: key, Accept: "application/json" } }, timeoutMs);
+    const payload = await readResponse(response);
+    const imageUrl = String(payload?.photos?.[0]?.src?.large2x || payload?.photos?.[0]?.src?.large || "").trim();
+    if (!response.ok || !imageUrl) throw new Error(`Pexels request failed with HTTP ${response.status}.`);
+    return imageUrl;
+  } catch (error) {
+    console.warn(`[Pexels] contextual image fallback: ${error?.message || error}`);
+    return fallback();
+  }
+}
+
 export async function createPostContent({ provider = "offline", apiKey = "", model = "", topic, pillar, postType = "information", notes, sourceArticleUrl = "", mediaUrl = "", storeUrl = "", fetchImpl = fetch } = {}) {
   const normalizedProvider = String(provider || "offline").trim().toLowerCase();
   if (["", "none", "offline"].includes(normalizedProvider)) {

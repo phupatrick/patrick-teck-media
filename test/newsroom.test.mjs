@@ -6,6 +6,7 @@ import { buildOpenClawLearningProfile } from "../scripts/openclaw-learning.mjs";
 import { repairNewsroomAudit } from "../scripts/newsroom-audit-repair.mjs";
 import {
   canonicalizeFeedUrl,
+  fetchHackerNewsTopStories,
   loadSourceRegistry,
   normalizeSourceFeed,
   runNewsroomRefresh,
@@ -33,6 +34,31 @@ import { selectNewerSnapshot } from "../src/document-store.mjs";
 import { PENDING_TTL_MS, applySingleSourcePublicationPolicy, getPendingArticleKey, getSourceQualityTier, hasTrustedSource, preparePendingArticles } from "../src/newsroom-pending-queue.mjs";
 import { fetchArxivSignals, fetchDevToSignals, fetchGdeltSignals, fetchHackerNewsSignals, fetchStackExchangeSignals, isUsefulSocialSignal, normalizeSocialSignal } from "../src/openclaw-social-connectors.mjs";
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
+
+{
+  const mapped = [];
+  const hnArticles = await fetchHackerNewsTopStories("2026-09-05T00:00:00.000Z", {
+    env: { NEWSROOM_HACKER_NEWS_LIMIT: "2" },
+    fetchImpl: async (url) => {
+      if (url.endsWith("/topstories.json")) return new Response(JSON.stringify([101, 102, 103]));
+      const id = url.match(/item\/(\d+)\.json$/)?.[1];
+      const item = id === "101"
+        ? { id: 101, type: "story", title: "Open source AI tooling improves developer workflows", url: "https://example.com/ai-tooling", time: 1788566400 }
+        : id === "102"
+          ? { id: 102, type: "story", title: "New database release changes infrastructure costs", url: "https://example.com/database", time: 1788566400 }
+          : { id, type: "job", title: "Not an article", url: "https://example.com/job" };
+      return new Response(JSON.stringify(item));
+    },
+    mapItem: async (feed, item) => {
+      mapped.push({ feed, item });
+      return { id: `hn-${item.link}` };
+    }
+  });
+  assert.equal(hnArticles.length, 2);
+  assert.equal(mapped[0].feed.name, "Hacker News Top Stories");
+  assert.equal(mapped[0].feed.sourceType, "community");
+  assert.match(mapped[0].item.link, /^https:\/\/example\.com\//);
+}
 
 {
   const normalized = normalizeUnifiedArticle({ id: "unified-1", cluster_id: "cluster-1", language: "vi", title: "Tin Việt", topic: "apps-software", region: "VN", sections: [{ heading: "Chi tiết", body: "Nội dung" }] });

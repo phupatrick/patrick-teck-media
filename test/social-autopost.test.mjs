@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { generateOfflinePost } from "../src/social-templates.mjs";
-import { createPostContent, getFacebookPostDetails, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
+import { createPostContent, fetchContextualPexelsImage, getFacebookPostDetails, getPexelsSearchQuery, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
 import { getDailyQuota, isFacebookEligibleProduct, runSocialAutopilot, selectCandidates, validateFacebookCaption } from "../scripts/social-autopilot.mjs";
@@ -73,6 +73,23 @@ try {
     else process.env.DEEPSEEK_API_KEY = originalDeepSeekKey;
   }
   assert.match(getRandomTechImage({ random: () => 0 }), /^https:\/\/images\.unsplash\.com\//);
+  assert.equal(getPexelsSearchQuery("Cursor AI và VS Code"), "coding programming");
+  let pexelsRequest = null;
+  const pexelsImage = await fetchContextualPexelsImage({
+    topic: "Cursor AI",
+    apiKey: "pexels-test-key",
+    fetchImpl: async (url, options) => {
+      pexelsRequest = { url, options };
+      return new Response(JSON.stringify({ photos: [{ src: { large2x: "https://images.pexels.com/photo.jpg" } }] }), { status: 200 });
+    }
+  });
+  assert.equal(pexelsImage, "https://images.pexels.com/photo.jpg");
+  assert.match(pexelsRequest.url, /api\.pexels\.com\/v1\/search/);
+  assert.match(pexelsRequest.url, /query=coding(%20|\+)programming/);
+  assert.match(pexelsRequest.url, /orientation=landscape/);
+  assert.equal(pexelsRequest.options.headers.Authorization, "pexels-test-key");
+  assert.equal(await fetchContextualPexelsImage({ topic: "Cursor AI", apiKey: "", fallback: () => "https://fallback.example/image.jpg" }), "https://fallback.example/image.jpg");
+  assert.equal(await fetchContextualPexelsImage({ topic: "Cursor AI", apiKey: "pexels-test-key", fetchImpl: async () => new Response("{}", { status: 503 }), fallback: () => "https://fallback.example/error.jpg" }), "https://fallback.example/error.jpg");
   const candidates = selectCandidates([
     { id: "repeated", title: "Tin AI cũ", language: "vi", topic: "ai", updated_at: "2026-08-30T12:00:00.000Z", verification_state: "verified", image_url: "https://images.example.com/old.jpg" },
     { id: "fresh", title: "Tin hạ tầng mới", language: "vi", topic: "infrastructure", updated_at: "2026-09-02T06:00:00.000Z", verification_state: "verified", image_url: "https://images.example.com/new.jpg", quality_score: 90 }
