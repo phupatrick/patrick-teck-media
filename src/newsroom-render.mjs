@@ -88,7 +88,7 @@ export function renderHomePage(state, language, adsConfig) {
           <h2>${mastheadTitle}</h2>
           <div class="masthead-brief-list">
             ${mastheadLatestStories.length
-              ? mastheadLatestStories.map((article) => renderMastheadItem(article, language)).join("")
+              ? mastheadLatestStories.map((article, index) => renderMastheadItem(article, language, index)).join("")
               : `<p class="masthead-empty">${language === "vi" ? "Chưa có bài mới trong 48 giờ qua." : "No new stories in the last 48 hours."}</p>`}
           </div>
         </aside>
@@ -124,7 +124,7 @@ export function renderHomePage(state, language, adsConfig) {
 
       <section class="headline-ribbon" id="latest" data-ribbon-marquee data-signal-shell>
         <div class="headline-ribbon-track" data-ribbon-track>
-          ${ribbonStories.map((article) => renderRibbonItem(article, language)).join("")}
+          ${ribbonStories.map((article, index) => renderRibbonItem(article, language, index)).join("")}
         </div>
       </section>
 
@@ -1454,13 +1454,15 @@ function renderHeadlineItem(article, language, index) {
   `;
 }
 
-function renderRibbonItem(article, language) {
+function renderRibbonItem(article, language, index) {
   const displayTitle = getDisplayHeadline(article.title, 68);
   return `
-      <a class="ribbon-item" href="${article.href}">
-        <span>${escapeHtml(article.topic_label)}</span>
-      <strong>${escapeHtml(displayTitle)}</strong>
-      <em>${escapeHtml(formatPublishDate(language, article.published_at))}</em>
+      <a class="ribbon-item quick-news-item" href="${article.href}">
+        <span class="rank-badge-num">${String(index + 1).padStart(2, "0")}</span>
+        <span class="ribbon-copy">
+          <strong class="item-headline">${escapeHtml(displayTitle)}</strong>
+          <span class="meta-row"><span class="clean-cat-pill">${escapeHtml(article.topic_label)}</span><time>${escapeHtml(formatPublishDate(language, article.published_at))}</time></span>
+        </span>
       </a>
     `;
 }
@@ -1470,13 +1472,13 @@ function sortStoriesByDateDesc(left, right) {
     - new Date(left.updated_at || left.published_at || 0).getTime();
 }
 
-function renderMastheadItem(article, language) {
+function renderMastheadItem(article, language, index = 0) {
   const displayTitle = getDisplayHeadline(article.title, 64);
 
   return `
     <a class="masthead-brief-item" href="${article.href}">
-      <strong>${escapeHtml(displayTitle)}</strong>
-      <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+      <span class="rank-badge-num">${String(index + 1).padStart(2, "0")}</span>
+      <span class="masthead-item-copy"><strong class="item-headline">${escapeHtml(displayTitle)}</strong><span class="meta-row"><span class="clean-cat-pill">${escapeHtml(article.topic_label)}</span><time>${escapeHtml(formatPublishDate(language, article.published_at))}</time></span></span>
     </a>
   `;
 }
@@ -2053,25 +2055,21 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, adIn
   if (useShopee) {
     const shopee = shopeeLinks[adIndex % shopeeLinks.length];
     return `
-      <section class="ad-shell placeholder store-promo-shell">
-        <p class="ad-label">${promoLabel}</p>
-        <a class="ad-slot placeholder-slot store-promo-slot" href="${escapeHtml(shopee.url)}" target="_blank" rel="noreferrer">
-          <span class="store-promo-kicker">Shopee deal</span>
-          <strong>${escapeHtml(shopee.title || (language === "vi" ? "\u01afu\u0020\u0111\u00e3i\u0020Shopee\u0020t\u1eeb\u0020bot\u0020Telegram" : "Shopee offer from the Telegram bot"))}</strong>
-          <span>${language === "vi" ? "Slot\u0020n\u00e0y\u0020l\u1ea5y\u0020t\u1eeb\u0020link\u0020Shopee\u0020b\u1ea1n\u0020g\u1eedi\u0020qua\u0020bot\u0020Telegram." : "This slot is filled from the Shopee links sent through the Telegram bot."}</span>
-        </a>
+      <section class="store-showroom-banner">
+        <span class="deal-pill">${promoLabel}</span>
+        <h2 class="showroom-title">${escapeHtml(shopee.title || (language === "vi" ? "Ưu đãi công nghệ đang được chọn lọc" : "A curated technology offer"))}</h2>
+        <p class="showroom-desc">${language === "vi" ? "Xem ưu đãi mới nhất từ đối tác được quản lý qua Patrick Tech Media." : "See the latest partner offer managed through Patrick Tech Media."}</p>
+        <a class="btn-showroom-cta" href="${escapeHtml(shopee.url)}" target="_blank" rel="noreferrer">${language === "vi" ? "Khám phá ưu đãi →" : "Explore offer →"}</a>
       </section>
     `;
   }
 
   return `
-    <section class="ad-shell placeholder store-promo-shell">
-      <p class="ad-label">${promoLabel}</p>
-      <a class="ad-slot placeholder-slot store-promo-slot" href="${escapeHtml(promoHref)}" target="_blank" rel="noopener noreferrer">
-        <span class="store-promo-kicker">Patrick Tech Store</span>
-        <strong>${language === "vi" ? "M\u1edf\u0020nhanh\u0020c\u00e1c\u0020g\u00f3i\u0020AI,\u0020ph\u1ea7n\u0020m\u1ec1m\u0020v\u00e0\u0020t\u00e0i\u0020kho\u1ea3n\u0020s\u1ed1\u0020\u0111ang\u0020c\u00f3\u0020\u01b0u\u0020\u0111\u00e3i" : "Open the AI plans, tools, and software currently getting the push"}</strong>
-        <span>${language === "vi" ? "V\u00e0o\u0020th\u1eb3ng\u0020store\u0020\u0111\u1ec3\u0020xem\u0020nh\u1eefng\u0020g\u00f3i\u0020Patrick\u0020Tech\u0020\u0111ang\u0020\u01b0u\u0020ti\u00ean\u0020gi\u1edbi\u0020thi\u1ec7u\u0020l\u00fac\u0020n\u00e0y." : "Jump straight into the store to see what Patrick Tech is pushing right now."}</span>
-      </a>
+    <section class="store-showroom-banner">
+      <span class="deal-pill">${promoLabel}</span>
+      <h2 class="showroom-title">${language === "vi" ? "Công cụ số phù hợp cho công việc hiện đại" : "Digital tools for modern work"}</h2>
+      <p class="showroom-desc">${language === "vi" ? "Khám phá các gói AI, phần mềm và tiện ích đang có tại Patrick Tech Store." : "Explore AI plans, software, and practical tools at Patrick Tech Store."}</p>
+      <a class="btn-showroom-cta" href="${escapeHtml(promoHref)}" target="_blank" rel="noopener noreferrer">${language === "vi" ? "Khám Phá Store Ngay →" : "Explore Store Now →"}</a>
     </section>
   `;
 }

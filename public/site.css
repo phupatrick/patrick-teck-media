@@ -2621,6 +2621,26 @@ h3 {
   color: #93ff54;
 }
 
+/* Newsroom editorial quick reads and Store promotion banner. */
+.headline-ribbon { background: transparent; border: 0; padding: 0; }
+.headline-ribbon-track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; animation: none !important; transform: none !important; }
+.quick-news-item, .masthead-brief-item { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 13px 14px; border: 1px solid rgba(123, 167, 213, 0.18); border-radius: 12px; background: rgba(14, 32, 58, 0.68); box-shadow: 0 4px 15px rgba(9, 22, 40, 0.14); transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background 0.25s ease; }
+.quick-news-item:hover, .masthead-brief-item:hover { transform: translateX(4px); border-color: rgba(56, 189, 248, 0.48); background: rgba(20, 45, 78, 0.88); }
+.rank-badge-num { flex: 0 0 auto; color: #38bdf8; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1rem; font-weight: 800; letter-spacing: 0; }
+.ribbon-copy, .masthead-item-copy { display: grid; min-width: 0; gap: 6px; }
+.item-headline { overflow: hidden; color: #f8fafc; font-size: 0.92rem; font-weight: 700; line-height: 1.35; text-overflow: ellipsis; }
+.meta-row { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; color: #9eb2ca; font-size: 0.72rem; }
+.clean-cat-pill { display: inline-flex; padding: 2px 7px; border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 6px; background: rgba(56, 189, 248, 0.11); color: #7dd3fc; font-weight: 700; }
+.store-showroom-banner { position: relative; overflow: hidden; margin: 32px 0; padding: 28px 30px; border: 1px solid rgba(125, 211, 252, 0.28); border-radius: 16px; background: linear-gradient(135deg, #102846 0%, #173b5a 50%, #27416f 100%); box-shadow: 0 15px 35px -18px rgba(14, 116, 144, 0.7); }
+.store-showroom-banner::after { position: absolute; inset: auto -10% -65% 42%; width: 380px; height: 380px; border-radius: 50%; background: rgba(34, 211, 238, 0.12); content: ""; }
+.deal-pill, .showroom-title, .showroom-desc, .btn-showroom-cta { position: relative; z-index: 1; }
+.deal-pill { display: inline-flex; padding: 4px 9px; border-radius: 999px; background: #f97316; color: #fff; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
+.showroom-title { margin: 12px 0 7px; color: #fff; font-family: var(--font-head); font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.18; }
+.showroom-desc { max-width: 650px; margin: 0 0 18px; color: #d9ebff; line-height: 1.6; }
+.btn-showroom-cta { display: inline-flex; align-items: center; min-height: 42px; padding: 10px 15px; border-radius: 10px; background: linear-gradient(135deg, #2563eb, #38bdf8); box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4); color: #fff; font-weight: 800; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.btn-showroom-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.42); }
+@media (max-width: 800px) { .headline-ribbon-track { grid-template-columns: 1fr; } .store-showroom-banner { padding: 22px 20px; } }
+
 .article-layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(250px, 0.55fr);
   margin-top: 24px;

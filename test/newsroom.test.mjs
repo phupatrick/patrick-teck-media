@@ -1457,11 +1457,21 @@ const tests = [
       const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
       const storeHtml = renderStorePage(state, "vi", { client: "", slots: {} });
 
-      assert.equal((homeHtml.match(/class="ad-shell/g) || []).length, 2);
-      assert.equal((homeHtml.match(/store-promo-slot/g) || []).length, 2);
+      assert.equal((homeHtml.match(/class="store-showroom-banner/g) || []).length, 2);
+      assert.equal((homeHtml.match(/Khám Phá Store Ngay/g) || []).length, 2);
       assert.match(homeHtml, /https:\/\/patricktechmedia\.store\/\?utm_source=patricktechmedia&amp;utm_medium=newsroom_banner/);
       assert.match(storeHtml, /Patrick Tech Store/);
       assert.match(storeHtml, /patricktechmedia\.store\/\?ref=patricktechmedia&entry=/);
+    }
+  },
+  {
+    name: "renders newsroom quick reads with numbered cards and one category label",
+    run() {
+      const homeHtml = renderHomePage(state, "vi", { client: "", slots: {} });
+      assert.match(homeHtml, /class="ribbon-item quick-news-item"/);
+      assert.match(homeHtml, /class="rank-badge-num">01<\/span>/);
+      assert.match(homeHtml, /class="clean-cat-pill">AI<\/span>/);
+      assert.doesNotMatch(homeHtml, /○/);
     }
   },
   {
@@ -1480,12 +1490,12 @@ const tests = [
       };
       const homeHtml = renderHomePage(stateWithShopee, "vi", { client: "", slots: {} });
 
-      assert.equal((homeHtml.match(/class="ad-shell/g) || []).length, 2);
+      assert.equal((homeHtml.match(/class="store-showroom-banner/g) || []).length, 2);
       assert.match(homeHtml, /AI deal one/);
       assert.match(homeHtml, /AI deal two/);
       assert.match(homeHtml, /https:\/\/shopee\.vn\/product\/one/);
       assert.match(homeHtml, /https:\/\/shopee\.vn\/product\/two/);
-      assert.doesNotMatch(homeHtml, /Patrick Tech Store/);
+      assert.doesNotMatch(homeHtml, /Khám Phá Store Ngay/);
     }
   },
   {
