@@ -2825,6 +2825,24 @@ body:has(.frontpage-masthead) .category-column-box::before, body:has(.frontpage-
   gap: 14px;
 }
 
+/* Hard layout contract: hero media must never be wider than the reading column. */
+.article-content > .article-hero-media {
+  inline-size: min(100%, 760px);
+  max-inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 16 / 9;
+  justify-self: start;
+  box-sizing: border-box;
+}
+
+.article-content > .article-hero-media > img,
+.article-content > .article-hero-media > .story-image-fallback {
+  inline-size: 100%;
+  block-size: 100%;
+  max-inline-size: 100%;
+  object-fit: cover;
+}
+
 .article-summary {
   font-size: 1rem;
   font-family: var(--font-body);

@@ -2634,6 +2634,7 @@ const tests = [
       assert.ok((articleHtml.match(/class="article-section"/g) || []).length >= 5);
       assert.ok(articleHtml.indexOf("article-hero-media") > articleHtml.indexOf("article-content"));
       assert.ok(articleHtml.indexOf("article-hero-media") < articleHtml.indexOf("article-summary"));
+      assert.doesNotMatch(articleHtml, /<article class="article-shell">[\s\S]*article-hero-media[\s\S]*<div class="article-layout">/);
       assert.doesNotMatch(articleHtml, /store-panel|store-promo-slot/);
       assert.match(articleHtml, /feedback-section/);
     }
