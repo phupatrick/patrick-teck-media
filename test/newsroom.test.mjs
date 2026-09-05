@@ -2632,6 +2632,8 @@ const tests = [
       assert.match(articleHtml, /Dieu moi|Vi sao dang doc|Dieu can theo doi/);
       assert.match(articleHtml, /source-compact/);
       assert.ok((articleHtml.match(/class="article-section"/g) || []).length >= 5);
+      assert.ok(articleHtml.indexOf("article-hero-media") > articleHtml.indexOf("article-content"));
+      assert.ok(articleHtml.indexOf("article-hero-media") < articleHtml.indexOf("article-summary"));
       assert.doesNotMatch(articleHtml, /store-panel|store-promo-slot/);
       assert.match(articleHtml, /feedback-section/);
     }

@@ -1756,13 +1756,23 @@ h3 {
 }
 
 .article-hero-media {
-  margin-top: 24px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   padding: 10px;
   background: rgba(255, 255, 255, 0.78);
+  aspect-ratio: 16 / 9;
 }
 
 .article-hero-media img {
   border-radius: calc(var(--radius-lg) - 8px);
+}
+
+@media (max-width: 640px) {
+  .article-hero-media {
+    width: 92%;
+    margin-inline: auto;
+  }
 }
 
 .article-hero-media figcaption {

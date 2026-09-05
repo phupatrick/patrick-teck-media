@@ -752,10 +752,9 @@ export function renderArticlePage(state, language, article, relatedStories, adsC
           </div>
         </header>
 
-        ${renderArticleHero(article)}
-
         <div class="article-layout">
           <div class="article-content">
+            ${renderArticleHero(article)}
             <p class="article-summary">${escapeHtml(article.summary)}</p>
             ${publicSections
               .map(
