@@ -305,9 +305,13 @@ export function sanitizeSocialText(value) {
 }
 
 export function formatFacebookCaption(value) {
-  const normalized = sanitizeSocialText(value);
+  const normalized = sanitizeSocialText(value).replace(/\s*(?=🌟 PATRICK TECH CO\.)/g, "\n\n");
   if (!normalized) return "";
-  return normalized
+  const [hook, ...bodyParts] = normalized.split(/\n+/);
+  const readableBody = bodyParts.join(" ")
+    // Restore readable paragraphs when a model returns the caption on one line.
+    .replace(/([.!?。！？])\s+(?=[A-ZÀ-Ỹ🌟⚡📌💡💬📩])/g, "$1\n\n");
+  return [hook, readableBody].filter(Boolean).join("\n\n")
     .replace(/\s*(?=🌟|⚡|📌|💡|💬|📩|🛒|#PatrickTech)/g, "\n\n")
     .replace(/^\n+/, "")
     .replace(/\n{3,}/g, "\n\n")

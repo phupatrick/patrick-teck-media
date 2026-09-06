@@ -44,6 +44,9 @@ try {
   const oneLineCaption = formatFacebookCaption("Hook ngắn 🌟 PATRICK TECH CO. | TIN MỚI ⚡ Ý một 📌 Ý hai 💡 Ý ba 💬 Bạn nghĩ sao? 📩 https://patricktechmedia.com/vi/");
   assert.match(oneLineCaption, /Hook ngắn\n\n🌟 PATRICK TECH CO./);
   assert.match(oneLineCaption, /⚡ Ý một\n\n📌 Ý hai\n\n💡 Ý ba/);
+  const denseCaption = formatFacebookCaption("Hook ngắn 🌟 PATRICK TECH CO. | TIN MỚI. Công nghệ dễ tiếp cận hơn. ⚡ Cơ chế kỹ thuật rõ ràng. 📌 Đo hiệu suất trước sau. 💡 Kiểm tra chi phí và hỗ trợ. 💬 Bạn nghĩ sao? 📩 https://patricktechmedia.com/vi/");
+  assert.match(denseCaption, /TIN MỚI\.\n\nCông nghệ dễ tiếp cận hơn\./);
+  assert.match(denseCaption, /Cơ chế kỹ thuật rõ ràng\.\n\n📌/);
   assert.equal(isFacebookEligibleProduct({ catalogCategory: "ai", title: "GPT Plus", description: "Shared GPT Plus account, email + password" }), false);
   assert.equal(isFacebookEligibleProduct({ catalogCategory: "ai", title: "API usage guide", description: "Hướng dẫn dùng API chính thức, không cung cấp quyền truy cập tài khoản" }), true);
   assert.throws(() => validateFacebookCaption({ postType: "product_promotion", caption: "Giới thiệu sản phẩm: lợi nhuận chắc chắn và không rủi ro." }), /quarantined/);
