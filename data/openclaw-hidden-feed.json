@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T18:20:54.666Z",
+  "generated_at": "2026-09-06T22:25:54.706Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -144,7 +144,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T18:20:54.665Z",
+        "generated_at": "2026-09-06T22:25:54.706Z",
         "origin": "local-curated-rss"
       }
     },
@@ -286,7 +286,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T18:20:54.665Z",
+        "generated_at": "2026-09-06T22:25:54.706Z",
         "origin": "local-curated-rss"
       }
     },
@@ -428,7 +428,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T18:20:54.665Z",
+        "generated_at": "2026-09-06T22:25:54.706Z",
         "origin": "local-curated-rss"
       }
     },
@@ -570,7 +570,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T18:20:54.665Z",
+        "generated_at": "2026-09-06T22:25:54.706Z",
         "origin": "local-curated-rss"
       }
     },
@@ -714,7 +714,153 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T18:20:54.665Z",
+        "generated_at": "2026-09-06T22:25:54.706Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-3c544043caef-en",
+      "cluster_id": "feed-3c544043caef",
+      "language": "en",
+      "topic_label": "Security",
+      "topic_slug": "security",
+      "topic_accent": "#1de59c",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "firefox-security-response-to-pwn2own-2025",
+      "title": "Firefox Security Response to pwn2own 2025",
+      "hook": "This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices.",
+      "dek": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "Out of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138. 0. 4, Firefox ESR 128. 10. 1, Firefox ESR 115. 23. 1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture."
+        }
+      ],
+      "image": {
+        "src": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+        "alt": "",
+        "caption": "Reference image from Mozilla Security Blog.",
+        "credit": "Mozilla Security Blog",
+        "source_url": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Mozilla Security Blog",
+          "source_url": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2025-05-17T21:17:47.000Z",
+          "image_url": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+          "image_caption": "Reference image from Mozilla Security Blog.",
+          "image_credit": "Mozilla Security Blog"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2025-05-17T21:17:47.000Z",
+      "updated_at": "2025-05-17T21:17:47.000Z",
+      "href": "/en/news/firefox-security-response-to-pwn2own-2025",
+      "draft_context": {
+        "source_title": "Firefox Security Response to pwn2own 2025",
+        "source_name": "Mozilla Security Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "security",
+        "content_type_hint": "",
+        "description": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system. Out of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138.0.4, Firefox ESR 128.10.1, Firefox ESR 115.23.1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible. Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too. Background Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work. Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture. To review and fix the reported exploits a diverse team of people from all across the world and in various roles (engineering, QA, release management, security and many more) rushed to work. We tested and released a new version of Firefox for all of our supported platforms, operating systems, and configurations with rapid speed. Our work does not end here. We continue to use opportunities like this to improve our incident response. We will also continue to study the reports to identify new hardening features and security improvements to keep all of our Firefox users across the globe protected. Related Resources If you’re interested in learning more about Mozilla’s security initiatives or Firefox security, here are some resources to help you get started: Mozilla Security Mozilla Security Blog Bug Bounty Program Furthermore, if you want to kickstart your own security research in Firefox, we invite you to follow our deeply technical blog at Attack & Defense – Firefox Security Internals for Engineers, Researchers, and Bounty Hunters . Update – August 7th, 2025 We are pleased to share that Mozilla was awarded the Vanguard “Speedrunner” Award by the Zero Day Initiative (ZDI). This is in regonition to being consistently fast throghout the last 20 years of Zero Day Initiative’s pwn2own events. “Speedrunner” trophy, awarded to Mozilla Firefox for an outstanding security response during pwn2own. The post Firefox Security Response to pwn2own 2025 appeared first on Mozilla Security Blog .",
+        "paragraphs": [
+          "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system.",
+          "Out of abundance of caution, we just released new Firefox versions in response to these attacks &#8211; all within the same day of the second exploit announcement. The updated versions are Firefox 138.0.4, Firefox ESR 128.10.1, Firefox ESR 115.23.1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible.",
+          "Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too.",
+          "Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work.",
+          "Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox&#8217;s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture.",
+          "To review and fix the reported exploits a diverse team of people from all across the world and in various roles (engineering, QA, release management, security and many more) rushed to work. We tested and released a new version of Firefox for all of our supported platforms, operating systems, and configurations with rapid speed."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=1109",
+        "link": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+      },
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Verified",
+      "title_vi": "",
+      "title_en": "Firefox Security Response to pwn2own 2025",
+      "dek_vi": "",
+      "dek_en": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "body_vi": "",
+      "body_en": "What happened\nThese practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system.\n\nWhere the sources line up\nOut of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138. 0. 4, Firefox ESR 128. 10. 1, Firefox ESR 115. 23. 1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible.\n\nPractical impact for readers\nJust last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too.\n\nWho should pay attention now\nPwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work.\n\nWhat is still unclear\nTypically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture.",
+      "slug_vi": "firefox-security-response-to-pwn2own-2025",
+      "slug_en": "firefox-security-response-to-pwn2own-2025",
+      "category": "security",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+      ],
+      "image_url": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/firefox-security-response-to-pwn2own-2025",
+      "storeUrl": "https://patricktechmedia.store",
+      "topic": "security",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-06T22:25:54.706Z",
         "origin": "local-curated-rss"
       }
     }
