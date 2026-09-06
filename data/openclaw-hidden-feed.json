@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T04:48:25.938Z",
+  "generated_at": "2026-09-06T08:50:10.809Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -144,7 +144,151 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T04:48:25.937Z",
+        "generated_at": "2026-09-06T08:50:10.809Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-3a77c10eb01b-en",
+      "cluster_id": "feed-3a77c10eb01b",
+      "language": "en",
+      "topic_label": "Devices",
+      "topic_slug": "devices",
+      "topic_accent": "#4e7dff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "title": "AMD Threadripper Halo: Trạm làm việc AI cục bộ cho các nhà nghiên cứu 'túi tiền sâu'",
+      "hook": "Bạn có sẵn sàng chi tới 150.000 USD để sở hữu một 'siêu máy tính' thu nhỏ có khả năng xử lý các mô hình AI phức tạp nhất thế giới mà không cần đến đám mây?",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Tại IFA 2026, AMD đã công bố Threadripper Halo, một hệ thống máy trạm làm mát bằng chất lỏng mạnh mẽ, tích hợp bộ tăng tốc Instinct MI350P nhằm cạnh tranh trực tiếp với DGX Station của Nvidia trong lĩnh vực nghiên cứu AI tại chỗ.",
+      "dek": "Với bộ nhớ HBM3e lên tới 576 GB và băng thông 16 TB/s, cỗ máy này hứa hẹn khả năng chạy các mô hình ngôn ngữ lớn vượt mức nghìn tỷ tham số ngay trên bàn làm việc.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Trong bối cảnh các nhà nghiên cứu học máy ngày càng có nhu cầu xử lý AI cục bộ để đảm bảo quyền riêng tư và hiệu suất, AMD đã tận dụng các linh kiện cao cấp sẵn có để tạo ra đối thủ cho DGX Station của Nvidia. Được công bố tại IFA 2026, Threadripper Halo đánh dấu lần đầu tiên dòng tăng tốc Instinct của AMD được đưa vào định dạng máy trạm (workstation). Hệ thống này nhắm đến phân khúc nghiên cứu cao cấp, nơi người dùng cần sức mạnh tính toán khổng lồ ngay tại văn phòng thay vì phụ thuộc hoàn toàn vào các trung tâm dữ liệu tập trung."
+        },
+        {
+          "heading": "Thay đổi kỹ thuật: Sự kết hợp giữa Threadripper PRO và Instinct MI350P",
+          "body": "Trái tim của hệ thống là vi xử lý Threadripper PRO 9995WX 96 lõi (ra mắt năm 2025), hỗ trợ tới 2 TB bộ nhớ DDR5. Điểm nhấn thực sự nằm ở khả năng trang bị tối đa 4 GPU Instinct MI350P dựa trên chuẩn PCIe. Mỗi card MI350P cung cấp 144 GB bộ nhớ HBM3e với băng thông 4 TB/s và hiệu suất tính toán FP4 đạt 4,6 petaFLOPS. Khi kết hợp tối đa, hệ thống đạt tới 576 GB HBM3e và băng thông bộ nhớ 16 TB/s, cho phép vận hành các mô hình trên 1. 000 tỷ tham số hoàn toàn trên bộ nhớ GPU ở độ chính xác 4-bit."
+        },
+        {
+          "heading": "The evidence so far",
+          "body": "Với cấu hình này, Threadripper Halo có thể chạy các mô hình trọng số mở lớn nhất hiện nay, ví dụ như Kimi K3 của Moonshot. AI với 2,8 nghìn tỷ tham số, bằng cách đẩy một phần dữ liệu sang bộ nhớ hệ thống. AMD khẳng định hệ thống của họ cung cấp tổng bộ nhớ gấp 3,4 lần và băng thông bộ nhớ gấp đôi so với DGX Station của Nvidia (vốn dùng GPU B300 252 GB và CPU Grace 72 lõi). Điều này mang lại lợi thế đáng kể trong việc suy luận mô hình ngôn ngữ lớn (LLM), giúp giảm thiểu độ trễ và tăng tốc độ xử lý cho các dự án nghiên cứu phức tạp."
+        },
+        {
+          "heading": "Giới hạn và rủi ro: Thách thức về năng lượng và chi phí",
+          "body": "Sức mạnh cực đại đi kèm với những rào cản lớn về hạ tầng. Một hệ thống chạy 4 card MI350P có thể vượt quá giới hạn của ổ cắm điện tiêu chuẩn tại Bắc Mỹ trừ khi AMD hạ xung nhịp các card từ 600W xuống 300W hoặc yêu cầu mạch điện 20 amp chuyên dụng. Đây có thể là lý do các bản mẫu tại IFA chỉ lắp đặt 2 GPU. Ngoài ra, mức giá dự kiến từ 100. 000 đến 150. 000 USD là một khoản đầu tư khổng lồ, chưa kể đến rủi ro nghẽn cổ chai tại bus PCIe của CPU khi thực hiện các tác vụ song song tensor (tensor parallel operations)."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "AMD dự kiến sẽ chính thức mở bán Threadripper Halo vào năm sau (2027). Giới công nghệ sẽ cần theo dõi liệu AMD có thực hiện các điều chỉnh về điện năng để phù hợp với môi trường văn phòng hay không, cũng như mức giá chính thức khi đối đầu với sự khan hiếm hàng của Nvidia DGX Station. Hiệu suất thực tế của việc kết hợp giữa bộ nhớ hệ thống và bộ nhớ GPU để chạy các mô hình siêu lớn như Kimi K3 cũng sẽ là điểm mấu chốt quyết định sự thành công của dòng máy trạm 'Halo' này."
+        }
+      ],
+      "image": {
+        "src": "https://image.theregister.com/5294624.jpg?imageId=5294624&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+        "alt": "",
+        "caption": "Reference image from The Register.",
+        "credit": "The Register",
+        "source_url": "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "The Register",
+          "source_url": "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-04T20:12:11.000Z",
+          "image_url": "https://image.theregister.com/5294624.jpg?imageId=5294624&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+          "image_caption": "Reference image from The Register.",
+          "image_credit": "The Register"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-04T20:12:11.000Z",
+      "updated_at": "2026-09-04T20:12:11.000Z",
+      "href": "/en/news/amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "draft_context": {
+        "source_title": "AMD's Threadripper Halo is a local-AI workstation for researchers with deep pockets",
+        "source_name": "The Register",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "internet-business-tech",
+        "content_type_hint": "",
+        "description": "Machine learning researchers have a new and expensive option for doing local AI. AMD just raided its spare parts bin and cobbled together a DGX Station rival boasting up to 576 GB of HBM3e memory that it’s calling the Threadripper Halo. Announced at IFA 2026, the system, which is set to launch next year, marks the first time that AMD’s Instinct accelerators have been offered in a workstation form factor. But much like the AI Halo we reviewed earlier this year, the Threadripper Halo isn’t packing anything we haven’t seen before. The liquid-cooled system is powered by a 96-core Threadripper PRO 9995WX, which you may recall made its debut in 2025. The CPU is backed by up to 2 TB of DDR5 memory and up to 2.6 TB of combined system memory. As you probably already guessed, AMD is positioning the box as a local AI workstation for researchers. From what we gather, the system can be had with up to four of the company’s PCIe-based Instinct GPUs — though the systems displayed at IFA only showed two installed. Launched back in May, the MI350P is essentially half of an MI350X that’s been crammed into a PCIe form factor. Each accelerator packs 144 GB of speedy HBM3e good for 4 TB/s of memory bandwidth, and up to 4.6 petaFLOPS of FP4 compute. But we’ll note that it's in its 600 W configuration. When deployed in the Threadripper Halo, we expect AMD will be running the cards in the more sedate 450 W config. Combined, the Threadripper Halo promises up to 576 GB of HBM3e and 16 TB/s of memory bandwidth, enabling the system to run models exceeding a trillion parameters in size (at four-bit precision) entirely in GPU memory. By offloading some of the model to system memory, the system should be able to run the largest open weights models, like Moonshot.AI’s 2.8 trillion-parameter Kimi K3. The ability to run large frontier-class models on your desk won’t come cheap and may not be available in every market, at least not without an electrical service upgrade. AMD hasn’t shared pricing, but as configured, we expect it to sell for somewhere between $100,000 and $150,000. A quad MI350P system is going to push the limits of a standard North American power outlet unless AMD either underclocks the cards from 600 W to 300 W or it mandates a 20 amp circuit. This might explain why the system AMD showed off at IFA only had two. At this price and power level, the system is well positioned to compete with Nvidia’s own high-end AI workstation, the DGX Station. Announced at GTC in 2025, the DGX Station features a 252 GB B300 GPU and a 72-core Grace CPU along with 496 GB of LPDDR5x memory, and it retails for around $100,000 if you can find one in stock. The House of Zen boasts that the system offers up to 3.4x the total system memory and more than twice the memory bandwidth of the DGX Station, which should give an edge in LLM inference, assuming tensor parallel operations don’t bottleneck on the CPU’s PCIe bus. AMD says the Threadripper Halo will be available starting next year. ®",
+        "paragraphs": [
+          "AI workstation promises to put up to 576 GB of HBM3e and 16 TB/s of memory bandwidth on your desk",
+          "Tobias Mann Tobias Mann SYSTEMS EDITOR Published fri 4 Sep 2026 // 21:12 UTC 9B, promises not to squeeze too hard 2 days ago Zuck's Muse to Spark joy with open weights release 'soon' 2 days ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 3 days ago Machine learning researchers have a new and expensive option for doing local AI. AMD just raided its spare parts bin and cobbled together a DGX Station rival boasting up to 576 GB of HBM3e memory that it’s calling the Threadripper Halo.",
+          "Announced at IFA 2026, the system, which is set to launch next year, marks the first time that AMD’s Instinct accelerators have been offered in a workstation form factor.",
+          "But much like the AI Halo we reviewed earlier this year, the Threadripper Halo isn’t packing anything we haven’t seen before. The liquid-cooled system is powered by a 96-core Threadripper PRO 9995WX, which you may recall made its debut in 2025. The CPU is backed by up to 2 TB of DDR5 memory and up to 2.6 TB of combined system memory.",
+          "As you probably already guessed, AMD is positioning the box as a local AI workstation for researchers. From what we gather, the system can be had with up to four of the company’s PCIe-based Instinct GPUs — though the systems displayed at IFA only showed two installed.",
+          "Launched back in May, the MI350P is essentially half of an MI350X that’s been crammed into a PCIe form factor. Each accelerator packs 144 GB of speedy HBM3e good for 4 TB/s of memory bandwidth, and up to 4.6 petaFLOPS of FP4 compute. But we’ll note that it's in its 600 W configuration. When deployed in the Threadripper Halo, we expect AMD will be running the cards in the more sedate 450 W config."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=857",
+        "link": "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616"
+      },
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Emerging",
+      "title_vi": "",
+      "title_en": "AMD Threadripper Halo: Trạm làm việc AI cục bộ cho các nhà nghiên cứu 'túi tiền sâu'",
+      "dek_vi": "",
+      "dek_en": "Với bộ nhớ HBM3e lên tới 576 GB và băng thông 16 TB/s, cỗ máy này hứa hẹn khả năng chạy các mô hình ngôn ngữ lớn vượt mức nghìn tỷ tham số ngay trên bàn làm việc.",
+      "body_vi": "",
+      "body_en": "What happened\nTrong bối cảnh các nhà nghiên cứu học máy ngày càng có nhu cầu xử lý AI cục bộ để đảm bảo quyền riêng tư và hiệu suất, AMD đã tận dụng các linh kiện cao cấp sẵn có để tạo ra đối thủ cho DGX Station của Nvidia. Được công bố tại IFA 2026, Threadripper Halo đánh dấu lần đầu tiên dòng tăng tốc Instinct của AMD được đưa vào định dạng máy trạm (workstation). Hệ thống này nhắm đến phân khúc nghiên cứu cao cấp, nơi người dùng cần sức mạnh tính toán khổng lồ ngay tại văn phòng thay vì phụ thuộc hoàn toàn vào các trung tâm dữ liệu tập trung.\n\nThay đổi kỹ thuật: Sự kết hợp giữa Threadripper PRO và Instinct MI350P\nTrái tim của hệ thống là vi xử lý Threadripper PRO 9995WX 96 lõi (ra mắt năm 2025), hỗ trợ tới 2 TB bộ nhớ DDR5. Điểm nhấn thực sự nằm ở khả năng trang bị tối đa 4 GPU Instinct MI350P dựa trên chuẩn PCIe. Mỗi card MI350P cung cấp 144 GB bộ nhớ HBM3e với băng thông 4 TB/s và hiệu suất tính toán FP4 đạt 4,6 petaFLOPS. Khi kết hợp tối đa, hệ thống đạt tới 576 GB HBM3e và băng thông bộ nhớ 16 TB/s, cho phép vận hành các mô hình trên 1. 000 tỷ tham số hoàn toàn trên bộ nhớ GPU ở độ chính xác 4-bit.\n\nThe evidence so far\nVới cấu hình này, Threadripper Halo có thể chạy các mô hình trọng số mở lớn nhất hiện nay, ví dụ như Kimi K3 của Moonshot. AI với 2,8 nghìn tỷ tham số, bằng cách đẩy một phần dữ liệu sang bộ nhớ hệ thống. AMD khẳng định hệ thống của họ cung cấp tổng bộ nhớ gấp 3,4 lần và băng thông bộ nhớ gấp đôi so với DGX Station của Nvidia (vốn dùng GPU B300 252 GB và CPU Grace 72 lõi). Điều này mang lại lợi thế đáng kể trong việc suy luận mô hình ngôn ngữ lớn (LLM), giúp giảm thiểu độ trễ và tăng tốc độ xử lý cho các dự án nghiên cứu phức tạp.\n\nGiới hạn và rủi ro: Thách thức về năng lượng và chi phí\nSức mạnh cực đại đi kèm với những rào cản lớn về hạ tầng. Một hệ thống chạy 4 card MI350P có thể vượt quá giới hạn của ổ cắm điện tiêu chuẩn tại Bắc Mỹ trừ khi AMD hạ xung nhịp các card từ 600W xuống 300W hoặc yêu cầu mạch điện 20 amp chuyên dụng. Đây có thể là lý do các bản mẫu tại IFA chỉ lắp đặt 2 GPU. Ngoài ra, mức giá dự kiến từ 100. 000 đến 150. 000 USD là một khoản đầu tư khổng lồ, chưa kể đến rủi ro nghẽn cổ chai tại bus PCIe của CPU khi thực hiện các tác vụ song song tensor (tensor parallel operations).\n\nWhat is still unclear\nAMD dự kiến sẽ chính thức mở bán Threadripper Halo vào năm sau (2027). Giới công nghệ sẽ cần theo dõi liệu AMD có thực hiện các điều chỉnh về điện năng để phù hợp với môi trường văn phòng hay không, cũng như mức giá chính thức khi đối đầu với sự khan hiếm hàng của Nvidia DGX Station. Hiệu suất thực tế của việc kết hợp giữa bộ nhớ hệ thống và bộ nhớ GPU để chạy các mô hình siêu lớn như Kimi K3 cũng sẽ là điểm mấu chốt quyết định sự thành công của dòng máy trạm 'Halo' này.",
+      "slug_vi": "amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "slug_en": "amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "category": "devices",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616"
+      ],
+      "image_url": "https://image.theregister.com/5294624.jpg?imageId=5294624&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "storeUrl": "https://patricktechmedia.store",
+      "topic": "devices",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-06T08:50:10.809Z",
         "origin": "local-curated-rss"
       }
     },
@@ -288,118 +432,123 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T04:48:25.938Z",
+        "generated_at": "2026-09-06T08:50:10.809Z",
         "origin": "local-curated-rss"
       }
     },
     {
-      "id": "feed-0a6da347800b-en",
-      "cluster_id": "feed-0a6da347800b",
+      "id": "feed-9487ea4e5eba-en",
+      "cluster_id": "feed-9487ea4e5eba",
       "language": "en",
-      "topic_label": "Devices",
-      "topic_slug": "devices",
-      "topic_accent": "#4e7dff",
+      "topic_label": "Apps & Software",
+      "topic_slug": "apps-software",
+      "topic_accent": "#17c9ff",
       "content_type": "NewsArticle",
       "content_type_label": "News",
       "path_segment": "news",
-      "slug": "sony-s-best-noise-cancelling-headphones-are-50-off-right-now",
-      "title": "Sony’s best noise-cancelling headphones are 50% off right now",
-      "hook": "If you’ve been itching for a pair of top-tier noise-cancelling headphones but couldn’t pull the trigger because of their price tags, now’s a good time to make the dive.",
+      "slug": "10-years-of-mongodb-atlas-built-for-what-s-next",
+      "title": "Kỷ niệm 10 năm MongoDB Atlas: Từ cơ sở dữ liệu đám mây đến nền tảng dữ liệu thế hệ mới cho AI",
+      "hook": "Bạn có biết rằng 75% doanh thu của MongoDB hiện đến từ Atlas, một sản phẩm từng chỉ bắt đầu như một lời giải cho bài toán đưa trải nghiệm nhà phát triển lên đám mây cách đây 10 năm?",
       "author_name": "",
       "author_role_vi": "",
       "author_role_en": "",
-      "summary": "If you’ve been itching for a pair of top-tier noise-cancelling headphones but couldn’t pull the trigger because of their price tags, now’s a good time to make the dive. Right now, the Sony WH-1000XM5 is on sale for $198 at Amazon , which is 50% off its original price and the lowest it’s ever been.",
-      "dek": "If you’ve been itching for a pair of top-tier noise-cancelling headphones but couldn’t pull the trigger because of their price tags, now’s a good time to make the dive.",
+      "summary": "Ra mắt từ năm 2016, MongoDB Atlas đã phát triển từ một dịch vụ cơ sở dữ liệu được quản lý thành một nền tảng dữ liệu toàn diện, hiện xử lý hơn 3 nghìn tỷ truy vấn mỗi ngày và đóng góp 75% doanh thu cho MongoDB.",
+      "dek": "Hành trình một thập kỷ của Atlas đánh dấu sự chuyển mình từ việc đơn giản hóa hạ tầng đám mây sang việc giải quyết các thách thức phức tạp của kỷ nguyên AI và các tác nhân tự hành (AI agents).",
       "sections": [
         {
           "heading": "What happened",
-          "body": "Right now, the Sony WH-1000XM5 is on sale for $198 at Amazon , which is 50% off its original price and the lowest it’s ever been. These headphones regularly top “best of” lists, so that’s a real deal."
+          "body": "Năm 2016, khi Atlas ra mắt, các tổ chức đang dần rời bỏ các trung tâm dữ liệu truyền thống để chuyển sang mô hình phân phối dựa trên đám mây. Tại thời điểm đó, Gartner dự báo thị trường này đạt 204 tỷ USD. Các nhà phát triển yêu thích sự linh hoạt của mô hình tài liệu (document model) của MongoDB nhưng cần một giải pháp loại bỏ gánh nặng quản trị vận hành, đảm bảo tính bảo mật và khả năng phục hồi để chạy các ứng dụng thực tế trên môi trường sản xuất."
         },
         {
-          "heading": "Where the sources line up",
-          "body": "The active noise cancellation is the best thing about these headphones, complete with eight microphones and two dedicated processors to hush the world around you as you listen to music, talk on video chat, or keep your mind engaged with audiobooks and podcasts. They’re perfect for commutes and office environments thanks to the Auto NC Optimizer, which adjusts on the fly based on your surroundings."
+          "heading": "Thay đổi kỹ thuật: Từ đa đám mây đến bảo mật chuyên sâu",
+          "body": "Atlas đã liên tục tiến hóa với các cột mốc kỹ thuật quan trọng: năm 2018 bổ sung giao dịch ACID đa tài liệu cho các tác vụ tài chính năm 2020 ra mắt Multi-Cloud Clusters cho phép chạy đồng thời trên AWS, Azure và Google Cloud. Đặc biệt, giải pháp Queryable Encryption cho phép truy vấn dữ liệu đã mã hóa ngay cả khi đang sử dụng. Nền tảng cũng tích hợp sẵn Atlas Search, Online Archive và Native Time Series để giảm thiểu việc phải kết nối nhiều hệ thống rời rạc."
         },
         {
-          "heading": "Practical impact for readers",
-          "body": "But these also sound great, justifying their sky-high retail price. With Sony’s Integrated Processor V1, they deliver lots of bass and clear acoustics, with ultra-clean sound for distinguishing voices."
+          "heading": "The evidence so far",
+          "body": "Hiện nay, hơn 250. 000 nhà xây dựng mới bắt đầu với Atlas mỗi tháng. Nền tảng phục vụ hơn 70. 000 khách hàng trên mọi ngành nghề với hơn 125 vùng đám mây toàn cầu. Số lượng truy vấn hàng ngày đã tăng gấp ba lần kể từ năm 2023, đạt mức 3 nghìn tỷ. Sự tin tưởng này cho phép doanh nghiệp triển khai các ứng dụng quan trọng như xử lý thanh toán, quản lý kho hàng và xử lý đơn hàng với độ tin cậy cao."
         },
         {
-          "heading": "Who should pay attention now",
-          "body": "And the battery life is impressive, with a single charge lasting somewhere around 30 hours of use. When it drains down, you can quickly charge back up—a short 3-minute top-up buys you an extra 3 hours of use."
+          "heading": "Giới hạn và rủi ro: Thách thức trong kỷ nguyên AI",
+          "body": "Sự bùng nổ của Generative AI tạo ra rủi ro về sự phức tạp của hạ tầng khi các đội ngũ phải kết nối thủ công các đường ống dữ liệu, công việc đồng bộ và kho lưu trữ vector riêng biệt, dẫn đến hệ thống dễ vỡ và kém bảo mật. Ngoài ra, trong kỷ nguyên của các tác nhân AI (agents), rủi ro lớn nhất là dữ liệu cũ hoặc truy xuất kém dẫn đến kết quả sai lệch (hallucinations), khiến doanh nghiệp không thể triển khai AI trực tiếp tới khách hàng."
         },
         {
           "heading": "What is still unclear",
-          "body": "Two notable downsides worth noting. First, these are neither portable nor sweat-resistant, so don’t expect to wear these comfortably while running or doing anything active. Second, the cans don’t fold flat for easy stowing, so don’t get these if space is at a premium. In that case, you’d be better off with pocket-sized ANC earbuds, like the Anker Soundcore P31i earbuds ."
+          "body": "Tương lai của Atlas tập trung vào việc tối ưu hóa chất lượng truy xuất cho AI thông qua việc tích hợp Vector Search và thâu tóm Voyage AI (2025) để đưa các mô hình embedding và reranking tiên tiến vào nền tảng. Với hơn 55. 000 ứng dụng vector đã được tạo, trọng tâm tiếp theo là giúp các AI agent có khả năng suy luận dựa trên ngữ cảnh kinh doanh thời gian thực, đảm bảo độ chính xác và tốc độ ở quy mô lớn."
         }
       ],
       "image": {
-        "src": "https://www.pcworld.com/wp-content/uploads/2026/09/3227566-0-07552000-1788534688-Sony-WH-1000XM5-Noise-Cancelling-Wireless-Headphones.jpg?quality=50&strip=all&w=1024",
+        "src": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefdd3bca0e2b88a5/6a3c06f3e564c3bd63ea882e/3_2_(1).png",
         "alt": "",
-        "caption": "Reference image from PCWorld.",
-        "credit": "PCWorld",
-        "source_url": "https://www.pcworld.com/article/3227566/sonys-best-noise-cancelling-headphones-are-50-percent-off-right-now.html"
+        "caption": "Reference image from MongoDB Blog.",
+        "credit": "MongoDB Blog",
+        "source_url": "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next"
       },
-      "verification_state": "emerging",
+      "verification_state": "verified",
       "quality_score": 96,
       "ad_eligible": true,
-      "show_editorial_label": false,
+      "show_editorial_label": true,
       "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
       "editorial_focus": [],
       "source_set": [
         {
-          "source_type": "press",
-          "source_name": "PCWorld",
-          "source_url": "https://www.pcworld.com/article/3227566/sonys-best-noise-cancelling-headphones-are-50-percent-off-right-now.html",
+          "source_type": "official-site",
+          "source_name": "MongoDB Blog",
+          "source_url": "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next",
           "region": "Global",
           "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-04T15:11:12.000Z",
-          "image_url": "https://www.pcworld.com/wp-content/uploads/2026/09/3227566-0-07552000-1788534688-Sony-WH-1000XM5-Noise-Cancelling-Wireless-Headphones.jpg?quality=50&strip=all&w=1024",
-          "image_caption": "Reference image from PCWorld.",
-          "image_credit": "PCWorld"
+          "trust_tier": "official",
+          "published_at": "2026-06-25T17:28:40.000Z",
+          "image_url": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefdd3bca0e2b88a5/6a3c06f3e564c3bd63ea882e/3_2_(1).png",
+          "image_caption": "Reference image from MongoDB Blog.",
+          "image_credit": "MongoDB Blog"
         }
       ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-04T15:11:12.000Z",
-      "updated_at": "2026-09-04T15:11:12.000Z",
-      "href": "/en/news/sony-s-best-noise-cancelling-headphones-are-50-off-right-now",
+      "author_id": "mai-linh",
+      "published_at": "2026-06-25T17:28:40.000Z",
+      "updated_at": "2026-06-25T17:28:40.000Z",
+      "href": "/en/news/10-years-of-mongodb-atlas-built-for-what-s-next",
       "draft_context": {
-        "source_title": "Sony’s best noise-cancelling headphones are 50% off right now",
-        "source_name": "PCWorld",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
+        "source_title": "10 Years of MongoDB Atlas: Built for What’s Next",
+        "source_name": "MongoDB Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "cloud-enterprise",
         "content_type_hint": "",
-        "description": "NEW LOWEST PRICE Sony WH-1000XM5 ANC Headphones View Deal If you’ve been itching for a pair of top-tier noise-cancelling headphones but couldn’t pull the trigger because of their price tags, now’s a good time to make the dive. Right now, the Sony WH-1000XM5 is on sale for $198 at Amazon , which is 50% off its original price and the lowest it’s ever been. These headphones regularly top “best of” lists, so that’s a real deal. The active noise cancellation is the best thing about these headphones, complete with eight microphones and two dedicated processors to hush the world around you as you listen to music, talk on video chat, or keep your mind engaged with audiobooks and podcasts. They’re perfect for commutes and office environments thanks to the Auto NC Optimizer, which adjusts on the fly based on your surroundings. But these also sound great, justifying their sky-high retail price. With Sony’s Integrated Processor V1, they deliver lots of bass and clear acoustics, with ultra-clean sound for distinguishing voices. And the battery life is impressive, with a single charge lasting somewhere around 30 hours of use. When it drains down, you can quickly charge back up—a short 3-minute top-up buys you an extra 3 hours of use. Two notable downsides worth noting. First, these are neither portable nor sweat-resistant, so don’t expect to wear these comfortably while running or doing anything active. Second, the cans don’t fold flat for easy stowing, so don’t get these if space is at a premium. In that case, you’d be better off with pocket-sized ANC earbuds, like the Anker Soundcore P31i earbuds . The Sony WH-1000XM5 headphones are truly premium and offer one of the best active noise cancellation experiences on the market. At $198, half off its original price, it’s a no-brainer if you want a top-tier model.",
+        "description": "Nearly a decade ago, I joined MongoDB as a Senior Product Manager to help build the company’s new cloud product, MongoDB Atlas. Our customers had been telling us they wanted to bring MongoDB’s familiar developer experience to the cloud, with the reliability and confidence teams needed to run in production. Atlas was our answer. Today, we’re celebrating 10 years of MongoDB Atlas, the generational data platform for AI applications, and the customers who pushed us to build it. Atlas was shaped in close conversation with those customers and scaled alongside them every step of the way. Today, more than 250,000 builders get started on Atlas every month. Atlas serves more than three trillion queries a day (a roughly threefold increase just since 2023!), and represents 75% of MongoDB’s revenue. Those numbers reflect something more important than growth: the trust builders and customers have placed in us to scale their businesses. That trust was earned by listening closely. Every major capability and architectural investment in Atlas was rooted in what customers asked for: the flexibility and speed of MongoDB’s document model, delivered in a platform that removed operational overhead and could scale with their applications. Over time, Atlas expanded beyond a managed database into a broader data platform, because builders kept asking for more flexibility, more simplicity, and more room to build. That matters even more in the AI era. AI applications create new demands, but the underlying requirement is familiar: builders need a platform that can support operational data, search, and retrieval while scaling through constant change—without forcing them to stitch together a mess of disconnected systems. We spent ten years becoming the flexible, durable data platform that builders trust. Those are the same qualities AI applications need most, and that’s why builders are now using Atlas to build trustworthy AI applications with highly accurate retrieval, real-time context, and the scale to run in production. Atlas 10 Year Anniversary Blog - Image 1 media Managed cloud databases become the default When Atlas launched in 2016, organizations were moving away from traditional data center build-outs and toward cloud-based delivery, a market Gartner forecasted would reach $204 billion (and is now approaching $1 trillion). Developers loved MongoDB as a flexible, intuitive foundation for building applications, but they also wanted to take advantage of the cloud. Atlas’s first promise was simple: bring MongoDB’s familiar developer experience to the cloud, with the reliability and confidence teams needed to run in production. Atlas 10 Year Anniversary Blog - Quote 1 aside To deliver that confidence to developer teams, we built Atlas with security, resilience, and performance at its core—from encryption and access controls to backups and high availability. The result was a service that teams could run in production with confidence, freeing developers to do their very best work without the headaches associated with database administration. By 2018, 81% of enterprises were operating in multi-cloud environments, and an IDG study found that more than half indicated they were thinking about cloud as a portfolio strategy. As customer architectures became more distributed, teams needed the flexibility to choose the cloud environment that fit their applications, teams, and compliance needs. To support them, we extended our original promise of simplicity into multi-cloud flexibility, with availability across all three major cloud providers. And in 2020, we introduced Atlas Multi-Cloud Clusters, making Atlas the first and only cloud database to let customers run applications simultaneously across AWS, Azure, and Google Cloud regions—a unique achievement that gave organizations that require ultra-high availability one consistent data foundation across all the major clouds. Today, customers can run across over 125 AWS, Google Cloud, and Microsoft Azure cloud regions, making Atlas the most widely available managed data platform in the world. Atlas 10 Year Anniversary Blog - Quote 2 aside Enterprises' scale, and consolidation becomes a customer priority As cloud adoption accelerated, customers wanted more than a hosted database. The cloud had become a long-term investment, and developers needed global reach, resilience, and a platform that could handle more workloads, securely, without requiring them to keep adding infrastructure around it. Because developers already trusted us on the fundamentals, Atlas could expand into the kinds of workloads enterprises could not afford to get wrong. For workloads like payments, inventory, and order processing, strong transactional consistency is a requirement. The addition of multi-document ACID transactions in 2018 brought that transactional consistency to MongoDB and marked an important step in MongoDB’s evolution, enabling MongoDB to serve the kinds of high-stakes transactional workloads that enterprises had historically reserved for relational databases. Now, customers could use MongoDB with greater confidence for a wider set of systems where accuracy, resilience, and trust could not be compromised. MongoDB extended its trustworthy database foundation with the launch of MongoDB Queryable Encryption, an industry-first encryption capability that allows customers to query encrypted data while keeping sensitive information protected when it is at rest, in transit, and in use—an important step for securing regulated and highly sensitive workloads. At the same time, Atlas continued to evolve to help customers operate at a larger scale. In 2020, we introduced Atlas Search and Online Archive, adding rich application search and giving customers a simpler, lower-cost way to store older data without losing easy access to it. In 2021, Native Time Series Collections and Live Resharding followed, helping customers manage time-stamped data more efficiently and scale architectures without downtime. These updates made Atlas easier for builders to work with as deployments became bigger, more distributed, and more complex, all while minimizing the number of disparate systems that development teams had to stitch together and maintain. Atlas 10 Year Anniversary Blog - Quote 3 aside Trustworthy AI becomes the new frontier Then, the launch of ChatGPT in late 2022—and with it the rise of generative AI—created a massive new challenge for builders. Enterprise adoption moved faster than standards and controls, leaving teams to figure out how to connect the necessary data components to run semantic search and retrieval-augmented generation (RAG) workloads together without creating a brittle mess of data pipelines, sync jobs, and specialized infrastructure that compromised security and performance. To help teams bring these critical AI building blocks together on one secure platform, Atlas evolved again. With the public release of Atlas Vector Search in 2023, MongoDB was one of the first databases to launch vector search as a native capability, which enabled developers to keep vectors close to operational data and run semantic retrieval directly in the database without having to manage a separate vector store. Search Nodes gave teams a way to scale search and vector workloads independently from the operational database, while Atlas Stream Processing gave builders a way to process real-time streaming data without adding separate infrastructure. The business demand for this architecture has been staggering: over 726,000 vector indexes and 55,000 vector applications have been created since we introduced Atlas Vector Search, and we’ve seen a 92% increase in customers showing production-level vector search usage over the past 12 months. And with the company’s acquisition of Voyage AI in 2025, MongoDB sharpened its focus on retrieval quality—bringing advanced embedding and reranking models into Atlas. The integration of Voyage AI was about rethinking the data architecture to help customers reduce hallucinations, improve relevance, and make AI useful in the real-world environments where accuracy and trust matter most. 10 Year Anniversary Blog - Quote 4 aside This immediately paid huge dividends for customers building highly accurate semantic search and RAG applications. But we knew that as the market moved towards autonomous AI, trustworthy retrieval and access to real-time context would matter even more. Agents and the future of the data layer Today, we’re firmly in AI’s agentic era. Builders want to deploy agents that can reason over business context with autonomy. But agent memory requires fast accuracy at scale so that the right information is recalled at precisely the right time. And this is where they run into a challenge. They're excited about agents, but they can't put an agent in front of their customers if the results are inconsistent, irrelevant, or flat-out wrong. That puts increasing focus on the data layer of the tech stack. Agents are only as good as the context they can retrieve, rank, and retain. If the underlying data is stale, incomplete, or poorly retrieved, the output will be wrong—regardless of how strong the model is. In practice, production agents depend less on model choice alone than on retrieval quality and the ability to ground responses in live operational data. With search, vector search, embeddings, and rerankers natively integrated into the Atlas platform, businesses are closing the gap between data and retrieval to produce fast, accurate results for agents at scale. And with foundational capabilities to ensure exceptional security, resilience, and performance, builders are freed up to do what they do best, instead of spending their days bogged down managing data infrastructure. Atlas 10 Year Anniversary Blog - Quote 5 aside Over the past decade, our goal has been to reduce operational burden for customers without compromising on the technical bar. As the industry moves toward agents, that aim still applies. We’re ten years in, and Atlas has grown into the data platform that runs intelligent, mission-critical applications for nearly 70,000 customers across every industry. The world runs on Atlas! Our customers pushed us to build everything that matters in the platform, so they could do more, faster. The same holds true today: the agentic AI era is raising the bar for innovation, and we're raising it with them. The ambition our customers bring to what they're building next is what drives us forward—and we're ready for it. Here's to the next 10 years.",
         "paragraphs": [
-          "If you&rsquo;ve been itching for a pair of top-tier noise-cancelling headphones but couldn&rsquo;t pull the trigger because of their price tags, now&rsquo;s a good time to make the dive. Right now, the Sony WH-1000XM5 is on sale for $198 at Amazon , which is 50% off its original price and the lowest it&rsquo;s ever been. These headphones regularly top &ldquo;best of&rdquo; lists, so that&rsquo;s a real deal.",
-          "The active noise cancellation is the best thing about these headphones, complete with eight microphones and two dedicated processors to hush the world around you as you listen to music, talk on video chat, or keep your mind engaged with audiobooks and podcasts. They&rsquo;re perfect for commutes and office environments thanks to the Auto NC Optimizer, which adjusts on the fly based on your surroundings.",
-          "But these also sound great, justifying their sky-high retail price. With Sony&rsquo;s Integrated Processor V1, they deliver lots of bass and clear acoustics, with ultra-clean sound for distinguishing voices.",
-          "And the battery life is impressive, with a single charge lasting somewhere around 30 hours of use. When it drains down, you can quickly charge back up&mdash;a short 3-minute top-up buys you an extra 3 hours of use.",
-          "Two notable downsides worth noting. First, these are neither portable nor sweat-resistant, so don&rsquo;t expect to wear these comfortably while running or doing anything active. Second, the cans don&rsquo;t fold flat for easy stowing, so don&rsquo;t get these if space is at a premium. In that case, you&rsquo;d be better off with pocket-sized ANC earbuds, like the Anker Soundcore P31i earbuds .",
-          "The Sony WH-1000XM5 headphones are truly premium and offer one of the best active noise cancellation experiences on the market. At $198, half off its original price, it&rsquo;s a no-brainer if you want a top-tier model."
+          "Today, we’re celebrating 10 years of MongoDB Atlas, the generational data platform for AI applications, and the customers who pushed us to build it.",
+          "Atlas was shaped in close conversation with those customers and scaled alongside them every step of the way. Today, more than 250,000 builders get started on Atlas every month. Atlas serves more than three trillion queries a day (a roughly threefold increase just since 2023!), and represents 75% of MongoDB’s revenue. Those numbers reflect something more important than growth: the trust builders and customers have placed in us to scale their businesses.",
+          "That trust was earned by listening closely. Every major capability and architectural investment in Atlas was rooted in what customers asked for: the flexibility and speed of MongoDB’s document model, delivered in a platform that removed operational overhead and could scale with their applications. Over time, Atlas expanded beyond a managed database into a broader data platform, because builders kept asking for more flexibility, more simplicity, and more room to build.",
+          "That matters even more in the AI era. AI applications create new demands, but the underlying requirement is familiar: builders need a platform that can support operational data, search, and retrieval while scaling through constant change—without forcing them to stitch together a mess of disconnected systems. We spent ten years becoming the flexible, durable data platform that builders trust. Those are the same qualities AI applications need most, and that’s why builders are now using Atlas to build trustworthy AI applications with highly accurate retrieval, real-time context, and the scale to run in production.",
+          "When Atlas launched in 2016, organizations were moving away from traditional data center build-outs and toward cloud-based delivery, a market Gartner forecasted would reach $204 billion (and is now approaching $1 trillion).",
+          "Developers loved MongoDB as a flexible, intuitive foundation for building applications, but they also wanted to take advantage of the cloud. Atlas’s first promise was simple: bring MongoDB’s familiar developer experience to the cloud, with the reliability and confidence teams needed to run in production."
         ],
         "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=6; words=603",
-        "link": "https://www.pcworld.com/article/3227566/sonys-best-noise-cancelling-headphones-are-50-percent-off-right-now.html"
+        "source_depth_reason": "depth=100; paragraphs=6; words=1944",
+        "link": "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next"
       },
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Verified",
       "title_vi": "",
-      "title_en": "Sony’s best noise-cancelling headphones are 50% off right now",
+      "title_en": "Kỷ niệm 10 năm MongoDB Atlas: Từ cơ sở dữ liệu đám mây đến nền tảng dữ liệu thế hệ mới cho AI",
       "dek_vi": "",
-      "dek_en": "If you’ve been itching for a pair of top-tier noise-cancelling headphones but couldn’t pull the trigger because of their price tags, now’s a good time to make the dive.",
+      "dek_en": "Hành trình một thập kỷ của Atlas đánh dấu sự chuyển mình từ việc đơn giản hóa hạ tầng đám mây sang việc giải quyết các thách thức phức tạp của kỷ nguyên AI và các tác nhân tự hành (AI agents).",
       "body_vi": "",
-      "body_en": "What happened\nRight now, the Sony WH-1000XM5 is on sale for $198 at Amazon , which is 50% off its original price and the lowest it’s ever been. These headphones regularly top “best of” lists, so that’s a real deal.\n\nWhere the sources line up\nThe active noise cancellation is the best thing about these headphones, complete with eight microphones and two dedicated processors to hush the world around you as you listen to music, talk on video chat, or keep your mind engaged with audiobooks and podcasts. They’re perfect for commutes and office environments thanks to the Auto NC Optimizer, which adjusts on the fly based on your surroundings.\n\nPractical impact for readers\nBut these also sound great, justifying their sky-high retail price. With Sony’s Integrated Processor V1, they deliver lots of bass and clear acoustics, with ultra-clean sound for distinguishing voices.\n\nWho should pay attention now\nAnd the battery life is impressive, with a single charge lasting somewhere around 30 hours of use. When it drains down, you can quickly charge back up—a short 3-minute top-up buys you an extra 3 hours of use.\n\nWhat is still unclear\nTwo notable downsides worth noting. First, these are neither portable nor sweat-resistant, so don’t expect to wear these comfortably while running or doing anything active. Second, the cans don’t fold flat for easy stowing, so don’t get these if space is at a premium. In that case, you’d be better off with pocket-sized ANC earbuds, like the Anker Soundcore P31i earbuds .",
-      "slug_vi": "sony-s-best-noise-cancelling-headphones-are-50-off-right-now",
-      "slug_en": "sony-s-best-noise-cancelling-headphones-are-50-off-right-now",
-      "category": "devices",
+      "body_en": "What happened\nNăm 2016, khi Atlas ra mắt, các tổ chức đang dần rời bỏ các trung tâm dữ liệu truyền thống để chuyển sang mô hình phân phối dựa trên đám mây. Tại thời điểm đó, Gartner dự báo thị trường này đạt 204 tỷ USD. Các nhà phát triển yêu thích sự linh hoạt của mô hình tài liệu (document model) của MongoDB nhưng cần một giải pháp loại bỏ gánh nặng quản trị vận hành, đảm bảo tính bảo mật và khả năng phục hồi để chạy các ứng dụng thực tế trên môi trường sản xuất.\n\nThay đổi kỹ thuật: Từ đa đám mây đến bảo mật chuyên sâu\nAtlas đã liên tục tiến hóa với các cột mốc kỹ thuật quan trọng: năm 2018 bổ sung giao dịch ACID đa tài liệu cho các tác vụ tài chính năm 2020 ra mắt Multi-Cloud Clusters cho phép chạy đồng thời trên AWS, Azure và Google Cloud. Đặc biệt, giải pháp Queryable Encryption cho phép truy vấn dữ liệu đã mã hóa ngay cả khi đang sử dụng. Nền tảng cũng tích hợp sẵn Atlas Search, Online Archive và Native Time Series để giảm thiểu việc phải kết nối nhiều hệ thống rời rạc.\n\nThe evidence so far\nHiện nay, hơn 250. 000 nhà xây dựng mới bắt đầu với Atlas mỗi tháng. Nền tảng phục vụ hơn 70. 000 khách hàng trên mọi ngành nghề với hơn 125 vùng đám mây toàn cầu. Số lượng truy vấn hàng ngày đã tăng gấp ba lần kể từ năm 2023, đạt mức 3 nghìn tỷ. Sự tin tưởng này cho phép doanh nghiệp triển khai các ứng dụng quan trọng như xử lý thanh toán, quản lý kho hàng và xử lý đơn hàng với độ tin cậy cao.\n\nGiới hạn và rủi ro: Thách thức trong kỷ nguyên AI\nSự bùng nổ của Generative AI tạo ra rủi ro về sự phức tạp của hạ tầng khi các đội ngũ phải kết nối thủ công các đường ống dữ liệu, công việc đồng bộ và kho lưu trữ vector riêng biệt, dẫn đến hệ thống dễ vỡ và kém bảo mật. Ngoài ra, trong kỷ nguyên của các tác nhân AI (agents), rủi ro lớn nhất là dữ liệu cũ hoặc truy xuất kém dẫn đến kết quả sai lệch (hallucinations), khiến doanh nghiệp không thể triển khai AI trực tiếp tới khách hàng.\n\nWhat is still unclear\nTương lai của Atlas tập trung vào việc tối ưu hóa chất lượng truy xuất cho AI thông qua việc tích hợp Vector Search và thâu tóm Voyage AI (2025) để đưa các mô hình embedding và reranking tiên tiến vào nền tảng. Với hơn 55. 000 ứng dụng vector đã được tạo, trọng tâm tiếp theo là giúp các AI agent có khả năng suy luận dựa trên ngữ cảnh kinh doanh thời gian thực, đảm bảo độ chính xác và tốc độ ở quy mô lớn.",
+      "slug_vi": "10-years-of-mongodb-atlas-built-for-what-s-next",
+      "slug_en": "10-years-of-mongodb-atlas-built-for-what-s-next",
+      "category": "software",
       "geo_scope": "global",
       "hot_score": 50,
       "source_urls": [
-        "https://www.pcworld.com/article/3227566/sonys-best-noise-cancelling-headphones-are-50-percent-off-right-now.html"
+        "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next"
       ],
-      "image_url": "https://www.pcworld.com/wp-content/uploads/2026/09/3227566-0-07552000-1788534688-Sony-WH-1000XM5-Noise-Cancelling-Wireless-Headphones.jpg?quality=50&strip=all&w=1024",
+      "image_url": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefdd3bca0e2b88a5/6a3c06f3e564c3bd63ea882e/3_2_(1).png",
       "readiness": {
         "ready": true,
         "missing": [],
@@ -423,14 +572,159 @@
           "sourceCleanliness": true
         }
       },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/sony-s-best-noise-cancelling-headphones-are-50-off-right-now",
+      "canonicalUrl": "https://patricktechmedia.com/en/news/10-years-of-mongodb-atlas-built-for-what-s-next",
       "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
+      "topic": "apps-software",
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T04:48:25.938Z",
+        "generated_at": "2026-09-06T08:50:10.809Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-3c544043caef-en",
+      "cluster_id": "feed-3c544043caef",
+      "language": "en",
+      "topic_label": "Security",
+      "topic_slug": "security",
+      "topic_accent": "#1de59c",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "firefox-security-response-to-pwn2own-2025",
+      "title": "Firefox Security Response to pwn2own 2025",
+      "hook": "This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices.",
+      "dek": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "Out of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138. 0. 4, Firefox ESR 128. 10. 1, Firefox ESR 115. 23. 1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture."
+        }
+      ],
+      "image": {
+        "src": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+        "alt": "",
+        "caption": "Reference image from Mozilla Security Blog.",
+        "credit": "Mozilla Security Blog",
+        "source_url": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Mozilla Security Blog",
+          "source_url": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2025-05-17T21:17:47.000Z",
+          "image_url": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+          "image_caption": "Reference image from Mozilla Security Blog.",
+          "image_credit": "Mozilla Security Blog"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2025-05-17T21:17:47.000Z",
+      "updated_at": "2025-05-17T21:17:47.000Z",
+      "href": "/en/news/firefox-security-response-to-pwn2own-2025",
+      "draft_context": {
+        "source_title": "Firefox Security Response to pwn2own 2025",
+        "source_name": "Mozilla Security Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "security",
+        "content_type_hint": "",
+        "description": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system. Out of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138.0.4, Firefox ESR 128.10.1, Firefox ESR 115.23.1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible. Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too. Background Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work. Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture. To review and fix the reported exploits a diverse team of people from all across the world and in various roles (engineering, QA, release management, security and many more) rushed to work. We tested and released a new version of Firefox for all of our supported platforms, operating systems, and configurations with rapid speed. Our work does not end here. We continue to use opportunities like this to improve our incident response. We will also continue to study the reports to identify new hardening features and security improvements to keep all of our Firefox users across the globe protected. Related Resources If you’re interested in learning more about Mozilla’s security initiatives or Firefox security, here are some resources to help you get started: Mozilla Security Mozilla Security Blog Bug Bounty Program Furthermore, if you want to kickstart your own security research in Firefox, we invite you to follow our deeply technical blog at Attack & Defense – Firefox Security Internals for Engineers, Researchers, and Bounty Hunters . Update – August 7th, 2025 We are pleased to share that Mozilla was awarded the Vanguard “Speedrunner” Award by the Zero Day Initiative (ZDI). This is in regonition to being consistently fast throghout the last 20 years of Zero Day Initiative’s pwn2own events. “Speedrunner” trophy, awarded to Mozilla Firefox for an outstanding security response during pwn2own. The post Firefox Security Response to pwn2own 2025 appeared first on Mozilla Security Blog .",
+        "paragraphs": [
+          "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system.",
+          "Out of abundance of caution, we just released new Firefox versions in response to these attacks &#8211; all within the same day of the second exploit announcement. The updated versions are Firefox 138.0.4, Firefox ESR 128.10.1, Firefox ESR 115.23.1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible.",
+          "Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too.",
+          "Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work.",
+          "Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox&#8217;s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture.",
+          "To review and fix the reported exploits a diverse team of people from all across the world and in various roles (engineering, QA, release management, security and many more) rushed to work. We tested and released a new version of Firefox for all of our supported platforms, operating systems, and configurations with rapid speed."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=1109",
+        "link": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+      },
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Verified",
+      "title_vi": "",
+      "title_en": "Firefox Security Response to pwn2own 2025",
+      "dek_vi": "",
+      "dek_en": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "body_vi": "",
+      "body_en": "What happened\nThese practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system.\n\nWhere the sources line up\nOut of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138. 0. 4, Firefox ESR 128. 10. 1, Firefox ESR 115. 23. 1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible.\n\nPractical impact for readers\nJust last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too.\n\nWho should pay attention now\nPwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work.\n\nWhat is still unclear\nTypically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture.",
+      "slug_vi": "firefox-security-response-to-pwn2own-2025",
+      "slug_en": "firefox-security-response-to-pwn2own-2025",
+      "category": "security",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+      ],
+      "image_url": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/firefox-security-response-to-pwn2own-2025",
+      "storeUrl": "https://patricktechmedia.store",
+      "topic": "security",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-06T08:50:10.809Z",
         "origin": "local-curated-rss"
       }
     }

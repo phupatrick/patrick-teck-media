@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T04:48:26.005Z",
+  "generated_at": "2026-09-06T08:50:10.864Z",
   "articles": [
     {
       "id": "editorial-google-ai-plan-watch-en",
@@ -162,8 +162,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-06T04:23:41.663Z",
-      "updated_at": "2026-09-06T04:48:26.005Z",
+      "published_at": "2026-09-06T04:48:26.005Z",
+      "updated_at": "2026-09-06T08:50:10.864Z",
       "href": "/en/compare/what-google-just-changed-in-ai-plans",
       "readiness": {
         "ready": true,
@@ -388,8 +388,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-06T04:23:41.663Z",
-      "updated_at": "2026-09-06T04:48:26.005Z",
+      "published_at": "2026-09-06T04:48:26.005Z",
+      "updated_at": "2026-09-06T08:50:10.864Z",
       "href": "/en/guides/the-practical-tech-tips-worth-saving-right-now",
       "readiness": {
         "ready": true,
@@ -615,8 +615,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-06T04:23:41.663Z",
-      "updated_at": "2026-09-06T04:48:26.005Z",
+      "published_at": "2026-09-06T04:48:26.005Z",
+      "updated_at": "2026-09-06T08:50:10.864Z",
       "href": "/en/compare/which-ai-plan-feels-more-useful-right-now",
       "readiness": {
         "ready": true,
@@ -843,8 +843,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-06T04:23:41.663Z",
-      "updated_at": "2026-09-06T04:48:26.005Z",
+      "published_at": "2026-09-06T04:48:26.005Z",
+      "updated_at": "2026-09-06T08:50:10.864Z",
       "href": "/en/guides/how-to-use-ai-plans-without-duplicate-app-spend",
       "readiness": {
         "ready": true,
@@ -2405,7 +2405,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T04:48:25.937Z",
+        "generated_at": "2026-09-06T08:50:10.809Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -2650,6 +2650,130 @@
       "hidden_feed": {
         "manager": "openclaw",
         "generated_at": "2026-09-05T05:32:06.017Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "devices"
+    },
+    {
+      "id": "feed-3a77c10eb01b-en",
+      "cluster_id": "feed-3a77c10eb01b",
+      "language": "en",
+      "topic_label": "Devices",
+      "topic_slug": "devices",
+      "topic_accent": "#4e7dff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "title": "AMD Threadripper Halo: Trạm làm việc AI cục bộ cho các nhà nghiên cứu 'túi tiền sâu'",
+      "hook": "Bạn có sẵn sàng chi tới 150.000 USD để sở hữu một 'siêu máy tính' thu nhỏ có khả năng xử lý các mô hình AI phức tạp nhất thế giới mà không cần đến đám mây?",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Tại IFA 2026, AMD đã công bố Threadripper Halo, một hệ thống máy trạm làm mát bằng chất lỏng mạnh mẽ, tích hợp bộ tăng tốc Instinct MI350P nhằm cạnh tranh trực tiếp với DGX Station của Nvidia trong lĩnh vực nghiên cứu AI tại chỗ.",
+      "dek": "Với bộ nhớ HBM3e lên tới 576 GB và băng thông 16 TB/s, cỗ máy này hứa hẹn khả năng chạy các mô hình ngôn ngữ lớn vượt mức nghìn tỷ tham số ngay trên bàn làm việc.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Trong bối cảnh các nhà nghiên cứu học máy ngày càng có nhu cầu xử lý AI cục bộ để đảm bảo quyền riêng tư và hiệu suất, AMD đã tận dụng các linh kiện cao cấp sẵn có để tạo ra đối thủ cho DGX Station của Nvidia. Được công bố tại IFA 2026, Threadripper Halo đánh dấu lần đầu tiên dòng tăng tốc Instinct của AMD được đưa vào định dạng máy trạm (workstation). Hệ thống này nhắm đến phân khúc nghiên cứu cao cấp, nơi người dùng cần sức mạnh tính toán khổng lồ ngay tại văn phòng thay vì phụ thuộc hoàn toàn vào các trung tâm dữ liệu tập trung."
+        },
+        {
+          "heading": "Thay đổi kỹ thuật: Sự kết hợp giữa Threadripper PRO và Instinct MI350P",
+          "body": "Trái tim của hệ thống là vi xử lý Threadripper PRO 9995WX 96 lõi (ra mắt năm 2025), hỗ trợ tới 2 TB bộ nhớ DDR5. Điểm nhấn thực sự nằm ở khả năng trang bị tối đa 4 GPU Instinct MI350P dựa trên chuẩn PCIe. Mỗi card MI350P cung cấp 144 GB bộ nhớ HBM3e với băng thông 4 TB/s và hiệu suất tính toán FP4 đạt 4,6 petaFLOPS. Khi kết hợp tối đa, hệ thống đạt tới 576 GB HBM3e và băng thông bộ nhớ 16 TB/s, cho phép vận hành các mô hình trên 1. 000 tỷ tham số hoàn toàn trên bộ nhớ GPU ở độ chính xác 4-bit."
+        },
+        {
+          "heading": "The evidence so far",
+          "body": "Với cấu hình này, Threadripper Halo có thể chạy các mô hình trọng số mở lớn nhất hiện nay, ví dụ như Kimi K3 của Moonshot. AI với 2,8 nghìn tỷ tham số, bằng cách đẩy một phần dữ liệu sang bộ nhớ hệ thống. AMD khẳng định hệ thống của họ cung cấp tổng bộ nhớ gấp 3,4 lần và băng thông bộ nhớ gấp đôi so với DGX Station của Nvidia (vốn dùng GPU B300 252 GB và CPU Grace 72 lõi). Điều này mang lại lợi thế đáng kể trong việc suy luận mô hình ngôn ngữ lớn (LLM), giúp giảm thiểu độ trễ và tăng tốc độ xử lý cho các dự án nghiên cứu phức tạp."
+        },
+        {
+          "heading": "Giới hạn và rủi ro: Thách thức về năng lượng và chi phí",
+          "body": "Sức mạnh cực đại đi kèm với những rào cản lớn về hạ tầng. Một hệ thống chạy 4 card MI350P có thể vượt quá giới hạn của ổ cắm điện tiêu chuẩn tại Bắc Mỹ trừ khi AMD hạ xung nhịp các card từ 600W xuống 300W hoặc yêu cầu mạch điện 20 amp chuyên dụng. Đây có thể là lý do các bản mẫu tại IFA chỉ lắp đặt 2 GPU. Ngoài ra, mức giá dự kiến từ 100. 000 đến 150. 000 USD là một khoản đầu tư khổng lồ, chưa kể đến rủi ro nghẽn cổ chai tại bus PCIe của CPU khi thực hiện các tác vụ song song tensor (tensor parallel operations)."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "AMD dự kiến sẽ chính thức mở bán Threadripper Halo vào năm sau (2027). Giới công nghệ sẽ cần theo dõi liệu AMD có thực hiện các điều chỉnh về điện năng để phù hợp với môi trường văn phòng hay không, cũng như mức giá chính thức khi đối đầu với sự khan hiếm hàng của Nvidia DGX Station. Hiệu suất thực tế của việc kết hợp giữa bộ nhớ hệ thống và bộ nhớ GPU để chạy các mô hình siêu lớn như Kimi K3 cũng sẽ là điểm mấu chốt quyết định sự thành công của dòng máy trạm 'Halo' này."
+        }
+      ],
+      "image": {
+        "src": "https://image.theregister.com/5294624.jpg?imageId=5294624&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+        "alt": "",
+        "caption": "Reference image from The Register.",
+        "credit": "The Register",
+        "source_url": "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "The Register",
+          "source_url": "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-04T20:12:11.000Z",
+          "image_url": "https://image.theregister.com/5294624.jpg?imageId=5294624&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+          "image_caption": "Reference image from The Register.",
+          "image_credit": "The Register"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-04T20:12:11.000Z",
+      "updated_at": "2026-09-04T20:12:11.000Z",
+      "href": "/en/news/amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Emerging",
+      "title_vi": "",
+      "title_en": "AMD Threadripper Halo: Trạm làm việc AI cục bộ cho các nhà nghiên cứu 'túi tiền sâu'",
+      "dek_vi": "",
+      "dek_en": "Với bộ nhớ HBM3e lên tới 576 GB và băng thông 16 TB/s, cỗ máy này hứa hẹn khả năng chạy các mô hình ngôn ngữ lớn vượt mức nghìn tỷ tham số ngay trên bàn làm việc.",
+      "body_vi": "",
+      "body_en": "What happened\nTrong bối cảnh các nhà nghiên cứu học máy ngày càng có nhu cầu xử lý AI cục bộ để đảm bảo quyền riêng tư và hiệu suất, AMD đã tận dụng các linh kiện cao cấp sẵn có để tạo ra đối thủ cho DGX Station của Nvidia. Được công bố tại IFA 2026, Threadripper Halo đánh dấu lần đầu tiên dòng tăng tốc Instinct của AMD được đưa vào định dạng máy trạm (workstation). Hệ thống này nhắm đến phân khúc nghiên cứu cao cấp, nơi người dùng cần sức mạnh tính toán khổng lồ ngay tại văn phòng thay vì phụ thuộc hoàn toàn vào các trung tâm dữ liệu tập trung.\n\nThay đổi kỹ thuật: Sự kết hợp giữa Threadripper PRO và Instinct MI350P\nTrái tim của hệ thống là vi xử lý Threadripper PRO 9995WX 96 lõi (ra mắt năm 2025), hỗ trợ tới 2 TB bộ nhớ DDR5. Điểm nhấn thực sự nằm ở khả năng trang bị tối đa 4 GPU Instinct MI350P dựa trên chuẩn PCIe. Mỗi card MI350P cung cấp 144 GB bộ nhớ HBM3e với băng thông 4 TB/s và hiệu suất tính toán FP4 đạt 4,6 petaFLOPS. Khi kết hợp tối đa, hệ thống đạt tới 576 GB HBM3e và băng thông bộ nhớ 16 TB/s, cho phép vận hành các mô hình trên 1. 000 tỷ tham số hoàn toàn trên bộ nhớ GPU ở độ chính xác 4-bit.\n\nThe evidence so far\nVới cấu hình này, Threadripper Halo có thể chạy các mô hình trọng số mở lớn nhất hiện nay, ví dụ như Kimi K3 của Moonshot. AI với 2,8 nghìn tỷ tham số, bằng cách đẩy một phần dữ liệu sang bộ nhớ hệ thống. AMD khẳng định hệ thống của họ cung cấp tổng bộ nhớ gấp 3,4 lần và băng thông bộ nhớ gấp đôi so với DGX Station của Nvidia (vốn dùng GPU B300 252 GB và CPU Grace 72 lõi). Điều này mang lại lợi thế đáng kể trong việc suy luận mô hình ngôn ngữ lớn (LLM), giúp giảm thiểu độ trễ và tăng tốc độ xử lý cho các dự án nghiên cứu phức tạp.\n\nGiới hạn và rủi ro: Thách thức về năng lượng và chi phí\nSức mạnh cực đại đi kèm với những rào cản lớn về hạ tầng. Một hệ thống chạy 4 card MI350P có thể vượt quá giới hạn của ổ cắm điện tiêu chuẩn tại Bắc Mỹ trừ khi AMD hạ xung nhịp các card từ 600W xuống 300W hoặc yêu cầu mạch điện 20 amp chuyên dụng. Đây có thể là lý do các bản mẫu tại IFA chỉ lắp đặt 2 GPU. Ngoài ra, mức giá dự kiến từ 100. 000 đến 150. 000 USD là một khoản đầu tư khổng lồ, chưa kể đến rủi ro nghẽn cổ chai tại bus PCIe của CPU khi thực hiện các tác vụ song song tensor (tensor parallel operations).\n\nWhat is still unclear\nAMD dự kiến sẽ chính thức mở bán Threadripper Halo vào năm sau (2027). Giới công nghệ sẽ cần theo dõi liệu AMD có thực hiện các điều chỉnh về điện năng để phù hợp với môi trường văn phòng hay không, cũng như mức giá chính thức khi đối đầu với sự khan hiếm hàng của Nvidia DGX Station. Hiệu suất thực tế của việc kết hợp giữa bộ nhớ hệ thống và bộ nhớ GPU để chạy các mô hình siêu lớn như Kimi K3 cũng sẽ là điểm mấu chốt quyết định sự thành công của dòng máy trạm 'Halo' này.",
+      "slug_vi": "amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "slug_en": "amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "category": "devices",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616"
+      ],
+      "image_url": "https://image.theregister.com/5294624.jpg?imageId=5294624&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
+      "storeUrl": "https://patricktechmedia.store",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-06T08:50:10.809Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -3263,7 +3387,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-06T04:48:25.938Z",
+        "generated_at": "2026-09-06T08:50:10.809Z",
         "origin": "local-curated-rss"
       },
       "topic": "security"
@@ -32765,6 +32889,258 @@
         "http://workspaceupdates.googleblog.com/2026/07/convert-your-google-slides-to-videos-in-7-additional-languages.html"
       ],
       "image_url": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png"
+    },
+    {
+      "id": "feed-9487ea4e5eba-en",
+      "cluster_id": "feed-9487ea4e5eba",
+      "language": "en",
+      "topic_label": "Apps & Software",
+      "topic_slug": "apps-software",
+      "topic_accent": "#17c9ff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "10-years-of-mongodb-atlas-built-for-what-s-next",
+      "title": "Kỷ niệm 10 năm MongoDB Atlas: Từ cơ sở dữ liệu đám mây đến nền tảng dữ liệu thế hệ mới cho AI",
+      "hook": "Bạn có biết rằng 75% doanh thu của MongoDB hiện đến từ Atlas, một sản phẩm từng chỉ bắt đầu như một lời giải cho bài toán đưa trải nghiệm nhà phát triển lên đám mây cách đây 10 năm?",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Ra mắt từ năm 2016, MongoDB Atlas đã phát triển từ một dịch vụ cơ sở dữ liệu được quản lý thành một nền tảng dữ liệu toàn diện, hiện xử lý hơn 3 nghìn tỷ truy vấn mỗi ngày và đóng góp 75% doanh thu cho MongoDB.",
+      "dek": "Hành trình một thập kỷ của Atlas đánh dấu sự chuyển mình từ việc đơn giản hóa hạ tầng đám mây sang việc giải quyết các thách thức phức tạp của kỷ nguyên AI và các tác nhân tự hành (AI agents).",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Năm 2016, khi Atlas ra mắt, các tổ chức đang dần rời bỏ các trung tâm dữ liệu truyền thống để chuyển sang mô hình phân phối dựa trên đám mây. Tại thời điểm đó, Gartner dự báo thị trường này đạt 204 tỷ USD. Các nhà phát triển yêu thích sự linh hoạt của mô hình tài liệu (document model) của MongoDB nhưng cần một giải pháp loại bỏ gánh nặng quản trị vận hành, đảm bảo tính bảo mật và khả năng phục hồi để chạy các ứng dụng thực tế trên môi trường sản xuất."
+        },
+        {
+          "heading": "Thay đổi kỹ thuật: Từ đa đám mây đến bảo mật chuyên sâu",
+          "body": "Atlas đã liên tục tiến hóa với các cột mốc kỹ thuật quan trọng: năm 2018 bổ sung giao dịch ACID đa tài liệu cho các tác vụ tài chính năm 2020 ra mắt Multi-Cloud Clusters cho phép chạy đồng thời trên AWS, Azure và Google Cloud. Đặc biệt, giải pháp Queryable Encryption cho phép truy vấn dữ liệu đã mã hóa ngay cả khi đang sử dụng. Nền tảng cũng tích hợp sẵn Atlas Search, Online Archive và Native Time Series để giảm thiểu việc phải kết nối nhiều hệ thống rời rạc."
+        },
+        {
+          "heading": "The evidence so far",
+          "body": "Hiện nay, hơn 250. 000 nhà xây dựng mới bắt đầu với Atlas mỗi tháng. Nền tảng phục vụ hơn 70. 000 khách hàng trên mọi ngành nghề với hơn 125 vùng đám mây toàn cầu. Số lượng truy vấn hàng ngày đã tăng gấp ba lần kể từ năm 2023, đạt mức 3 nghìn tỷ. Sự tin tưởng này cho phép doanh nghiệp triển khai các ứng dụng quan trọng như xử lý thanh toán, quản lý kho hàng và xử lý đơn hàng với độ tin cậy cao."
+        },
+        {
+          "heading": "Giới hạn và rủi ro: Thách thức trong kỷ nguyên AI",
+          "body": "Sự bùng nổ của Generative AI tạo ra rủi ro về sự phức tạp của hạ tầng khi các đội ngũ phải kết nối thủ công các đường ống dữ liệu, công việc đồng bộ và kho lưu trữ vector riêng biệt, dẫn đến hệ thống dễ vỡ và kém bảo mật. Ngoài ra, trong kỷ nguyên của các tác nhân AI (agents), rủi ro lớn nhất là dữ liệu cũ hoặc truy xuất kém dẫn đến kết quả sai lệch (hallucinations), khiến doanh nghiệp không thể triển khai AI trực tiếp tới khách hàng."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Tương lai của Atlas tập trung vào việc tối ưu hóa chất lượng truy xuất cho AI thông qua việc tích hợp Vector Search và thâu tóm Voyage AI (2025) để đưa các mô hình embedding và reranking tiên tiến vào nền tảng. Với hơn 55. 000 ứng dụng vector đã được tạo, trọng tâm tiếp theo là giúp các AI agent có khả năng suy luận dựa trên ngữ cảnh kinh doanh thời gian thực, đảm bảo độ chính xác và tốc độ ở quy mô lớn."
+        }
+      ],
+      "image": {
+        "src": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefdd3bca0e2b88a5/6a3c06f3e564c3bd63ea882e/3_2_(1).png",
+        "alt": "",
+        "caption": "Reference image from MongoDB Blog.",
+        "credit": "MongoDB Blog",
+        "source_url": "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "MongoDB Blog",
+          "source_url": "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-06-25T17:28:40.000Z",
+          "image_url": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefdd3bca0e2b88a5/6a3c06f3e564c3bd63ea882e/3_2_(1).png",
+          "image_caption": "Reference image from MongoDB Blog.",
+          "image_credit": "MongoDB Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-06-25T17:28:40.000Z",
+      "updated_at": "2026-06-25T17:28:40.000Z",
+      "href": "/en/news/10-years-of-mongodb-atlas-built-for-what-s-next",
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Verified",
+      "title_vi": "",
+      "title_en": "Kỷ niệm 10 năm MongoDB Atlas: Từ cơ sở dữ liệu đám mây đến nền tảng dữ liệu thế hệ mới cho AI",
+      "dek_vi": "",
+      "dek_en": "Hành trình một thập kỷ của Atlas đánh dấu sự chuyển mình từ việc đơn giản hóa hạ tầng đám mây sang việc giải quyết các thách thức phức tạp của kỷ nguyên AI và các tác nhân tự hành (AI agents).",
+      "body_vi": "",
+      "body_en": "What happened\nNăm 2016, khi Atlas ra mắt, các tổ chức đang dần rời bỏ các trung tâm dữ liệu truyền thống để chuyển sang mô hình phân phối dựa trên đám mây. Tại thời điểm đó, Gartner dự báo thị trường này đạt 204 tỷ USD. Các nhà phát triển yêu thích sự linh hoạt của mô hình tài liệu (document model) của MongoDB nhưng cần một giải pháp loại bỏ gánh nặng quản trị vận hành, đảm bảo tính bảo mật và khả năng phục hồi để chạy các ứng dụng thực tế trên môi trường sản xuất.\n\nThay đổi kỹ thuật: Từ đa đám mây đến bảo mật chuyên sâu\nAtlas đã liên tục tiến hóa với các cột mốc kỹ thuật quan trọng: năm 2018 bổ sung giao dịch ACID đa tài liệu cho các tác vụ tài chính năm 2020 ra mắt Multi-Cloud Clusters cho phép chạy đồng thời trên AWS, Azure và Google Cloud. Đặc biệt, giải pháp Queryable Encryption cho phép truy vấn dữ liệu đã mã hóa ngay cả khi đang sử dụng. Nền tảng cũng tích hợp sẵn Atlas Search, Online Archive và Native Time Series để giảm thiểu việc phải kết nối nhiều hệ thống rời rạc.\n\nThe evidence so far\nHiện nay, hơn 250. 000 nhà xây dựng mới bắt đầu với Atlas mỗi tháng. Nền tảng phục vụ hơn 70. 000 khách hàng trên mọi ngành nghề với hơn 125 vùng đám mây toàn cầu. Số lượng truy vấn hàng ngày đã tăng gấp ba lần kể từ năm 2023, đạt mức 3 nghìn tỷ. Sự tin tưởng này cho phép doanh nghiệp triển khai các ứng dụng quan trọng như xử lý thanh toán, quản lý kho hàng và xử lý đơn hàng với độ tin cậy cao.\n\nGiới hạn và rủi ro: Thách thức trong kỷ nguyên AI\nSự bùng nổ của Generative AI tạo ra rủi ro về sự phức tạp của hạ tầng khi các đội ngũ phải kết nối thủ công các đường ống dữ liệu, công việc đồng bộ và kho lưu trữ vector riêng biệt, dẫn đến hệ thống dễ vỡ và kém bảo mật. Ngoài ra, trong kỷ nguyên của các tác nhân AI (agents), rủi ro lớn nhất là dữ liệu cũ hoặc truy xuất kém dẫn đến kết quả sai lệch (hallucinations), khiến doanh nghiệp không thể triển khai AI trực tiếp tới khách hàng.\n\nWhat is still unclear\nTương lai của Atlas tập trung vào việc tối ưu hóa chất lượng truy xuất cho AI thông qua việc tích hợp Vector Search và thâu tóm Voyage AI (2025) để đưa các mô hình embedding và reranking tiên tiến vào nền tảng. Với hơn 55. 000 ứng dụng vector đã được tạo, trọng tâm tiếp theo là giúp các AI agent có khả năng suy luận dựa trên ngữ cảnh kinh doanh thời gian thực, đảm bảo độ chính xác và tốc độ ở quy mô lớn.",
+      "slug_vi": "10-years-of-mongodb-atlas-built-for-what-s-next",
+      "slug_en": "10-years-of-mongodb-atlas-built-for-what-s-next",
+      "category": "software",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next"
+      ],
+      "image_url": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefdd3bca0e2b88a5/6a3c06f3e564c3bd63ea882e/3_2_(1).png",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/10-years-of-mongodb-atlas-built-for-what-s-next",
+      "storeUrl": "https://patricktechmedia.store",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-06T08:50:10.809Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "apps-software"
+    },
+    {
+      "id": "feed-3c544043caef-en",
+      "cluster_id": "feed-3c544043caef",
+      "language": "en",
+      "topic_label": "Security",
+      "topic_slug": "security",
+      "topic_accent": "#1de59c",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "firefox-security-response-to-pwn2own-2025",
+      "title": "Firefox Security Response to pwn2own 2025",
+      "hook": "This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices.",
+      "dek": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "Out of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138. 0. 4, Firefox ESR 128. 10. 1, Firefox ESR 115. 23. 1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture."
+        }
+      ],
+      "image": {
+        "src": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+        "alt": "",
+        "caption": "Reference image from Mozilla Security Blog.",
+        "credit": "Mozilla Security Blog",
+        "source_url": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Mozilla Security Blog",
+          "source_url": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2025-05-17T21:17:47.000Z",
+          "image_url": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+          "image_caption": "Reference image from Mozilla Security Blog.",
+          "image_credit": "Mozilla Security Blog"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2025-05-17T21:17:47.000Z",
+      "updated_at": "2025-05-17T21:17:47.000Z",
+      "href": "/en/news/firefox-security-response-to-pwn2own-2025",
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Verified",
+      "title_vi": "",
+      "title_en": "Firefox Security Response to pwn2own 2025",
+      "dek_vi": "",
+      "dek_en": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "body_vi": "",
+      "body_en": "What happened\nThese practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system.\n\nWhere the sources line up\nOut of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138. 0. 4, Firefox ESR 128. 10. 1, Firefox ESR 115. 23. 1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible.\n\nPractical impact for readers\nJust last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too.\n\nWho should pay attention now\nPwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work.\n\nWhat is still unclear\nTypically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture.",
+      "slug_vi": "firefox-security-response-to-pwn2own-2025",
+      "slug_en": "firefox-security-response-to-pwn2own-2025",
+      "category": "security",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+      ],
+      "image_url": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/firefox-security-response-to-pwn2own-2025",
+      "storeUrl": "https://patricktechmedia.store",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-06T08:50:10.809Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "security"
     },
     {
       "id": "feed-678e6ed749d0-vi",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T04:48:26.005Z",
+  "generated_at": "2026-09-06T08:50:10.864Z",
   "items": [
     {
       "article": {
@@ -88,7 +88,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -179,101 +179,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-9487ea4e5eba-en",
-        "cluster_id": "feed-9487ea4e5eba",
-        "language": "en",
-        "topic": "apps-software",
-        "content_type": "NewsArticle",
-        "slug": "10-years-of-mongodb-atlas-built-for-what-s-next",
-        "title": "10 Years of MongoDB Atlas: Built for What’s Next",
-        "summary": "Today, we’re celebrating 10 years of MongoDB Atlas, the generational data platform for AI applications, and the customers who pushed us to build it. Atlas was shaped in close conversation with those customers and scaled alongside them every step of the way.",
-        "dek": "Today, we’re celebrating 10 years of MongoDB Atlas, the generational data platform for AI applications, and the customers who pushed us to build it.",
-        "hook": "Today, we’re celebrating 10 years of MongoDB Atlas, the generational data platform for AI applications, and the customers who pushed us to build it.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "Today, we’re celebrating 10 years of MongoDB Atlas, the generational data platform for AI applications, and the customers who pushed us to build it."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "Atlas was shaped in close conversation with those customers and scaled alongside them every step of the way. Today, more than 250,000 builders get started on Atlas every month. Atlas serves more than three trillion queries a day (a roughly threefold increase just since 2023!), and represents 75% of MongoDB’s revenue. Those numbers reflect something more important than growth: the trust builders and customers have placed in us to scale their businesses."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "That trust was earned by listening closely. Every major capability and architectural investment in Atlas was rooted in what customers asked for: the flexibility and speed of MongoDB’s document model, delivered in a platform that removed operational overhead and could scale with their applications. Over time, Atlas expanded beyond a managed database into a broader data platform, because builders kept asking for more flexibility, more simplicity, and more room to build."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "That matters even more in the AI era. AI applications create new demands, but the underlying requirement is familiar: builders need a platform that can support operational data, search, and retrieval while scaling through constant change—without forcing them to stitch together a mess of disconnected systems. We spent ten years becoming the flexible, durable data platform that builders trust. Those are the same qualities AI applications need most, and that’s why builders are now using Atlas to build trustworthy AI applications with highly accurate retrieval, real-time context, and the scale to run in production."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "When Atlas launched in 2016, organizations were moving away from traditional data center build-outs and toward cloud-based delivery, a market Gartner forecasted would reach $204 billion (and is now approaching $1 trillion)."
-          }
-        ],
-        "verification_state": "verified",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": true,
-        "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "creator-software-stack"
-        ],
-        "source_set": [
-          {
-            "source_type": "official-site",
-            "source_name": "MongoDB Blog",
-            "source_url": "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "official",
-            "published_at": "2026-06-25T17:28:40.000Z",
-            "image_url": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefdd3bca0e2b88a5/6a3c06f3e564c3bd63ea882e/3_2_(1).png",
-            "image_caption": "Reference image from MongoDB Blog.",
-            "image_credit": "MongoDB Blog"
-          }
-        ],
-        "author_id": "mai-linh",
-        "published_at": "2026-06-25T17:28:40.000Z",
-        "updated_at": "2026-06-25T17:28:40.000Z",
-        "image": {
-          "src": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefdd3bca0e2b88a5/6a3c06f3e564c3bd63ea882e/3_2_(1).png",
-          "caption": "Reference image from MongoDB Blog.",
-          "credit": "MongoDB Blog",
-          "source_url": "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next"
-        },
-        "draft_context": {
-          "source_title": "10 Years of MongoDB Atlas: Built for What’s Next",
-          "source_name": "MongoDB Blog",
-          "source_type": "official-site",
-          "trust_tier": "official",
-          "topic_hint": "cloud-enterprise",
-          "content_type_hint": "",
-          "description": "Nearly a decade ago, I joined MongoDB as a Senior Product Manager to help build the company’s new cloud product, MongoDB Atlas. Our customers had been telling us they wanted to bring MongoDB’s familiar developer experience to the cloud, with the reliability and confidence teams needed to run in production. Atlas was our answer. Today, we’re celebrating 10 years of MongoDB Atlas, the generational data platform for AI applications, and the customers who pushed us to build it. Atlas was shaped in close conversation with those customers and scaled alongside them every step of the way. Today, more than 250,000 builders get started on Atlas every month. Atlas serves more than three trillion queries a day (a roughly threefold increase just since 2023!), and represents 75% of MongoDB’s revenue. Those numbers reflect something more important than growth: the trust builders and customers have placed in us to scale their businesses. That trust was earned by listening closely. Every major capability and architectural investment in Atlas was rooted in what customers asked for: the flexibility and speed of MongoDB’s document model, delivered in a platform that removed operational overhead and could scale with their applications. Over time, Atlas expanded beyond a managed database into a broader data platform, because builders kept asking for more flexibility, more simplicity, and more room to build. That matters even more in the AI era. AI applications create new demands, but the underlying requirement is familiar: builders need a platform that can support operational data, search, and retrieval while scaling through constant change—without forcing them to stitch together a mess of disconnected systems. We spent ten years becoming the flexible, durable data platform that builders trust. Those are the same qualities AI applications need most, and that’s why builders are now using Atlas to build trustworthy AI applications with highly accurate retrieval, real-time context, and the scale to run in production. Atlas 10 Year Anniversary Blog - Image 1 media Managed cloud databases become the default When Atlas launched in 2016, organizations were moving away from traditional data center build-outs and toward cloud-based delivery, a market Gartner forecasted would reach $204 billion (and is now approaching $1 trillion). Developers loved MongoDB as a flexible, intuitive foundation for building applications, but they also wanted to take advantage of the cloud. Atlas’s first promise was simple: bring MongoDB’s familiar developer experience to the cloud, with the reliability and confidence teams needed to run in production. Atlas 10 Year Anniversary Blog - Quote 1 aside To deliver that confidence to developer teams, we built Atlas with security, resilience, and performance at its core—from encryption and access controls to backups and high availability. The result was a service that teams could run in production with confidence, freeing developers to do their very best work without the headaches associated with database administration. By 2018, 81% of enterprises were operating in multi-cloud environments, and an IDG study found that more than half indicated they were thinking about cloud as a portfolio strategy. As customer architectures became more distributed, teams needed the flexibility to choose the cloud environment that fit their applications, teams, and compliance needs. To support them, we extended our original promise of simplicity into multi-cloud flexibility, with availability across all three major cloud providers. And in 2020, we introduced Atlas Multi-Cloud Clusters, making Atlas the first and only cloud database to let customers run applications simultaneously across AWS, Azure, and Google Cloud regions—a unique achievement that gave organizations that require ultra-high availability one consistent data foundation across all the major clouds. Today, customers can run across over 125 AWS, Google Cloud, and Microsoft Azure cloud regions, making Atlas the most widely available managed data platform in the world. Atlas 10 Year Anniversary Blog - Quote 2 aside Enterprises' scale, and consolidation becomes a customer priority As cloud adoption accelerated, customers wanted more than a hosted database. The cloud had become a long-term investment, and developers needed global reach, resilience, and a platform that could handle more workloads, securely, without requiring them to keep adding infrastructure around it. Because developers already trusted us on the fundamentals, Atlas could expand into the kinds of workloads enterprises could not afford to get wrong. For workloads like payments, inventory, and order processing, strong transactional consistency is a requirement. The addition of multi-document ACID transactions in 2018 brought that transactional consistency to MongoDB and marked an important step in MongoDB’s evolution, enabling MongoDB to serve the kinds of high-stakes transactional workloads that enterprises had historically reserved for relational databases. Now, customers could use MongoDB with greater confidence for a wider set of systems where accuracy, resilience, and trust could not be compromised. MongoDB extended its trustworthy database foundation with the launch of MongoDB Queryable Encryption, an industry-first encryption capability that allows customers to query encrypted data while keeping sensitive information protected when it is at rest, in transit, and in use—an important step for securing regulated and highly sensitive workloads. At the same time, Atlas continued to evolve to help customers operate at a larger scale. In 2020, we introduced Atlas Search and Online Archive, adding rich application search and giving customers a simpler, lower-cost way to store older data without losing easy access to it. In 2021, Native Time Series Collections and Live Resharding followed, helping customers manage time-stamped data more efficiently and scale architectures without downtime. These updates made Atlas easier for builders to work with as deployments became bigger, more distributed, and more complex, all while minimizing the number of disparate systems that development teams had to stitch together and maintain. Atlas 10 Year Anniversary Blog - Quote 3 aside Trustworthy AI becomes the new frontier Then, the launch of ChatGPT in late 2022—and with it the rise of generative AI—created a massive new challenge for builders. Enterprise adoption moved faster than standards and controls, leaving teams to figure out how to connect the necessary data components to run semantic search and retrieval-augmented generation (RAG) workloads together without creating a brittle mess of data pipelines, sync jobs, and specialized infrastructure that compromised security and performance. To help teams bring these critical AI building blocks together on one secure platform, Atlas evolved again. With the public release of Atlas Vector Search in 2023, MongoDB was one of the first databases to launch vector search as a native capability, which enabled developers to keep vectors close to operational data and run semantic retrieval directly in the database without having to manage a separate vector store. Search Nodes gave teams a way to scale search and vector workloads independently from the operational database, while Atlas Stream Processing gave builders a way to process real-time streaming data without adding separate infrastructure. The business demand for this architecture has been staggering: over 726,000 vector indexes and 55,000 vector applications have been created since we introduced Atlas Vector Search, and we’ve seen a 92% increase in customers showing production-level vector search usage over the past 12 months. And with the company’s acquisition of Voyage AI in 2025, MongoDB sharpened its focus on retrieval quality—bringing advanced embedding and reranking models into Atlas. The integration of Voyage AI was about rethinking the data architecture to help customers reduce hallucinations, improve relevance, and make AI useful in the real-world environments where accuracy and trust matter most. 10 Year Anniversary Blog - Quote 4 aside This immediately paid huge dividends for customers building highly accurate semantic search and RAG applications. But we knew that as the market moved towards autonomous AI, trustworthy retrieval and access to real-time context would matter even more. Agents and the future of the data layer Today, we’re firmly in AI’s agentic era. Builders want to deploy agents that can reason over business context with autonomy. But agent memory requires fast accuracy at scale so that the right information is recalled at precisely the right time. And this is where they run into a challenge. They're excited about agents, but they can't put an agent in front of their customers if the results are inconsistent, irrelevant, or flat-out wrong. That puts increasing focus on the data layer of the tech stack. Agents are only as good as the context they can retrieve, rank, and retain. If the underlying data is stale, incomplete, or poorly retrieved, the output will be wrong—regardless of how strong the model is. In practice, production agents depend less on model choice alone than on retrieval quality and the ability to ground responses in live operational data. With search, vector search, embeddings, and rerankers natively integrated into the Atlas platform, businesses are closing the gap between data and retrieval to produce fast, accurate results for agents at scale. And with foundational capabilities to ensure exceptional security, resilience, and performance, builders are freed up to do what they do best, instead of spending their days bogged down managing data infrastructure. Atlas 10 Year Anniversary Blog - Quote 5 aside Over the past decade, our goal has been to reduce operational burden for customers without compromising on the technical bar. As the industry moves toward agents, that aim still applies. We’re ten years in, and Atlas has grown into the data platform that runs intelligent, mission-critical applications for nearly 70,000 customers across every industry. The world runs on Atlas! Our customers pushed us to build everything that matters in the platform, so they could do more, faster. The same holds true today: the agentic AI era is raising the bar for innovation, and we're raising it with them. The ambition our customers bring to what they're building next is what drives us forward—and we're ready for it. Here's to the next 10 years.",
-          "paragraphs": [
-            "Today, we’re celebrating 10 years of MongoDB Atlas, the generational data platform for AI applications, and the customers who pushed us to build it.",
-            "Atlas was shaped in close conversation with those customers and scaled alongside them every step of the way. Today, more than 250,000 builders get started on Atlas every month. Atlas serves more than three trillion queries a day (a roughly threefold increase just since 2023!), and represents 75% of MongoDB’s revenue. Those numbers reflect something more important than growth: the trust builders and customers have placed in us to scale their businesses.",
-            "That trust was earned by listening closely. Every major capability and architectural investment in Atlas was rooted in what customers asked for: the flexibility and speed of MongoDB’s document model, delivered in a platform that removed operational overhead and could scale with their applications. Over time, Atlas expanded beyond a managed database into a broader data platform, because builders kept asking for more flexibility, more simplicity, and more room to build.",
-            "That matters even more in the AI era. AI applications create new demands, but the underlying requirement is familiar: builders need a platform that can support operational data, search, and retrieval while scaling through constant change—without forcing them to stitch together a mess of disconnected systems. We spent ten years becoming the flexible, durable data platform that builders trust. Those are the same qualities AI applications need most, and that’s why builders are now using Atlas to build trustworthy AI applications with highly accurate retrieval, real-time context, and the scale to run in production.",
-            "When Atlas launched in 2016, organizations were moving away from traditional data center build-outs and toward cloud-based delivery, a market Gartner forecasted would reach $204 billion (and is now approaching $1 trillion).",
-            "Developers loved MongoDB as a flexible, intuitive foundation for building applications, but they also wanted to take advantage of the cloud. Atlas’s first promise was simple: bring MongoDB’s familiar developer experience to the cloud, with the reliability and confidence teams needed to run in production."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=1944",
-          "link": "https://www.mongodb.com/company/blog/news/10-years-mongodb-atlas-built-for-whats-next"
-        },
-        "single_source_exception": true,
-        "is_single_source": true,
-        "editorial_label": "Xác thực chính thức"
-      },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -364,99 +270,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
-      "retry_count": 0,
-      "last_retry_at": ""
-    },
-    {
-      "article": {
-        "id": "feed-3a77c10eb01b-en",
-        "cluster_id": "feed-3a77c10eb01b",
-        "language": "en",
-        "topic": "devices",
-        "content_type": "NewsArticle",
-        "slug": "amd-s-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets",
-        "title": "AMD's Threadripper Halo is a local-AI workstation for researchers with deep pockets",
-        "summary": "AI workstation promises to put up to 576 GB of HBM3e and 16 TB/s of memory bandwidth on your desk. Tobias Mann Tobias Mann SYSTEMS EDITOR Published fri 4 Sep 2026 // 21:12 UTC 9B, promises not to squeeze too hard 2 days ago Zuck's Muse to Spark joy with open weights release 'soon' 2 days ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 3 days ago Machine learning researchers have a new and expensive option for doing local AI.",
-        "dek": "AI workstation promises to put up to 576 GB of HBM3e and 16 TB/s of memory bandwidth on your desk.",
-        "hook": "AI workstation promises to put up to 576 GB of HBM3e and 16 TB/s of memory bandwidth on your desk.",
-        "sections": [
-          {
-            "heading": "Context: what is changing",
-            "body": "AI workstation promises to put up to 576 GB of HBM3e and 16 TB/s of memory bandwidth on your desk."
-          },
-          {
-            "heading": "Where the sources line up",
-            "body": "Tobias Mann Tobias Mann SYSTEMS EDITOR Published fri 4 Sep 2026 // 21:12 UTC 9B, promises not to squeeze too hard 2 days ago Zuck's Muse to Spark joy with open weights release 'soon' 2 days ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 3 days ago Machine learning researchers have a new and expensive option for doing local AI. AMD just raided its spare parts bin and cobbled together a DGX Station rival boasting up to 576 GB of HBM3e memory that it’s calling the Threadripper Halo."
-          },
-          {
-            "heading": "Practical impact for readers",
-            "body": "Announced at IFA 2026, the system, which is set to launch next year, marks the first time that AMD’s Instinct accelerators have been offered in a workstation form factor."
-          },
-          {
-            "heading": "Who should pay attention now",
-            "body": "But much like the AI Halo we reviewed earlier this year, the Threadripper Halo isn’t packing anything we haven’t seen before. The liquid-cooled system is powered by a 96-core Threadripper PRO 9995WX, which you may recall made its debut in 2025. The CPU is backed by up to 2 TB of DDR5 memory and up to 2.6 TB of combined system memory."
-          },
-          {
-            "heading": "What to watch next",
-            "body": "As you probably already guessed, AMD is positioning the box as a local AI workstation for researchers. From what we gather, the system can be had with up to four of the company’s PCIe-based Instinct GPUs — though the systems displayed at IFA only showed two installed."
-          }
-        ],
-        "verification_state": "emerging",
-        "quality_score": 96,
-        "ad_eligible": true,
-        "show_editorial_label": true,
-        "indexable": true,
-        "store_link_mode": "off",
-        "related_store_items": [],
-        "source_set": [
-          {
-            "source_type": "press",
-            "source_name": "The Register",
-            "source_url": "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616",
-            "region": "Global",
-            "language": "en",
-            "trust_tier": "established-media",
-            "published_at": "2026-09-04T20:12:11.000Z",
-            "image_url": "https://image.theregister.com/5294624.jpg?imageId=5294624&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-            "image_caption": "Reference image from The Register.",
-            "image_credit": "The Register"
-          }
-        ],
-        "author_id": "quang-huy",
-        "published_at": "2026-09-04T20:12:11.000Z",
-        "updated_at": "2026-09-04T20:12:11.000Z",
-        "image": {
-          "src": "https://image.theregister.com/5294624.jpg?imageId=5294624&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
-          "caption": "Reference image from The Register.",
-          "credit": "The Register",
-          "source_url": "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616"
-        },
-        "draft_context": {
-          "source_title": "AMD's Threadripper Halo is a local-AI workstation for researchers with deep pockets",
-          "source_name": "The Register",
-          "source_type": "press",
-          "trust_tier": "established-media",
-          "topic_hint": "internet-business-tech",
-          "content_type_hint": "",
-          "description": "Machine learning researchers have a new and expensive option for doing local AI. AMD just raided its spare parts bin and cobbled together a DGX Station rival boasting up to 576 GB of HBM3e memory that it’s calling the Threadripper Halo. Announced at IFA 2026, the system, which is set to launch next year, marks the first time that AMD’s Instinct accelerators have been offered in a workstation form factor. But much like the AI Halo we reviewed earlier this year, the Threadripper Halo isn’t packing anything we haven’t seen before. The liquid-cooled system is powered by a 96-core Threadripper PRO 9995WX, which you may recall made its debut in 2025. The CPU is backed by up to 2 TB of DDR5 memory and up to 2.6 TB of combined system memory. As you probably already guessed, AMD is positioning the box as a local AI workstation for researchers. From what we gather, the system can be had with up to four of the company’s PCIe-based Instinct GPUs — though the systems displayed at IFA only showed two installed. Launched back in May, the MI350P is essentially half of an MI350X that’s been crammed into a PCIe form factor. Each accelerator packs 144 GB of speedy HBM3e good for 4 TB/s of memory bandwidth, and up to 4.6 petaFLOPS of FP4 compute. But we’ll note that it's in its 600 W configuration. When deployed in the Threadripper Halo, we expect AMD will be running the cards in the more sedate 450 W config. Combined, the Threadripper Halo promises up to 576 GB of HBM3e and 16 TB/s of memory bandwidth, enabling the system to run models exceeding a trillion parameters in size (at four-bit precision) entirely in GPU memory. By offloading some of the model to system memory, the system should be able to run the largest open weights models, like Moonshot.AI’s 2.8 trillion-parameter Kimi K3. The ability to run large frontier-class models on your desk won’t come cheap and may not be available in every market, at least not without an electrical service upgrade. AMD hasn’t shared pricing, but as configured, we expect it to sell for somewhere between $100,000 and $150,000. A quad MI350P system is going to push the limits of a standard North American power outlet unless AMD either underclocks the cards from 600 W to 300 W or it mandates a 20 amp circuit. This might explain why the system AMD showed off at IFA only had two. At this price and power level, the system is well positioned to compete with Nvidia’s own high-end AI workstation, the DGX Station. Announced at GTC in 2025, the DGX Station features a 252 GB B300 GPU and a 72-core Grace CPU along with 496 GB of LPDDR5x memory, and it retails for around $100,000 if you can find one in stock. The House of Zen boasts that the system offers up to 3.4x the total system memory and more than twice the memory bandwidth of the DGX Station, which should give an edge in LLM inference, assuming tensor parallel operations don’t bottleneck on the CPU’s PCIe bus. AMD says the Threadripper Halo will be available starting next year. ®",
-          "paragraphs": [
-            "AI workstation promises to put up to 576 GB of HBM3e and 16 TB/s of memory bandwidth on your desk",
-            "Tobias Mann Tobias Mann SYSTEMS EDITOR Published fri 4 Sep 2026 // 21:12 UTC 9B, promises not to squeeze too hard 2 days ago Zuck's Muse to Spark joy with open weights release 'soon' 2 days ago With Gemini 3.8 Flash, Google reminds everyone it's still in the race 3 days ago Machine learning researchers have a new and expensive option for doing local AI. AMD just raided its spare parts bin and cobbled together a DGX Station rival boasting up to 576 GB of HBM3e memory that it’s calling the Threadripper Halo.",
-            "Announced at IFA 2026, the system, which is set to launch next year, marks the first time that AMD’s Instinct accelerators have been offered in a workstation form factor.",
-            "But much like the AI Halo we reviewed earlier this year, the Threadripper Halo isn’t packing anything we haven’t seen before. The liquid-cooled system is powered by a 96-core Threadripper PRO 9995WX, which you may recall made its debut in 2025. The CPU is backed by up to 2 TB of DDR5 memory and up to 2.6 TB of combined system memory.",
-            "As you probably already guessed, AMD is positioning the box as a local AI workstation for researchers. From what we gather, the system can be had with up to four of the company’s PCIe-based Instinct GPUs — though the systems displayed at IFA only showed two installed.",
-            "Launched back in May, the MI350P is essentially half of an MI350X that’s been crammed into a PCIe form factor. Each accelerator packs 144 GB of speedy HBM3e good for 4 TB/s of memory bandwidth, and up to 4.6 petaFLOPS of FP4 compute. But we’ll note that it's in its 600 W configuration. When deployed in the Threadripper Halo, we expect AMD will be running the cards in the more sedate 450 W config."
-          ],
-          "source_depth_score": 100,
-          "source_depth_reason": "depth=100; paragraphs=6; words=857",
-          "link": "https://www.theregister.com/on-prem/2026/09/04/amds-threadripper-halo-is-a-local-ai-workstation-for-researchers-with-deep-pockets/5294616"
-        },
-        "single_source_exception": true,
-        "is_single_source": true,
-        "editorial_label": "Tin nhanh xác thực"
-      },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -548,7 +362,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -640,7 +454,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -732,7 +546,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -826,7 +640,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -919,7 +733,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1007,7 +821,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1100,7 +914,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1189,7 +1003,7 @@
           "link": "https://cloudinabottle.org/blog/launch-post"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1281,7 +1095,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1373,7 +1187,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1465,7 +1279,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1556,7 +1370,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1647,7 +1461,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1739,7 +1553,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1833,7 +1647,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -1925,7 +1739,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2017,7 +1831,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2110,7 +1924,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2202,7 +2016,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2293,7 +2107,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2386,7 +2200,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2471,7 +2285,7 @@
           "link": "https://sofiabelen.github.io/projects/visualizing-rusts-vtables-how-dyn-trait-works-in-memory/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2565,7 +2379,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2658,7 +2472,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2752,7 +2566,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2845,7 +2659,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -2939,7 +2753,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3033,7 +2847,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3127,7 +2941,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3221,7 +3035,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3315,7 +3129,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3409,7 +3223,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3503,7 +3317,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3597,7 +3411,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3690,7 +3504,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3783,7 +3597,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3876,7 +3690,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -3970,7 +3784,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4064,7 +3878,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4158,7 +3972,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4250,7 +4064,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4344,7 +4158,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4438,7 +4252,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4531,7 +4345,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4623,7 +4437,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4716,7 +4530,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4808,7 +4622,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4902,7 +4716,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -4994,7 +4808,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5085,7 +4899,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5177,7 +4991,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5269,7 +5083,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5363,7 +5177,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5457,7 +5271,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5550,7 +5364,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5643,7 +5457,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5737,7 +5551,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5829,7 +5643,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -5921,7 +5735,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6014,7 +5828,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6097,7 +5911,7 @@
           "link": "https://zachkehs.com/blog/theres_no_limit_to_how_bad_code_can_get/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6185,7 +5999,7 @@
           "link": "https://collusion.wiki/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6275,7 +6089,7 @@
           "link": "https://www.anthropic.com/research/formalizing-fermats-last-theorem"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6365,7 +6179,7 @@
           "link": "https://simonwillison.net/2026/Sep/2/claudes-new-system-prompt/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6451,7 +6265,7 @@
           "link": "https://arxiv.org/abs/2608.26345"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6539,7 +6353,7 @@
           "link": "https://eebench.org/blog/can-ai-design-circuit-boards-yet/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6625,7 +6439,7 @@
           "link": "https://buttondown.com/suchbadtechads/archive/spartan-and-the-mime/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6713,7 +6527,7 @@
           "link": "https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6800,7 +6614,7 @@
           "link": "https://bob.ibm.com/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6883,7 +6697,7 @@
           "link": "https://kk.org/cooltools/the-1930-poetry-book-that-anthropic-tried-to-censor/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -6962,7 +6776,7 @@
           "link": "https://www.youtube.com/watch?v=fGZpaqMha0o"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7041,7 +6855,7 @@
           "link": "https://devquasar.com/hardware/the-60-gaming-pc-amd-bc-250/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7133,7 +6947,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7210,7 +7024,7 @@
           "link": "https://openai.com/index/gpt-6-astra/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7296,7 +7110,7 @@
           "link": "https://arxiv.org/abs/2609.03344"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7386,7 +7200,7 @@
           "link": "https://www.space.com/space-exploration/launches-spacecraft/isar-aerospace-second-launch-norway-andoya-spaceport-spectrum-rocket"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7472,7 +7286,7 @@
           "link": "https://github.com/iczelia/balrogg"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7551,7 +7365,7 @@
           "link": "https://www.youtube.com/watch?v=Ss1DUqLjecc"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7628,7 +7442,7 @@
           "link": "https://www.lttlabs.com/articles/2026/09/02/delidded-intel-i9-14900ks"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7720,7 +7534,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7814,7 +7628,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7893,7 +7707,7 @@
           "link": "https://michaelteter.com/flyby.html"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -7976,7 +7790,7 @@
           "link": "https://bcantrill.dtrace.org/2026/09/05/the-revolt-of-the-reader/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8065,7 +7879,7 @@
           "link": "https://www.techpolicy.press/americas-two-largest-school-districts-impose-ai-moratoriums/"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8155,7 +7969,7 @@
         "is_single_source": true,
         "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8239,7 +8053,7 @@
           "link": "https://www.circuitvalley.com/2026/08/chc5-open-camera-sensor-comparison-specification.html"
         }
       },
-      "first_seen_at": "2026-09-06T04:22:40.204Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8280,7 +8094,7 @@
         "verification_state": "emerging",
         "quality_score": 96,
         "ad_eligible": true,
-        "show_editorial_label": false,
+        "show_editorial_label": true,
         "indexable": true,
         "store_link_mode": "soft",
         "related_store_items": [
@@ -8328,9 +8142,12 @@
           "source_depth_score": 88,
           "source_depth_reason": "depth=88; paragraphs=6; words=510",
           "link": "https://vnexpress.net/ai-cua-openai-vuot-rao-chiem-quyen-kiem-soat-mot-trang-wiki-5116896.html"
-        }
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:23:09.865Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8371,7 +8188,7 @@
         "verification_state": "emerging",
         "quality_score": 96,
         "ad_eligible": true,
-        "show_editorial_label": false,
+        "show_editorial_label": true,
         "indexable": true,
         "store_link_mode": "off",
         "related_store_items": [],
@@ -8417,9 +8234,12 @@
           "source_depth_score": 84,
           "source_depth_reason": "depth=84; paragraphs=6; words=629",
           "link": "https://vnexpress.net/vu-no-ten-lua-blue-origin-tao-song-am-lan-khap-nuoc-my-5116865.html"
-        }
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:23:09.865Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8460,7 +8280,7 @@
         "verification_state": "emerging",
         "quality_score": 95,
         "ad_eligible": true,
-        "show_editorial_label": false,
+        "show_editorial_label": true,
         "indexable": true,
         "store_link_mode": "soft",
         "related_store_items": [
@@ -8508,9 +8328,12 @@
           "source_depth_score": 75,
           "source_depth_reason": "depth=75; paragraphs=6; words=206",
           "link": "https://genk.vn/tim-cook-giong-hoi-chuong-canh-bao-con-lu-100-nam-co-mot-elon-musk-cung-phai-lo-lang-165260906083251626.chn"
-        }
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:23:09.865Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8551,7 +8374,7 @@
         "verification_state": "emerging",
         "quality_score": 95,
         "ad_eligible": true,
-        "show_editorial_label": false,
+        "show_editorial_label": true,
         "indexable": true,
         "store_link_mode": "soft",
         "related_store_items": [
@@ -8599,9 +8422,12 @@
           "source_depth_score": 72,
           "source_depth_reason": "depth=72; paragraphs=6; words=362",
           "link": "https://thanhnien.vn/hon-1500-lo-hong-linux-duoc-phat-hien-voi-su-ho-tro-cua-ai-185260905205911358.htm"
-        }
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Tin nhanh xác thực"
       },
-      "first_seen_at": "2026-09-06T04:23:09.865Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8695,7 +8521,7 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:23:09.865Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8780,7 +8606,7 @@
           "link": "https://openai.robocurve.org/gpt-6-astra/"
         }
       },
-      "first_seen_at": "2026-09-06T04:23:09.865Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8857,7 +8683,7 @@
           "link": "http://miod.online.fr/software/openbsd/stories/smd.html"
         }
       },
-      "first_seen_at": "2026-09-06T04:23:09.865Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -8941,7 +8767,7 @@
           "link": "https://lapcatsoftware.com/articles/2026/9/1.html"
         }
       },
-      "first_seen_at": "2026-09-06T04:23:09.865Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -9023,7 +8849,7 @@
           "link": "https://www.ben-evans.com/benedictevans/2026/9/3/ai-tools-and-transformation"
         }
       },
-      "first_seen_at": "2026-09-06T04:23:09.865Z",
+      "first_seen_at": "2026-09-06T08:48:36.941Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -9112,42 +8938,42 @@
           "link": "https://genk.vn/anker-dua-eufy-soundcore-va-solix-ve-chung-mot-thuong-hieu-165260904165009476.chn"
         }
       },
-      "first_seen_at": "2026-09-06T04:47:55.311Z",
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
     {
       "article": {
-        "id": "feed-899029e8a01a-vi",
-        "cluster_id": "feed-899029e8a01a",
+        "id": "feed-88b766995477-vi",
+        "cluster_id": "feed-88b766995477",
         "language": "vi",
         "topic": "devices",
         "content_type": "NewsArticle",
-        "slug": "samsung-sap-tung-loat-ien-thoai-gia-re-dong-galaxy-a",
-        "title": "Samsung sắp tung loạt điện thoại giá rẻ dòng Galaxy A",
-        "summary": "Samsung muốn tăng thị phần với loạt smartphone Galaxy giá rẻ mới. Theo kế hoạch, từ tháng 8 đến tháng 11, Samsung dự kiến sản xuất khoảng 33,7 triệu chiếc điện thoại thuộc dòng Galaxy A , chiếm khoảng 58% trong tổng sản lượng dự kiến 58 triệu smartphone và tablet trong cùng kỳ.",
-        "dek": "Samsung muốn tăng thị phần với loạt smartphone Galaxy giá rẻ mới.",
-        "hook": "Theo kế hoạch, từ tháng 8 đến tháng 11, Samsung dự kiến sản xuất khoảng 33,7 triệu chiếc điện thoại thuộc dòng Galaxy A , chiếm khoảng 58% trong tổng sản lượng dự kiến 58 triệu smartphone và tablet trong cùng kỳ.",
+        "slug": "samsung-galaxy-a18-4g-xuat-hien-truoc-ngay-ra-mat",
+        "title": "Samsung Galaxy A18 4G xuất hiện trước ngày ra mắt",
+        "summary": "Như là một phần trong chiến lược mở rộng sự hiện diện của các mẫu smartphone giá rẻ Galaxy A, Samsung đang chuẩn bị ra mắt sản phẩm mới mang tên Galaxy A18 4G. Những hình ảnh và thông tin mới nhất đã tiết lộ thiết kế, tính năng và giá dự kiến của thiết bị giá rẻ này.",
+        "dek": "Như là một phần trong chiến lược mở rộng sự hiện diện của các mẫu smartphone giá rẻ Galaxy A, Samsung đang chuẩn bị ra mắt sản phẩm mới mang tên Galaxy A18 4G.",
+        "hook": "Như là một phần trong chiến lược mở rộng sự hiện diện của các mẫu smartphone giá rẻ Galaxy A, Samsung đang chuẩn bị ra mắt sản phẩm mới mang tên Galaxy A18 4G.",
         "sections": [
           {
             "heading": "Bối cảnh: điều gì đang đổi",
-            "body": "Samsung muốn tăng thị phần với loạt smartphone Galaxy giá rẻ mới."
+            "body": "Như là một phần trong chiến lược mở rộng sự hiện diện của các mẫu smartphone giá rẻ Galaxy A, Samsung đang chuẩn bị ra mắt sản phẩm mới mang tên Galaxy A18 4G. Những hình ảnh và thông tin mới nhất đã tiết lộ thiết kế, tính năng và giá dự kiến của thiết bị giá rẻ này."
           },
           {
             "heading": "Các nguồn đang khớp nhau ở đâu",
-            "body": "Theo kế hoạch, từ tháng 8 đến tháng 11, Samsung dự kiến sản xuất khoảng 33,7 triệu chiếc điện thoại thuộc dòng Galaxy A , chiếm khoảng 58% trong tổng sản lượng dự kiến 58 triệu smartphone và tablet trong cùng kỳ. Đặc biệt, hãng sẽ tập trung vào hai mẫu điện thoại giá rẻ là Galaxy A17 và A18, với kế hoạch sản xuất khoảng 18 triệu chiếc, tương đương hơn một nửa tổng sản lượng dòng Galaxy A."
+            "body": "Hình ảnh minh họa cái nhìn đầu tiên về Galaxy A18 4G."
           },
           {
             "heading": "Tác động thực tế với người đọc",
-            "body": "Galaxy A17 có giá đề xuất khoảng 7,09 triệu đồng cho bản 128 GB, trong khi mẫu cao cấp Galaxy S26 Ultra với dung lượng lưu trữ 1 TB có giá lên tới 51,99 triệu đồng, cho thấy sự chênh lệch rõ rệt giữa các sản phẩm giá rẻ và cao cấp của Samsung."
+            "body": "Theo thông tin từ AndroidHeadlines , Galaxy A18 4G sẽ có thiết kế tương tự như Galaxy A17 4G, với các tùy chọn màu sắc bao gồm đen, xanh nhạt và bạc. Chiếc điện thoại này sở hữu màn hình phẳng với một phần khuyết nhỏ ở phía trên để chứa camera, trong khi viền dưới dày hơn so với các cạnh còn lại. Phía bên phải, thiết kế Key Island đặc trưng của Samsung được thể hiện với các nút nguồn và âm lượng nằm trên một khu vực hơi nhô lên. Mặt sau của máy có cụm camera dọc với ba ống kính."
           },
           {
             "heading": "Ai nên chú ý lúc này",
-            "body": "Quyết định tập trung vào phân khúc smartphone giá rẻ mà Samsung đưa ra nhận được nhiều sự chú ý trong bối cảnh nhiều nhà sản xuất smartphone đang giảm sản lượng do lợi nhuận từ điện thoại giá rẻ thường thấp hơn. Tuy nhiên, Samsung đã chọn một hướng đi khác, sẵn sàng chấp nhận lợi nhuận thấp hơn để gia tăng số lượng bán ra."
+            "body": "Galaxy A18 4G dự kiến sẽ trang bị màn hình AMOLED 6,7 inch Full HD+ với tần số quét 90 Hz, được bảo vệ bằng kính Gorilla Glass Victus. Về hiệu năng, điện thoại có thể sử dụng chip xử lý MediaTek Helio G99, đi kèm với RAM 4 GB và tùy chọn bộ nhớ trong 128 GB hoặc 256 GB, đồng thời hỗ trợ mở rộng dung lượng lưu trữ lên đến 2 TB thông qua thẻ nhớ microSD."
           },
           {
             "heading": "Điều cần theo dõi tiếp",
-            "body": "Ngoài việc mở rộng dòng sản phẩm giá rẻ, Samsung cũng đặt mục tiêu tăng doanh số cho các dòng điện thoại cao cấp Galaxy S và Z. Công ty đang áp dụng hai chiến lược song song: vừa bán điện thoại đắt tiền để thu lợi nhuận cao, vừa cung cấp các mẫu điện thoại giá rẻ để thu hút thêm khách hàng. Samsung hy vọng chiến lược này sẽ giúp tăng doanh số và củng cố vị thế của mình trên thị trường smartphone toàn cầu."
+            "body": "Về khả năng chụp ảnh, Galaxy A18 4G có thể sở hữu camera chính 50 MP, camera siêu rộng 5 MP và camera macro 2 MP. Thời lượng pin của máy dự kiến sẽ đạt 5.000 mAh, hỗ trợ sạc nhanh 25W. Ngoài ra, sản phẩm cũng có thể được trang bị chuẩn chống nước IP64, Wi-Fi 5 và Bluetooth 5.3."
           }
         ],
         "verification_state": "emerging",
@@ -9161,81 +8987,82 @@
           {
             "source_type": "press",
             "source_name": "Thanh Nien Cong Nghe",
-            "source_url": "https://thanhnien.vn/samsung-sap-tung-loat-dien-thoai-gia-re-dong-galaxy-a-185260905154759111.htm",
+            "source_url": "https://thanhnien.vn/samsung-galaxy-a18-4g-xuat-hien-truoc-ngay-ra-mat-185260906093112393.htm",
             "region": "VN",
             "language": "vi",
             "trust_tier": "established-media",
-            "published_at": "2026-09-05T09:04:00.000Z",
-            "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/5/tnw-1-17885979149771063699182-19-0-845-1578-crop-1788597943106337192523-1788597965230978762112.jpg",
+            "published_at": "2026-09-06T05:16:00.000Z",
+            "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/6/3-17886617581501363272692-74-98-508-927-crop-1788661790759756503521.jpg",
             "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
             "image_credit": "Thanh Nien Cong Nghe"
           }
         ],
         "author_id": "quang-huy",
-        "published_at": "2026-09-05T09:04:00.000Z",
-        "updated_at": "2026-09-05T09:04:00.000Z",
+        "published_at": "2026-09-06T05:16:00.000Z",
+        "updated_at": "2026-09-06T05:16:00.000Z",
         "image": {
-          "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/5/tnw-1-17885979149771063699182-19-0-845-1578-crop-1788597943106337192523-1788597965230978762112.jpg",
+          "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/6/3-17886617581501363272692-74-98-508-927-crop-1788661790759756503521.jpg",
           "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
           "credit": "Thanh Nien Cong Nghe",
-          "source_url": "https://thanhnien.vn/samsung-sap-tung-loat-dien-thoai-gia-re-dong-galaxy-a-185260905154759111.htm"
+          "source_url": "https://thanhnien.vn/samsung-galaxy-a18-4g-xuat-hien-truoc-ngay-ra-mat-185260906093112393.htm"
         },
         "draft_context": {
-          "source_title": "Samsung sắp tung loạt điện thoại giá rẻ dòng Galaxy A",
+          "source_title": "Samsung Galaxy A18 4G xuất hiện trước ngày ra mắt",
           "source_name": "Thanh Nien Cong Nghe",
           "source_type": "press",
           "trust_tier": "established-media",
           "topic_hint": "devices",
           "content_type_hint": "",
-          "description": "Samsung có thể tung thêm nhiều smartphone giá rẻ trong thời gian tới nhằm thu hút người dùng và gia tăng thị phần.",
+          "description": "Những hình ảnh và thông tin rò rỉ mới nhất đã tiết lộ nhiều chi tiết đáng chú ý về Galaxy A18 4G.",
           "paragraphs": [
-            "Samsung mu&#7889;n t&#259;ng th&#7883; ph&#7847;n v&#7899;i lo&#7841;t smartphone Galaxy gi&aacute; r&#7867; m&#7899;i",
-            "Theo k&#7871; ho&#7841;ch, t&#7915; th&aacute;ng 8 &#273;&#7871;n th&aacute;ng 11, Samsung d&#7921; ki&#7871;n s&#7843;n xu&#7845;t kho&#7843;ng 33,7 tri&#7879;u chi&#7871;c &#273;i&#7879;n tho&#7841;i thu&#7897;c d&ograve;ng Galaxy A , chi&#7871;m kho&#7843;ng 58% trong t&#7893;ng s&#7843;n l&#432;&#7907;ng d&#7921; ki&#7871;n 58 tri&#7879;u smartphone v&agrave; tablet trong c&ugrave;ng k&#7923;. &#272;&#7863;c bi&#7879;t, h&atilde;ng s&#7869; t&#7853;p trung v&agrave;o hai m&#7851;u &#273;i&#7879;n tho&#7841;i gi&aacute; r&#7867; l&agrave; Galaxy A17 v&agrave; A18, v&#7899;i k&#7871; ho&#7841;ch s&#7843;n xu&#7845;t kho&#7843;ng 18 tri&#7879;u chi&#7871;c, t&#432;&#417;ng &#273;&#432;&#417;ng h&#417;n m&#7897;t n&#7917;a t&#7893;ng s&#7843;n l&#432;&#7907;ng d&ograve;ng Galaxy A.",
-            "Galaxy A17 c&oacute; gi&aacute; &#273;&#7873; xu&#7845;t kho&#7843;ng 7,09 tri&#7879;u &#273;&#7891;ng cho b&#7843;n 128 GB, trong khi m&#7851;u cao c&#7845;p Galaxy S26 Ultra v&#7899;i dung l&#432;&#7907;ng l&#432;u tr&#7919; 1 TB c&oacute; gi&aacute; l&ecirc;n t&#7899;i 51,99 tri&#7879;u &#273;&#7891;ng, cho th&#7845;y s&#7921; ch&ecirc;nh l&#7879;ch r&otilde; r&#7879;t gi&#7919;a c&aacute;c s&#7843;n ph&#7849;m gi&aacute; r&#7867; v&agrave; cao c&#7845;p c&#7911;a Samsung.",
-            "Quy&#7871;t &#273;&#7883;nh t&#7853;p trung v&agrave;o ph&acirc;n kh&uacute;c smartphone gi&aacute; r&#7867; m&agrave; Samsung &#273;&#432;a ra nh&#7853;n &#273;&#432;&#7907;c nhi&#7873;u s&#7921; ch&uacute; &yacute; trong b&#7889;i c&#7843;nh nhi&#7873;u nh&agrave; s&#7843;n xu&#7845;t smartphone &#273;ang gi&#7843;m s&#7843;n l&#432;&#7907;ng do l&#7907;i nhu&#7853;n t&#7915; &#273;i&#7879;n tho&#7841;i gi&aacute; r&#7867; th&#432;&#7901;ng th&#7845;p h&#417;n. Tuy nhi&ecirc;n, Samsung &#273;&atilde; ch&#7885;n m&#7897;t h&#432;&#7899;ng &#273;i kh&aacute;c, s&#7861;n s&agrave;ng ch&#7845;p nh&#7853;n l&#7907;i nhu&#7853;n th&#7845;p h&#417;n &#273;&#7875; gia t&#259;ng s&#7889; l&#432;&#7907;ng b&aacute;n ra.",
-            "Ngo&agrave;i vi&#7879;c m&#7903; r&#7897;ng d&ograve;ng s&#7843;n ph&#7849;m gi&aacute; r&#7867;, Samsung c&#361;ng &#273;&#7863;t m&#7909;c ti&ecirc;u t&#259;ng doanh s&#7889; cho c&aacute;c d&ograve;ng &#273;i&#7879;n tho&#7841;i cao c&#7845;p Galaxy S v&agrave; Z. C&ocirc;ng ty &#273;ang &aacute;p d&#7909;ng hai chi&#7871;n l&#432;&#7907;c song song: v&#7915;a b&aacute;n &#273;i&#7879;n tho&#7841;i &#273;&#7855;t ti&#7873;n &#273;&#7875; thu l&#7907;i nhu&#7853;n cao, v&#7915;a cung c&#7845;p c&aacute;c m&#7851;u &#273;i&#7879;n tho&#7841;i gi&aacute; r&#7867; &#273;&#7875; thu h&uacute;t th&ecirc;m kh&aacute;ch h&agrave;ng. Samsung hy v&#7885;ng chi&#7871;n l&#432;&#7907;c n&agrave;y s&#7869; gi&uacute;p t&#259;ng doanh s&#7889; v&agrave; c&#7911;ng c&#7889; v&#7883; th&#7871; c&#7911;a m&igrave;nh tr&ecirc;n th&#7883; tr&#432;&#7901;ng smartphone to&agrave;n c&#7847;u."
+            "Nh&#432; l&agrave; m&#7897;t ph&#7847;n trong chi&#7871;n l&#432;&#7907;c m&#7903; r&#7897;ng s&#7921; hi&#7879;n di&#7879;n c&#7911;a c&aacute;c m&#7851;u smartphone gi&aacute; r&#7867; Galaxy A, Samsung &#273;ang chu&#7849;n b&#7883; ra m&#7855;t s&#7843;n ph&#7849;m m&#7899;i mang t&ecirc;n Galaxy A18 4G. Nh&#7919;ng h&igrave;nh &#7843;nh v&agrave; th&ocirc;ng tin m&#7899;i nh&#7845;t &#273;&atilde; ti&#7871;t l&#7897; thi&#7871;t k&#7871;, t&iacute;nh n&#259;ng v&agrave; gi&aacute; d&#7921; ki&#7871;n c&#7911;a thi&#7871;t b&#7883; gi&aacute; r&#7867; n&agrave;y.",
+            "H&igrave;nh &#7843;nh minh h&#7885;a c&aacute;i nh&igrave;n &#273;&#7847;u ti&ecirc;n v&#7873; Galaxy A18 4G",
+            "Theo th&ocirc;ng tin t&#7915; AndroidHeadlines , Galaxy A18 4G s&#7869; c&oacute; thi&#7871;t k&#7871; t&#432;&#417;ng t&#7921; nh&#432; Galaxy A17 4G, v&#7899;i c&aacute;c t&ugrave;y ch&#7885;n m&agrave;u s&#7855;c bao g&#7891;m &#273;en, xanh nh&#7841;t v&agrave; b&#7841;c. Chi&#7871;c &#273;i&#7879;n tho&#7841;i n&agrave;y s&#7903; h&#7919;u m&agrave;n h&igrave;nh ph&#7859;ng v&#7899;i m&#7897;t ph&#7847;n khuy&#7871;t nh&#7887; &#7903; ph&iacute;a tr&ecirc;n &#273;&#7875; ch&#7913;a camera, trong khi vi&#7873;n d&#432;&#7899;i d&agrave;y h&#417;n so v&#7899;i c&aacute;c c&#7841;nh c&ograve;n l&#7841;i. Ph&iacute;a b&ecirc;n ph&#7843;i, thi&#7871;t k&#7871; Key Island &#273;&#7863;c tr&#432;ng c&#7911;a Samsung &#273;&#432;&#7907;c th&#7875; hi&#7879;n v&#7899;i c&aacute;c n&uacute;t ngu&#7891;n v&agrave; &acirc;m l&#432;&#7907;ng n&#7857;m tr&ecirc;n m&#7897;t khu v&#7921;c h&#417;i nh&ocirc; l&ecirc;n. M&#7863;t sau c&#7911;a m&aacute;y c&oacute; c&#7909;m camera d&#7885;c v&#7899;i ba &#7889;ng k&iacute;nh.",
+            "Galaxy A18 4G d&#7921; ki&#7871;n s&#7869; trang b&#7883; m&agrave;n h&igrave;nh AMOLED 6,7 inch Full HD+ v&#7899;i t&#7847;n s&#7889; qu&eacute;t 90 Hz, &#273;&#432;&#7907;c b&#7843;o v&#7879; b&#7857;ng k&iacute;nh Gorilla Glass Victus. V&#7873; hi&#7879;u n&#259;ng, &#273;i&#7879;n tho&#7841;i c&oacute; th&#7875; s&#7917; d&#7909;ng chip x&#7917; l&yacute; MediaTek Helio G99, &#273;i k&egrave;m v&#7899;i RAM 4 GB v&agrave; t&ugrave;y ch&#7885;n b&#7897; nh&#7899; trong 128 GB ho&#7863;c 256 GB, &#273;&#7891;ng th&#7901;i h&#7895; tr&#7907; m&#7903; r&#7897;ng dung l&#432;&#7907;ng l&#432;u tr&#7919; l&ecirc;n &#273;&#7871;n 2 TB th&ocirc;ng qua th&#7867; nh&#7899; microSD.",
+            "V&#7873; kh&#7843; n&#259;ng ch&#7909;p &#7843;nh, Galaxy A18 4G c&oacute; th&#7875; s&#7903; h&#7919;u camera ch&iacute;nh 50 MP, camera si&ecirc;u r&#7897;ng 5 MP v&agrave; camera macro 2 MP. Th&#7901;i l&#432;&#7907;ng pin c&#7911;a m&aacute;y d&#7921; ki&#7871;n s&#7869; &#273;&#7841;t 5.000 mAh, h&#7895; tr&#7907; s&#7841;c nhanh 25W. Ngo&agrave;i ra, s&#7843;n ph&#7849;m c&#361;ng c&oacute; th&#7875; &#273;&#432;&#7907;c trang b&#7883; chu&#7849;n ch&#7889;ng n&#432;&#7899;c IP64, Wi-Fi 5 v&agrave; Bluetooth 5.3.",
+            "Gi&aacute; kh&#7903;i &#273;i&#7875;m c&#7911;a Galaxy A18 4G d&#7921; ki&#7871;n s&#7869; l&agrave; 299 EUR, trong khi Galaxy A17 4G c&oacute; m&#7913;c gi&aacute; kh&#7903;i &#273;i&#7875;m t&#7915; 199 EUR. M&#7897;t phi&ecirc;n b&#7843;n t&#432;&#417;ng t&#7921;, Galaxy A18 5G, c&#361;ng &#273;&#432;&#7907;c d&#7921; &#273;o&aacute;n s&#7869; ra m&#7855;t trong th&#7901;i gian t&#7899;i, nh&#432;ng chi ti&#7871;t v&#7873; th&ocirc;ng s&#7889; c&#7911;a thi&#7871;t b&#7883; n&agrave;y v&#7851;n c&ograve;n l&agrave; m&#7897;t d&#7845;u h&#7887;i."
           ],
-          "source_depth_score": 83,
-          "source_depth_reason": "depth=83; paragraphs=5; words=324",
-          "link": "https://thanhnien.vn/samsung-sap-tung-loat-dien-thoai-gia-re-dong-galaxy-a-185260905154759111.htm"
+          "source_depth_score": 94,
+          "source_depth_reason": "depth=94; paragraphs=6; words=401",
+          "link": "https://thanhnien.vn/samsung-galaxy-a18-4g-xuat-hien-truoc-ngay-ra-mat-185260906093112393.htm"
         }
       },
-      "first_seen_at": "2026-09-06T04:47:55.311Z",
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
     {
       "article": {
-        "id": "feed-472bdb4f4e02-vi",
-        "cluster_id": "feed-472bdb4f4e02",
+        "id": "feed-ba06c281738e-vi",
+        "cluster_id": "feed-ba06c281738e",
         "language": "vi",
-        "topic": "ai",
+        "topic": "devices",
         "content_type": "NewsArticle",
-        "slug": "microsoft-word-sap-xoa-bo-tinh-nang-kiem-tra-ao-van",
-        "title": "Microsoft Word sắp xóa bỏ tính năng kiểm tra đạo văn",
-        "summary": "Dù được sử dụng rộng rãi trong môi trường giáo dục những năm qua, Similarity Checker từng bị đánh giá là đôi khi thiếu độ tin cậy và không được khuyến khích sử dụng cho các đánh giá học thuật so với các phần mềm chuyên dụng như Turnitin. Đây được xem là nguyên nhân dẫn đến việc gã khổng lồ công nghệ quyết định loại bỏ hoàn toàn tính năng này khỏi ứng dụng.",
-        "dek": "Dù được sử dụng rộng rãi trong môi trường giáo dục những năm qua, Similarity Checker từng bị đánh giá là đôi khi thiếu độ tin cậy và không được khuyến khích sử dụng cho các đánh giá học thuật so với các phần mềm chuyên dụng như Turnitin.",
-        "hook": "Dù được sử dụng rộng rãi trong môi trường giáo dục những năm qua, Similarity Checker từng bị đánh giá là đôi khi thiếu độ tin cậy và không được khuyến khích sử dụng cho các đánh giá học thuật so với các phần mềm chuyên dụng như Turnitin.",
+        "slug": "tai-sao-he-ieu-hanh-android-chon-bieu-tuong-la-robot-xanh",
+        "title": "Tại sao hệ điều hành Android chọn biểu tượng là robot xanh?",
+        "summary": "Biểu tượng chú robot màu xanh lá cây vốn đã quen thuộc, gắn liền với mọi thiết bị Android . Nhưng tại sao nền tảng của Google lại lựa chọn biểu tượng này?",
+        "dek": "Biểu tượng chú robot màu xanh lá cây vốn đã quen thuộc, gắn liền với mọi thiết bị Android .",
+        "hook": "Biểu tượng chú robot màu xanh lá cây vốn đã quen thuộc, gắn liền với mọi thiết bị Android .",
         "sections": [
           {
-            "heading": "Điểm nâng cấp đáng chú ý",
-            "body": "Microsoft khai tử công cụ chống đạo văn trên Word."
+            "heading": "Bối cảnh: điều gì đang đổi",
+            "body": "Biểu tượng chú robot màu xanh lá cây vốn đã quen thuộc, gắn liền với mọi thiết bị Android . Nhưng tại sao nền tảng của Google lại lựa chọn biểu tượng này? Hãy cùng tìm hiểu sự thật đằng sau biểu tượng công nghệ phổ biến."
           },
           {
-            "heading": "Giá và quyền lợi",
-            "body": "Dù được sử dụng rộng rãi trong môi trường giáo dục những năm qua, Similarity Checker từng bị đánh giá là đôi khi thiếu độ tin cậy và không được khuyến khích sử dụng cho các đánh giá học thuật so với các phần mềm chuyên dụng như Turnitin. Đây được xem là nguyên nhân dẫn đến việc gã khổng lồ công nghệ quyết định loại bỏ hoàn toàn tính năng này khỏi ứng dụng."
+            "heading": "Các nguồn đang khớp nhau ở đâu",
+            "body": "Theo đó, chú droid xanh lá ra đời dưới bàn tay của nhà thiết kế Irina Blok. Khi được giao nhiệm vụ tạo ra linh vật hướng tới cộng đồng lập trình viên, Google chỉ đưa ra hai yêu cầu cơ bản: nhân vật phải là một robot và mang lại cảm giác gần gũi. Bà Blok cũng đã đính chính thông tin robot được lấy cảm hứng từ biển báo nhà vệ sinh là không chính xác; mục tiêu thực sự của bà là tạo ra một biểu tượng đại chúng dễ đồng cảm và được giới phát triển phần mềm yêu thích."
           },
           {
-            "heading": "Những lớp AI kéo giá trị lên",
-            "body": "Đáng chú ý, Microsoft khuyến nghị khách hàng không nên lạm dụng Copilot để thực hiện các bài kiểm tra đạo văn hoặc đối chiếu tương đồng học thuật chính thức, mà nên tìm đến các giải pháp chuyên dụng bên ngoài. Hãng cũng yêu cầu các quản trị viên CNTT nhanh chóng thông báo kế hoạch ngừng hoạt động này tới người dùng và tiến hành cập nhật lại hệ thống tài liệu nội bộ liên quan."
+            "heading": "Tác động thực tế với người đọc",
+            "body": "Chú robot xanh vốn đã quá quen thuộc với người dùng Android."
           },
           {
-            "heading": "Ai nên để mắt",
-            "body": "Nhóm nên theo dõi đầu tiên là người đang trả tiền cho lưu trữ, cộng tác và trợ lý AI trong cùng một hệ sinh thái, vì đây là nơi khác biệt về giá trị lộ ra nhanh nhất."
+            "heading": "Ai nên chú ý lúc này",
+            "body": "Hình tượng chú robot màu xanh chanh đã phát triển độ nhận diện một cách hết sức tự nhiên sau khi Irina Blok đệ trình mẫu thiết kế và phát hành dưới dạng mã nguồn mở. Đội ngũ lập trình viên trên phiên bản Android đầu tiên đã nhiệt tình đón nhận và liên tục tùy biến theo ý thích cá nhân. Từ một hình mẫu đơn giản trông như viên kẹo có tay chân, chú robot xanh đã nhanh chóng lan tỏa và biến hóa thành vô số phiên bản đa dạng."
           },
           {
-            "heading": "Patrick Tech Media đánh giá",
-            "body": "Điểm đáng nhìn lâu hơn headline là gói nào thực sự gom được model, dung lượng và công cụ vào một giá trị dùng được mỗi ngày. Phần cần theo dõi tiếp là rollout, giới hạn khu vực và việc Thanh Nien Cong Nghe có giữ nguyên lợi thế này khi mở rộng hơn không."
+            "heading": "Điều cần theo dõi tiếp",
+            "body": "Không chỉ dừng lại ở thế giới đồ họa 2D trên màn hình, linh vật của Android đã nhanh chóng bước ra đời thực. Bên cạnh các sản phẩm thú nhồi bông hay nhãn dán trên cửa hàng chính thức của Google, các công ty như Dead Zebra đã sản xuất hàng loạt dòng mô hình nhựa vinyl theo dạng \"hộp mù\" (blind box), mô phỏng chú robot khoác lên mình trang phục thể thao hoặc hóa trang thành các nhà khoa học nổi tiếng."
           }
         ],
         "verification_state": "emerging",
@@ -9243,53 +9070,229 @@
         "ad_eligible": true,
         "show_editorial_label": false,
         "indexable": true,
-        "store_link_mode": "soft",
-        "related_store_items": [
-          "ai-workspace-bundle"
-        ],
+        "store_link_mode": "off",
+        "related_store_items": [],
         "source_set": [
           {
             "source_type": "press",
             "source_name": "Thanh Nien Cong Nghe",
-            "source_url": "https://thanhnien.vn/microsoft-word-sap-xoa-bo-tinh-nang-kiem-tra-dao-van-185260905131030729.htm",
+            "source_url": "https://thanhnien.vn/tai-sao-he-dieu-hanh-android-chon-bieu-tuong-la-robot-xanh-185260906121402764.htm",
             "region": "VN",
             "language": "vi",
             "trust_tier": "established-media",
-            "published_at": "2026-09-05T11:11:00.000Z",
-            "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/5/tnw-word-ne-17885892420031365254232-1788589269306583773548-129-0-887-1448-crop-17885893092282067932781.jpg",
+            "published_at": "2026-09-06T08:06:00.000Z",
+            "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/6/android-1788672648091303586178-0-0-875-1672-crop-178867274323630942609.jpg",
             "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
             "image_credit": "Thanh Nien Cong Nghe"
           }
         ],
-        "author_id": "mai-linh",
-        "published_at": "2026-09-05T11:11:00.000Z",
-        "updated_at": "2026-09-05T11:11:00.000Z",
+        "author_id": "quang-huy",
+        "published_at": "2026-09-06T08:06:00.000Z",
+        "updated_at": "2026-09-06T08:06:00.000Z",
         "image": {
-          "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/5/tnw-word-ne-17885892420031365254232-1788589269306583773548-129-0-887-1448-crop-17885893092282067932781.jpg",
+          "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/6/android-1788672648091303586178-0-0-875-1672-crop-178867274323630942609.jpg",
           "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
           "credit": "Thanh Nien Cong Nghe",
-          "source_url": "https://thanhnien.vn/microsoft-word-sap-xoa-bo-tinh-nang-kiem-tra-dao-van-185260905131030729.htm"
+          "source_url": "https://thanhnien.vn/tai-sao-he-dieu-hanh-android-chon-bieu-tuong-la-robot-xanh-185260906121402764.htm"
         },
         "draft_context": {
-          "source_title": "Microsoft Word sắp xóa bỏ tính năng kiểm tra đạo văn",
+          "source_title": "Tại sao hệ điều hành Android chọn biểu tượng là robot xanh?",
           "source_name": "Thanh Nien Cong Nghe",
           "source_type": "press",
           "trust_tier": "established-media",
           "topic_hint": "devices",
           "content_type_hint": "",
-          "description": "Microsoft vừa công bố kế hoạch dừng vĩnh viễn công cụ quen thuộc trên Word vào đầu tháng 10 tới, chấm dứt tính năng đối chiếu văn bản.",
+          "description": "Ít ai biết rằng chú robot màu xanh lá cây đại diện cho hệ điều hành Android lại ra đời một cách hoàn toàn tình cờ từ một dự án thiết kế nội bộ.",
           "paragraphs": [
-            "Microsoft khai t&#7917; c&ocirc;ng c&#7909; ch&#7889;ng &#273;&#7841;o v&#259;n tr&ecirc;n Word",
-            "D&ugrave; &#273;&#432;&#7907;c s&#7917; d&#7909;ng r&#7897;ng r&atilde;i trong m&ocirc;i tr&#432;&#7901;ng gi&aacute;o d&#7909;c nh&#7919;ng n&#259;m qua, Similarity Checker t&#7915;ng b&#7883; &#273;&aacute;nh gi&aacute; l&agrave; &#273;&ocirc;i khi thi&#7871;u &#273;&#7897; tin c&#7853;y v&agrave; kh&ocirc;ng &#273;&#432;&#7907;c khuy&#7871;n kh&iacute;ch s&#7917; d&#7909;ng cho c&aacute;c &#273;&aacute;nh gi&aacute; h&#7885;c thu&#7853;t so v&#7899;i c&aacute;c ph&#7847;n m&#7873;m chuy&ecirc;n d&#7909;ng nh&#432; Turnitin. &#272;&acirc;y &#273;&#432;&#7907;c xem l&agrave; nguy&ecirc;n nh&acirc;n d&#7851;n &#273;&#7871;n vi&#7879;c g&atilde; kh&#7893;ng l&#7891; c&ocirc;ng ngh&#7879; quy&#7871;t &#273;&#7883;nh lo&#7841;i b&#7887; ho&agrave;n to&agrave;n t&iacute;nh n&#259;ng n&agrave;y kh&#7887;i &#7913;ng d&#7909;ng.",
-            "&#272;&#7907;t ng&#7915;ng d&#7883;ch v&#7909; n&agrave;y s&#7869; &aacute;p d&#7909;ng &#273;&#7891;ng lo&#7841;t cho to&agrave;n b&#7897; ng&#432;&#7901;i d&ugrave;ng c&aacute; nh&acirc;n, kh&aacute;ch h&agrave;ng th&#432;&#417;ng m&#7841;i, Government Community Cloud (GCC - m&ocirc;i tr&#432;&#7901;ng &#273;i&#7879;n to&aacute;n &#273;&aacute;m m&acirc;y chuy&ecirc;n d&#7909;ng &#273;&#432;&#7907;c thi&#7871;t k&#7871; ri&ecirc;ng cho c&aacute;c c&#417; quan ch&iacute;nh ph&#7911;) v&agrave; B&#7897; Qu&#7889;c ph&ograve;ng M&#7929; (DoD). Microsoft kh&#7859;ng &#273;&#7883;nh thay &#273;&#7893;i n&agrave;y kh&ocirc;ng &#7843;nh h&#432;&#7903;ng &#273;&#7871;n c&aacute;c ti&#7879;n &iacute;ch kh&aacute;c c&#7911;a Microsoft Editor; ng&#432;&#7901;i d&ugrave;ng ti&#7871;p t&#7909;c nh&#7853;n &#273;&#432;&#7907;c g&#7907;i &yacute; ng&#7919; ph&aacute;p, phong c&aacute;ch vi&#7871;t c&ugrave;ng to&agrave;n b&#7897; t&iacute;nh n&#259;ng c&#7911;a Copilot nh&#432; b&igrave;nh th&#432;&#7901;ng.",
-            "&#272;&aacute;ng ch&uacute; &yacute;, Microsoft khuy&#7871;n ngh&#7883; kh&aacute;ch h&agrave;ng kh&ocirc;ng n&ecirc;n l&#7841;m d&#7909;ng Copilot &#273;&#7875; th&#7921;c hi&#7879;n c&aacute;c b&agrave;i ki&#7875;m tra &#273;&#7841;o v&#259;n ho&#7863;c &#273;&#7889;i chi&#7871;u t&#432;&#417;ng &#273;&#7891;ng h&#7885;c thu&#7853;t ch&iacute;nh th&#7913;c, m&agrave; n&ecirc;n t&igrave;m &#273;&#7871;n c&aacute;c gi&#7843;i ph&aacute;p chuy&ecirc;n d&#7909;ng b&ecirc;n ngo&agrave;i. H&atilde;ng c&#361;ng y&ecirc;u c&#7847;u c&aacute;c qu&#7843;n tr&#7883; vi&ecirc;n CNTT nhanh ch&oacute;ng th&ocirc;ng b&aacute;o k&#7871; ho&#7841;ch ng&#7915;ng ho&#7841;t &#273;&#7897;ng n&agrave;y t&#7899;i ng&#432;&#7901;i d&ugrave;ng v&agrave; ti&#7871;n h&agrave;nh c&#7853;p nh&#7853;t l&#7841;i h&#7879; th&#7889;ng t&agrave;i li&#7879;u n&#7897;i b&#7897; li&ecirc;n quan."
+            "Bi&#7875;u t&#432;&#7907;ng ch&uacute; robot m&agrave;u xanh l&aacute; c&acirc;y v&#7889;n &#273;&atilde; quen thu&#7897;c, g&#7855;n li&#7873;n v&#7899;i m&#7885;i thi&#7871;t b&#7883; Android . Nh&#432;ng t&#7841;i sao n&#7873;n t&#7843;ng c&#7911;a Google l&#7841;i l&#7921;a ch&#7885;n bi&#7875;u t&#432;&#7907;ng n&agrave;y? H&atilde;y c&ugrave;ng t&igrave;m hi&#7875;u s&#7921; th&#7853;t &#273;&#7857;ng sau bi&#7875;u t&#432;&#7907;ng c&ocirc;ng ngh&#7879; ph&#7893; bi&#7871;n.",
+            "Theo &#273;&oacute;, ch&uacute; droid xanh l&aacute; ra &#273;&#7901;i d&#432;&#7899;i b&agrave;n tay c&#7911;a nh&agrave; thi&#7871;t k&#7871; Irina Blok. Khi &#273;&#432;&#7907;c giao nhi&#7879;m v&#7909; t&#7841;o ra linh v&#7853;t h&#432;&#7899;ng t&#7899;i c&#7897;ng &#273;&#7891;ng l&#7853;p tr&igrave;nh vi&ecirc;n, Google ch&#7881; &#273;&#432;a ra hai y&ecirc;u c&#7847;u c&#417; b&#7843;n: nh&acirc;n v&#7853;t ph&#7843;i l&agrave; m&#7897;t robot v&agrave; mang l&#7841;i c&#7843;m gi&aacute;c g&#7847;n g&#361;i. B&agrave; Blok c&#361;ng &#273;&atilde; &#273;&iacute;nh ch&iacute;nh th&ocirc;ng tin robot &#273;&#432;&#7907;c l&#7845;y c&#7843;m h&#7913;ng t&#7915; bi&#7875;n b&aacute;o nh&agrave; v&#7879; sinh l&agrave; kh&ocirc;ng ch&iacute;nh x&aacute;c; m&#7909;c ti&ecirc;u th&#7921;c s&#7921; c&#7911;a b&agrave; l&agrave; t&#7841;o ra m&#7897;t bi&#7875;u t&#432;&#7907;ng &#273;&#7841;i ch&uacute;ng d&#7877; &#273;&#7891;ng c&#7843;m v&agrave; &#273;&#432;&#7907;c gi&#7899;i ph&aacute;t tri&#7875;n ph&#7847;n m&#7873;m y&ecirc;u th&iacute;ch.",
+            "Ch&uacute; robot xanh v&#7889;n &#273;&atilde; qu&aacute; quen thu&#7897;c v&#7899;i ng&#432;&#7901;i d&ugrave;ng Android",
+            "H&igrave;nh t&#432;&#7907;ng ch&uacute; robot m&agrave;u xanh chanh &#273;&atilde; ph&aacute;t tri&#7875;n &#273;&#7897; nh&#7853;n di&#7879;n m&#7897;t c&aacute;ch h&#7871;t s&#7913;c t&#7921; nhi&ecirc;n sau khi Irina Blok &#273;&#7879; tr&igrave;nh m&#7851;u thi&#7871;t k&#7871; v&agrave; ph&aacute;t h&agrave;nh d&#432;&#7899;i d&#7841;ng m&atilde; ngu&#7891;n m&#7903;. &#272;&#7897;i ng&#361; l&#7853;p tr&igrave;nh vi&ecirc;n tr&ecirc;n phi&ecirc;n b&#7843;n Android &#273;&#7847;u ti&ecirc;n &#273;&atilde; nhi&#7879;t t&igrave;nh &#273;&oacute;n nh&#7853;n v&agrave; li&ecirc;n t&#7909;c t&ugrave;y bi&#7871;n theo &yacute; th&iacute;ch c&aacute; nh&acirc;n. T&#7915; m&#7897;t h&igrave;nh m&#7851;u &#273;&#417;n gi&#7843;n tr&ocirc;ng nh&#432; vi&ecirc;n k&#7865;o c&oacute; tay ch&acirc;n, ch&uacute; robot xanh &#273;&atilde; nhanh ch&oacute;ng lan t&#7887;a v&agrave; bi&#7871;n h&oacute;a th&agrave;nh v&ocirc; s&#7889; phi&ecirc;n b&#7843;n &#273;a d&#7841;ng.",
+            "Kh&ocirc;ng ch&#7881; d&#7915;ng l&#7841;i &#7903; th&#7871; gi&#7899;i &#273;&#7891; h&#7885;a 2D tr&ecirc;n m&agrave;n h&igrave;nh, linh v&#7853;t c&#7911;a Android &#273;&atilde; nhanh ch&oacute;ng b&#432;&#7899;c ra &#273;&#7901;i th&#7921;c. B&ecirc;n c&#7841;nh c&aacute;c s&#7843;n ph&#7849;m th&uacute; nh&#7891;i b&ocirc;ng hay nh&atilde;n d&aacute;n tr&ecirc;n c&#7917;a h&agrave;ng ch&iacute;nh th&#7913;c c&#7911;a Google, c&aacute;c c&ocirc;ng ty nh&#432; Dead Zebra &#273;&atilde; s&#7843;n xu&#7845;t h&agrave;ng lo&#7841;t d&ograve;ng m&ocirc; h&igrave;nh nh&#7921;a vinyl theo d&#7841;ng \"h&#7897;p m&ugrave;\" (blind box), m&ocirc; ph&#7887;ng ch&uacute; robot kho&aacute;c l&ecirc;n m&igrave;nh trang ph&#7909;c th&#7875; thao ho&#7863;c h&oacute;a trang th&agrave;nh c&aacute;c nh&agrave; khoa h&#7885;c n&#7893;i ti&#7871;ng.",
+            "D&ugrave; c&aacute;c &#273;&#7907;t ph&aacute;t h&agrave;nh c&oacute; ph&#7847;n th&#432;a th&#7899;t h&#417;n trong nh&#7919;ng n&#259;m g&#7847;n &#273;&acirc;y, s&#7913;c h&uacute;t c&#7911;a linh v&#7853;t n&agrave;y v&#7851;n m&#7841;nh m&#7869;, minh ch&#7913;ng qua vi&#7879;c m&#7851;u m&ocirc; h&igrave;nh m&#7899;i do Google ra m&#7855;t v&agrave;o n&#259;m 2024 &#273;&atilde; nhanh ch&oacute;ng ch&aacute;y h&agrave;ng. &#272;&#7871;n nay, ch&uacute; robot xanh kh&ocirc;ng ch&#7881; l&agrave; bi&#7875;u t&#432;&#7907;ng nh&#7853;n di&#7879;n c&ocirc;ng ngh&#7879; m&agrave; c&ograve;n tr&#7903; th&agrave;nh m&#7897;t m&oacute;n &#273;&#7891; ch&#417;i ngh&#7879; thu&#7853;t (art toy) &#273;&#432;&#7907;c gi&#7899;i s&#432;u t&#7847;m s&#259;n &#273;&oacute;n tr&ecirc;n to&agrave;n c&#7847;u."
           ],
-          "source_depth_score": 76,
-          "source_depth_reason": "depth=76; paragraphs=4; words=281",
-          "link": "https://thanhnien.vn/microsoft-word-sap-xoa-bo-tinh-nang-kiem-tra-dao-van-185260905131030729.htm"
+          "source_depth_score": 90,
+          "source_depth_reason": "depth=90; paragraphs=6; words=454",
+          "link": "https://thanhnien.vn/tai-sao-he-dieu-hanh-android-chon-bieu-tuong-la-robot-xanh-185260906121402764.htm"
         }
       },
-      "first_seen_at": "2026-09-06T04:47:55.311Z",
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-b7d59149607d-vi",
+        "cluster_id": "feed-b7d59149607d",
+        "language": "vi",
+        "topic": "devices",
+        "content_type": "NewsArticle",
+        "slug": "luat-xac-minh-o-tuoi-tren-internet-bat-ngo-giup-dvd-hoi-sinh",
+        "title": "Luật xác minh độ tuổi trên internet bất ngờ giúp DVD hồi sinh",
+        "summary": "Nội dung truy cập internet bị kiểm soát chặt, nhiều người chuyển sang DVD. Theo Mashable , việc yêu cầu người dùng tải lên thông tin thẻ tín dụng hoặc giấy tờ tùy thân, cũng như sử dụng nhận dạng khuôn mặt để truy cập các trang web khiêu dâm, đã dẫn đến sự gia tăng doanh số bán DVD thể loại này.",
+        "dek": "Nội dung truy cập internet bị kiểm soát chặt, nhiều người chuyển sang DVD.",
+        "hook": "Theo Mashable , việc yêu cầu người dùng tải lên thông tin thẻ tín dụng hoặc giấy tờ tùy thân, cũng như sử dụng nhận dạng khuôn mặt để truy cập các trang web khiêu dâm, đã dẫn đến sự gia tăng doanh số bán DVD thể loại này.",
+        "sections": [
+          {
+            "heading": "Bối cảnh: điều gì đang đổi",
+            "body": "Nội dung truy cập internet bị kiểm soát chặt, nhiều người chuyển sang DVD."
+          },
+          {
+            "heading": "Các nguồn đang khớp nhau ở đâu",
+            "body": "Theo Mashable , việc yêu cầu người dùng tải lên thông tin thẻ tín dụng hoặc giấy tờ tùy thân, cũng như sử dụng nhận dạng khuôn mặt để truy cập các trang web khiêu dâm, đã dẫn đến sự gia tăng doanh số bán DVD thể loại này. David Eliasson, chủ sở hữu ba cửa hàng bán đồ người lớn tại Nam Dakota (Mỹ), cho biết doanh số bán DVD tại đây đã tăng từ 20 - 22% trong năm nay so với năm trước, một sự thay đổi mà ông cho là do luật xác minh độ tuổi mới được áp dụng."
+          },
+          {
+            "heading": "Tác động thực tế với người đọc",
+            "body": "Eliasson cho biết, mặc dù một số cửa hàng đã ngừng bán DVD do sự bùng nổ của nội dung phát trực tuyến miễn phí và trả phí, tình hình có thể đang thay đổi nhờ vào các quy định mới. Lewis Adams, người đứng đầu bộ phận bán hàng tại nhà phân phối nội dung người lớn Pulse Distribution, cũng xác nhận rằng số lượng đơn đặt hàng DVD đang tăng lên từ các tiểu bang có luật xác minh độ tuổi."
+          },
+          {
+            "heading": "Ai nên chú ý lúc này",
+            "body": "Tuy nhiên, Mike Stabile, giám đốc chính sách công tại Free Speech Coalition, cho rằng việc tuân thủ các luật này vẫn còn hạn chế. Ông chỉ ra rằng nhiều người tiêu dùng đang chuyển sang các trang web nước ngoài và sử dụng VPN để truy cập nội dung khiêu dâm. Thực tế, số lượng người dùng dịch vụ VPN đã tăng hơn 10 lần kể từ khi các quy định xác minh độ tuổi được ban hành."
+          },
+          {
+            "heading": "Điều cần theo dõi tiếp",
+            "body": "Do các quy định xác minh độ tuổi trực tuyến không đạt hiệu quả như mong đợi, việc lọc nội dung ở cấp độ thiết bị đang được xem xét. Một số hệ điều hành như iOS và Android đã yêu cầu người dùng cung cấp ngày sinh khi cài đặt lần đầu, từ đó sử dụng thông tin này để hạn chế truy cập vào các ứng dụng và nội dung không phù hợp."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "Thanh Nien Cong Nghe",
+            "source_url": "https://thanhnien.vn/luat-xac-minh-do-tuoi-tren-internet-bat-ngo-giup-dvd-hoi-sinh-185260906110614427.htm",
+            "region": "VN",
+            "language": "vi",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-06T05:13:00.000Z",
+            "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/6/1-17886668385161027917581-10-0-546-1024-crop-17886674800191683699904.jpg",
+            "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+            "image_credit": "Thanh Nien Cong Nghe"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-06T05:13:00.000Z",
+        "updated_at": "2026-09-06T05:13:00.000Z",
+        "image": {
+          "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/6/1-17886668385161027917581-10-0-546-1024-crop-17886674800191683699904.jpg",
+          "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+          "credit": "Thanh Nien Cong Nghe",
+          "source_url": "https://thanhnien.vn/luat-xac-minh-do-tuoi-tren-internet-bat-ngo-giup-dvd-hoi-sinh-185260906110614427.htm"
+        },
+        "draft_context": {
+          "source_title": "Luật xác minh độ tuổi trên internet bất ngờ giúp DVD hồi sinh",
+          "source_name": "Thanh Nien Cong Nghe",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Nỗ lực kiểm soát độ tuổi trên internet đang tạo ra nghịch lý khi người dùng tìm đến DVD để tránh những rào cản trực tuyến.",
+          "paragraphs": [
+            "N&#7897;i dung truy c&#7853;p internet b&#7883; ki&#7875;m so&aacute;t ch&#7863;t, nhi&#7873;u ng&#432;&#7901;i chuy&#7875;n sang DVD",
+            "Theo Mashable , vi&#7879;c y&ecirc;u c&#7847;u ng&#432;&#7901;i d&ugrave;ng t&#7843;i l&ecirc;n th&ocirc;ng tin th&#7867; t&iacute;n d&#7909;ng ho&#7863;c gi&#7845;y t&#7901; t&ugrave;y th&acirc;n, c&#361;ng nh&#432; s&#7917; d&#7909;ng nh&#7853;n d&#7841;ng khu&ocirc;n m&#7863;t &#273;&#7875; truy c&#7853;p c&aacute;c trang web khi&ecirc;u d&acirc;m, &#273;&atilde; d&#7851;n &#273;&#7871;n s&#7921; gia t&#259;ng doanh s&#7889; b&aacute;n DVD th&#7875; lo&#7841;i n&agrave;y. David Eliasson, ch&#7911; s&#7903; h&#7919;u ba c&#7917;a h&agrave;ng b&aacute;n &#273;&#7891; ng&#432;&#7901;i l&#7899;n t&#7841;i Nam Dakota (M&#7929;), cho bi&#7871;t doanh s&#7889; b&aacute;n DVD t&#7841;i &#273;&acirc;y &#273;&atilde; t&#259;ng t&#7915; 20 - 22% trong n&#259;m nay so v&#7899;i n&#259;m tr&#432;&#7899;c, m&#7897;t s&#7921; thay &#273;&#7893;i m&agrave; &ocirc;ng cho l&agrave; do lu&#7853;t x&aacute;c minh &#273;&#7897; tu&#7893;i m&#7899;i &#273;&#432;&#7907;c &aacute;p d&#7909;ng.",
+            "Eliasson cho bi&#7871;t, m&#7863;c d&ugrave; m&#7897;t s&#7889; c&#7917;a h&agrave;ng &#273;&atilde; ng&#7915;ng b&aacute;n DVD do s&#7921; b&ugrave;ng n&#7893; c&#7911;a n&#7897;i dung ph&aacute;t tr&#7921;c tuy&#7871;n mi&#7877;n ph&iacute; v&agrave; tr&#7843; ph&iacute;, t&igrave;nh h&igrave;nh c&oacute; th&#7875; &#273;ang thay &#273;&#7893;i nh&#7901; v&agrave;o c&aacute;c quy &#273;&#7883;nh m&#7899;i. Lewis Adams, ng&#432;&#7901;i &#273;&#7913;ng &#273;&#7847;u b&#7897; ph&#7853;n b&aacute;n h&agrave;ng t&#7841;i nh&agrave; ph&acirc;n ph&#7889;i n&#7897;i dung ng&#432;&#7901;i l&#7899;n Pulse Distribution, c&#361;ng x&aacute;c nh&#7853;n r&#7857;ng s&#7889; l&#432;&#7907;ng &#273;&#417;n &#273;&#7863;t h&agrave;ng DVD &#273;ang t&#259;ng l&ecirc;n t&#7915; c&aacute;c ti&#7875;u bang c&oacute; lu&#7853;t x&aacute;c minh &#273;&#7897; tu&#7893;i.",
+            "Tuy nhi&ecirc;n, Mike Stabile, gi&aacute;m &#273;&#7889;c ch&iacute;nh s&aacute;ch c&ocirc;ng t&#7841;i Free Speech Coalition, cho r&#7857;ng vi&#7879;c tu&acirc;n th&#7911; c&aacute;c lu&#7853;t n&agrave;y v&#7851;n c&ograve;n h&#7841;n ch&#7871;. &Ocirc;ng ch&#7881; ra r&#7857;ng nhi&#7873;u ng&#432;&#7901;i ti&ecirc;u d&ugrave;ng &#273;ang chuy&#7875;n sang c&aacute;c trang web n&#432;&#7899;c ngo&agrave;i v&agrave; s&#7917; d&#7909;ng VPN &#273;&#7875; truy c&#7853;p n&#7897;i dung khi&ecirc;u d&acirc;m. Th&#7921;c t&#7871;, s&#7889; l&#432;&#7907;ng ng&#432;&#7901;i d&ugrave;ng d&#7883;ch v&#7909; VPN &#273;&atilde; t&#259;ng h&#417;n 10 l&#7847;n k&#7875; t&#7915; khi c&aacute;c quy &#273;&#7883;nh x&aacute;c minh &#273;&#7897; tu&#7893;i &#273;&#432;&#7907;c ban h&agrave;nh.",
+            "Do c&aacute;c quy &#273;&#7883;nh x&aacute;c minh &#273;&#7897; tu&#7893;i tr&#7921;c tuy&#7871;n kh&ocirc;ng &#273;&#7841;t hi&#7879;u qu&#7843; nh&#432; mong &#273;&#7907;i, vi&#7879;c l&#7885;c n&#7897;i dung &#7903; c&#7845;p &#273;&#7897; thi&#7871;t b&#7883; &#273;ang &#273;&#432;&#7907;c xem x&eacute;t. M&#7897;t s&#7889; h&#7879; &#273;i&#7873;u h&agrave;nh nh&#432; iOS v&agrave; Android &#273;&atilde; y&ecirc;u c&#7847;u ng&#432;&#7901;i d&ugrave;ng cung c&#7845;p ng&agrave;y sinh khi c&agrave;i &#273;&#7863;t l&#7847;n &#273;&#7847;u, t&#7915; &#273;&oacute; s&#7917; d&#7909;ng th&ocirc;ng tin n&agrave;y &#273;&#7875; h&#7841;n ch&#7871; truy c&#7853;p v&agrave;o c&aacute;c &#7913;ng d&#7909;ng v&agrave; n&#7897;i dung kh&ocirc;ng ph&ugrave; h&#7907;p."
+          ],
+          "source_depth_score": 88,
+          "source_depth_reason": "depth=88; paragraphs=5; words=381",
+          "link": "https://thanhnien.vn/luat-xac-minh-do-tuoi-tren-internet-bat-ngo-giup-dvd-hoi-sinh-185260906110614427.htm"
+        }
+      },
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-e1a048b7f155-vi",
+        "cluster_id": "feed-e1a048b7f155",
+        "language": "vi",
+        "topic": "devices",
+        "content_type": "NewsArticle",
+        "slug": "galaxy-s27-ultra-se-trang-bi-man-hinh-tu-khac-phuc-vet-xuoc",
+        "title": "Galaxy S27 Ultra sẽ trang bị màn hình tự khắc phục vết xước?",
+        "summary": "Hình ảnh kết xuất được cho là thiết kế trên Galaxy S27 Ultra. Theo một bài đăng trên mạng xã hội X gần đây, Samsung có thể đang hợp tác với Corning để phát triển một lớp phủ cho phép màn hình điện thoại có thể tự chữa lành.",
+        "dek": "Hình ảnh kết xuất được cho là thiết kế trên Galaxy S27 Ultra.",
+        "hook": "Theo một bài đăng trên mạng xã hội X gần đây, Samsung có thể đang hợp tác với Corning để phát triển một lớp phủ cho phép màn hình điện thoại có thể tự chữa lành.",
+        "sections": [
+          {
+            "heading": "Bối cảnh: điều gì đang đổi",
+            "body": "Hình ảnh kết xuất được cho là thiết kế trên Galaxy S27 Ultra."
+          },
+          {
+            "heading": "Các nguồn đang khớp nhau ở đâu",
+            "body": "Theo một bài đăng trên mạng xã hội X gần đây, Samsung có thể đang hợp tác với Corning để phát triển một lớp phủ cho phép màn hình điện thoại có thể tự chữa lành. Công nghệ này được cho là sẽ giúp Galaxy S27 Ultra tự phục hồi các vết xước siêu nhỏ, từ đó cải thiện đáng kể trải nghiệm người dùng."
+          },
+          {
+            "heading": "Tác động thực tế với người đọc",
+            "body": "Các rò rỉ cho thấy iPhone Ultra sẽ sử dụng công nghệ màn hình tự chữa lành, nhưng sau đó không có thêm thông tin nào được công bố và khiến tính năng này vẫn còn là một dấu hỏi. Nếu điều này xảy ra, đây không phải là điểm chung duy nhất giữa Galaxy S27 Ultra với iPhone, bởi các rò rỉ cho thấy cụm camera của Galaxy S27 Ultra có thiết kế tương tự iPhone 17 Pro , từ đó tạo nên sự liên hệ giữa hai thương hiệu ở cả khía cạnh thiết kế và công nghệ."
+          },
+          {
+            "heading": "Ai nên chú ý lúc này",
+            "body": "Ngoài ra, Samsung cũng đang nỗ lực cải tiến công nghệ màn hình. Mặc dù một số mẫu Galaxy S26 Ultra gặp phải vấn đề ám đỏ, nhưng tính năng màn hình riêng tư của sản phẩm vẫn được đánh giá cao. Nếu Samsung tiếp tục phát triển và cải thiện công nghệ bảo mật dựa trên phần cứng, cùng khả năng tự phục hồi của kính, Galaxy S27 Ultra có thể trở thành một sản phẩm hấp dẫn hơn nữa."
+          },
+          {
+            "heading": "Điều cần theo dõi tiếp",
+            "body": "Cuối cùng, để Galaxy S27 Ultra thực sự hấp dẫn người dùng, Samsung cần đảm bảo sản phẩm có mức giá hợp lý và các tính năng khác cũng phải tương xứng. Nếu không, ngay cả khi màn hình tự chữa lành nghe có vẻ hấp dẫn, nó có thể không đủ sức thuyết phục người dùng nâng cấp lên phiên bản mới, đặc biệt nếu đã sở hữu Galaxy S26 Ultra."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "press",
+            "source_name": "Thanh Nien Cong Nghe",
+            "source_url": "https://thanhnien.vn/galaxy-s27-ultra-se-trang-bi-man-hinh-tu-khac-phuc-vet-xuoc-185260906113625352.htm",
+            "region": "VN",
+            "language": "vi",
+            "trust_tier": "established-media",
+            "published_at": "2026-09-06T07:30:00.000Z",
+            "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/6/1-17886692992491278480231-18-0-554-1024-crop-17886693066841343283645.jpg",
+            "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+            "image_credit": "Thanh Nien Cong Nghe"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-06T07:30:00.000Z",
+        "updated_at": "2026-09-06T07:30:00.000Z",
+        "image": {
+          "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/6/1-17886692992491278480231-18-0-554-1024-crop-17886693066841343283645.jpg",
+          "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+          "credit": "Thanh Nien Cong Nghe",
+          "source_url": "https://thanhnien.vn/galaxy-s27-ultra-se-trang-bi-man-hinh-tu-khac-phuc-vet-xuoc-185260906113625352.htm"
+        },
+        "draft_context": {
+          "source_title": "Galaxy S27 Ultra sẽ trang bị màn hình tự khắc phục vết xước?",
+          "source_name": "Thanh Nien Cong Nghe",
+          "source_type": "press",
+          "trust_tier": "established-media",
+          "topic_hint": "devices",
+          "content_type_hint": "",
+          "description": "Galaxy S27 Ultra đang được kỳ vọng tạo bất ngờ lớn với công nghệ giúp bề mặt màn hình tự khắc phục vết xước.",
+          "paragraphs": [
+            "H&igrave;nh &#7843;nh k&#7871;t xu&#7845;t &#273;&#432;&#7907;c cho l&agrave; thi&#7871;t k&#7871; tr&ecirc;n Galaxy S27 Ultra",
+            "Theo m&#7897;t b&agrave;i &#273;&#259;ng tr&ecirc;n m&#7841;ng x&atilde; h&#7897;i X g&#7847;n &#273;&acirc;y, Samsung c&oacute; th&#7875; &#273;ang h&#7907;p t&aacute;c v&#7899;i Corning &#273;&#7875; ph&aacute;t tri&#7875;n m&#7897;t l&#7899;p ph&#7911; cho ph&eacute;p m&agrave;n h&igrave;nh &#273;i&#7879;n tho&#7841;i c&oacute; th&#7875; t&#7921; ch&#7919;a l&agrave;nh. C&ocirc;ng ngh&#7879; n&agrave;y &#273;&#432;&#7907;c cho l&agrave; s&#7869; gi&uacute;p Galaxy S27 Ultra t&#7921; ph&#7909;c h&#7891;i c&aacute;c v&#7871;t x&#432;&#7899;c si&ecirc;u nh&#7887;, t&#7915; &#273;&oacute; c&#7843;i thi&#7879;n &#273;&aacute;ng k&#7875; tr&#7843;i nghi&#7879;m ng&#432;&#7901;i d&ugrave;ng.",
+            "C&aacute;c r&ograve; r&#7881; cho th&#7845;y iPhone Ultra s&#7869; s&#7917; d&#7909;ng c&ocirc;ng ngh&#7879; m&agrave;n h&igrave;nh t&#7921; ch&#7919;a l&agrave;nh, nh&#432;ng sau &#273;&oacute; kh&ocirc;ng c&oacute; th&ecirc;m th&ocirc;ng tin n&agrave;o &#273;&#432;&#7907;c c&ocirc;ng b&#7889; v&agrave; khi&#7871;n t&iacute;nh n&#259;ng n&agrave;y v&#7851;n c&ograve;n l&agrave; m&#7897;t d&#7845;u h&#7887;i. N&#7871;u &#273;i&#7873;u n&agrave;y x&#7843;y ra, &#273;&acirc;y kh&ocirc;ng ph&#7843;i l&agrave; &#273;i&#7875;m chung duy nh&#7845;t gi&#7919;a Galaxy S27 Ultra v&#7899;i iPhone, b&#7903;i c&aacute;c r&ograve; r&#7881; cho th&#7845;y c&#7909;m camera c&#7911;a Galaxy S27 Ultra c&oacute; thi&#7871;t k&#7871; t&#432;&#417;ng t&#7921; iPhone 17 Pro , t&#7915; &#273;&oacute; t&#7841;o n&ecirc;n s&#7921; li&ecirc;n h&#7879; gi&#7919;a hai th&#432;&#417;ng hi&#7879;u &#7903; c&#7843; kh&iacute;a c&#7841;nh thi&#7871;t k&#7871; v&agrave; c&ocirc;ng ngh&#7879;.",
+            "Ngo&agrave;i ra, Samsung c&#361;ng &#273;ang n&#7895; l&#7921;c c&#7843;i ti&#7871;n c&ocirc;ng ngh&#7879; m&agrave;n h&igrave;nh. M&#7863;c d&ugrave; m&#7897;t s&#7889; m&#7851;u Galaxy S26 Ultra g&#7863;p ph&#7843;i v&#7845;n &#273;&#7873; &aacute;m &#273;&#7887;, nh&#432;ng t&iacute;nh n&#259;ng m&agrave;n h&igrave;nh ri&ecirc;ng t&#432; c&#7911;a s&#7843;n ph&#7849;m v&#7851;n &#273;&#432;&#7907;c &#273;&aacute;nh gi&aacute; cao. N&#7871;u Samsung ti&#7871;p t&#7909;c ph&aacute;t tri&#7875;n v&agrave; c&#7843;i thi&#7879;n c&ocirc;ng ngh&#7879; b&#7843;o m&#7853;t d&#7921;a tr&ecirc;n ph&#7847;n c&#7913;ng, c&ugrave;ng kh&#7843; n&#259;ng t&#7921; ph&#7909;c h&#7891;i c&#7911;a k&iacute;nh, Galaxy S27 Ultra c&oacute; th&#7875; tr&#7903; th&agrave;nh m&#7897;t s&#7843;n ph&#7849;m h&#7845;p d&#7851;n h&#417;n n&#7919;a.",
+            "Cu&#7889;i c&ugrave;ng, &#273;&#7875; Galaxy S27 Ultra th&#7921;c s&#7921; h&#7845;p d&#7851;n ng&#432;&#7901;i d&ugrave;ng, Samsung c&#7847;n &#273;&#7843;m b&#7843;o s&#7843;n ph&#7849;m c&oacute; m&#7913;c gi&aacute; h&#7907;p l&yacute; v&agrave; c&aacute;c t&iacute;nh n&#259;ng kh&aacute;c c&#361;ng ph&#7843;i t&#432;&#417;ng x&#7913;ng. N&#7871;u kh&ocirc;ng, ngay c&#7843; khi m&agrave;n h&igrave;nh t&#7921; ch&#7919;a l&agrave;nh nghe c&oacute; v&#7867; h&#7845;p d&#7851;n, n&oacute; c&oacute; th&#7875; kh&ocirc;ng &#273;&#7911; s&#7913;c thuy&#7871;t ph&#7909;c ng&#432;&#7901;i d&ugrave;ng n&acirc;ng c&#7845;p l&ecirc;n phi&ecirc;n b&#7843;n m&#7899;i, &#273;&#7863;c bi&#7879;t n&#7871;u &#273;&atilde; s&#7903; h&#7919;u Galaxy S26 Ultra."
+          ],
+          "source_depth_score": 82,
+          "source_depth_reason": "depth=82; paragraphs=5; words=355",
+          "link": "https://thanhnien.vn/galaxy-s27-ultra-se-trang-bi-man-hinh-tu-khac-phuc-vet-xuoc-185260906113625352.htm"
+        }
+      },
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
       "retry_count": 0,
       "last_retry_at": ""
     },
@@ -9381,7 +9384,360 @@
         "is_single_source": true,
         "editorial_label": "Xác thực chính thức"
       },
-      "first_seen_at": "2026-09-06T04:47:55.311Z",
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-5f5c62b6426e-en",
+        "cluster_id": "feed-5f5c62b6426e",
+        "language": "en",
+        "topic": "ai",
+        "content_type": "NewsArticle",
+        "slug": "fighting-tool-sprawl-the-case-for-ai-tool-registries",
+        "title": "Fighting Tool Sprawl: The Case for AI Tool Registries",
+        "summary": "Every enterprise needs its own shared tool registry, one that reflects its specific regulatory environment, security posture, and operational conventions. To be clear, this is not an argument for a public package manager, something like npm, PyPI, or Maven.",
+        "dek": "Every enterprise needs its own shared tool registry, one that reflects its specific regulatory environment, security posture, and operational conventions.",
+        "hook": "Every enterprise needs its own shared tool registry, one that reflects its specific regulatory environment, security posture, and operational conventions.",
+        "sections": [
+          {
+            "heading": "What changed",
+            "body": "Every enterprise needs its own shared tool registry, one that reflects its specific regulatory environment, security posture, and operational conventions. To be clear, this is not an argument for a public package manager, something like npm, PyPI, or Maven. The infrastructure each enterprise needs is internal; scoped to its own teams, its own data, its own policies, its own domain. Trying to expand the scope beyond the confines of individual organizations would be premature standardization in a fast-moving, nascent space."
+          },
+          {
+            "heading": "Price and bundle value",
+            "body": "A shared enterprise tool registry is not an optimization or a nice-to-have. It is foundational infrastructure as agent deployments scale beyond early experiments. The case for it rests on two pillars: reducing coordination cost and enabling risk management, both for the humans building with agents and for the agents themselves."
+          },
+          {
+            "heading": "AI features that change the value",
+            "body": "The agent era presents the same problem in a new domain. When Kong launched its enterprise MCP Registry in February 2026, they explicitly called out the problems of manual MCP configuration, hardcoded and managed tool isolation across teams, fragmented integrations, and limited organization visibility."
+          },
+          {
+            "heading": "Who should pay attention",
+            "body": "Fragmented tool development is not a consequence of poor engineering practice. Rather, it is the predictable outcome of asking teams to solve an infrastructure problem at the application layer."
+          },
+          {
+            "heading": "Patrick Tech Media take",
+            "body": "Patrick Tech Media reads this kind of move as a real utility race: the package that removes steps, bundles tools, and lowers hidden cost usually wins longer than the launch buzz. Patrick Tech Media will keep checking MongoDB Blog to see whether the value holds once the rollout broadens."
+          }
+        ],
+        "verification_state": "verified",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "ai-workspace-bundle"
+        ],
+        "source_set": [
+          {
+            "source_type": "official-site",
+            "source_name": "MongoDB Blog",
+            "source_url": "https://www.mongodb.com/company/blog/technical/fighting-tool-sprawl-case-for-ai-tool-registries",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "official",
+            "published_at": "2026-05-11T14:35:00.000Z",
+            "image_url": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefcc531dfb1682a1/6a01e1278f39f46c47c4dc28/Fighting_Tool_Sprawl_Meta.png",
+            "image_caption": "Reference image from MongoDB Blog.",
+            "image_credit": "MongoDB Blog"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-05-11T14:35:00.000Z",
+        "updated_at": "2026-05-11T14:35:00.000Z",
+        "image": {
+          "src": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/bltefcc531dfb1682a1/6a01e1278f39f46c47c4dc28/Fighting_Tool_Sprawl_Meta.png",
+          "caption": "Reference image from MongoDB Blog.",
+          "credit": "MongoDB Blog",
+          "source_url": "https://www.mongodb.com/company/blog/technical/fighting-tool-sprawl-case-for-ai-tool-registries"
+        },
+        "draft_context": {
+          "source_title": "Fighting Tool Sprawl: The Case for AI Tool Registries",
+          "source_name": "MongoDB Blog",
+          "source_type": "official-site",
+          "trust_tier": "official",
+          "topic_hint": "cloud-enterprise",
+          "content_type_hint": "",
+          "description": "As enterprise AI agent adoption scales, the absence of centralized, organization-level tool infrastructure is producing compounding costs. When adoption is built around optimizing for deployment speed, enterprises expose themselves to a combination of risks: duplicated engineering effort, security exposure, and operational opacity. Every enterprise needs its own shared tool registry, one that reflects its specific regulatory environment, security posture, and operational conventions. To be clear, this is not an argument for a public package manager, something like npm, PyPI, or Maven. The infrastructure each enterprise needs is internal; scoped to its own teams, its own data, its own policies, its own domain. Trying to expand the scope beyond the confines of individual organizations would be premature standardization in a fast-moving, nascent space. A shared enterprise tool registry is not an optimization or a nice-to-have. It is foundational infrastructure as agent deployments scale beyond early experiments. The case for it rests on two pillars: reducing coordination cost and enabling risk management, both for the humans building with agents and for the agents themselves. AI agents depend on tools that retrieve data, write records, trigger workflows, and call external APIs. According to McKinsey, in most large organizations, these tools are built by individual teams in an ad hoc fashion: undocumented, ungoverned, and invisible to the rest of the organization. This pattern is familiar to most engineering leaders, and the fragmentation it creates compounds with every new agent deployment. Teams rebuild what already exists elsewhere, security reviews miss tools that were never registered, and when something breaks, no one has a complete picture of what is running or why. A coordination failure at infrastructure scale The software industry solved an analogous problem decades ago with package managers. Centralized registries gave teams a way to discover, depend on, and govern shared code. The learning was clear: preventing duplication and inconsistency is an infrastructure problem, not a discipline problem. The agent era presents the same problem in a new domain. When Kong launched its enterprise MCP Registry in February 2026, they explicitly called out the problems of manual MCP configuration, hardcoded and managed tool isolation across teams, fragmented integrations, and limited organization visibility. Fragmented tool development is not a consequence of poor engineering practice. Rather, it is the predictable outcome of asking teams to solve an infrastructure problem at the application layer. The visibility problem Gravitee's The State of AI Agent Security 2026 survey quantifies what happens when agent tooling is invisible to the people responsible for securing it. The survey found that only 14.4% of teams with agents beyond the planning phase have full security approval, and 88% of organizations had an agent-related security incident this year. Bad practices like shared API keys are endemic, with only 22% of organizations treating agents as independent identities. This governance gap transforms agents from productivity boosters into high-velocity liabilities capable of executing unauthorized actions or leaking sensitive data before a human can even intervene. The story is clear: adoption is outpacing governance, and in a race for speed, old lessons are having to be retaught. The majority of deployed agents (and the MCP servers powering them!) are operating without any security sign-off. This is not primarily a resourcing failure, and it is not something a registry alone solves. Security teams cannot review what they cannot discover, and without a registry, discovery is manual, incomplete, and stale. A registry does not make tools inherently secure; rather, it makes security work possible by ensuring tools exist not as transitory, ad hoc shims, but rather as inventoried artifacts that audits and policy can attach to. It is worth revisiting public package managers here. These registries have not been able to eliminate a number of security problems, issues such as typosquatting, malicious packages, and dependency confusion, showing clearly that centralization alone is not a security solution. But they also show the converse: a registry is a precondition for security. Numerous community responses to breaches in these ecosystems demonstrate the power centralization provides. Centralization does not guarantee security, but decentralization forfeits the means to coordinate it. Governance requires shared context The default posture in most agent deployments is permissive: tools are available unless explicitly blocked. AgilityFeat's analysis of enterprise AI guardrails identifies the structural risk this creates, since an architecture not built on deny-by-default increases risk and creates upkeep costs. Allow-by-default, replicated across dozens of independent agent deployments, produces an attack surface that scales with adoption. Inverting this requires a coordination point, a shared, organization-wide context. The registry itself isn’t a governance layer, but it is what makes governance possible. When every tool an agent can use is registered with ownership, version, and review status, the governance layer has something concrete to enforce against. Without that context, policy has to be reimplemented by every consuming team, and consistency becomes impossible. Frontegg's framework for AI agent governance describes what that policy layer looks like operationally: agent actions mapped to explicit, granular guardrails that define the operational boundaries for what any agent can attempt or execute. These guardrails live outside the registry, but they depend on it. A guardrail that references a tool the security team has never heard of cannot be written in the first place. What a production-grade tool catalog requires A mature enterprise tool registry has two core functions, discovery and versioning, and serves as the foundation for two others: certification metadata and access control. Think of it as an Internal Developer Portal (IDP) built for the agent era, solving the same coordination problem that IDPs solved for service teams, but one layer up. Discovery allows any team building an agent to search for existing tools before writing new ones. With ownership metadata, version history, and usage metrics centralized, duplication is reduced not through mandate but through reduced friction. A well-designed catalog goes further than a flat list: tools should be grouped hierarchically by functional domain so that both humans and agents can find relevant capabilities quickly. Versioning closes a gap that neither discovery nor access controls address: when agent behavior changes, why did it change? A tool registry that tracks versions gives enterprises the visibility to answer that question. Was it the model? A tool prompt update? An underlying API change? Without proper versioning, finding the answer goes from a simple diff comparison to a time-consuming, manual investigation. Certification status (things like security approval, API contract validation, PII handling checks) is metadata that the registry surfaces, not a boundary that the registry itself enforces. The actual review work happens through the security organization’s existing tooling. The registry’s contribution is making the result of that review visible at the moment a team is deciding whether to adopt a tool, ensuring the review actually informs the decision it was meant to inform. Access control works the same way. A policy layer enforces authorization scoped to agent identity, team, environment, and action type, reading from the registry to know what tools exist and who owns them. The registry’s centralization lets access control be applied consistently, rather than forcing each team to come up with something bespoke. None of this is achievable when each team maintains its own isolated tooling stack. Platform teams already understand why IDPs exist. The value of the paradigm in the agent context is no different. The compounding cost of inaction The cost of inaction is direct, not merely operational and security-related. Without a searchable, well-organized catalog of tools, teams continually reinvent the wheel, since it is easier to generate a tool than to find one that already exists. Duplication means redundancy and technical debt. A registry, by making tools discoverable and reusable, converts that redundant spend into capacity for actual work. For platform engineering teams, the trajectory is clear. Agent adoption is increasing, tool duplication is increasing with it, and the shims that worked at small scale will not hold as the number of agents and tools grows. The security exposure documented in the Gravitee survey will widen, not narrow, without structural intervention. The organizations that build centralized tool infrastructure now will be able to onboard new agents quickly, govern them consistently, and audit them when something goes wrong. Those that defer will rediscover, the hard way, what platform teams learned a decade ago: coordination problems do not resolve themselves at the application layer. They compound there.",
+          "paragraphs": [
+            "Every enterprise needs its own shared tool registry, one that reflects its specific regulatory environment, security posture, and operational conventions. To be clear, this is not an argument for a public package manager, something like npm, PyPI, or Maven. The infrastructure each enterprise needs is internal; scoped to its own teams, its own data, its own policies, its own domain. Trying to expand the scope beyond the confines of individual organizations would be premature standardization in a fast-moving, nascent space.",
+            "A shared enterprise tool registry is not an optimization or a nice-to-have. It is foundational infrastructure as agent deployments scale beyond early experiments. The case for it rests on two pillars: reducing coordination cost and enabling risk management, both for the humans building with agents and for the agents themselves.",
+            "AI agents depend on tools that retrieve data, write records, trigger workflows, and call external APIs. According to McKinsey , in most large organizations, these tools are built by individual teams in an ad hoc fashion: undocumented, ungoverned, and invisible to the rest of the organization. This pattern is familiar to most engineering leaders, and the fragmentation it creates compounds with every new agent deployment. Teams rebuild what already exists elsewhere, security reviews miss tools that were never registered, and when something breaks, no one has a complete picture of what is running or why.",
+            "The agent era presents the same problem in a new domain. When Kong launched its enterprise MCP Registry in February 2026, they explicitly called out the problems of manual MCP configuration, hardcoded and managed tool isolation across teams, fragmented integrations, and limited organization visibility.",
+            "Fragmented tool development is not a consequence of poor engineering practice. Rather, it is the predictable outcome of asking teams to solve an infrastructure problem at the application layer."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=5; words=1676",
+          "link": "https://www.mongodb.com/company/blog/technical/fighting-tool-sprawl-case-for-ai-tool-registries"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Xác thực chính thức"
+      },
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-59d49df103e6-en",
+        "cluster_id": "feed-59d49df103e6",
+        "language": "en",
+        "topic": "apps-software",
+        "content_type": "NewsArticle",
+        "slug": "ai-is-changing-what-customers-need-from-a-database-mongodb-8-3-is-built-for-it",
+        "title": "AI Is Changing What Customers Need From a Database. MongoDB 8.3 Is Built for It",
+        "summary": "The old contract between databases and the applications on top of them was simple: databases improve slowly, and architectures evolve around them. The workloads our customers are shipping today—agents retrieving at sub-100ms, retry storms hitting in milliseconds, multi-region deployments that can't trade compliance for latency—were edge cases 18 months ago.",
+        "dek": "The old contract between databases and the applications on top of them was simple: databases improve slowly, and architectures evolve around them.",
+        "hook": "The old contract between databases and the applications on top of them was simple: databases improve slowly, and architectures evolve around them.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "The old contract between databases and the applications on top of them was simple: databases improve slowly, and architectures evolve around them. AI has changed that contract."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "The workloads our customers are shipping today—agents retrieving at sub-100ms, retry storms hitting in milliseconds, multi-region deployments that can't trade compliance for latency—were edge cases 18 months ago. Now they're the baseline."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "MongoDB 8.3 , generally available today, is our fourth significant release in 19 months. These releases compound. Customers running on 8.0 have seen 36% faster reads and 59% higher throughput for updates. 8.3 adds another 35% to write throughput, 45% to reads, and 15% to ACID transactions over 8.0 — without changing a line of application code."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "Enterprises like Adobe , running the most demanding AI in production, have made the requirements clear: sub-100ms retrieval, sub-second context updates, zero downtime. That's what MongoDB Atlas is built for."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "That's the commitment: when the data platform keeps pace, our customers can focus on shipping."
+          }
+        ],
+        "verification_state": "verified",
+        "quality_score": 96,
+        "ad_eligible": true,
+        "show_editorial_label": true,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "creator-software-stack"
+        ],
+        "source_set": [
+          {
+            "source_type": "official-site",
+            "source_name": "MongoDB Blog",
+            "source_url": "https://www.mongodb.com/company/blog/product-release-announcements/ai-changing-what-customers-need-from-database-mongodb-8-3-built-for-it",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "official",
+            "published_at": "2026-05-07T14:33:00.000Z",
+            "image_url": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/blt5ac17876e70a8652/69fc49b5ea7523ee600e5534/image.png",
+            "image_caption": "Reference image from MongoDB Blog.",
+            "image_credit": "MongoDB Blog"
+          }
+        ],
+        "author_id": "mai-linh",
+        "published_at": "2026-05-07T14:33:00.000Z",
+        "updated_at": "2026-05-07T14:33:00.000Z",
+        "image": {
+          "src": "https://images.contentstack.io/v3/assets/blt7151619cb9560896/blt5ac17876e70a8652/69fc49b5ea7523ee600e5534/image.png",
+          "caption": "Reference image from MongoDB Blog.",
+          "credit": "MongoDB Blog",
+          "source_url": "https://www.mongodb.com/company/blog/product-release-announcements/ai-changing-what-customers-need-from-database-mongodb-8-3-built-for-it"
+        },
+        "draft_context": {
+          "source_title": "AI Is Changing What Customers Need From a Database. MongoDB 8.3 Is Built for It",
+          "source_name": "MongoDB Blog",
+          "source_type": "official-site",
+          "trust_tier": "official",
+          "topic_hint": "cloud-enterprise",
+          "content_type_hint": "",
+          "description": "Today, we announced at .local London that MongoDB 8.3 is built for the speed AI demands—and our customers can't afford to wait. The data layer has to move at AI speed The old contract between databases and the applications on top of them was simple: databases improve slowly, and architectures evolve around them. AI has changed that contract. The workloads our customers are shipping today—agents retrieving at sub-100ms, retry storms hitting in milliseconds, multi-region deployments that can't trade compliance for latency—were edge cases 18 months ago. Now they're the baseline. MongoDB 8.3, generally available today, is our fourth significant release in 19 months. These releases compound. Customers running on 8.0 have seen 36% faster reads and 59% higher throughput for updates. 8.3 adds another 35% to write throughput, 45% to reads, and 15% to ACID transactions over 8.0 — without changing a line of application code. Enterprises like Adobe, running the most demanding AI in production, have made the requirements clear: sub-100ms retrieval, sub-second context updates, zero downtime. That's what MongoDB Atlas is built for. That's the commitment: when the data platform keeps pace, our customers can focus on shipping. MongoDB.local London Core Blog 2026 - Image 1 media Run anywhere. Stay secure. Where you run your agents isn't just an infrastructure decision anymore. Now, it's a critical compliance and security decision as well. While most platforms force a trade-off between global reach and necessary control, with 130 regions across AWS, Google Cloud, and Microsoft Azure, Atlas doesn’t force you to compromise. Atlas even enables clusters spanning multiple providers simultaneously. Avalara and Iron Mountain both took the cloud-agnostic path, modernizing on Atlas so they could meet their customers wherever they ran. The deployment shape changes. The data layer underneath doesn't. What's shifted in the last year is the pressure on both ends. Customers want retrieval and embedding capabilities closer to their users, in more places, on more clouds. They also want more authority over the residency of their data. Those two demands used to be in tension. They don't have to be. Cross-region connectivity for AWS PrivateLink, generally available today, is the clearest example. Traffic between Atlas clusters in different AWS regions stays on the AWS private backbone, with no public internet exposure. Security and compliance teams get the guarantees they need. Engineering teams design around fewer edge cases. Nobody has to make a trade-off. Built to keep pace Every capability in this post addresses friction that technical leaders have been engineering around for years. They solve different problems, but share one objective: to eliminate the infrastructure trade-offs that slow down production of AI. The AI workloads our customers will run 18 months from now will look different from those today. That's not a risk. That's the point. Four significant releases in 19 months isn't a marketing number. It's a signal about how seriously we take the current pace of change, and our commitment to staying ahead of it for our 65,200+ customers. Getting agents to retrieve the right information, accurately and at speed, is where embeddings and memory come in. Pablo Stern covers that in his blog, The Bottleneck in Enterprise AI Isn't the Model. It's the Data.",
+          "paragraphs": [
+            "The old contract between databases and the applications on top of them was simple: databases improve slowly, and architectures evolve around them. AI has changed that contract.",
+            "The workloads our customers are shipping today—agents retrieving at sub-100ms, retry storms hitting in milliseconds, multi-region deployments that can't trade compliance for latency—were edge cases 18 months ago. Now they're the baseline.",
+            "MongoDB 8.3 , generally available today, is our fourth significant release in 19 months. These releases compound. Customers running on 8.0 have seen 36% faster reads and 59% higher throughput for updates. 8.3 adds another 35% to write throughput, 45% to reads, and 15% to ACID transactions over 8.0 — without changing a line of application code.",
+            "Enterprises like Adobe , running the most demanding AI in production, have made the requirements clear: sub-100ms retrieval, sub-second context updates, zero downtime. That's what MongoDB Atlas is built for.",
+            "That's the commitment: when the data platform keeps pace, our customers can focus on shipping.",
+            "Where you run your agents isn't just an infrastructure decision anymore. Now, it's a critical compliance and security decision as well. While most platforms force a trade-off between global reach and necessary control, with 130 regions across AWS, Google Cloud, and Microsoft Azure, Atlas doesn’t force you to compromise. Atlas even enables clusters spanning multiple providers simultaneously."
+          ],
+          "source_depth_score": 100,
+          "source_depth_reason": "depth=100; paragraphs=6; words=747",
+          "link": "https://www.mongodb.com/company/blog/product-release-announcements/ai-changing-what-customers-need-from-database-mongodb-8-3-built-for-it"
+        },
+        "single_source_exception": true,
+        "is_single_source": true,
+        "editorial_label": "Xác thực chính thức"
+      },
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-20fc59d352f1-en",
+        "cluster_id": "feed-20fc59d352f1",
+        "language": "en",
+        "topic": "devices",
+        "content_type": "NewsArticle",
+        "slug": "amd-based-freebsd-desktop-reloaded",
+        "title": "AMD Based FreeBSD Desktop Reloaded",
+        "summary": "My previous AMD Based FreeBSD Desktop is still up and running – it will now be my kids computer … so I needed a new one … but not a bigger one 🙂 I spent way too much time finding new Mini-ITX case for the next one … and after all possibilities … I got Silverstone case again :] … because nothing else was this small and with all needed features. Also … I was thinking WHAT exactly should I buy – especially in the times with AI prices.",
+        "dek": "My previous AMD Based FreeBSD Desktop is still up and running – it will now be my kids computer … so I needed a new one … but not a bigger one 🙂 I spent way too much time finding new Mini-ITX case for the next one … and after all possibilities … I got Silverstone case again :] … because nothing else was this small and with all needed features.",
+        "hook": "My previous AMD Based FreeBSD Desktop is still up and running – it will now be my kids computer … so I needed a new one … but not a bigger one 🙂 I spent way too much time finding new Mini-ITX case for the next one … and after all possibilities … I got Silverstone case again :] … because nothing else was this small and with all needed features.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "My previous AMD Based FreeBSD Desktop is still up and running – it will now be my kids computer … so I needed a new one … but not a bigger one 🙂 I spent way too much time finding new Mini-ITX case for the next one … and after all possibilities … I got Silverstone case again :] … because nothing else was this small and with all needed features. Also … I was thinking WHAT exactly should I buy – especially in the times with AI prices. For one of my older projects that failed (I hope to also publish about that some day) I had AMD Ryzen 4750GE CPU with 35W TDP but still 8C/16T CPU on AMD4 socket … so instead of killing all price/performance efficiency with DDR5 and AM5 setup … I went to decent AM4 option."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "My previous AMD Based FreeBSD Desktop is still up and running – it will now be my kids computer … so I needed a new one … but not a bigger one 🙂 I spent way too much time finding new Mini-ITX case for the next one … and after all possibilities … I got Silverstone case again :] … because nothing else was this small and with all needed features."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "My previous AMD Based FreeBSD Desktop is still up and running – it will now be my kids computer … so I needed a new one … but not a bigger one 🙂 I spent way too much time finding new Mini-ITX case for the next one … and after all possibilities … I got Silverstone case again :] … because nothing else was this small and with all needed features. On the device side, the real question is when a spec shift turns into a noticeable user experience change."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "The important part is whether this change carries beyond the headline and becomes tangible in real product use. On the device side, the real question is when a spec shift turns into a noticeable user experience change."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "The next readout will be price, rollout timing, and whether the hardware feels different in real use."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 85,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "off",
+        "related_store_items": [],
+        "source_set": [
+          {
+            "source_type": "community",
+            "source_name": "Hacker News Top Stories",
+            "source_url": "https://vermaden.wordpress.com/2026/09/06/amd-based-freebsd-desktop-reloaded/",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "community",
+            "published_at": "2026-09-06T02:24:57.000Z",
+            "image_url": "https://vermaden.wordpress.com/wp-content/uploads/2026/09/pc-builder.png",
+            "image_caption": "Reference image from Hacker News Top Stories.",
+            "image_credit": "Hacker News Top Stories"
+          }
+        ],
+        "author_id": "quang-huy",
+        "published_at": "2026-09-06T02:24:57.000Z",
+        "updated_at": "2026-09-06T02:24:57.000Z",
+        "image": {
+          "src": "https://vermaden.wordpress.com/wp-content/uploads/2026/09/pc-builder.png",
+          "caption": "Reference image from Hacker News Top Stories.",
+          "credit": "Hacker News Top Stories",
+          "source_url": "https://vermaden.wordpress.com/2026/09/06/amd-based-freebsd-desktop-reloaded/"
+        },
+        "draft_context": {
+          "source_title": "AMD Based FreeBSD Desktop Reloaded",
+          "source_name": "Hacker News Top Stories",
+          "source_type": "community",
+          "trust_tier": "community",
+          "topic_hint": "internet-business-tech",
+          "content_type_hint": "",
+          "description": "AMD Based FreeBSD Desktop Reloaded",
+          "paragraphs": [
+            "My previous AMD Based FreeBSD Desktop is still up and running &#8211; it will now be my kids computer &#8230; so I needed a new one &#8230; but not a bigger one 🙂 I spent way too much time finding new Mini-ITX case for the next one &#8230; and after all possibilities &#8230; I got Silverstone case again :] &#8230; because nothing else was this small and with all needed features. Also &#8230; I was thinking WHAT exactly should I buy &#8211; especially in the times with AI prices. For one of my older projects that failed (I hope to also publish about that some day) I had AMD Ryzen 4750GE CPU with 35W TDP but still 8C/16T CPU on AMD4 socket &#8230; so instead of killing all price/performance efficiency with DDR5 and AM5 setup &#8230; I went to decent AM4 option."
+          ],
+          "source_depth_score": 24,
+          "source_depth_reason": "depth=24; paragraphs=1; words=147",
+          "link": "https://vermaden.wordpress.com/2026/09/06/amd-based-freebsd-desktop-reloaded/"
+        }
+      },
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
+      "retry_count": 0,
+      "last_retry_at": ""
+    },
+    {
+      "article": {
+        "id": "feed-6b8489b82a53-en",
+        "cluster_id": "feed-6b8489b82a53",
+        "language": "en",
+        "topic": "security",
+        "content_type": "NewsArticle",
+        "slug": "matching-puzzle-pieces-and-disappointing-benchmarks",
+        "title": "Matching Puzzle Pieces and Disappointing Benchmarks",
+        "summary": "First, case insensitively comparing two &str s in Rust is possible, if a bit convoluted. The solution here is to iterate over all char s, then calling char::to_lowercase on that, which returns another iterator over char (because some chars can correspond to multiple chars in lowercase), which we can flat_map .",
+        "dek": "First, case insensitively comparing two &str s in Rust is possible, if a bit convoluted.",
+        "hook": "First, case insensitively comparing two &str s in Rust is possible, if a bit convoluted.",
+        "sections": [
+          {
+            "heading": "Context: what is changing",
+            "body": "First, case insensitively comparing two &str s in Rust is possible, if a bit convoluted. The solution here is to iterate over all char s, then calling char::to_lowercase on that, which returns another iterator over char (because some chars can correspond to multiple chars in lowercase), which we can flat_map . The second piece of the puzzle is that Iterator has a cmp method but does not implement Ord because it is not idempotent: If you call cmp , you exhaust the iterator. Still, with sort_by , we can interleave the lowercase conversion and comparison."
+          },
+          {
+            "heading": "Where the sources line up",
+            "body": "use fake :: faker :: name :: raw :: Name ; use fake ::{ locales :: EN , Fake }; fn setup ( num : usize ) -> Vec { ( 0 .. num ) .map (| _ | Name ( EN ) .fake ()) .collect :: > () } #[divan::bench(args = [ 1 , 5 , 10 , 100 , 1000 , 10000 ] )] fn sort_by_cached_lowercase ( bencher : divan :: Bencher , size : usize ) { let names = setup ( size ); bencher .counter ( size ) .bench_local (|| { let mut sorted = names .clone (); sorted .sort_by_cached_key (| name | name .to_lowercase ()); sorted }) } #[divan::bench(args = [ 1 , 5 , 10 , 100 , 1000 , 10000 ] )] fn sort_by_iter_lowercase ( bencher : divan :: Bencher , size : usize ) { let names = setup ( size ); bencher .counter ( size ) .bench_local (|| { let mut sorted = names .clone (); fn caseless ( s : & String ) -> impl Iterator + '_ { s .chars () .flat_map ( char :: to_lowercase ) } sorted .sort_by (| s1 , s2 | caseless ( s1 ) .cmp ( caseless ( s2 ))); sorted }) } #[divan::bench(args = [ 1 , 5 , 10 , 100 , 1000 , 10000 ] )] fn sort_by_unicase ( bencher : divan :: Bencher , size : usize ) { let names = setup ( size ); bencher .counter ( size ) .bench_local (|| { let mut sorted = names .clone (); sorted .sort_by (| s1 , s2 | unicase :: UniCase :: new ( s1 ) .cmp ( & unicase :: UniCase :: new ( s2 ))); sorted }) } fn main () { // Run registered benchmarks. divan :: main (); } The result on my M2-MAX MacBook Pro:."
+          },
+          {
+            "heading": "Practical impact for readers",
+            "body": "First, case insensitively comparing two &str s in Rust is possible, if a bit convoluted. The part worth watching is how it changes account safety and operational risk handling."
+          },
+          {
+            "heading": "Who should pay attention now",
+            "body": "The important part is whether this change carries beyond the headline and becomes tangible in real product use. The part worth watching is how it changes account safety and operational risk handling."
+          },
+          {
+            "heading": "What to watch next",
+            "body": "The next layer to watch is how this changes account safety, sign-in flow, and operating cost."
+          }
+        ],
+        "verification_state": "emerging",
+        "quality_score": 87,
+        "ad_eligible": true,
+        "show_editorial_label": false,
+        "indexable": true,
+        "store_link_mode": "soft",
+        "related_store_items": [
+          "secure-access-kit"
+        ],
+        "source_set": [
+          {
+            "source_type": "community",
+            "source_name": "Hacker News Top Stories",
+            "source_url": "https://llogiq.github.io/2026/03/20/case.html",
+            "region": "Global",
+            "language": "en",
+            "trust_tier": "community",
+            "published_at": "2026-09-03T18:52:44.000Z",
+            "image_url": "",
+            "image_caption": "",
+            "image_credit": "Hacker News Top Stories"
+          }
+        ],
+        "author_id": "thao-nguyen",
+        "published_at": "2026-09-03T18:52:44.000Z",
+        "updated_at": "2026-09-03T18:52:44.000Z",
+        "image": {},
+        "draft_context": {
+          "source_title": "Matching Puzzle Pieces and Disappointing Benchmarks",
+          "source_name": "Hacker News Top Stories",
+          "source_type": "community",
+          "trust_tier": "community",
+          "topic_hint": "internet-business-tech",
+          "content_type_hint": "",
+          "description": "Matching Puzzle Pieces and Disappointing Benchmarks",
+          "paragraphs": [
+            "First, case insensitively comparing two &str s in Rust is possible, if a bit convoluted. The solution here is to iterate over all char s, then calling char::to_lowercase on that, which returns another iterator over char (because some chars can correspond to multiple chars in lowercase), which we can flat_map . The second piece of the puzzle is that Iterator has a cmp method but does not implement Ord because it is not idempotent: If you call cmp , you exhaust the iterator. Still, with sort_by , we can interleave the lowercase conversion and comparison.",
+            "use fake :: faker :: name :: raw :: Name ; use fake ::{ locales :: EN , Fake }; fn setup ( num : usize ) -&gt; Vec &lt; String &gt; { ( 0 .. num ) .map (| _ | Name ( EN ) .fake ()) .collect :: &lt; Vec &lt; String &gt;&gt; () } #[divan::bench(args = [ 1 , 5 , 10 , 100 , 1000 , 10000 ] )] fn sort_by_cached_lowercase ( bencher : divan :: Bencher , size : usize ) { let names = setup ( size ); bencher .counter ( size ) .bench_local (|| { let mut sorted = names .clone (); sorted .sort_by_cached_key (| name | name .to_lowercase ()); sorted }) } #[divan::bench(args = [ 1 , 5 , 10 , 100 , 1000 , 10000 ] )] fn sort_by_iter_lowercase ( bencher : divan :: Bencher , size : usize ) { let names = setup ( size ); bencher .counter ( size ) .bench_local (|| { let mut sorted = names .clone (); fn caseless ( s : & String ) -&gt; impl Iterator &lt; Item = char &gt; + '_ { s .chars () .flat_map ( char :: to_lowercase ) } sorted .sort_by (| s1 , s2 | caseless ( s1 ) .cmp ( caseless ( s2 ))); sorted }) } #[divan::bench(args = [ 1 , 5 , 10 , 100 , 1000 , 10000 ] )] fn sort_by_unicase ( bencher : divan :: Bencher , size : usize ) { let names = setup ( size ); bencher .counter ( size ) .bench_local (|| { let mut sorted = names .clone (); sorted .sort_by (| s1 , s2 | unicase :: UniCase :: new ( s1 ) .cmp ( & unicase :: UniCase :: new ( s2 ))); sorted }) } fn main () { // Run registered benchmarks. divan :: main (); } The result on my M2-MAX MacBook Pro:"
+          ],
+          "source_depth_score": 52,
+          "source_depth_reason": "depth=52; paragraphs=2; words=411",
+          "link": "https://llogiq.github.io/2026/03/20/case.html"
+        }
+      },
+      "first_seen_at": "2026-09-06T08:49:08.692Z",
       "retry_count": 0,
       "last_retry_at": ""
     }
