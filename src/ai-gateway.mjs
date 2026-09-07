@@ -96,6 +96,34 @@ export async function callGeminiJson({ apiKey, model = "", payload, fetchImpl = 
   throw new Error(`${label} API failed: ${errors.join(" | ")}`);
 }
 
+export async function callUnifiedAI({ apiKey = "", model = "", payload = {}, fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, env = process.env, label = "Unified AI" } = {}) {
+  const groqKey = String(env.GROQ_API_KEY || "").trim();
+  if (groqKey) {
+    try {
+      return await callGroqAPI({ apiKey: groqKey, payload, fetchImpl, timeoutMs, label: `${label} via Groq` });
+    } catch (error) {
+      console.warn(`[AIGateway] ${label} Groq failed; continuing with remaining providers: ${error?.message || error}`);
+    }
+  }
+  const geminiKey = resolveGeminiApiKey({ apiKey, env });
+  if (geminiKey) {
+    return callGeminiJson({
+      apiKey: geminiKey,
+      model,
+      payload,
+      fetchImpl,
+      timeoutMs,
+      env: { ...env, GROQ_API_KEY: "" },
+      label
+    });
+  }
+  const deepSeekKey = String(env.DEEPSEEK_API_KEY || "").trim();
+  if (deepSeekKey) {
+    return callDeepSeekAPI({ apiKey: deepSeekKey, payload, fetchImpl, timeoutMs, label: `${label} via DeepSeek` });
+  }
+  throw new Error(`${label} API key is missing. Set a Gemini, GROQ, or DeepSeek key.`);
+}
+
 export async function callGroqAPI({ apiKey = "", payload = {}, systemPrompt = "", userPrompt = "", jsonOutput = true, fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, label = "Groq" } = {}) {
   const key = String(apiKey || process.env.GROQ_API_KEY || "").trim();
   if (!key) throw new Error(`${label} API key is missing. Set GROQ_API_KEY.`);

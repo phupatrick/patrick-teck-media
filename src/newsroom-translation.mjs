@@ -1,4 +1,4 @@
-import { callGeminiJson, resolveGeminiApiKey } from "./ai-gateway.mjs";
+import { callGeminiJson, callUnifiedAI, resolveGeminiApiKey } from "./ai-gateway.mjs";
 
 const TRANSLATABLE_FIELDS = ["title", "summary", "dek", "hook", "sections"];
 
@@ -9,13 +9,15 @@ export function createNewsroomTranslator(options = {}) {
     : process.env.NEWSROOM_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
   const apiKey = resolveGeminiApiKey({ apiKey: options.apiKey !== undefined ? options.apiKey : defaultApiKey });
   const model = String(options.model !== undefined ? options.model : process.env.NEWSROOM_TRANSLATION_MODEL || process.env.NEWSROOM_GEMINI_MODEL || "gemini-3-flash-preview").trim();
+  const env = options.env || process.env;
+  const hasFallbackKey = Boolean(apiKey || String(env.GROQ_API_KEY || "").trim() || String(env.DEEPSEEK_API_KEY || "").trim());
   const fetchImpl = options.fetch || fetch;
   const sleep = options.sleep || ((milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)));
 
   return {
-    enabled: Boolean(apiKey && model),
+    enabled: Boolean((endpoint ? apiKey : hasFallbackKey) && model),
     async translateArticle(article, targetLanguage) {
-      if (!apiKey || !model) {
+      if ((!endpoint && !hasFallbackKey) || (endpoint && !apiKey) || !model) {
         throw new Error("Newsroom translation provider is not configured.");
       }
 
@@ -27,7 +29,7 @@ export function createNewsroomTranslator(options = {}) {
         try {
           translated = endpoint
             ? await requestTranslation({ endpoint, apiKey, model, article, sourceLanguage, target, fetchImpl })
-            : await requestGeminiTranslation({ apiKey, model, article, sourceLanguage, target, fetchImpl });
+            : await requestUnifiedTranslation({ apiKey, model, article, sourceLanguage, target, fetchImpl, env });
           break;
         } catch (error) {
           lastError = error;
@@ -47,6 +49,22 @@ async function requestGeminiTranslation({ apiKey, model, article, sourceLanguage
     contents: [{ parts: [{ text: `Bạn là Biên tập viên dịch thuật công nghệ cao cấp của toà soạn Patrick Tech Media (https://patricktechmedia.com/vi/). Dịch bài viết sang tiếng Việt chuẩn văn phong báo chí công nghệ hiện đại, tự nhiên và chính xác. Giữ nguyên cấu trúc Markdown, code blocks, bảng biểu, liên kết trích dẫn nguồn, số liệu, tên riêng và thuật ngữ kỹ thuật; không bịa thêm thông tin. Chỉ trả về JSON hợp lệ với title, summary, dek, hook và sections; sections là mảng các object gồm heading và body.\n\n${input}` }] }],
     generationConfig: { responseMimeType: "application/json", temperature: 0.3, thinkingConfig: { thinkingBudget: 0 } }
   }});
+  return parseTranslationJson(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
+}
+
+async function requestUnifiedTranslation({ apiKey, model, article, sourceLanguage, target, fetchImpl, env }) {
+  const input = JSON.stringify({ source_language: sourceLanguage, target_language: target, article: selectFields(article) });
+  const payload = await callUnifiedAI({
+    apiKey,
+    model,
+    fetchImpl,
+    env,
+    label: "Newsroom translation",
+    payload: {
+      contents: [{ parts: [{ text: `Bạn là Biên tập viên dịch thuật công nghệ cao cấp của toà soạn Patrick Tech Media. Dịch bài viết sang ${target === "vi" ? "tiếng Việt" : "tiếng Anh"} tự nhiên, chính xác và giữ nguyên dữ kiện. Chỉ trả về JSON hợp lệ với title, summary, dek, hook và sections; sections là mảng object gồm heading và body.\n\n${input}` }] }],
+      generationConfig: { responseMimeType: "application/json", temperature: 0.3, thinkingConfig: { thinkingBudget: 0 } }
+    }
+  });
   return parseTranslationJson(payload?.candidates?.[0]?.content?.parts?.[0]?.text);
 }
 

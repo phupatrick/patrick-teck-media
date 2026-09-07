@@ -32,7 +32,8 @@ on:
         required: false
         default: "0"
   schedule:
-    - cron: "*/15 * * * *"
+    # Five golden slots per day in Vietnam time: 07:30, 11:30, 15:00, 19:30, 22:00.
+    - cron: "30 0,4,8,12,15 * * *"
     - cron: "17 0 * * *"
     - cron: "0 15 * * *"
 
@@ -127,8 +128,8 @@ jobs:
         run: node scripts/openclaw-manager.mjs
 
       - name: Run Social Autopilot
-        # Run on the existing 15-minute newsroom cadence. The application
-        # enforces the daily quota and per-run pacing before publishing.
+        # The application enforces daily quota, live Facebook deduplication,
+        # and a minimum 150-minute spacing between public posts.
         env:
           # Publishing is autonomous in production; set the secret to 0 for an intentional pause.
           SOCIAL_AUTOPILOT_ENABLED: ${{ secrets.SOCIAL_AUTOPILOT_ENABLED || '1' }}

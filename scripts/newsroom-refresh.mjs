@@ -1063,6 +1063,22 @@ const SOURCE_TOPIC_HINTS = [
 
   const pendingItems = preparePendingArticles(readPendingQueue(pendingPath), now);
   const pendingArticles = pendingItems.map((item) => applySingleSourcePublicationPolicy(item.article, item.expired));
+  if (sourceLabel === "curated-rss") {
+    const existingKeys = new Set(readExistingArticles(outputPath).flatMap(articleSourceKeys));
+    incomingArticles = incomingArticles.filter((article) => {
+      const keys = articleSourceKeys(article);
+      return !keys.some((key) => existingKeys.has(key));
+    });
+  }
+  if (!pendingArticles.length && !incomingArticles.length) {
+    return {
+      changed: false,
+      publishedCount: 0,
+      outputPath,
+      sourceLabel,
+      reason: "no-new-source-articles"
+    };
+  }
   const sourceCandidates = [...pendingArticles, ...incomingArticles];
   const bilingualResult = await ensureBilingualCandidates(sourceCandidates, env, now, outputPath);
   const bilingualCandidates = bilingualResult.articles;
@@ -1695,7 +1711,20 @@ async function fetchFallbackArticles(timestamp, feeds = [], env = process.env) {
 
       const xml = await response.text();
       const items = parseFeedItems(xml).slice(0, feed.limit);
-      return mapWithConcurrency(items, fetchConcurrency, async (item) => mapFeedItem(feed, item, timestamp));
+      const itemKeys = items.map(feedItemKey).filter(Boolean);
+      const previousItemKeys = new Set(Array.isArray(cachedHeaders.item_keys) ? cachedHeaders.item_keys : []);
+      const currentTitleHash = hashFeedItems(items);
+      feedCache[feed.url] = {
+        ...feedCache[feed.url],
+        etag: response.headers.get("etag") || "",
+        lastModified: response.headers.get("last-modified") || "",
+        item_keys: itemKeys,
+        title_hash: currentTitleHash,
+        updated_at: new Date().toISOString()
+      };
+      if (cachedHeaders.title_hash && cachedHeaders.title_hash === currentTitleHash) return [];
+      const freshItems = previousItemKeys.size ? items.filter((item) => !previousItemKeys.has(feedItemKey(item))) : items;
+      return mapWithConcurrency(freshItems, fetchConcurrency, async (item) => mapFeedItem(feed, item, timestamp));
     } catch (error) {
       console.warn(`Skipping ${feed.name}: ${error.message || error}`);
       return [];
@@ -1778,6 +1807,16 @@ function writeFeedHttpCache(filePath, value) {
   } catch (error) {
     console.warn(`Unable to write feed HTTP cache: ${error.message || error}`);
   }
+}
+
+function feedItemKey(item) {
+  const title = cleanText(item?.title || "").toLocaleLowerCase("vi");
+  const link = canonicalSourceUrl(item?.link || item?.guid || "");
+  return title || link ? crypto.createHash("sha256").update(`${title}\n${link}`).digest("hex") : "";
+}
+
+function hashFeedItems(items) {
+  return crypto.createHash("sha256").update((Array.isArray(items) ? items : []).map(feedItemKey).filter(Boolean).join("\n")).digest("hex");
 }
 
 export function selectCuratedSourceDrafts(articles, env = process.env) {

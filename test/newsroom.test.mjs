@@ -37,6 +37,46 @@ import { fetchArxivSignals, fetchDevToSignals, fetchGdeltSignals, fetchHackerNew
 import { publishArticles } from "../scripts/newsroom-publish.mjs";
 
 {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "patrick-tech-refresh-304-"));
+  const registryPath = path.join(tempDir, "sources.json");
+  const cachePath = path.join(tempDir, "feed-cache.json");
+  const outputPath = path.join(tempDir, "newsroom-content.json");
+  const pendingPath = path.join(tempDir, "pending.json");
+  fs.writeFileSync(registryPath, JSON.stringify({ feeds: [{ name: "Fixture Official", url: "https://fixture.example/rss.xml", sourceType: "official-site", trustTier: "official", language: "en", active: true }] }), "utf8");
+  fs.writeFileSync(cachePath, JSON.stringify({ "https://fixture.example/rss.xml": { etag: "fixture-etag" } }), "utf8");
+  fs.writeFileSync(pendingPath, JSON.stringify({ generated_at: "", items: [] }), "utf8");
+  let aiCalls = 0;
+  const previousFetch = globalThis.fetch;
+  const notModifiedResponse = {
+    status: 304,
+    ok: false,
+    headers: new Headers(),
+    text: async () => ""
+  };
+  globalThis.fetch = async (url) => {
+    const requestUrl = String(url);
+    if (!/generativelanguage|api\.groq\.com|api\.deepseek\.com|translator\.example/i.test(requestUrl)) return notModifiedResponse;
+    aiCalls += 1;
+    return new Response(JSON.stringify({ error: { message: "AI must not be called for an unchanged feed" } }), { status: 500 });
+  };
+  try {
+    const result = await withTempEnv({
+      NEWSROOM_SOURCE_REGISTRY: registryPath,
+      NEWSROOM_DISCOVERED_SOURCE_REGISTRY: path.join(tempDir, "missing-discovered.json"),
+      NEWSROOM_FEED_CACHE_PATH: cachePath,
+      NEWSROOM_CONTENT_PATH: outputPath,
+      OPENCLAW_PENDING_QUEUE_PATH: pendingPath,
+      NEWSROOM_HACKER_NEWS_ENABLED: "0",
+      NEWSROOM_GEMINI_API_KEY: "fixture-gemini-key"
+    }, () => runNewsroomRefresh(process.env));
+    assert.equal(result.reason, "no-new-source-articles");
+    assert.equal(aiCalls, 0);
+  } finally {
+    globalThis.fetch = previousFetch;
+  }
+}
+
+{
   const mapped = [];
   const hnArticles = await fetchHackerNewsTopStories("2026-09-05T00:00:00.000Z", {
     env: { NEWSROOM_HACKER_NEWS_LIMIT: "2" },

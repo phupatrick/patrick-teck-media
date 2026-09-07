@@ -18,6 +18,65 @@ const DEFAULT_TOPICS = [
   "Bảo mật tài khoản số: ba việc nên làm ngay hôm nay"
 ];
 
+const FACEBOOK_RECENT_POST_LIMIT = 25;
+const FACEBOOK_POST_COOLDOWN_MINUTES = 150;
+
+export async function checkFacebookPageRecentPosts({ pageId, pageToken, fetchImpl = fetch, timeoutMs = 10_000, logger = console } = {}) {
+  const normalizedPageId = String(pageId || "").trim();
+  const normalizedToken = String(pageToken || "").trim();
+  if (!normalizedPageId || !normalizedToken) return [];
+
+  const endpoint = new URL(`https://graph.facebook.com/v20.0/${encodeURIComponent(normalizedPageId)}/feed`);
+  endpoint.search = new URLSearchParams({
+    fields: "message,created_time",
+    limit: String(FACEBOOK_RECENT_POST_LIMIT),
+    access_token: normalizedToken
+  }).toString();
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), Math.max(1, Number(timeoutMs) || 10_000));
+  try {
+    const response = await fetchImpl(endpoint.toString(), {
+      method: "GET",
+      headers: { accept: "application/json" },
+      signal: controller.signal
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok || !Array.isArray(payload?.data)) {
+      throw new Error(`Meta Graph API returned HTTP ${response.status}.`);
+    }
+    return payload.data;
+  } catch (error) {
+    logger.warn?.(`[Facebook] Không lấy được danh sách bài gần đây để check trùng: ${error?.message || error}`);
+    return [];
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+export function shouldSkipForFacebookRecentPosts(topicTitle, recentPosts, { now = new Date(), cooldownMinutes = FACEBOOK_POST_COOLDOWN_MINUTES } = {}) {
+  const posts = Array.isArray(recentPosts) ? recentPosts : [];
+  const latestPostTime = posts
+    .map((post) => Date.parse(post?.created_time || ""))
+    .filter(Number.isFinite)
+    .sort((left, right) => right - left)[0];
+  if (Number.isFinite(latestPostTime)) {
+    const ageMinutes = (new Date(now).getTime() - latestPostTime) / 60_000;
+    if (ageMinutes >= 0 && ageMinutes < Number(cooldownMinutes)) {
+      return { skip: true, reason: "facebook-cooldown", ageMinutes };
+    }
+  }
+
+  const normalizedTitle = normalizeFacebookComparisonText(topicTitle);
+  if (normalizedTitle && posts.some((post) => normalizeFacebookComparisonText(post?.message).includes(normalizedTitle))) {
+    return { skip: true, reason: "facebook-duplicate-title" };
+  }
+  return { skip: false, reason: "eligible" };
+}
+
+function normalizeFacebookComparisonText(value) {
+  return String(value || "").toLocaleLowerCase("vi").replace(/\s+/g, " ").trim();
+}
+
 export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch, logger = console, now = new Date() } = {}) {
   if (String(env.SOCIAL_AUTOPILOT_ENABLED || "").trim() !== "1") {
     return { skipped: true, reason: "SOCIAL_AUTOPILOT_ENABLED is not 1", published: [] };
@@ -65,7 +124,31 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
   const scheduledType = getScheduledPostType({ now, timeZone: env.SOCIAL_TIMEZONE || "Asia/Ho_Chi_Minh", force: forced });
   if (scheduled && !scheduledType && !forced) return { skipped: true, reason: "outside scheduled publishing slot", published: [], failures: [], retriedComments };
   const configuredLimit = scheduled && !forced ? 1 : normalizeDailyLimit(env.SOCIAL_AUTOPILOT_RUN_LIMIT || env.SOCIAL_AUTOPILOT_LIMIT, 1);
-  const candidates = selectScheduledCandidates(allCandidates, scheduled && !forced ? scheduledType : "", configuredLimit);
+  const candidatePool = selectScheduledCandidates(
+    allCandidates,
+    scheduled && !forced ? scheduledType : "",
+    Math.max(configuredLimit, allCandidates.length)
+  );
+  const recentFacebookPosts = candidatePool.length
+    ? await checkFacebookPageRecentPosts({ pageId, pageToken, fetchImpl, logger, timeoutMs: env.SOCIAL_FACEBOOK_RECENT_TIMEOUT_MS || 10_000 })
+    : [];
+  const latestFacebookPostCheck = candidatePool.length
+    ? shouldSkipForFacebookRecentPosts("", recentFacebookPosts, { now })
+    : { skip: false };
+  if (latestFacebookPostCheck.reason === "facebook-cooldown") {
+    const age = Math.max(0, Math.round(latestFacebookPostCheck.ageMinutes));
+    logger.info?.(`[Autopilot] Bài đăng Facebook gần nhất cách đây ${age} phút, chưa đủ ${FACEBOOK_POST_COOLDOWN_MINUTES} phút. Bỏ qua chu kỳ này.`);
+    return { skipped: true, reason: "facebook-cooldown", selected: 0, published: [], failures: [], retriedComments };
+  }
+  const eligibleCandidates = candidatePool.filter((article) => {
+    const duplicateCheck = shouldSkipForFacebookRecentPosts(article.title, recentFacebookPosts, { now, cooldownMinutes: 0 });
+    if (duplicateCheck.reason === "facebook-duplicate-title") {
+      logger.info?.(`[Autopilot] Bài "${article.title}" đã có trong 25 bài gần nhất trên Fanpage. Bỏ qua ứng viên này.`);
+      return false;
+    }
+    return true;
+  });
+  const candidates = eligibleCandidates.slice(0, configuredLimit);
   const published = [];
   const failures = [];
 
@@ -174,7 +257,7 @@ export async function runSocialAutopilot({ env = process.env, fetchImpl = fetch,
     }
   }
 
-  const result = { skipped: false, selected: candidates.length, published, failures, retriedComments, scheduledType: scheduledType || "next-available" };
+  const result = { skipped: false, selected: candidates.length, skippedDuplicates: candidatePool.length - eligibleCandidates.length, published, failures, retriedComments, scheduledType: scheduledType || "next-available" };
   await sendTelegramReport(result, env, fetchImpl);
   return result;
   } finally {

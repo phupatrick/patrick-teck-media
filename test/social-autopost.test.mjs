@@ -3,7 +3,7 @@ import { generateOfflinePost } from "../src/social-templates.mjs";
 import { createPostContent, fetchContextualPexelsImage, formatFacebookCaption, getFacebookPostDetails, getPexelsSearchQuery, getRandomTechImage, postToFacebook, safePostToFacebook, sanitizeSocialText } from "../src/social-engine.mjs";
 import { createSocialStore } from "../src/social-store.mjs";
 import { executeSocialCommand, handleSocialCallback } from "../src/social-bot-handlers.mjs";
-import { getDailyQuota, isFacebookEligibleProduct, runSocialAutopilot, selectCandidates, validateFacebookCaption } from "../scripts/social-autopilot.mjs";
+import { checkFacebookPageRecentPosts, getDailyQuota, isFacebookEligibleProduct, runSocialAutopilot, selectCandidates, shouldSkipForFacebookRecentPosts, validateFacebookCaption } from "../scripts/social-autopilot.mjs";
 import { callGeminiJson } from "../src/ai-gateway.mjs";
 import fs from "node:fs";
 import os from "node:os";
@@ -11,6 +11,24 @@ import path from "node:path";
 
 const tempPath = path.join(os.tmpdir(), `patrick-social-${Date.now()}.json`);
 try {
+  let recentRequest;
+  const recentPosts = await checkFacebookPageRecentPosts({
+    pageId: "page/with-id",
+    pageToken: "secret-token",
+    fetchImpl: async (url, options) => {
+      recentRequest = { url: String(url), options };
+      return new Response(JSON.stringify({ data: [{ message: "Bài đã đăng", created_time: "2026-09-07T00:00:00.000Z" }] }), { status: 200 });
+    }
+  });
+  assert.equal(recentPosts.length, 1);
+  assert.equal(recentRequest.options.method, "GET");
+  assert.match(recentRequest.url, /fields=message%2Ccreated_time/);
+  assert.match(recentRequest.url, /limit=25/);
+  assert.match(recentRequest.url, /access_token=secret-token/);
+  assert.equal(shouldSkipForFacebookRecentPosts("Bài mới", recentPosts, { now: "2026-09-07T02:29:00.000Z" }).reason, "facebook-cooldown");
+  assert.equal(shouldSkipForFacebookRecentPosts("Bài mới", recentPosts, { now: "2026-09-07T02:30:00.000Z" }).skip, false);
+  assert.equal(shouldSkipForFacebookRecentPosts("Bài đã đăng", recentPosts, { now: "2026-09-07T05:00:00.000Z" }).reason, "facebook-duplicate-title");
+
   const post = generateOfflinePost({ topic: "AI agent", pillar: "ai_news" });
   const captionLines = post.caption.split(/\n+/).map((line) => line.trim()).filter(Boolean);
   assert.ok(captionLines[0].length <= 120);
