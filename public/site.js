@@ -6,7 +6,31 @@ initAuthTabs();
 initImageFallbacks();
 initPullToRefresh();
 initLanguageSwitcher();
-initEditorialMotion();
+initApprovedEditorialMotion();
+
+function initApprovedEditorialMotion() {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  const mm = gsap.matchMedia();
+  mm.add("(prefers-reduced-motion: no-preference)", () => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.to(".hero h1 .line span", { y: "0%", duration: 0.9, stagger: 0.09 })
+      .from(".hero-eyebrow", { opacity: 0, y: 10, duration: 0.5 }, 0)
+      .from(".hero-dek, .hero-meta", { opacity: 0, y: 12, duration: 0.6, stagger: 0.08 }, "-=0.5")
+      .from(".hero-media", { opacity: 0, scale: 0.97, duration: 0.8 }, 0.1);
+
+    const progressTween = gsap.to("#readFill", {
+      width: "100%",
+      ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+    });
+
+    return () => {
+      tl.kill();
+      progressTween.kill();
+    };
+  });
+}
 
 function initLanguageSwitcher() {
   for (const link of document.querySelectorAll("[data-language-switch]")) {

@@ -47,12 +47,10 @@ export function renderHomePage(state, language, adsConfig) {
       .filter((article, index, stories) => stories.findIndex((entry) => entry.href === article.href) === index)
       .slice(0, 3);
   const mastheadUsesFallback = !freshMastheadStories.length && mastheadLatestStories.length > 0;
-  const mastheadTitle = mastheadUsesFallback
-    ? (language === "vi" ? "Mới nhất hiện có" : "Latest available")
-    : copy.updateTitle;
+  const mastheadTitle = mastheadUsesFallback ? copy.latestFallbackTitle : copy.updateTitle;
   const latestPrimaryStories = safeLatestStories.slice(0, 3);
   const latestMoreStories = safeLatestStories.slice(3);
-  const latestMoreLabel = language === "vi" ? "Xem thêm" : "See more";
+  const latestMoreLabel = copy.latestMoreLabel;
 
   return renderLayout({
     state,
@@ -63,17 +61,16 @@ export function renderHomePage(state, language, adsConfig) {
     description: state.site.description[language],
     content: `
       <section class="frontpage-masthead hero-grid" data-signal-shell>
-        <div class="frontpage-masthead-copy clean-card hero-main-banner">
-          <p class="eyebrow editorial-badge">${escapeHtml(heroEyebrow)}</p>
-          <h1 class="hero-big-title">${escapeHtml(heroTitle)}</h1>
-          <p class="frontpage-masthead-text hero-subtitle">${escapeHtml(heroText)}</p>
-          <div class="hero-badges">
-            <span>${copy.badgeSignals}</span>
-            <span>${copy.badgeAds}</span>
-            <span>${copy.badgeBilingual}</span>
-          </div>
+        <div class="frontpage-masthead-copy clean-card hero-main-banner hero">
+          <div class="hero-eyebrow">${renderSignal(leadFeature?.verification_state, language)}<span class="hero-category">${escapeHtml(leadFeature?.topic_label || heroEyebrow)}</span></div>
+          <h1 class="hero-big-title">${leadFeature ? renderHeadlineLines(leadFeature.title) : `<span class="line"><span>${escapeHtml(heroTitle)}</span></span>`}</h1>
+          <p class="frontpage-masthead-text hero-dek">${escapeHtml(leadFeature ? getDisplayExcerpt(renderStoryExcerpt(leadFeature), 140) : heroText)}</p>
+          <p class="hero-context">${escapeHtml(heroTitle !== fallbackCopy.heroTitle ? heroTitle : heroText)}</p>
+          <span class="sr-only">${escapeHtml(heroTitle)}</span>
+          <div class="hero-meta"><span>${escapeHtml(leadFeature?.author?.name || founderName)}</span><span class="dash" aria-hidden="true"></span><span>${escapeHtml(leadFeature ? formatPublishDate(language, leadFeature.published_at) : heroEyebrow)}</span><span class="dash" aria-hidden="true"></span><span>${escapeHtml(copy.readTime)}</span></div>
         </div>
-        <aside class="masthead-brief clean-card hero-recent-box" data-signal-shell>
+        <aside class="masthead-brief clean-card hero-recent-box hero-media" data-signal-shell>
+          ${leadFeature ? `${renderStoryImage(leadFeature, "hero-image", true)}<div class="read-track" aria-hidden="true"><span id="readFill"></span></div>` : ""}
           <div class="masthead-founder">
             <picture>
               <source srcset="/founder-thumb.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" media="(max-width: 760px)" />
@@ -88,7 +85,7 @@ export function renderHomePage(state, language, adsConfig) {
           <div class="masthead-brief-list recent-list-clean">
             ${mastheadLatestStories.length
               ? mastheadLatestStories.map((article, index) => renderMastheadItem(article, language, index)).join("")
-              : `<p class="masthead-empty">${language === "vi" ? "Chưa có bài mới trong 48 giờ qua." : "No new stories in the last 48 hours."}</p>`}
+              : `<p class="masthead-empty">${copy.latestEmptyText}</p>`}
           </div>
         </aside>
       </section>
@@ -127,7 +124,7 @@ export function renderHomePage(state, language, adsConfig) {
         </div>
       </section>
 
-      <section class="frontpage-grid">
+      <section class="frontpage-grid latest-grid">
         <div class="section-block">
           <div class="section-head">
             <p class="eyebrow">${copy.latestLabel}</p>
@@ -176,7 +173,7 @@ export function renderHomePage(state, language, adsConfig) {
         excerptLength: 82
       })}
 
-      <section class="topic-band categories-balanced-grid">
+      <section class="topic-band topics categories-balanced-grid">
         ${home.topicSections
           .map(
             (topic) => `
@@ -192,6 +189,11 @@ export function renderHomePage(state, language, adsConfig) {
             `
           )
           .join("")}
+      </section>
+
+      <section class="founder-strip" aria-label="${escapeHtml(founderName)}">
+        <img src="/founder-thumb.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" alt="${escapeHtml(founderName)}" width="56" height="56" loading="lazy" />
+        <div><strong>${escapeHtml(founderName)}</strong><span>${escapeHtml(founderRole)}</span></div>
       </section>
     `
   });
@@ -1108,7 +1110,7 @@ export function renderNotFoundPage(state, language, adsConfig) {
 }
 
 function renderCategoryMenu(nav, language) {
-  const label = language === "vi" ? "Danh\u0020m\u1ee5c" : "Categories";
+  const label = getRenderCopy({}, language).categoryNavLabel;
   return `
         <nav class="nav-strip nav-strip-menu" aria-label="Primary">
           <details class="category-menu">
@@ -1182,7 +1184,7 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
     `<meta name="robots" content="index,follow,max-image-preview:large" />`,
     `<link rel="preconnect" href="https://fonts.googleapis.com" />`,
     `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`,
-    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" />`,
+    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" />`,
     `<link rel="icon" href="${iconPath}" type="image/svg+xml" />`,
     `<link rel="apple-touch-icon" href="${iconPath}" />`,
     `<link rel="canonical" href="${canonicalUrl}" />`,
@@ -1204,6 +1206,8 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
     `<meta name="twitter:image" content="${ogImageUrl}" />`,
     `<meta name="twitter:image:alt" content="${escapeHtml(ogImageAlt)}" />`,
     `<link rel="stylesheet" href="${stylesheetPath}" />`,
+    `<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>`,
+    `<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>`,
     `<script defer src="${scriptPath}"></script>`
   ].filter(Boolean);
 
@@ -1229,7 +1233,7 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
   <body data-language="${language}">
     <div class="pull-refresh-indicator" data-pull-refresh>
       <span class="pull-refresh-hint" data-pull-refresh-hint>↓</span>
-      <strong class="pull-refresh-status" data-pull-refresh-status>${language === "vi" ? "Kéo xuống để làm mới tin" : "Pull down to refresh stories"}</strong>
+      <strong class="pull-refresh-status" data-pull-refresh-status>${copy.pullRefreshLabel}</strong>
     </div>
     <div class="backdrop"></div>
     <div class="site-shell">
@@ -1243,10 +1247,10 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
         </a>
         ${renderCategoryMenu(nav, language)}
         <div class="topbar-actions">
-          <a class="lang-pill course-nav-link" href="/${language}/courses">${language === "vi" ? "Khóa học" : "Courses"}</a>
-          <a class="lang-pill" href="/${language}/portal">${language === "vi" ? "Viết bài" : "Write"}</a>
-          <a class="lang-pill" href="/${language}/login">${language === "vi" ? "Đăng nhập" : "Login"}</a>
-          <a class="lang-pill" href="${languageSwitchPath}" data-language-switch data-target-language="${alternateLanguage}">${language === "vi" ? "EN" : "VI"}</a><span class="sr-only">${language === "vi" ? "English" : "Ti?ng Vi?t"}</span>
+          <a class="lang-pill course-nav-link" href="/${language}/courses">${copy.navCourses}</a>
+          <a class="lang-pill" href="/${language}/portal">${copy.navWrite}</a>
+          <a class="lang-pill" href="/${language}/login">${copy.navLogin}</a>
+          <a class="lang-pill" href="${languageSwitchPath}" data-language-switch data-target-language="${alternateLanguage}">${copy.navLanguageCode}</a><span class="sr-only">${copy.navLanguageName}</span>
           <a class="lang-pill subtle" href="https://patricktechmedia.store" rel="noopener noreferrer">${copy.storeLabel}</a>
         </div>
       </header>
@@ -1446,7 +1450,7 @@ function renderHeadlineItem(article, language, index) {
         <span class="headline-index">${String(index).padStart(2, "0")}</span>
         <div>
         <strong>${escapeHtml(displayTitle)}</strong>
-        <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+        <span>${escapeHtml(article.topic_label)} <span class="dash" aria-hidden="true"></span> ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
       </div>
     </a>
   `;
@@ -1502,7 +1506,7 @@ function renderHeroReaderAside(home, language, copy) {
                   <span class="reader-index">0${index + 1}</span>
                   <div>
                     <strong>${escapeHtml(article.title)}</strong>
-                    <span>${escapeHtml(article.topic_label)} · ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
+                    <span>${escapeHtml(article.topic_label)} <span class="dash" aria-hidden="true"></span> ${escapeHtml(formatPublishDate(language, article.published_at))}</span>
                   </div>
                 </a>
               `
@@ -1650,6 +1654,31 @@ function shouldRenderSeparateDek(article) {
   const hook = String(article.hook || "").toLowerCase();
   const dek = String(article.dek || "").toLowerCase();
   return Boolean(dek) && (!hook || !hook.includes(dek));
+}
+
+export function renderSignal(status, language) {
+  const normalized = {
+    verified: "confirmed",
+    emerging: "developing",
+    trend: "analysis"
+  }[status] || (["confirmed", "analysis", "developing"].includes(status) ? status : "developing");
+  const copy = getCopy(language);
+  const labels = {
+    confirmed: copy.signalConfirmed,
+    analysis: copy.signalAnalysis,
+    developing: copy.signalDeveloping
+  };
+  return `<span class="signal signal-${normalized}"><span class="signal-dot" aria-hidden="true"></span>${labels[normalized]}</span>`;
+}
+
+function renderHeadlineLines(title) {
+  const words = String(title || "").trim().split(/\s+/).filter(Boolean);
+  if (!words.length) return "";
+  const splitAt = Math.max(1, Math.ceil(words.length / 2));
+  return [words.slice(0, splitAt).join(" "), words.slice(splitAt).join(" ")]
+    .filter(Boolean)
+    .map((line) => `<span class="line"><span>${escapeHtml(line)}</span></span>`)
+    .join("");
 }
 
 function renderStoryImage(article, className, eager = false) {
@@ -2057,7 +2086,7 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, adIn
         <span class="deal-pill">${promoLabel}</span>
         <h2 class="showroom-title">${escapeHtml(shopee.title || (language === "vi" ? "Ưu đãi công nghệ đang được chọn lọc" : "A curated technology offer"))}</h2>
         <p class="showroom-desc">${language === "vi" ? "Xem ưu đãi mới nhất từ đối tác được quản lý qua Patrick Tech Media." : "See the latest partner offer managed through Patrick Tech Media."}</p>
-        <a class="btn-showroom-cta" href="${escapeHtml(shopee.url)}" target="_blank" rel="noreferrer">${language === "vi" ? "Khám phá ưu đãi →" : "Explore offer →"}</a>
+        <a class="btn-showroom-cta" href="${escapeHtml(shopee.url)}" target="_blank" rel="noreferrer">${language === "vi" ? "Khám phá ưu đãi" : "Explore offer"}</a>
       </section>
     `;
   }
@@ -2067,7 +2096,7 @@ function renderSlot(state, adsConfig, { language, pageAllowsAds, placement, adIn
       <span class="deal-pill">${promoLabel}</span>
       <h2 class="showroom-title">${language === "vi" ? "Công cụ số phù hợp cho công việc hiện đại" : "Digital tools for modern work"}</h2>
       <p class="showroom-desc">${language === "vi" ? "Khám phá các gói AI, phần mềm và tiện ích đang có tại Patrick Tech Store." : "Explore AI plans, software, and practical tools at Patrick Tech Store."}</p>
-      <a class="btn-showroom-cta" href="${escapeHtml(promoHref)}" target="_blank" rel="noopener noreferrer">${language === "vi" ? "Khám Phá Store Ngay →" : "Explore Store Now →"}</a>
+      <a class="btn-showroom-cta" href="${escapeHtml(promoHref)}" target="_blank" rel="noopener noreferrer">${language === "vi" ? "Khám Phá Store Ngay" : "Explore Store Now"}</a>
     </section>
   `;
 }
@@ -2240,7 +2269,7 @@ function normalizeRenderCopy(language) {
       heroTitle: "Tin công nghệ đáng biết, giải thích đủ để quyết định",
       heroText: "Theo dõi sản phẩm, nền tảng và chính sách công nghệ bằng các bài có nguồn, nêu rõ điều đã xác nhận, tác động thực tế và phần còn cần theo dõi.",
       founderName: "Nguyễn Hoàng Phú (Patrick)",
-      founderRole: "Founder · Patrick Tech Co. (2020)",
+      founderRole: "Founder, Patrick Tech Co. (2020)",
       heroNotebookLabel: "Điểm đáng đọc",
       heroNotebookTitle: "Mở vào là thấy ngay những gì đáng bấm trước.",
       heroNotebookCta: "Xem thêm tin mới",
@@ -2257,6 +2286,7 @@ function normalizeRenderCopy(language) {
       emergingStories: "bài emerging",
       trendStories: "bài trend",
       readStory: "Đọc bài nổi bật",
+      readTime: "5 phút đọc",
       viewPolicy: "Xem chính sách biên tập",
       latestLabel: "Mới nhất",
         latestTitle: "Tin mới vừa lên",
@@ -2268,6 +2298,12 @@ function normalizeRenderCopy(language) {
       tipsTitle: "Thủ thuật, nhận xét và bài dùng được ngay",
       updateLabel: "Vừa lên",
       updateTitle: "Tin mới cần biết",
+      latestFallbackTitle: "Mới nhất hiện có",
+      latestMoreLabel: "Xem thêm",
+      latestEmptyText: "Chưa có bài mới trong 48 giờ qua.",
+      signalConfirmed: "Đã xác nhận",
+      signalAnalysis: "Đang phân tích",
+      signalDeveloping: "Đang diễn biến",
       updateText: "Mở nhanh các cập nhật mới nhất và phần bối cảnh cần đọc trước khi hành động.",
       ecosystemLabel: "Công ty",
       ecosystemTitle: "Patrick Tech Co. VN",
@@ -2294,6 +2330,13 @@ function normalizeRenderCopy(language) {
       adsOn: "Trang này đủ điều kiện hiển thị quảng cáo mà vẫn giữ bố cục đọc sạch.",
       adsOff: "Trang này ưu tiên trải nghiệm đọc và không hiển thị quảng cáo.",
       languageSwitchLabel: "Phiên bản ngôn ngữ",
+      categoryNavLabel: "Danh mục",
+      pullRefreshLabel: "Kéo xuống để làm mới tin",
+      navCourses: "Khóa học",
+      navWrite: "Viết bài",
+      navLogin: "Đăng nhập",
+      navLanguageCode: "EN",
+      navLanguageName: "English",
       storePanelLabel: "Từ Patrick Tech",
       storePanelTitle: "Công cụ liên quan",
       communityLabel: "Cộng đồng",
@@ -2340,7 +2383,7 @@ function normalizeRenderCopy(language) {
     heroText:
       "Follow products, platforms, and technology policy through sourced reporting that separates confirmed facts, practical impact, and the questions still worth watching.",
     founderName: "Nguyen Hoang Phu (Patrick)",
-    founderRole: "Founder · Patrick Tech Co. (2020)",
+    founderRole: "Founder, Patrick Tech Co. (2020)",
     homeBriefTitle: "Catch the day's rhythm in one pass"
   });
 }
@@ -2403,6 +2446,7 @@ function getCopy(language) {
       badgeSignals: "Vietnam + world",
       badgeAds: "AI, Big Tech, social",
       badgeBilingual: "News + how-tos",
+      readTime: "5 min read",
       heroNotebookLabel: "Worth opening",
       heroNotebookTitle: "The first stories that tell you what matters right now.",
       heroNotebookCta: "More fresh stories",
@@ -2426,6 +2470,12 @@ function getCopy(language) {
       tipsTitle: "Practical guides worth saving",
       updateLabel: "Just in",
       updateTitle: "3 fresh stories to catch the pace",
+      latestFallbackTitle: "Latest available",
+      latestMoreLabel: "See more",
+      latestEmptyText: "No new stories in the last 48 hours.",
+      signalConfirmed: "Confirmed",
+      signalAnalysis: "Analysis",
+      signalDeveloping: "Developing",
       updateText: "Open these first if you want the newest turns on the site.",
       ecosystemLabel: "Company",
       ecosystemTitle: "Patrick Tech Co. VN",
@@ -2480,6 +2530,13 @@ function getCopy(language) {
       adsOn: "This page is eligible to show ads while keeping a clean reading layout.",
       adsOff: "This page stays ad-free to protect the reading experience.",
       languageSwitchLabel: "Language versions",
+      categoryNavLabel: "Categories",
+      pullRefreshLabel: "Pull down to refresh stories",
+      navCourses: "Courses",
+      navWrite: "Write",
+      navLogin: "Login",
+      navLanguageCode: "VI",
+      navLanguageName: "Vietnamese",
       storePanelLabel: "From Patrick Tech",
       storePanelTitle: "Contextual tools",
       communityLabel: "Community",

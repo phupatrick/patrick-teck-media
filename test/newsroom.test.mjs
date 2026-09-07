@@ -29,7 +29,7 @@ import { isTechnologyArticle } from "../src/newsroom-quality.mjs";
 import { selectHotWebDigestCandidates } from "../scripts/social-autopilot.mjs";
 import { aggregateIncomingDrafts, buildEditorialCompanionArticles, enhanceMultiSourceSynthesisWithGemini } from "../src/newsroom-synthesis.mjs";
 import { evaluateArticleAutopublishReadiness, evaluateArticleReadiness } from "../src/newsroom-quality.mjs";
-import { renderArticlePage, renderHomePage, renderStorePage } from "../src/newsroom-render.mjs";
+import { renderArticlePage, renderHomePage, renderSignal, renderStorePage } from "../src/newsroom-render.mjs";
 import { createTelegramNewsroomBot, executeNewsroomCommand } from "../src/telegram-newsroom-bot.mjs";
 import { selectNewerSnapshot } from "../src/document-store.mjs";
 import { PENDING_TTL_MS, applySingleSourcePublicationPolicy, getPendingArticleKey, getSourceQualityTier, hasTrustedSource, preparePendingArticles } from "../src/newsroom-pending-queue.mjs";
@@ -216,6 +216,21 @@ assert.equal(normalizeSocialSignal({ title: "A release update", summary: "The pr
 }
 
 const state = createState();
+{
+  const expected = [
+    ["verified", "confirmed", "Đã xác nhận", "Confirmed"],
+    ["emerging", "developing", "Đang diễn biến", "Developing"],
+    ["trend", "analysis", "Đang phân tích", "Analysis"]
+  ];
+  for (const [sourceState, renderState, viLabel, enLabel] of expected) {
+    const viHtml = renderSignal(sourceState, "vi");
+    const enHtml = renderSignal(sourceState, "en");
+    assert.match(viHtml, new RegExp(`signal-${renderState}`));
+    assert.match(enHtml, new RegExp(`signal-${renderState}`));
+    assert.match(viHtml, new RegExp(viLabel));
+    assert.match(enHtml, new RegExp(enLabel));
+  }
+}
 {
   const fallbackState = structuredClone(state);
   const fallbackArticle = fallbackState.articles[0];
