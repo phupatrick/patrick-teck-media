@@ -1698,7 +1698,8 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
     <div class="cyber-door cyber-door-left" aria-hidden="true"><span class="cyber-door-beam"></span></div>
     <div class="cyber-door cyber-door-right" aria-hidden="true"><span class="cyber-door-beam"></span></div>
     <button class="eclipse-toggle-btn" type="button" data-theme-toggle aria-label="${escapeHtml(copy.themeToggleLabel)}" aria-pressed="false">
-      <span class="eclipse-orb" aria-hidden="true"></span>
+      <span class="theme-icon theme-icon-sun" aria-hidden="true">&#9728;</span>
+      <span class="theme-icon theme-icon-moon" aria-hidden="true">&#9790;</span>
     </button>
     <div class="custom-cursor-dot" aria-hidden="true"></div>
     <div class="custom-cursor-ring" aria-hidden="true"><span class="cursor-text">${language === "vi" ? "ĐỌC" : "READ"}</span></div>

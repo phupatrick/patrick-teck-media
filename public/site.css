@@ -3620,14 +3620,19 @@ body:has(.frontpage-masthead) .rail-card {
 }
 
 body:has(.frontpage-masthead) .eclipse-toggle-btn {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
   background: #ffffff;
   border-color: rgba(35, 86, 132, .24);
   box-shadow: 0 8px 24px rgba(35, 86, 132, .18);
 }
-body:has(.frontpage-masthead) .eclipse-orb { position: relative; background: #f4a51c; }
-body:has(.frontpage-masthead) .eclipse-orb::before,
-body:has(.frontpage-masthead) .eclipse-orb::after { content: ""; position: absolute; inset: -7px; border: 1px solid rgba(244, 165, 28, .45); border-radius: 50%; }
-body:has(.frontpage-masthead) .eclipse-orb::after { inset: -11px; border-style: dashed; opacity: .7; }
+body:has(.frontpage-masthead) .theme-icon { font-size: 1.55rem; line-height: 1; }
+body:has(.frontpage-masthead) .theme-icon-sun { color: #e08a12; }
+body:has(.frontpage-masthead) .theme-icon-moon { display: none; color: #b9d8f4; }
 body:has(.frontpage-masthead).theme-dark {
   --ink: #e8f1fa;
   --ink-soft: #111c2b;
@@ -3638,6 +3643,8 @@ body:has(.frontpage-masthead).theme-dark {
   background: linear-gradient(180deg, #061323 0, #0b1728 55%, #101c30 100%);
 }
 body:has(.frontpage-masthead).theme-dark .topbar { background: rgba(8, 19, 35, .88); }
+body:has(.frontpage-masthead).theme-dark .theme-icon-sun { display: none; }
+body:has(.frontpage-masthead).theme-dark .theme-icon-moon { display: block; }
 body:has(.frontpage-masthead).theme-dark .hero-big-title,
 body:has(.frontpage-masthead).theme-dark .section-head h2,
 body:has(.frontpage-masthead).theme-dark .topic-title-row h3 a,
@@ -3661,10 +3668,7 @@ body:has(.frontpage-masthead).theme-dark .stack-item,
 body:has(.frontpage-masthead).theme-dark .guide-showcase-lead,
 body:has(.frontpage-masthead).theme-dark .topic-column,
 body:has(.frontpage-masthead).theme-dark .rail-card { background: rgba(17, 28, 43, .94); box-shadow: 0 14px 34px rgba(0, 0, 0, .24); }
-body:has(.frontpage-masthead).theme-dark .eclipse-toggle-btn { background: #111c2b; }
-body:has(.frontpage-masthead).theme-dark .eclipse-orb { background: #e7f2ff; box-shadow: -5px -2px 0 2px #111c2b, 0 0 18px rgba(190, 226, 255, .85); }
-body:has(.frontpage-masthead).theme-dark .eclipse-orb::before,
-body:has(.frontpage-masthead).theme-dark .eclipse-orb::after { display: none; }
+body:has(.frontpage-masthead).theme-dark .eclipse-toggle-btn { background: #111c2b; border-color: rgba(180, 215, 242, .3); }
 
 .site-footer {
   display: grid;
