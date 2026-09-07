@@ -1816,10 +1816,25 @@ body.homepage .story-hook { display: -webkit-box; overflow: hidden; -webkit-box-
 body.homepage .glow-orb { position: absolute; border-radius: 50%; filter: blur(130px); opacity: .45; pointer-events: none; }
 body.homepage .glow-orb-1 { top: -150px; right: -100px; width: 550px; height: 550px; background: radial-gradient(circle, rgba(99, 102, 241, .25), transparent 70%); }
 body.homepage .glow-orb-2 { bottom: 5%; left: -200px; width: 650px; height: 650px; background: radial-gradient(circle, rgba(6, 182, 212, .18), transparent 70%); }
+body.homepage .cosmos-canvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .28; z-index: 0; }
+body.homepage .cyber-door { position: fixed; top: 0; bottom: 0; width: 50vw; display: flex; align-items: center; pointer-events: none; background: #10151c; z-index: 10002; transform: translateX(0); }
+body.homepage .cyber-door-left { left: 0; justify-content: flex-end; }
+body.homepage .cyber-door-right { right: 0; justify-content: flex-start; }
+body.homepage .cyber-door-beam { width: 3px; height: 100%; background: var(--amber); box-shadow: 0 0 20px rgba(217, 164, 65, .8); }
+body.homepage .eclipse-toggle-btn { position: fixed; right: 24px; bottom: 24px; z-index: 30; width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--ink-line); border-radius: 50%; color: var(--text-on-ink); background: var(--ink-soft); cursor: pointer; }
+body.homepage .eclipse-orb { width: 22px; height: 22px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 16px rgba(217, 164, 65, .65); transition: transform .35s ease, background .35s ease; }
+body.homepage.theme-dark .eclipse-orb { background: var(--teal); transform: translateX(-3px); }
+body.homepage.theme-dark { --ink: #090d13; --ink-soft: #111923; --text-on-ink: #eef4f2; }
+body.homepage.theme-dark .cyber-door { background: #05070b; }
+@media (max-width: 640px) {
+  body.homepage .eclipse-toggle-btn { right: 16px; bottom: 16px; }
+  body.homepage .cosmos-canvas { opacity: .18; }
+}
 @media (pointer: coarse) { body.homepage .custom-cursor-dot, body.homepage .custom-cursor-ring { display: none; } }
 @media (prefers-reduced-motion: reduce) {
   body.homepage .custom-cursor-dot, body.homepage .custom-cursor-ring, body.homepage .glow-orb { display: none; }
   body.homepage .article-spotlight-card { transform: none !important; }
+  body.homepage .cyber-door { display: none; }
 }
 
 /* Approved homepage direction: restrained editorial dark mode with two signal accents. */

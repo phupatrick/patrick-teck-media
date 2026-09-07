@@ -1694,6 +1694,12 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
   const categoryItems = nav.slice(0, 6);
 
   return `
+    <canvas class="cosmos-canvas" data-cosmos-canvas aria-hidden="true"></canvas>
+    <div class="cyber-door cyber-door-left" aria-hidden="true"><span class="cyber-door-beam"></span></div>
+    <div class="cyber-door cyber-door-right" aria-hidden="true"><span class="cyber-door-beam"></span></div>
+    <button class="eclipse-toggle-btn" type="button" data-theme-toggle aria-label="${escapeHtml(copy.themeToggleLabel)}" aria-pressed="false">
+      <span class="eclipse-orb" aria-hidden="true"></span>
+    </button>
     <div class="custom-cursor-dot" aria-hidden="true"></div>
     <div class="custom-cursor-ring" aria-hidden="true"><span class="cursor-text">${language === "vi" ? "ĐỌC" : "READ"}</span></div>
     <div class="read-progress-bar" aria-hidden="true"></div>
@@ -2391,6 +2397,7 @@ function normalizeRenderCopy(language) {
       adsOff: "Trang này ưu tiên trải nghiệm đọc và không hiển thị quảng cáo.",
       languageSwitchLabel: "Phiên bản ngôn ngữ",
       categoryNavLabel: "Danh mục",
+      themeToggleLabel: "Chuyển giao diện sáng tối",
       pullRefreshLabel: "Kéo xuống để làm mới tin",
       navCourses: "Khóa học",
       navWrite: "Viết bài",
@@ -2591,6 +2598,7 @@ function getCopy(language) {
       adsOff: "This page stays ad-free to protect the reading experience.",
       languageSwitchLabel: "Language versions",
       categoryNavLabel: "Categories",
+      themeToggleLabel: "Toggle light and dark theme",
       pullRefreshLabel: "Pull down to refresh stories",
       navCourses: "Courses",
       navWrite: "Write",

@@ -8,6 +8,63 @@ initPullToRefresh();
 initLanguageSwitcher();
 initApprovedEditorialMotion();
 initLuxuryMotion();
+initCosmosTheme();
+
+function initCosmosTheme() {
+  const canvas = document.querySelector("[data-cosmos-canvas]");
+  const toggle = document.querySelector("[data-theme-toggle]");
+  const leftDoor = document.querySelector(".cyber-door-left");
+  const rightDoor = document.querySelector(".cyber-door-right");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isHomepage = document.body.classList.contains("homepage");
+
+  if (!isHomepage) return;
+
+  const storedTheme = window.localStorage.getItem("ptm-theme");
+  if (storedTheme === "dark") document.body.classList.add("theme-dark");
+  toggle?.setAttribute("aria-pressed", document.body.classList.contains("theme-dark") ? "true" : "false");
+  toggle?.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("theme-dark");
+    window.localStorage.setItem("ptm-theme", isDark ? "dark" : "light");
+    toggle.setAttribute("aria-pressed", isDark ? "true" : "false");
+  });
+
+  if (canvas && !reducedMotion) {
+    const context = canvas.getContext("2d");
+    const particles = Array.from({ length: 42 }, () => ({ x: Math.random(), y: Math.random(), r: Math.random() * 1.8 + .4, v: Math.random() * .00018 + .00004 }));
+    const resize = () => { canvas.width = window.innerWidth * devicePixelRatio; canvas.height = window.innerHeight * devicePixelRatio; context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0); };
+    const draw = () => {
+      const width = window.innerWidth; const height = window.innerHeight;
+      context.clearRect(0, 0, width, height);
+      context.fillStyle = document.body.classList.contains("theme-dark") ? "rgba(110, 190, 180, .55)" : "rgba(217, 164, 65, .42)";
+      for (const particle of particles) {
+        particle.y -= particle.v;
+        if (particle.y < 0) particle.y = 1;
+        context.beginPath(); context.arc(particle.x * width, particle.y * height, particle.r, 0, Math.PI * 2); context.fill();
+      }
+      window.requestAnimationFrame(draw);
+    };
+    resize(); window.addEventListener("resize", resize, { passive: true }); draw();
+  }
+
+  if (reducedMotion || !leftDoor || !rightDoor) return;
+  document.querySelectorAll("a[href]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+      event.preventDefault();
+      leftDoor.style.transition = rightDoor.style.transition = "transform .42s cubic-bezier(.76,0,.24,1)";
+      leftDoor.style.transform = "translateX(0)"; rightDoor.style.transform = "translateX(0)";
+      window.setTimeout(() => { window.location.assign(url.href); }, 430);
+    });
+  });
+  requestAnimationFrame(() => {
+    leftDoor.style.transition = rightDoor.style.transition = "transform .58s cubic-bezier(.76,0,.24,1)";
+    leftDoor.style.transform = "translateX(-100%)"; rightDoor.style.transform = "translateX(100%)";
+  });
+}
 
 function initApprovedEditorialMotion() {
   if (!window.gsap || !window.ScrollTrigger) return;
