@@ -3182,14 +3182,14 @@ function normalizeSourceImage(candidate, article, siteUrl, source = null) {
     alt:
       candidate?.alt ||
       candidate?.image_alt ||
-      (article.language === "vi" ? `Ảnh tham khảo cho bài: ${article.title}` : `Reference image for: ${article.title}`),
+      article.title,
     caption:
       candidate?.caption ||
       candidate?.image_caption ||
       (source?.source_name
         ? article.language === "vi"
-          ? `Ảnh tham khảo từ ${source.source_name}.`
-          : `Reference image from ${source.source_name}.`
+          ? `Nguồn ảnh: ${source.source_name}.`
+          : `Image source: ${source.source_name}.`
         : article.summary),
     credit: candidate?.credit || candidate?.image_credit || source?.source_name || "Source",
     source_url: candidate?.source_url || source?.source_url || ""

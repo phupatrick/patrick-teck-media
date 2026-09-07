@@ -27,8 +27,29 @@ export function renderHomePage(state, language, adsConfig) {
     safeGuideStories,
     briefingStory
   } = buildHomePageStoryGroups(home);
+  const renderedArticleIds = new Set();
+  const takeUnique = (stories, limit = Number.POSITIVE_INFINITY) => {
+    const result = [];
+    for (const story of stories || []) {
+      const key = story?.href || story?.id;
+      if (!story || !key || renderedArticleIds.has(key)) continue;
+      renderedArticleIds.add(key);
+      result.push(story);
+      if (result.length >= limit) break;
+    }
+    return result;
+  };
+  const uniqueLeadFeature = leadFeature || null;
+  const uniqueLeadSideStories = leadSideStories || [];
+  const uniqueHeroWatchStories = heroWatchStories || [];
+  for (const story of [uniqueLeadFeature, ...uniqueLeadSideStories]) {
+    const key = story?.href || story?.id;
+    if (key) renderedArticleIds.add(key);
+  }
+  const uniqueRibbonStories = takeUnique(ribbonStories);
   const mastheadCandidates = [home.featured, ...(home.latest || [])]
     .filter(Boolean)
+    .filter((article) => !renderedArticleIds.has(article.href || article.id))
     .sort(sortStoriesByDateDesc);
   const mastheadReferenceTime = Date.parse(state.runtime?.generatedAt || "");
   const freshMastheadStories = mastheadCandidates
@@ -46,10 +67,16 @@ export function renderHomePage(state, language, adsConfig) {
     : mastheadCandidates
       .filter((article, index, stories) => stories.findIndex((entry) => entry.href === article.href) === index)
       .slice(0, 3);
-  const mastheadUsesFallback = !freshMastheadStories.length && mastheadLatestStories.length > 0;
+  takeUnique(mastheadLatestStories, 3);
+  const uniquePackageLead = takeUnique([packageLead], 1)[0] || null;
+  const uniquePackageItems = takeUnique(packageItems);
+  const uniqueLatestStories = takeUnique(safeLatestStories);
+  const uniqueWatchStories = takeUnique(safeWatchStories);
+  const uniqueGuideLead = takeUnique([guideLead], 1)[0] || null;
+  const uniqueGuideStories = takeUnique(safeGuideStories);
+  const uniqueBriefingStory = takeUnique([briefingStory], 1)[0] || null;
+  const mastheadUsesFallback = !freshMastheadStories.length;
   const mastheadTitle = mastheadUsesFallback ? copy.latestFallbackTitle : copy.updateTitle;
-  const latestPrimaryStories = safeLatestStories.slice(0, 3);
-  const latestMoreStories = safeLatestStories.slice(3);
   const latestMoreLabel = copy.latestMoreLabel;
 
   return renderLayout({
@@ -62,15 +89,15 @@ export function renderHomePage(state, language, adsConfig) {
     content: `
       <section class="frontpage-masthead hero-grid" data-signal-shell>
         <div class="frontpage-masthead-copy clean-card hero-main-banner hero">
-          <div class="hero-eyebrow">${renderSignal(leadFeature?.verification_state, language)}<span class="hero-category">${escapeHtml(leadFeature?.topic_label || heroEyebrow)}</span></div>
-          <h1 class="hero-big-title">${leadFeature ? renderHeadlineLines(leadFeature.title) : `<span class="line"><span>${escapeHtml(heroTitle)}</span></span>`}</h1>
-          <p class="frontpage-masthead-text hero-dek">${escapeHtml(leadFeature ? getDisplayExcerpt(renderStoryExcerpt(leadFeature), 140) : heroText)}</p>
+          <div class="hero-eyebrow">${renderSignal(uniqueLeadFeature?.verification_state, language)}<span class="hero-category">${escapeHtml(uniqueLeadFeature?.topic_label || heroEyebrow)}</span></div>
+          <h1 class="hero-big-title">${uniqueLeadFeature ? renderHeadlineLines(uniqueLeadFeature.title) : `<span class="line"><span>${escapeHtml(heroTitle)}</span></span>`}</h1>
+          <p class="frontpage-masthead-text hero-dek">${escapeHtml(uniqueLeadFeature ? getDisplayExcerpt(renderStoryExcerpt(uniqueLeadFeature), 140) : heroText)}</p>
           <p class="hero-context">${escapeHtml(heroTitle !== fallbackCopy.heroTitle ? heroTitle : heroText)}</p>
           <span class="sr-only">${escapeHtml(heroTitle)}</span>
-          <div class="hero-meta"><span>${escapeHtml(leadFeature?.author?.name || founderName)}</span><span class="dash" aria-hidden="true"></span><span>${escapeHtml(leadFeature ? formatPublishDate(language, leadFeature.published_at) : heroEyebrow)}</span><span class="dash" aria-hidden="true"></span><span>${escapeHtml(copy.readTime)}</span></div>
+          <div class="hero-meta"><span>${escapeHtml(uniqueLeadFeature?.author?.name || founderName)}</span><span class="dash" aria-hidden="true"></span><span>${escapeHtml(uniqueLeadFeature ? formatPublishDate(language, uniqueLeadFeature.published_at) : heroEyebrow)}</span><span class="dash" aria-hidden="true"></span><span>${escapeHtml(copy.readTime)}</span></div>
         </div>
         <aside class="masthead-brief clean-card hero-recent-box hero-media" data-signal-shell>
-          ${leadFeature ? `${renderStoryImage(leadFeature, "hero-image", true)}<div class="read-track" aria-hidden="true"><span id="readFill"></span></div>` : ""}
+          ${uniqueLeadFeature ? `${renderStoryImage(uniqueLeadFeature, "hero-image", true)}<div class="read-track" aria-hidden="true"><span id="readFill"></span></div>` : ""}
           <div class="masthead-founder">
             <picture>
               <source srcset="/founder-thumb.jpg?v=${encodeURIComponent(state.site.assetVersion || "patrick-tech-media")}" media="(max-width: 760px)" />
@@ -85,20 +112,20 @@ export function renderHomePage(state, language, adsConfig) {
           <div class="masthead-brief-list recent-list-clean">
             ${mastheadLatestStories.length
               ? mastheadLatestStories.map((article, index) => renderMastheadItem(article, language, index)).join("")
-              : `<p class="masthead-empty">${copy.latestEmptyText}</p>`}
+              : ""}
           </div>
         </aside>
       </section>
 
       <section class="frontpage-hero">
-        ${renderLeadFeature(leadFeature, language, copy)}
+        ${renderLeadFeature(uniqueLeadFeature, language, copy)}
         <aside class="frontpage-rail">
           <div class="lead-mini-grid">
-            ${leadSideStories.map((article) => renderLeadMini(article, language)).join("")}
+            ${uniqueLeadSideStories.map((article) => renderLeadMini(article, language)).join("")}
           </div>
           <article class="rail-card hot-card" data-signal-shell>
             <div class="headline-list">
-              ${heroWatchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
+              ${uniqueHeroWatchStories.map((article, index) => renderHeadlineItem(article, language, index + 1)).join("")}
             </div>
           </article>
         </aside>
@@ -109,8 +136,8 @@ export function renderHomePage(state, language, adsConfig) {
       ${renderShowcaseSection({
         id: "ai-packages",
         className: "guide-showcase package-showcase",
-        lead: packageLead,
-        items: packageItems,
+        lead: uniquePackageLead,
+        items: uniquePackageItems,
         language,
         eyebrow: copy.packageLabel || copy.latestLabel,
         title: copy.packageTitle || copy.latestTitle,
@@ -120,7 +147,7 @@ export function renderHomePage(state, language, adsConfig) {
 
       <section class="headline-ribbon trending-strip-wrap" id="latest" data-ribbon-marquee data-signal-shell>
         <div class="headline-ribbon-track" data-ribbon-track>
-          ${ribbonStories.map((article, index) => renderRibbonItem(article, language, index)).join("")}
+          ${uniqueRibbonStories.map((article, index) => renderRibbonItem(article, language, index)).join("")}
         </div>
       </section>
 
@@ -131,14 +158,13 @@ export function renderHomePage(state, language, adsConfig) {
             <h2>${copy.latestTitle}</h2>
           </div>
           <div class="story-grid latest-primary-grid">
-            ${latestPrimaryStories.map((article) => renderStoryCard(article, language)).join("")}
+            ${uniqueLatestStories.slice(0, 3).map((article) => renderStoryCard(article, language)).join("")}
           </div>
-          ${
-            latestMoreStories.length
+          ${uniqueLatestStories.slice(3).length
               ? `<details class="latest-more">
             <summary>${latestMoreLabel}</summary>
             <div class="story-grid latest-more-grid">
-              ${latestMoreStories.map((article) => renderStoryCard(article, language)).join("")}
+              ${uniqueLatestStories.slice(3).map((article) => renderStoryCard(article, language)).join("")}
             </div>
           </details>`
               : ""
@@ -146,13 +172,13 @@ export function renderHomePage(state, language, adsConfig) {
         </div>
         <aside class="section-block editors-block">
           <div class="stack-list">
-            ${safeWatchStories.map((article) => renderStackItem(article, language, true)).join("")}
+            ${uniqueWatchStories.map((article) => renderStackItem(article, language, true)).join("")}
           </div>
           ${
-            briefingStory
+            uniqueBriefingStory
               ? `<div class="newsroom-brief">
-            <h3><a href="${briefingStory.href}">${escapeHtml(briefingStory.title)}</a></h3>
-            <a class="text-link" href="${briefingStory.href}">${copy.readStory}</a>
+            <h3><a href="${uniqueBriefingStory.href}">${escapeHtml(uniqueBriefingStory.title)}</a></h3>
+            <a class="text-link" href="${uniqueBriefingStory.href}">${copy.readStory}</a>
           </div>`
               : ""
           }
@@ -164,8 +190,8 @@ export function renderHomePage(state, language, adsConfig) {
       ${renderShowcaseSection({
         id: "tips",
         className: "guide-showcase",
-        lead: guideLead,
-        items: safeGuideStories,
+        lead: uniqueGuideLead,
+        items: uniqueGuideStories,
         language,
         eyebrow: copy.tipsLabel,
         title: copy.tipsTitle,
@@ -183,7 +209,7 @@ export function renderHomePage(state, language, adsConfig) {
                   <a class="mini-link" href="/${language}/topics/${topic.slug}">${copy.moreLabel}</a>
                 </div>
                 <div class="stack-list">
-                  ${topic.stories.map((article) => renderStackItem(article, language, false)).join("")}
+                  ${takeUnique(topic.stories).map((article) => renderStackItem(article, language, false)).join("")}
                 </div>
               </article>
             `
@@ -1230,7 +1256,8 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
   <head>
     ${headTags.join("\n    ")}
   </head>
-  <body data-language="${language}">
+  <body class="${path === `/${language}/` ? "homepage editorial-light" : ""}" data-language="${language}">
+    ${path === `/${language}/` ? renderHomepageInteractionChrome(state, language, nav, copy) : ""}
     <div class="pull-refresh-indicator" data-pull-refresh>
       <span class="pull-refresh-hint" data-pull-refresh-hint>↓</span>
       <strong class="pull-refresh-status" data-pull-refresh-status>${copy.pullRefreshLabel}</strong>
@@ -1331,7 +1358,7 @@ function renderStoryCard(article, language) {
   const searchIndex = [article.title, article.hook || "", article.summary, article.topic_label, article.verification_state].join(" ").toLowerCase();
   const displayTitle = getDisplayHeadline(article.title, 82);
   return `
-    <article class="story-card topic-${article.topic}" data-story-card data-signal-shell data-status="${article.verification_state}" data-topic="${article.topic}" data-search="${escapeHtml(searchIndex)}">
+    <article class="story-card article-spotlight-card topic-${article.topic}" data-story-card data-signal-shell data-status="${article.verification_state}" data-topic="${article.topic}" data-search="${escapeHtml(searchIndex)}">
       ${renderStoryImage(article, "story-media")}
       <div class="story-meta-line">
         <span class="pill">${escapeHtml(article.content_type_label)}</span>
@@ -1351,7 +1378,7 @@ function renderStoryCard(article, language) {
 function renderStackItem(article, language, withBadge) {
   const displayTitle = getDisplayHeadline(article.title, 76);
   return `
-    <article class="stack-item stacked-article-card">
+    <article class="stack-item stacked-article-card article-spotlight-card">
       <div class="stack-row">
         ${renderStoryImage(article, "stack-media")}
         <div class="stack-copy">
@@ -1380,7 +1407,7 @@ function renderStoryExcerpt(article) {
 }
 
 function renderHomepageExcerpt(article, className = "story-hook", maxLength = 140) {
-  const excerpt = getDisplayExcerpt(renderStoryExcerpt(article), maxLength);
+  const excerpt = getDisplayExcerpt(sanitizeHomepageText(renderStoryExcerpt(article)), maxLength);
 
   if (!excerpt) {
     return "";
@@ -1405,7 +1432,7 @@ function renderLeadFeature(article, language, copy) {
 
   const displayTitle = getDisplayHeadline(article.title, 54);
   return `
-    <article class="lead-feature hot-featured-card topic-${article.topic}" data-signal-shell>
+    <article class="lead-feature hot-featured-card article-spotlight-card topic-${article.topic}" data-signal-shell>
       ${renderStoryImage(article, "lead-feature-media", true)}
       <div class="lead-feature-overlay"></div>
       <div class="lead-feature-copy hot-featured-body">
@@ -1655,6 +1682,39 @@ function shouldRenderSeparateDek(article) {
   const dek = String(article.dek || "").toLowerCase();
   return Boolean(dek) && (!hook || !hook.includes(dek));
 }
+
+function renderHomepageInteractionChrome(state, language, nav, copy) {
+  const home = state.home?.[language] || {};
+  const tickerStories = [...(home.latest || []), ...(home.trending || [])]
+    .filter((story, index, stories) => story?.href && stories.findIndex((entry) => entry.href === story.href) === index)
+    .slice(0, 6);
+  const tickerItems = tickerStories.length
+    ? tickerStories.map((story) => `<a href="${story.href}" class="marquee-item"><span class="live-dot" aria-hidden="true"></span>${escapeHtml(story.title)}</a>`).join("")
+    : `<span class="marquee-item"><span class="live-dot" aria-hidden="true"></span>${escapeHtml(copy.latestTitle || "Latest stories")}</span>`;
+  const categoryItems = nav.slice(0, 6);
+
+  return `
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" aria-hidden="true"><span class="cursor-text">${language === "vi" ? "ĐỌC" : "READ"}</span></div>
+    <div class="read-progress-bar" aria-hidden="true"></div>
+    <div class="ambient-glow-wrapper" aria-hidden="true"><div class="glow-orb glow-orb-1"></div><div class="glow-orb glow-orb-2"></div></div>
+    <div class="marquee-container" aria-label="${escapeHtml(copy.updateLabel || copy.latestLabel || "Latest")}"><div class="marquee-track">${tickerItems}${tickerItems}</div></div>
+    <nav class="category-nav-container" aria-label="${escapeHtml(copy.categoryNavLabel || "Categories")}">
+      <div class="sliding-pill-indicator" aria-hidden="true"></div>
+      ${categoryItems.map((item, index) => `<a href="${item.href}" class="category-pill-btn${index === 0 ? " active" : ""}">${escapeHtml(item.label)}</a>`).join("")}
+    </nav>`;
+}
+
+export function sanitizeSnippet(value) {
+  return String(value || "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/https?:\/\/[^\s]+/gi, " ")
+    .replace(/(?:open menu|view profile|sign in|sign out|add us as preferred source|windows central|popular brands|buying guides|more from phones)[\s\S]*?(?=\.|$)/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+const sanitizeHomepageText = sanitizeSnippet;
 
 export function renderSignal(status, language) {
   const normalized = {
