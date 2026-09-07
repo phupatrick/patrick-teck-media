@@ -2166,6 +2166,60 @@ body:has(.frontpage-masthead) .site-footer {
   body:has(.frontpage-masthead) .topic-band { grid-template-columns: 1fr; }
 }
 
+/* Homepage UI contract: media stays inside its reading column at every width. */
+body:has(.frontpage-masthead) .hot-featured-card,
+body:has(.frontpage-masthead) .stacked-article-card,
+body:has(.frontpage-masthead) .story-card,
+body:has(.frontpage-masthead) .stack-item {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body:has(.frontpage-masthead) .hot-featured-card img,
+body:has(.frontpage-masthead) .stacked-article-card img,
+body:has(.frontpage-masthead) .story-card img,
+body:has(.frontpage-masthead) .stack-item img,
+body:has(.frontpage-masthead) .guide-showcase-lead img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+body:has(.frontpage-masthead) :where(a, button, summary, input, select, textarea):focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  body:has(.frontpage-masthead) .topbar-inner {
+    gap: 10px;
+    padding-inline: 14px;
+  }
+
+  body:has(.frontpage-masthead) .topbar nav {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  body:has(.frontpage-masthead) .eclipse-toggle-btn {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  body:has(.frontpage-masthead) .frontpage-masthead,
+  body:has(.frontpage-masthead) .frontpage-hero,
+  body:has(.frontpage-masthead) .latest-grid,
+  body:has(.frontpage-masthead) .topics {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 480px) {
   body:has(.frontpage-masthead) .topbar-actions { max-width: 52vw; }
   body:has(.frontpage-masthead) .hero-big-title { font-size: clamp(2.5rem, 14vw, 4rem); }
