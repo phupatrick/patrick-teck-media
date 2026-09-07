@@ -38,3 +38,9 @@ zalo_products_full.json
 patricktechmedia-home-*.png
 openclaw-worker-pack.zip
 .vercel
+
+# Runtime state & pending queues
+data/openclaw-pending-clusters.json
+data/*-runtime.json
+data/cache/
+incoming/*.tmp

@@ -1,5 +1,6 @@
 import { CONTENT_PILLARS } from "./social-templates.mjs";
 import { createPostContent, getRandomTechImage, postFirstCommentWithRetry, safePostToFacebook } from "./social-engine.mjs";
+import { pickNextPostPlan } from "./social-scheduler.mjs";
 
 const processingLocks = new Set();
 
@@ -8,9 +9,27 @@ export async function executeSocialCommand(rawText, context = {}) {
   const [command, ...parts] = String(rawText || "").trim().split(/\s+/);
   const args = parts.join(" ").trim();
   if (command === "/social_queue") return { text: await formatQueue(context.store) };
+  if (command === "/social_auto" || command === "/up") return handleSocialAutoCycle(context);
   if (command === "/social_post") return createPendingPost(args, context);
   if (command === "/social_ai") return updateProvider(args, context);
   return null;
+}
+
+export async function handleSocialAutoCycle(context = {}) {
+  const state = await context.store.getState();
+  const config = { ...context.defaults, ...state.config };
+  if (!config.fb_page_id || !config.fb_page_token) return { text: "Chưa cấu hình FB_PAGE_ID hoặc FB_PAGE_ACCESS_TOKEN." };
+  const plan = await pickNextPostPlan({ posts: state.posts, articles: context.articles || [] });
+  if (!plan) return { text: "Đã hoàn thành đủ định mức social trong ngày." };
+  const content = await createPostContent({ provider: config.ai_provider, apiKey: config.ai_api_key, topic: plan.topic, pillar: plan.pillar, postType: plan.category, notes: plan.notes, sourceArticleUrl: plan.sourceUrl, fetchImpl: context.fetch });
+  const facebookPost = await safePostToFacebook({ pageId: config.fb_page_id, pageToken: config.fb_page_token, caption: content.caption, imageUrl: plan.imageUrl || getRandomTechImage(), fetchImpl: context.fetch, returnDetails: true });
+  const createdAt = new Date().toISOString();
+  await context.store.update((draft) => { draft.posts.unshift({ id: `auto_${Date.now()}`, category: plan.category, product_id: plan.product_id || null, topic: plan.topic, caption: content.caption, fb_post_id: facebookPost.id, status: "published", created_at: createdAt, comment_status: content.first_comment ? "retrying" : "not_requested" }); return draft; });
+  if (content.first_comment) {
+    try { await postFirstCommentWithRetry({ postId: facebookPost.id, pageToken: config.fb_page_token, commentText: content.first_comment, fetchImpl: context.fetch }); }
+    catch (error) { console.warn(`[social] First Comment queued for retry: ${error.message || error}`); }
+  }
+  return { text: `Đã đăng tự động: ${plan.topic}\n${facebookPost.permalink_url || ""}` };
 }
 
 export async function handleSocialCallback(callbackData, context = {}) {
