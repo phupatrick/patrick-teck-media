@@ -1626,6 +1626,20 @@ const tests = [
     }
   },
   {
+    name: "homepage excludes administrative and non-technology stories from public lanes",
+    run() {
+      const home = getHomeData(state, "vi");
+      const stories = [
+        home.featured,
+        home.briefing,
+        ...(home.latest || []),
+        ...(home.trending || []),
+        ...(home.browserStories || [])
+      ].filter(Boolean);
+      assert.ok(stories.every((story) => !/thứ trưởng|liên hợp quốc|công bố quốc tế|hội nghị/i.test(story.title || "")));
+    }
+  },
+  {
     name: "keeps topic pages language-specific",
     run() {
       const page = getTopicPage(state, "vi", "ai");

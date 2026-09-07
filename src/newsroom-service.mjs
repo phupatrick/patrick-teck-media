@@ -289,6 +289,16 @@ const FRONT_PAGE_SOURCE_WEIGHTS = {
   "social-buzz": -10
 };
 
+const NON_TECH_STORY_PATTERN = /(?:politic|politics|political|election|government|minister|deputy minister|parliament|congress|united nations|administrative|civil service|liên hợp quốc|công bố quốc tế|trường chính trị|hội nghị|bộ trưởng|thứ trưởng|thủ tướng|quốc hội|chính trị|hành chính|giáo dục|chăm sóc trẻ em|kinh tế\s*-\s*xã hội|gta|playstation|xbox|nintendo|phim|movie|series|celebrity|grand tour)/i;
+
+function isTechnologyStory(article) {
+  if (!article) return false;
+  const text = [article.title, article.summary, article.dek, article.hook, article.topic_label]
+    .filter(Boolean)
+    .join(" ");
+  return !NON_TECH_STORY_PATTERN.test(text);
+}
+
 export function buildNewsroomState(options = {}) {
   const siteUrl = normalizeSiteUrl(options.siteUrl || "https://patricktechmedia.com");
   const storeUrl = normalizeSiteUrl(options.storeUrl || "https://patricktechmedia.store");
@@ -380,7 +390,8 @@ export function buildNewsroomState(options = {}) {
 }
 
 export function getHomeData(state, language) {
-  const localized = getRankedFeedArticles(state.articles, { lang: language, limit: Number.MAX_SAFE_INTEGER });
+  const localized = getRankedFeedArticles(state.articles, { lang: language, limit: Number.MAX_SAFE_INTEGER })
+    .filter(isTechnologyStory);
   const prioritized = sortStoriesForFrontPage(
     localized,
     state.runtime.generatedAt,
