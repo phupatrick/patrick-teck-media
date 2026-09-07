@@ -1636,7 +1636,7 @@ const tests = [
         ...(home.trending || []),
         ...(home.browserStories || [])
       ].filter(Boolean);
-      assert.ok(stories.every((story) => !/thứ trưởng|liên hợp quốc|công bố quốc tế|hội nghị/i.test(story.title || "")));
+      assert.ok(stories.every((story) => !/thứ trưởng|liên hợp quốc|công bố quốc tế|hội nghị|khai hải quan|dịch vụ công/i.test(story.title || "")));
     }
   },
   {

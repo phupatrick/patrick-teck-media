@@ -289,7 +289,7 @@ const FRONT_PAGE_SOURCE_WEIGHTS = {
   "social-buzz": -10
 };
 
-const NON_TECH_STORY_PATTERN = /(?:politic|politics|political|election|government|minister|deputy minister|parliament|congress|united nations|administrative|civil service|liên hợp quốc|công bố quốc tế|trường chính trị|hội nghị|bộ trưởng|thứ trưởng|thủ tướng|quốc hội|chính trị|hành chính|giáo dục|chăm sóc trẻ em|kinh tế\s*-\s*xã hội|gta|playstation|xbox|nintendo|phim|movie|series|celebrity|grand tour)/i;
+const NON_TECH_STORY_PATTERN = /(?:politic|politics|political|election|government|minister|deputy minister|parliament|congress|united nations|administrative|civil service|liên hợp quốc|công bố quốc tế|trường chính trị|hội nghị|bộ trưởng|thứ trưởng|thủ tướng|quốc hội|chính trị|hành chính|khai hải quan|dịch vụ công|mục tiêu kinh tế|giáo dục|chăm sóc trẻ em|vườn mưa|ngập lụt|gta|playstation|xbox|nintendo|phim|movie|series|celebrity|grand tour)/i;
 
 function isTechnologyStory(article) {
   if (!article) return false;
