@@ -3565,6 +3565,107 @@ body:has(.frontpage-masthead) .category-column-box::before, body:has(.frontpage-
   }
 }
 
+/* Final homepage theme contract: light sky by default, deep space on toggle. */
+body:has(.frontpage-masthead) {
+  --ink: #17263a;
+  --ink-soft: rgba(255, 255, 255, .92);
+  --paper: #17263a;
+  --text-on-ink: #17263a;
+  --text-muted: #46617e;
+  --ink-line: rgba(35, 86, 132, .18);
+  --amber: #d88918;
+  --teal: #087f78;
+  background: linear-gradient(180deg, #dff3ff 0, #f7fbff 44%, #ffffff 100%);
+  color: var(--ink);
+}
+
+body:has(.frontpage-masthead) .topbar {
+  background: rgba(255, 255, 255, .82);
+  border-color: var(--ink-line);
+  box-shadow: 0 1px 0 rgba(35, 86, 132, .12);
+}
+
+body:has(.frontpage-masthead) .hero-big-title,
+body:has(.frontpage-masthead) .section-head h2,
+body:has(.frontpage-masthead) .topic-title-row h3 a,
+body:has(.frontpage-masthead) .hot-featured-body h2 a,
+body:has(.frontpage-masthead) .story-card h3 a,
+body:has(.frontpage-masthead) .stack-item h3 a,
+body:has(.frontpage-masthead) .guide-showcase-copy h2,
+body:has(.frontpage-masthead) .headline-title,
+body:has(.frontpage-masthead) .recent-header-title {
+  color: #14243a;
+}
+
+body:has(.frontpage-masthead) .hero-dek,
+body:has(.frontpage-masthead) .hero-context,
+body:has(.frontpage-masthead) .section-head p,
+body:has(.frontpage-masthead) .story-card p,
+body:has(.frontpage-masthead) .stack-item p,
+body:has(.frontpage-masthead) .guide-showcase-copy p,
+body:has(.frontpage-masthead) .topic-column .stack-item span {
+  color: #35546f;
+}
+
+body:has(.frontpage-masthead) .hot-featured-card,
+body:has(.frontpage-masthead) .story-card,
+body:has(.frontpage-masthead) .stacked-article-card,
+body:has(.frontpage-masthead) .stack-item,
+body:has(.frontpage-masthead) .guide-showcase-lead,
+body:has(.frontpage-masthead) .topic-column,
+body:has(.frontpage-masthead) .rail-card {
+  background: rgba(255, 255, 255, .9);
+  border-color: rgba(35, 86, 132, .17);
+  box-shadow: 0 12px 30px rgba(55, 105, 145, .09);
+}
+
+body:has(.frontpage-masthead) .eclipse-toggle-btn {
+  background: #ffffff;
+  border-color: rgba(35, 86, 132, .24);
+  box-shadow: 0 8px 24px rgba(35, 86, 132, .18);
+}
+body:has(.frontpage-masthead) .eclipse-orb { position: relative; background: #f4a51c; }
+body:has(.frontpage-masthead) .eclipse-orb::before,
+body:has(.frontpage-masthead) .eclipse-orb::after { content: ""; position: absolute; inset: -7px; border: 1px solid rgba(244, 165, 28, .45); border-radius: 50%; }
+body:has(.frontpage-masthead) .eclipse-orb::after { inset: -11px; border-style: dashed; opacity: .7; }
+body:has(.frontpage-masthead).theme-dark {
+  --ink: #e8f1fa;
+  --ink-soft: #111c2b;
+  --paper: #e8f1fa;
+  --text-on-ink: #e8f1fa;
+  --text-muted: #a9bfd5;
+  --ink-line: rgba(180, 215, 242, .17);
+  background: linear-gradient(180deg, #061323 0, #0b1728 55%, #101c30 100%);
+}
+body:has(.frontpage-masthead).theme-dark .topbar { background: rgba(8, 19, 35, .88); }
+body:has(.frontpage-masthead).theme-dark .hero-big-title,
+body:has(.frontpage-masthead).theme-dark .section-head h2,
+body:has(.frontpage-masthead).theme-dark .topic-title-row h3 a,
+body:has(.frontpage-masthead).theme-dark .hot-featured-body h2 a,
+body:has(.frontpage-masthead).theme-dark .story-card h3 a,
+body:has(.frontpage-masthead).theme-dark .stack-item h3 a,
+body:has(.frontpage-masthead).theme-dark .guide-showcase-copy h2,
+body:has(.frontpage-masthead).theme-dark .headline-title,
+body:has(.frontpage-masthead).theme-dark .recent-header-title { color: #edf6ff; }
+body:has(.frontpage-masthead).theme-dark .hero-dek,
+body:has(.frontpage-masthead).theme-dark .hero-context,
+body:has(.frontpage-masthead).theme-dark .section-head p,
+body:has(.frontpage-masthead).theme-dark .story-card p,
+body:has(.frontpage-masthead).theme-dark .stack-item p,
+body:has(.frontpage-masthead).theme-dark .guide-showcase-copy p,
+body:has(.frontpage-masthead).theme-dark .topic-column .stack-item span { color: #aec4d9; }
+body:has(.frontpage-masthead).theme-dark .hot-featured-card,
+body:has(.frontpage-masthead).theme-dark .story-card,
+body:has(.frontpage-masthead).theme-dark .stacked-article-card,
+body:has(.frontpage-masthead).theme-dark .stack-item,
+body:has(.frontpage-masthead).theme-dark .guide-showcase-lead,
+body:has(.frontpage-masthead).theme-dark .topic-column,
+body:has(.frontpage-masthead).theme-dark .rail-card { background: rgba(17, 28, 43, .94); box-shadow: 0 14px 34px rgba(0, 0, 0, .24); }
+body:has(.frontpage-masthead).theme-dark .eclipse-toggle-btn { background: #111c2b; }
+body:has(.frontpage-masthead).theme-dark .eclipse-orb { background: #e7f2ff; box-shadow: -5px -2px 0 2px #111c2b, 0 0 18px rgba(190, 226, 255, .85); }
+body:has(.frontpage-masthead).theme-dark .eclipse-orb::before,
+body:has(.frontpage-masthead).theme-dark .eclipse-orb::after { display: none; }
+
 .site-footer {
   display: grid;
   grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);

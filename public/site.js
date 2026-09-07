@@ -31,17 +31,52 @@ function initCosmosTheme() {
 
   if (canvas && !reducedMotion) {
     const context = canvas.getContext("2d");
-    const particles = Array.from({ length: 42 }, () => ({ x: Math.random(), y: Math.random(), r: Math.random() * 1.8 + .4, v: Math.random() * .00018 + .00004 }));
+    const particles = Array.from({ length: 78 }, () => ({ x: Math.random(), y: Math.random(), r: Math.random() * 1.8 + .35, v: Math.random() * .00018 + .00004, phase: Math.random() * Math.PI * 2 }));
+    const clouds = Array.from({ length: 7 }, (_, index) => ({ x: (index / 7) * 1.2 - .1, y: .08 + Math.random() * .3, width: 120 + Math.random() * 180, height: 28 + Math.random() * 34, speed: .000015 + Math.random() * .000018 }));
+    const meteors = [];
+    let frame = 0;
     const resize = () => { canvas.width = window.innerWidth * devicePixelRatio; canvas.height = window.innerHeight * devicePixelRatio; context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0); };
+    const drawCloud = (cloud, width, height) => {
+      const x = cloud.x * width;
+      const y = cloud.y * height;
+      context.fillStyle = "rgba(255, 255, 255, .48)";
+      context.shadowColor = "rgba(97, 147, 184, .12)";
+      context.shadowBlur = 18;
+      context.beginPath();
+      context.ellipse(x, y, cloud.width, cloud.height, 0, 0, Math.PI * 2);
+      context.ellipse(x + cloud.width * .42, y - cloud.height * .35, cloud.width * .62, cloud.height * .85, 0, 0, Math.PI * 2);
+      context.ellipse(x - cloud.width * .38, y - cloud.height * .16, cloud.width * .48, cloud.height * .7, 0, 0, Math.PI * 2);
+      context.fill();
+      context.shadowBlur = 0;
+    };
     const draw = () => {
       const width = window.innerWidth; const height = window.innerHeight;
       context.clearRect(0, 0, width, height);
-      context.fillStyle = document.body.classList.contains("theme-dark") ? "rgba(110, 190, 180, .55)" : "rgba(217, 164, 65, .42)";
+      const dark = document.body.classList.contains("theme-dark");
+      if (!dark) {
+        for (const cloud of clouds) { cloud.x += cloud.speed; if (cloud.x > 1.2) cloud.x = -.2; drawCloud(cloud, width, height); }
+      }
+      context.fillStyle = dark ? "rgba(218, 238, 255, .88)" : "rgba(240, 174, 43, .22)";
       for (const particle of particles) {
         particle.y -= particle.v;
         if (particle.y < 0) particle.y = 1;
-        context.beginPath(); context.arc(particle.x * width, particle.y * height, particle.r, 0, Math.PI * 2); context.fill();
+        if (dark) {
+          const pulse = .55 + Math.sin(frame * .035 + particle.phase) * .35;
+          context.globalAlpha = pulse;
+          context.beginPath(); context.arc(particle.x * width, particle.y * height, particle.r, 0, Math.PI * 2); context.fill();
+        }
       }
+      context.globalAlpha = 1;
+      if (dark && frame % 120 === 0 && Math.random() > .35) meteors.push({ x: Math.random() * width * .9, y: Math.random() * height * .35, life: 0, speed: 10 + Math.random() * 6, length: 90 + Math.random() * 90 });
+      for (let index = meteors.length - 1; index >= 0; index -= 1) {
+        const meteor = meteors[index];
+        meteor.x += meteor.speed; meteor.y += meteor.speed * .55; meteor.life += 1;
+        const gradient = context.createLinearGradient(meteor.x, meteor.y, meteor.x - meteor.length, meteor.y - meteor.length * .55);
+        gradient.addColorStop(0, "rgba(255,255,255,.95)"); gradient.addColorStop(1, "rgba(122,205,255,0)");
+        context.strokeStyle = gradient; context.lineWidth = 2; context.beginPath(); context.moveTo(meteor.x, meteor.y); context.lineTo(meteor.x - meteor.length, meteor.y - meteor.length * .55); context.stroke();
+        if (meteor.life > 34) meteors.splice(index, 1);
+      }
+      frame += 1;
       window.requestAnimationFrame(draw);
     };
     resize(); window.addEventListener("resize", resize, { passive: true }); draw();
