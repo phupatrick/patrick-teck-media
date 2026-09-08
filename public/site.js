@@ -9,6 +9,18 @@ initLanguageSwitcher();
 initApprovedEditorialMotion();
 initLuxuryMotion();
 initCosmosTheme();
+initHomepageNewsTicker();
+
+function initHomepageNewsTicker() {
+  const track = document.querySelector(".marquee-container .marquee-track");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!track || reducedMotion) return;
+
+  const uniqueItems = Math.max(1, Math.floor(track.children.length / 2));
+  track.style.setProperty("--marquee-duration", `${Math.max(28, uniqueItems * 6)}s`);
+  track.classList.add("is-marquee-ready");
+}
 
 function initCosmosTheme() {
   const canvas = document.querySelector("[data-cosmos-canvas]");

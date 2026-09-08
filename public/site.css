@@ -7031,6 +7031,11 @@ body:has(.frontpage-masthead) .eclipse-toggle-btn {
 
 body:has(.frontpage-masthead) .marquee-track.is-marquee-ready {
   animation: signal-marquee var(--marquee-duration, 32s) linear infinite;
+  will-change: transform;
+}
+
+body:has(.frontpage-masthead) .marquee-container:hover .marquee-track.is-marquee-ready {
+  animation-play-state: paused;
 }
 
 body:has(.frontpage-masthead).theme-dark {
