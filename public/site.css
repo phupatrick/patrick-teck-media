@@ -2166,6 +2166,40 @@ body:has(.frontpage-masthead) .site-footer {
   body:has(.frontpage-masthead) .topic-band { grid-template-columns: 1fr; }
 }
 
+/* Final light-mode override: the homepage must remain visibly bright by default. */
+body:has(.frontpage-masthead) {
+  --ink: #16283d;
+  --paper: #16283d;
+  --ink-soft: rgba(255, 255, 255, .96);
+  --text-muted: #35546f;
+  --ink-line: rgba(35, 86, 132, .2);
+  background: linear-gradient(180deg, #e8f6ff 0%, #f8fcff 42%, #ffffff 100%);
+  color: var(--ink);
+  white-space: normal;
+}
+
+body:has(.frontpage-masthead) .topbar,
+body:has(.frontpage-masthead) .hero-main-banner,
+body:has(.frontpage-masthead) .hero-recent-box {
+  background: rgba(255, 255, 255, .94);
+  color: var(--ink);
+}
+
+body:has(.frontpage-masthead).theme-dark {
+  --ink: #e8f1fa;
+  --paper: #e8f1fa;
+  --ink-soft: rgba(17, 28, 43, .96);
+  --text-muted: #aec4d9;
+  background: linear-gradient(180deg, #061323 0%, #0b1728 55%, #101c30 100%);
+}
+
+body:has(.frontpage-masthead).theme-dark .topbar,
+body:has(.frontpage-masthead).theme-dark .hero-main-banner,
+body:has(.frontpage-masthead).theme-dark .hero-recent-box {
+  background: rgba(8, 19, 35, .94);
+  color: var(--paper);
+}
+
 /* Homepage UI contract: media stays inside its reading column at every width. */
 body:has(.frontpage-masthead) .hot-featured-card,
 body:has(.frontpage-masthead) .stacked-article-card,
