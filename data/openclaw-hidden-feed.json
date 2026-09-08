@@ -1,11 +1,157 @@
 {
-  "generated_at": "2026-09-08T18:25:29.269Z",
+  "generated_at": "2026-09-08T18:57:24.588Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-10200cecc0eb-en",
+      "cluster_id": "feed-10200cecc0eb",
+      "language": "en",
+      "topic_label": "Apps & Software",
+      "topic_slug": "apps-software",
+      "topic_accent": "#17c9ff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes",
+      "title": "Amazon SageMaker Feature Store introduces UpdateRecord for feature-level writes",
+      "hook": "We are excited to announce feature-level writes for Amazon SageMaker Feature Store. The part worth reading is how quickly everyday product behavior can shift after an update like this.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "We are excited to announce feature-level writes for Amazon SageMaker Feature Store. Amazon SageMaker Feature Store is a fully managed, purpose-built repository to store, share, and manage machine learning (ML) features, the processed data used for training models and generating predictions.",
+      "dek": "We are excited to announce feature-level writes for Amazon SageMaker Feature Store. Amazon SageMaker Feature Store is a fully managed, purpose-built repository to store, share, and manage machine learning (ML) features, the processed data used for training models and generating predictions. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "With the new UpdateRecord API, you can now update one or more feature values in a single call without reading or rewriting the entire record. This capability is available for both the Standard ( Amazon DynamoDB -backed) and In-Memory ( Amazon ElastiCache -backed) online store tiers."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "A Feature Group is a logical collection of features that are related, and are used by one or more ML models to either train a new model or generate inference predictions. Until now, updating even a single feature value in a feature group required a full read-modify-write cycle using PutRecord . If your fraud-scoring pipeline needed to refresh a customer’s risk_score , your application had to:."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "This pattern added extra latency per update, consumed unnecessary read capacity, and introduced race conditions when multiple pipelines concurrently updated different features in the same record. In the worst case, one pipeline’s write could silently overwrite another’s. This is a classic lost-update problem."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Beyond latency and correctness issues, the read-modify-write pattern also carries a cost overhead. The additional GetRecord calls required before each write generate extra Read Capacity Units (RCUs) charges. For customers operating at scale with wide feature groups and high update frequencies, these costs add up quickly."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "The UpdateRecord API call removes the read-modify-write cycle. You provide only the features that you want to change, and Amazon SageMaker Feature Store applies the updates atomically to the existing record. Features you don’t include in the request are preserved as-is."
+        }
+      ],
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/08/Amazon-SageMaker-Feature-Store-introduces-UpdateRecord-for-feature-level-writes.png",
+        "alt": "",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-08T18:29:15.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/08/Amazon-SageMaker-Feature-Store-introduces-UpdateRecord-for-feature-level-writes.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-09-08T18:29:15.000Z",
+      "updated_at": "2026-09-08T18:29:15.000Z",
+      "href": "/en/news/amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes",
+      "draft_context": {
+        "source_title": "Amazon SageMaker Feature Store introduces UpdateRecord for feature-level writes",
+        "source_name": "AWS ML Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "ai",
+        "content_type_hint": "",
+        "description": "We are excited to announce feature-level writes for Amazon SageMaker Feature Store. Amazon SageMaker Feature Store is a fully managed, purpose-built repository to store, share, and manage machine learning (ML) features, the processed data used for training models and generating predictions. With the new UpdateRecord API, you can now update one or more feature values in a single call without reading or rewriting the entire record. This capability is available for both the Standard ( Amazon DynamoDB -backed) and In-Memory ( Amazon ElastiCache -backed) online store tiers. The challenge: Full-record writes for every change A Feature Group is a logical collection of features that are related, and are used by one or more ML models to either train a new model or generate inference predictions. Until now, updating even a single feature value in a feature group required a full read-modify-write cycle using PutRecord . If your fraud-scoring pipeline needed to refresh a customer’s risk_score , your application had to: Read the complete record (all features) by using GetRecord . Merge the new value in application code. Write the entire record back with PutRecord . This pattern added extra latency per update, consumed unnecessary read capacity, and introduced race conditions when multiple pipelines concurrently updated different features in the same record. In the worst case, one pipeline’s write could silently overwrite another’s. This is a classic lost-update problem. Beyond latency and correctness issues, the read-modify-write pattern also carries a cost overhead. The additional GetRecord calls required before each write generate extra Read Capacity Units (RCUs) charges. For customers operating at scale with wide feature groups and high update frequencies, these costs add up quickly. Introducing UpdateRecord The UpdateRecord API call removes the read-modify-write cycle. You provide only the features that you want to change, and Amazon SageMaker Feature Store applies the updates atomically to the existing record. Features you don’t include in the request are preserved as-is. UpdateRecord API data flow The following diagram illustrates how the UpdateRecord API processes a partial write request and synchronizes with the offline store. Figure 1: UpdateRecord API data flow to the online and offline stores The client application calls the UpdateRecord API with only the changed features. The Feature Store service validates AWS Identity and Access Management (IAM) permissions, checks EventTime ordering to reject stale writes, and performs an atomic merge. The blue arrow represents the single operation that writes only the changed features to the online store. Meanwhile, a full record snapshot is automatically replicated to the offline store to keep training datasets accurate. Multiple pipelines (clickstream, purchases, scoring) each write their own features independently to the same record. No coordination is needed. Request shape POST /FeatureGroup/{FeatureGroupName}/Record { \"RecordIdentifierValueAsString\": \"user_123\", \"Features\": [ { \"FeatureName\": \"risk_score\", \"ValueAsString\": \"0.87\" }, { \"FeatureName\": \"last_login\", \"ValueAsString\": \"2026-07-21T08:15:00Z\" } ], \"TtlDuration\": { // optional \"Unit\": \"Days\", \"Value\": 30 } } FeatureGroupName — the target feature group. RecordIdentifierValueAsString — the primary key of the record to update. The record must already exist (UpdateRecord is not an upsert). Features — a list of one or more feature values to set. Up to 100 features per call. TtlDuration (optional) — override or set a per-record time-to-live (TTL). If provided, EventTime must also be present. Updating EventTime : To also update the EventTime (one of two required fields) stored with the record, provide a new value in the Features parameter list. For the update to persist, this EventTime must be newer (a later timestamp) than the existing EventTime stored for the record. Otherwise, the entire update record call is rejected with an HTTP 409 error. For more Error details, refer to this documentation . Things to know: New storage format Standard_V2 The Amazon SageMaker Feature Store online storage has traditionally offered two tiers, each with its own backend storage provider. Standard Tier is backed by Amazon DynamoDB, and the In-Memory Tier is backed by Amazon ElastiCache (Redis OSS). There is now a new storage format for the Standard Tier named Standard_V2 . This represents a different serialization format that supports additional capabilities such as feature-level writes. Note: If using the In-Memory tier, no new storage type is needed and feature-level writes work on all existing In-Memory feature groups out of the box. Using feature-level writes with the Standard Tier will require the new Standard_V2 storage format. You opt in at feature group creation time with this syntax: import boto3 sm = boto3.client(\"sagemaker\") sm.create_feature_group( FeatureGroupName=\"user-profile-fg\", RecordIdentifierFeatureName=\"user_id\", EventTimeFeatureName=\"event_time\", OnlineStoreConfig={ \"EnableOnlineStore\": True, \"StorageType\": \"Standard_V2\" # enables feature-level writes }, FeatureDefinitions=[ {\"FeatureName\": \"user_id\", \"FeatureType\": \"String\"}, {\"FeatureName\": \"event_time\", \"FeatureType\": \"String\"}, {\"FeatureName\": \"risk_score\", \"FeatureType\": \"Fractional\"}, {\"FeatureName\": \"last_login\", \"FeatureType\": \"String\"}, {\"FeatureName\": \"balance\", \"FeatureType\": \"Fractional\"}, ], ) Migrating existing feature groups from Standard to Standard_V2 If you already have feature groups on the original Standard storage type, you can migrate to Standard_V2 to benefit from feature-level writes and maintain the same capabilities from Standard tier. The following sections describe two migration strategies. Your choice depends on your sensitivity to downtime, your preferred migration timing, and whether you want the option to roll back. Strategy A: Bulk migration with Feature Processor Use the Feature Processor SDK to read records from the existing Standard feature group and re-ingest them into a new Standard_V2 feature group. Pros: You control the timing. The original feature group stays intact during migration. Rollback is straightforward, because you switch back to the old feature group. Cons: This strategy requires a managed migration job. You pay the full read and write cost for the entire dataset upfront. You must update application clients to point to the new feature group name. Strategy B: In-place controlled switchover with UpdateFeatureGroup API Call UpdateFeatureGroup with OnlineStoreConfig.StorageType = “Standard_V2” to flip the feature group’s storage format in place: import boto3 sm = boto3.client(\"sagemaker\") sm.update_feature_group( FeatureGroupName=\"my-existing-fg\", OnlineStoreConfig={\"StorageType\": \"Standard_V2\"} ) Once the feature group is declared to be in Standard_V2 format, Calls to PutRecord or BatchWriteRecord update the underlying format to Standard_V2. This approach requires zero downtime and charges migration cost only for records that are actually touched. It preserves existing application code, because the feature group name and API endpoints remain unchanged. The switch to Standard_V2 is irreversible, and cold records that are never written linger in the legacy format until touched. Recommendation: For most customers, Strategy B (in-place UpdateFeatureGroup) is the preferred approach because of zero downtime and pay-per-touch economics. Use Strategy A only if you require a fully reversible migration path or need to rename or restructure the feature group. EventTime: Temporal ordering built in UpdateRecord supports the same EventTime-based ordering as PutRecord. When you include an EventTime in your request: If the provided EventTime is newer than or equal to the record’s current EventTime, the update is applied and the record’s EventTime advances. If the provided EventTime is earlier than the record’s current EventTime, the update is rejected with a 409 ConflictException. This helps prevent stale or out-of-order events from overwriting fresher data. When EventTime is omitted, the update applies new feature changes while the existing EventTime on the record is left unchanged. This is ideal for multi-pipeline architectures where different pipelines own different features and don’t share a single event clock. Use cases The following use cases demonstrate how UpdateRecord simplifies common feature engineering workflows. Streaming feature hydration Real-time and streaming scenarios typically require data generated by multiple streams that occur at different frequencies. Scenario : A real-time clickstream pipeline receives page_views and session_duration data every few seconds, and a nightly batch pipeline refreshes lifetime_value and customer_segment data. With UpdateRecord, each pipeline submits only the features it owns to the core record, with no coordination and no lost updates. Backfilling new features With Amazon SageMaker Feature Store, you can modify the table schema that backs the feature group to add new columns (features). Scenario : Your team adds preferred_language and notification_opt_in to an existing feature group. Instead of rewriting every record, you call UpdateRecord with only the new field values. Existing feature values remain untouched. Error correction at scale When a data science or MLOps team discovers discrepancies in existing feature data, they can now take action to correct it efficiently. Scenario: A data-quality job discovers that customer_segment is miscategorized for 50,000 records. With UpdateRecord, you can fix one field across thousands of records without risking corruption of other feature values. High-velocity feature updates Feature Groups often contain multiple fields of transactional data, even though these fields are generated or received at different times. Scenario : A fraud detection system receives transaction_velocity on every card swipe. With UpdateRecord, each write touches only the single feature that changed, which eliminates the overhead of full-record writes at scale. Multi-producer feature groups for enterprise entities Large organizations often model their Feature Store around core business entities, one feature group per entity type, with dozens of independent producers contributing features to the same records. Scenario: An enterprise maintains a single feature group per business entity (for example, customer, policy, vehicle). The group holds millions of records and hundreds of features produced by different teams, batch extract, transform, and load (ETL) jobs, streaming analytics, and real-time scoring engines. Without UpdateRecord, each producer must read the full record, inject its subset, and write back the entire entity. This creates compaction jobs, race conditions, and monthly costs in read and write operations. With UpdateRecord, each producer writes only its own features atomically, which removes the need for custom compaction solutions. Fine-grained access control UpdateRecord integrates with IAM so you can control exactly who can update which features. Two new IAM condition keys are available: sagemaker:IsUpdateRecord (Bool) — distinguish partial-update operations from full PutRecord writes. sagemaker:UpdatableFeatures (ArrayOfString) — restrict which feature names a principal is allowed to update. Example: Allow updates only to non-sensitive features { \"Effect\": \"Allow\", \"Action\": \"sagemaker:PutRecord\", \"Resource\": \"arn:aws:sagemaker:*:*:feature-group/user-profile-fg\", \"Condition\": { \"Bool\": { \"sagemaker:IsUpdateRecord\": \"true\" }, \"ForAllValues:StringEquals\": { \"sagemaker:UpdatableFeatures\": [\"age\", \"score\", \"last_activity\"] } } } This policy allows the principal to call UpdateRecord on age , score , and last_activity but blocks updates to any other features (for example, ssn or salary ) and blocks direct PutRecord calls entirely. Backward compatibility Existing IAM policies that deny sagemaker:PutRecord automatically block UpdateRecord as well. No customer migration is required for security controls to take effect. Offline store integration Updates made through UpdateRecord flow to the offline store automatically through the same replication pipeline used by PutRecord. Each update emits a complete record snapshot to the offline store, helping you maintain accurate training datasets and historical analytics. Record must exist. UpdateRecord is strictly a modify operation. Call PutRecord first to create the record. Feature names must be defined. You can’t add features that aren’t in the feature group’s schema. Use PutRecord for schema-conformant full writes. Record identifier is immutable. The primary key can’t be modified by using UpdateRecord. TTL requires EventTime. If you specify a TtlDuration, you must also include EventTime in the request. Pricing UpdateRecord follows the same pricing model as PutRecord. For the Standard tier, DynamoDB write capacity unit (WCU) charges are based on the item size after the update. However, you save on the read capacity that was previously required for the read-modify-write pattern. Consult the Amazon SageMaker Feature Store pricing page for details. Getting started today Feature-level writes with UpdateRecord is available today in all AWS Regions where Amazon SageMaker Feature Store is offered. To get started: Create a feature group with StorageType: Standard_V2 (Standard tier) or use any existing In-Memory feature group. Ingest records using PutRecord as usual. Call UpdateRecord to update individual features without rewriting the full record. For more information, see the Amazon SageMaker Feature Store Developer Guide and the UpdateRecord API Reference . Conclusion Feature-level writes with the UpdateRecord API to remove the read-modify-write cycle that previously added extra ms of latency to every partial update. UpdateRecord reduces latency, lowers data-transfer costs for single-feature updates, and helps minimize the risk of lost updates in multi-pipeline architectures. Combined with fine-grained IAM controls and automatic offline store replication, teams can build more efficient and reliable feature engineering workflows. Whether refreshing a single risk score in real time or orchestrating dozens of independent producers writing to shared enterprise-wide feature groups, UpdateRecord simplifies the path from raw data to production-ready features. To learn more, see the Amazon SageMaker Feature Store Developer Guide , the UpdateRecord API Reference, or get started on the AWS Management Console. About the authors Mona Mona Mona is a Specialist Solutions Architect at AWS, focused on machine learning infrastructure and AI/ML services. She helps customers design and optimize their ML pipelines using Amazon SageMaker. Ioan Catana Ioan is a Senior Artificial Intelligence and Machine Learning Specialist Solutions Architect at AWS. He helps customers develop and scale their ML solutions and generative AI applications in the AWS Cloud. Ioan has over 25 years of experience, mostly in software architecture design and cloud engineering. Paul Hargis Paul is a Principal Solutions Architect at AWS specializing in machine learning and data engineering. He works with enterprise customers to build scalable ML platforms. Romik Amipara Romik is a software engineer on the SageMaker Feature Store team, passionate about building elegant, scalable systems that bring big data and machine learning to people’s fingertips. His interests lie at the intersection of distributed systems and the rapidly evolving world of AI, with a focus on building reliable infrastructure that enables intelligent applications at scale. Siamak Nariman Siamak is a Senior Product Manager at AWS. He is focused on AI/ML technology, ML model management, and ML governance to improve overall organizational efficiency and productivity. He has extensive experience automating processes and deploying various technologies.",
+        "paragraphs": [
+          "We are excited to announce feature-level writes for Amazon SageMaker Feature Store. Amazon SageMaker Feature Store is a fully managed, purpose-built repository to store, share, and manage machine learning (ML) features, the processed data used for training models and generating predictions. With the new UpdateRecord API, you can now update one or more feature values in a single call without reading or rewriting the entire record. This capability is available for both the Standard ( Amazon DynamoDB -backed) and In-Memory ( Amazon ElastiCache -backed) online store tiers.",
+          "A Feature Group is a logical collection of features that are related, and are used by one or more ML models to either train a new model or generate inference predictions. Until now, updating even a single feature value in a feature group required a full read-modify-write cycle using PutRecord . If your fraud-scoring pipeline needed to refresh a customer’s risk_score , your application had to:",
+          "This pattern added extra latency per update, consumed unnecessary read capacity, and introduced race conditions when multiple pipelines concurrently updated different features in the same record. In the worst case, one pipeline’s write could silently overwrite another’s. This is a classic lost-update problem.",
+          "Beyond latency and correctness issues, the read-modify-write pattern also carries a cost overhead. The additional GetRecord calls required before each write generate extra Read Capacity Units (RCUs) charges. For customers operating at scale with wide feature groups and high update frequencies, these costs add up quickly.",
+          "The UpdateRecord API call removes the read-modify-write cycle. You provide only the features that you want to change, and Amazon SageMaker Feature Store applies the updates atomically to the existing record. Features you don’t include in the request are preserved as-is.",
+          "The following diagram illustrates how the UpdateRecord API processes a partial write request and synchronizes with the offline store."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=2549",
+        "link": "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes/"
+      },
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Verified",
+      "title_vi": "",
+      "title_en": "Amazon SageMaker Feature Store introduces UpdateRecord for feature-level writes",
+      "dek_vi": "",
+      "dek_en": "We are excited to announce feature-level writes for Amazon SageMaker Feature Store. Amazon SageMaker Feature Store is a fully managed, purpose-built repository to store, share, and manage machine learning (ML) features, the processed data used for training models and generating predictions. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "body_vi": "",
+      "body_en": "What happened\nWith the new UpdateRecord API, you can now update one or more feature values in a single call without reading or rewriting the entire record. This capability is available for both the Standard ( Amazon DynamoDB -backed) and In-Memory ( Amazon ElastiCache -backed) online store tiers.\n\nWhere the sources line up\nA Feature Group is a logical collection of features that are related, and are used by one or more ML models to either train a new model or generate inference predictions. Until now, updating even a single feature value in a feature group required a full read-modify-write cycle using PutRecord . If your fraud-scoring pipeline needed to refresh a customer’s risk_score , your application had to:.\n\nPractical impact for readers\nThis pattern added extra latency per update, consumed unnecessary read capacity, and introduced race conditions when multiple pipelines concurrently updated different features in the same record. In the worst case, one pipeline’s write could silently overwrite another’s. This is a classic lost-update problem.\n\nWho should pay attention now\nBeyond latency and correctness issues, the read-modify-write pattern also carries a cost overhead. The additional GetRecord calls required before each write generate extra Read Capacity Units (RCUs) charges. For customers operating at scale with wide feature groups and high update frequencies, these costs add up quickly.\n\nWhat is still unclear\nThe UpdateRecord API call removes the read-modify-write cycle. You provide only the features that you want to change, and Amazon SageMaker Feature Store applies the updates atomically to the existing record. Features you don’t include in the request are preserved as-is.",
+      "slug_vi": "amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes",
+      "slug_en": "amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes",
+      "category": "software",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes/"
+      ],
+      "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/08/Amazon-SageMaker-Feature-Store-introduces-UpdateRecord-for-feature-level-writes.png",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes",
+      "storeUrl": "https://patricktechmedia.store",
+      "topic": "apps-software",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-08T18:57:24.587Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-c3566caf4988-en",
       "cluster_id": "feed-c3566caf4988",
@@ -148,7 +294,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T18:25:29.268Z",
+        "generated_at": "2026-09-08T18:57:24.588Z",
         "origin": "local-curated-rss"
       }
     },
@@ -290,7 +436,149 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T18:25:29.269Z",
+        "generated_at": "2026-09-08T18:57:24.588Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-0b241ce39224-vi",
+      "cluster_id": "feed-0b241ce39224",
+      "language": "vi",
+      "topic_label": "Internet & Doanh nghiệp số",
+      "topic_slug": "internet-doanh-nghiep-so",
+      "topic_accent": "#9bff45",
+      "content_type": "NewsArticle",
+      "content_type_label": "Tin nhanh",
+      "path_segment": "tin-tuc",
+      "slug": "ai-thach-thuc-vai-tro-giam-oc-ieu-hanh",
+      "title": "AI thách thức vai trò giám đốc điều hành với dự án OpenExecutive",
+      "hook": "Liệu một thuật toán có thể đưa ra những quyết định chiến lược thay thế cho các giám đốc điều hành dày dạn kinh nghiệm?",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Dự án mã nguồn mở OpenExecutive từ Sente Labs đang mở ra tiềm năng tự động hóa các vai trò lãnh đạo cấp cao thông qua hệ thống AI đa tác nhân.",
+      "dek": "Sự xuất hiện của ban điều hành AI có khả năng hỗ trợ và thay thế một phần công việc của CEO đang tạo nên bước ngoặt mới trong quản trị doanh nghiệp.",
+      "sections": [
+        {
+          "heading": "Điều gì đã xảy ra",
+          "body": "Theo tin từ Gadget Now vào ngày 7/9, nhóm kỹ sư phần mềm tại công ty Sente Labs đã chính thức phát triển dự án mã nguồn mở mang tên OpenExecutive. Đây là nỗ lực nhằm khám phá khả năng của trí tuệ nhân tạo trong việc đảm nhận các trọng trách quản lý vốn trước đây chỉ dành cho con người."
+        },
+        {
+          "heading": "Thay đổi kỹ thuật: Hệ thống đa tác nhân",
+          "body": "OpenExecutive không chỉ là một công cụ đơn lẻ mà là một hệ thống AI đa tác nhân. Cấu trúc này cho phép tạo ra một 'ban điều hành AI' có khả năng phối hợp để xử lý các nhiệm vụ phức tạp, mô phỏng lại quy trình làm việc của các lãnh đạo cấp cao trong doanh nghiệp."
+        },
+        {
+          "heading": "Dữ kiện hiện có",
+          "body": "Hệ thống này có khả năng hỗ trợ hiệu quả công việc quản lý cho các CEO và giám đốc doanh nghiệp. Bằng cách tự động hóa các quy trình điều hành, OpenExecutive giúp tối ưu hóa việc ra quyết định và giảm bớt khối lượng công việc hành chính cho bộ máy lãnh đạo."
+        },
+        {
+          "heading": "Giới hạn và rủi ro tiềm ẩn",
+          "body": "Dù mang lại tiềm năng lớn, việc áp dụng AI vào vai trò giám đốc điều hành vẫn đặt ra những thách thức về tính trách nhiệm và khả năng xử lý các tình huống đòi hỏi sự nhạy bén về cảm xúc hoặc đạo đức mà các mô hình mã nguồn mở hiện nay vẫn đang trong giai đoạn thử nghiệm."
+        },
+        {
+          "heading": "Điều chưa rõ",
+          "body": "Sự phát triển của OpenExecutive sẽ là tiền đề để cộng đồng công nghệ đánh giá liệu AI có thể thực sự thay thế hoàn toàn hay chỉ dừng lại ở vai trò trợ lý đắc lực cho con người trong các vị trí quản trị chiến lược tại các doanh nghiệp hiện đại."
+        }
+      ],
+      "image": {
+        "src": "https://i2-vnexpress.vnecdn.net/2026/09/08/AFP-20260213-HL-JMBARRERE-3058-9581-5798-1788839274.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=jEmxpXsOu2SIkhPQo558KA",
+        "alt": "",
+        "caption": "Ảnh tham khảo từ VnExpress So Hoa.",
+        "credit": "VnExpress So Hoa",
+        "source_url": "https://vnexpress.net/ai-thach-thuc-vai-tro-giam-doc-dieu-hanh-5117565.html"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "VnExpress So Hoa",
+          "source_url": "https://vnexpress.net/ai-thach-thuc-vai-tro-giam-doc-dieu-hanh-5117565.html",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-08T17:00:00.000Z",
+          "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/08/AFP-20260213-HL-JMBARRERE-3058-9581-5798-1788839274.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=jEmxpXsOu2SIkhPQo558KA",
+          "image_caption": "Ảnh tham khảo từ VnExpress So Hoa.",
+          "image_credit": "VnExpress So Hoa"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-08T17:00:00.000Z",
+      "updated_at": "2026-09-08T17:00:00.000Z",
+      "href": "/vi/tin-tuc/ai-thach-thuc-vai-tro-giam-oc-ieu-hanh",
+      "draft_context": {
+        "source_title": "AI thách thức vai trò giám đốc điều hành",
+        "source_name": "VnExpress So Hoa",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "Hệ thống AI đa tác nhân OpenExecutive của Sente Labs có thể tự động hóa và hỗ trợ hiệu quả công việc quản lý cho các CEO.",
+        "paragraphs": [
+          "Gadget Now hôm 7/9 đưa tin, một nhóm kỹ sư phần mềm ở công ty Sente Labs phát triển dự án mã nguồn mở mang tên OpenExecutive nhằm khám phá tiềm năng của trí tuệ nhân tạo (AI) trong việc tự động hóa vai trò lãnh đạo. Dự án này tạo ra ban điều hành AI có khả năng hỗ trợ công việc quản lý cấp cao như CEO hoặc giám đốc doanh nghiệp. Các nhà phát triển muốn chứng minh AI có thể xử lý những nhiệm vụ trước đây do nhà lãnh đạo cấp cao đảm nhận. Về mặt pháp lý, OpenExecutive không thể trở thành giám đốc điều hành của một công ty, nhưng thiết kế của nó đặt ra những câu hỏi mới về mức độ mà AI có thể tham gia ra quyết định trong doanh nghiệp.",
+          "OpenExecutive hoạt động như hệ thống AI đa tác nhân thay vì dựa vào một mô hình duy nhất để xử lý mọi vấn đề của doanh nghiệp. Theo mô tả của nhóm phát triển, người dùng giao tiếp với AI đại diện gọi là \"nhà điều hành\", giữ vai trò phân chia công việc hoặc hỏi ý kiến của 8 tác nhân chuyên gia trong lĩnh vực chiến lược, tài chính, nhân sự, pháp lý, vận hành, tiếp thị, quản lý sản phẩm và giao tiếp với hội đồng quản trị, sau đó đưa ra phản hồi tổng hợp. Cách tiếp cận này nhằm tránh cho người dùng nhận được 8 gợi ý mâu thuẫn từ mỗi tác nhân riêng biệt.",
+          "PCMag cho biết dự án sử dụng các mô hình Claude của Anthropic, bao gồm Sonnet 4.6 cho công việc chung và Opus 4.7 cho nhiệm vụ suy luận phức tạp hơn. OpenExecutive có thể tự động theo dõi email, đối thủ cạnh tranh, báo cáo tài chính và dữ liệu nội bộ. Hệ thống có thể truy xuất tài liệu của công ty làm ngữ cảnh, đồng thời bộ nhớ hồi tưởng dựa trên hệ quản trị cơ sở dữ liệu SQLite giúp lưu trữ lịch sử quyết định. Nhờ đó, hệ thống AI sẽ hoạt động như một giám đốc điều hành làm việc liên tục thay vì chatbot luôn bắt đầu lại từ đầu khi có người nhắn. Vào mỗi buổi sáng, OpenExecutive sẽ chuẩn bị sẵn một bản tóm tắt công việc, đề xuất chiến lược hoặc bài thuyết trình để nhà lãnh đạo phê duyệt, chỉnh sửa hoặc hủy bỏ.",
+          "Động lực phát triển OpenExecutive vượt ngoài một thí nghiệm công nghệ. Theo Futurism , chính nhóm kỹ sư của Sente Labs thừa nhận họ từng bị ảnh hưởng bởi việc tái cấu trúc do AI và muốn xây dựng một hệ thống tập trung vào tự động hóa công việc trong các cấp cao nhất của tổ chức. Những gì nhà quản lý và giám đốc điều hành làm khi xử lý thông tin (phân tích dữ liệu tài chính và hiệu suất, thiết lập mục tiêu ưu tiên và đưa ra kiến nghị) dường như trùng khớp với hoạt động hiện nay của AI. Dự án OpenExecutive có thể tạo ra sự đảo ngược khi chính những nhà lãnh đạo tập đoàn thúc đẩy sử dụng AI và cắt giảm nhân sự lại đối mặt với nguy cơ bị thay thế.",
+          "OpenExecutive sử dụng các mô hình Claude của Anthropic như Sonnet 4.6 và Opus 4.7. Ảnh: AFP",
+          "OpenExecutive chứng minh AI có thể phân tích và hỗ trợ một số phần của công việc lãnh đạo nhưng việc thay thế một giám đốc điều hành trong thực tế đòi hỏi nhiều yếu tố hơn ngoài soạn tài liệu chiến lược hoặc đưa ra kiến nghị tài chính. Nhà lãnh đạo doanh nghiệp cần phải chịu trách nhiệm cho nhiều quyết định, nghĩa vụ pháp lý, nhân viên, nhà đầu tư và hậu quả nếu thất bại. Giới chuyên gia nhấn mạnh những hệ thống AI hiện tại chưa thể đảm nhận trách nhiệm pháp lý gắn liền với vị trí lãnh đạo."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=711",
+        "link": "https://vnexpress.net/ai-thach-thuc-vai-tro-giam-doc-dieu-hanh-5117565.html"
+      },
+      "title_vi": "AI thách thức vai trò giám đốc điều hành với dự án OpenExecutive",
+      "title_en": "",
+      "dek_vi": "Sự xuất hiện của ban điều hành AI có khả năng hỗ trợ và thay thế một phần công việc của CEO đang tạo nên bước ngoặt mới trong quản trị doanh nghiệp.",
+      "dek_en": "",
+      "body_vi": "Điều gì đã xảy ra\nTheo tin từ Gadget Now vào ngày 7/9, nhóm kỹ sư phần mềm tại công ty Sente Labs đã chính thức phát triển dự án mã nguồn mở mang tên OpenExecutive. Đây là nỗ lực nhằm khám phá khả năng của trí tuệ nhân tạo trong việc đảm nhận các trọng trách quản lý vốn trước đây chỉ dành cho con người.\n\nThay đổi kỹ thuật: Hệ thống đa tác nhân\nOpenExecutive không chỉ là một công cụ đơn lẻ mà là một hệ thống AI đa tác nhân. Cấu trúc này cho phép tạo ra một 'ban điều hành AI' có khả năng phối hợp để xử lý các nhiệm vụ phức tạp, mô phỏng lại quy trình làm việc của các lãnh đạo cấp cao trong doanh nghiệp.\n\nDữ kiện hiện có\nHệ thống này có khả năng hỗ trợ hiệu quả công việc quản lý cho các CEO và giám đốc doanh nghiệp. Bằng cách tự động hóa các quy trình điều hành, OpenExecutive giúp tối ưu hóa việc ra quyết định và giảm bớt khối lượng công việc hành chính cho bộ máy lãnh đạo.\n\nGiới hạn và rủi ro tiềm ẩn\nDù mang lại tiềm năng lớn, việc áp dụng AI vào vai trò giám đốc điều hành vẫn đặt ra những thách thức về tính trách nhiệm và khả năng xử lý các tình huống đòi hỏi sự nhạy bén về cảm xúc hoặc đạo đức mà các mô hình mã nguồn mở hiện nay vẫn đang trong giai đoạn thử nghiệm.\n\nĐiều chưa rõ\nSự phát triển của OpenExecutive sẽ là tiền đề để cộng đồng công nghệ đánh giá liệu AI có thể thực sự thay thế hoàn toàn hay chỉ dừng lại ở vai trò trợ lý đắc lực cho con người trong các vị trí quản trị chiến lược tại các doanh nghiệp hiện đại.",
+      "body_en": "",
+      "slug_vi": "ai-thach-thuc-vai-tro-giam-oc-ieu-hanh",
+      "slug_en": "ai-thach-thuc-vai-tro-giam-oc-ieu-hanh",
+      "category": "social",
+      "geo_scope": "vn",
+      "hot_score": 50,
+      "source_urls": [
+        "https://vnexpress.net/ai-thach-thuc-vai-tro-giam-doc-dieu-hanh-5117565.html"
+      ],
+      "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/08/AFP-20260213-HL-JMBARRERE-3058-9581-5798-1788839274.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=jEmxpXsOu2SIkhPQo558KA",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/ai-thach-thuc-vai-tro-giam-oc-ieu-hanh",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "internet-business-tech",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-08T18:57:24.588Z",
         "origin": "local-curated-rss"
       }
     },
@@ -432,7 +720,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T18:25:29.269Z",
+        "generated_at": "2026-09-08T18:57:24.588Z",
         "origin": "local-curated-rss"
       }
     },
@@ -573,7 +861,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T18:25:29.269Z",
+        "generated_at": "2026-09-08T18:57:24.588Z",
         "origin": "local-curated-rss"
       }
     },
@@ -715,7 +1003,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T18:25:29.269Z",
+        "generated_at": "2026-09-08T18:57:24.588Z",
         "origin": "local-curated-rss"
       }
     },
@@ -856,7 +1144,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T18:25:29.269Z",
+        "generated_at": "2026-09-08T18:57:24.588Z",
         "origin": "local-curated-rss"
       }
     },
@@ -999,7 +1287,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T18:25:29.269Z",
+        "generated_at": "2026-09-08T18:57:24.588Z",
         "origin": "local-curated-rss"
       }
     }
