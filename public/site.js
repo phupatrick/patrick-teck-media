@@ -17,9 +17,22 @@ function initHomepageNewsTicker() {
 
   if (!track || reducedMotion) return;
 
-  const uniqueItems = Math.max(1, Math.floor(track.children.length / 2));
-  track.style.setProperty("--marquee-duration", `${Math.max(28, uniqueItems * 6)}s`);
+  let offset = 0;
+  let lastTime = performance.now();
+  const speed = 42;
+
+  const move = (now) => {
+    const halfWidth = track.scrollWidth / 2;
+    const elapsed = Math.min((now - lastTime) / 1000, .05);
+    lastTime = now;
+    offset = halfWidth > 0 ? (offset + speed * elapsed) % halfWidth : 0;
+    track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    requestAnimationFrame(move);
+  };
+
+  track.style.animation = "none";
   track.classList.add("is-marquee-ready");
+  requestAnimationFrame(move);
 }
 
 function initCosmosTheme() {

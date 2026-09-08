@@ -1691,10 +1691,14 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
   const tickerItems = tickerStories.length
     ? tickerStories.map((story) => `<a href="${story.href}" class="marquee-item"><span class="live-dot" aria-hidden="true"></span>${escapeHtml(story.title)}</a>`).join("")
     : `<span class="marquee-item"><span class="live-dot" aria-hidden="true"></span>${escapeHtml(copy.latestTitle || "Latest stories")}</span>`;
-  const categoryItems = nav.slice(0, 6);
-
   return `
     <canvas class="cosmos-canvas" data-cosmos-canvas aria-hidden="true"></canvas>
+    <div class="sky-clouds" aria-hidden="true">
+      <span class="sky-cloud sky-cloud-one"></span>
+      <span class="sky-cloud sky-cloud-two"></span>
+      <span class="sky-cloud sky-cloud-three"></span>
+      <span class="sky-cloud sky-cloud-four"></span>
+    </div>
     <div class="cyber-door cyber-door-left" aria-hidden="true"><span class="cyber-door-beam"></span></div>
     <div class="cyber-door cyber-door-right" aria-hidden="true"><span class="cyber-door-beam"></span></div>
     <button class="eclipse-toggle-btn" type="button" data-theme-toggle aria-label="${escapeHtml(copy.themeToggleLabel)}" aria-pressed="false">
@@ -1706,10 +1710,7 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
     <div class="read-progress-bar" aria-hidden="true"></div>
     <div class="ambient-glow-wrapper" aria-hidden="true"><div class="glow-orb glow-orb-1"></div><div class="glow-orb glow-orb-2"></div></div>
     <div class="marquee-container" aria-label="${escapeHtml(copy.updateLabel || copy.latestLabel || "Latest")}"><div class="marquee-track">${tickerItems}${tickerItems}</div></div>
-    <nav class="category-nav-container" aria-label="${escapeHtml(copy.categoryNavLabel || "Categories")}">
-      <div class="sliding-pill-indicator" aria-hidden="true"></div>
-      ${categoryItems.map((item, index) => `<a href="${item.href}" class="category-pill-btn${index === 0 ? " active" : ""}">${escapeHtml(item.label)}</a>`).join("")}
-    </nav>`;
+  `;
 }
 
 export function sanitizeSnippet(value) {
