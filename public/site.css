@@ -7112,6 +7112,55 @@ body:has(.frontpage-masthead).theme-dark {
   color: #e8f1fa;
 }
 
+body:has(.frontpage-masthead) .brand-lockup {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-width: 172px;
+  color: #16283d;
+}
+
+body:has(.frontpage-masthead) .brand-icon {
+  display: block;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  opacity: 1;
+  visibility: visible;
+}
+
+body:has(.frontpage-masthead) .brand-wordmark strong {
+  display: block;
+  color: #16283d !important;
+  opacity: 1 !important;
+  visibility: visible;
+}
+
+body:has(.frontpage-masthead).theme-dark .brand-wordmark strong {
+  color: #e8f1fa !important;
+}
+
+body:has(.frontpage-masthead) .headline-index {
+  color: #1459b8 !important;
+  border-color: #7db7ef;
+  background: #f4faff;
+  opacity: 1;
+  font-weight: 900;
+}
+
+body:has(.frontpage-masthead) .cyber-door {
+  display: flex;
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(.frontpage-masthead) .cyber-door {
+    display: flex;
+    transition-duration: .2s !important;
+  }
+}
+
 body:has(.frontpage-masthead).theme-dark .topbar,
 body:has(.frontpage-masthead).theme-dark .hero-main-banner,
 body:has(.frontpage-masthead).theme-dark .hero-recent-box,

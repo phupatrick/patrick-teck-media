@@ -129,7 +129,7 @@ function initCosmosTheme() {
     resize(); window.addEventListener("resize", resize, { passive: true }); draw();
   }
 
-  if (reducedMotion || !leftDoor || !rightDoor) return;
+  if (!leftDoor || !rightDoor) return;
   document.querySelectorAll("a[href]").forEach((link) => {
     link.addEventListener("click", (event) => {
       if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
