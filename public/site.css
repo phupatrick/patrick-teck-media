@@ -7067,6 +7067,10 @@ body:has(.frontpage-masthead) .sky-cloud-one { top: 10%; left: 0; --cloud-durati
 body:has(.frontpage-masthead) .sky-cloud-two { top: 30%; left: 0; width: 300px; opacity: .56; --cloud-duration: 61s; animation-delay: -24s; }
 body:has(.frontpage-masthead) .sky-cloud-three { top: 56%; left: 0; opacity: .48; --cloud-duration: 53s; animation-delay: -35s; }
 body:has(.frontpage-masthead) .sky-cloud-four { top: 76%; left: 0; width: 340px; opacity: .42; --cloud-duration: 70s; animation-delay: -12s; }
+body:has(.frontpage-masthead) .sky-cloud-five { top: 18%; left: 0; width: 170px; height: 46px; opacity: .44; --cloud-duration: 58s; }
+body:has(.frontpage-masthead) .sky-cloud-six { top: 43%; left: 0; width: 260px; opacity: .5; --cloud-duration: 49s; }
+body:has(.frontpage-masthead) .sky-cloud-seven { top: 66%; left: 0; width: 190px; height: 50px; opacity: .38; --cloud-duration: 64s; }
+body:has(.frontpage-masthead) .sky-cloud-eight { top: 88%; left: 0; width: 280px; opacity: .46; --cloud-duration: 55s; }
 
 @keyframes sky-cloud-drift {
   to { transform: translate3d(calc(100vw + 520px), 0, 0); }

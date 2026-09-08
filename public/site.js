@@ -41,8 +41,8 @@ function initHomepageSkyClouds() {
 
   const positions = clouds.map((cloud, index) => ({
     cloud,
-    x: window.innerWidth * ([.08, .42, .68, .22][index] || .1),
-    speed: [.7, .42, .55, .34][index] || .4
+    x: window.innerWidth * ([.08, .42, .68, .22, .82, .54, .3, .94][index] || .1),
+    speed: [.7, .42, .55, .34, .48, .63, .38, .57][index] || .4
   }));
   let lastTime = performance.now();
 
