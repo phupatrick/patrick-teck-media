@@ -7048,6 +7048,49 @@ body:has(.frontpage-masthead) .sky-clouds {
   transform: scale(1.04);
 }
 
+body:has(.frontpage-masthead) .sky-clouds::before,
+body:has(.frontpage-masthead) .sky-clouds::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: min(42vw, 560px);
+  height: min(20vw, 260px);
+  background: center / contain no-repeat url("https://pngimg.com/d/cloud_PNG24.png");
+  opacity: .42;
+  filter: saturate(.7) brightness(1.08);
+  will-change: transform;
+}
+
+body:has(.frontpage-masthead) .sky-clouds::before {
+  top: 12%;
+  left: -18%;
+  animation: real-cloud-drift-one 72s linear infinite;
+}
+
+body:has(.frontpage-masthead) .sky-clouds::after {
+  top: 38%;
+  left: 48%;
+  width: min(34vw, 440px);
+  opacity: .3;
+  background-image: url("https://pngimg.com/d/cloud_PNG16.png");
+  animation: real-cloud-drift-two 96s linear infinite reverse;
+}
+
+@keyframes real-cloud-drift-one {
+  from { transform: translate3d(0, 0, 0) scale(.96); }
+  to { transform: translate3d(135vw, 4vh, 0) scale(1.04); }
+}
+
+@keyframes real-cloud-drift-two {
+  from { transform: translate3d(0, 0, 0) scale(1.05); }
+  to { transform: translate3d(-110vw, -3vh, 0) scale(.94); }
+}
+
+body:has(.frontpage-masthead).theme-dark .sky-clouds::before,
+body:has(.frontpage-masthead).theme-dark .sky-clouds::after {
+  display: none;
+}
+
 body:has(.frontpage-masthead).theme-dark .sky-clouds { display: none; }
 
 body:has(.frontpage-masthead) .topbar-actions .lang-pill.subtle[href*="patricktechmedia.store"] {
