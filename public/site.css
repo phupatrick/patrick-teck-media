@@ -1834,6 +1834,14 @@ body.newsroom-page .cosmos-canvas { position: fixed; inset: 0; width: 100%; heig
 body.newsroom-page.theme-dark .cosmos-canvas { opacity: .78; mix-blend-mode: screen; }
 body.newsroom-page .site-shell,
 body.newsroom-page .page-body { position: relative; z-index: 1; }
+body.newsroom-page .marquee-container { position: relative; z-index: 2; overflow: hidden; width: 100%; padding: 10px 0; background: rgba(255,255,255,.92); border-bottom: 1px solid var(--editorial-line); white-space: nowrap; }
+body.newsroom-page .marquee-track { display: flex; width: max-content; gap: 36px; will-change: transform; }
+body.newsroom-page .marquee-item { display: inline-flex; align-items: center; gap: 8px; color: #334155; font-size: .85rem; font-weight: 600; text-decoration: none; }
+body.newsroom-page .live-dot { width: 6px; height: 6px; flex: 0 0 auto; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981; }
+body.newsroom-page.theme-dark .marquee-container { background: rgba(8,19,35,.92); border-bottom-color: rgba(180,215,242,.18); }
+body.newsroom-page.theme-dark .marquee-item { color: #e6f1ff; }
+body.newsroom-page.theme-dark .marquee-item:hover,
+body.newsroom-page.theme-dark .marquee-item:focus-visible { color: #ffffff; }
 body.newsroom-page .cyber-door { position: fixed; top: 0; bottom: 0; width: 50vw; display: flex; align-items: center; pointer-events: none; background: #10151c; z-index: 10002; transform: translateX(0); }
 body.newsroom-page .cyber-door-left { left: 0; justify-content: flex-end; }
 body.newsroom-page .cyber-door-right { right: 0; justify-content: flex-start; }
