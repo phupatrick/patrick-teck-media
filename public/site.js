@@ -133,22 +133,28 @@ function initCosmosTheme() {
   }
 
   if (!leftDoor || !rightDoor) return;
+  let isClosing = false;
+  const openDoors = () => {
+    isClosing = false;
+    leftDoor.classList.remove("is-closing"); rightDoor.classList.remove("is-closing");
+    leftDoor.style.transition = rightDoor.style.transition = "transform .58s cubic-bezier(.76,0,.24,1)";
+    leftDoor.style.transform = "translate3d(-100%, 0, 0)"; rightDoor.style.transform = "translate3d(100%, 0, 0)";
+  };
   document.querySelectorAll("a[href]").forEach((link) => {
     link.addEventListener("click", (event) => {
-      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (event.defaultPrevented || isClosing || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.hasAttribute("download")) return;
       const url = new URL(link.href, window.location.href);
-      if (url.origin !== window.location.origin) return;
-      if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+      if (url.origin !== window.location.origin || url.hash || url.pathname === window.location.pathname && url.search === window.location.search) return;
       event.preventDefault();
+      isClosing = true;
+      leftDoor.classList.add("is-closing"); rightDoor.classList.add("is-closing");
       leftDoor.style.transition = rightDoor.style.transition = "transform .42s cubic-bezier(.76,0,.24,1)";
-      leftDoor.style.transform = "translateX(0)"; rightDoor.style.transform = "translateX(0)";
+      leftDoor.style.transform = "translate3d(0, 0, 0)"; rightDoor.style.transform = "translate3d(0, 0, 0)";
       window.setTimeout(() => { window.location.assign(url.href); }, 430);
     });
   });
-  requestAnimationFrame(() => {
-    leftDoor.style.transition = rightDoor.style.transition = "transform .58s cubic-bezier(.76,0,.24,1)";
-    leftDoor.style.transform = "translateX(-100%)"; rightDoor.style.transform = "translateX(100%)";
-  });
+  window.addEventListener("pageshow", openDoors, { passive: true });
+  requestAnimationFrame(() => requestAnimationFrame(openDoors));
 }
 
 function initApprovedEditorialMotion() {
