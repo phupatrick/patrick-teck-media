@@ -1817,6 +1817,7 @@ body.homepage .glow-orb { position: absolute; border-radius: 50%; filter: blur(1
 body.homepage .glow-orb-1 { top: -150px; right: -100px; width: 550px; height: 550px; background: radial-gradient(circle, rgba(99, 102, 241, .25), transparent 70%); }
 body.homepage .glow-orb-2 { bottom: 5%; left: -200px; width: 650px; height: 650px; background: radial-gradient(circle, rgba(6, 182, 212, .18), transparent 70%); }
 body.homepage .cosmos-canvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .28; z-index: 0; }
+body.homepage.theme-dark .cosmos-canvas { opacity: .78; mix-blend-mode: screen; }
 body.homepage .cyber-door { position: fixed; top: 0; bottom: 0; width: 50vw; display: flex; align-items: center; pointer-events: none; background: #10151c; z-index: 10002; transform: translateX(0); }
 body.homepage .cyber-door-left { left: 0; justify-content: flex-end; }
 body.homepage .cyber-door-right { right: 0; justify-content: flex-start; }
@@ -7107,10 +7108,12 @@ body:has(.frontpage-masthead) .topbar-actions .lang-pill.subtle[href*="patrickte
   color: #ffffff;
 }
 
-body:has(.frontpage-masthead).theme-dark {
-  background: linear-gradient(180deg, #061323 0%, #0b1728 55%, #101c30 100%);
-  color: #e8f1fa;
-}
+body:has(.frontpage-masthead).theme-dark { background: #020611; color: #e8f1fa; }
+body:has(.frontpage-masthead).theme-dark::before,
+body:has(.frontpage-masthead).theme-dark::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+body:has(.frontpage-masthead).theme-dark::before { background: radial-gradient(ellipse at 18% 22%, rgba(65,112,180,.22), transparent 34%), radial-gradient(ellipse at 78% 66%, rgba(116,55,164,.18), transparent 38%), linear-gradient(145deg, #020611 0%, #07152d 48%, #030611 100%); }
+body:has(.frontpage-masthead).theme-dark::after { opacity: .7; background: linear-gradient(154deg, transparent 28%, rgba(126,178,255,.09) 42%, rgba(210,160,255,.12) 48%, transparent 63%), radial-gradient(ellipse at 52% 48%, transparent 0 18%, rgba(131,181,255,.08) 34%, transparent 57%); mix-blend-mode: screen; animation: galaxy-drift 32s ease-in-out infinite alternate; }
+@keyframes galaxy-drift { from { transform: translate3d(-2%, 1%, 0) scale(1.03); } to { transform: translate3d(2%, -1%, 0) scale(1.08); } }
 
 body:has(.frontpage-masthead) .brand-lockup {
   position: relative;
