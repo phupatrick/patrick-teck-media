@@ -3719,9 +3719,14 @@ body:has(.frontpage-masthead) .eclipse-toggle-btn {
   border-color: rgba(35, 86, 132, .24);
   box-shadow: 0 8px 24px rgba(35, 86, 132, .18);
 }
-body:has(.frontpage-masthead) .theme-icon { font-size: 1.55rem; line-height: 1; }
+body:has(.frontpage-masthead) .theme-icon { display: block; width: 25px; height: 25px; position: relative; font-size: 0; }
+body:has(.frontpage-masthead) .theme-icon::before { content: ""; position: absolute; inset: 5px; border-radius: 50%; }
+body:has(.frontpage-masthead) .theme-icon::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: repeating-conic-gradient(currentColor 0 7deg, transparent 7deg 45deg); mask: radial-gradient(circle, transparent 0 55%, #000 57% 66%, transparent 68%); }
 body:has(.frontpage-masthead) .theme-icon-sun { color: #e08a12; }
+body:has(.frontpage-masthead) .theme-icon-sun::before { background: radial-gradient(circle at 35% 30%, #fff8bd 0 10%, #ffc52e 30%, #e08a12 100%); box-shadow: 0 0 12px rgba(255, 190, 35, .85); }
 body:has(.frontpage-masthead) .theme-icon-moon { display: none; color: #b9d8f4; }
+body:has(.frontpage-masthead) .theme-icon-moon::before { background: radial-gradient(circle at 35% 30%, #fff 0 6%, #d9efff 35%, #76aee0 100%); box-shadow: 0 0 13px rgba(112, 190, 255, .8); }
+body:has(.frontpage-masthead) .theme-icon-moon::after { background: #111c2b; mask: none; inset: 1px 1px 5px 8px; }
 body:has(.frontpage-masthead).theme-dark {
   --ink: #e8f1fa;
   --ink-soft: #111c2b;
@@ -7024,7 +7029,7 @@ body:has(.frontpage-masthead) .hero-big-title .line span {
 body:has(.frontpage-masthead) .eclipse-toggle-btn {
   position: fixed;
   right: 24px;
-  bottom: 24px;
+  top: 76px;
   z-index: 10003;
   width: 48px;
   height: 48px;
@@ -7075,6 +7080,12 @@ body:has(.frontpage-masthead) .sky-clouds::after {
   opacity: .3;
   background-image: url("https://pngimg.com/d/cloud_PNG16.png");
   animation: real-cloud-drift-two 96s linear infinite reverse;
+}
+
+body:has(.frontpage-masthead) .sky-clouds::before {
+  background-image: url("https://pngimg.com/d/cloud_PNG24.png"), url("https://pngimg.com/d/cloud_PNG16.png");
+  background-size: 62% 100%, 42% 76%;
+  background-position: 0 center, 100% 20%;
 }
 
 @keyframes real-cloud-drift-one {
@@ -7194,6 +7205,6 @@ body:has(.frontpage-masthead).theme-dark .stack-item h3 a {
 @media (max-width: 640px) {
   body:has(.frontpage-masthead) .eclipse-toggle-btn {
     right: 16px;
-    bottom: 16px;
+    top: 64px;
   }
 }
