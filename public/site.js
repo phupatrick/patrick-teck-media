@@ -64,8 +64,9 @@ function initCosmosTheme() {
   const rightDoor = document.querySelector(".cyber-door-right");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isHomepage = document.body.classList.contains("homepage");
+  const isNewsroomPage = document.body.classList.contains("newsroom-page");
 
-  if (!isHomepage) return;
+  if (!isNewsroomPage) return;
 
   const storedTheme = window.localStorage.getItem("ptm-theme");
   if (storedTheme === "dark") document.body.classList.add("theme-dark");

@@ -1251,13 +1251,15 @@ function renderLayout({ state, language, path, alternateHref, adsConfig, title, 
     headTags.push(`<script type="application/ld+json">${JSON.stringify(siteSchema)}</script>`);
   }
 
+  const isStoreRoute = path === `/${language}/store` || path.startsWith(`/${language}/store/`);
+  const isHomepage = path === `/${language}/`;
   return `<!doctype html>
 <html lang="${language}">
   <head>
     ${headTags.join("\n    ")}
   </head>
-  <body class="${path === `/${language}/` ? "homepage editorial-light" : ""}" data-language="${language}">
-    ${path === `/${language}/` ? renderHomepageInteractionChrome(state, language, nav, copy) : ""}
+  <body class="${isStoreRoute ? "" : `newsroom-page ${isHomepage ? "homepage editorial-light" : "editorial-light"}`}" data-language="${language}">
+    ${isStoreRoute ? "" : renderHomepageInteractionChrome(state, language, nav, copy)}
     <div class="pull-refresh-indicator" data-pull-refresh>
       <span class="pull-refresh-hint" data-pull-refresh-hint>↓</span>
       <strong class="pull-refresh-status" data-pull-refresh-status>${copy.pullRefreshLabel}</strong>
