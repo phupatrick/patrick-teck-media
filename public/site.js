@@ -114,7 +114,10 @@ function initCosmosTheme() {
         }
       }
       context.globalAlpha = 1;
-      if (dark && !reducedMotion && (frame === 12 || frame % 72 === 0)) meteors.push({ x: Math.random() * width * .8, y: Math.random() * height * .4, life: 0, speed: 11 + Math.random() * 8, length: 130 + Math.random() * 150 });
+      if (dark && !reducedMotion && (frame === 12 || frame % 42 === 0)) {
+        const meteorCount = frame === 12 ? 3 : 1;
+        for (let meteorIndex = 0; meteorIndex < meteorCount; meteorIndex += 1) meteors.push({ x: Math.random() * width * .82, y: Math.random() * height * .42, life: 0, speed: 11 + Math.random() * 8, length: 130 + Math.random() * 170 });
+      }
       for (let index = meteors.length - 1; index >= 0; index -= 1) {
         const meteor = meteors[index];
         meteor.x += meteor.speed; meteor.y += meteor.speed * .55; meteor.life += 1;
