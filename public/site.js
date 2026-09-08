@@ -10,12 +10,12 @@ initApprovedEditorialMotion();
 initLuxuryMotion();
 initCosmosTheme();
 initHomepageNewsTicker();
+initHomepageSkyClouds();
 
 function initHomepageNewsTicker() {
   const track = document.querySelector(".marquee-container .marquee-track");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (!track || reducedMotion) return;
+  if (!track) return;
 
   let offset = 0;
   let lastTime = performance.now();
@@ -32,6 +32,35 @@ function initHomepageNewsTicker() {
 
   track.style.animation = "none";
   track.classList.add("is-marquee-ready");
+  requestAnimationFrame(move);
+}
+
+function initHomepageSkyClouds() {
+  const clouds = [...document.querySelectorAll(".sky-cloud")];
+  if (!clouds.length) return;
+
+  const positions = clouds.map((cloud, index) => ({
+    cloud,
+    x: window.innerWidth * ([.08, .42, .68, .22][index] || .1),
+    speed: [.7, .42, .55, .34][index] || .4
+  }));
+  let lastTime = performance.now();
+
+  const move = (now) => {
+    const elapsed = Math.min((now - lastTime) / 16.67, 3);
+    lastTime = now;
+    const dark = document.body.classList.contains("theme-dark");
+
+    for (const item of positions) {
+      item.x += item.speed * elapsed;
+      if (item.x > window.innerWidth + 180) item.x = -420;
+      item.cloud.style.transform = `translate3d(${item.x}px, 0, 0)`;
+      item.cloud.style.visibility = dark ? "hidden" : "visible";
+    }
+    requestAnimationFrame(move);
+  };
+
+  clouds.forEach((cloud) => { cloud.style.animation = "none"; });
   requestAnimationFrame(move);
 }
 
