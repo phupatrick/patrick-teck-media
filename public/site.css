@@ -1874,10 +1874,25 @@ body.newsroom-page.theme-dark .topbar { background: rgba(8,19,35,.92); }
 body.newsroom-page.theme-dark .topbar-actions a,
 body.newsroom-page.theme-dark a { color: #f4f8ff; }
 body.newsroom-page.theme-dark .article-layout,
+body.newsroom-page.theme-dark .article-shell,
 body.newsroom-page.theme-dark .article-section,
 body.newsroom-page.theme-dark .story-card,
 body.newsroom-page.theme-dark .comment-card,
 body.newsroom-page.theme-dark .ad-shell { background: rgba(17,28,43,.95); border-color: rgba(180,215,242,.22); }
+body.newsroom-page.theme-dark .article-shell { color: #edf6ff; }
+body.newsroom-page.theme-dark .brand-wordmark strong,
+body.newsroom-page.theme-dark .brand-wordmark span { color: #f4f8ff !important; opacity: 1 !important; }
+body.newsroom-page.theme-dark .topbar-actions .lang-pill:not(.subtle) { background: #182941; border-color: rgba(180,215,242,.3); color: #f4f8ff !important; }
+body.newsroom-page.theme-dark .topbar-actions .lang-pill.subtle { color: #ffffff !important; }
+body.newsroom-page.theme-dark .article-header h1,
+body.newsroom-page.theme-dark .article-header .article-summary,
+body.newsroom-page.theme-dark .article-header .article-meta,
+body.newsroom-page.theme-dark .article-body p,
+body.newsroom-page.theme-dark .article-body li,
+body.newsroom-page.theme-dark .article-section p { color: #edf6ff !important; }
+body.newsroom-page.theme-dark .article-summary,
+body.newsroom-page.theme-dark .article-byline,
+body.newsroom-page.theme-dark .article-meta { color: #c5d7ea !important; }
 body.newsroom-page.theme-dark h1,
 body.newsroom-page.theme-dark h2,
 body.newsroom-page.theme-dark h3,
