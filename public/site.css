@@ -1821,6 +1821,7 @@ body.homepage.theme-dark .cosmos-canvas { opacity: .78; mix-blend-mode: screen; 
 body.homepage .cyber-door { position: fixed; top: 0; bottom: 0; width: 50vw; display: flex; align-items: center; pointer-events: none; background: #10151c; z-index: 10002; transform: translateX(0); }
 body.homepage .cyber-door-left { left: 0; justify-content: flex-end; }
 body.homepage .cyber-door-right { right: 0; justify-content: flex-start; }
+body.homepage .cyber-door.is-closing { will-change: transform; }
 body.homepage .cyber-door-beam { width: 3px; height: 100%; background: var(--amber); box-shadow: 0 0 20px rgba(217, 164, 65, .8); }
 body.homepage .eclipse-toggle-btn { position: fixed; right: 24px; bottom: 24px; z-index: 30; width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--ink-line); border-radius: 50%; color: var(--text-on-ink); background: var(--ink-soft); cursor: pointer; }
 body.homepage .eclipse-orb { width: 22px; height: 22px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 16px rgba(217, 164, 65, .65); transition: transform .35s ease, background .35s ease; }
@@ -7200,6 +7201,24 @@ body:has(.frontpage-masthead).theme-dark .section-head h2,
 body:has(.frontpage-masthead).theme-dark .story-card h3 a,
 body:has(.frontpage-masthead).theme-dark .stack-item h3 a {
   color: #e8f1fa;
+}
+
+body:has(.frontpage-masthead).theme-dark .topbar-actions a,
+body:has(.frontpage-masthead).theme-dark .headline-ribbon .item-headline,
+body:has(.frontpage-masthead).theme-dark .headline-ribbon .quick-news-item .item-headline,
+body:has(.frontpage-masthead).theme-dark .headline-ribbon .quick-news-item strong {
+  color: #f4f8ff !important;
+  opacity: 1 !important;
+}
+
+body:has(.frontpage-masthead).theme-dark .headline-ribbon .meta-row,
+body:has(.frontpage-masthead).theme-dark .headline-ribbon .quick-news-item .meta-row {
+  color: #c5d7ea !important;
+}
+
+body:has(.frontpage-masthead).theme-dark .topbar-actions a:hover,
+body:has(.frontpage-masthead).theme-dark .topbar-actions a:focus-visible {
+  color: #ffffff !important;
 }
 
 @media (max-width: 640px) {
