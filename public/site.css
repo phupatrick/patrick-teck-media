@@ -6975,3 +6975,99 @@ body:has(.frontpage-masthead) .signal-dot {
     min-width: 0;
   }
 }
+
+/* Absolute final homepage contract. Keep these rules last so legacy layers cannot win. */
+body:has(.frontpage-masthead) {
+  overflow-x: hidden;
+  white-space: normal;
+  background: linear-gradient(180deg, #e8f6ff 0%, #f8fcff 42%, #ffffff 100%);
+  color: #16283d;
+}
+
+body:has(.frontpage-masthead) .topbar {
+  background: rgba(255, 255, 255, .96);
+  color: #16283d;
+}
+
+body:has(.frontpage-masthead) .hero-main-banner,
+body:has(.frontpage-masthead) .hero-recent-box,
+body:has(.frontpage-masthead) .hot-featured-card,
+body:has(.frontpage-masthead) .story-card,
+body:has(.frontpage-masthead) .stacked-article-card,
+body:has(.frontpage-masthead) .stack-item,
+body:has(.frontpage-masthead) .guide-showcase-lead,
+body:has(.frontpage-masthead) .topic-column,
+body:has(.frontpage-masthead) .rail-card {
+  background: rgba(255, 255, 255, .96);
+  color: #16283d;
+}
+
+body:has(.frontpage-masthead) .hero-big-title,
+body:has(.frontpage-masthead) .hero-big-title .line span,
+body:has(.frontpage-masthead) .brand-wordmark strong,
+body:has(.frontpage-masthead) .brand-wordmark span,
+body:has(.frontpage-masthead) .hero-category,
+body:has(.frontpage-masthead) .hero-eyebrow,
+body:has(.frontpage-masthead) .hero-meta,
+body:has(.frontpage-masthead) .section-head h2,
+body:has(.frontpage-masthead) .story-card h3 a,
+body:has(.frontpage-masthead) .stack-item h3 a {
+  color: #16283d;
+  opacity: 1;
+}
+
+body:has(.frontpage-masthead) .hero-big-title .line span {
+  transform: none;
+}
+
+body:has(.frontpage-masthead) .eclipse-toggle-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10003;
+  width: 48px;
+  height: 48px;
+}
+
+body:has(.frontpage-masthead) .marquee-track.is-marquee-ready {
+  animation: signal-marquee var(--marquee-duration, 32s) linear infinite;
+}
+
+body:has(.frontpage-masthead).theme-dark {
+  background: linear-gradient(180deg, #061323 0%, #0b1728 55%, #101c30 100%);
+  color: #e8f1fa;
+}
+
+body:has(.frontpage-masthead).theme-dark .topbar,
+body:has(.frontpage-masthead).theme-dark .hero-main-banner,
+body:has(.frontpage-masthead).theme-dark .hero-recent-box,
+body:has(.frontpage-masthead).theme-dark .hot-featured-card,
+body:has(.frontpage-masthead).theme-dark .story-card,
+body:has(.frontpage-masthead).theme-dark .stacked-article-card,
+body:has(.frontpage-masthead).theme-dark .stack-item,
+body:has(.frontpage-masthead).theme-dark .guide-showcase-lead,
+body:has(.frontpage-masthead).theme-dark .topic-column,
+body:has(.frontpage-masthead).theme-dark .rail-card {
+  background: rgba(17, 28, 43, .96);
+  color: #e8f1fa;
+}
+
+body:has(.frontpage-masthead).theme-dark .hero-big-title,
+body:has(.frontpage-masthead).theme-dark .hero-big-title .line span,
+body:has(.frontpage-masthead).theme-dark .brand-wordmark strong,
+body:has(.frontpage-masthead).theme-dark .brand-wordmark span,
+body:has(.frontpage-masthead).theme-dark .hero-category,
+body:has(.frontpage-masthead).theme-dark .hero-eyebrow,
+body:has(.frontpage-masthead).theme-dark .hero-meta,
+body:has(.frontpage-masthead).theme-dark .section-head h2,
+body:has(.frontpage-masthead).theme-dark .story-card h3 a,
+body:has(.frontpage-masthead).theme-dark .stack-item h3 a {
+  color: #e8f1fa;
+}
+
+@media (max-width: 640px) {
+  body:has(.frontpage-masthead) .eclipse-toggle-btn {
+    right: 16px;
+    bottom: 16px;
+  }
+}

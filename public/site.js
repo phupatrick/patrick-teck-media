@@ -102,7 +102,15 @@ function initCosmosTheme() {
 }
 
 function initApprovedEditorialMotion() {
-  if (!window.gsap || !window.ScrollTrigger) return;
+  if (!window.gsap || !window.ScrollTrigger) {
+    document.querySelectorAll(".hero-big-title .line span").forEach((node) => {
+      node.style.transform = "none";
+      node.style.opacity = "1";
+    });
+    const readFill = document.querySelector("#readFill");
+    if (readFill) readFill.style.width = "0%";
+    return;
+  }
   gsap.registerPlugin(ScrollTrigger);
   const mm = gsap.matchMedia();
   mm.add("(prefers-reduced-motion: no-preference)", () => {
