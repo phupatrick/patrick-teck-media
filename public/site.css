@@ -7029,13 +7029,23 @@ body:has(.frontpage-masthead) .eclipse-toggle-btn {
   height: 48px;
 }
 
-body:has(.frontpage-masthead) .marquee-track.is-marquee-ready {
+body:has(.frontpage-masthead) .marquee-container .marquee-track {
   animation: signal-marquee var(--marquee-duration, 32s) linear infinite;
   will-change: transform;
 }
 
-body:has(.frontpage-masthead) .marquee-container:hover .marquee-track.is-marquee-ready {
-  animation-play-state: paused;
+body:has(.frontpage-masthead) .topbar-actions .lang-pill.subtle[href*="patricktechmedia.store"] {
+  background: #246fdb;
+  border-color: #246fdb;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+body:has(.frontpage-masthead) .topbar-actions .lang-pill.subtle[href*="patricktechmedia.store"]:hover,
+body:has(.frontpage-masthead) .topbar-actions .lang-pill.subtle[href*="patricktechmedia.store"]:focus-visible {
+  background: #1758b8;
+  border-color: #1758b8;
+  color: #ffffff;
 }
 
 body:has(.frontpage-masthead).theme-dark {
