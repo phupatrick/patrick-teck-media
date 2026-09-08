@@ -1,6 +1,254 @@
 {
-  "generated_at": "2026-09-08T17:01:57.505Z",
+  "generated_at": "2026-09-08T18:25:29.340Z",
   "articles": [
+    {
+      "id": "feed-c3566caf4988-en",
+      "cluster_id": "feed-c3566caf4988",
+      "language": "en",
+      "topic_label": "Apps & Software",
+      "topic_slug": "apps-software",
+      "topic_accent": "#17c9ff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-1",
+      "title": "Govern models with MLflow and Amazon SageMaker AI Model Registry sync: Part 1",
+      "hook": "Automating model registration between MLflow and a model registry solves a gap that opens the moment a candidate model leaves experimentation.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Automating model registration between MLflow and a model registry solves a gap that opens the moment a candidate model leaves experimentation. Data scientists track dozens of candidate runs in MLflow, while governance officers need one authoritative registry to validate, approve, and audit the models that reach production.",
+      "dek": "Automating model registration between MLflow and a model registry solves a gap that opens the moment a candidate model leaves experimentation.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Data scientists track dozens of candidate runs in MLflow, while governance officers need one authoritative registry to validate, approve, and audit the models that reach production."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "Managed MLflow on Amazon SageMaker AI already synchronizes models registered in MLflow into the SageMaker AI Model Registry automatically. That sync is now substantially richer. It carries training metrics, evaluation results, and lineage. It also adds lifecycle stage promotion driven from MLflow, so you can govern candidate models from a single system of record without needing data scientists to leave their experimentation workflow."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Previously, a model would still sync to the registry, but without its metrics, evaluation results, or lineage. A governance officer couldn’t validate a candidate from the registry alone and had to jump back into MLflow, or collect the context by hand, to review it. And because the sync didn’t carry lifecycle stage promotion, data scientists couldn’t move a model from staging to production from the MLflow workflow. Organizations struggled to maintain one authoritative, review-ready view of which models were production candidates. With the richer sync, the model now arrives in the registry ready to review and to move through its lifecycle."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Once you activate Model Registry sync on an MLflow app, every model a data scientist registers in MLflow creates a corresponding Model Package Group and Package version in the SageMaker AI Model Registry. The sync also carries over training metrics, evaluation metrics, a deployable inference specification, and the lineage associated with the MLflow run. Data science teams can keep using MLflow as the system of record for experiments and logged models, while the automation gives organizations a system of record in the Model Registry for the registered models that move through the production lifecycle."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Because registration is automatic, data scientists can focus on model training and experimentation without maintaining model lineage by hand. Governance officers, in turn, get consistent and complete lineage information for managing the model lifecycle through the SageMaker AI Model Registry. As a result, governance officers can approve, audit, and control which models reach production."
+        }
+      ],
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21407-featured-image-1.png",
+        "alt": "",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-1/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-1/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-08T17:03:20.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21407-featured-image-1.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-09-08T17:03:20.000Z",
+      "updated_at": "2026-09-08T17:03:20.000Z",
+      "href": "/en/news/govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-1",
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Verified",
+      "title_vi": "",
+      "title_en": "Govern models with MLflow and Amazon SageMaker AI Model Registry sync: Part 1",
+      "dek_vi": "",
+      "dek_en": "Automating model registration between MLflow and a model registry solves a gap that opens the moment a candidate model leaves experimentation.",
+      "body_vi": "",
+      "body_en": "What happened\nData scientists track dozens of candidate runs in MLflow, while governance officers need one authoritative registry to validate, approve, and audit the models that reach production.\n\nWhere the sources line up\nManaged MLflow on Amazon SageMaker AI already synchronizes models registered in MLflow into the SageMaker AI Model Registry automatically. That sync is now substantially richer. It carries training metrics, evaluation results, and lineage. It also adds lifecycle stage promotion driven from MLflow, so you can govern candidate models from a single system of record without needing data scientists to leave their experimentation workflow.\n\nPractical impact for readers\nPreviously, a model would still sync to the registry, but without its metrics, evaluation results, or lineage. A governance officer couldn’t validate a candidate from the registry alone and had to jump back into MLflow, or collect the context by hand, to review it. And because the sync didn’t carry lifecycle stage promotion, data scientists couldn’t move a model from staging to production from the MLflow workflow. Organizations struggled to maintain one authoritative, review-ready view of which models were production candidates. With the richer sync, the model now arrives in the registry ready to review and to move through its lifecycle.\n\nWho should pay attention now\nOnce you activate Model Registry sync on an MLflow app, every model a data scientist registers in MLflow creates a corresponding Model Package Group and Package version in the SageMaker AI Model Registry. The sync also carries over training metrics, evaluation metrics, a deployable inference specification, and the lineage associated with the MLflow run. Data science teams can keep using MLflow as the system of record for experiments and logged models, while the automation gives organizations a system of record in the Model Registry for the registered models that move through the production lifecycle.\n\nWhat is still unclear\nBecause registration is automatic, data scientists can focus on model training and experimentation without maintaining model lineage by hand. Governance officers, in turn, get consistent and complete lineage information for managing the model lifecycle through the SageMaker AI Model Registry. As a result, governance officers can approve, audit, and control which models reach production.",
+      "slug_vi": "govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-1",
+      "slug_en": "govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-1",
+      "category": "software",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://aws.amazon.com/blogs/machine-learning/govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-1/"
+      ],
+      "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/08/31/ML-21407-featured-image-1.png",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-1",
+      "storeUrl": "https://patricktechmedia.store",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-08T18:25:29.268Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "apps-software"
+    },
+    {
+      "id": "feed-667e5a55dcae-en",
+      "cluster_id": "feed-667e5a55dcae",
+      "language": "en",
+      "topic_label": "Devices",
+      "topic_slug": "devices",
+      "topic_accent": "#4e7dff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "forget-the-fenix-9-the-garmin-fenix-8-is-still-selling-at-a-record-low-price-after-labor-day",
+      "title": "Forget the Fenix 9 — the Garmin Fenix 8 is still selling at a record low price after Labor Day",
+      "hook": "Head to Amazon before its Labor Day deals expire and you can score a straight 25% discount on the Garmin Fenix 8, a classic fitness watch that still impresses with a rugged design and a suite of comprehensive fitness tracking features.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Head to Amazon before its Labor Day deals expire and you can score a straight 25% discount on the Garmin Fenix 8, a classic fitness watch that still impresses with a rugged design and a suite of comprehensive fitness tracking features. It may not be the newest Garmin Fenix watch around any longer (that honor belongs to the great Fenix 9), but if you don't mind going with a last-gen device, you'll get a lot more bang for your buck with the Fenix 8.",
+      "dek": "Head to Amazon before its Labor Day deals expire and you can score a straight 25% discount on the Garmin Fenix 8, a classic fitness watch that still impresses with a rugged design and a suite of comprehensive fitness tracking features.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Head to Amazon before its Labor Day deals expire and you can score a straight 25% discount on the Garmin Fenix 8, a classic fitness watch that still impresses with a rugged design and a suite of comprehensive fitness tracking features."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "It may not be the newest Garmin Fenix watch around any longer (that honor belongs to the great Fenix 9), but if you don't mind going with a last-gen device, you'll get a lot more bang for your buck with the Fenix 8."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Head to Amazon today and you can score a straight 25% off the Garmin Fenix 8 with AMOLED display. This leftover Labor Day discount knocks the price of the watch down to $749, which is a return to the lowest price ever recorded for this particular variant (43mm in Whitestone). Amazon is saying that stock is low, however, so don't wait too long if you're interested."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "Despite its last-gen status, the Fenix 8 continues to impress as one of the best Garmin watches on the market today, thanks to the wearable's sophisticated blend of rugged design and powerful performance. The watch boasts a vibrant AMOLED face with stainless steel and reinforced polymer components, plus you get military-grade durability with 10ATM water resistance (so you can wear it in the pool)."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "The Fenix 8 also sports a built-in LED flashlight and microphone for voice commands/calls, while under the hood you get 32GB of onboard storage and up to 10 days of battery life on a single charge. The fitness watch also comes with all of the health and fitness tracking tools we've come to expect from the brand, including heart rate, SpO2, and ECG monitoring, alongside features like Body Battery and Garmin Coach."
+        }
+      ],
+      "image": {
+        "src": "https://cdn.mos.cms.futurecdn.net/htkG5ZCF9d6bJ8yEWNGN4R-2560-80.jpg",
+        "alt": "",
+        "caption": "Reference image from Android Central.",
+        "credit": "Android Central",
+        "source_url": "https://www.androidcentral.com/wearables/garmin/forget-the-fenix-9-the-garmin-fenix-8-is-still-selling-at-a-record-low-price-after-labor-day"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Android Central",
+          "source_url": "https://www.androidcentral.com/wearables/garmin/forget-the-fenix-9-the-garmin-fenix-8-is-still-selling-at-a-record-low-price-after-labor-day",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-08T17:02:24.000Z",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/htkG5ZCF9d6bJ8yEWNGN4R-2560-80.jpg",
+          "image_caption": "Reference image from Android Central.",
+          "image_credit": "Android Central"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-08T17:02:24.000Z",
+      "updated_at": "2026-09-08T17:02:24.000Z",
+      "href": "/en/news/forget-the-fenix-9-the-garmin-fenix-8-is-still-selling-at-a-record-low-price-after-labor-day",
+      "title_vi": "",
+      "title_en": "Forget the Fenix 9 — the Garmin Fenix 8 is still selling at a record low price after Labor Day",
+      "dek_vi": "",
+      "dek_en": "Head to Amazon before its Labor Day deals expire and you can score a straight 25% discount on the Garmin Fenix 8, a classic fitness watch that still impresses with a rugged design and a suite of comprehensive fitness tracking features.",
+      "body_vi": "",
+      "body_en": "What happened\nHead to Amazon before its Labor Day deals expire and you can score a straight 25% discount on the Garmin Fenix 8, a classic fitness watch that still impresses with a rugged design and a suite of comprehensive fitness tracking features.\n\nWhere the sources line up\nIt may not be the newest Garmin Fenix watch around any longer (that honor belongs to the great Fenix 9), but if you don't mind going with a last-gen device, you'll get a lot more bang for your buck with the Fenix 8.\n\nPractical impact for readers\nHead to Amazon today and you can score a straight 25% off the Garmin Fenix 8 with AMOLED display. This leftover Labor Day discount knocks the price of the watch down to $749, which is a return to the lowest price ever recorded for this particular variant (43mm in Whitestone). Amazon is saying that stock is low, however, so don't wait too long if you're interested.\n\nWho should pay attention now\nDespite its last-gen status, the Fenix 8 continues to impress as one of the best Garmin watches on the market today, thanks to the wearable's sophisticated blend of rugged design and powerful performance. The watch boasts a vibrant AMOLED face with stainless steel and reinforced polymer components, plus you get military-grade durability with 10ATM water resistance (so you can wear it in the pool).\n\nWhat is still unclear\nThe Fenix 8 also sports a built-in LED flashlight and microphone for voice commands/calls, while under the hood you get 32GB of onboard storage and up to 10 days of battery life on a single charge. The fitness watch also comes with all of the health and fitness tracking tools we've come to expect from the brand, including heart rate, SpO2, and ECG monitoring, alongside features like Body Battery and Garmin Coach.",
+      "slug_vi": "forget-the-fenix-9-the-garmin-fenix-8-is-still-selling-at-a-record-low-price-after-labor-day",
+      "slug_en": "forget-the-fenix-9-the-garmin-fenix-8-is-still-selling-at-a-record-low-price-after-labor-day",
+      "category": "devices",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://www.androidcentral.com/wearables/garmin/forget-the-fenix-9-the-garmin-fenix-8-is-still-selling-at-a-record-low-price-after-labor-day"
+      ],
+      "image_url": "https://cdn.mos.cms.futurecdn.net/htkG5ZCF9d6bJ8yEWNGN4R-2560-80.jpg",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/forget-the-fenix-9-the-garmin-fenix-8-is-still-selling-at-a-record-low-price-after-labor-day",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-08T18:25:29.269Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "devices"
+    },
     {
       "id": "editorial-google-ai-plan-watch-en",
       "cluster_id": "editorial-google-ai-plan-watch",
@@ -1147,7 +1395,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T17:01:57.448Z",
+        "generated_at": "2026-09-08T18:25:29.269Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -1269,7 +1517,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T17:01:57.448Z",
+        "generated_at": "2026-09-08T18:25:29.269Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -1391,7 +1639,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T17:01:57.448Z",
+        "generated_at": "2026-09-08T18:25:29.269Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -1635,7 +1883,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-08T17:01:57.448Z",
+        "generated_at": "2026-09-08T18:25:29.269Z",
         "origin": "local-curated-rss"
       },
       "topic": "internet-business-tech"
@@ -13388,7 +13636,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-04T21:01:15.565Z",
+        "generated_at": "2026-09-08T18:25:29.269Z",
         "origin": "local-curated-rss"
       }
     },
