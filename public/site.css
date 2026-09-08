@@ -7036,44 +7036,16 @@ body:has(.frontpage-masthead) .marquee-container .marquee-track {
 
 body:has(.frontpage-masthead) .sky-clouds {
   position: fixed;
-  inset: 48px 0 0;
+  inset: 0;
   z-index: 0;
-  overflow: hidden;
   pointer-events: none;
-}
-
-body:has(.frontpage-masthead) .sky-cloud {
-  position: absolute;
-  width: 220px;
-  height: 58px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .72);
-  box-shadow: 0 14px 38px rgba(76, 132, 174, .14);
-  animation: sky-cloud-drift var(--cloud-duration, 48s) linear infinite;
-}
-
-body:has(.frontpage-masthead) .sky-cloud::before,
-body:has(.frontpage-masthead) .sky-cloud::after {
-  content: "";
-  position: absolute;
-  bottom: 10px;
-  border-radius: 50%;
-  background: inherit;
-}
-
-body:has(.frontpage-masthead) .sky-cloud::before { left: 34px; width: 86px; height: 86px; }
-body:has(.frontpage-masthead) .sky-cloud::after { right: 30px; width: 110px; height: 110px; }
-body:has(.frontpage-masthead) .sky-cloud-one { top: 10%; left: 0; --cloud-duration: 44s; }
-body:has(.frontpage-masthead) .sky-cloud-two { top: 30%; left: 0; width: 300px; opacity: .56; --cloud-duration: 61s; animation-delay: -24s; }
-body:has(.frontpage-masthead) .sky-cloud-three { top: 56%; left: 0; opacity: .48; --cloud-duration: 53s; animation-delay: -35s; }
-body:has(.frontpage-masthead) .sky-cloud-four { top: 76%; left: 0; width: 340px; opacity: .42; --cloud-duration: 70s; animation-delay: -12s; }
-body:has(.frontpage-masthead) .sky-cloud-five { top: 18%; left: 0; width: 170px; height: 46px; opacity: .44; --cloud-duration: 58s; }
-body:has(.frontpage-masthead) .sky-cloud-six { top: 43%; left: 0; width: 260px; opacity: .5; --cloud-duration: 49s; }
-body:has(.frontpage-masthead) .sky-cloud-seven { top: 66%; left: 0; width: 190px; height: 50px; opacity: .38; --cloud-duration: 64s; }
-body:has(.frontpage-masthead) .sky-cloud-eight { top: 88%; left: 0; width: 280px; opacity: .46; --cloud-duration: 55s; }
-
-@keyframes sky-cloud-drift {
-  to { transform: translate3d(calc(100vw + 520px), 0, 0); }
+  background-image:
+    linear-gradient(rgba(238, 248, 255, .32), rgba(255, 255, 255, .48)),
+    url("https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=2400&q=82");
+  background-position: 50% center;
+  background-size: cover;
+  filter: saturate(.88) brightness(1.08);
+  transform: scale(1.04);
 }
 
 body:has(.frontpage-masthead).theme-dark .sky-clouds { display: none; }

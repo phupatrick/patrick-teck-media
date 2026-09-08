@@ -36,31 +36,24 @@ function initHomepageNewsTicker() {
 }
 
 function initHomepageSkyClouds() {
-  const clouds = [...document.querySelectorAll(".sky-cloud")];
-  if (!clouds.length) return;
+  const sky = document.querySelector(".sky-clouds");
+  if (!sky) return;
 
-  const positions = clouds.map((cloud, index) => ({
-    cloud,
-    x: window.innerWidth * ([.08, .42, .68, .22, .82, .54, .3, .94][index] || .1),
-    speed: [.7, .42, .55, .34, .48, .63, .38, .57][index] || .4
-  }));
+  let offset = 50;
+  let direction = 1;
   let lastTime = performance.now();
 
   const move = (now) => {
     const elapsed = Math.min((now - lastTime) / 16.67, 3);
     lastTime = now;
     const dark = document.body.classList.contains("theme-dark");
-
-    for (const item of positions) {
-      item.x += item.speed * elapsed;
-      if (item.x > window.innerWidth + 180) item.x = -420;
-      item.cloud.style.transform = `translate3d(${item.x}px, 0, 0)`;
-      item.cloud.style.visibility = dark ? "hidden" : "visible";
-    }
+    offset += direction * .0025 * elapsed;
+    if (offset >= 54 || offset <= 46) direction *= -1;
+    sky.style.backgroundPosition = `${offset}% center`;
+    sky.style.visibility = dark ? "hidden" : "visible";
     requestAnimationFrame(move);
   };
 
-  clouds.forEach((cloud) => { cloud.style.animation = "none"; });
   requestAnimationFrame(move);
 }
 

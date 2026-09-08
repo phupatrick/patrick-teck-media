@@ -1693,16 +1693,7 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
     : `<span class="marquee-item"><span class="live-dot" aria-hidden="true"></span>${escapeHtml(copy.latestTitle || "Latest stories")}</span>`;
   return `
     <canvas class="cosmos-canvas" data-cosmos-canvas aria-hidden="true"></canvas>
-    <div class="sky-clouds" aria-hidden="true">
-      <span class="sky-cloud sky-cloud-one"></span>
-      <span class="sky-cloud sky-cloud-two"></span>
-      <span class="sky-cloud sky-cloud-three"></span>
-      <span class="sky-cloud sky-cloud-four"></span>
-      <span class="sky-cloud sky-cloud-five"></span>
-      <span class="sky-cloud sky-cloud-six"></span>
-      <span class="sky-cloud sky-cloud-seven"></span>
-      <span class="sky-cloud sky-cloud-eight"></span>
-    </div>
+    <div class="sky-clouds" aria-hidden="true"></div>
     <div class="cyber-door cyber-door-left" aria-hidden="true"><span class="cyber-door-beam"></span></div>
     <div class="cyber-door cyber-door-right" aria-hidden="true"><span class="cyber-door-beam"></span></div>
     <button class="eclipse-toggle-btn" type="button" data-theme-toggle aria-label="${escapeHtml(copy.themeToggleLabel)}" aria-pressed="false">
