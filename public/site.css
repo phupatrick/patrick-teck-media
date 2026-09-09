@@ -1847,6 +1847,9 @@ body.newsroom-page .cyber-door { position: fixed; top: 0; bottom: 0; width: 50vw
 body.newsroom-page .cyber-door-left { left: 0; justify-content: flex-end; }
 body.newsroom-page .cyber-door-right { right: 0; justify-content: flex-start; transform: translateX(100%); }
 body.newsroom-page .door-panel { position: relative; display: block; width: calc(100% - 18px); height: 100%; overflow: hidden; background: linear-gradient(90deg, #26130c 0%, #6a351b 9%, #3a1d10 17%, #8a4c24 31%, #3a1d10 45%, #75401f 62%, #2b150d 78%, #6b3519 92%, #21100a 100%); border: 12px solid #160b07; box-shadow: inset 0 0 0 3px #b27035, inset 0 0 0 8px #34160b, inset 0 0 46px rgba(0,0,0,.78), 0 0 0 3px rgba(196,132,61,.55), 0 0 34px rgba(0,0,0,.9); }
+body.newsroom-page .door-panel { background-image: linear-gradient(rgba(4,10,17,.18), rgba(4,10,17,.18)), url("/transition-portal-v1.png"); background-size: 200% 100%; background-repeat: no-repeat; }
+body.newsroom-page .cyber-door-left .door-panel { background-position: left center; }
+body.newsroom-page .cyber-door-right .door-panel { background-position: right center; }
 body.newsroom-page .door-panel::before, body.newsroom-page .door-panel::after { content: ""; position: absolute; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, transparent, #d59a4d, transparent); box-shadow: 0 0 8px rgba(220,157,74,.45); }
 body.newsroom-page .door-panel::before { top: 17%; } body.newsroom-page .door-panel::after { bottom: 17%; }
 body.newsroom-page .door-frame { position: absolute; inset: 7%; border: 3px solid #d09a50; box-shadow: inset 0 0 0 5px #2b1309, inset 0 0 0 8px #9d612c; opacity: .9; }
