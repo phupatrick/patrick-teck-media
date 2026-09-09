@@ -7453,3 +7453,127 @@ body.newsroom-page.theme-dark .site-shell,
 body.newsroom-page.theme-dark .page-body {
   z-index: 1;
 }
+
+/* Final newsroom visibility and media geometry pass. Store pages are intentionally excluded. */
+body.newsroom-page :where(.hot-featured-body, .guide-showcase-copy, .story-card, .stack-item, .lead-mini, .rail-card) {
+  color: #16283d;
+}
+
+body.newsroom-page :where(.hot-featured-body h2, .hot-featured-body h2 a, .guide-showcase-copy h2, .guide-showcase-copy h2 a, .story-card h3, .story-card h3 a, .stack-item .headline-title, .lead-mini h3, .lead-mini h3 a, .rail-card h3, .rail-card h3 a) {
+  color: #14243a !important;
+  opacity: 1 !important;
+}
+
+body.newsroom-page :where(.hot-featured-body p, .hot-featured-body .lead-feature-source, .hot-featured-body .lead-feature-topline > span:not(.pill), .guide-showcase-copy p, .story-card p, .stack-item .stack-date, .stack-item .stack-topline, .lead-mini-excerpt, .lead-mini .stack-topline, .rail-card p) {
+  color: #35546f !important;
+  opacity: 1 !important;
+}
+
+body.newsroom-page :where(.pill, .tag-pill) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 10px;
+  border: 1px solid rgba(20, 74, 126, .28);
+  border-radius: 999px;
+  background: #eef6ff;
+  color: #123d68 !important;
+  font-weight: 800;
+  opacity: 1 !important;
+}
+
+body.newsroom-page .hot-featured-body .hot-pill {
+  background: #fff1d2;
+  border-color: #d88918;
+  color: #713d00 !important;
+}
+
+body.newsroom-page :where(.stack-item, .story-card, .guide-showcase-lead, .hot-featured-card) {
+  min-height: 0;
+}
+
+body.newsroom-page .stack-item {
+  display: block !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: hidden;
+}
+
+body.newsroom-page .stack-item .stack-row,
+body.newsroom-page .stacked-article-card .stack-row {
+  display: grid;
+  grid-template-columns: minmax(170px, .82fr) minmax(0, 1.18fr);
+  align-items: stretch;
+  min-height: 180px;
+}
+
+body.newsroom-page .stack-item .stack-media,
+body.newsroom-page .stacked-article-card .stack-media {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  aspect-ratio: 4 / 3;
+  align-self: stretch;
+}
+
+body.newsroom-page .stack-item .stack-media img,
+body.newsroom-page .stacked-article-card .stack-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  object-fit: cover;
+}
+
+body.newsroom-page .stack-item .stack-copy {
+  min-width: 0;
+  align-content: center;
+  padding: 18px;
+}
+
+body.newsroom-page .stack-item .headline-title,
+body.newsroom-page .stack-item .stack-date {
+  overflow-wrap: anywhere;
+}
+
+body.newsroom-page.theme-dark :where(.hot-featured-body, .guide-showcase-copy, .story-card, .stack-item, .lead-mini, .rail-card) {
+  color: #e8f1fa;
+}
+
+body.newsroom-page.theme-dark :where(.hot-featured-body h2, .hot-featured-body h2 a, .guide-showcase-copy h2, .guide-showcase-copy h2 a, .story-card h3, .story-card h3 a, .stack-item .headline-title, .lead-mini h3, .lead-mini h3 a, .rail-card h3, .rail-card h3 a) {
+  color: #edf6ff !important;
+}
+
+body.newsroom-page.theme-dark :where(.hot-featured-body p, .hot-featured-body .lead-feature-source, .hot-featured-body .lead-feature-topline > span:not(.pill), .guide-showcase-copy p, .story-card p, .stack-item .stack-date, .stack-item .stack-topline, .lead-mini-excerpt, .lead-mini .stack-topline, .rail-card p) {
+  color: #aec4d9 !important;
+}
+
+body.newsroom-page.theme-dark :where(.pill, .tag-pill) {
+  background: #1b3854;
+  border-color: rgba(154, 207, 255, .48);
+  color: #e8f5ff !important;
+}
+
+body.newsroom-page.theme-dark .hot-featured-body .hot-pill {
+  background: #694316;
+  border-color: #f1b94a;
+  color: #fff5d8 !important;
+}
+
+@media (max-width: 900px) {
+  body.newsroom-page .stack-item .stack-row,
+  body.newsroom-page .stacked-article-card .stack-row {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    height: auto;
+  }
+
+  body.newsroom-page .stack-item .stack-media,
+  body.newsroom-page .stacked-article-card .stack-media,
+  body.newsroom-page .stack-item .stack-media img,
+  body.newsroom-page .stacked-article-card .stack-media img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+}
