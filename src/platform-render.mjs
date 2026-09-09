@@ -443,7 +443,7 @@ function renderPlatformLayout({ state, language, title, description, path, conte
     <link rel="stylesheet" href="${stylesheetPath}" />
     <script defer src="${scriptPath}"></script>
   </head>
-  <body>
+  <body class="platform-page">
     <div class="backdrop"></div>
     <div class="site-shell">
       <header class="topbar platform-topbar">

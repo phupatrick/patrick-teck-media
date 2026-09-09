@@ -7476,6 +7476,29 @@ body.newsroom-page.theme-dark .page-body {
   z-index: 1;
 }
 
+/* Mobile platform performance: avoid GPU-heavy blur and shadow layers in account flows. */
+@media (pointer: coarse) and (max-width: 1024px) {
+  body.platform-page .backdrop,
+  body.platform-page .backdrop::before,
+  body.platform-page .backdrop::after,
+  body.platform-page .site-shell::before {
+    display: none;
+  }
+
+  body.platform-page .auth-shell,
+  body.platform-page .account-card,
+  body.platform-page .metric-card,
+  body.platform-page .review-card,
+  body.platform-page .notice-banner,
+  body.platform-page .google-auth-button {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    animation: none;
+    contain: layout paint;
+    box-shadow: 0 8px 22px rgba(20, 38, 74, .1);
+  }
+}
+
 /* Final newsroom visibility and media geometry pass. Store pages are intentionally excluded. */
 body.newsroom-page :where(.hot-featured-body, .guide-showcase-copy, .story-card, .stack-item, .lead-mini, .rail-card) {
   color: #16283d;
