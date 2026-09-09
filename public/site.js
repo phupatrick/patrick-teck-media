@@ -135,8 +135,13 @@ function initCosmosTheme() {
 
   if (!leftDoor || !rightDoor) return;
   let isClosing = false;
+  let navigationTimer = null;
   const openDoors = () => {
     isClosing = false;
+    if (navigationTimer) {
+      window.clearTimeout(navigationTimer);
+      navigationTimer = null;
+    }
     leftDoor.classList.remove("is-closing"); rightDoor.classList.remove("is-closing");
     leftDoor.style.transition = rightDoor.style.transition = "transform .58s cubic-bezier(.76,0,.24,1)";
     leftDoor.style.transform = "translate3d(-100%, 0, 0)"; rightDoor.style.transform = "translate3d(100%, 0, 0)";
@@ -151,10 +156,15 @@ function initCosmosTheme() {
       leftDoor.classList.add("is-closing"); rightDoor.classList.add("is-closing");
       leftDoor.style.transition = rightDoor.style.transition = "transform .42s cubic-bezier(.76,0,.24,1)";
       leftDoor.style.transform = "translate3d(0, 0, 0)"; rightDoor.style.transform = "translate3d(0, 0, 0)";
-      window.setTimeout(() => { window.location.assign(url.href); }, 430);
+      navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 430);
     });
   });
   window.addEventListener("pageshow", openDoors, { passive: true });
+  window.addEventListener("pagehide", () => {
+    if (navigationTimer) window.clearTimeout(navigationTimer);
+  }, { passive: true });
+  // Never leave the page behind a closed door if pageshow is delayed or restored from bfcache.
+  openDoors();
   requestAnimationFrame(() => requestAnimationFrame(openDoors));
 }
 
