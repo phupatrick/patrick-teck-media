@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T18:24:36.464Z",
+  "generated_at": "2026-09-09T18:49:59.160Z",
   "model": {
     "id": "adaptive-editorial-bandit-v1",
     "cnn_enabled": false,
@@ -8,11 +8,11 @@
   "feedback": [],
   "profile": {
     "version": 1,
-    "updated_at": "2026-09-09T18:24:36.464Z",
+    "updated_at": "2026-09-09T18:49:59.160Z",
     "confidence": 0.95,
-    "totalSignals": 336,
+    "totalSignals": 340,
     "eligibleArticleCount": 76,
-    "excludedArticleCount": 1023,
+    "excludedArticleCount": 1027,
     "dailyFocus": [
       "gaming",
       "devices",
@@ -157,9 +157,15 @@
       "originality": 92,
       "sourceDepth": 25
     },
-    "lastCycleSummary": "Learned from 76 eligible article(s); 1023 article(s) excluded from learning; 0 owner feedback item(s); 336 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, devices, apps-software, security, internet-business-tech"
+    "lastCycleSummary": "Learned from 76 eligible article(s); 1027 article(s) excluded from learning; 0 owner feedback item(s); 340 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, devices, apps-software, security, internet-business-tech"
   },
   "cycles": [
+    {
+      "generated_at": "2026-09-09T18:49:59.160Z",
+      "totalSignals": 340,
+      "confidence": 0.95,
+      "summary": "Learned from 76 eligible article(s); 1027 article(s) excluded from learning; 0 owner feedback item(s); 340 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, devices, apps-software, security, internet-business-tech"
+    },
     {
       "generated_at": "2026-09-09T18:24:36.464Z",
       "totalSignals": 336,
@@ -393,12 +399,6 @@
       "totalSignals": 312,
       "confidence": 0.95,
       "summary": "Learned from 76 eligible article(s); 1005 article(s) excluded from learning; 0 owner feedback item(s); 312 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, devices, apps-software, security, internet-business-tech"
-    },
-    {
-      "generated_at": "2026-09-08T05:06:54.686Z",
-      "totalSignals": 306,
-      "confidence": 0.95,
-      "summary": "Learned from 76 eligible article(s); 999 article(s) excluded from learning; 0 owner feedback item(s); 306 signal(s); 19 top view(s): Which AI plans are adding practical value; focus: gaming, devices, apps-software, security, internet-business-tech"
     }
   ]
 }
