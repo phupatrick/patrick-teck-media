@@ -136,11 +136,16 @@ function initCosmosTheme() {
   if (!leftDoor || !rightDoor) return;
   let isClosing = false;
   let navigationTimer = null;
+  let recoveryTimer = null;
   const openDoors = () => {
     isClosing = false;
     if (navigationTimer) {
       window.clearTimeout(navigationTimer);
       navigationTimer = null;
+    }
+    if (recoveryTimer) {
+      window.clearTimeout(recoveryTimer);
+      recoveryTimer = null;
     }
     leftDoor.classList.remove("is-closing"); rightDoor.classList.remove("is-closing");
     leftDoor.style.transition = rightDoor.style.transition = "transform .58s cubic-bezier(.76,0,.24,1)";
@@ -157,11 +162,13 @@ function initCosmosTheme() {
       leftDoor.style.transition = rightDoor.style.transition = "transform .42s cubic-bezier(.76,0,.24,1)";
       leftDoor.style.transform = "translate3d(0, 0, 0)"; rightDoor.style.transform = "translate3d(0, 0, 0)";
       navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 430);
+      recoveryTimer = window.setTimeout(openDoors, 2200);
     });
   });
   window.addEventListener("pageshow", openDoors, { passive: true });
   window.addEventListener("pagehide", () => {
     if (navigationTimer) window.clearTimeout(navigationTimer);
+    if (recoveryTimer) window.clearTimeout(recoveryTimer);
   }, { passive: true });
   // Never leave the page behind a closed door if pageshow is delayed or restored from bfcache.
   openDoors();
