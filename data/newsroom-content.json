@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T17:51:05.662Z",
+  "generated_at": "2026-09-09T18:24:32.613Z",
   "articles": [
     {
       "id": "editorial-practical-tech-tips-vi",
@@ -42,11 +42,11 @@
         }
       ],
       "image": {
-        "src": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
+        "src": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
         "alt": "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật",
-        "caption": "Reference image from GitHub Blog.",
-        "credit": "GitHub Blog",
-        "source_url": "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/"
+        "caption": "Reference image from Hugging Face Blog.",
+        "credit": "Hugging Face Blog",
+        "source_url": "https://huggingface.co/blog/torch-attention-profile"
       },
       "verification_state": "verified",
       "quality_score": 96,
@@ -161,8 +161,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T17:08:56.002Z",
-      "updated_at": "2026-09-09T17:51:05.662Z",
+      "published_at": "2026-09-09T17:52:29.000Z",
+      "updated_at": "2026-09-09T18:24:32.613Z",
       "href": "/vi/huong-dan/nhung-meo-cong-nghe-dang-luu-luc-nay",
       "readiness": {
         "ready": true,
@@ -212,7 +212,7 @@
         "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
         "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
       ],
-      "image_url": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
+      "image_url": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -269,11 +269,11 @@
         }
       ],
       "image": {
-        "src": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
         "alt": "Dùng gói AI sao cho đỡ mua trùng app",
-        "caption": "Reference image from Hugging Face Blog.",
-        "credit": "Hugging Face Blog",
-        "source_url": "https://huggingface.co/blog/torch-attention-profile"
+        "caption": "Reference image from Google Workspace Updates.",
+        "credit": "Google Workspace Updates",
+        "source_url": "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html"
       },
       "verification_state": "verified",
       "quality_score": 96,
@@ -390,8 +390,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T17:08:56.002Z",
-      "updated_at": "2026-09-09T17:51:05.662Z",
+      "published_at": "2026-09-09T17:52:29.000Z",
+      "updated_at": "2026-09-09T18:24:32.613Z",
       "href": "/vi/huong-dan/dung-goi-ai-sao-cho-do-mua-trung-app",
       "readiness": {
         "ready": true,
@@ -440,7 +440,7 @@
         "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
         "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
       ],
-      "image_url": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
+      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -454,6 +454,128 @@
           "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
         ]
       }
+    },
+    {
+      "id": "feed-686f8edced4a-vi",
+      "cluster_id": "feed-686f8edced4a",
+      "language": "vi",
+      "topic_label": "Thiết bị",
+      "topic_slug": "thiet-bi",
+      "topic_accent": "#4e7dff",
+      "content_type": "NewsArticle",
+      "content_type_label": "Tin nhanh",
+      "path_segment": "tin-tuc",
+      "slug": "unitree-trinh-dien-robot-hinh-nguoi-tu-chien-au",
+      "title": "Unitree trình diễn robot hình người tự chiến đấu",
+      "hook": "Theo Unitree, thay vì chuyển đổi lệnh hoặc động tác từ kính thực tế ảo hoặc bộ điều khiển thành chuyển động, UnifoLM-X2-1.0 sử dụng \"hệ thống nhận thức biến dự đoán thành hành động\".",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Theo Unitree, thay vì chuyển đổi lệnh hoặc động tác từ kính thực tế ảo hoặc bộ điều khiển thành chuyển động, UnifoLM-X2-1.0 sử dụng \"hệ thống nhận thức biến dự đoán thành hành động\". Trong đó, khi hoạt động, hệ thống camera và cảm biến của robot liên tục xử lý môi trường, dự đoán cách thức khung cảnh và hành động mà đối thủ có thể thay đổi, sau đó sử dụng các dự đoán đó để lập kế hoạch cho chuyển động tiếp theo.",
+      "dek": "Theo Unitree, thay vì chuyển đổi lệnh hoặc động tác từ kính thực tế ảo hoặc bộ điều khiển thành chuyển động, UnifoLM-X2-1.0 sử dụng \"hệ thống nhận thức biến dự đoán thành hành động\".",
+      "sections": [
+        {
+          "heading": "Điều gì đã xảy ra",
+          "body": "Trong đó, khi hoạt động, hệ thống camera và cảm biến của robot liên tục xử lý môi trường, dự đoán cách thức khung cảnh và hành động mà đối thủ có thể thay đổi, sau đó sử dụng các dự đoán đó để lập kế hoạch cho chuyển động tiếp theo."
+        },
+        {
+          "heading": "Các nguồn đang khớp nhau ở đâu",
+          "body": "Trong video trình diễn, Unitree G1 chạy UnifoLM-X2-1. 0 đã phản ứng trước đối thủ là con người đang tiến đến bằng cách điều chỉnh tư thế, di chuyển chân, né tránh đòn tấn công. Robot cũng thực hiện cú đấm và đá nhắm vào đối phương."
+        },
+        {
+          "heading": "Dữ kiện hiện có",
+          "body": "Công ty cho biết công nghệ mới giải quyết thách thức lớn trong việc triển khai robot hình người: giảm độ trễ giữa nhận thức, ra quyết định và hành động vật lý. UnifoLM-X2-1. 0 được thiết kế giúp giải quyết điểm nghẽn khi robot hành động trong thế giới thực, bằng cách cho phép chúng lập kế hoạch chuyển động nhanh, đưa ra quyết định chiến thuật và thực thi vòng lặp khép kín trong các tương tác năng động cao."
+        },
+        {
+          "heading": "Ai nên chú ý lúc này",
+          "body": "\"UnifoLM-X2-1. 0 phá vỡ nút thắt cổ chai của các mô hình nền tảng cho robot hiện có, khi có thể lập kế hoạch tức thời và thực thi tương tác nhanh theo thời gian thực. Quá trình giúp chúng có thể chiến đấu hoàn toàn tự động\", Unitree mô tả khi đăng video trên YouTube."
+        },
+        {
+          "heading": "Điều chưa rõ",
+          "body": "Các cuộc trình diễn chiến đấu của robot hình người trước đây dựa vào điều khiển từ xa hoặc một số hình thức can thiệp khác của con người. Theo Interesting Engineering , mô hình mới cho thấy Unitree đang chuyển sang hệ thống tự động tiên tiến hơn. Tuy nhiên, khi phân tích video, trang này nhận ra UnifoLM-X2-1. 0 có thể không hoàn toàn hoạt động trên chính robot. Nhật ký điều khiển hiển thị các lệnh như OBS/replan và env. step cho thấy thông tin cảm biến được gửi đến một máy tính riêng chạy mô hình AI, sau đó máy tính này sẽ gửi hướng dẫn di chuyển trở lại cho G1."
+        }
+      ],
+      "image": {
+        "src": "https://i2-vnexpress.vnecdn.net/2026/09/09/UntitledProject-1788944046-6088-1788944056.gif?w=1200&h=675&q=100&dpr=1&fit=crop&s=-2uXe1JiIMiIsr6Rid4a5w&t=image",
+        "alt": "",
+        "caption": "Ảnh tham khảo từ VnExpress So Hoa.",
+        "credit": "VnExpress So Hoa",
+        "source_url": "https://vnexpress.net/unitree-trinh-dien-robot-hinh-nguoi-tu-chien-dau-5118417.html"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "VnExpress So Hoa",
+          "source_url": "https://vnexpress.net/unitree-trinh-dien-robot-hinh-nguoi-tu-chien-dau-5118417.html",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-09T17:52:29.000Z",
+          "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/09/UntitledProject-1788944046-6088-1788944056.gif?w=1200&h=675&q=100&dpr=1&fit=crop&s=-2uXe1JiIMiIsr6Rid4a5w&t=image",
+          "image_caption": "Ảnh tham khảo từ VnExpress So Hoa.",
+          "image_credit": "VnExpress So Hoa"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-09T17:52:29.000Z",
+      "updated_at": "2026-09-09T17:52:29.000Z",
+      "href": "/vi/tin-tuc/unitree-trinh-dien-robot-hinh-nguoi-tu-chien-au",
+      "title_vi": "Unitree trình diễn robot hình người tự chiến đấu",
+      "title_en": "",
+      "dek_vi": "Theo Unitree, thay vì chuyển đổi lệnh hoặc động tác từ kính thực tế ảo hoặc bộ điều khiển thành chuyển động, UnifoLM-X2-1.0 sử dụng \"hệ thống nhận thức biến dự đoán thành hành động\".",
+      "dek_en": "",
+      "body_vi": "Điều gì đã xảy ra\nTrong đó, khi hoạt động, hệ thống camera và cảm biến của robot liên tục xử lý môi trường, dự đoán cách thức khung cảnh và hành động mà đối thủ có thể thay đổi, sau đó sử dụng các dự đoán đó để lập kế hoạch cho chuyển động tiếp theo.\n\nCác nguồn đang khớp nhau ở đâu\nTrong video trình diễn, Unitree G1 chạy UnifoLM-X2-1. 0 đã phản ứng trước đối thủ là con người đang tiến đến bằng cách điều chỉnh tư thế, di chuyển chân, né tránh đòn tấn công. Robot cũng thực hiện cú đấm và đá nhắm vào đối phương.\n\nDữ kiện hiện có\nCông ty cho biết công nghệ mới giải quyết thách thức lớn trong việc triển khai robot hình người: giảm độ trễ giữa nhận thức, ra quyết định và hành động vật lý. UnifoLM-X2-1. 0 được thiết kế giúp giải quyết điểm nghẽn khi robot hành động trong thế giới thực, bằng cách cho phép chúng lập kế hoạch chuyển động nhanh, đưa ra quyết định chiến thuật và thực thi vòng lặp khép kín trong các tương tác năng động cao.\n\nAi nên chú ý lúc này\n\"UnifoLM-X2-1. 0 phá vỡ nút thắt cổ chai của các mô hình nền tảng cho robot hiện có, khi có thể lập kế hoạch tức thời và thực thi tương tác nhanh theo thời gian thực. Quá trình giúp chúng có thể chiến đấu hoàn toàn tự động\", Unitree mô tả khi đăng video trên YouTube.\n\nĐiều chưa rõ\nCác cuộc trình diễn chiến đấu của robot hình người trước đây dựa vào điều khiển từ xa hoặc một số hình thức can thiệp khác của con người. Theo Interesting Engineering , mô hình mới cho thấy Unitree đang chuyển sang hệ thống tự động tiên tiến hơn. Tuy nhiên, khi phân tích video, trang này nhận ra UnifoLM-X2-1. 0 có thể không hoàn toàn hoạt động trên chính robot. Nhật ký điều khiển hiển thị các lệnh như OBS/replan và env. step cho thấy thông tin cảm biến được gửi đến một máy tính riêng chạy mô hình AI, sau đó máy tính này sẽ gửi hướng dẫn di chuyển trở lại cho G1.",
+      "body_en": "",
+      "slug_vi": "unitree-trinh-dien-robot-hinh-nguoi-tu-chien-au",
+      "slug_en": "unitree-trinh-dien-robot-hinh-nguoi-tu-chien-au",
+      "category": "devices",
+      "geo_scope": "vn",
+      "hot_score": 50,
+      "source_urls": [
+        "https://vnexpress.net/unitree-trinh-dien-robot-hinh-nguoi-tu-chien-dau-5118417.html"
+      ],
+      "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/09/UntitledProject-1788944046-6088-1788944056.gif?w=1200&h=675&q=100&dpr=1&fit=crop&s=-2uXe1JiIMiIsr6Rid4a5w&t=image",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/unitree-trinh-dien-robot-hinh-nguoi-tu-chien-au",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-09T18:24:32.542Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "devices"
     },
     {
       "id": "editorial-ai-package-watch-vi",
@@ -497,11 +619,11 @@
         }
       ],
       "image": {
-        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
+        "src": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
         "alt": "Gói AI nào đang tăng giá trị thực?",
-        "caption": "Reference image from Google Workspace Updates.",
-        "credit": "Google Workspace Updates",
-        "source_url": "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html"
+        "caption": "Reference image from GitHub Blog.",
+        "credit": "GitHub Blog",
+        "source_url": "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/"
       },
       "verification_state": "verified",
       "quality_score": 96,
@@ -616,8 +738,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T17:08:56.002Z",
-      "updated_at": "2026-09-09T17:51:05.662Z",
+      "published_at": "2026-09-09T17:51:05.662Z",
+      "updated_at": "2026-09-09T18:24:32.613Z",
       "href": "/vi/so-sanh/goi-ai-nao-dang-dang-tien-hon-luc-nay",
       "readiness": {
         "ready": true,
@@ -666,7 +788,7 @@
         "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
         "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
       ],
-      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
+      "image_url": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -722,11 +844,11 @@
         }
       ],
       "image": {
-        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9pirh0dCkAdCtVEOIBKwIL06wFbO-39HX4jUqEo_yCFYXt-kP0HLXpGJoDIkIX8NL9qWj6IU6jKgcczjfqyev9isHvgAx8lWk0KaLS5ci1-O6_hkpCsRU5kBySWS_6VrbkbJaRvgvm5bRtqrm7DqKJiupHVv9DgejKSnpAXG5A8nLe4AUuFFImbcM0rs/w1200-h630-p-k-no-nu/Custom%20instructions%20for%20Gemini%20in%20Workspace%20now%20available%20in%20more%20apps%20-%206926%20-%201.png",
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/03/ML-21164-featured-image.png",
         "alt": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
-        "caption": "Reference image from Google Workspace Updates.",
-        "credit": "Google Workspace Updates",
-        "source_url": "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html"
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/deploy-a-multimodal-whatsapp-ordering-assistant-with-amazon-bedrock-agentcore/"
       },
       "verification_state": "verified",
       "quality_score": 96,
@@ -841,8 +963,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T17:08:56.002Z",
-      "updated_at": "2026-09-09T17:51:05.662Z",
+      "published_at": "2026-09-09T17:51:05.662Z",
+      "updated_at": "2026-09-09T18:24:32.613Z",
       "href": "/en/guides/the-practical-tech-tips-worth-saving-right-now",
       "readiness": {
         "ready": true,
@@ -892,7 +1014,7 @@
         "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
         "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html"
       ],
-      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9pirh0dCkAdCtVEOIBKwIL06wFbO-39HX4jUqEo_yCFYXt-kP0HLXpGJoDIkIX8NL9qWj6IU6jKgcczjfqyev9isHvgAx8lWk0KaLS5ci1-O6_hkpCsRU5kBySWS_6VrbkbJaRvgvm5bRtqrm7DqKJiupHVv9DgejKSnpAXG5A8nLe4AUuFFImbcM0rs/w1200-h630-p-k-no-nu/Custom%20instructions%20for%20Gemini%20in%20Workspace%20now%20available%20in%20more%20apps%20-%206926%20-%201.png",
+      "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/03/ML-21164-featured-image.png",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -1068,8 +1190,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T17:08:56.002Z",
-      "updated_at": "2026-09-09T17:51:05.662Z",
+      "published_at": "2026-09-09T17:51:05.662Z",
+      "updated_at": "2026-09-09T18:24:32.613Z",
       "href": "/vi/so-sanh/microsoft-dang-day-copilot-vao-goi-nao",
       "readiness": {
         "ready": true,
@@ -1176,11 +1298,11 @@
         }
       ],
       "image": {
-        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOVtPmVrWkxfPYUlCEjfAgD1_YpeR-UD-N4KJLtfDgrxoEdsW5wStz0PeI8VRNxubUXUSpD_-RBln9VbEeJZITU94WOpstIEAiYQvQqezUdHuL4ug8VSWCZr30nbdj91WTKXS8KmRHthk1yFA_VYbfqbk5xbnUm97-tUemxJwkQTF3ZIr2ScXARls89i8/w1200-h630-p-k-no-nu/Introducing%20comprehensive%20audit%20logs%20for%20Gemini%20Notebook%20in%20the%20Workspace%20Admin%20console%20-%207020.png",
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9pirh0dCkAdCtVEOIBKwIL06wFbO-39HX4jUqEo_yCFYXt-kP0HLXpGJoDIkIX8NL9qWj6IU6jKgcczjfqyev9isHvgAx8lWk0KaLS5ci1-O6_hkpCsRU5kBySWS_6VrbkbJaRvgvm5bRtqrm7DqKJiupHVv9DgejKSnpAXG5A8nLe4AUuFFImbcM0rs/w1200-h630-p-k-no-nu/Custom%20instructions%20for%20Gemini%20in%20Workspace%20now%20available%20in%20more%20apps%20-%206926%20-%201.png",
         "alt": "Which AI plans are adding practical value?",
         "caption": "Reference image from Google Workspace Updates.",
         "credit": "Google Workspace Updates",
-        "source_url": "http://workspaceupdates.googleblog.com/2026/08/introducing-comprehensive-audit-logs-for-Gemini-Notebook-in-the-Workspace-Admin-console.html"
+        "source_url": "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html"
       },
       "verification_state": "verified",
       "quality_score": 96,
@@ -1295,8 +1417,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T17:08:56.002Z",
-      "updated_at": "2026-09-09T17:51:05.662Z",
+      "published_at": "2026-09-09T17:51:05.662Z",
+      "updated_at": "2026-09-09T18:24:32.613Z",
       "href": "/en/compare/which-ai-plan-feels-more-useful-right-now",
       "readiness": {
         "ready": true,
@@ -1345,7 +1467,7 @@
         "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
         "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html"
       ],
-      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOVtPmVrWkxfPYUlCEjfAgD1_YpeR-UD-N4KJLtfDgrxoEdsW5wStz0PeI8VRNxubUXUSpD_-RBln9VbEeJZITU94WOpstIEAiYQvQqezUdHuL4ug8VSWCZr30nbdj91WTKXS8KmRHthk1yFA_VYbfqbk5xbnUm97-tUemxJwkQTF3ZIr2ScXARls89i8/w1200-h630-p-k-no-nu/Introducing%20comprehensive%20audit%20logs%20for%20Gemini%20Notebook%20in%20the%20Workspace%20Admin%20console%20-%207020.png",
+      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9pirh0dCkAdCtVEOIBKwIL06wFbO-39HX4jUqEo_yCFYXt-kP0HLXpGJoDIkIX8NL9qWj6IU6jKgcczjfqyev9isHvgAx8lWk0KaLS5ci1-O6_hkpCsRU5kBySWS_6VrbkbJaRvgvm5bRtqrm7DqKJiupHVv9DgejKSnpAXG5A8nLe4AUuFFImbcM0rs/w1200-h630-p-k-no-nu/Custom%20instructions%20for%20Gemini%20in%20Workspace%20now%20available%20in%20more%20apps%20-%206926%20-%201.png",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -1523,8 +1645,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T17:08:56.002Z",
-      "updated_at": "2026-09-09T17:51:05.662Z",
+      "published_at": "2026-09-09T17:51:05.662Z",
+      "updated_at": "2026-09-09T18:24:32.613Z",
       "href": "/en/guides/how-to-use-ai-plans-without-duplicate-app-spend",
       "readiness": {
         "ready": true,
@@ -1629,11 +1751,11 @@
         }
       ],
       "image": {
-        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/03/ML-21164-featured-image.png",
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOVtPmVrWkxfPYUlCEjfAgD1_YpeR-UD-N4KJLtfDgrxoEdsW5wStz0PeI8VRNxubUXUSpD_-RBln9VbEeJZITU94WOpstIEAiYQvQqezUdHuL4ug8VSWCZr30nbdj91WTKXS8KmRHthk1yFA_VYbfqbk5xbnUm97-tUemxJwkQTF3ZIr2ScXARls89i8/w1200-h630-p-k-no-nu/Introducing%20comprehensive%20audit%20logs%20for%20Gemini%20Notebook%20in%20the%20Workspace%20Admin%20console%20-%207020.png",
         "alt": "What Google just changed in AI plans: 5 TB, Workspace, and NotebookLM are now part of the same value fight",
-        "caption": "Reference image from AWS ML Blog.",
-        "credit": "AWS ML Blog",
-        "source_url": "https://aws.amazon.com/blogs/machine-learning/deploy-a-multimodal-whatsapp-ordering-assistant-with-amazon-bedrock-agentcore/"
+        "caption": "Reference image from Google Workspace Updates.",
+        "credit": "Google Workspace Updates",
+        "source_url": "http://workspaceupdates.googleblog.com/2026/08/introducing-comprehensive-audit-logs-for-Gemini-Notebook-in-the-Workspace-Admin-console.html"
       },
       "verification_state": "verified",
       "quality_score": 96,
@@ -1749,8 +1871,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T17:08:56.002Z",
-      "updated_at": "2026-09-09T17:51:05.662Z",
+      "published_at": "2026-09-09T17:51:05.662Z",
+      "updated_at": "2026-09-09T18:24:32.613Z",
       "href": "/en/compare/what-google-just-changed-in-ai-plans",
       "readiness": {
         "ready": true,
@@ -1800,7 +1922,7 @@
         "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
         "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html"
       ],
-      "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/03/ML-21164-featured-image.png",
+      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOVtPmVrWkxfPYUlCEjfAgD1_YpeR-UD-N4KJLtfDgrxoEdsW5wStz0PeI8VRNxubUXUSpD_-RBln9VbEeJZITU94WOpstIEAiYQvQqezUdHuL4ug8VSWCZr30nbdj91WTKXS8KmRHthk1yFA_VYbfqbk5xbnUm97-tUemxJwkQTF3ZIr2ScXARls89i8/w1200-h630-p-k-no-nu/Introducing%20comprehensive%20audit%20logs%20for%20Gemini%20Notebook%20in%20the%20Workspace%20Admin%20console%20-%207020.png",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -1856,11 +1978,11 @@
         }
       ],
       "image": {
-        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOVtPmVrWkxfPYUlCEjfAgD1_YpeR-UD-N4KJLtfDgrxoEdsW5wStz0PeI8VRNxubUXUSpD_-RBln9VbEeJZITU94WOpstIEAiYQvQqezUdHuL4ug8VSWCZr30nbdj91WTKXS8KmRHthk1yFA_VYbfqbk5xbnUm97-tUemxJwkQTF3ZIr2ScXARls89i8/w1200-h630-p-k-no-nu/Introducing%20comprehensive%20audit%20logs%20for%20Gemini%20Notebook%20in%20the%20Workspace%20Admin%20console%20-%207020.png",
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5LMGon8DbvIb75H_NX_sx-bv3oZdCH0fI7MNaovk7fUKW416L0sBvXFFMxIywQ5fkZz8Oitaef7ZyqSmAlcXlZMD-2trC1cWq6W99epBcQ7eZe97reUsFk7Cpdlb-FjEdZ0QvJVxLi5M2VZ3vSbpL_elrrPyPTzYxqKy9irfz5h7lc4xlmNiL8V2X_Wk/w1200-h630-p-k-no-nu/View%20supporting%20calendar%20delegates%20in%20meeting%20guest%20list%20-%207060.png",
         "alt": "Google vừa đổi gì trong các gói AI: 5TB, Workspace và NotebookLM đang kéo giá trị đi đâu",
         "caption": "Reference image from Google Workspace Updates.",
         "credit": "Google Workspace Updates",
-        "source_url": "http://workspaceupdates.googleblog.com/2026/08/introducing-comprehensive-audit-logs-for-Gemini-Notebook-in-the-Workspace-Admin-console.html"
+        "source_url": "http://workspaceupdates.googleblog.com/2026/07/view-supporting-calendar-delegates-in-meeting-guest-list.html"
       },
       "verification_state": "verified",
       "quality_score": 96,
@@ -1976,8 +2098,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T17:08:56.002Z",
-      "updated_at": "2026-09-09T17:51:05.662Z",
+      "published_at": "2026-09-09T17:51:05.662Z",
+      "updated_at": "2026-09-09T18:24:32.613Z",
       "href": "/vi/so-sanh/google-vua-doi-gi-trong-cac-goi-ai",
       "readiness": {
         "ready": true,
@@ -2027,7 +2149,7 @@
         "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
         "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
       ],
-      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOVtPmVrWkxfPYUlCEjfAgD1_YpeR-UD-N4KJLtfDgrxoEdsW5wStz0PeI8VRNxubUXUSpD_-RBln9VbEeJZITU94WOpstIEAiYQvQqezUdHuL4ug8VSWCZr30nbdj91WTKXS8KmRHthk1yFA_VYbfqbk5xbnUm97-tUemxJwkQTF3ZIr2ScXARls89i8/w1200-h630-p-k-no-nu/Introducing%20comprehensive%20audit%20logs%20for%20Gemini%20Notebook%20in%20the%20Workspace%20Admin%20console%20-%207020.png",
+      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5LMGon8DbvIb75H_NX_sx-bv3oZdCH0fI7MNaovk7fUKW416L0sBvXFFMxIywQ5fkZz8Oitaef7ZyqSmAlcXlZMD-2trC1cWq6W99epBcQ7eZe97reUsFk7Cpdlb-FjEdZ0QvJVxLi5M2VZ3vSbpL_elrrPyPTzYxqKy9irfz5h7lc4xlmNiL8V2X_Wk/w1200-h630-p-k-no-nu/View%20supporting%20calendar%20delegates%20in%20meeting%20guest%20list%20-%207060.png",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -2159,7 +2281,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T17:51:05.586Z",
+        "generated_at": "2026-09-09T18:24:32.542Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -2298,38 +2420,38 @@
       "content_type": "NewsArticle",
       "content_type_label": "Tin nhanh",
       "path_segment": "tin-tuc",
-      "slug": "le-ra-mat-iphone-18-pro-va-iphone-gap",
-      "title": "Lễ ra mắt iPhone 18 Pro và iPhone gập",
-      "hook": "Tim Cook vẫn xuất hiện gần sân khấu, dù từ 1/9, ông rời vị trí CEO Apple sau hơn 15 năm điều hành, chuyển giao cho John Ternus, người trước đó là Phó chủ tịch phụ trách kỹ thuật phần cứng của hãng.",
+      "slug": "ien-thoai-gap-iphone-duo-trinh-lang",
+      "title": "Điện thoại gập iPhone Duo trình làng",
+      "hook": "Johny Srouji, Giám đốc phần cứng của Apple, giới thiệu về phần cứng của iPhone Duo. Điều khiến câu chuyện này đáng theo dõi là tín hiệu đã bắt đầu dày lên, nhưng vẫn chưa đến mức có thể chốt hạ.",
       "author_name": "",
       "author_role_vi": "",
       "author_role_en": "",
-      "summary": "Khán phòng gần 1.000 chỗ của nhà hát Steve Jobs dần được lấp kín. Tim Cook vẫn xuất hiện gần sân khấu, dù từ 1/9, ông rời vị trí CEO Apple sau hơn 15 năm điều hành, chuyển giao cho John Ternus, người trước đó là Phó chủ tịch phụ trách kỹ thuật phần cứng của hãng.",
-      "dek": "Khán phòng gần 1. 000 chỗ của nhà hát Steve Jobs dần được lấp kín. Tim Cook vẫn xuất hiện gần sân khấu, dù từ 1/9, ông rời vị trí CEO Apple sau hơn 15 năm điều hành, chuyển giao cho John Ternus, người trước đó là Phó chủ tịch phụ trách kỹ thuật phần cứng của hãng. Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo.",
+      "summary": "Johny Srouji, Giám đốc phần cứng của Apple, giới thiệu về phần cứng của iPhone Duo. Màn hình sử dụng thiết kế nanotexture tùy biến, cho cảm giác phẳng khi nhìn và chạm.",
+      "dek": "Johny Srouji, Giám đốc phần cứng của Apple, giới thiệu về phần cứng của iPhone Duo. Màn hình sử dụng thiết kế nanotexture tùy biến, cho cảm giác phẳng khi nhìn và chạm. Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo.",
       "sections": [
         {
           "heading": "Điều gì đã xảy ra",
-          "body": "Khán phòng gần 1. 000 chỗ của nhà hát Steve Jobs dần được lấp kín. Tim Cook vẫn xuất hiện gần sân khấu, dù từ 1/9, ông rời vị trí CEO Apple sau hơn 15 năm điều hành, chuyển giao cho John Ternus, người trước đó là Phó chủ tịch phụ trách kỹ thuật phần cứng của hãng."
+          "body": "Cấu trúc nhiều lớp cũng giúp màn hình giữ độ phẳng và tăng độ bền. Màn hình iPhone Duo có độ cứng cao hơn 40% so với các thiết kế khác trong ngành."
         },
         {
           "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Theo các nguồn tin trước đó, camera chính trên iPhone 18 Pro và 18 Pro Max có thể trang bị khẩu độ biến đổi, cho phép điều chỉnh lượng ánh sáng đi vào cảm biến và kiểm soát độ sâu trường ảnh tốt hơn."
+          "body": "Bản lề máy chứa hơn 100 linh kiện. Apple sử dụng AI để ghép chính xác từng bản lề với phần khung tương ứng, nhằm tạo ra màn hình gập có chất lượng hiển thị cao."
         },
         {
           "heading": "Dữ kiện hiện có",
-          "body": "Như thường lệ, trước các lễ ra mắt sản phẩm mới, Apple ngừng hoạt động của cửa hàng trực tuyến. Trên website của Apple Store Online tại Việt Nam, giao diện hiển thị \"sẽ trở lại ngay\" với lý do \"đang được cập nhật\"."
+          "body": "iPhone Duo sử dụng chip A20 Pro cùng bộ xử lý màn hình mới, có thể điều khiển đồng thời cả hai màn hình. Hệ thống tản nhiệt bằng buồng hơi giúp máy duy trì hiệu năng cao hơn 35% so với iPhone 17 Pro. iPhone Duo chỉ sử dụng eSIM trên toàn cầu."
         },
         {
           "heading": "Ai nên chú ý lúc này",
-          "body": "23h01 Phóng viên VnExpress có mặt bên ngoài nhà hát Steve Jobs, nơi sắp diễn ra sự kiện ra mắt iPhone 18. Bên ngoài tòa nhà đang có hàng trăm khách mời là các cơ quan truyền thông đến từ khắp nơi trên thế giới."
+          "body": "Pin được bố trí ở cả hai nửa máy, kết hợp thuật toán để hoạt động như một khối thống nhất. Apple cho biết máy có thể sử dụng cả ngày, với thời lượng phát video 31 giờ trên màn hình trong và 45 giờ trên màn hình ngoài. Khi sử dụng đồng đều cả hai màn hình, thời lượng pin theo kịch bản mô phỏng đạt 24 giờ."
         },
         {
           "heading": "Điều chưa rõ",
-          "body": "Những năm gần đây, Apple tăng cường các hoạt động tại Việt Nam, từ mở rộng hệ thống bán hàng, hỗ trợ nhà phát triển đến đầu tư vào chuỗi cung ứng. Cuối tháng 8, hãng ra mắt Trung tâm giáo dục Apple tại Hà Nội, phối hợp với Đại học Bách khoa Hà Nội để đào tạo nhân viên của các nhà cung cấp trong nước về sản xuất thông minh, robot, tự động hóa và lập trình Swift."
+          "body": "Apple cho biết các ứng dụng của hãng đã được tối ưu cho iPhone Duo. Người dùng có thể mở hai cửa sổ của cùng một ứng dụng. Máy cũng hỗ trợ nhiều cách sử dụng khác nhau, kể cả khi gập một phần."
         }
       ],
       "image": {
-        "src": "https://i2-vnexpress.vnecdn.net/2026/09/09/wm1-wm1-ip4-jfif-1788973162-4577-1788973176.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=19yfJBLb3hJWkCqOwXM9zg",
+        "src": "https://i2-vnexpress.vnecdn.net/2026/09/10/ip-jfif-1788977243-5473-1788977310.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=ruYFeta4yhj0o0Tl4VslHw",
         "alt": "",
         "caption": "Ảnh tham khảo từ VnExpress So Hoa.",
         "credit": "VnExpress So Hoa",
@@ -2352,7 +2474,7 @@
           "language": "vi",
           "trust_tier": "established-media",
           "published_at": "2026-09-09T16:00:00.000Z",
-          "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/09/wm1-wm1-ip4-jfif-1788973162-4577-1788973176.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=19yfJBLb3hJWkCqOwXM9zg",
+          "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/10/ip-jfif-1788977243-5473-1788977310.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=ruYFeta4yhj0o0Tl4VslHw",
           "image_caption": "Ảnh tham khảo từ VnExpress So Hoa.",
           "image_credit": "VnExpress So Hoa"
         }
@@ -2360,22 +2482,22 @@
       "author_id": "quang-huy",
       "published_at": "2026-09-09T16:00:00.000Z",
       "updated_at": "2026-09-09T16:00:00.000Z",
-      "href": "/vi/tin-tuc/le-ra-mat-iphone-18-pro-va-iphone-gap",
-      "title_vi": "Lễ ra mắt iPhone 18 Pro và iPhone gập",
+      "href": "/vi/tin-tuc/ien-thoai-gap-iphone-duo-trinh-lang",
+      "title_vi": "Điện thoại gập iPhone Duo trình làng",
       "title_en": "",
-      "dek_vi": "Khán phòng gần 1. 000 chỗ của nhà hát Steve Jobs dần được lấp kín. Tim Cook vẫn xuất hiện gần sân khấu, dù từ 1/9, ông rời vị trí CEO Apple sau hơn 15 năm điều hành, chuyển giao cho John Ternus, người trước đó là Phó chủ tịch phụ trách kỹ thuật phần cứng của hãng. Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo.",
+      "dek_vi": "Johny Srouji, Giám đốc phần cứng của Apple, giới thiệu về phần cứng của iPhone Duo. Màn hình sử dụng thiết kế nanotexture tùy biến, cho cảm giác phẳng khi nhìn và chạm. Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo.",
       "dek_en": "",
-      "body_vi": "Điều gì đã xảy ra\nKhán phòng gần 1. 000 chỗ của nhà hát Steve Jobs dần được lấp kín. Tim Cook vẫn xuất hiện gần sân khấu, dù từ 1/9, ông rời vị trí CEO Apple sau hơn 15 năm điều hành, chuyển giao cho John Ternus, người trước đó là Phó chủ tịch phụ trách kỹ thuật phần cứng của hãng.\n\nCác nguồn đang khớp nhau ở đâu\nTheo các nguồn tin trước đó, camera chính trên iPhone 18 Pro và 18 Pro Max có thể trang bị khẩu độ biến đổi, cho phép điều chỉnh lượng ánh sáng đi vào cảm biến và kiểm soát độ sâu trường ảnh tốt hơn.\n\nDữ kiện hiện có\nNhư thường lệ, trước các lễ ra mắt sản phẩm mới, Apple ngừng hoạt động của cửa hàng trực tuyến. Trên website của Apple Store Online tại Việt Nam, giao diện hiển thị \"sẽ trở lại ngay\" với lý do \"đang được cập nhật\".\n\nAi nên chú ý lúc này\n23h01 Phóng viên VnExpress có mặt bên ngoài nhà hát Steve Jobs, nơi sắp diễn ra sự kiện ra mắt iPhone 18. Bên ngoài tòa nhà đang có hàng trăm khách mời là các cơ quan truyền thông đến từ khắp nơi trên thế giới.\n\nĐiều chưa rõ\nNhững năm gần đây, Apple tăng cường các hoạt động tại Việt Nam, từ mở rộng hệ thống bán hàng, hỗ trợ nhà phát triển đến đầu tư vào chuỗi cung ứng. Cuối tháng 8, hãng ra mắt Trung tâm giáo dục Apple tại Hà Nội, phối hợp với Đại học Bách khoa Hà Nội để đào tạo nhân viên của các nhà cung cấp trong nước về sản xuất thông minh, robot, tự động hóa và lập trình Swift.",
+      "body_vi": "Điều gì đã xảy ra\nCấu trúc nhiều lớp cũng giúp màn hình giữ độ phẳng và tăng độ bền. Màn hình iPhone Duo có độ cứng cao hơn 40% so với các thiết kế khác trong ngành.\n\nCác nguồn đang khớp nhau ở đâu\nBản lề máy chứa hơn 100 linh kiện. Apple sử dụng AI để ghép chính xác từng bản lề với phần khung tương ứng, nhằm tạo ra màn hình gập có chất lượng hiển thị cao.\n\nDữ kiện hiện có\niPhone Duo sử dụng chip A20 Pro cùng bộ xử lý màn hình mới, có thể điều khiển đồng thời cả hai màn hình. Hệ thống tản nhiệt bằng buồng hơi giúp máy duy trì hiệu năng cao hơn 35% so với iPhone 17 Pro. iPhone Duo chỉ sử dụng eSIM trên toàn cầu.\n\nAi nên chú ý lúc này\nPin được bố trí ở cả hai nửa máy, kết hợp thuật toán để hoạt động như một khối thống nhất. Apple cho biết máy có thể sử dụng cả ngày, với thời lượng phát video 31 giờ trên màn hình trong và 45 giờ trên màn hình ngoài. Khi sử dụng đồng đều cả hai màn hình, thời lượng pin theo kịch bản mô phỏng đạt 24 giờ.\n\nĐiều chưa rõ\nApple cho biết các ứng dụng của hãng đã được tối ưu cho iPhone Duo. Người dùng có thể mở hai cửa sổ của cùng một ứng dụng. Máy cũng hỗ trợ nhiều cách sử dụng khác nhau, kể cả khi gập một phần.",
       "body_en": "",
-      "slug_vi": "le-ra-mat-iphone-18-pro-va-iphone-gap",
-      "slug_en": "le-ra-mat-iphone-18-pro-va-iphone-gap",
+      "slug_vi": "ien-thoai-gap-iphone-duo-trinh-lang",
+      "slug_en": "ien-thoai-gap-iphone-duo-trinh-lang",
       "category": "devices",
       "geo_scope": "vn",
       "hot_score": 50,
       "source_urls": [
         "https://vnexpress.net/le-ra-mat-iphone-18-pro-va-iphone-gap-5118480.html"
       ],
-      "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/09/wm1-wm1-ip4-jfif-1788973162-4577-1788973176.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=19yfJBLb3hJWkCqOwXM9zg",
+      "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/10/ip-jfif-1788977243-5473-1788977310.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=ruYFeta4yhj0o0Tl4VslHw",
       "readiness": {
         "ready": true,
         "missing": [],
@@ -2399,13 +2521,13 @@
           "sourceCleanliness": true
         }
       },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/le-ra-mat-iphone-18-pro-va-iphone-gap",
+      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/ien-thoai-gap-iphone-duo-trinh-lang",
       "storeUrl": "https://patricktechmedia.store",
       "editorial_label": null,
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T17:08:55.935Z",
+        "generated_at": "2026-09-09T18:24:32.542Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -3259,7 +3381,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T17:51:05.586Z",
+        "generated_at": "2026-09-09T18:24:32.542Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -4773,7 +4895,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T17:51:05.586Z",
+        "generated_at": "2026-09-09T18:24:32.542Z",
         "origin": "local-curated-rss"
       },
       "topic": "apps-software"
@@ -5383,7 +5505,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T17:51:05.586Z",
+        "generated_at": "2026-09-09T18:24:32.542Z",
         "origin": "local-curated-rss"
       },
       "topic": "internet-business-tech"
@@ -13272,7 +13394,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T17:51:05.586Z",
+        "generated_at": "2026-09-09T18:24:32.542Z",
         "origin": "local-curated-rss"
       }
     },
@@ -13983,7 +14105,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T17:51:05.586Z",
+        "generated_at": "2026-09-09T18:24:32.542Z",
         "origin": "local-curated-rss"
       },
       "topic": "ai"
