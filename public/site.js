@@ -260,13 +260,6 @@ function initLuxuryMotion() {
     x: index ? "-=40" : "+=40", y: index ? "-=28" : "+=35", duration: index ? 10 : 8,
     repeat: -1, yoyo: true, ease: "sine.inOut"
   }));
-  const marqueeTrack = document.querySelector(".marquee-track");
-  if (marqueeTrack) {
-    const distance = marqueeTrack.scrollWidth / 2;
-    const ticker = gsap.to(marqueeTrack, { x: -distance, duration: 32, ease: "none", repeat: -1 });
-    marqueeTrack.addEventListener("pointerenter", () => ticker.timeScale(0.25), { passive: true });
-    marqueeTrack.addEventListener("pointerleave", () => ticker.timeScale(1), { passive: true });
-  }
   if (window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
     gsap.from(".article-spotlight-card", {
