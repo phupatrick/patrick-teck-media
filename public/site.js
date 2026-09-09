@@ -161,8 +161,8 @@ function initCosmosTheme() {
       leftDoor.classList.add("is-closing"); rightDoor.classList.add("is-closing");
       leftDoor.style.transition = rightDoor.style.transition = "transform .42s cubic-bezier(.76,0,.24,1)";
       leftDoor.style.transform = "translate3d(0, 0, 0)"; rightDoor.style.transform = "translate3d(0, 0, 0)";
-      navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 430);
-      recoveryTimer = window.setTimeout(openDoors, 2200);
+      navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 210);
+      recoveryTimer = window.setTimeout(openDoors, 900);
     });
   });
   window.addEventListener("pageshow", openDoors, { passive: true });
