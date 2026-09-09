@@ -1700,6 +1700,7 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
       <span class="door-torch door-torch-left"><span class="torch-flame"></span></span>
       <span class="door-panel">
         <span class="door-frame"></span><span class="door-carving door-carving-dragon">龍</span><span class="door-carving door-carving-phoenix">鳳</span>
+        <span class="door-brand"><img src="/patrick-tech-media-mark.svg" alt="" aria-hidden="true"><strong>Patrick Tech Media</strong></span>
         <span class="door-ring door-ring-left"></span><span class="door-gap-light"></span>
       </span>
     </div>
@@ -1707,6 +1708,7 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
       <span class="door-torch door-torch-right"><span class="torch-flame"></span></span>
       <span class="door-panel">
         <span class="door-frame"></span><span class="door-carving door-carving-dragon">龍</span><span class="door-carving door-carving-phoenix">鳳</span>
+        <span class="door-brand"><img src="/patrick-tech-media-mark.svg" alt="" aria-hidden="true"><strong>Patrick Tech Media</strong></span>
         <span class="door-ring door-ring-right"></span><span class="door-gap-light"></span>
       </span>
     </div>
