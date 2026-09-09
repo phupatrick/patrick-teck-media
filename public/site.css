@@ -1836,6 +1836,7 @@ body.newsroom-page .site-shell,
 body.newsroom-page .page-body { position: relative; z-index: 1; }
 body.newsroom-page .marquee-container { position: relative; z-index: 2; overflow: hidden; width: 100%; padding: 10px 0; background: rgba(255,255,255,.92); border-bottom: 1px solid var(--editorial-line); white-space: nowrap; }
 body.newsroom-page .marquee-track { display: flex; width: max-content; gap: 36px; will-change: transform; }
+
 body.newsroom-page .marquee-item { display: inline-flex; align-items: center; gap: 8px; color: #334155; font-size: .85rem; font-weight: 600; text-decoration: none; }
 body.newsroom-page .live-dot { width: 6px; height: 6px; flex: 0 0 auto; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981; }
 body.newsroom-page.theme-dark .marquee-container { background: rgba(8,19,35,.92); border-bottom-color: rgba(180,215,242,.18); }
@@ -7422,6 +7423,20 @@ body:has(.frontpage-masthead).theme-dark .topbar-actions a:focus-visible {
     overflow-wrap: anywhere;
     font-size: clamp(2rem, 9vw, 3rem);
   }
+}
+
+/* Final dark-mode contrast pass for homepage rail cards. Keep this after legacy homepage rules. */
+body.newsroom-page.theme-dark :where(.lead-mini, .lead-mini-copy, .hot-featured-card, .hot-featured-body, .rail-card, .story-card, .stack-item) {
+  color: #e8f1fa !important;
+  background: rgba(17, 28, 43, .96) !important;
+}
+
+body.newsroom-page.theme-dark :where(.lead-mini h3, .lead-mini h3 a, .hot-featured-body h2, .hot-featured-body h2 a, .rail-card h3, .rail-card h3 a, .story-card h3, .story-card h3 a, .stack-item h3, .stack-item h3 a) {
+  color: #edf6ff !important;
+}
+
+body.newsroom-page.theme-dark :where(.lead-mini-excerpt, .hot-featured-body p, .rail-card p, .story-card p, .stack-item p, .lead-mini .story-meta-line, .hot-featured-body .story-meta-line, .rail-card .story-meta-line) {
+  color: #aec4d9 !important;
 }
 
 /* Final newsroom background layer: legacy homepage rules hide body pseudo-elements. */
