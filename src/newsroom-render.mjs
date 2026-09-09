@@ -1696,8 +1696,20 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
   return `
     <canvas class="cosmos-canvas" data-cosmos-canvas aria-hidden="true"></canvas>
     <div class="sky-clouds" aria-hidden="true"></div>
-    <div class="cyber-door cyber-door-left" aria-hidden="true"><span class="cyber-door-beam"></span></div>
-    <div class="cyber-door cyber-door-right" aria-hidden="true"><span class="cyber-door-beam"></span></div>
+    <div class="cyber-door cyber-door-left" aria-hidden="true">
+      <span class="door-torch door-torch-left"><span class="torch-flame"></span></span>
+      <span class="door-panel">
+        <span class="door-frame"></span><span class="door-carving door-carving-dragon">龍</span><span class="door-carving door-carving-phoenix">鳳</span>
+        <span class="door-ring door-ring-left"></span><span class="door-gap-light"></span>
+      </span>
+    </div>
+    <div class="cyber-door cyber-door-right" aria-hidden="true">
+      <span class="door-torch door-torch-right"><span class="torch-flame"></span></span>
+      <span class="door-panel">
+        <span class="door-frame"></span><span class="door-carving door-carving-dragon">龍</span><span class="door-carving door-carving-phoenix">鳳</span>
+        <span class="door-ring door-ring-right"></span><span class="door-gap-light"></span>
+      </span>
+    </div>
     <button class="eclipse-toggle-btn" type="button" data-theme-toggle aria-label="${escapeHtml(copy.themeToggleLabel)}" aria-pressed="false">
       <span class="theme-icon theme-icon-sun" aria-hidden="true">&#9728;</span>
       <span class="theme-icon theme-icon-moon" aria-hidden="true">&#9790;</span>

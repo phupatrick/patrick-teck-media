@@ -137,7 +137,7 @@ function initCosmosTheme() {
   let isClosing = false;
   let navigationTimer = null;
   let recoveryTimer = null;
-  const openDoors = () => {
+  const openDoors = (animate = false) => {
     isClosing = false;
     if (navigationTimer) {
       window.clearTimeout(navigationTimer);
@@ -148,8 +148,12 @@ function initCosmosTheme() {
       recoveryTimer = null;
     }
     leftDoor.classList.remove("is-closing"); rightDoor.classList.remove("is-closing");
+    if (animate) {
+      leftDoor.classList.add("is-opening"); rightDoor.classList.add("is-opening");
+    }
     leftDoor.style.transition = rightDoor.style.transition = "transform .58s cubic-bezier(.76,0,.24,1)";
     leftDoor.style.transform = "translate3d(-100%, 0, 0)"; rightDoor.style.transform = "translate3d(100%, 0, 0)";
+    if (animate) window.setTimeout(() => { leftDoor.classList.remove("is-opening"); rightDoor.classList.remove("is-opening"); }, 780);
   };
   document.querySelectorAll("a[href]").forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -171,8 +175,10 @@ function initCosmosTheme() {
     if (recoveryTimer) window.clearTimeout(recoveryTimer);
   }, { passive: true });
   // Never leave the page behind a closed door if pageshow is delayed or restored from bfcache.
-  openDoors();
-  requestAnimationFrame(() => requestAnimationFrame(openDoors));
+  leftDoor.style.transition = rightDoor.style.transition = "none";
+  leftDoor.style.transform = rightDoor.style.transform = "translate3d(0, 0, 0)";
+  requestAnimationFrame(() => openDoors(true));
+  window.setTimeout(openDoors, 1200);
 }
 
 function initApprovedEditorialMotion() {
