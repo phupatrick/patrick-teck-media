@@ -1,6 +1,460 @@
 {
-  "generated_at": "2026-09-09T02:28:50.254Z",
+  "generated_at": "2026-09-09T03:23:10.505Z",
   "articles": [
+    {
+      "id": "editorial-practical-tech-tips-vi",
+      "cluster_id": "editorial-practical-tech-tips",
+      "language": "vi",
+      "topic_label": "Ứng dụng & Phần mềm",
+      "topic_slug": "ung-dung-phan-mem",
+      "topic_accent": "#17c9ff",
+      "content_type": "EvergreenGuide",
+      "content_type_label": "Hướng dẫn",
+      "path_segment": "huong-dan",
+      "slug": "nhung-meo-cong-nghe-dang-luu-luc-nay",
+      "title": "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật",
+      "hook": "Nếu tin nóng giữ nhịp cho newsroom, thì các bài thủ thuật tốt mới là thứ giữ người đọc quay lại: chúng giúp biến thay đổi của sản phẩm thành thao tác dùng được ngay thay vì chỉ thêm một headline đẹp. Điều khiến kiểu bài này đáng lưu lại là nó có thể được dùng ngay sau khi đọc xong, thay vì chỉ làm đẹp thêm một headline. Điều đáng giữ lại ở dạng bài này là nó giúp người đọc làm nhanh hơn ngay trong ngày, chứ không đẩy thêm một lớp hướng dẫn khó áp dụng vào thực tế.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Không phải bài thủ thuật nào cũng đáng lưu. Dạng đáng giữ lại là những mẹo có thể giúp người đọc làm nhanh hơn, đỡ lỗi hơn hoặc bớt mua nhầm công cụ trong bối cảnh AI và app đang đổi rất nhanh theo từng đợt cập nhật. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.",
+      "dek": "Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.",
+      "sections": [
+        {
+          "heading": "Ba hướng dẫn đáng lưu trước",
+          "body": "Điểm chung của nhóm bài này là chúng đều chạm vào việc thật: lưu trữ, cộng tác, ghi chú, tìm kiếm thông tin hoặc dùng AI để rút ngắn một bước đang lặp lại hằng ngày. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này."
+        },
+        {
+          "heading": "Mẹo nào dùng được ngay",
+          "body": "Mẹo đáng giữ lại thường là mẹo không cần đổi quá nhiều thói quen hoặc cài thêm ba bốn lớp phụ trợ. Càng ít bước, giá trị càng dễ lộ ra ngay. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng."
+        },
+        {
+          "heading": "Những lỗi dễ gặp nhất",
+          "body": "Sai lầm phổ biến nhất là thấy mẹo hay rồi áp dụng ngay nhưng bỏ qua điều kiện đầu vào: quyền truy cập, khu vực mở tính năng, cấu hình tài khoản hay giới hạn của gói đang dùng. Đó là lúc mẹo trông đúng nhưng kết quả cuối vẫn hẫng. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành."
+        },
+        {
+          "heading": "Nên áp dụng vào việc gì",
+          "body": "Nhóm người đọc hợp nhất với dạng bài này là người đang xử lý tài liệu, họp, nhắn tin nội bộ, tìm lại thông tin và làm việc với nhiều ứng dụng cùng lúc. Nếu một mẹo giúp cắt bớt một bước lặp, nó sẽ có giá trị cao hơn nhiều so với một tính năng chỉ đẹp trong bản giới thiệu."
+        },
+        {
+          "heading": "Patrick Tech Media chốt lại",
+          "body": "Mẹo công nghệ đáng giữ lại không phải là mẹo gây ngạc nhiên nhất, mà là mẹo đỡ mất thời gian nhất. Từ 10 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính."
+        }
+      ],
+      "image": {
+        "src": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
+        "alt": "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật",
+        "caption": "Reference image from Hugging Face Blog.",
+        "credit": "Hugging Face Blog",
+        "source_url": "https://huggingface.co/blog/torch-attention-profile"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "full",
+      "related_store_items": [
+        "creator-software-stack"
+      ],
+      "editorial_focus": [
+        "tips",
+        "guide",
+        "apps-software"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Microsoft 365 Developer Blog",
+          "source_url": "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T10:14:00.000Z",
+          "image_url": "https://devblogs.microsoft.com/microsoft365dev/wp-content/uploads/sites/73/2026/09/spfx-dev-skills-blog-post.webp",
+          "image_caption": "Reference image from Microsoft 365 Developer Blog.",
+          "image_credit": "Microsoft 365 Developer Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Google Workspace Updates",
+          "source_url": "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-09T17:09:34.009Z",
+          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
+          "image_caption": "Reference image from Google Workspace Updates.",
+          "image_credit": "Google Workspace Updates"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Hugging Face Blog",
+          "source_url": "https://huggingface.co/blog/torch-attention-profile",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-10T00:00:00.000Z",
+          "image_url": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
+          "image_caption": "Reference image from Hugging Face Blog.",
+          "image_credit": "Hugging Face Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Hugging Face Blog",
+          "source_url": "https://huggingface.co/blog/Photoroom/prx-part4-data",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-06T15:30:55.000Z",
+          "image_url": "https://cdn-uploads.huggingface.co/production/uploads/680a58121b2c7c159d2bd481/hJldzOsDg5kYWJC_vyj09.png",
+          "image_caption": "Reference image from Hugging Face Blog.",
+          "image_credit": "Hugging Face Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Hugging Face Blog",
+          "source_url": "https://huggingface.co/blog/revamped-kernels",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-06T00:00:00.000Z",
+          "image_url": "https://huggingface.co/blog/assets/revamped-kernels/thumbnail.png",
+          "image_caption": "Reference image from Hugging Face Blog.",
+          "image_credit": "Hugging Face Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "GitHub Blog",
+          "source_url": "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-09T16:29:37.000Z",
+          "image_url": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
+          "image_caption": "Reference image from GitHub Blog.",
+          "image_credit": "GitHub Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-09T16:38:11.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/09/ML-21090.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Microsoft Security",
+          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T22:51:18.000Z",
+          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
+          "image_caption": "Reference image from Microsoft Security.",
+          "image_credit": "Microsoft Security"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-09-09T02:37:10.000Z",
+      "updated_at": "2026-09-09T03:23:10.505Z",
+      "href": "/vi/huong-dan/nhung-meo-cong-nghe-dang-luu-luc-nay",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/vi/huong-dan/nhung-meo-cong-nghe-dang-luu-luc-nay",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "apps-software",
+      "title_vi": "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật",
+      "title_en": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
+      "dek_vi": "Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.",
+      "dek_en": "What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.",
+      "body_vi": "Ba hướng dẫn đáng lưu trước\nĐiểm chung của nhóm bài này là chúng đều chạm vào việc thật: lưu trữ, cộng tác, ghi chú, tìm kiếm thông tin hoặc dùng AI để rút ngắn một bước đang lặp lại hằng ngày. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nMẹo nào dùng được ngay\nMẹo đáng giữ lại thường là mẹo không cần đổi quá nhiều thói quen hoặc cài thêm ba bốn lớp phụ trợ. Càng ít bước, giá trị càng dễ lộ ra ngay. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.\n\nNhững lỗi dễ gặp nhất\nSai lầm phổ biến nhất là thấy mẹo hay rồi áp dụng ngay nhưng bỏ qua điều kiện đầu vào: quyền truy cập, khu vực mở tính năng, cấu hình tài khoản hay giới hạn của gói đang dùng. Đó là lúc mẹo trông đúng nhưng kết quả cuối vẫn hẫng. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành.\n\nNên áp dụng vào việc gì\nNhóm người đọc hợp nhất với dạng bài này là người đang xử lý tài liệu, họp, nhắn tin nội bộ, tìm lại thông tin và làm việc với nhiều ứng dụng cùng lúc. Nếu một mẹo giúp cắt bớt một bước lặp, nó sẽ có giá trị cao hơn nhiều so với một tính năng chỉ đẹp trong bản giới thiệu.\n\nPatrick Tech Media chốt lại\nMẹo công nghệ đáng giữ lại không phải là mẹo gây ngạc nhiên nhất, mà là mẹo đỡ mất thời gian nhất. Từ 10 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.",
+      "body_en": "The first guides worth saving\nThe common thread across these pieces is practical work: storage, collaboration, note-taking, information retrieval, or using AI to shorten a step that repeats every day. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhich tips are usable right away\nThe tips worth keeping usually do not require people to rewire their whole habit stack or add three extra setup layers. The fewer moving parts, the faster the value shows. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.\n\nThe easiest mistakes to make\nThe most common mistake is seeing a clever tip and applying it immediately while ignoring the setup layer: access rights, regional rollout, account configuration, or plan limits. That is where a good trick looks correct and still disappoints in the result. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams.\n\nWhere this really helps in work\nThis style of guide is most useful for readers juggling documents, meetings, internal messaging, search, and multiple apps at once. If a tip removes one repeated step, it usually matters more than a feature that only looks good in the announcement.\n\nPatrick Tech Media takeaway\nThe tips worth saving are not always the most surprising ones they are the ones that save the most time. That is why Patrick Tech Media is pushing deeper into practical AI and app guidance instead of leaving it at the edge of the newsroom. From 10 early signals, the piece keeps 8 references that are useful for locking the main details in place.",
+      "slug_vi": "nhung-meo-cong-nghe-dang-luu-luc-nay",
+      "slug_en": "nhung-meo-cong-nghe-dang-luu-luc-nay",
+      "category": "software",
+      "geo_scope": "vn",
+      "hot_score": 50,
+      "source_urls": [
+        "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+        "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
+        "https://huggingface.co/blog/torch-attention-profile",
+        "https://huggingface.co/blog/Photoroom/prx-part4-data",
+        "https://huggingface.co/blog/revamped-kernels",
+        "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
+        "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
+        "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
+      ],
+      "image_url": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
+      "draft_context": {
+        "historical_context": true,
+        "historical_context_sources": [
+          "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+          "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
+          "https://huggingface.co/blog/torch-attention-profile",
+          "https://huggingface.co/blog/Photoroom/prx-part4-data",
+          "https://huggingface.co/blog/revamped-kernels",
+          "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
+          "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
+          "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
+        ]
+      }
+    },
+    {
+      "id": "editorial-ai-workflow-playbook-vi",
+      "cluster_id": "editorial-ai-workflow-playbook",
+      "language": "vi",
+      "topic": "apps-software",
+      "topic_label": "Ứng dụng & Phần mềm",
+      "topic_slug": "ung-dung-phan-mem",
+      "topic_accent": "#17c9ff",
+      "content_type": "EvergreenGuide",
+      "content_type_label": "Hướng dẫn",
+      "path_segment": "huong-dan",
+      "slug": "dung-goi-ai-sao-cho-do-mua-trung-app",
+      "title": "Dùng gói AI sao cho đỡ mua trùng app",
+      "hook": "Sai lầm dễ gặp nhất là thấy mỗi gói có một tính năng hay rồi mua dồn, trong khi phần thông minh hơn là giữ đúng một gói mạnh cho từng loại việc lặp lại mỗi ngày. Điều khiến kiểu bài này đáng lưu lại là nó có thể được dùng ngay sau khi đọc xong, thay vì chỉ làm đẹp thêm một headline.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Không phải team nào cũng cần mua mọi gói AI. Cách tiết kiệm nhất thường là chia rõ việc viết, nghiên cứu, code, họp, lưu trữ và dựng nội dung cho đúng gói thay vì chồng nhiều app có phần quyền lợi giống nhau. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Google, Microsoft, OpenAI và Anthropic đang cùng lấn sang nhiều phần việc hơn, nên người đọc càng cần một guide thực chiến để biết giữ gì, bỏ gì và ghép workflow ra sao.",
+      "dek": "Mục tiêu của bài này không phải chọn một gói thắng tuyệt đối, mà là chỉ ra gói nào nên ôm phần việc nào để giá trị cộng dồn lên thay vì chồng chéo. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng.",
+      "sections": [
+        {
+          "heading": "Chia việc trước khi chia ngân sách",
+          "body": "Hãy bắt đầu từ những việc lặp lại thật sự: viết nháp, research, đọc tài liệu dài, họp, xử lý bảng, lưu trữ file, hoặc tạo hình và video. Khi nhìn theo luồng việc, bạn sẽ thấy gói nào đang mạnh ở đâu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này."
+        },
+        {
+          "heading": "Nơi dễ mua trùng nhất",
+          "body": "Phần trùng thường nằm ở research, ghi chú, viết lại nội dung, tạo slide hoặc lưu trữ. Khi Google, ChatGPT, Claude và Copilot đều mở rộng sang cùng khu vực, người dùng rất dễ trả tiền hai lần cho cùng một nhu cầu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ."
+        },
+        {
+          "heading": "Một cách chia việc gọn hơn",
+          "body": "Giữ một gói mạnh cho nơi bạn làm việc nhiều nhất, sau đó chỉ thêm gói thứ hai nếu nó thay được một lớp công cụ phụ rõ ràng. Nếu một gói mới chỉ cho thêm cảm giác “an tâm” mà chưa cắt được bước nào, hãy để nó ở watchlist trước. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành."
+        },
+        {
+          "heading": "Đánh đổi và giới hạn",
+          "body": "Kiểm tra xem team đang dùng tính năng nào hằng tuần, model nào thật sự mở khóa, file có đang nằm trong cùng hệ sinh thái không, và mỗi gói có làm giảm app phụ hay chỉ tăng cảm giác đủ đầy. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng."
+        },
+        {
+          "heading": "Patrick Tech Media kết luận",
+          "body": "Thủ thuật đáng tiền nhất ở giai đoạn này không phải là mẹo prompt mới, mà là cách ghép gói AI để một lớp việc thật sự được ôm trọn. Khi workflow gọn lại, bạn sẽ cảm được giá trị trước cả khi nhìn vào benchmark. Từ 12 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính."
+        }
+      ],
+      "image": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
+        "alt": "Dùng gói AI sao cho đỡ mua trùng app",
+        "caption": "Reference image from Google Workspace Updates.",
+        "credit": "Google Workspace Updates",
+        "source_url": "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "full",
+      "related_store_items": [
+        "ai-workspace-bundle",
+        "creator-software-stack"
+      ],
+      "editorial_focus": [
+        "ai-package",
+        "tips",
+        "guide",
+        "apps-software"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Microsoft 365 Developer Blog",
+          "source_url": "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T10:14:00.000Z",
+          "image_url": "https://devblogs.microsoft.com/microsoft365dev/wp-content/uploads/sites/73/2026/09/spfx-dev-skills-blog-post.webp",
+          "image_caption": "Reference image from Microsoft 365 Developer Blog.",
+          "image_credit": "Microsoft 365 Developer Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Google Workspace Updates",
+          "source_url": "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-09T17:09:34.009Z",
+          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
+          "image_caption": "Reference image from Google Workspace Updates.",
+          "image_credit": "Google Workspace Updates"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Hugging Face Blog",
+          "source_url": "https://huggingface.co/blog/torch-attention-profile",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-10T00:00:00.000Z",
+          "image_url": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
+          "image_caption": "Reference image from Hugging Face Blog.",
+          "image_credit": "Hugging Face Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Hugging Face Blog",
+          "source_url": "https://huggingface.co/blog/Photoroom/prx-part4-data",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-06T15:30:55.000Z",
+          "image_url": "https://cdn-uploads.huggingface.co/production/uploads/680a58121b2c7c159d2bd481/hJldzOsDg5kYWJC_vyj09.png",
+          "image_caption": "Reference image from Hugging Face Blog.",
+          "image_credit": "Hugging Face Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Hugging Face Blog",
+          "source_url": "https://huggingface.co/blog/revamped-kernels",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-06T00:00:00.000Z",
+          "image_url": "https://huggingface.co/blog/assets/revamped-kernels/thumbnail.png",
+          "image_caption": "Reference image from Hugging Face Blog.",
+          "image_credit": "Hugging Face Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "GitHub Blog",
+          "source_url": "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-09T16:29:37.000Z",
+          "image_url": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
+          "image_caption": "Reference image from GitHub Blog.",
+          "image_credit": "GitHub Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-07-09T16:38:11.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/09/ML-21090.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Microsoft Security",
+          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-02T22:51:18.000Z",
+          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
+          "image_caption": "Reference image from Microsoft Security.",
+          "image_credit": "Microsoft Security"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-09-09T02:37:10.000Z",
+      "updated_at": "2026-09-09T03:23:10.505Z",
+      "href": "/vi/huong-dan/dung-goi-ai-sao-cho-do-mua-trung-app",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/vi/huong-dan/dung-goi-ai-sao-cho-do-mua-trung-app",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "title_vi": "Dùng gói AI sao cho đỡ mua trùng app",
+      "title_en": "How to use AI plans without stacking duplicate apps",
+      "dek_vi": "Mục tiêu của bài này không phải chọn một gói thắng tuyệt đối, mà là chỉ ra gói nào nên ôm phần việc nào để giá trị cộng dồn lên thay vì chồng chéo. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng.",
+      "dek_en": "The goal here is not to crown one plan as the winner, but to show which plan should carry which type of work so value adds up instead of overlapping. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying.",
+      "body_vi": "Chia việc trước khi chia ngân sách\nHãy bắt đầu từ những việc lặp lại thật sự: viết nháp, research, đọc tài liệu dài, họp, xử lý bảng, lưu trữ file, hoặc tạo hình và video. Khi nhìn theo luồng việc, bạn sẽ thấy gói nào đang mạnh ở đâu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nNơi dễ mua trùng nhất\nPhần trùng thường nằm ở research, ghi chú, viết lại nội dung, tạo slide hoặc lưu trữ. Khi Google, ChatGPT, Claude và Copilot đều mở rộng sang cùng khu vực, người dùng rất dễ trả tiền hai lần cho cùng một nhu cầu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ.\n\nMột cách chia việc gọn hơn\nGiữ một gói mạnh cho nơi bạn làm việc nhiều nhất, sau đó chỉ thêm gói thứ hai nếu nó thay được một lớp công cụ phụ rõ ràng. Nếu một gói mới chỉ cho thêm cảm giác “an tâm” mà chưa cắt được bước nào, hãy để nó ở watchlist trước. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành.\n\nĐánh đổi và giới hạn\nKiểm tra xem team đang dùng tính năng nào hằng tuần, model nào thật sự mở khóa, file có đang nằm trong cùng hệ sinh thái không, và mỗi gói có làm giảm app phụ hay chỉ tăng cảm giác đủ đầy. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng.\n\nPatrick Tech Media kết luận\nThủ thuật đáng tiền nhất ở giai đoạn này không phải là mẹo prompt mới, mà là cách ghép gói AI để một lớp việc thật sự được ôm trọn. Khi workflow gọn lại, bạn sẽ cảm được giá trị trước cả khi nhìn vào benchmark. Từ 12 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.",
+      "body_en": "Split the work before you split the budget\nStart with the recurring jobs that actually happen: drafting, research, long-document reading, meetings, spreadsheets, file storage, or image and video creation. Once the workflow is visible, it becomes easier to see which plan is strongest where. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhere duplicate buying happens fastest\nDuplication usually shows up around research, notes, rewrites, slide creation, or storage. As Google, ChatGPT, Claude, and Copilot expand into the same zones, readers can easily pay twice for one need. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own.\n\nA cleaner way to split the workflow\nKeep one strong plan for the place where most of the work already happens, and only add a second plan if it clearly replaces a layer of side tooling. If a new plan mostly adds reassurance without removing a step, keep it on the watch list first. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams.\n\nThe checklist before you renew a plan\nCheck which features the team actually uses each week, which model tier is really unlocked, whether files already live in the same ecosystem, and whether each plan reduces side apps or only increases the sense of completeness. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying.\n\nPatrick Tech Media takeaway\nThe most valuable trick right now is not a new prompt formula, but a cleaner way to combine AI plans so one layer of real work is fully covered. Once the workflow tightens up, readers feel the value before they ever look at a benchmark. From 12 early signals, the piece keeps 8 references that are useful for locking the main details in place.",
+      "slug_vi": "dung-goi-ai-sao-cho-do-mua-trung-app",
+      "slug_en": "dung-goi-ai-sao-cho-do-mua-trung-app",
+      "category": "software",
+      "geo_scope": "vn",
+      "hot_score": 50,
+      "source_urls": [
+        "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+        "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
+        "https://huggingface.co/blog/torch-attention-profile",
+        "https://huggingface.co/blog/Photoroom/prx-part4-data",
+        "https://huggingface.co/blog/revamped-kernels",
+        "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
+        "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
+        "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
+      ],
+      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
+      "draft_context": {
+        "historical_context": true,
+        "historical_context_sources": [
+          "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
+          "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
+          "https://huggingface.co/blog/torch-attention-profile",
+          "https://huggingface.co/blog/Photoroom/prx-part4-data",
+          "https://huggingface.co/blog/revamped-kernels",
+          "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
+          "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
+          "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
+        ]
+      }
+    },
     {
       "id": "editorial-practical-tech-tips-en",
       "cluster_id": "editorial-practical-tech-tips",
@@ -161,8 +615,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T01:27:22.153Z",
-      "updated_at": "2026-09-09T02:28:50.254Z",
+      "published_at": "2026-09-09T02:28:50.254Z",
+      "updated_at": "2026-09-09T03:23:10.505Z",
       "href": "/en/guides/the-practical-tech-tips-worth-saving-right-now",
       "readiness": {
         "ready": true,
@@ -197,8 +651,8 @@
       "dek_en": "What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.",
       "body_vi": "Ba hướng dẫn đáng lưu trước\nĐiểm chung của nhóm bài này là chúng đều chạm vào việc thật: lưu trữ, cộng tác, ghi chú, tìm kiếm thông tin hoặc dùng AI để rút ngắn một bước đang lặp lại hằng ngày. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nMẹo nào dùng được ngay\nMẹo đáng giữ lại thường là mẹo không cần đổi quá nhiều thói quen hoặc cài thêm ba bốn lớp phụ trợ. Càng ít bước, giá trị càng dễ lộ ra ngay. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.\n\nNhững lỗi dễ gặp nhất\nSai lầm phổ biến nhất là thấy mẹo hay rồi áp dụng ngay nhưng bỏ qua điều kiện đầu vào: quyền truy cập, khu vực mở tính năng, cấu hình tài khoản hay giới hạn của gói đang dùng. Đó là lúc mẹo trông đúng nhưng kết quả cuối vẫn hẫng. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành.\n\nNên áp dụng vào việc gì\nNhóm người đọc hợp nhất với dạng bài này là người đang xử lý tài liệu, họp, nhắn tin nội bộ, tìm lại thông tin và làm việc với nhiều ứng dụng cùng lúc. Nếu một mẹo giúp cắt bớt một bước lặp, nó sẽ có giá trị cao hơn nhiều so với một tính năng chỉ đẹp trong bản giới thiệu.\n\nPatrick Tech Media chốt lại\nMẹo công nghệ đáng giữ lại không phải là mẹo gây ngạc nhiên nhất, mà là mẹo đỡ mất thời gian nhất. Từ 10 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.",
       "body_en": "The first guides worth saving\nThe common thread across these pieces is practical work: storage, collaboration, note-taking, information retrieval, or using AI to shorten a step that repeats every day. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhich tips are usable right away\nThe tips worth keeping usually do not require people to rewire their whole habit stack or add three extra setup layers. The fewer moving parts, the faster the value shows. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.\n\nThe easiest mistakes to make\nThe most common mistake is seeing a clever tip and applying it immediately while ignoring the setup layer: access rights, regional rollout, account configuration, or plan limits. That is where a good trick looks correct and still disappoints in the result. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams.\n\nWhere this really helps in work\nThis style of guide is most useful for readers juggling documents, meetings, internal messaging, search, and multiple apps at once. If a tip removes one repeated step, it usually matters more than a feature that only looks good in the announcement.\n\nPatrick Tech Media takeaway\nThe tips worth saving are not always the most surprising ones they are the ones that save the most time. That is why Patrick Tech Media is pushing deeper into practical AI and app guidance instead of leaving it at the edge of the newsroom. From 10 early signals, the piece keeps 8 references that are useful for locking the main details in place.",
-      "slug_vi": "the-practical-tech-tips-worth-saving-right-now",
-      "slug_en": "the-practical-tech-tips-worth-saving-right-now",
+      "slug_vi": "nhung-meo-cong-nghe-dang-luu-luc-nay",
+      "slug_en": "nhung-meo-cong-nghe-dang-luu-luc-nay",
       "category": "software",
       "geo_scope": "global",
       "hot_score": 50,
@@ -224,232 +678,6 @@
           "http://workspaceupdates.googleblog.com/2026/09/custom-instructions-for-gemini-in-Workspace-now-available-in-more-apps.html",
           "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
           "http://workspaceupdates.googleblog.com/2026/08/weekly-recap-08-28-2026.html"
-        ]
-      }
-    },
-    {
-      "id": "editorial-practical-tech-tips-vi",
-      "cluster_id": "editorial-practical-tech-tips",
-      "language": "vi",
-      "topic_label": "Ứng dụng & Phần mềm",
-      "topic_slug": "ung-dung-phan-mem",
-      "topic_accent": "#17c9ff",
-      "content_type": "EvergreenGuide",
-      "content_type_label": "Hướng dẫn",
-      "path_segment": "huong-dan",
-      "slug": "nhung-meo-cong-nghe-dang-luu-luc-nay",
-      "title": "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật",
-      "hook": "Nếu tin nóng giữ nhịp cho newsroom, thì các bài thủ thuật tốt mới là thứ giữ người đọc quay lại: chúng giúp biến thay đổi của sản phẩm thành thao tác dùng được ngay thay vì chỉ thêm một headline đẹp. Điều khiến kiểu bài này đáng lưu lại là nó có thể được dùng ngay sau khi đọc xong, thay vì chỉ làm đẹp thêm một headline. Điều đáng giữ lại ở dạng bài này là nó giúp người đọc làm nhanh hơn ngay trong ngày, chứ không đẩy thêm một lớp hướng dẫn khó áp dụng vào thực tế.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Không phải bài thủ thuật nào cũng đáng lưu. Dạng đáng giữ lại là những mẹo có thể giúp người đọc làm nhanh hơn, đỡ lỗi hơn hoặc bớt mua nhầm công cụ trong bối cảnh AI và app đang đổi rất nhanh theo từng đợt cập nhật. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.",
-      "dek": "Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.",
-      "sections": [
-        {
-          "heading": "Ba hướng dẫn đáng lưu trước",
-          "body": "Điểm chung của nhóm bài này là chúng đều chạm vào việc thật: lưu trữ, cộng tác, ghi chú, tìm kiếm thông tin hoặc dùng AI để rút ngắn một bước đang lặp lại hằng ngày. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này."
-        },
-        {
-          "heading": "Mẹo nào dùng được ngay",
-          "body": "Mẹo đáng giữ lại thường là mẹo không cần đổi quá nhiều thói quen hoặc cài thêm ba bốn lớp phụ trợ. Càng ít bước, giá trị càng dễ lộ ra ngay. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng."
-        },
-        {
-          "heading": "Những lỗi dễ gặp nhất",
-          "body": "Sai lầm phổ biến nhất là thấy mẹo hay rồi áp dụng ngay nhưng bỏ qua điều kiện đầu vào: quyền truy cập, khu vực mở tính năng, cấu hình tài khoản hay giới hạn của gói đang dùng. Đó là lúc mẹo trông đúng nhưng kết quả cuối vẫn hẫng. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành."
-        },
-        {
-          "heading": "Nên áp dụng vào việc gì",
-          "body": "Nhóm người đọc hợp nhất với dạng bài này là người đang xử lý tài liệu, họp, nhắn tin nội bộ, tìm lại thông tin và làm việc với nhiều ứng dụng cùng lúc. Nếu một mẹo giúp cắt bớt một bước lặp, nó sẽ có giá trị cao hơn nhiều so với một tính năng chỉ đẹp trong bản giới thiệu."
-        },
-        {
-          "heading": "Patrick Tech Media chốt lại",
-          "body": "Mẹo công nghệ đáng giữ lại không phải là mẹo gây ngạc nhiên nhất, mà là mẹo đỡ mất thời gian nhất. Từ 10 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính."
-        }
-      ],
-      "image": {
-        "src": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
-        "alt": "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật",
-        "caption": "Reference image from GitHub Blog.",
-        "credit": "GitHub Blog",
-        "source_url": "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/"
-      },
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "full",
-      "related_store_items": [
-        "creator-software-stack"
-      ],
-      "editorial_focus": [
-        "tips",
-        "guide",
-        "apps-software"
-      ],
-      "source_set": [
-        {
-          "source_type": "official-site",
-          "source_name": "Microsoft 365 Developer Blog",
-          "source_url": "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T10:14:00.000Z",
-          "image_url": "https://devblogs.microsoft.com/microsoft365dev/wp-content/uploads/sites/73/2026/09/spfx-dev-skills-blog-post.webp",
-          "image_caption": "Reference image from Microsoft 365 Developer Blog.",
-          "image_credit": "Microsoft 365 Developer Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Google Workspace Updates",
-          "source_url": "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-09T17:09:34.009Z",
-          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
-          "image_caption": "Reference image from Google Workspace Updates.",
-          "image_credit": "Google Workspace Updates"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Hugging Face Blog",
-          "source_url": "https://huggingface.co/blog/torch-attention-profile",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-10T00:00:00.000Z",
-          "image_url": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
-          "image_caption": "Reference image from Hugging Face Blog.",
-          "image_credit": "Hugging Face Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Hugging Face Blog",
-          "source_url": "https://huggingface.co/blog/Photoroom/prx-part4-data",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-06T15:30:55.000Z",
-          "image_url": "https://cdn-uploads.huggingface.co/production/uploads/680a58121b2c7c159d2bd481/hJldzOsDg5kYWJC_vyj09.png",
-          "image_caption": "Reference image from Hugging Face Blog.",
-          "image_credit": "Hugging Face Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Hugging Face Blog",
-          "source_url": "https://huggingface.co/blog/revamped-kernels",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-06T00:00:00.000Z",
-          "image_url": "https://huggingface.co/blog/assets/revamped-kernels/thumbnail.png",
-          "image_caption": "Reference image from Hugging Face Blog.",
-          "image_credit": "Hugging Face Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "GitHub Blog",
-          "source_url": "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-09T16:29:37.000Z",
-          "image_url": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
-          "image_caption": "Reference image from GitHub Blog.",
-          "image_credit": "GitHub Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-09T16:38:11.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/09/ML-21090.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Microsoft Security",
-          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T22:51:18.000Z",
-          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
-          "image_caption": "Reference image from Microsoft Security.",
-          "image_credit": "Microsoft Security"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-09-09T01:27:22.153Z",
-      "updated_at": "2026-09-09T02:28:50.254Z",
-      "href": "/vi/huong-dan/nhung-meo-cong-nghe-dang-luu-luc-nay",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/huong-dan/nhung-meo-cong-nghe-dang-luu-luc-nay",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "apps-software",
-      "title_vi": "Những mẹo công nghệ đáng lưu lúc này: AI, Workspace và app nào đang giúp đỡ việc thật",
-      "title_en": "The practical tech tips worth saving right now: which AI, workspace, and app moves actually help",
-      "dek_vi": "Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.",
-      "dek_en": "What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.",
-      "body_vi": "Ba hướng dẫn đáng lưu trước\nĐiểm chung của nhóm bài này là chúng đều chạm vào việc thật: lưu trữ, cộng tác, ghi chú, tìm kiếm thông tin hoặc dùng AI để rút ngắn một bước đang lặp lại hằng ngày. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nMẹo nào dùng được ngay\nMẹo đáng giữ lại thường là mẹo không cần đổi quá nhiều thói quen hoặc cài thêm ba bốn lớp phụ trợ. Càng ít bước, giá trị càng dễ lộ ra ngay. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng. Điểm khác của một bài mẹo tốt là nó không dừng ở mẹo lẻ. Nó phải nói rõ nên áp dụng lúc nào, điều gì dễ làm sai và mẹo đó tiết kiệm cho người đọc bước nào trong công việc. Điểm mạnh của bài kiểu này là biến phần kiến thức khô thành thứ dùng được ngay, và hiện có 8 lớp nguồn để giữ phần chi tiết không bị lỏng.\n\nNhững lỗi dễ gặp nhất\nSai lầm phổ biến nhất là thấy mẹo hay rồi áp dụng ngay nhưng bỏ qua điều kiện đầu vào: quyền truy cập, khu vực mở tính năng, cấu hình tài khoản hay giới hạn của gói đang dùng. Đó là lúc mẹo trông đúng nhưng kết quả cuối vẫn hẫng. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành.\n\nNên áp dụng vào việc gì\nNhóm người đọc hợp nhất với dạng bài này là người đang xử lý tài liệu, họp, nhắn tin nội bộ, tìm lại thông tin và làm việc với nhiều ứng dụng cùng lúc. Nếu một mẹo giúp cắt bớt một bước lặp, nó sẽ có giá trị cao hơn nhiều so với một tính năng chỉ đẹp trong bản giới thiệu.\n\nPatrick Tech Media chốt lại\nMẹo công nghệ đáng giữ lại không phải là mẹo gây ngạc nhiên nhất, mà là mẹo đỡ mất thời gian nhất. Từ 10 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.",
-      "body_en": "The first guides worth saving\nThe common thread across these pieces is practical work: storage, collaboration, note-taking, information retrieval, or using AI to shorten a step that repeats every day. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhich tips are usable right away\nThe tips worth keeping usually do not require people to rewire their whole habit stack or add three extra setup layers. The fewer moving parts, the faster the value shows. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying. What separates a useful tip piece from filler is context: when to use the trick, what goes wrong most often, and which step in the workflow it actually saves. The strength of this kind of piece is turning dry information into something readers can use immediately, with 8 source layers keeping the details grounded.\n\nThe easiest mistakes to make\nThe most common mistake is seeing a clever tip and applying it immediately while ignoring the setup layer: access rights, regional rollout, account configuration, or plan limits. That is where a good trick looks correct and still disappoints in the result. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams.\n\nWhere this really helps in work\nThis style of guide is most useful for readers juggling documents, meetings, internal messaging, search, and multiple apps at once. If a tip removes one repeated step, it usually matters more than a feature that only looks good in the announcement.\n\nPatrick Tech Media takeaway\nThe tips worth saving are not always the most surprising ones they are the ones that save the most time. That is why Patrick Tech Media is pushing deeper into practical AI and app guidance instead of leaving it at the edge of the newsroom. From 10 early signals, the piece keeps 8 references that are useful for locking the main details in place.",
-      "slug_vi": "the-practical-tech-tips-worth-saving-right-now",
-      "slug_en": "the-practical-tech-tips-worth-saving-right-now",
-      "category": "software",
-      "geo_scope": "vn",
-      "hot_score": 50,
-      "source_urls": [
-        "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-        "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
-        "https://huggingface.co/blog/torch-attention-profile",
-        "https://huggingface.co/blog/Photoroom/prx-part4-data",
-        "https://huggingface.co/blog/revamped-kernels",
-        "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
-        "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
-        "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
-      ],
-      "image_url": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
-      "draft_context": {
-        "historical_context": true,
-        "historical_context_sources": [
-          "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-          "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
-          "https://huggingface.co/blog/torch-attention-profile",
-          "https://huggingface.co/blog/Photoroom/prx-part4-data",
-          "https://huggingface.co/blog/revamped-kernels",
-          "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
-          "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
-          "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
         ]
       }
     },
@@ -614,8 +842,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T01:27:22.153Z",
-      "updated_at": "2026-09-09T02:28:50.254Z",
+      "published_at": "2026-09-09T02:28:50.254Z",
+      "updated_at": "2026-09-09T03:23:10.505Z",
       "href": "/vi/so-sanh/microsoft-dang-day-copilot-vao-goi-nao",
       "readiness": {
         "ready": true,
@@ -841,8 +1069,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T01:27:22.153Z",
-      "updated_at": "2026-09-09T02:28:50.254Z",
+      "published_at": "2026-09-09T02:28:50.254Z",
+      "updated_at": "2026-09-09T03:23:10.505Z",
       "href": "/en/compare/which-ai-plan-feels-more-useful-right-now",
       "readiness": {
         "ready": true,
@@ -1069,8 +1297,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T01:27:22.153Z",
-      "updated_at": "2026-09-09T02:28:50.254Z",
+      "published_at": "2026-09-09T02:28:50.254Z",
+      "updated_at": "2026-09-09T03:23:10.505Z",
       "href": "/en/guides/how-to-use-ai-plans-without-duplicate-app-spend",
       "readiness": {
         "ready": true,
@@ -1104,8 +1332,8 @@
       "dek_en": "The goal here is not to crown one plan as the winner, but to show which plan should carry which type of work so value adds up instead of overlapping. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying.",
       "body_vi": "Chia việc trước khi chia ngân sách\nHãy bắt đầu từ những việc lặp lại thật sự: viết nháp, research, đọc tài liệu dài, họp, xử lý bảng, lưu trữ file, hoặc tạo hình và video. Khi nhìn theo luồng việc, bạn sẽ thấy gói nào đang mạnh ở đâu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nNơi dễ mua trùng nhất\nPhần trùng thường nằm ở research, ghi chú, viết lại nội dung, tạo slide hoặc lưu trữ. Khi Google, ChatGPT, Claude và Copilot đều mở rộng sang cùng khu vực, người dùng rất dễ trả tiền hai lần cho cùng một nhu cầu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ.\n\nMột cách chia việc gọn hơn\nGiữ một gói mạnh cho nơi bạn làm việc nhiều nhất, sau đó chỉ thêm gói thứ hai nếu nó thay được một lớp công cụ phụ rõ ràng. Nếu một gói mới chỉ cho thêm cảm giác “an tâm” mà chưa cắt được bước nào, hãy để nó ở watchlist trước. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành.\n\nĐánh đổi và giới hạn\nKiểm tra xem team đang dùng tính năng nào hằng tuần, model nào thật sự mở khóa, file có đang nằm trong cùng hệ sinh thái không, và mỗi gói có làm giảm app phụ hay chỉ tăng cảm giác đủ đầy. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng.\n\nPatrick Tech Media kết luận\nThủ thuật đáng tiền nhất ở giai đoạn này không phải là mẹo prompt mới, mà là cách ghép gói AI để một lớp việc thật sự được ôm trọn. Khi workflow gọn lại, bạn sẽ cảm được giá trị trước cả khi nhìn vào benchmark. Từ 12 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.",
       "body_en": "Split the work before you split the budget\nStart with the recurring jobs that actually happen: drafting, research, long-document reading, meetings, spreadsheets, file storage, or image and video creation. Once the workflow is visible, it becomes easier to see which plan is strongest where. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhere duplicate buying happens fastest\nDuplication usually shows up around research, notes, rewrites, slide creation, or storage. As Google, ChatGPT, Claude, and Copilot expand into the same zones, readers can easily pay twice for one need. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own.\n\nA cleaner way to split the workflow\nKeep one strong plan for the place where most of the work already happens, and only add a second plan if it clearly replaces a layer of side tooling. If a new plan mostly adds reassurance without removing a step, keep it on the watch list first. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams.\n\nThe checklist before you renew a plan\nCheck which features the team actually uses each week, which model tier is really unlocked, whether files already live in the same ecosystem, and whether each plan reduces side apps or only increases the sense of completeness. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying.\n\nPatrick Tech Media takeaway\nThe most valuable trick right now is not a new prompt formula, but a cleaner way to combine AI plans so one layer of real work is fully covered. Once the workflow tightens up, readers feel the value before they ever look at a benchmark. From 12 early signals, the piece keeps 8 references that are useful for locking the main details in place.",
-      "slug_vi": "how-to-use-ai-plans-without-duplicate-app-spend",
-      "slug_en": "how-to-use-ai-plans-without-duplicate-app-spend",
+      "slug_vi": "dung-goi-ai-sao-cho-do-mua-trung-app",
+      "slug_en": "dung-goi-ai-sao-cho-do-mua-trung-app",
       "category": "software",
       "geo_scope": "global",
       "hot_score": 50,
@@ -1295,8 +1523,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T01:27:22.153Z",
-      "updated_at": "2026-09-09T02:28:50.254Z",
+      "published_at": "2026-09-09T02:28:50.254Z",
+      "updated_at": "2026-09-09T03:23:10.505Z",
       "href": "/en/compare/what-google-just-changed-in-ai-plans",
       "readiness": {
         "ready": true,
@@ -1522,8 +1750,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T01:27:22.153Z",
-      "updated_at": "2026-09-09T02:28:50.254Z",
+      "published_at": "2026-09-09T02:28:50.254Z",
+      "updated_at": "2026-09-09T03:23:10.505Z",
       "href": "/vi/so-sanh/google-vua-doi-gi-trong-cac-goi-ai",
       "readiness": {
         "ready": true,
@@ -1630,11 +1858,11 @@
         }
       ],
       "image": {
-        "src": "https://cdn-uploads.huggingface.co/production/uploads/680a58121b2c7c159d2bd481/hJldzOsDg5kYWJC_vyj09.png",
+        "src": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
         "alt": "Gói AI nào đang tăng giá trị thực?",
-        "caption": "Reference image from Hugging Face Blog.",
-        "credit": "Hugging Face Blog",
-        "source_url": "https://huggingface.co/blog/Photoroom/prx-part4-data"
+        "caption": "Reference image from GitHub Blog.",
+        "credit": "GitHub Blog",
+        "source_url": "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/"
       },
       "verification_state": "verified",
       "quality_score": 96,
@@ -1749,8 +1977,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-09T01:27:22.153Z",
-      "updated_at": "2026-09-09T02:28:50.254Z",
+      "published_at": "2026-09-09T02:28:50.254Z",
+      "updated_at": "2026-09-09T03:23:10.505Z",
       "href": "/vi/so-sanh/goi-ai-nao-dang-dang-tien-hon-luc-nay",
       "readiness": {
         "ready": true,
@@ -1799,235 +2027,7 @@
         "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
         "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
       ],
-      "image_url": "https://cdn-uploads.huggingface.co/production/uploads/680a58121b2c7c159d2bd481/hJldzOsDg5kYWJC_vyj09.png",
-      "draft_context": {
-        "historical_context": true,
-        "historical_context_sources": [
-          "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-          "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
-          "https://huggingface.co/blog/torch-attention-profile",
-          "https://huggingface.co/blog/Photoroom/prx-part4-data",
-          "https://huggingface.co/blog/revamped-kernels",
-          "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
-          "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
-          "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
-        ]
-      }
-    },
-    {
-      "id": "editorial-ai-workflow-playbook-vi",
-      "cluster_id": "editorial-ai-workflow-playbook",
-      "language": "vi",
-      "topic": "apps-software",
-      "topic_label": "Ứng dụng & Phần mềm",
-      "topic_slug": "ung-dung-phan-mem",
-      "topic_accent": "#17c9ff",
-      "content_type": "EvergreenGuide",
-      "content_type_label": "Hướng dẫn",
-      "path_segment": "huong-dan",
-      "slug": "dung-goi-ai-sao-cho-do-mua-trung-app",
-      "title": "Dùng gói AI sao cho đỡ mua trùng app",
-      "hook": "Sai lầm dễ gặp nhất là thấy mỗi gói có một tính năng hay rồi mua dồn, trong khi phần thông minh hơn là giữ đúng một gói mạnh cho từng loại việc lặp lại mỗi ngày. Điều khiến kiểu bài này đáng lưu lại là nó có thể được dùng ngay sau khi đọc xong, thay vì chỉ làm đẹp thêm một headline.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Không phải team nào cũng cần mua mọi gói AI. Cách tiết kiệm nhất thường là chia rõ việc viết, nghiên cứu, code, họp, lưu trữ và dựng nội dung cho đúng gói thay vì chồng nhiều app có phần quyền lợi giống nhau. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ. Google, Microsoft, OpenAI và Anthropic đang cùng lấn sang nhiều phần việc hơn, nên người đọc càng cần một guide thực chiến để biết giữ gì, bỏ gì và ghép workflow ra sao.",
-      "dek": "Mục tiêu của bài này không phải chọn một gói thắng tuyệt đối, mà là chỉ ra gói nào nên ôm phần việc nào để giá trị cộng dồn lên thay vì chồng chéo. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng.",
-      "sections": [
-        {
-          "heading": "Chia việc trước khi chia ngân sách",
-          "body": "Hãy bắt đầu từ những việc lặp lại thật sự: viết nháp, research, đọc tài liệu dài, họp, xử lý bảng, lưu trữ file, hoặc tạo hình và video. Khi nhìn theo luồng việc, bạn sẽ thấy gói nào đang mạnh ở đâu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này."
-        },
-        {
-          "heading": "Nơi dễ mua trùng nhất",
-          "body": "Phần trùng thường nằm ở research, ghi chú, viết lại nội dung, tạo slide hoặc lưu trữ. Khi Google, ChatGPT, Claude và Copilot đều mở rộng sang cùng khu vực, người dùng rất dễ trả tiền hai lần cho cùng một nhu cầu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ."
-        },
-        {
-          "heading": "Một cách chia việc gọn hơn",
-          "body": "Giữ một gói mạnh cho nơi bạn làm việc nhiều nhất, sau đó chỉ thêm gói thứ hai nếu nó thay được một lớp công cụ phụ rõ ràng. Nếu một gói mới chỉ cho thêm cảm giác “an tâm” mà chưa cắt được bước nào, hãy để nó ở watchlist trước. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành."
-        },
-        {
-          "heading": "Đánh đổi và giới hạn",
-          "body": "Kiểm tra xem team đang dùng tính năng nào hằng tuần, model nào thật sự mở khóa, file có đang nằm trong cùng hệ sinh thái không, và mỗi gói có làm giảm app phụ hay chỉ tăng cảm giác đủ đầy. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng."
-        },
-        {
-          "heading": "Patrick Tech Media kết luận",
-          "body": "Thủ thuật đáng tiền nhất ở giai đoạn này không phải là mẹo prompt mới, mà là cách ghép gói AI để một lớp việc thật sự được ôm trọn. Khi workflow gọn lại, bạn sẽ cảm được giá trị trước cả khi nhìn vào benchmark. Từ 12 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính."
-        }
-      ],
-      "image": {
-        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
-        "alt": "Dùng gói AI sao cho đỡ mua trùng app",
-        "caption": "Reference image from Google Workspace Updates.",
-        "credit": "Google Workspace Updates",
-        "source_url": "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html"
-      },
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "full",
-      "related_store_items": [
-        "ai-workspace-bundle",
-        "creator-software-stack"
-      ],
-      "editorial_focus": [
-        "ai-package",
-        "tips",
-        "guide",
-        "apps-software"
-      ],
-      "source_set": [
-        {
-          "source_type": "official-site",
-          "source_name": "Microsoft 365 Developer Blog",
-          "source_url": "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T10:14:00.000Z",
-          "image_url": "https://devblogs.microsoft.com/microsoft365dev/wp-content/uploads/sites/73/2026/09/spfx-dev-skills-blog-post.webp",
-          "image_caption": "Reference image from Microsoft 365 Developer Blog.",
-          "image_credit": "Microsoft 365 Developer Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Google Workspace Updates",
-          "source_url": "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-09T17:09:34.009Z",
-          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
-          "image_caption": "Reference image from Google Workspace Updates.",
-          "image_credit": "Google Workspace Updates"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Hugging Face Blog",
-          "source_url": "https://huggingface.co/blog/torch-attention-profile",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-10T00:00:00.000Z",
-          "image_url": "https://huggingface.co/blog/assets/torch-attention-profile/thumbnail.png",
-          "image_caption": "Reference image from Hugging Face Blog.",
-          "image_credit": "Hugging Face Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Hugging Face Blog",
-          "source_url": "https://huggingface.co/blog/Photoroom/prx-part4-data",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-06T15:30:55.000Z",
-          "image_url": "https://cdn-uploads.huggingface.co/production/uploads/680a58121b2c7c159d2bd481/hJldzOsDg5kYWJC_vyj09.png",
-          "image_caption": "Reference image from Hugging Face Blog.",
-          "image_credit": "Hugging Face Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Hugging Face Blog",
-          "source_url": "https://huggingface.co/blog/revamped-kernels",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-06T00:00:00.000Z",
-          "image_url": "https://huggingface.co/blog/assets/revamped-kernels/thumbnail.png",
-          "image_caption": "Reference image from Hugging Face Blog.",
-          "image_credit": "Hugging Face Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "GitHub Blog",
-          "source_url": "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-09T16:29:37.000Z",
-          "image_url": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
-          "image_caption": "Reference image from GitHub Blog.",
-          "image_credit": "GitHub Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "AWS ML Blog",
-          "source_url": "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-07-09T16:38:11.000Z",
-          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/07/09/ML-21090.png",
-          "image_caption": "Reference image from AWS ML Blog.",
-          "image_credit": "AWS ML Blog"
-        },
-        {
-          "source_type": "official-site",
-          "source_name": "Microsoft Security",
-          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "official",
-          "published_at": "2026-09-02T22:51:18.000Z",
-          "image_url": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg",
-          "image_caption": "Reference image from Microsoft Security.",
-          "image_credit": "Microsoft Security"
-        }
-      ],
-      "author_id": "mai-linh",
-      "published_at": "2026-09-09T01:27:22.153Z",
-      "updated_at": "2026-09-09T02:28:50.254Z",
-      "href": "/vi/huong-dan/dung-goi-ai-sao-cho-do-mua-trung-app",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/huong-dan/dung-goi-ai-sao-cho-do-mua-trung-app",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "title_vi": "Dùng gói AI sao cho đỡ mua trùng app",
-      "title_en": "How to use AI plans without stacking duplicate apps",
-      "dek_vi": "Mục tiêu của bài này không phải chọn một gói thắng tuyệt đối, mà là chỉ ra gói nào nên ôm phần việc nào để giá trị cộng dồn lên thay vì chồng chéo. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng.",
-      "dek_en": "The goal here is not to crown one plan as the winner, but to show which plan should carry which type of work so value adds up instead of overlapping. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying.",
-      "body_vi": "Chia việc trước khi chia ngân sách\nHãy bắt đầu từ những việc lặp lại thật sự: viết nháp, research, đọc tài liệu dài, họp, xử lý bảng, lưu trữ file, hoặc tạo hình và video. Khi nhìn theo luồng việc, bạn sẽ thấy gói nào đang mạnh ở đâu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog là lớp nguồn chính giữ phần dữ kiện cốt lõi của bài này.\n\nNơi dễ mua trùng nhất\nPhần trùng thường nằm ở research, ghi chú, viết lại nội dung, tạo slide hoặc lưu trữ. Khi Google, ChatGPT, Claude và Copilot đều mở rộng sang cùng khu vực, người dùng rất dễ trả tiền hai lần cho cùng một nhu cầu. Microsoft 365 Developer Blog, Google Workspace Updates và Hugging Face Blog đang khớp nhau ở phần cốt lõi, nên câu chuyện này có nền chắc hơn một headline đơn lẻ.\n\nMột cách chia việc gọn hơn\nGiữ một gói mạnh cho nơi bạn làm việc nhiều nhất, sau đó chỉ thêm gói thứ hai nếu nó thay được một lớp công cụ phụ rõ ràng. Nếu một gói mới chỉ cho thêm cảm giác “an tâm” mà chưa cắt được bước nào, hãy để nó ở watchlist trước. Ngay cả khi phần lõi đã rõ, thứ đáng đọc tiếp vẫn là tốc độ rollout, tác động thật và chi phí chuyển đổi cho người dùng hoặc đội vận hành.\n\nĐánh đổi và giới hạn\nKiểm tra xem team đang dùng tính năng nào hằng tuần, model nào thật sự mở khóa, file có đang nằm trong cùng hệ sinh thái không, và mỗi gói có làm giảm app phụ hay chỉ tăng cảm giác đủ đầy. Giá trị của một bài hướng dẫn không nằm ở việc kể đủ bước, mà ở chỗ giúp người đọc làm nhanh hơn, ít lỗi hơn và hiểu lúc nào nên áp dụng.\n\nPatrick Tech Media kết luận\nThủ thuật đáng tiền nhất ở giai đoạn này không phải là mẹo prompt mới, mà là cách ghép gói AI để một lớp việc thật sự được ôm trọn. Khi workflow gọn lại, bạn sẽ cảm được giá trị trước cả khi nhìn vào benchmark. Từ 12 tín hiệu ban đầu, bài giữ lại 8 nguồn thật sự hữu ích để khóa phần chi tiết chính.",
-      "body_en": "Split the work before you split the budget\nStart with the recurring jobs that actually happen: drafting, research, long-document reading, meetings, spreadsheets, file storage, or image and video creation. Once the workflow is visible, it becomes easier to see which plan is strongest where. AWS ML Blog, NVIDIA Blog and Microsoft Security form the main source layer behind the core facts in this piece.\n\nWhere duplicate buying happens fastest\nDuplication usually shows up around research, notes, rewrites, slide creation, or storage. As Google, ChatGPT, Claude, and Copilot expand into the same zones, readers can easily pay twice for one need. AWS ML Blog, NVIDIA Blog and Microsoft Security align on the core of the story, giving it firmer ground than a single headline on its own.\n\nA cleaner way to split the workflow\nKeep one strong plan for the place where most of the work already happens, and only add a second plan if it clearly replaces a layer of side tooling. If a new plan mostly adds reassurance without removing a step, keep it on the watch list first. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams.\n\nThe checklist before you renew a plan\nCheck which features the team actually uses each week, which model tier is really unlocked, whether files already live in the same ecosystem, and whether each plan reduces side apps or only increases the sense of completeness. The value of a guide is not just listing steps but helping readers move faster, make fewer mistakes, and know when it is worth applying.\n\nPatrick Tech Media takeaway\nThe most valuable trick right now is not a new prompt formula, but a cleaner way to combine AI plans so one layer of real work is fully covered. Once the workflow tightens up, readers feel the value before they ever look at a benchmark. From 12 early signals, the piece keeps 8 references that are useful for locking the main details in place.",
-      "slug_vi": "how-to-use-ai-plans-without-duplicate-app-spend",
-      "slug_en": "how-to-use-ai-plans-without-duplicate-app-spend",
-      "category": "software",
-      "geo_scope": "vn",
-      "hot_score": 50,
-      "source_urls": [
-        "https://devblogs.microsoft.com/microsoft365dev/behind-spfx-dev-skills-testing-what-agents-know-and-fixing-what-they-miss/",
-        "http://workspaceupdates.googleblog.com/2026/07/streamline-identity-lifecycle-management-in-Google-Workspace-with-new-inbound-SCIM-support.html",
-        "https://huggingface.co/blog/torch-attention-profile",
-        "https://huggingface.co/blog/Photoroom/prx-part4-data",
-        "https://huggingface.co/blog/revamped-kernels",
-        "https://github.blog/security/application-security/how-github-gave-every-repository-a-durable-owner/",
-        "https://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/",
-        "https://www.microsoft.com/en-us/security/blog/2026/09/02/impersonating-it-support-threat-actors-turn-remote-session-into-enterprise-wide-access/"
-      ],
-      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRZjai4_pLmCws0nWKBWlLywUvyRalsT4yyEV6_GSYqwkR5jrbfa8rpLBHLbr4re21HMpT7_XfwG6eChYUajgjut0j8H8Xl07KZt9uwfaPKBSgInml5Tnn578THOdx2Lc5NCMGfpMYV3GMNRAzOv5i8XFZiIxIikAN1Vi7kAHbxfXfMyyvVH7P7bQzRJU/w1200-h630-p-k-no-nu/Streamline%20identity%20lifecycle%20management%20in%20Google%20Workspace%20with%20new%20inbound%20SCIM%20support%20-%205487%20-%201.png",
+      "image_url": "https://github.blog/wp-content/uploads/2026/07/CleanShot-2026-07-09-at-12.21.43@2x.png?resize=683%2C1024",
       "draft_context": {
         "historical_context": true,
         "historical_context_sources": [
@@ -2176,32 +2176,32 @@
       "path_segment": "tin-tuc",
       "slug": "viet-nam-e-nghi-nga-ho-tro-xay-dung-chien-luoc-luong-tu",
       "title": "Việt Nam đề nghị Nga hỗ trợ xây dựng chiến lược công nghệ lượng tử",
-      "hook": "Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân nhấn mạnh tầm quan trọng của việc hợp tác với Nga trong các lĩnh vực công nghệ chiến lược nhằm tạo ra những bước tiến mới.",
+      "hook": "Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân nhấn mạnh tầm quan trọng của việc hợp tác với Nga trong các lĩnh vực công nghệ chiến lược nhằm tạo ra những bước tiến mới trong tương lai.",
       "author_name": "",
       "author_role_vi": "",
       "author_role_en": "",
-      "summary": "Trong khuôn khổ hợp tác khoa học công nghệ, Việt Nam xác định Nga là đối tác tin cậy nhất để hỗ trợ xây dựng chiến lược phát triển lượng tử và thiết lập các trung tâm nghiên cứu chung.",
-      "dek": "Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân nhấn mạnh tầm quan trọng của việc hợp tác với Nga trong các lĩnh vực công nghệ chiến lược nhằm tạo ra những bước tiến mới.",
+      "summary": "Trong khuôn khổ hợp tác khoa học và công nghệ, Việt Nam xác định Nga là đối tác tin cậy nhất để hỗ trợ xây dựng chiến lược phát triển công nghệ lượng tử và hình thành các trung tâm nghiên cứu chung.",
+      "dek": "Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân nhấn mạnh tầm quan trọng của việc hợp tác với Nga trong các lĩnh vực công nghệ chiến lược nhằm tạo ra những bước tiến mới trong tương lai.",
       "sections": [
         {
           "heading": "Điều gì đã xảy ra",
-          "body": "Cuộc làm việc giữa Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân và Bộ trưởng Khoa học và Giáo dục Đại học Nga Valery Falkov diễn ra vào ngày 8/9, ngay trước thềm Diễn đàn Khoa học và Công nghệ Việt - Nga. Tại đây, Nga được khẳng định là đối tác tin cậy nhất của Việt Nam trong lĩnh vực khoa học và công nghệ, đặt nền móng cho các thỏa thuận mang tính chiến lược cao hơn."
+          "body": "Cuộc làm việc giữa Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân và Bộ trưởng Khoa học và Giáo dục Đại học Nga Valery Falkov diễn ra vào ngày 8/9, ngay trước thềm Diễn đàn Khoa học và Công nghệ Việt - Nga. Tại đây, Nga được khẳng định là đối tác tin cậy nhất của Việt Nam trong lĩnh vực khoa học và công nghệ, đặt nền móng cho các đề xuất hợp tác sâu rộng hơn."
         },
         {
           "heading": "Thay đổi kỹ thuật và đề xuất chiến lược",
-          "body": "Nội dung trọng tâm của cuộc gặp là đề nghị phía Nga hỗ trợ Việt Nam xây dựng chiến lược phát triển công nghệ lượng tử. Đây là một lĩnh vực đòi hỏi trình độ kỹ thuật cực cao và hạ tầng chuyên biệt. Việc hợp tác này hướng tới việc chuyển giao tri thức và phương pháp luận trong việc định hình khung pháp lý và kỹ thuật cho ngành công nghệ mới tại Việt Nam."
+          "body": "Việt Nam đã chính thức đề nghị phía Nga hỗ trợ xây dựng chiến lược phát triển công nghệ lượng tử. Đây là một lĩnh vực công nghệ cao đòi hỏi sự đầu tư bài bản về lý thuyết và hạ tầng kỹ thuật. Bên cạnh đó, hai bên cũng thảo luận về việc hình thành trung tâm nghiên cứu chung dành riêng cho các công nghệ mang tính chiến lược."
         },
         {
           "heading": "Dữ kiện hiện có",
-          "body": "Bên cạnh việc xây dựng chiến lược, Việt Nam mong muốn hình thành các trung tâm nghiên cứu chung về các công nghệ chiến lược. Điều này sẽ tạo ra môi trường làm việc trực tiếp giữa các chuyên gia hai nước, giúp rút ngắn khoảng cách về năng lực nghiên cứu và ứng dụng thực tiễn các công nghệ cao vào đời sống và sản xuất."
+          "body": "Việc hợp tác với một cường quốc có nền tảng khoa học lâu đời như Nga sẽ giúp Việt Nam rút ngắn khoảng cách trong việc tiếp cận các công nghệ mới. Việc hình thành trung tâm nghiên cứu chung không chỉ giúp đào tạo nguồn nhân lực chất lượng cao mà còn tạo ra môi trường thực nghiệm cho các ứng dụng công nghệ lượng tử trong tương lai."
         },
         {
-          "heading": "Giới hạn và rủi ro cần lưu ý",
-          "body": "Dù Nga là đối tác tin cậy, việc xây dựng một chiến lược lượng tử toàn diện vẫn đối mặt với thách thức về nguồn nhân lực trình độ cao và sự tương thích trong hạ tầng kỹ thuật giữa hai quốc gia. Việc triển khai các trung tâm nghiên cứu chung đòi hỏi sự cam kết lâu dài về tài chính và cơ chế phối hợp chặt chẽ để vượt qua các rào cản về quy trình quản lý."
+          "heading": "Giới hạn và rủi ro tiềm ẩn",
+          "body": "Dù Nga là đối tác tin cậy, việc triển khai các công nghệ chiến lược như lượng tử vẫn đối mặt với thách thức về nguồn lực tài chính và sự tương thích trong quy trình nghiên cứu giữa hai quốc gia. Việc xây dựng một chiến lược quốc gia đòi hỏi sự phối hợp chặt chẽ và lộ trình dài hạn để đảm bảo tính khả thi."
         },
         {
           "heading": "Điều chưa rõ",
-          "body": "Cần quan sát các động thái cụ thể sau Diễn đàn Khoa học và Công nghệ Việt - Nga để xác định lộ trình chi tiết của chiến lược lượng tử. Các bước tiến mới trong việc ký kết biên bản ghi nhớ hoặc khởi công các dự án trung tâm nghiên cứu chung sẽ là minh chứng cho sự hiện thực hóa các đề nghị mà Bộ trưởng Vũ Hải Quân đã nêu ra."
+          "body": "Dư luận và giới chuyên môn cần chú ý đến các kết quả cụ thể sau Diễn đàn Khoa học và Công nghệ Việt - Nga. Các bước đi tiếp theo trong việc hiện thực hóa trung tâm nghiên cứu chung và các văn bản ký kết về chiến lược lượng tử sẽ là thước đo cho sự thành công của mối quan hệ hợp tác này."
         }
       ],
       "image": {
@@ -2239,9 +2239,9 @@
       "href": "/vi/tin-tuc/viet-nam-e-nghi-nga-ho-tro-xay-dung-chien-luoc-luong-tu",
       "title_vi": "Việt Nam đề nghị Nga hỗ trợ xây dựng chiến lược công nghệ lượng tử",
       "title_en": "",
-      "dek_vi": "Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân nhấn mạnh tầm quan trọng của việc hợp tác với Nga trong các lĩnh vực công nghệ chiến lược nhằm tạo ra những bước tiến mới.",
+      "dek_vi": "Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân nhấn mạnh tầm quan trọng của việc hợp tác với Nga trong các lĩnh vực công nghệ chiến lược nhằm tạo ra những bước tiến mới trong tương lai.",
       "dek_en": "",
-      "body_vi": "Điều gì đã xảy ra\nCuộc làm việc giữa Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân và Bộ trưởng Khoa học và Giáo dục Đại học Nga Valery Falkov diễn ra vào ngày 8/9, ngay trước thềm Diễn đàn Khoa học và Công nghệ Việt - Nga. Tại đây, Nga được khẳng định là đối tác tin cậy nhất của Việt Nam trong lĩnh vực khoa học và công nghệ, đặt nền móng cho các thỏa thuận mang tính chiến lược cao hơn.\n\nThay đổi kỹ thuật và đề xuất chiến lược\nNội dung trọng tâm của cuộc gặp là đề nghị phía Nga hỗ trợ Việt Nam xây dựng chiến lược phát triển công nghệ lượng tử. Đây là một lĩnh vực đòi hỏi trình độ kỹ thuật cực cao và hạ tầng chuyên biệt. Việc hợp tác này hướng tới việc chuyển giao tri thức và phương pháp luận trong việc định hình khung pháp lý và kỹ thuật cho ngành công nghệ mới tại Việt Nam.\n\nDữ kiện hiện có\nBên cạnh việc xây dựng chiến lược, Việt Nam mong muốn hình thành các trung tâm nghiên cứu chung về các công nghệ chiến lược. Điều này sẽ tạo ra môi trường làm việc trực tiếp giữa các chuyên gia hai nước, giúp rút ngắn khoảng cách về năng lực nghiên cứu và ứng dụng thực tiễn các công nghệ cao vào đời sống và sản xuất.\n\nGiới hạn và rủi ro cần lưu ý\nDù Nga là đối tác tin cậy, việc xây dựng một chiến lược lượng tử toàn diện vẫn đối mặt với thách thức về nguồn nhân lực trình độ cao và sự tương thích trong hạ tầng kỹ thuật giữa hai quốc gia. Việc triển khai các trung tâm nghiên cứu chung đòi hỏi sự cam kết lâu dài về tài chính và cơ chế phối hợp chặt chẽ để vượt qua các rào cản về quy trình quản lý.\n\nĐiều chưa rõ\nCần quan sát các động thái cụ thể sau Diễn đàn Khoa học và Công nghệ Việt - Nga để xác định lộ trình chi tiết của chiến lược lượng tử. Các bước tiến mới trong việc ký kết biên bản ghi nhớ hoặc khởi công các dự án trung tâm nghiên cứu chung sẽ là minh chứng cho sự hiện thực hóa các đề nghị mà Bộ trưởng Vũ Hải Quân đã nêu ra.",
+      "body_vi": "Điều gì đã xảy ra\nCuộc làm việc giữa Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân và Bộ trưởng Khoa học và Giáo dục Đại học Nga Valery Falkov diễn ra vào ngày 8/9, ngay trước thềm Diễn đàn Khoa học và Công nghệ Việt - Nga. Tại đây, Nga được khẳng định là đối tác tin cậy nhất của Việt Nam trong lĩnh vực khoa học và công nghệ, đặt nền móng cho các đề xuất hợp tác sâu rộng hơn.\n\nThay đổi kỹ thuật và đề xuất chiến lược\nViệt Nam đã chính thức đề nghị phía Nga hỗ trợ xây dựng chiến lược phát triển công nghệ lượng tử. Đây là một lĩnh vực công nghệ cao đòi hỏi sự đầu tư bài bản về lý thuyết và hạ tầng kỹ thuật. Bên cạnh đó, hai bên cũng thảo luận về việc hình thành trung tâm nghiên cứu chung dành riêng cho các công nghệ mang tính chiến lược.\n\nDữ kiện hiện có\nViệc hợp tác với một cường quốc có nền tảng khoa học lâu đời như Nga sẽ giúp Việt Nam rút ngắn khoảng cách trong việc tiếp cận các công nghệ mới. Việc hình thành trung tâm nghiên cứu chung không chỉ giúp đào tạo nguồn nhân lực chất lượng cao mà còn tạo ra môi trường thực nghiệm cho các ứng dụng công nghệ lượng tử trong tương lai.\n\nGiới hạn và rủi ro tiềm ẩn\nDù Nga là đối tác tin cậy, việc triển khai các công nghệ chiến lược như lượng tử vẫn đối mặt với thách thức về nguồn lực tài chính và sự tương thích trong quy trình nghiên cứu giữa hai quốc gia. Việc xây dựng một chiến lược quốc gia đòi hỏi sự phối hợp chặt chẽ và lộ trình dài hạn để đảm bảo tính khả thi.\n\nĐiều chưa rõ\nDư luận và giới chuyên môn cần chú ý đến các kết quả cụ thể sau Diễn đàn Khoa học và Công nghệ Việt - Nga. Các bước đi tiếp theo trong việc hiện thực hóa trung tâm nghiên cứu chung và các văn bản ký kết về chiến lược lượng tử sẽ là thước đo cho sự thành công của mối quan hệ hợp tác này.",
       "body_en": "",
       "slug_vi": "viet-nam-e-nghi-nga-ho-tro-xay-dung-chien-luoc-luong-tu",
       "slug_en": "viet-nam-e-nghi-nga-ho-tro-xay-dung-chien-luoc-luong-tu",
@@ -2284,7 +2284,27 @@
         "generated_at": "2026-09-09T02:28:50.185Z",
         "origin": "local-curated-rss"
       },
-      "topic": "internet-business-tech"
+      "topic": "internet-business-tech",
+      "draft_context": {
+        "source_title": "Việt Nam đề nghị Nga hỗ trợ xây dựng chiến lược lượng tử",
+        "source_name": "VnExpress So Hoa",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "Nga- Bộ trưởng Vũ Hải Quân đề nghị Nga hỗ trợ xây dựng chiến lược phát triển công nghệ lượng tử, đồng thời hình thành trung tâm nghiên cứu chung về các công nghệ chiến lược.",
+        "paragraphs": [
+          "Tại cuộc làm việc với Bộ trưởng Khoa học và Giáo dục Đại học Nga Valery Falkov ngày 8/9, trước thềm Diễn đàn Khoa học và Công nghệ Việt - Nga, Bộ trưởng Khoa học và Công nghệ Vũ Hải Quân nhấn mạnh Nga là \"đối tác tin cậy nhất\" của Việt Nam về khoa học và công nghệ. Ông cho biết mong muốn hợp tác khoa học và công nghệ hai nước sẽ có những bước tiến mới trong thời gian tới.",
+          "Đề xuất đầu tiên được Bộ trưởng Vũ Hải Quân đưa ra là Nga có thể hỗ trợ Việt Nam xây dựng chiến lược phát triển công nghệ lượng tử. \"Từ chiến lược khung, hai bên sẽ phát triển các dự án hợp tác cụ thể, bao gồm cả đào tạo nhân lực\", ông nói.",
+          "Bộ trưởng Vũ Hải Quân cùng đoàn công tác Bộ Khoa học và Công nghệ, lãnh đạo một số đại học trong buổi làm việc với Bộ trưởng Khoa học và Giáo dục Đại học Nga, ngày 8/9. Ảnh: Lưu Quý",
+          "Một đề xuất khác là hình thành trung tâm nghiên cứu chung giữa hai nước, tập trung vào các công nghệ chiến lược như lượng tử, công nghệ hạt nhân hoặc trí tuệ nhân tạo. Trung tâm sẽ kết nối trực tiếp với doanh nghiệp và là đầu mối phối hợp đào tạo tiến sĩ.",
+          "Trước sự có mặt của lãnh đạo hai đại học lớn tại Việt Nam là Đại học Bách khoa Hà Nội và Đại học Quốc gia TP HCM, ông cho rằng hợp tác này không nhất thiết phải đầu tư xây dựng cơ sở mới hoàn toàn, mà có thể tận dụng cơ sở vật chất hiện có, đặt trung tâm tại đại học ở Việt Nam.",
+          "\"Nếu Bộ Khoa học và Giáo dục Đại học Nga cùng Bộ Khoa học và Công nghệ, Bộ Giáo dục và Đào tạo Việt Nam cùng ủng hộ mô hình này, hiệu quả hợp tác sẽ được nâng lên\", ông nói."
+        ],
+        "source_depth_score": 94,
+        "source_depth_reason": "depth=94; paragraphs=6; words=378",
+        "link": "https://vnexpress.net/viet-nam-de-nghi-nga-ho-tro-xay-dung-chien-luoc-luong-tu-5118134.html"
+      }
     },
     {
       "id": "feed-10200cecc0eb-en",
@@ -2671,33 +2691,33 @@
       "content_type_label": "Tin nhanh",
       "path_segment": "tin-tuc",
       "slug": "ai-thach-thuc-vai-tro-giam-oc-ieu-hanh",
-      "title": "AI thách thức vai trò giám đốc điều hành với dự án OpenExecutive",
-      "hook": "Liệu một thuật toán có thể đưa ra những quyết định chiến lược thay thế cho các giám đốc điều hành dày dạn kinh nghiệm?",
+      "title": "AI thách thức vai trò giám đốc điều hành",
+      "hook": "Liệu một thuật toán có thể điều hành doanh nghiệp hiệu quả hơn con người? Dự án OpenExecutive đang đi tìm câu trả lời cho câu hỏi hóc búa này.",
       "author_name": "",
       "author_role_vi": "",
       "author_role_en": "",
-      "summary": "Dự án mã nguồn mở OpenExecutive từ Sente Labs đang mở ra tiềm năng tự động hóa các vai trò lãnh đạo cấp cao thông qua hệ thống AI đa tác nhân.",
-      "dek": "Sự xuất hiện của ban điều hành AI có khả năng hỗ trợ và thay thế một phần công việc của CEO đang tạo nên bước ngoặt mới trong quản trị doanh nghiệp.",
+      "summary": "Dự án mã nguồn mở OpenExecutive do Sente Labs phát triển đang mở ra khả năng tự động hóa các vai trò lãnh đạo cấp cao thông qua hệ thống AI đa tác nhân.",
+      "dek": "Từ các kỹ sư phần mềm tại Sente Labs, OpenExecutive xuất hiện như một ban điều hành AI có khả năng hỗ trợ và thay thế một phần công việc của CEO.",
       "sections": [
         {
           "heading": "Điều gì đã xảy ra",
-          "body": "Theo tin từ Gadget Now vào ngày 7/9, nhóm kỹ sư phần mềm tại công ty Sente Labs đã chính thức phát triển dự án mã nguồn mở mang tên OpenExecutive. Đây là nỗ lực nhằm khám phá khả năng của trí tuệ nhân tạo trong việc đảm nhận các trọng trách quản lý vốn trước đây chỉ dành cho con người."
+          "body": "Theo tin từ Gadget Now ngày 7/9, nhóm kỹ sư phần mềm tại công ty Sente Labs đã khởi xướng dự án mã nguồn mở mang tên OpenExecutive. Đây là nỗ lực nhằm khám phá tiềm năng của trí tuệ nhân tạo trong việc đảm nhận các trọng trách quản lý vốn trước nay chỉ dành cho con người."
         },
         {
           "heading": "Thay đổi kỹ thuật: Hệ thống đa tác nhân",
-          "body": "OpenExecutive không chỉ là một công cụ đơn lẻ mà là một hệ thống AI đa tác nhân. Cấu trúc này cho phép tạo ra một 'ban điều hành AI' có khả năng phối hợp để xử lý các luồng công việc phức tạp, mô phỏng lại cách thức vận hành của các cấp lãnh đạo cao nhất trong một doanh nghiệp."
+          "body": "OpenExecutive không chỉ là một chatbot đơn lẻ mà được xây dựng như một hệ thống AI đa tác nhân. Cấu trúc này cho phép tạo ra một 'ban điều hành AI' có khả năng phối hợp để xử lý các luồng công việc phức tạp trong quản trị doanh nghiệp."
         },
         {
           "heading": "Dữ kiện hiện có",
-          "body": "Hệ thống này có khả năng tự động hóa và hỗ trợ hiệu quả các công việc quản lý cho các CEO hoặc giám đốc doanh nghiệp. Việc ứng dụng AI vào vai trò lãnh đạo giúp tối ưu hóa quy trình ra quyết định và giảm bớt khối lượng công việc điều hành thủ công cho nhân sự cấp cao."
+          "body": "Hệ thống này có khả năng tự động hóa và hỗ trợ hiệu quả các công việc quản lý cho các CEO hoặc giám đốc doanh nghiệp. Nó giúp tối ưu hóa quy trình ra quyết định và giảm bớt gánh nặng điều hành trực tiếp cho lãnh đạo cấp cao."
         },
         {
           "heading": "Giới hạn và rủi ro tiềm ẩn",
-          "body": "Dù mang lại tiềm năng lớn, việc để AI đảm nhận vai trò 'giám đốc' vẫn đặt ra những thách thức về tính trách nhiệm và khả năng xử lý các tình huống đòi hỏi sự nhạy bén về cảm xúc hoặc đạo đức kinh doanh mà các mô hình mã nguồn mở hiện nay cần tiếp tục hoàn thiện."
+          "body": "Dù mang lại tiềm năng lớn trong việc hỗ trợ lãnh đạo, việc áp dụng AI vào vai trò CEO vẫn đang trong giai đoạn khám phá. Các thách thức về trách nhiệm pháp lý và khả năng xử lý các tình huống quản trị đòi hỏi sự nhạy bén của con người vẫn là những rào cản cần cân nhắc."
         },
         {
           "heading": "Điều chưa rõ",
-          "body": "Sự phát triển của OpenExecutive sẽ là tiền đề để quan sát xem liệu AI có thể thực sự thay thế hoàn toàn hay chỉ dừng lại ở vai trò trợ lý đắc lực cho ban điều hành. Cộng đồng công nghệ đang chờ đợi những ứng dụng thực tế tiếp theo từ dự án mã nguồn mở này của Sente Labs."
+          "body": "Sự phát triển của dự án mã nguồn mở OpenExecutive sẽ là tâm điểm để cộng đồng công nghệ đánh giá mức độ sẵn sàng của AI trong việc thay thế hoặc song hành cùng con người tại các vị trí chủ chốt trong bộ máy doanh nghiệp."
         }
       ],
       "image": {
@@ -2733,11 +2753,11 @@
       "published_at": "2026-09-08T17:00:00.000Z",
       "updated_at": "2026-09-08T17:00:00.000Z",
       "href": "/vi/tin-tuc/ai-thach-thuc-vai-tro-giam-oc-ieu-hanh",
-      "title_vi": "AI thách thức vai trò giám đốc điều hành với dự án OpenExecutive",
+      "title_vi": "AI thách thức vai trò giám đốc điều hành",
       "title_en": "",
-      "dek_vi": "Sự xuất hiện của ban điều hành AI có khả năng hỗ trợ và thay thế một phần công việc của CEO đang tạo nên bước ngoặt mới trong quản trị doanh nghiệp.",
+      "dek_vi": "Từ các kỹ sư phần mềm tại Sente Labs, OpenExecutive xuất hiện như một ban điều hành AI có khả năng hỗ trợ và thay thế một phần công việc của CEO.",
       "dek_en": "",
-      "body_vi": "Điều gì đã xảy ra\nTheo tin từ Gadget Now vào ngày 7/9, nhóm kỹ sư phần mềm tại công ty Sente Labs đã chính thức phát triển dự án mã nguồn mở mang tên OpenExecutive. Đây là nỗ lực nhằm khám phá khả năng của trí tuệ nhân tạo trong việc đảm nhận các trọng trách quản lý vốn trước đây chỉ dành cho con người.\n\nThay đổi kỹ thuật: Hệ thống đa tác nhân\nOpenExecutive không chỉ là một công cụ đơn lẻ mà là một hệ thống AI đa tác nhân. Cấu trúc này cho phép tạo ra một 'ban điều hành AI' có khả năng phối hợp để xử lý các luồng công việc phức tạp, mô phỏng lại cách thức vận hành của các cấp lãnh đạo cao nhất trong một doanh nghiệp.\n\nDữ kiện hiện có\nHệ thống này có khả năng tự động hóa và hỗ trợ hiệu quả các công việc quản lý cho các CEO hoặc giám đốc doanh nghiệp. Việc ứng dụng AI vào vai trò lãnh đạo giúp tối ưu hóa quy trình ra quyết định và giảm bớt khối lượng công việc điều hành thủ công cho nhân sự cấp cao.\n\nGiới hạn và rủi ro tiềm ẩn\nDù mang lại tiềm năng lớn, việc để AI đảm nhận vai trò 'giám đốc' vẫn đặt ra những thách thức về tính trách nhiệm và khả năng xử lý các tình huống đòi hỏi sự nhạy bén về cảm xúc hoặc đạo đức kinh doanh mà các mô hình mã nguồn mở hiện nay cần tiếp tục hoàn thiện.\n\nĐiều chưa rõ\nSự phát triển của OpenExecutive sẽ là tiền đề để quan sát xem liệu AI có thể thực sự thay thế hoàn toàn hay chỉ dừng lại ở vai trò trợ lý đắc lực cho ban điều hành. Cộng đồng công nghệ đang chờ đợi những ứng dụng thực tế tiếp theo từ dự án mã nguồn mở này của Sente Labs.",
+      "body_vi": "Điều gì đã xảy ra\nTheo tin từ Gadget Now ngày 7/9, nhóm kỹ sư phần mềm tại công ty Sente Labs đã khởi xướng dự án mã nguồn mở mang tên OpenExecutive. Đây là nỗ lực nhằm khám phá tiềm năng của trí tuệ nhân tạo trong việc đảm nhận các trọng trách quản lý vốn trước nay chỉ dành cho con người.\n\nThay đổi kỹ thuật: Hệ thống đa tác nhân\nOpenExecutive không chỉ là một chatbot đơn lẻ mà được xây dựng như một hệ thống AI đa tác nhân. Cấu trúc này cho phép tạo ra một 'ban điều hành AI' có khả năng phối hợp để xử lý các luồng công việc phức tạp trong quản trị doanh nghiệp.\n\nDữ kiện hiện có\nHệ thống này có khả năng tự động hóa và hỗ trợ hiệu quả các công việc quản lý cho các CEO hoặc giám đốc doanh nghiệp. Nó giúp tối ưu hóa quy trình ra quyết định và giảm bớt gánh nặng điều hành trực tiếp cho lãnh đạo cấp cao.\n\nGiới hạn và rủi ro tiềm ẩn\nDù mang lại tiềm năng lớn trong việc hỗ trợ lãnh đạo, việc áp dụng AI vào vai trò CEO vẫn đang trong giai đoạn khám phá. Các thách thức về trách nhiệm pháp lý và khả năng xử lý các tình huống quản trị đòi hỏi sự nhạy bén của con người vẫn là những rào cản cần cân nhắc.\n\nĐiều chưa rõ\nSự phát triển của dự án mã nguồn mở OpenExecutive sẽ là tâm điểm để cộng đồng công nghệ đánh giá mức độ sẵn sàng của AI trong việc thay thế hoặc song hành cùng con người tại các vị trí chủ chốt trong bộ máy doanh nghiệp.",
       "body_en": "",
       "slug_vi": "ai-thach-thuc-vai-tro-giam-oc-ieu-hanh",
       "slug_en": "ai-thach-thuc-vai-tro-giam-oc-ieu-hanh",
@@ -2777,7 +2797,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T02:28:50.185Z",
+        "generated_at": "2026-09-09T03:23:10.437Z",
         "origin": "local-curated-rss"
       },
       "topic": "internet-business-tech",
@@ -3041,7 +3061,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T02:28:50.185Z",
+        "generated_at": "2026-09-09T03:23:10.438Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -3409,7 +3429,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T02:28:50.185Z",
+        "generated_at": "2026-09-09T03:23:10.438Z",
         "origin": "local-curated-rss"
       },
       "topic": "apps-software"
@@ -3531,7 +3551,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T02:28:50.185Z",
+        "generated_at": "2026-09-09T03:23:10.438Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -3775,7 +3795,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T02:28:50.185Z",
+        "generated_at": "2026-09-09T03:23:10.438Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -4019,7 +4039,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T02:28:50.185Z",
+        "generated_at": "2026-09-09T03:23:10.438Z",
         "origin": "local-curated-rss"
       },
       "topic": "internet-business-tech"
@@ -11786,7 +11806,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-09T02:28:50.185Z",
+        "generated_at": "2026-09-09T03:23:10.438Z",
         "origin": "local-curated-rss"
       }
     },
