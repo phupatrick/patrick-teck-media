@@ -136,16 +136,11 @@ function initCosmosTheme() {
   if (!leftDoor || !rightDoor) return;
   let isClosing = false;
   let navigationTimer = null;
-  let recoveryTimer = null;
   const openDoors = (animate = false) => {
     isClosing = false;
     if (navigationTimer) {
       window.clearTimeout(navigationTimer);
       navigationTimer = null;
-    }
-    if (recoveryTimer) {
-      window.clearTimeout(recoveryTimer);
-      recoveryTimer = null;
     }
     leftDoor.classList.remove("is-closing"); rightDoor.classList.remove("is-closing");
     if (animate) {
@@ -166,19 +161,20 @@ function initCosmosTheme() {
       leftDoor.style.transition = rightDoor.style.transition = "transform .72s cubic-bezier(.65,0,.35,1)";
       leftDoor.style.transform = "translate3d(0, 0, 0)"; rightDoor.style.transform = "translate3d(0, 0, 0)";
       navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 690);
-      recoveryTimer = window.setTimeout(openDoors, 1500);
     });
   });
-  window.addEventListener("pageshow", openDoors, { passive: true });
+  const revealWhenLoaded = () => openDoors(true);
+  if (document.readyState === "complete") revealWhenLoaded();
+  else window.addEventListener("load", revealWhenLoaded, { once: true, passive: true });
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) revealWhenLoaded();
+  }, { passive: true });
   window.addEventListener("pagehide", () => {
     if (navigationTimer) window.clearTimeout(navigationTimer);
-    if (recoveryTimer) window.clearTimeout(recoveryTimer);
   }, { passive: true });
-  // Never leave the page behind a closed door if pageshow is delayed or restored from bfcache.
+  // Start each document closed; the load/pageshow handler reveals it after real readiness.
   leftDoor.style.transition = rightDoor.style.transition = "none";
   leftDoor.style.transform = rightDoor.style.transform = "translate3d(0, 0, 0)";
-  requestAnimationFrame(() => openDoors(true));
-  window.setTimeout(openDoors, 1200);
 }
 
 function initApprovedEditorialMotion() {

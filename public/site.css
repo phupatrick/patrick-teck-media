@@ -1856,9 +1856,9 @@ body.newsroom-page .door-panel { position: relative; display: block; width: calc
 body.newsroom-page .door-panel::before { content: ""; position: absolute; inset: 5%; background: repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 1px, transparent 1px 46px), linear-gradient(145deg, transparent 0 31%, rgba(117,210,255,.18) 32% 33%, transparent 34% 62%, rgba(255,160,68,.14) 63% 64%, transparent 65%); border: 2px solid rgba(155,211,235,.58); box-shadow: inset 0 0 0 5px rgba(4,12,20,.8), inset 0 0 0 8px rgba(118,170,194,.45), inset 14px 0 20px rgba(255,255,255,.08), inset -16px 0 22px rgba(0,0,0,.55); }
 body.newsroom-page .door-panel::after { content: ""; position: absolute; inset: 10% 7%; border: 1px solid rgba(161,222,249,.44); background: radial-gradient(circle at 50% 50%, rgba(80,203,255,.25), transparent 23%), repeating-conic-gradient(from 8deg, rgba(151,222,255,.18) 0 2deg, transparent 2deg 18deg); opacity: .78; transform: rotate(-7deg); }
 body.newsroom-page .door-metal-frame { position: absolute; z-index: 2; inset: 7%; border: 4px solid #a8c4d2; box-shadow: inset 0 0 0 4px #08111a, inset 0 0 0 7px #547383, 0 0 0 2px #0a131c; transform: skewY(-2deg); }
-body.newsroom-page .door-machinery { position: absolute; z-index: 3; inset: 16%; border: 14px solid transparent; border-radius: 50%; background: linear-gradient(#203746,#0a1118) padding-box, repeating-conic-gradient(#d3e7ee 0 5deg, #253d4c 5deg 13deg, #071018 13deg 22deg) border-box; box-shadow: 0 0 0 4px #071018, inset 0 0 20px rgba(0,0,0,.9), 0 0 24px rgba(79,205,255,.22); transform: rotate(-12deg); }
-body.newsroom-page .door-machinery::before { content: ""; position: absolute; inset: 17%; border: 5px solid #577585; border-radius: 50%; background: radial-gradient(circle, #02070b 0 28%, #2b4b5c 30% 34%, #071018 36% 61%, #81c9e4 63% 66%, #08111a 68%); box-shadow: 0 0 18px rgba(67,204,255,.65); }
-body.newsroom-page .door-machinery::after { content: ""; position: absolute; inset: 34%; border: 3px solid #a9eaff; border-radius: 50%; box-shadow: 0 0 14px #37c9ff, inset 0 0 14px #37c9ff; }
+body.newsroom-page .door-machinery { position: absolute; z-index: 3; inset: 16% 12%; border: 8px solid #172a36; background: repeating-linear-gradient(0deg, rgba(189,231,245,.22) 0 2px, transparent 2px 18px), linear-gradient(110deg, rgba(8,20,29,.9), rgba(91,132,148,.36) 48%, rgba(3,12,19,.94)); box-shadow: inset 0 0 0 2px #6f9cad, inset 0 0 22px rgba(0,0,0,.95), 0 0 0 2px #08131c, 0 0 24px rgba(79,205,255,.18); transform: skewY(-1deg); }
+body.newsroom-page .door-machinery::before { content: ""; position: absolute; inset: 12% 7%; border: 2px solid rgba(162,226,245,.7); background: repeating-linear-gradient(90deg, transparent 0 28px, rgba(135,215,239,.3) 29px 31px, transparent 32px 58px); box-shadow: inset 0 0 0 5px rgba(5,15,23,.8), inset 0 0 16px rgba(91,213,255,.22); }
+body.newsroom-page .door-machinery::after { content: ""; position: absolute; right: 8%; top: 12%; width: 16%; height: 76%; border: 2px solid #8bd9ee; background: repeating-linear-gradient(0deg, #1d5264 0 6px, #07131d 6px 12px); box-shadow: 0 0 12px rgba(55,201,255,.55), inset 0 0 10px #071018; }
 body.newsroom-page .door-rivets { position: absolute; z-index: 4; inset: 12%; background: radial-gradient(circle at 0 0, #d9f1f7 0 4px, #182a36 5px 8px, transparent 9px) 0 0 / 25% 25%; opacity: .78; }
 body.newsroom-page .door-handle { position: absolute; z-index: 6; top: 50%; width: 48px; height: 48px; border: 8px solid #cbe6ef; border-radius: 50%; background: radial-gradient(circle, #03080d 0 34%, #4d7484 36% 49%, #09131b 52%); box-shadow: 0 0 0 3px #071018, inset 0 0 10px #8fd9ef, 0 0 18px rgba(48,202,255,.65), 0 8px 12px rgba(0,0,0,.7); transform: translateY(-50%); }
 body.newsroom-page .door-handle-left { right: 8px; } body.newsroom-page .door-handle-right { left: 8px; }
@@ -1867,7 +1867,7 @@ body.newsroom-page .door-brand img { display: block; width: clamp(42px, 7vw, 76p
 body.newsroom-page .door-brand strong { color: #f4fbff; font-family: var(--font-head); font-size: clamp(.7rem, 1.25vw, 1.05rem); font-weight: 800; letter-spacing: .08em; line-height: 1.2; text-shadow: 0 1px 3px #020a10, 0 0 10px rgba(111, 218, 255, .7); white-space: nowrap; }
 body.newsroom-page .door-gap-light { position: absolute; z-index: 5; top: 0; bottom: 0; width: 4px; opacity: 0; background: linear-gradient(180deg, transparent, #fff4b2 24%, #fff 50%, #ffd66f 76%, transparent); box-shadow: 0 0 34px 12px rgba(255,209,93,.9), 0 0 100px 26px rgba(255,151,37,.42); transition: opacity .18s ease; }
 body.newsroom-page .cyber-door-left .door-gap-light { right: -2px; } body.newsroom-page .cyber-door-right .door-gap-light { left: -2px; }
-body.newsroom-page .cyber-door.is-closing .door-gap-light { opacity: 0; }
+body.newsroom-page .cyber-door.is-closing .door-gap-light { opacity: .9; animation: portal-seam-flicker .72s ease-in-out both; }
 body.newsroom-page .cyber-door.is-opening .door-gap-light { opacity: 1; }
 body.newsroom-page .cyber-door.is-opening .door-panel { transition: box-shadow .35s ease; box-shadow: inset 0 0 0 2px #b9e8f7, inset 0 0 0 7px #172735, inset 0 0 40px rgba(0,0,0,.82), 0 0 0 3px rgba(92,211,255,.8), 0 0 46px rgba(39,194,255,.45); }
 body.newsroom-page .cyber-door.is-closing { will-change: transform; }
@@ -1886,6 +1886,12 @@ body.newsroom-page .cyber-door.is-closing .door-panel::after { animation: portal
   14% { opacity: 1; filter: drop-shadow(3px 0 rgba(255,64,120,.45)) drop-shadow(-3px 0 rgba(70,220,255,.5)); transform: rotate(-7deg) translate3d(2px,0,0); }
   19% { opacity: .42; filter: none; transform: rotate(-7deg) translate3d(-1px,0,0); }
   62% { opacity: .9; filter: drop-shadow(-2px 0 rgba(255,64,120,.3)) drop-shadow(2px 0 rgba(70,220,255,.35)); }
+}
+@keyframes portal-seam-flicker {
+  0%, 100% { opacity: .15; filter: none; }
+  34% { opacity: 1; filter: drop-shadow(0 0 8px rgba(255,244,178,.95)); }
+  42% { opacity: .35; }
+  68% { opacity: .95; filter: drop-shadow(0 0 12px rgba(255,151,37,.8)); }
 }
 body.newsroom-page .eclipse-toggle-btn { position: fixed; top: 76px; right: 28px; z-index: 10003; }
 body.newsroom-page .eclipse-toggle-btn { width: 48px; height: 48px; display: grid; place-items: center; padding: 0; border: 1px solid rgba(35,86,132,.24); border-radius: 50%; background: #fff; cursor: pointer; }
@@ -7352,6 +7358,7 @@ body:has(.frontpage-masthead) .cyber-door {
   body.newsroom-page .cyber-door .door-panel { transform: none !important; }
   body.newsroom-page .cyber-door .door-panel::before,
   body.newsroom-page .cyber-door .door-panel::after { animation: none !important; filter: none !important; }
+  body.newsroom-page .cyber-door .door-gap-light { animation: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
