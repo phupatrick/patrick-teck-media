@@ -64,7 +64,6 @@ function initCosmosTheme() {
   const canvas = document.querySelector("[data-cosmos-canvas]");
   const toggle = document.querySelector("[data-theme-toggle]");
   const transition = document.querySelector("[data-video-transition]");
-  const transitionVideo = transition?.querySelector("[data-transition-video]");
   const desktopTransition = window.matchMedia("(min-width: 769px), (orientation: portrait)").matches;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isHomepage = document.body.classList.contains("homepage");
@@ -137,7 +136,7 @@ function initCosmosTheme() {
     resize(); window.addEventListener("resize", resize, { passive: true }); draw();
   }
 
-  if (!transition || !transitionVideo || !desktopTransition) return;
+  if (!transition || !desktopTransition) return;
   let isClosing = false;
   let navigationTimer = null;
   const revealTransition = () => {
@@ -147,7 +146,6 @@ function initCosmosTheme() {
       navigationTimer = null;
     }
     transition.classList.remove("is-active");
-    transitionVideo.pause();
   };
   document.querySelectorAll("a[href]").forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -157,8 +155,6 @@ function initCosmosTheme() {
       event.preventDefault();
       isClosing = true;
       transition.classList.add("is-active");
-      transitionVideo.currentTime = 0;
-      transitionVideo.play().catch(() => {});
       navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 720);
     });
   });
@@ -173,7 +169,6 @@ function initCosmosTheme() {
   }, { passive: true });
   // Start each document closed; the load/pageshow handler reveals it after real readiness.
   transition.classList.add("is-active");
-  transitionVideo.pause();
 }
 
 function initApprovedEditorialMotion() {
