@@ -151,9 +151,9 @@ function initCosmosTheme() {
     if (animate) {
       leftDoor.classList.add("is-opening"); rightDoor.classList.add("is-opening");
     }
-    leftDoor.style.transition = rightDoor.style.transition = "transform .58s cubic-bezier(.76,0,.24,1)";
+    leftDoor.style.transition = rightDoor.style.transition = "transform 1.05s cubic-bezier(.65,0,.35,1)";
     leftDoor.style.transform = "translate3d(-100%, 0, 0)"; rightDoor.style.transform = "translate3d(100%, 0, 0)";
-    if (animate) window.setTimeout(() => { leftDoor.classList.remove("is-opening"); rightDoor.classList.remove("is-opening"); }, 780);
+    if (animate) window.setTimeout(() => { leftDoor.classList.remove("is-opening"); rightDoor.classList.remove("is-opening"); }, 1200);
   };
   document.querySelectorAll("a[href]").forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -163,10 +163,10 @@ function initCosmosTheme() {
       event.preventDefault();
       isClosing = true;
       leftDoor.classList.add("is-closing"); rightDoor.classList.add("is-closing");
-      leftDoor.style.transition = rightDoor.style.transition = "transform .42s cubic-bezier(.76,0,.24,1)";
+      leftDoor.style.transition = rightDoor.style.transition = "transform .72s cubic-bezier(.65,0,.35,1)";
       leftDoor.style.transform = "translate3d(0, 0, 0)"; rightDoor.style.transform = "translate3d(0, 0, 0)";
-      navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 210);
-      recoveryTimer = window.setTimeout(openDoors, 900);
+      navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 690);
+      recoveryTimer = window.setTimeout(openDoors, 1500);
     });
   });
   window.addEventListener("pageshow", openDoors, { passive: true });
