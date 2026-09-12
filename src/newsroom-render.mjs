@@ -1699,6 +1699,7 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
     <div class="video-transition" data-video-transition aria-hidden="true">
       <div class="video-transition-backdrop"></div>
       <video class="video-transition-media" data-transition-video muted playsinline preload="auto">
+        <source src="/cybernetic-dragon-portrait.mp4" type="video/mp4" media="(orientation: portrait)">
         <source src="/cyber-dragon-loading-screen.mp4" type="video/mp4">
       </video>
       <span class="video-transition-scanlines"></span>

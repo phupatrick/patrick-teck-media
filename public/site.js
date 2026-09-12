@@ -62,7 +62,7 @@ function initCosmosTheme() {
   const toggle = document.querySelector("[data-theme-toggle]");
   const transition = document.querySelector("[data-video-transition]");
   const transitionVideo = transition?.querySelector("[data-transition-video]");
-  const desktopTransition = window.matchMedia("(min-width: 769px)").matches;
+  const desktopTransition = window.matchMedia("(min-width: 769px), (orientation: portrait)").matches;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isHomepage = document.body.classList.contains("homepage");
   const isNewsroomPage = document.body.classList.contains("newsroom-page");
