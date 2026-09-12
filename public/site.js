@@ -58,6 +58,9 @@ function initHomepageSkyClouds() {
 }
 
 function initCosmosTheme() {
+  const botHelper = document.querySelector("[data-bot-helper]");
+  botHelper?.querySelector("[data-bot-close]")?.addEventListener("click", () => botHelper.classList.add("is-dismissed"));
+  botHelper?.querySelector("[data-bot-launch]")?.addEventListener("click", () => botHelper.classList.remove("is-dismissed"));
   const canvas = document.querySelector("[data-cosmos-canvas]");
   const toggle = document.querySelector("[data-theme-toggle]");
   const transition = document.querySelector("[data-video-transition]");

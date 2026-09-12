@@ -1704,6 +1704,12 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
       </video>
       <span class="video-transition-scanlines"></span>
     </div>
+    <aside class="bot-helper" data-bot-helper aria-label="Patrick Tech bot hỗ trợ">
+      <button class="bot-helper-close" type="button" data-bot-close aria-label="Đóng bot hỗ trợ">×</button>
+      <button class="bot-helper-launch" type="button" data-bot-launch aria-label="Mở bot hỗ trợ">
+        <img src="/patrick-dragon-bot.png" alt="" aria-hidden="true">
+      </button>
+    </aside>
     <button class="eclipse-toggle-btn" type="button" data-theme-toggle aria-label="${escapeHtml(copy.themeToggleLabel)}" aria-pressed="false">
       <span class="theme-icon theme-icon-sun" aria-hidden="true">&#9728;</span>
       <span class="theme-icon theme-icon-moon" aria-hidden="true">&#9790;</span>
