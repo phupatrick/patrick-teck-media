@@ -223,11 +223,11 @@ body::after {
 .video-transition { display: none; }
 .bot-helper { position: fixed; right: 18px; bottom: 18px; z-index: 10010; display: grid; place-items: end; transition: opacity .2s ease, transform .2s ease; }
 .bot-helper.is-dismissed { opacity: 0; transform: translateY(12px); pointer-events: none; }
-.bot-helper-launch { width: 72px; height: 72px; padding: 0; border: 1px solid rgba(103,221,255,.7); border-radius: 50%; overflow: hidden; background: radial-gradient(circle at 50% 30%, #203d68, #07101e 72%); box-shadow: 0 8px 22px rgba(0,0,0,.35), 0 0 18px rgba(71,214,255,.32); cursor: pointer; }
-.bot-helper-launch img { width: 170%; max-width: none; height: 170%; object-fit: cover; object-position: 50% 43%; transform: translate(-20%, -20%); }
+.bot-helper-launch { width: 150px; height: 150px; padding: 0; border: 0; border-radius: 0; overflow: visible; background: transparent; filter: drop-shadow(0 8px 12px rgba(0,0,0,.28)); cursor: pointer; }
+.bot-helper-launch img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; transform: none; }
 .bot-helper-close { position: absolute; top: -8px; right: -8px; z-index: 2; width: 24px; height: 24px; border: 1px solid rgba(255,255,255,.8); border-radius: 50%; background: #101827; color: #fff; font-size: 17px; line-height: 20px; cursor: pointer; }
 .bot-helper button:focus-visible { outline: 3px solid #68e0ff; outline-offset: 3px; }
-@media (max-width: 520px) { .bot-helper { right: 12px; bottom: 12px; } .bot-helper-launch { width: 58px; height: 58px; } }
+@media (max-width: 520px) { .bot-helper { right: 8px; bottom: 8px; } .bot-helper-launch { width: 112px; height: 112px; } }
 @media (min-width: 769px), (orientation: portrait) {
   body.newsroom-page .video-transition {
     position: fixed; inset: 0; z-index: 10020; display: grid; place-items: center;
