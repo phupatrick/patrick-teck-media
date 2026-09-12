@@ -1696,19 +1696,12 @@ function renderHomepageInteractionChrome(state, language, nav, copy) {
   return `
     <canvas class="cosmos-canvas" data-cosmos-canvas aria-hidden="true"></canvas>
     <div class="sky-clouds" aria-hidden="true"></div>
-    <div class="cyber-door cyber-door-left" aria-hidden="true">
-      <span class="door-panel">
-        <span class="door-metal-frame"></span><span class="door-machinery"></span><span class="door-rivets"></span>
-        <span class="door-brand"><img src="/patrick-tech-media-mark.svg" alt="" aria-hidden="true"><strong>Patrick Tech Media</strong></span>
-        <span class="door-handle door-handle-left"></span><span class="door-gap-light"></span>
-      </span>
-    </div>
-    <div class="cyber-door cyber-door-right" aria-hidden="true">
-      <span class="door-panel">
-        <span class="door-metal-frame"></span><span class="door-machinery"></span><span class="door-rivets"></span>
-        <span class="door-brand"><img src="/patrick-tech-media-mark.svg" alt="" aria-hidden="true"><strong>Patrick Tech Media</strong></span>
-        <span class="door-handle door-handle-right"></span><span class="door-gap-light"></span>
-      </span>
+    <div class="video-transition" data-video-transition aria-hidden="true">
+      <div class="video-transition-backdrop"></div>
+      <video class="video-transition-media" data-transition-video muted playsinline preload="auto">
+        <source src="/cyber-dragon-loading-screen.mp4" type="video/mp4">
+      </video>
+      <span class="video-transition-scanlines"></span>
     </div>
     <button class="eclipse-toggle-btn" type="button" data-theme-toggle aria-label="${escapeHtml(copy.themeToggleLabel)}" aria-pressed="false">
       <span class="theme-icon theme-icon-sun" aria-hidden="true">&#9728;</span>
@@ -1736,9 +1729,16 @@ const sanitizeHomepageText = sanitizeSnippet;
 export function renderSignal(status, language) {
   const normalized = {
     verified: "confirmed",
-    emerging: "developing",
-    trend: "analysis"
-  }[status] || (["confirmed", "analysis", "developing"].includes(status) ? status : "developing");
+    emerging: "analysis",
+    trend: "developing",
+    confirmed: "confirmed",
+    analysis: "analysis",
+    developing: "developing"
+  }[status];
+  if (!normalized) {
+    console.warn(`Unknown verification_state: ${String(status)}`);
+    return "";
+  }
   const copy = getCopy(language);
   const labels = {
     confirmed: copy.signalConfirmed,

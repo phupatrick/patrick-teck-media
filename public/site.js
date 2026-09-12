@@ -60,8 +60,9 @@ function initHomepageSkyClouds() {
 function initCosmosTheme() {
   const canvas = document.querySelector("[data-cosmos-canvas]");
   const toggle = document.querySelector("[data-theme-toggle]");
-  const leftDoor = document.querySelector(".cyber-door-left");
-  const rightDoor = document.querySelector(".cyber-door-right");
+  const transition = document.querySelector("[data-video-transition]");
+  const transitionVideo = transition?.querySelector("[data-transition-video]");
+  const desktopTransition = window.matchMedia("(min-width: 769px)").matches;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isHomepage = document.body.classList.contains("homepage");
   const isNewsroomPage = document.body.classList.contains("newsroom-page");
@@ -133,22 +134,17 @@ function initCosmosTheme() {
     resize(); window.addEventListener("resize", resize, { passive: true }); draw();
   }
 
-  if (!leftDoor || !rightDoor) return;
+  if (!transition || !transitionVideo || !desktopTransition) return;
   let isClosing = false;
   let navigationTimer = null;
-  const openDoors = (animate = false) => {
+  const revealTransition = () => {
     isClosing = false;
     if (navigationTimer) {
       window.clearTimeout(navigationTimer);
       navigationTimer = null;
     }
-    leftDoor.classList.remove("is-closing"); rightDoor.classList.remove("is-closing");
-    if (animate) {
-      leftDoor.classList.add("is-opening"); rightDoor.classList.add("is-opening");
-    }
-    leftDoor.style.transition = rightDoor.style.transition = "transform 1.05s cubic-bezier(.65,0,.35,1)";
-    leftDoor.style.transform = "translate3d(-100%, 0, 0)"; rightDoor.style.transform = "translate3d(100%, 0, 0)";
-    if (animate) window.setTimeout(() => { leftDoor.classList.remove("is-opening"); rightDoor.classList.remove("is-opening"); }, 1200);
+    transition.classList.remove("is-active");
+    transitionVideo.pause();
   };
   document.querySelectorAll("a[href]").forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -157,13 +153,13 @@ function initCosmosTheme() {
       if (url.origin !== window.location.origin || url.hash || url.pathname === window.location.pathname && url.search === window.location.search) return;
       event.preventDefault();
       isClosing = true;
-      leftDoor.classList.add("is-closing"); rightDoor.classList.add("is-closing");
-      leftDoor.style.transition = rightDoor.style.transition = "transform .72s cubic-bezier(.65,0,.35,1)";
-      leftDoor.style.transform = "translate3d(0, 0, 0)"; rightDoor.style.transform = "translate3d(0, 0, 0)";
-      navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 690);
+      transition.classList.add("is-active");
+      transitionVideo.currentTime = 0;
+      transitionVideo.play().catch(() => {});
+      navigationTimer = window.setTimeout(() => { window.location.assign(url.href); }, 720);
     });
   });
-  const revealWhenLoaded = () => openDoors(true);
+  const revealWhenLoaded = () => revealTransition();
   if (document.readyState === "complete") revealWhenLoaded();
   else window.addEventListener("load", revealWhenLoaded, { once: true, passive: true });
   window.addEventListener("pageshow", (event) => {
@@ -173,8 +169,8 @@ function initCosmosTheme() {
     if (navigationTimer) window.clearTimeout(navigationTimer);
   }, { passive: true });
   // Start each document closed; the load/pageshow handler reveals it after real readiness.
-  leftDoor.style.transition = rightDoor.style.transition = "none";
-  leftDoor.style.transform = rightDoor.style.transform = "translate3d(0, 0, 0)";
+  transition.classList.add("is-active");
+  transitionVideo.pause();
 }
 
 function initApprovedEditorialMotion() {
