@@ -32,6 +32,9 @@
     "openclaw:worker": "node scripts/openclaw-worker.mjs"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2"
+    "@neondatabase/serverless": "^1.0.2",
+    "dotenv": "^16.4.7",
+    "openai": "^4.80.0",
+    "twitter-api-v2": "^1.19.0"
   }
 }

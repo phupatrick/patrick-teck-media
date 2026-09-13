@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Patrick Dragon</title>
+  <desc id="desc">Friendly cyber dragon guardian in navy and cyan, presenting a glowing AI data core.</desc>
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#183b63"/>
+      <stop offset="0.55" stop-color="#0d223e"/>
+      <stop offset="1" stop-color="#071426"/>
+    </linearGradient>
+    <linearGradient id="armor" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8f6ff"/>
+      <stop offset="0.5" stop-color="#7bdcf4"/>
+      <stop offset="1" stop-color="#2b83bd"/>
+    </linearGradient>
+    <radialGradient id="core" cx="35%" cy="30%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.25" stop-color="#b7f8ff"/>
+      <stop offset="0.7" stop-color="#1fe1ff"/>
+      <stop offset="1" stop-color="#0878b7"/>
+    </radialGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <!-- restrained aura keeps the mark readable as an avatar -->
+  <circle cx="450" cy="435" r="330" fill="#0c2948" opacity=".18"/>
+  <circle cx="690" cy="555" r="92" fill="#15d8ff" opacity=".18" filter="url(#softGlow)"/>
+
+  <!-- compact guardian body -->
+  <path d="M302 648c-30-82-26-168 12-236 20-35 51-64 88-83l-4-54 54 29 54-29-4 54c41 19 73 49 93 88 32 62 37 145 4 231l-45 84H345z" fill="url(#body)" stroke="#5ca8c9" stroke-width="8"/>
+  <path d="M364 621c25 38 55 58 86 58s61-20 86-58" fill="none" stroke="#2caed4" stroke-width="7" opacity=".7"/>
+
+  <!-- head, friendly proportions -->
+  <path d="M280 322c0-102 76-177 170-177s170 75 170 177c0 91-68 154-170 154s-170-63-170-154z" fill="url(#body)" stroke="#7fd9ee" stroke-width="9"/>
+  <path d="M317 213l-19-70c-3-12 11-20 20-11l58 48" fill="url(#armor)" stroke="#2c82ad" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M583 213l19-70c3-12-11-20-20-11l-58 48" fill="url(#armor)" stroke="#2c82ad" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M335 332c18 62 57 91 115 91s97-29 115-91" fill="#0a1b31" stroke="#5ba9c6" stroke-width="6"/>
+  <path d="M405 383c15 12 31 18 45 18s30-6 45-18" fill="none" stroke="#85e9fa" stroke-width="6" stroke-linecap="round"/>
+  <path d="M346 303c21-22 48-29 74-17" fill="none" stroke="#a4efff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M554 303c-21-22-48-29-74-17" fill="none" stroke="#a4efff" stroke-width="10" stroke-linecap="round"/>
+  <ellipse cx="392" cy="318" rx="12" ry="16" fill="#7df2ff" filter="url(#glow)"/>
+  <ellipse cx="508" cy="318" rx="12" ry="16" fill="#7df2ff" filter="url(#glow)"/>
+
+  <!-- subtle circuit-scale markings -->
+  <path d="M321 273h28l18-18M579 273h-28l-18-18M334 367h27l17 17M566 367h-27l-17 17" fill="none" stroke="#35c8e7" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="349" cy="273" r="6" fill="#7df2ff"/><circle cx="551" cy="273" r="6" fill="#7df2ff"/>
+
+  <!-- shoulder nodes -->
+  <path d="M337 508l-72 30 39 54 72-31zM563 508l72 30-39 54-72-31z" fill="#123a60" stroke="#5cc3df" stroke-width="7"/>
+  <circle cx="292" cy="563" r="11" fill="#9af5ff"/><circle cx="608" cy="563" r="11" fill="#9af5ff"/>
+
+  <!-- Patrick Tech geometric chest mark -->
+  <path d="M450 500l43 25v50l-43 25-43-25v-50z" fill="none" stroke="url(#armor)" stroke-width="9"/>
+  <path d="M450 519l24 14v28l-24 14-24-14v-28z" fill="#1de0f5" opacity=".9"/>
+  <path d="M450 519v56M426 533l48 28M474 533l-48 28" stroke="#d9fbff" stroke-width="4" opacity=".9"/>
+
+  <!-- signature presenting arm -->
+  <path d="M535 582c61-15 110-8 144 24 18 18 22 43 9 62-14 21-42 25-63 10l-52-38-54 29-26-48z" fill="url(#body)" stroke="#71d6ec" stroke-width="8"/>
+  <path d="M666 655c17 8 34 8 47-2l23-18c10-8 24-6 31 4 7 10 5 23-4 31l-34 29c-31 26-75 22-101-8l-24-27z" fill="url(#armor)" stroke="#318cb2" stroke-width="7"/>
+  <path d="M710 660l32-20M726 681l29-14M742 700l24-9" stroke="#20729c" stroke-width="5" stroke-linecap="round"/>
+  <path d="M738 595c20-33 28-61 26-85" fill="none" stroke="#72eaff" stroke-width="6" stroke-linecap="round"/>
+  <path d="M738 510l-9-22M738 510l18-17M738 510l24 4" stroke="#72eaff" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- floating AI/data core -->
+  <circle cx="764" cy="482" r="72" fill="#14dfff" opacity=".2" filter="url(#softGlow)"/>
+  <circle cx="764" cy="482" r="47" fill="url(#core)" stroke="#c5fbff" stroke-width="6" filter="url(#glow)"/>
+  <path d="M764 451l27 16v31l-27 16-27-16v-31z" fill="none" stroke="#ffffff" stroke-width="4" opacity=".9"/>
+  <path d="M764 451v63M737 467l54 31M791 467l-54 31" stroke="#ffffff" stroke-width="3" opacity=".85"/>
+  <path d="M718 482h-24M810 482h24M764 438v-20M764 526v20" stroke="#86f5ff" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="694" cy="482" r="6" fill="#c9fbff"/><circle cx="834" cy="482" r="6" fill="#c9fbff"/><circle cx="764" cy="418" r="6" fill="#c9fbff"/><circle cx="764" cy="546" r="6" fill="#c9fbff"/>
+
+  <!-- data lines across the body -->
+  <path d="M349 587h-37l-21 22M551 587h37l20 21M365 648h-24l-19 20M535 648h24l19 20" fill="none" stroke="#25c8e8" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="291" cy="609" r="6" fill="#7af3ff"/><circle cx="609" cy="608" r="6" fill="#7af3ff"/>
+</svg>
