@@ -1736,8 +1736,8 @@ const sanitizeHomepageText = sanitizeSnippet;
 export function renderSignal(status, language) {
   const normalized = {
     verified: "confirmed",
-    emerging: "analysis",
-    trend: "developing",
+    emerging: "developing",
+    trend: "analysis",
     confirmed: "confirmed",
     analysis: "analysis",
     developing: "developing"
