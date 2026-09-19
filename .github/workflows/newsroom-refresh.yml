@@ -27,10 +27,6 @@ on:
         description: "Require a VI/EN pair for this manually requested run"
         required: false
         default: ""
-      force_social_post:
-        description: "Publish one eligible Facebook post outside its normal slot"
-        required: false
-        default: "0"
   schedule:
     # Five golden slots per day in Vietnam time: 07:30, 11:30, 15:00, 19:30, 22:00.
     - cron: "30 0,4,8,12,15 * * *"
@@ -126,52 +122,6 @@ jobs:
           OPENCLAW_PENDING_QUEUE_PATH: data/openclaw-pending-clusters.json
           OPENCLAW_SOCIAL_SIGNALS_PATH: data/openclaw-social-signals.json
         run: node scripts/openclaw-manager.mjs
-
-      - name: Run Social Autopilot
-        # The application enforces daily quota, live Facebook deduplication,
-        # and a minimum 150-minute spacing between public posts.
-        env:
-          # Publishing is autonomous in production; set the secret to 0 for an intentional pause.
-          SOCIAL_AUTOPILOT_ENABLED: ${{ secrets.SOCIAL_AUTOPILOT_ENABLED || '1' }}
-          SOCIAL_AUTOPILOT_SCHEDULED: "1"
-          SOCIAL_AUTOPILOT_FORCE: ${{ github.event.inputs.force_social_post || '0' }}
-          SOCIAL_AUTOPILOT_RUN_LIMIT: ${{ secrets.SOCIAL_AUTOPILOT_RUN_LIMIT || secrets.SOCIAL_AUTOPILOT_LIMIT || '2' }}
-          SOCIAL_AUTOPILOT_ROTATE_TOPICS: ${{ secrets.SOCIAL_AUTOPILOT_ROTATE_TOPICS || '0' }}
-          SOCIAL_PRODUCT_COOLDOWN_HOURS: ${{ secrets.SOCIAL_PRODUCT_COOLDOWN_HOURS || '72' }}
-          SOCIAL_FIRST_COMMENT_RETRY_DELAY_MS: "4000"
-          SOCIAL_FIRST_COMMENT_RETRY_LIMIT: "3"
-          SOCIAL_AI_PROVIDER: ${{ secrets.SOCIAL_AI_PROVIDER || 'gemini' }}
-          NEWSROOM_GEMINI_API_KEY: ${{ secrets.NEWSROOM_GEMINI_API_KEY || secrets.SOCIAL_AI_API_KEY || secrets.GEMINI_API_KEY }}
-          SOCIAL_AI_API_KEY: ${{ secrets.SOCIAL_AI_API_KEY || secrets.NEWSROOM_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.NEWSROOM_GEMINI_API_KEY || secrets.SOCIAL_AI_API_KEY }}
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID || '885195674667440' }}
-          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
-          TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}
-          TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: ${{ secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          NEWSROOM_CONTENT_PATH: data/newsroom-content.json
-          SOCIAL_STATE_PATH: data/social-posts.json
-        run: |
-          if [ -z "$FB_PAGE_ACCESS_TOKEN" ]; then
-            echo "Facebook Autopilot skipped: FB_PAGE_ACCESS_TOKEN is not configured in GitHub Actions secrets."
-            exit 0
-          fi
-          npm run social:autopilot
-
-      - name: Run nightly Social metrics and learning report
-        if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 15 * * *' }}
-        continue-on-error: true
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          SOCIAL_STATE_PATH: data/social-posts.json
-          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
-          TELEGRAM_NEWSROOM_BOT_TOKEN: ${{ secrets.TELEGRAM_NEWSROOM_BOT_TOKEN }}
-          TELEGRAM_NEWSROOM_REPORT_CHAT_IDS: ${{ secrets.TELEGRAM_NEWSROOM_REPORT_CHAT_IDS || secrets.TELEGRAM_NEWSROOM_ALLOWED_CHAT_IDS }}
-          SOCIAL_DAILY_REPORT_ENABLED: "1"
-        run: node scripts/social-daily-report.mjs
 
       - name: Sync generated data to cloud storage
         env:
