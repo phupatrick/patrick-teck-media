@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T05:19:44.487Z",
+  "generated_at": "2026-09-20T13:12:48.955Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -144,7 +144,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.486Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       }
     },
@@ -286,7 +286,150 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-dc151c8140e7-en",
+      "cluster_id": "feed-dc151c8140e7",
+      "language": "en",
+      "topic_label": "Security",
+      "topic_slug": "security",
+      "topic_accent": "#1de59c",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "title": "Humans, not rogue AI, are still the biggest cybersecurity risk to energy systems",
+      "hook": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing. We were just kind of surviving at the appetite of our predators,” Joshua Corman, executive in residence for public safety and resilience at the Institute for Security and Technology (IST), told me last year .",
+      "dek": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "“We were always prey. We were just kind of surviving at the appetite of our predators,” Joshua Corman, executive in residence for public safety and resilience at the Institute for Security and Technology (IST), told me last year . At the time, I was preoccupied with a Department of Homeland Security warning that Iranian actors and sympathizers could target the US with cyberattacks."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Last week, I called Corman up to chat about recent incidents of rogue AI agents orchestrating their own complex cyberattacks . Even AI executives are talking about whether the technology they’re building could grow so out of control that it triggers an apocalypse. If there is now a 10 percent chance of artificial intelligence one day killing all humans, as some AI developers warn , surely there’s a chance it could knock our lights out in the meantime?"
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "But when I spoke to Corman and other cybersecurity experts, they were still more worried about generative AI in the hands of bad actors than they were about rogue agents. As tech companies race to build ever more powerful AI models, utilities will similarly have to shore up their defenses — no matter who or what initiated the attack."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Much of our critical energy infrastructure — keeping the lights on in our homes, food cold in our refrigerators, and life-saving devices working in hospitals — was never designed to connect to the internet. The lifespan of a power plant is typically decades long. The average age of a nuclear reactor in the US is about 44 years . They weren’t constructed with today’s cybersecurity risks in mind, making them easy targets for hackers."
+        }
+      ],
+      "image": {
+        "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/akrales_220309_4977_0292.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+        "alt": "",
+        "caption": "Reference image from The Verge.",
+        "credit": "The Verge",
+        "source_url": "https://www.theverge.com/science/997834/ai-cyberattack-energy-critical-infrastructure"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "The Verge",
+          "source_url": "https://www.theverge.com/science/997834/ai-cyberattack-energy-critical-infrastructure",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-19T20:28:15.000Z",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/akrales_220309_4977_0292.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+          "image_caption": "Reference image from The Verge.",
+          "image_credit": "The Verge"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2026-09-19T20:28:15.000Z",
+      "updated_at": "2026-09-19T20:28:15.000Z",
+      "href": "/en/news/humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "draft_context": {
+        "source_title": "Humans, not rogue AI, are still the biggest cybersecurity risk to energy systems",
+        "source_name": "The Verge",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "Before recent high-profile hacks raised the specter of AI possibly \" killing all humans ,\" our energy systems were already disturbingly vulnerable to cyberattack - and the risk is growing. \"We were always prey. We were just kind of surviving at the appetite of our predators,\" Joshua Corman, executive in residence for public safety and resilience at the Institute for Security and Technology (IST), told me last year . At the time, I was preoccupied with a Department of Homeland Security warning that Iranian actors and sympathizers could target the US with cyberattacks. Last week, I called Corman up to chat about recent incidents of rogue AI a … Read the full story at The Verge. ]]>",
+        "paragraphs": [
+          "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing.",
+          "“We were always prey. We were just kind of surviving at the appetite of our predators,” Joshua Corman, executive in residence for public safety and resilience at the Institute for Security and Technology (IST), told me last year . At the time, I was preoccupied with a Department of Homeland Security warning that Iranian actors and sympathizers could target the US with cyberattacks.",
+          "Last week, I called Corman up to chat about recent incidents of rogue AI agents orchestrating their own complex cyberattacks . Even AI executives are talking about whether the technology they’re building could grow so out of control that it triggers an apocalypse. If there is now a 10 percent chance of artificial intelligence one day killing all humans, as some AI developers warn , surely there’s a chance it could knock our lights out in the meantime?",
+          "But when I spoke to Corman and other cybersecurity experts, they were still more worried about generative AI in the hands of bad actors than they were about rogue agents. As tech companies race to build ever more powerful AI models, utilities will similarly have to shore up their defenses — no matter who or what initiated the attack.",
+          "Much of our critical energy infrastructure — keeping the lights on in our homes, food cold in our refrigerators, and life-saving devices working in hospitals — was never designed to connect to the internet. The lifespan of a power plant is typically decades long. The average age of a nuclear reactor in the US is about 44 years . They weren’t constructed with today’s cybersecurity risks in mind, making them easy targets for hackers."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=5; words=421",
+        "link": "https://www.theverge.com/science/997834/ai-cyberattack-energy-critical-infrastructure"
+      },
+      "title_vi": "",
+      "title_en": "Humans, not rogue AI, are still the biggest cybersecurity risk to energy systems",
+      "dek_vi": "",
+      "dek_en": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing.",
+      "body_vi": "",
+      "body_en": "What happened\nBefore recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing.\n\nWhere the sources line up\n“We were always prey. We were just kind of surviving at the appetite of our predators,” Joshua Corman, executive in residence for public safety and resilience at the Institute for Security and Technology (IST), told me last year . At the time, I was preoccupied with a Department of Homeland Security warning that Iranian actors and sympathizers could target the US with cyberattacks.\n\nPractical impact for readers\nLast week, I called Corman up to chat about recent incidents of rogue AI agents orchestrating their own complex cyberattacks . Even AI executives are talking about whether the technology they’re building could grow so out of control that it triggers an apocalypse. If there is now a 10 percent chance of artificial intelligence one day killing all humans, as some AI developers warn , surely there’s a chance it could knock our lights out in the meantime?\n\nWho should pay attention now\nBut when I spoke to Corman and other cybersecurity experts, they were still more worried about generative AI in the hands of bad actors than they were about rogue agents. As tech companies race to build ever more powerful AI models, utilities will similarly have to shore up their defenses — no matter who or what initiated the attack.\n\nWhat is still unclear\nMuch of our critical energy infrastructure — keeping the lights on in our homes, food cold in our refrigerators, and life-saving devices working in hospitals — was never designed to connect to the internet. The lifespan of a power plant is typically decades long. The average age of a nuclear reactor in the US is about 44 years . They weren’t constructed with today’s cybersecurity risks in mind, making them easy targets for hackers.",
+      "slug_vi": "humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "slug_en": "humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "category": "security",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://www.theverge.com/science/997834/ai-cyberattack-energy-critical-infrastructure"
+      ],
+      "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/akrales_220309_4977_0292.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "security",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       }
     },
@@ -427,7 +570,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       }
     },
@@ -569,290 +712,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-c1210e5c4d3e-en",
-      "cluster_id": "feed-c1210e5c4d3e",
-      "language": "en",
-      "topic_label": "Devices",
-      "topic_slug": "devices",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "5-smartwatches-you-should-buy-instead-of-the-moto-watch-ultra",
-      "title": "5 smartwatches you should buy instead of the Moto Watch Ultra",
-      "hook": "0 • Paul Jones / Android Authority Add Android Authority on Google: Preferred Source Google Discover The Moto Watch Ultra is Motorola’s latest smartwatch, featuring a unique blend of features for the price.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "0 • Paul Jones / Android Authority Add Android Authority on Google: Preferred Source Google Discover The Moto Watch Ultra is Motorola’s latest smartwatch, featuring a unique blend of features for the price. The singular variant costs $350 and includes LTE eSIM support, Wear OS 6, a 1.5-inch pOLED display, and Polar’s health and fitness tracking algorithms.",
-      "dek": "0 • Paul Jones / Android Authority Add Android Authority on Google: Preferred Source Google Discover The Moto Watch Ultra is Motorola’s latest smartwatch, featuring a unique blend of features for the price.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "The singular variant costs $350 and includes LTE eSIM support, Wear OS 6, a 1. 5-inch pOLED display, and Polar’s health and fitness tracking algorithms. That’s a fabulous combination in itself, but Motorola has cut corners on the processor and is only offering two OS upgrades."
-        },
-        {
-          "heading": "Where the sources line up",
-          "body": "Thankfully, there’s no shortage of good Wear OS smartwatch options in the market. From Google to Samsung, there are plenty of great alternatives you should consider first. So, before settling on the Moto Watch Ultra, consider these five other alternatives."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "C. Scott Brown / Android Authority The Samsung Galaxy Watch Ultra (specifically the 2025 model) is, in my opinion, the best alternative if you already own a Samsung phone. It’s a refresh of the 2024 Galaxy Watch Ultra with double the storage and a new color. You can easily find one on Amazon for $330 now, making it really good value."
-        },
-        {
-          "heading": "Who should pay attention now",
-          "body": "The Galaxy Watch Ultra 2025 features a similarly chunky, rugged design to the Moto Watch Ultra, along with a 1. 5-inch AMOLED display, 64GB of storage, LTE, and a larger battery. Samsung’s offering is even tougher as it comes with sapphire crystal glass and MIL-STD-810H certification."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Health and fitness tracking is solid, GPS tracking is accurate, there’s four years of OS upgrades, and the battery easily lasts for two or more days at a stretch. The only thing holding the Galaxy Watch Ultra 2025 back was the high launch price of $650, but that isn’t an issue anymore."
-        }
-      ],
-      "image": {
-        "src": "https://www.androidauthority.com/wp-content/uploads/2026/09/Moto-Watch-Ultra-watch-bands.jpg",
-        "alt": "",
-        "caption": "Reference image from Android Authority.",
-        "credit": "Android Authority",
-        "source_url": "https://www.androidauthority.com/moto-watch-ultra-alternatives-3710672/"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Android Authority",
-          "source_url": "https://www.androidauthority.com/moto-watch-ultra-alternatives-3710672/",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-19T09:30:08.000Z",
-          "image_url": "https://www.androidauthority.com/wp-content/uploads/2026/09/Moto-Watch-Ultra-watch-bands.jpg",
-          "image_caption": "Reference image from Android Authority.",
-          "image_credit": "Android Authority"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-19T09:30:08.000Z",
-      "updated_at": "2026-09-19T09:30:08.000Z",
-      "href": "/en/news/5-smartwatches-you-should-buy-instead-of-the-moto-watch-ultra",
-      "draft_context": {
-        "source_title": "5 smartwatches you should buy instead of the Moto Watch Ultra",
-        "source_name": "Android Authority",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "The Moto Watch Ultra is Motorola’s latest smartwatch, featuring a unique blend of features for the price. The singular variant costs $350 and includes LTE eSIM support, Wear OS 6, a 1.5-inch pOLED display, and Polar’s health and fitness tracking algorithms. That’s a fabulous combination in itself, but Motorola has cut corners on the processor and is only offering two OS upgrades. Thankfully, there’s no shortage of good Wear OS smartwatch options in the market. From Google to Samsung, there are plenty of great alternatives you should consider first. So, before settling on the Moto Watch Ultra, consider these five other alternatives.",
-        "paragraphs": [
-          "0 • Paul Jones / Android Authority Add Android Authority on Google: Preferred Source Google Discover The Moto Watch Ultra is Motorola’s latest smartwatch, featuring a unique blend of features for the price. The singular variant costs $350 and includes LTE eSIM support, Wear OS 6, a 1.5-inch pOLED display, and Polar’s health and fitness tracking algorithms. That’s a fabulous combination in itself, but Motorola has cut corners on the processor and is only offering two OS upgrades.",
-          "Thankfully, there’s no shortage of good Wear OS smartwatch options in the market. From Google to Samsung, there are plenty of great alternatives you should consider first. So, before settling on the Moto Watch Ultra, consider these five other alternatives.",
-          "C. Scott Brown / Android Authority The Samsung Galaxy Watch Ultra (specifically the 2025 model) is, in my opinion, the best alternative if you already own a Samsung phone. It’s a refresh of the 2024 Galaxy Watch Ultra with double the storage and a new color. You can easily find one on Amazon for $330 now, making it really good value.",
-          "The Galaxy Watch Ultra 2025 features a similarly chunky, rugged design to the Moto Watch Ultra, along with a 1.5-inch AMOLED display, 64GB of storage, LTE, and a larger battery. Samsung’s offering is even tougher as it comes with sapphire crystal glass and MIL-STD-810H certification.",
-          "Health and fitness tracking is solid, GPS tracking is accurate, there’s four years of OS upgrades, and the battery easily lasts for two or more days at a stretch. The only thing holding the Galaxy Watch Ultra 2025 back was the high launch price of $650, but that isn’t an issue anymore."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=378",
-        "link": "https://www.androidauthority.com/moto-watch-ultra-alternatives-3710672/"
-      },
-      "title_vi": "",
-      "title_en": "5 smartwatches you should buy instead of the Moto Watch Ultra",
-      "dek_vi": "",
-      "dek_en": "0 • Paul Jones / Android Authority Add Android Authority on Google: Preferred Source Google Discover The Moto Watch Ultra is Motorola’s latest smartwatch, featuring a unique blend of features for the price.",
-      "body_vi": "",
-      "body_en": "What happened\nThe singular variant costs $350 and includes LTE eSIM support, Wear OS 6, a 1. 5-inch pOLED display, and Polar’s health and fitness tracking algorithms. That’s a fabulous combination in itself, but Motorola has cut corners on the processor and is only offering two OS upgrades.\n\nWhere the sources line up\nThankfully, there’s no shortage of good Wear OS smartwatch options in the market. From Google to Samsung, there are plenty of great alternatives you should consider first. So, before settling on the Moto Watch Ultra, consider these five other alternatives.\n\nPractical impact for readers\nC. Scott Brown / Android Authority The Samsung Galaxy Watch Ultra (specifically the 2025 model) is, in my opinion, the best alternative if you already own a Samsung phone. It’s a refresh of the 2024 Galaxy Watch Ultra with double the storage and a new color. You can easily find one on Amazon for $330 now, making it really good value.\n\nWho should pay attention now\nThe Galaxy Watch Ultra 2025 features a similarly chunky, rugged design to the Moto Watch Ultra, along with a 1. 5-inch AMOLED display, 64GB of storage, LTE, and a larger battery. Samsung’s offering is even tougher as it comes with sapphire crystal glass and MIL-STD-810H certification.\n\nWhat is still unclear\nHealth and fitness tracking is solid, GPS tracking is accurate, there’s four years of OS upgrades, and the battery easily lasts for two or more days at a stretch. The only thing holding the Galaxy Watch Ultra 2025 back was the high launch price of $650, but that isn’t an issue anymore.",
-      "slug_vi": "5-smartwatches-you-should-buy-instead-of-the-moto-watch-ultra",
-      "slug_en": "5-smartwatches-you-should-buy-instead-of-the-moto-watch-ultra",
-      "category": "devices",
-      "geo_scope": "global",
-      "hot_score": 50,
-      "source_urls": [
-        "https://www.androidauthority.com/moto-watch-ultra-alternatives-3710672/"
-      ],
-      "image_url": "https://www.androidauthority.com/wp-content/uploads/2026/09/Moto-Watch-Ultra-watch-bands.jpg",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/5-smartwatches-you-should-buy-instead-of-the-moto-watch-ultra",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-7d5d41afdf8d-vi",
-      "cluster_id": "feed-7d5d41afdf8d",
-      "language": "vi",
-      "topic_label": "Thiết bị",
-      "topic_slug": "thiet-bi",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "apple-tang-toc-cuoc-ua-ai-tren-smartphone",
-      "title": "Apple tăng tốc cuộc đua AI trên smartphone",
-      "hook": "Apple ngày 18/9 chính thức mở bán dòng iPhone 18 trên toàn cầu, thu hút đông đảo khách hàng tới các cửa hàng Apple để sở hữu những mẫu điện thoại mới nhất của hãng.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Apple ngày 18/9 chính thức mở bán dòng iPhone 18 trên toàn cầu, thu hút đông đảo khách hàng tới các cửa hàng Apple để sở hữu những mẫu điện thoại mới nhất của hãng. Theo phóng viên TTXVN tại Washington, iPhone 18 Pro có giá khởi điểm 1.199 USD, trong khi iPhone 18 Pro Max có giá từ 1.299 USD.",
-      "dek": "Apple ngày 18/9 chính thức mở bán dòng iPhone 18 trên toàn cầu, thu hút đông đảo khách hàng tới các cửa hàng Apple để sở hữu những mẫu điện thoại mới nhất của hãng.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Apple ngày 18/9 chính thức mở bán dòng iPhone 18 trên toàn cầu, thu hút đông đảo khách hàng tới các cửa hàng Apple để sở hữu những mẫu điện thoại mới nhất của hãng."
-        },
-        {
-          "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Theo phóng viên TTXVN tại Washington, iPhone 18 Pro có giá khởi điểm 1. 199 USD, trong khi iPhone 18 Pro Max có giá từ 1. 299 USD. Hai mẫu máy này được Apple giới thiệu tại sự kiện thường niên hồi tuần trước cùng với iPhone Duo, mẫu điện thoại gập đầu tiên của hãng, có giá khởi điểm 1. 999 USD."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Dòng iPhone 18 Pro và Pro Max được trang bị hệ thống camera thiết kế mới, với khẩu độ có khả năng thay đổi tương tự máy ảnh DSLR. Apple cho biết thiết kế này giúp cải thiện khả năng chụp ảnh trong điều kiện thiếu sáng và tăng khả năng kiểm soát độ sâu trường ảnh."
-        },
-        {
-          "heading": "Ai nên chú ý lúc này",
-          "body": "Apple cũng bổ sung tính năng nhận diện hình ảnh được tạo hoặc chỉnh sửa bằng AI. Theo hãng, hệ thống sẽ tạo một hình ảnh tham chiếu không thể chỉnh sửa và lưu song song với hình ảnh đã qua xử lý, nhằm giúp xác định nguồn gốc và mức độ chỉnh sửa của nội dung."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "Ngày mở bán thu hút khách hàng tại nhiều Apple Store trên thế giới. Tại New York, Tổng Giám đốc Apple John Ternus, người kế nhiệm ông Tim Cook hồi đầu tháng này, xuất hiện tại cửa hàng chủ lực trên Đại lộ Fifth Avenue, chụp ảnh và ký tên cho khách hàng. Người mua cũng xếp hàng tại các cửa hàng của Apple ở Menlo Park Mall ở Edison, bang New Jersey, trên phố George ở Sydney (Australia) hay phố Regent ở London (Anh)."
-        }
-      ],
-      "image": {
-        "src": "https://media3.baotintuc.vn/images/JQoPFRNPPTA1Y0eS_o1V7zxhqLs7woMS1HAUcinHigfRdnEUZD6kRhYK0IrktqI71gUad0OFUmXpA57LVBcOng/1789783366733.jpg.webp",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ Bao Tin Tuc Khoa Hoc.",
-        "credit": "Bao Tin Tuc Khoa Hoc",
-        "source_url": "https://baotintuc.vn/apple-tang-toc-cuoc-dua-ai-tren-smartphone-post1386836.html"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Bao Tin Tuc Khoa Hoc",
-          "source_url": "https://baotintuc.vn/apple-tang-toc-cuoc-dua-ai-tren-smartphone-post1386836.html",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-19T02:02:46.000Z",
-          "image_url": "https://media3.baotintuc.vn/images/JQoPFRNPPTA1Y0eS_o1V7zxhqLs7woMS1HAUcinHigfRdnEUZD6kRhYK0IrktqI71gUad0OFUmXpA57LVBcOng/1789783366733.jpg.webp",
-          "image_caption": "Ảnh tham khảo từ Bao Tin Tuc Khoa Hoc.",
-          "image_credit": "Bao Tin Tuc Khoa Hoc"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-19T02:02:46.000Z",
-      "updated_at": "2026-09-19T02:02:46.000Z",
-      "href": "/vi/tin-tuc/apple-tang-toc-cuoc-ua-ai-tren-smartphone",
-      "draft_context": {
-        "source_title": "Apple tăng tốc cuộc đua AI trên smartphone",
-        "source_name": "Bao Tin Tuc Khoa Hoc",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "chips-ai-infra",
-        "content_type_hint": "",
-        "description": "Apple ngày 18/9 chính thức mở bán dòng iPhone 18 trên toàn cầu, thu hút đông đảo khách hàng tới các cửa hàng Apple để sở hữu những mẫu điện thoại mới nhất của hãng. TopZone mở bán iPhone 18 Pro, iPhone 18 Pro Max và AirPods 5 Những cái tên quyền lực nhất trong cuộc đua AI toàn cầu Nhiều tập đoàn lớn có thể tháp tùng Chủ tịch Tập Cận Bình tới Mỹ Ấn Độ mở rộng điều tra điều khoản không bảo hành phần mềm của Apple LHQ kêu gọi 'hành động khẩn cấp' để kiểm soát AI",
-        "paragraphs": [
-          "Apple ngày 18/9 chính thức mở bán dòng iPhone 18 trên toàn cầu, thu hút đông đảo khách hàng tới các cửa hàng Apple để sở hữu những mẫu điện thoại mới nhất của hãng.",
-          "Theo phóng viên TTXVN tại Washington, iPhone 18 Pro có giá khởi điểm 1.199 USD, trong khi iPhone 18 Pro Max có giá từ 1.299 USD. Hai mẫu máy này được Apple giới thiệu tại sự kiện thường niên hồi tuần trước cùng với iPhone Duo, mẫu điện thoại gập đầu tiên của hãng, có giá khởi điểm 1.999 USD.",
-          "Dòng iPhone 18 Pro và Pro Max được trang bị hệ thống camera thiết kế mới, với khẩu độ có khả năng thay đổi tương tự máy ảnh DSLR. Apple cho biết thiết kế này giúp cải thiện khả năng chụp ảnh trong điều kiện thiếu sáng và tăng khả năng kiểm soát độ sâu trường ảnh.",
-          "Apple cũng bổ sung tính năng nhận diện hình ảnh được tạo hoặc chỉnh sửa bằng AI. Theo hãng, hệ thống sẽ tạo một hình ảnh tham chiếu không thể chỉnh sửa và lưu song song với hình ảnh đã qua xử lý, nhằm giúp xác định nguồn gốc và mức độ chỉnh sửa của nội dung.",
-          "Ngày mở bán thu hút khách hàng tại nhiều Apple Store trên thế giới. Tại New York, Tổng Giám đốc Apple John Ternus, người kế nhiệm ông Tim Cook hồi đầu tháng này, xuất hiện tại cửa hàng chủ lực trên Đại lộ Fifth Avenue, chụp ảnh và ký tên cho khách hàng. Người mua cũng xếp hàng tại các cửa hàng của Apple ở Menlo Park Mall ở Edison, bang New Jersey, trên phố George ở Sydney (Australia) hay phố Regent ở London (Anh).",
-          "Dòng iPhone 18 cũng đánh dấu thời điểm Apple bắt đầu triển khai phiên bản Siri được nâng cấp bằng AI. Hệ thống Siri mới sử dụng Apple Intelligence kết hợp với các mô hình Gemini của Google nhằm tăng khả năng xử lý và tương tác với dữ liệu cá nhân trên thiết bị."
-        ],
-        "source_depth_score": 92,
-        "source_depth_reason": "depth=92; paragraphs=6; words=450",
-        "link": "https://baotintuc.vn/apple-tang-toc-cuoc-dua-ai-tren-smartphone-post1386836.html"
-      },
-      "title_vi": "Apple tăng tốc cuộc đua AI trên smartphone",
-      "title_en": "",
-      "dek_vi": "Apple ngày 18/9 chính thức mở bán dòng iPhone 18 trên toàn cầu, thu hút đông đảo khách hàng tới các cửa hàng Apple để sở hữu những mẫu điện thoại mới nhất của hãng.",
-      "dek_en": "",
-      "body_vi": "Điều gì đã xảy ra\nApple ngày 18/9 chính thức mở bán dòng iPhone 18 trên toàn cầu, thu hút đông đảo khách hàng tới các cửa hàng Apple để sở hữu những mẫu điện thoại mới nhất của hãng.\n\nCác nguồn đang khớp nhau ở đâu\nTheo phóng viên TTXVN tại Washington, iPhone 18 Pro có giá khởi điểm 1. 199 USD, trong khi iPhone 18 Pro Max có giá từ 1. 299 USD. Hai mẫu máy này được Apple giới thiệu tại sự kiện thường niên hồi tuần trước cùng với iPhone Duo, mẫu điện thoại gập đầu tiên của hãng, có giá khởi điểm 1. 999 USD.\n\nDữ kiện hiện có\nDòng iPhone 18 Pro và Pro Max được trang bị hệ thống camera thiết kế mới, với khẩu độ có khả năng thay đổi tương tự máy ảnh DSLR. Apple cho biết thiết kế này giúp cải thiện khả năng chụp ảnh trong điều kiện thiếu sáng và tăng khả năng kiểm soát độ sâu trường ảnh.\n\nAi nên chú ý lúc này\nApple cũng bổ sung tính năng nhận diện hình ảnh được tạo hoặc chỉnh sửa bằng AI. Theo hãng, hệ thống sẽ tạo một hình ảnh tham chiếu không thể chỉnh sửa và lưu song song với hình ảnh đã qua xử lý, nhằm giúp xác định nguồn gốc và mức độ chỉnh sửa của nội dung.\n\nĐiều chưa rõ\nNgày mở bán thu hút khách hàng tại nhiều Apple Store trên thế giới. Tại New York, Tổng Giám đốc Apple John Ternus, người kế nhiệm ông Tim Cook hồi đầu tháng này, xuất hiện tại cửa hàng chủ lực trên Đại lộ Fifth Avenue, chụp ảnh và ký tên cho khách hàng. Người mua cũng xếp hàng tại các cửa hàng của Apple ở Menlo Park Mall ở Edison, bang New Jersey, trên phố George ở Sydney (Australia) hay phố Regent ở London (Anh).",
-      "body_en": "",
-      "slug_vi": "apple-tang-toc-cuoc-ua-ai-tren-smartphone",
-      "slug_en": "apple-tang-toc-cuoc-ua-ai-tren-smartphone",
-      "category": "devices",
-      "geo_scope": "vn",
-      "hot_score": 50,
-      "source_urls": [
-        "https://baotintuc.vn/apple-tang-toc-cuoc-dua-ai-tren-smartphone-post1386836.html"
-      ],
-      "image_url": "https://media3.baotintuc.vn/images/JQoPFRNPPTA1Y0eS_o1V7zxhqLs7woMS1HAUcinHigfRdnEUZD6kRhYK0IrktqI71gUad0OFUmXpA57LVBcOng/1789783366733.jpg.webp",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/apple-tang-toc-cuoc-ua-ai-tren-smartphone",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       }
     },
@@ -998,7 +858,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1139,7 +999,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       }
     },
@@ -1282,7 +1142,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       }
     }

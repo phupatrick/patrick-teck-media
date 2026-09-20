@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T05:19:44.540Z",
+  "generated_at": "2026-09-20T13:12:49.023Z",
   "articles": [
     {
       "id": "feed-f9186263d11b-vi",
@@ -118,7 +118,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.486Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -240,10 +240,134 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
+    },
+    {
+      "id": "feed-dc151c8140e7-en",
+      "cluster_id": "feed-dc151c8140e7",
+      "language": "en",
+      "topic_label": "Security",
+      "topic_slug": "security",
+      "topic_accent": "#1de59c",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "title": "Humans, not rogue AI, are still the biggest cybersecurity risk to energy systems",
+      "hook": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing. We were just kind of surviving at the appetite of our predators,” Joshua Corman, executive in residence for public safety and resilience at the Institute for Security and Technology (IST), told me last year .",
+      "dek": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "“We were always prey. We were just kind of surviving at the appetite of our predators,” Joshua Corman, executive in residence for public safety and resilience at the Institute for Security and Technology (IST), told me last year . At the time, I was preoccupied with a Department of Homeland Security warning that Iranian actors and sympathizers could target the US with cyberattacks."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Last week, I called Corman up to chat about recent incidents of rogue AI agents orchestrating their own complex cyberattacks . Even AI executives are talking about whether the technology they’re building could grow so out of control that it triggers an apocalypse. If there is now a 10 percent chance of artificial intelligence one day killing all humans, as some AI developers warn , surely there’s a chance it could knock our lights out in the meantime?"
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "But when I spoke to Corman and other cybersecurity experts, they were still more worried about generative AI in the hands of bad actors than they were about rogue agents. As tech companies race to build ever more powerful AI models, utilities will similarly have to shore up their defenses — no matter who or what initiated the attack."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Much of our critical energy infrastructure — keeping the lights on in our homes, food cold in our refrigerators, and life-saving devices working in hospitals — was never designed to connect to the internet. The lifespan of a power plant is typically decades long. The average age of a nuclear reactor in the US is about 44 years . They weren’t constructed with today’s cybersecurity risks in mind, making them easy targets for hackers."
+        }
+      ],
+      "image": {
+        "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/akrales_220309_4977_0292.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+        "alt": "",
+        "caption": "Reference image from The Verge.",
+        "credit": "The Verge",
+        "source_url": "https://www.theverge.com/science/997834/ai-cyberattack-energy-critical-infrastructure"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "The Verge",
+          "source_url": "https://www.theverge.com/science/997834/ai-cyberattack-energy-critical-infrastructure",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-19T20:28:15.000Z",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/akrales_220309_4977_0292.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+          "image_caption": "Reference image from The Verge.",
+          "image_credit": "The Verge"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2026-09-19T20:28:15.000Z",
+      "updated_at": "2026-09-19T20:28:15.000Z",
+      "href": "/en/news/humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "title_vi": "",
+      "title_en": "Humans, not rogue AI, are still the biggest cybersecurity risk to energy systems",
+      "dek_vi": "",
+      "dek_en": "Before recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing.",
+      "body_vi": "",
+      "body_en": "What happened\nBefore recent high-profile hacks raised the specter of AI possibly “ killing all humans ,” our energy systems were already disturbingly vulnerable to cyberattack — and the risk is growing.\n\nWhere the sources line up\n“We were always prey. We were just kind of surviving at the appetite of our predators,” Joshua Corman, executive in residence for public safety and resilience at the Institute for Security and Technology (IST), told me last year . At the time, I was preoccupied with a Department of Homeland Security warning that Iranian actors and sympathizers could target the US with cyberattacks.\n\nPractical impact for readers\nLast week, I called Corman up to chat about recent incidents of rogue AI agents orchestrating their own complex cyberattacks . Even AI executives are talking about whether the technology they’re building could grow so out of control that it triggers an apocalypse. If there is now a 10 percent chance of artificial intelligence one day killing all humans, as some AI developers warn , surely there’s a chance it could knock our lights out in the meantime?\n\nWho should pay attention now\nBut when I spoke to Corman and other cybersecurity experts, they were still more worried about generative AI in the hands of bad actors than they were about rogue agents. As tech companies race to build ever more powerful AI models, utilities will similarly have to shore up their defenses — no matter who or what initiated the attack.\n\nWhat is still unclear\nMuch of our critical energy infrastructure — keeping the lights on in our homes, food cold in our refrigerators, and life-saving devices working in hospitals — was never designed to connect to the internet. The lifespan of a power plant is typically decades long. The average age of a nuclear reactor in the US is about 44 years . They weren’t constructed with today’s cybersecurity risks in mind, making them easy targets for hackers.",
+      "slug_vi": "humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "slug_en": "humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "category": "security",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://www.theverge.com/science/997834/ai-cyberattack-energy-critical-infrastructure"
+      ],
+      "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/akrales_220309_4977_0292.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-20T13:12:48.955Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "security"
     },
     {
       "id": "feed-6c59dc9b470d-en",
@@ -362,7 +486,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -606,7 +730,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -1344,7 +1468,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       },
       "topic": "ai"
@@ -1714,7 +1838,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -23499,7 +23623,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-20T05:19:44.487Z",
+        "generated_at": "2026-09-20T13:12:48.955Z",
         "origin": "local-curated-rss"
       }
     },
