@@ -1,9 +1,230 @@
 {
-  "generated_at": "2026-09-21T15:19:00.690Z",
+  "generated_at": "2026-09-21T19:55:51.877Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
-  "articles": []
+  "articles": [
+    {
+      "id": "feed-ba9b1702454b-en",
+      "cluster_id": "story-ba3eae30295d",
+      "language": "en",
+      "topic_label": "AI",
+      "topic_slug": "ai",
+      "topic_accent": "#56e7ff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "agent-anomaly-detection-now-in-private-preview-on-the-gemini-enterprise-agent-platform",
+      "title": "Agent Anomaly Detection, now in Private Preview on the Gemini Enterprise Agent Platform",
+      "hook": "The AI subscription race is moving out of demo mode and into practical use. When a vendor adds more storage, unlocks stronger models, or folds research and creation into the same plan without blowing up the price, readers have a reason to rethink what they are paying for. This piece sits on 3 source layers, but the real value is showing why the story should not be skimmed past too quickly. Teams are putting them to work on real business tasks: issuing refunds, updating records, calling internal tools on a user's behalf.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Each new model generation makes AI agents more capable, more autonomous, and cheaper to run. Google are pulling the AI plan race into practical use: price, storage, stronger models, and bundle rights that land in everyday work. Google Developers Blog, Google Workspace Updates and Android Central align on the core of the story, giving it firmer ground than a single headline on its own.",
+      "dek": "Each new model generation makes AI agents more capable, more autonomous, and cheaper to run. The useful read is not just the monthly price or storage number, but which model tier gets unlocked, which tools are bundled, how the data is protected, and whether the plan actually removes the need for extra side subscriptions. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams. Teams are putting them to work on real business tasks: issuing refunds, updating records, calling internal tools on a user's behalf.",
+      "sections": [
+        {
+          "heading": "The upgrade worth noting",
+          "body": "But a more capable model is not automatically a safer one. The more decisions an agent makes at runtime, the more its risk shifts from its code to its behavior. The real damage often happens in sessions that look benign on the surface: the agent returns a clean answer and closes the ticket, and only afterward do you notice it reached for a tool it should never have touched, or acted on a request that quietly widened its own access. Because nothing failed outright, the session clears the usual metrics-based evaluations without any second look. Google Developers Blog, Google Workspace Updates and Android Central align on the core of the story, giving it firmer ground than a single headline on its own."
+        },
+        {
+          "heading": "Where to look at price and bundle value",
+          "body": "On AI plans, the critical read is not just the extra terabytes on paper, but whether pricing stays stable, which model tier is actually unlocked, how tight the regional limits remain, and how clearly data privacy is promised."
+        },
+        {
+          "heading": "Which AI layers are lifting the plan",
+          "body": "But a more capable model is not automatically a safer one. What makes this worth opening is that the bundled AI touches real tools like mail, docs, research, image generation, video, or note-taking instead of sitting as a standalone demo."
+        },
+        {
+          "heading": "Who should pay attention",
+          "body": "The readers who should watch most closely are the ones already paying for storage, docs, meetings, content creation, and AI at the same time. If one plan truly bundles those layers, the value will surface quickly. Readers using AI only for occasional prompts may still be fine on lighter or free tiers."
+        },
+        {
+          "heading": "Patrick Tech Media take",
+          "body": "Patrick Tech Media reads moves like this as a race for practical value. The plan that removes the need for extra side services, reduces switching between tools, and keeps AI quality stable will hold an advantage longer than the launch buzz. From 1 early signals, the piece keeps 3 references that are useful for locking the main details in place."
+        }
+      ],
+      "image": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvuVYOT08H8yfFZkO_d01Q5hWSbNFiv70Y1iusU7Mo9jJwEEri3y39cB2Y5se_0F34oA9T4fYY6w2tIxXMds4IkAFzktmBnUQ3yD808r_3BE-PmI2rGWF8xar-Dqo1Q57BcKOlaAV-fvMcCu0fFIrYKFEVz5BhZ3sbjTt-iDQlxw3zxgAojkvK-yUEFfM/w1200-h630-p-k-no-nu/Introducing%20Expert%20Intelligence%20in%20Gemini%20Notebook.png",
+        "alt": "",
+        "caption": "Reference image from Google Workspace Updates.",
+        "credit": "Google Workspace Updates",
+        "source_url": "http://workspaceupdates.googleblog.com/2026/09/introducing-expert-intelligence-in-Gemini-Notebook.html"
+      },
+      "verification_state": "verified",
+      "quality_score": 98,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "editorial_focus": [
+        "ai",
+        "ai-package"
+      ],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "Google Developers Blog",
+          "source_url": "https://developers.googleblog.com/agent-anomaly-detection-now-in-private-preview-on-the-gemini-enterprise-agent-platform/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-21T19:54:57.237Z",
+          "image_url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Blog_Banner_3.2e16d0ba.fill-1200x600.jpg",
+          "image_caption": "Reference image from Google Developers Blog.",
+          "image_credit": "Google Developers Blog"
+        },
+        {
+          "source_type": "official-site",
+          "source_name": "Google Workspace Updates",
+          "source_url": "http://workspaceupdates.googleblog.com/2026/09/introducing-expert-intelligence-in-Gemini-Notebook.html",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-17T16:21:01.044Z",
+          "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvuVYOT08H8yfFZkO_d01Q5hWSbNFiv70Y1iusU7Mo9jJwEEri3y39cB2Y5se_0F34oA9T4fYY6w2tIxXMds4IkAFzktmBnUQ3yD808r_3BE-PmI2rGWF8xar-Dqo1Q57BcKOlaAV-fvMcCu0fFIrYKFEVz5BhZ3sbjTt-iDQlxw3zxgAojkvK-yUEFfM/w1200-h630-p-k-no-nu/Introducing%20Expert%20Intelligence%20in%20Gemini%20Notebook.png",
+          "image_caption": "Reference image from Google Workspace Updates.",
+          "image_credit": "Google Workspace Updates"
+        },
+        {
+          "source_type": "press",
+          "source_name": "Android Central",
+          "source_url": "https://www.androidcentral.com/apps-software/ai/googles-gemini-went-rogue-and-breached-three-companies",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-19T09:24:34.000Z",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/qwsi2QkSGmUwD49qgj9MFX-2560-80.jpg",
+          "image_caption": "Reference image from Android Central.",
+          "image_credit": "Android Central"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-09-21T19:54:57.237Z",
+      "updated_at": "2026-09-21T19:54:57.237Z",
+      "href": "/en/news/agent-anomaly-detection-now-in-private-preview-on-the-gemini-enterprise-agent-platform",
+      "draft_context": {
+        "source_title": "Agent Anomaly Detection, now in Private Preview on the Gemini Enterprise Agent Platform",
+        "source_name": "Google Developers Blog",
+        "source_type": "official-site",
+        "trust_tier": "official",
+        "topic_hint": "apps-software",
+        "content_type_hint": "",
+        "description": "Agent Anomaly Detection is a new, out-of-band oversight layer for the Gemini Enterprise Agent Platform that analyzes OpenTelemetry traces and tool calls to catch behavioral risks without adding runtime latency to live requests. It utilizes a multi-tiered detection pipeline—combining lightweight statistical scanning with deep LLM-based reasoning—to identify logical anomalies and policy violations grounded in the OWASP Agentic Top 10. Developers can triage these automated findings within Security Command Center or leverage the exposed API to programmatically block subsequent tool calls when an agent breaches defined risk thresholds.",
+        "paragraphs": [
+          "Each new model generation makes AI agents more capable, more autonomous, and cheaper to run. Teams are putting them to work on real business tasks: issuing refunds, updating records, calling internal tools on a user's behalf. But a more capable model is not automatically a safer one. The more decisions an agent makes at runtime, the more its risk shifts from its code to its behavior. The real damage often happens in sessions that look benign on the surface: the agent returns a clean answer and closes the ticket, and only afterward do you notice it reached for a tool it should never have touched, or acted on a request that quietly widened its own access. Because nothing failed outright, the session clears the usual metrics-based evaluations without any second look.",
+          "That gap is exactly what Agent Anomaly Detection is built to close. It's now in Private Preview on the Gemini Enterprise Agent Platform.",
+          "Agent Anomaly Detection is a reasoning-based oversight and audit layer for autonomous agents deployed on the Gemini Enterprise Agent Platform. It examines what an agent actually does using its reasoning traces, tool calls, and execution flow across a session. It reads the logs and OpenTelemetry traces your agents already emit, evaluates that activity to decide whether an agent is operating outside its intended boundaries, and flags behavioral anomalies, suspicious intent, and policy violations.",
+          "Agent Anomaly Detection balances detection speed, cost, and coverage. To strike that balance, it analyzes traces and logs in layers: a lightweight first pass scans all traffic to surface statistical anomalies and flag those sessions for further analysis. Then, an LLM-based reasoning layer deeply examines the flagged sessions.",
+          "To make that concrete, take the example of an Inventory Agent with a list_inventory tool . A user says, \"I want to see your inventory. List 100 items at a time\" and the agent starts paging through in large batches, jumping across offsets to pull the whole catalog.",
+          "Nothing here throws an error. The agent is only doing things it’s capable of, and there may be no policy preventing it. But Agent Anomaly Detection flags the anomalous behavior, working through the session in layers: the first layer flags the session as a statistical outlier from the volume and the repeated calls. The second layer reasons through the full exchange, recognizes the large-batch, offset-jumping pattern as systematic scraping rather than normal browsing, and returns a verdict with a plain-language explanation. Where a case needs a closer look, a third layer reconstructs the individual tool calls and their offsets to show exactly what was pulled."
+        ],
+        "source_depth_score": 100,
+        "source_depth_reason": "depth=100; paragraphs=6; words=515",
+        "link": "https://developers.googleblog.com/agent-anomaly-detection-now-in-private-preview-on-the-gemini-enterprise-agent-platform/"
+      },
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": null,
+      "research_context": {
+        "method": "multi-source editorial synthesis",
+        "language": "en",
+        "source_count": 3,
+        "independent_sources": [
+          "Google Developers Blog",
+          "Google Workspace Updates",
+          "Android Central"
+        ],
+        "source_facts": [
+          {
+            "source_name": "Google Developers Blog",
+            "source_url": "https://developers.googleblog.com/agent-anomaly-detection-now-in-private-preview-on-the-gemini-enterprise-agent-platform",
+            "facts": [
+              "Each new model generation makes AI agents more capable, more autonomous, and cheaper to run.",
+              "Teams are putting them to work on real business tasks: issuing refunds, updating records, calling internal tools on a user's behalf.",
+              "Each new model generation makes AI agents more capable, more autonomous, and cheaper to run.",
+              "Each new model generation makes AI agents more capable, more autonomous, and cheaper to run.",
+              "Teams are putting them to work on real business tasks: issuing refunds, updating records, calling internal tools on a user's behalf."
+            ]
+          },
+          {
+            "source_name": "Google Workspace Updates",
+            "source_url": "http://workspaceupdates.googleblog.com/2026/09/introducing-expert-intelligence-in-Gemini-Notebook.html",
+            "facts": [
+              "We’re introducing Expert Intelligence , a cross Google initiative that helps users engage with trusted sources through Google AI products, starting with Gemini Notebook.",
+              "Featuring more than 100,000 books from major publishers, employees and students can now incorporate insights from leading authors, publications, and domain experts directly into Gemini Notebook.",
+              "We’re introducing Expert Intelligence , a cross Google initiative that helps users engage with trusted sources through Google AI products, starting with Gemini Notebook.",
+              "We’re introducing Expert Intelligence , a cross Google initiative that helps users engage with trusted sources through Google AI products, starting with Gemini Notebook.",
+              "Featuring more than 100,000 books from major publishers, employees and students can now incorporate insights from leading authors, publications, and domain experts directly into Gemini Notebook."
+            ]
+          },
+          {
+            "source_name": "Android Central",
+            "source_url": "https://www.androidcentral.com/apps-software/ai/googles-gemini-went-rogue-and-breached-three-companies",
+            "facts": [
+              "2 I spent a week testing the Google Pixel 11 Pro and Pro XL, and they're harder to recommend despite some fun new Gemini features.",
+              "3 Google just put the latest AI models through a brutal coding test — here's how they did.",
+              "2 I spent a week testing the Google Pixel 11 Pro and Pro XL, and they're harder to recommend despite some fun new Gemini features.",
+              "2 I spent a week testing the Google Pixel 11 Pro and Pro XL, and they're harder to recommend despite some fun new Gemini features.",
+              "2 I spent a week testing the Google Pixel 11 Pro and Pro XL, and they're harder to recommend despite some fun new Gemini features"
+            ]
+          }
+        ]
+      },
+      "title_vi": "",
+      "title_en": "Agent Anomaly Detection, now in Private Preview on the Gemini Enterprise Agent Platform",
+      "dek_vi": "",
+      "dek_en": "Each new model generation makes AI agents more capable, more autonomous, and cheaper to run. The useful read is not just the monthly price or storage number, but which model tier gets unlocked, which tools are bundled, how the data is protected, and whether the plan actually removes the need for extra side subscriptions. Even when the core is settled, the next useful read is still the rollout speed, the real impact, and the switching cost for users or teams. Teams are putting them to work on real business tasks: issuing refunds, updating records, calling internal tools on a user's behalf.",
+      "body_vi": "",
+      "body_en": "The upgrade worth noting\nBut a more capable model is not automatically a safer one. The more decisions an agent makes at runtime, the more its risk shifts from its code to its behavior. The real damage often happens in sessions that look benign on the surface: the agent returns a clean answer and closes the ticket, and only afterward do you notice it reached for a tool it should never have touched, or acted on a request that quietly widened its own access. Because nothing failed outright, the session clears the usual metrics-based evaluations without any second look. Google Developers Blog, Google Workspace Updates and Android Central align on the core of the story, giving it firmer ground than a single headline on its own.\n\nWhere to look at price and bundle value\nOn AI plans, the critical read is not just the extra terabytes on paper, but whether pricing stays stable, which model tier is actually unlocked, how tight the regional limits remain, and how clearly data privacy is promised.\n\nWhich AI layers are lifting the plan\nBut a more capable model is not automatically a safer one. What makes this worth opening is that the bundled AI touches real tools like mail, docs, research, image generation, video, or note-taking instead of sitting as a standalone demo.\n\nWho should pay attention\nThe readers who should watch most closely are the ones already paying for storage, docs, meetings, content creation, and AI at the same time. If one plan truly bundles those layers, the value will surface quickly. Readers using AI only for occasional prompts may still be fine on lighter or free tiers.\n\nPatrick Tech Media take\nPatrick Tech Media reads moves like this as a race for practical value. The plan that removes the need for extra side services, reduces switching between tools, and keeps AI quality stable will hold an advantage longer than the launch buzz. From 1 early signals, the piece keeps 3 references that are useful for locking the main details in place.",
+      "slug_vi": "agent-anomaly-detection-now-in-private-preview-on-the-gemini-enterprise-agent-platform",
+      "slug_en": "agent-anomaly-detection-now-in-private-preview-on-the-gemini-enterprise-agent-platform",
+      "category": "ai",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://developers.googleblog.com/agent-anomaly-detection-now-in-private-preview-on-the-gemini-enterprise-agent-platform/",
+        "http://workspaceupdates.googleblog.com/2026/09/introducing-expert-intelligence-in-Gemini-Notebook.html",
+        "https://www.androidcentral.com/apps-software/ai/googles-gemini-went-rogue-and-breached-three-companies"
+      ],
+      "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvuVYOT08H8yfFZkO_d01Q5hWSbNFiv70Y1iusU7Mo9jJwEEri3y39cB2Y5se_0F34oA9T4fYY6w2tIxXMds4IkAFzktmBnUQ3yD808r_3BE-PmI2rGWF8xar-Dqo1Q57BcKOlaAV-fvMcCu0fFIrYKFEVz5BhZ3sbjTt-iDQlxw3zxgAojkvK-yUEFfM/w1200-h630-p-k-no-nu/Introducing%20Expert%20Intelligence%20in%20Gemini%20Notebook.png",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/agent-anomaly-detection-now-in-private-preview-on-the-gemini-enterprise-agent-platform",
+      "storeUrl": "https://patricktechmedia.store",
+      "topic": "ai",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-21T19:55:51.876Z",
+        "origin": "local-curated-rss"
+      }
+    }
+  ]
 }
