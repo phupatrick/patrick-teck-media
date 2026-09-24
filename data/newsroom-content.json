@@ -1,6 +1,374 @@
 {
-  "generated_at": "2026-09-24T05:16:14.808Z",
+  "generated_at": "2026-09-24T13:45:19.251Z",
   "articles": [
+    {
+      "id": "feed-7f814db1aba6-en",
+      "cluster_id": "feed-7f814db1aba6",
+      "language": "en",
+      "topic_label": "Security",
+      "topic_slug": "security",
+      "topic_accent": "#1de59c",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "there-s-a-new-way-to-break-rsa-that-s-faster-than-anything-we-ve-seen-before",
+      "title": "There's a new way to break RSA that's faster than anything we've seen before",
+      "hook": "Once quantum computing becomes practical (estimates for that range from 3 to 20 or more years), the foundational security it provides will crumble.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "The world has known for decades that the RSA cryptosystem ’s days are numbered. Once quantum computing becomes practical (estimates for that range from 3 to 20 or more years), the foundational security it provides will crumble.",
+      "dek": "The world has known for decades that the RSA cryptosystem ’s days are numbered. Once quantum computing becomes practical (estimates for that range from 3 to 20 or more years), the foundational security it provides will crumble. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What happened",
+          "body": "New research has revealed a novel method that uses classical computing to reduce the current RSA security level to an unacceptably low threshold."
+        },
+        {
+          "heading": "Where the sources line up",
+          "body": "The finding poses little to no practical threat in the immediate term, except possibly in a few edge cases. Even applying the attack against the deprecated use of 1024-bit keys, the method requires more computation than just about anybody—short of nation-states or companies with massive resources—can achieve. Widely used RSA implementations are also safe."
+        },
+        {
+          "heading": "Practical impact for readers",
+          "body": "Nonetheless, the research has taken cryptographers by surprise because it introduces signature forgery, a new way to break RSA keys without factoring. Equally important, this novel method reduces the required computing resources by orders of magnitude."
+        },
+        {
+          "heading": "Who should pay attention now",
+          "body": "“If this result holds up under peer review, it would indeed be a conceptual break-through,” Karsten Nohl, a cryptography expert and the head of innovation at Allurity, said in an interview. “RSA is as difficult to break as it is to factor large integers, at least so we thought. The researcher suggests that you can practically break RSA without cracking its key."
+        },
+        {
+          "heading": "What is still unclear",
+          "body": "Cryptographers thought that the only way to compute valid RSA digital signatures was to first compute the private key by factoring, and then use the private key to compute the signatures. For 1024-bit RSA, this was thought to be very expensive, albeit probably doable if you have the computational resources of the large tech companies or the NSA—on the order of tens of millions of dollars of computation time for a single key. For 2048-bit RSA, it was thought to be totally out of reach."
+        }
+      ],
+      "image": {
+        "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/breaking-digital-chain-1152x648.jpg",
+        "alt": "",
+        "caption": "Reference image from Ars Technica.",
+        "credit": "Ars Technica",
+        "source_url": "https://arstechnica.com/security/2026/09/theres-a-new-way-to-break-rsa-thats-faster-than-anything-weve-seen-before/"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "secure-access-kit"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Ars Technica",
+          "source_url": "https://arstechnica.com/security/2026/09/theres-a-new-way-to-break-rsa-thats-faster-than-anything-weve-seen-before/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-24T11:15:44.000Z",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/breaking-digital-chain-1152x648.jpg",
+          "image_caption": "Reference image from Ars Technica.",
+          "image_credit": "Ars Technica"
+        }
+      ],
+      "author_id": "thao-nguyen",
+      "published_at": "2026-09-24T11:15:44.000Z",
+      "updated_at": "2026-09-24T11:15:44.000Z",
+      "href": "/en/news/there-s-a-new-way-to-break-rsa-that-s-faster-than-anything-we-ve-seen-before",
+      "title_vi": "",
+      "title_en": "There's a new way to break RSA that's faster than anything we've seen before",
+      "dek_vi": "",
+      "dek_en": "The world has known for decades that the RSA cryptosystem ’s days are numbered. Once quantum computing becomes practical (estimates for that range from 3 to 20 or more years), the foundational security it provides will crumble. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "body_vi": "",
+      "body_en": "What happened\nNew research has revealed a novel method that uses classical computing to reduce the current RSA security level to an unacceptably low threshold.\n\nWhere the sources line up\nThe finding poses little to no practical threat in the immediate term, except possibly in a few edge cases. Even applying the attack against the deprecated use of 1024-bit keys, the method requires more computation than just about anybody—short of nation-states or companies with massive resources—can achieve. Widely used RSA implementations are also safe.\n\nPractical impact for readers\nNonetheless, the research has taken cryptographers by surprise because it introduces signature forgery, a new way to break RSA keys without factoring. Equally important, this novel method reduces the required computing resources by orders of magnitude.\n\nWho should pay attention now\n“If this result holds up under peer review, it would indeed be a conceptual break-through,” Karsten Nohl, a cryptography expert and the head of innovation at Allurity, said in an interview. “RSA is as difficult to break as it is to factor large integers, at least so we thought. The researcher suggests that you can practically break RSA without cracking its key.\n\nWhat is still unclear\nCryptographers thought that the only way to compute valid RSA digital signatures was to first compute the private key by factoring, and then use the private key to compute the signatures. For 1024-bit RSA, this was thought to be very expensive, albeit probably doable if you have the computational resources of the large tech companies or the NSA—on the order of tens of millions of dollars of computation time for a single key. For 2048-bit RSA, it was thought to be totally out of reach.",
+      "slug_vi": "there-s-a-new-way-to-break-rsa-that-s-faster-than-anything-we-ve-seen-before",
+      "slug_en": "there-s-a-new-way-to-break-rsa-that-s-faster-than-anything-we-ve-seen-before",
+      "category": "security",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://arstechnica.com/security/2026/09/theres-a-new-way-to-break-rsa-thats-faster-than-anything-weve-seen-before/"
+      ],
+      "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/breaking-digital-chain-1152x648.jpg",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/there-s-a-new-way-to-break-rsa-that-s-faster-than-anything-we-ve-seen-before",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-24T13:45:19.176Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "security"
+    },
+    {
+      "id": "feed-7f4360475bf7-vi",
+      "cluster_id": "feed-7f4360475bf7",
+      "language": "vi",
+      "topic_label": "Internet & Doanh nghiệp số",
+      "topic_slug": "internet-doanh-nghiep-so",
+      "topic_accent": "#9bff45",
+      "content_type": "NewsArticle",
+      "content_type_label": "Tin nhanh",
+      "path_segment": "tin-tuc",
+      "slug": "ai-va-bai-toan-quan-tri-toan-cau",
+      "title": "AI và bài toán quản trị toàn cầu",
+      "hook": "Người đứng đầu các công ty trí tuệ nhân tạo (AI) hàng đầu thế giới đã cảnh báo Hội đồng Bảo an LHQ về những rủi ro của công nghệ này đối với nhân loại, đồng thời kêu gọi các chính phủ hợp tác để quản lý công nghệ đang ngày càng trở nên mạnh mẽ này.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Người đứng đầu các công ty trí tuệ nhân tạo (AI) hàng đầu thế giới đã cảnh báo Hội đồng Bảo an LHQ về những rủi ro của công nghệ này đối với nhân loại, đồng thời kêu gọi các chính phủ hợp tác để quản lý công nghệ đang ngày càng trở nên mạnh mẽ này. Phát biểu trong cuộc họp do Pháp triệu tập trong khuôn khổ Tuần lễ cấp cao Đại hội đồng LHQ khóa 81, Giám đốc điều hành OpenAI, ông Sam Altman cho rằng với sự phát triển hiện nay của AI, thế giới đang đối mặt với nguy cơ \"mất quyền kiểm soát tương lai vào tay AI\" khi con người không còn theo kịp diễn biến hoặc không thể can thiệp kịp thời khi cần thiết.",
+      "dek": "Người đứng đầu các công ty trí tuệ nhân tạo (AI) hàng đầu thế giới đã cảnh báo Hội đồng Bảo an LHQ về những rủi ro của công nghệ này đối với nhân loại, đồng thời kêu gọi các chính phủ hợp tác để quản lý công nghệ đang ngày càng trở nên mạnh mẽ này.",
+      "sections": [
+        {
+          "heading": "Điều gì đã xảy ra",
+          "body": "Người đứng đầu các công ty trí tuệ nhân tạo (AI) hàng đầu thế giới đã cảnh báo Hội đồng Bảo an LHQ về những rủi ro của công nghệ này đối với nhân loại, đồng thời kêu gọi các chính phủ hợp tác để quản lý công nghệ đang ngày càng trở nên mạnh mẽ này."
+        },
+        {
+          "heading": "Các nguồn đang khớp nhau ở đâu",
+          "body": "Phát biểu trong cuộc họp do Pháp triệu tập trong khuôn khổ Tuần lễ cấp cao Đại hội đồng LHQ khóa 81, Giám đốc điều hành OpenAI, ông Sam Altman cho rằng với sự phát triển hiện nay của AI, thế giới đang đối mặt với nguy cơ \"mất quyền kiểm soát tương lai vào tay AI\" khi con người không còn theo kịp diễn biến hoặc không thể can thiệp kịp thời khi cần thiết."
+        },
+        {
+          "heading": "Dữ kiện hiện có",
+          "body": "Nhắc lại việc giảm tốc độ phát triển AI, ông kêu gọi thiết lập tiêu chuẩn quốc tế, nhấn mạnh tương lai của AI không thể chỉ được quyết định trong các phòng thí nghiệm, mà cần hành động, trách nhiệm phối hợp giữa các doanh nghiệp và cơ quan quản lý nhà nước trước công chúng."
+        },
+        {
+          "heading": "Ai nên chú ý lúc này",
+          "body": "Đồng tình với CEO OpenAI, ông Dario Amodei, CEO Anthropic khẳng định AI mang lại những bước tiến lớn cho nhân loại trong khoảng thời gian ngắn, nhưng nếu không được quản lý tốt, AI có thể trở thành “mối đe dọa” đối với toàn nhân loại. Theo ông, có 2 nguy cơ chính từ AI, thứ nhất là việc lạm dụng các mô hình AI cho mục đích xấu và thứ hai là mất quyền kiểm soát, khi năng lực của mô hình phát triển vượt quá khả năng kiểm soát của chính những người tạo ra chúng."
+        },
+        {
+          "heading": "Điều chưa rõ",
+          "body": "Nhấn mạnh đây là những vấn đề mang tính toàn cầu và ảnh hưởng đến toàn thể nhân loại, CEO Anthropic khẳng định: “Không một nhà lãnh đạo, công ty hay quốc gia nào có thể tự mình giải quyết vấn đề này” đồng thời kêu gọi sự hợp tác trong toàn ngành để thiết lập các tiêu chuẩn trong ngành và sự hợp tác toàn cầu giữa các chính phủ để thiết lập các tiêu chuẩn quốc tế."
+        }
+      ],
+      "image": {
+        "src": "https://media3.baotintuc.vn/images/JQoPFRNPPTA1Y0eS_o1V7zmhITyoX_7oMhERYud7MY265NccrrBofXxXpd0jolNonePJauLUyBhSLjcq_UN_G6zGq_AQmhmmJigNly_w_02Qv2-hlzGVMSRyuR1u8c1CUnzKmoWOCg_iCATHV4Qfwy5LhtqyhMmGRTLTycFNt4QaoIdItopZ5l1uvMN3LpKOcp9Q8F3qNtfrkzIBc-ZAoe-3ceqm3jvVBRnVDwMTYNs/potal-10-su-kien-the-gioi-noi-bat-nam-2025-do-ttxvn-binh-chon-su-kien-9-tri-tue-nhan-tao-mat-tran-moi-cua-canh-tranh-toan-cau-stand.jpg.webp",
+        "alt": "",
+        "caption": "Ảnh tham khảo từ Bao Tin Tuc Khoa Hoc.",
+        "credit": "Bao Tin Tuc Khoa Hoc",
+        "source_url": "https://baotintuc.vn/ai-va-bai-toan-quan-tri-toan-cau-post1388482.html"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Bao Tin Tuc Khoa Hoc",
+          "source_url": "https://baotintuc.vn/ai-va-bai-toan-quan-tri-toan-cau-post1388482.html",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-24T09:55:00.000Z",
+          "image_url": "https://media3.baotintuc.vn/images/JQoPFRNPPTA1Y0eS_o1V7zmhITyoX_7oMhERYud7MY265NccrrBofXxXpd0jolNonePJauLUyBhSLjcq_UN_G6zGq_AQmhmmJigNly_w_02Qv2-hlzGVMSRyuR1u8c1CUnzKmoWOCg_iCATHV4Qfwy5LhtqyhMmGRTLTycFNt4QaoIdItopZ5l1uvMN3LpKOcp9Q8F3qNtfrkzIBc-ZAoe-3ceqm3jvVBRnVDwMTYNs/potal-10-su-kien-the-gioi-noi-bat-nam-2025-do-ttxvn-binh-chon-su-kien-9-tri-tue-nhan-tao-mat-tran-moi-cua-canh-tranh-toan-cau-stand.jpg.webp",
+          "image_caption": "Ảnh tham khảo từ Bao Tin Tuc Khoa Hoc.",
+          "image_credit": "Bao Tin Tuc Khoa Hoc"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-24T09:55:00.000Z",
+      "updated_at": "2026-09-24T09:55:00.000Z",
+      "href": "/vi/tin-tuc/ai-va-bai-toan-quan-tri-toan-cau",
+      "title_vi": "AI và bài toán quản trị toàn cầu: vì sao tín hiệu này đang đậm dần",
+      "title_en": "",
+      "dek_vi": "Người đứng đầu các công ty trí tuệ nhân tạo (AI) hàng đầu thế giới đã cảnh báo Hội đồng Bảo an LHQ về những rủi ro của công nghệ này đối với nhân loại, đồng thời kêu gọi các chính phủ hợp tác để quản lý công nghệ đang ngày càng trở nên mạnh mẽ này.",
+      "dek_en": "",
+      "body_vi": "Điều gì đã xảy ra\nNgười đứng đầu các công ty trí tuệ nhân tạo (AI) hàng đầu thế giới đã cảnh báo Hội đồng Bảo an LHQ về những rủi ro của công nghệ này đối với nhân loại, đồng thời kêu gọi các chính phủ hợp tác để quản lý công nghệ đang ngày càng trở nên mạnh mẽ này.\n\nCác nguồn đang khớp nhau ở đâu\nPhát biểu trong cuộc họp do Pháp triệu tập trong khuôn khổ Tuần lễ cấp cao Đại hội đồng LHQ khóa 81, Giám đốc điều hành OpenAI, ông Sam Altman cho rằng với sự phát triển hiện nay của AI, thế giới đang đối mặt với nguy cơ \"mất quyền kiểm soát tương lai vào tay AI\" khi con người không còn theo kịp diễn biến hoặc không thể can thiệp kịp thời khi cần thiết.\n\nDữ kiện hiện có\nNhắc lại việc giảm tốc độ phát triển AI, ông kêu gọi thiết lập tiêu chuẩn quốc tế, nhấn mạnh tương lai của AI không thể chỉ được quyết định trong các phòng thí nghiệm, mà cần hành động, trách nhiệm phối hợp giữa các doanh nghiệp và cơ quan quản lý nhà nước trước công chúng.\n\nAi nên chú ý lúc này\nĐồng tình với CEO OpenAI, ông Dario Amodei, CEO Anthropic khẳng định AI mang lại những bước tiến lớn cho nhân loại trong khoảng thời gian ngắn, nhưng nếu không được quản lý tốt, AI có thể trở thành “mối đe dọa” đối với toàn nhân loại. Theo ông, có 2 nguy cơ chính từ AI, thứ nhất là việc lạm dụng các mô hình AI cho mục đích xấu và thứ hai là mất quyền kiểm soát, khi năng lực của mô hình phát triển vượt quá khả năng kiểm soát của chính những người tạo ra chúng.\n\nĐiều chưa rõ\nNhấn mạnh đây là những vấn đề mang tính toàn cầu và ảnh hưởng đến toàn thể nhân loại, CEO Anthropic khẳng định: “Không một nhà lãnh đạo, công ty hay quốc gia nào có thể tự mình giải quyết vấn đề này” đồng thời kêu gọi sự hợp tác trong toàn ngành để thiết lập các tiêu chuẩn trong ngành và sự hợp tác toàn cầu giữa các chính phủ để thiết lập các tiêu chuẩn quốc tế.",
+      "body_en": "",
+      "slug_vi": "ai-va-bai-toan-quan-tri-toan-cau",
+      "slug_en": "ai-va-bai-toan-quan-tri-toan-cau",
+      "category": "social",
+      "geo_scope": "vn",
+      "hot_score": 50,
+      "source_urls": [
+        "https://baotintuc.vn/ai-va-bai-toan-quan-tri-toan-cau-post1388482.html"
+      ],
+      "image_url": "https://media3.baotintuc.vn/images/JQoPFRNPPTA1Y0eS_o1V7zmhITyoX_7oMhERYud7MY265NccrrBofXxXpd0jolNonePJauLUyBhSLjcq_UN_G6zGq_AQmhmmJigNly_w_02Qv2-hlzGVMSRyuR1u8c1CUnzKmoWOCg_iCATHV4Qfwy5LhtqyhMmGRTLTycFNt4QaoIdItopZ5l1uvMN3LpKOcp9Q8F3qNtfrkzIBc-ZAoe-3ceqm3jvVBRnVDwMTYNs/potal-10-su-kien-the-gioi-noi-bat-nam-2025-do-ttxvn-binh-chon-su-kien-9-tri-tue-nhan-tao-mat-tran-moi-cua-canh-tranh-toan-cau-stand.jpg.webp",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/ai-va-bai-toan-quan-tri-toan-cau",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-24T13:45:19.176Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "internet-business-tech"
+    },
+    {
+      "id": "feed-f4c31a2a314f-vi",
+      "cluster_id": "feed-f4c31a2a314f",
+      "language": "vi",
+      "topic_label": "Internet & Doanh nghiệp số",
+      "topic_slug": "internet-doanh-nghiep-so",
+      "topic_accent": "#9bff45",
+      "content_type": "NewsArticle",
+      "content_type_label": "Tin nhanh",
+      "path_segment": "tin-tuc",
+      "slug": "hop-tac-voi-qualcomm-meta-ra-mat-kinh-vr-glasses-pha-gia-apple",
+      "title": "Hợp tác với Qualcomm, Meta ra mắt kính VR Glasses phá giá Apple",
+      "hook": "Meta đang tìm cách đưa trải nghiệm thực tế ảo ra khỏi những chiếc headset cồng kềnh bằng một sản phẩm có hình dáng giống kính thông minh.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Meta đang tìm cách đưa trải nghiệm thực tế ảo ra khỏi những chiếc headset cồng kềnh bằng một sản phẩm có hình dáng giống kính thông minh. Đáng chú ý, Meta VR Glasses có giá 1.299 USD, chỉ bằng khoảng 37% mức giá khởi điểm 3.499 USD của Apple Vision Pro, trong khi vẫn hướng tới những trải nghiệm VR và điện toán không gian tương tự.",
+      "dek": "Meta đang tìm cách đưa trải nghiệm thực tế ảo ra khỏi những chiếc headset cồng kềnh bằng một sản phẩm có hình dáng giống kính thông minh.",
+      "sections": [
+        {
+          "heading": "Điều gì đã xảy ra",
+          "body": "Đáng chú ý, Meta VR Glasses có giá 1. 299 USD, chỉ bằng khoảng 37% mức giá khởi điểm 3. 499 USD của Apple Vision Pro, trong khi vẫn hướng tới những trải nghiệm VR và điện toán không gian tương tự."
+        },
+        {
+          "heading": "Các nguồn đang khớp nhau ở đâu",
+          "body": "Sự chênh lệch này đặc biệt đáng chú ý bởi Meta không đơn thuần tung ra một mẫu kính thông minh để nghe nhạc hay trò chuyện với AI. Meta VR Glasses được thiết kế để mang trải nghiệm thực tế ảo đầy đủ lên một thiết bị có trọng lượng chỉ 100 gram, nhẹ hơn nhiều so với những headset VR truyền thống."
+        },
+        {
+          "heading": "Dữ kiện hiện có",
+          "body": "Để đạt được điều đó, Meta hợp tác với Qualcomm và sử dụng nền tảng Snapdragon Reality Elite. Tuy nhiên, phần xử lý, pin và bộ nhớ không được đặt hoàn toàn trong gọng kính. Thay vào đó, một thiết bị dạng “puck” bỏ túi sẽ đảm nhiệm phần cứng tính toán, pin và lưu trữ, trong khi kính tập trung vào màn hình và các cảm biến."
+        },
+        {
+          "heading": "Ai nên chú ý lúc này",
+          "body": "Cách thiết kế này giúp Meta giữ trọng lượng của kính ở mức 100 gram. Sản phẩm không cần dây đeo vòng qua đầu như những headset VR thông thường, nhưng vẫn có màn hình micro-OLED 5K, mật độ điểm ảnh 37 pixel mỗi độ và hệ thống thấu kính pancake. Kính cũng hỗ trợ Dolby Vision và Dolby Atmos."
+        },
+        {
+          "heading": "Điều chưa rõ",
+          "body": "Không dừng ở khả năng hiển thị, Meta còn tích hợp Meta AI trực tiếp vào hệ điều hành. Người dùng có thể điều khiển thiết bị bằng giọng nói, ánh mắt và cử chỉ tay tự nhiên mà không cần tay cầm. Hệ thống camera passthrough màu cho phép người dùng nhìn thấy môi trường xung quanh khi đang đeo kính."
+        }
+      ],
+      "image": {
+        "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/24/avatar1790233302520-1790233302916956198233.png",
+        "alt": "",
+        "caption": "Ảnh tham khảo từ GenK Do Choi So.",
+        "credit": "GenK Do Choi So",
+        "source_url": "https://genk.vn/hop-tac-voi-qualcomm-meta-ra-mat-kinh-vr-glasses-pha-gia-apple-165260924141718978.chn"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "GenK Do Choi So",
+          "source_url": "https://genk.vn/hop-tac-voi-qualcomm-meta-ra-mat-kinh-vr-glasses-pha-gia-apple-165260924141718978.chn",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-24T07:50:00.000Z",
+          "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/24/avatar1790233302520-1790233302916956198233.png",
+          "image_caption": "Ảnh tham khảo từ GenK Do Choi So.",
+          "image_credit": "GenK Do Choi So"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-24T07:50:00.000Z",
+      "updated_at": "2026-09-24T07:50:00.000Z",
+      "href": "/vi/tin-tuc/hop-tac-voi-qualcomm-meta-ra-mat-kinh-vr-glasses-pha-gia-apple",
+      "title_vi": "Hợp tác với Qualcomm, Meta ra mắt kính VR Glasses phá giá Apple",
+      "title_en": "",
+      "dek_vi": "Meta đang tìm cách đưa trải nghiệm thực tế ảo ra khỏi những chiếc headset cồng kềnh bằng một sản phẩm có hình dáng giống kính thông minh.",
+      "dek_en": "",
+      "body_vi": "Điều gì đã xảy ra\nĐáng chú ý, Meta VR Glasses có giá 1. 299 USD, chỉ bằng khoảng 37% mức giá khởi điểm 3. 499 USD của Apple Vision Pro, trong khi vẫn hướng tới những trải nghiệm VR và điện toán không gian tương tự.\n\nCác nguồn đang khớp nhau ở đâu\nSự chênh lệch này đặc biệt đáng chú ý bởi Meta không đơn thuần tung ra một mẫu kính thông minh để nghe nhạc hay trò chuyện với AI. Meta VR Glasses được thiết kế để mang trải nghiệm thực tế ảo đầy đủ lên một thiết bị có trọng lượng chỉ 100 gram, nhẹ hơn nhiều so với những headset VR truyền thống.\n\nDữ kiện hiện có\nĐể đạt được điều đó, Meta hợp tác với Qualcomm và sử dụng nền tảng Snapdragon Reality Elite. Tuy nhiên, phần xử lý, pin và bộ nhớ không được đặt hoàn toàn trong gọng kính. Thay vào đó, một thiết bị dạng “puck” bỏ túi sẽ đảm nhiệm phần cứng tính toán, pin và lưu trữ, trong khi kính tập trung vào màn hình và các cảm biến.\n\nAi nên chú ý lúc này\nCách thiết kế này giúp Meta giữ trọng lượng của kính ở mức 100 gram. Sản phẩm không cần dây đeo vòng qua đầu như những headset VR thông thường, nhưng vẫn có màn hình micro-OLED 5K, mật độ điểm ảnh 37 pixel mỗi độ và hệ thống thấu kính pancake. Kính cũng hỗ trợ Dolby Vision và Dolby Atmos.\n\nĐiều chưa rõ\nKhông dừng ở khả năng hiển thị, Meta còn tích hợp Meta AI trực tiếp vào hệ điều hành. Người dùng có thể điều khiển thiết bị bằng giọng nói, ánh mắt và cử chỉ tay tự nhiên mà không cần tay cầm. Hệ thống camera passthrough màu cho phép người dùng nhìn thấy môi trường xung quanh khi đang đeo kính.",
+      "body_en": "",
+      "slug_vi": "hop-tac-voi-qualcomm-meta-ra-mat-kinh-vr-glasses-pha-gia-apple",
+      "slug_en": "hop-tac-voi-qualcomm-meta-ra-mat-kinh-vr-glasses-pha-gia-apple",
+      "category": "social",
+      "geo_scope": "vn",
+      "hot_score": 50,
+      "source_urls": [
+        "https://genk.vn/hop-tac-voi-qualcomm-meta-ra-mat-kinh-vr-glasses-pha-gia-apple-165260924141718978.chn"
+      ],
+      "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/24/avatar1790233302520-1790233302916956198233.png",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/hop-tac-voi-qualcomm-meta-ra-mat-kinh-vr-glasses-pha-gia-apple",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-24T13:45:19.176Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "internet-business-tech"
+    },
     {
       "id": "editorial-ai-package-watch-en",
       "cluster_id": "editorial-ai-package-watch",
@@ -162,8 +530,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-24T05:01:21.840Z",
-      "updated_at": "2026-09-24T05:16:14.808Z",
+      "published_at": "2026-09-24T05:16:14.808Z",
+      "updated_at": "2026-09-24T13:45:19.251Z",
       "href": "/en/compare/which-ai-plan-feels-more-useful-right-now",
       "readiness": {
         "ready": true,
@@ -390,8 +758,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-24T05:01:21.840Z",
-      "updated_at": "2026-09-24T05:16:14.808Z",
+      "published_at": "2026-09-24T05:16:14.808Z",
+      "updated_at": "2026-09-24T13:45:19.251Z",
       "href": "/en/guides/how-to-use-ai-plans-without-duplicate-app-spend",
       "readiness": {
         "ready": true,
@@ -616,8 +984,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-24T05:01:21.840Z",
-      "updated_at": "2026-09-24T05:16:14.808Z",
+      "published_at": "2026-09-24T05:16:14.808Z",
+      "updated_at": "2026-09-24T13:45:19.251Z",
       "href": "/en/compare/what-google-just-changed-in-ai-plans",
       "readiness": {
         "ready": true,
@@ -842,8 +1210,8 @@
         }
       ],
       "author_id": "mai-linh",
-      "published_at": "2026-09-24T05:01:21.840Z",
-      "updated_at": "2026-09-24T05:16:14.808Z",
+      "published_at": "2026-09-24T05:16:14.808Z",
+      "updated_at": "2026-09-24T13:45:19.251Z",
       "href": "/en/guides/the-practical-tech-tips-worth-saving-right-now",
       "readiness": {
         "ready": true,
@@ -1025,7 +1393,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-24T05:16:14.753Z",
+        "generated_at": "2026-09-24T13:45:19.176Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
@@ -1517,7 +1885,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-24T05:16:14.753Z",
+        "generated_at": "2026-09-24T13:45:19.176Z",
         "origin": "local-curated-rss"
       },
       "topic": "ai"
@@ -3580,7 +3948,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-24T05:16:14.753Z",
+        "generated_at": "2026-09-24T13:45:19.176Z",
         "origin": "local-curated-rss"
       },
       "topic": "gaming"
