@@ -1,6 +1,132 @@
 {
-  "generated_at": "2026-09-24T13:45:19.251Z",
+  "generated_at": "2026-09-24T18:55:35.318Z",
   "articles": [
+    {
+      "id": "feed-cb68b1d41446-en",
+      "cluster_id": "feed-cb68b1d41446",
+      "language": "en",
+      "topic_label": "AI",
+      "topic_slug": "ai",
+      "topic_accent": "#56e7ff",
+      "content_type": "NewsArticle",
+      "content_type_label": "News",
+      "path_segment": "news",
+      "slug": "speaker-labeled-transcription-with-whisperx-on-sagemaker-ai",
+      "title": "Speaker-labeled transcription with WhisperX on SageMaker AI",
+      "hook": "Any team working with spoken audio hits the same wall with generic speech-to-text. The interesting part is that AI is edging closer to practical work, not just polished demos.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Any team working with spoken audio hits the same wall with generic speech-to-text. Think contact-center calls, all-hands meetings, podcasts, depositions, and broadcast media.",
+      "dek": "Any team working with spoken audio hits the same wall with generic speech-to-text. Think contact-center calls, all-hands meetings, podcasts, depositions, and broadcast media. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "sections": [
+        {
+          "heading": "What changed",
+          "body": "These workloads need two things that standard transcription gets wrong. First, timestamps land at the utterance level, off by several seconds. Second, there’s no reliable answer to “who said what. ” Those gaps make transcripts hard to search, caption, redact, or analyze at scale. A missing speaker label breaks compliance review, and an imprecise timestamp breaks a caption or a redaction."
+        },
+        {
+          "heading": "Price and bundle value",
+          "body": "WhisperX closes both gaps. It wraps OpenAI’s Whisper with batched inference, adds wav2vec2 forced alignment for precise per-word timestamps, and adds speaker diarization to label who spoke. These capabilities map directly to real workloads. Contact centers can measure talk time, check script adherence, and run sentiment analysis, while teams turn meetings into searchable notes. Media and e-learning teams generate accurate captions (in SubRip Subtitle (SRT) and Web Video Text Tracks (VTT) format) for large content libraries. Time-sensitive uses get text the moment someone speaks. In regulated fields like healthcare, legal, and finance, speaker-labeled transcripts support audits and legal discovery."
+        },
+        {
+          "heading": "AI features that change the value",
+          "body": "Whisper is a popular open source automatic speech recognition (ASR) model family from OpenAI that transcribes spoken audio into text accurately across many languages. It focuses on high-quality transcription and produces timestamps at the phrase or segment level. WhisperX is an open source project that builds on Whisper and extends it for production workloads. It adds per-word timestamps, speaker labels, and faster transcription, three capabilities that together turn raw audio into structured, analyzable transcripts."
+        },
+        {
+          "heading": "Who should pay attention",
+          "body": "The AWS WhisperX DLC is a maintained, GPU-ready image that already contains Whisper, the alignment models, and the diarization weights, with no Hugging Face token required. It follows the standard Amazon SageMaker AI serving contract, so you deploy it like any other model."
+        },
+        {
+          "heading": "Patrick Tech Media take",
+          "body": "Amazon SageMaker AI supports both real-time and asynchronous endpoints, so you can serve the same WhisperX DLC through either pattern. The decision usually comes down to clip length and interactivity. For long audio, use the asynchronous endpoint: it’s the recommended path when transcription, alignment, and diarization need more time to run. Reserve the real-time endpoint for short, interactive clips that finish within the Amazon SageMaker AI 60-second response cap."
+        }
+      ],
+      "image": {
+        "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/22/ML-21846-featured-image-1.png",
+        "alt": "",
+        "caption": "Reference image from AWS ML Blog.",
+        "credit": "AWS ML Blog",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/speaker-labeled-transcription-with-whisperx-on-sagemaker-ai/"
+      },
+      "verification_state": "verified",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": true,
+      "indexable": true,
+      "store_link_mode": "soft",
+      "related_store_items": [
+        "ai-workspace-bundle"
+      ],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "official-site",
+          "source_name": "AWS ML Blog",
+          "source_url": "https://aws.amazon.com/blogs/machine-learning/speaker-labeled-transcription-with-whisperx-on-sagemaker-ai/",
+          "region": "Global",
+          "language": "en",
+          "trust_tier": "official",
+          "published_at": "2026-09-24T16:20:12.000Z",
+          "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/22/ML-21846-featured-image-1.png",
+          "image_caption": "Reference image from AWS ML Blog.",
+          "image_credit": "AWS ML Blog"
+        }
+      ],
+      "author_id": "mai-linh",
+      "published_at": "2026-09-24T16:20:12.000Z",
+      "updated_at": "2026-09-24T16:20:12.000Z",
+      "href": "/en/news/speaker-labeled-transcription-with-whisperx-on-sagemaker-ai",
+      "single_source_exception": true,
+      "is_single_source": true,
+      "editorial_label": "Verified",
+      "title_vi": "",
+      "title_en": "Speaker-labeled transcription with WhisperX on SageMaker AI",
+      "dek_vi": "",
+      "dek_en": "Any team working with spoken audio hits the same wall with generic speech-to-text. Think contact-center calls, all-hands meetings, podcasts, depositions, and broadcast media. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "body_vi": "",
+      "body_en": "What changed\nThese workloads need two things that standard transcription gets wrong. First, timestamps land at the utterance level, off by several seconds. Second, there’s no reliable answer to “who said what. ” Those gaps make transcripts hard to search, caption, redact, or analyze at scale. A missing speaker label breaks compliance review, and an imprecise timestamp breaks a caption or a redaction.\n\nPrice and bundle value\nWhisperX closes both gaps. It wraps OpenAI’s Whisper with batched inference, adds wav2vec2 forced alignment for precise per-word timestamps, and adds speaker diarization to label who spoke. These capabilities map directly to real workloads. Contact centers can measure talk time, check script adherence, and run sentiment analysis, while teams turn meetings into searchable notes. Media and e-learning teams generate accurate captions (in SubRip Subtitle (SRT) and Web Video Text Tracks (VTT) format) for large content libraries. Time-sensitive uses get text the moment someone speaks. In regulated fields like healthcare, legal, and finance, speaker-labeled transcripts support audits and legal discovery.\n\nAI features that change the value\nWhisper is a popular open source automatic speech recognition (ASR) model family from OpenAI that transcribes spoken audio into text accurately across many languages. It focuses on high-quality transcription and produces timestamps at the phrase or segment level. WhisperX is an open source project that builds on Whisper and extends it for production workloads. It adds per-word timestamps, speaker labels, and faster transcription, three capabilities that together turn raw audio into structured, analyzable transcripts.\n\nWho should pay attention\nThe AWS WhisperX DLC is a maintained, GPU-ready image that already contains Whisper, the alignment models, and the diarization weights, with no Hugging Face token required. It follows the standard Amazon SageMaker AI serving contract, so you deploy it like any other model.\n\nPatrick Tech Media take\nAmazon SageMaker AI supports both real-time and asynchronous endpoints, so you can serve the same WhisperX DLC through either pattern. The decision usually comes down to clip length and interactivity. For long audio, use the asynchronous endpoint: it’s the recommended path when transcription, alignment, and diarization need more time to run. Reserve the real-time endpoint for short, interactive clips that finish within the Amazon SageMaker AI 60-second response cap.",
+      "slug_vi": "speaker-labeled-transcription-with-whisperx-on-sagemaker-ai",
+      "slug_en": "speaker-labeled-transcription-with-whisperx-on-sagemaker-ai",
+      "category": "ai",
+      "geo_scope": "global",
+      "hot_score": 50,
+      "source_urls": [
+        "https://aws.amazon.com/blogs/machine-learning/speaker-labeled-transcription-with-whisperx-on-sagemaker-ai/"
+      ],
+      "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/09/22/ML-21846-featured-image-1.png",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/en/news/speaker-labeled-transcription-with-whisperx-on-sagemaker-ai",
+      "storeUrl": "https://patricktechmedia.store",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-24T18:55:35.251Z",
+        "origin": "local-curated-rss"
+      },
+      "topic": "ai"
+    },
     {
       "id": "feed-7f814db1aba6-en",
       "cluster_id": "feed-7f814db1aba6",
@@ -242,7 +368,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-24T13:45:19.176Z",
+        "generated_at": "2026-09-24T18:55:35.251Z",
         "origin": "local-curated-rss"
       },
       "topic": "internet-business-tech"
@@ -364,7 +490,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-24T13:45:19.176Z",
+        "generated_at": "2026-09-24T18:55:35.251Z",
         "origin": "local-curated-rss"
       },
       "topic": "internet-business-tech"
@@ -1393,7 +1519,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-24T13:45:19.176Z",
+        "generated_at": "2026-09-24T18:55:35.251Z",
         "origin": "local-curated-rss"
       },
       "topic": "devices"
