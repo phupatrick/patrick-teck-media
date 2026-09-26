@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T05:22:52.329Z",
+  "generated_at": "2026-09-26T18:27:56.015Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
@@ -7,825 +7,114 @@
   },
   "articles": [
     {
-      "id": "feed-73e9e84f09c1-vi",
-      "cluster_id": "feed-73e9e84f09c1",
-      "language": "vi",
-      "topic_label": "Thiết bị",
-      "topic_slug": "thiet-bi",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
-      "title": "CEO Bitget tiết lộ cách hacker đánh cắp 387,5 triệu USD",
-      "hook": "\"Kẻ gian đã xâm nhập vào một hệ thống phụ trợ quan trọng trong cơ sở hạ tầng ví điện tử của chúng tôi. Điều khiến câu chuyện này đáng theo dõi là tín hiệu đã bắt đầu dày lên, nhưng vẫn chưa đến mức có thể chốt hạ.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "\"Kẻ gian đã xâm nhập vào một hệ thống phụ trợ quan trọng trong cơ sở hạ tầng ví điện tử của chúng tôi. Chúng dùng nó để giả mạo dữ liệu giao dịch và kích hoạt quy trình xác thực của sàn để chuyển tiền ra ngoài\", Chen mô tả về cuộc tấn công.",
-      "dek": "\"Kẻ gian đã xâm nhập vào một hệ thống phụ trợ quan trọng trong cơ sở hạ tầng ví điện tử của chúng tôi. Chúng dùng nó để giả mạo dữ liệu giao dịch và kích hoạt quy trình xác thực của sàn để chuyển tiền ra ngoài\", Chen mô tả về cuộc tấn công. Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Theo cô, việc này giúp tác động của vụ hack trở nên ít đáng lo ngại hơn. Các vụ tấn công gây tổn thất lớn cho ngành công nghiệp tiền mã hóa thường liên quan đến khóa riêng tư."
-        },
-        {
-          "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Mỗi ví tiền mã hóa đều có hai khóa. Khóa công khai (public key) giống như số tài khoản ngân hàng và có thể được chia sẻ để người khác chuyển tiền vào. Trong khi đó, khóa riêng tư là những từ khóa bí mật, dùng để chứng minh quyền sở hữu và cho phép ký, ủy quyền giao dịch. Private key gần giống mật khẩu và mật mã két sắt kết hợp. Nếu các khóa riêng tư này bị sao chép, kẻ gian có thể tiếp tục ký các giao dịch chuyển tiền và rút hết tiền khỏi ví."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Gracy Chen mô tả vụ tấn công này giống việc làm giả phiếu rút tiền qua quầy giao dịch của ngân hàng. Chìa khóa két sắt chưa bao giờ rời khỏi tòa nhà. Ai đó đã đột nhập vào văn phòng chuẩn bị phiếu rút tiền, làm giả giấy tờ rồi gửi qua quầy phê duyệt mà ngân hàng dùng hằng ngày. Đối với hệ thống thực hiện việc phê duyệt, việc này trông giống như khoản thanh toán bình thường nên đã đánh lừa được hệ thống."
-        },
-        {
-          "heading": "Ai nên chú ý lúc này",
-          "body": "Cách tin tặc xâm nhập được vào hệ thống vẫn đang được điều tra. Nhóm bảo mật của Bitget cho biết lỗ hổng bảo mật tiềm ẩn đã được xác định và khắc phục. Sự việc đã được kiểm soát và không để xảy ra thêm giao dịch chuyển tiền trái phép nào."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "CEO Gracy Chen cho biết việc truy vết on-chain đã xác nhận 387,5 triệu USD được chuyển đến các địa chỉ của kẻ tấn công, con số này cao hơn ước tính ban đầu là 351,6 triệu USD."
-        }
-      ],
-      "image": {
-        "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/tnw-san-giao-dich-bitget-1790392513192115883164-42-0-1299-2400-crop-17903927348811378156423.jpg",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-        "credit": "Thanh Nien Cong Nghe",
-        "source_url": "https://thanhnien.vn/ceo-bitget-tiet-lo-cach-hacker-danh-cap-3875-trieu-usd-185260926101823899.htm"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Thanh Nien Cong Nghe",
-          "source_url": "https://thanhnien.vn/ceo-bitget-tiet-lo-cach-hacker-danh-cap-3875-trieu-usd-185260926101823899.htm",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-26T03:59:00.000Z",
-          "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/tnw-san-giao-dich-bitget-1790392513192115883164-42-0-1299-2400-crop-17903927348811378156423.jpg",
-          "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-          "image_credit": "Thanh Nien Cong Nghe"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-26T03:59:00.000Z",
-      "updated_at": "2026-09-26T03:59:00.000Z",
-      "href": "/vi/tin-tuc/ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
-      "draft_context": {
-        "source_title": "CEO Bitget tiết lộ cách hacker đánh cắp 387,5 triệu USD",
-        "source_name": "Thanh Nien Cong Nghe",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "CEO Gracy Chen của sàn giao dịch tiền số Bitget cho biết tin tặc đã chuyển 387,5 triệu USD sau khi xâm nhập máy chủ và giả mạo dữ liệu giao dịch.",
-        "paragraphs": [
-          "\"K&#7867; gian &#273;&atilde; x&acirc;m nh&#7853;p v&agrave;o m&#7897;t h&#7879; th&#7889;ng ph&#7909; tr&#7907; quan tr&#7885;ng trong c&#417; s&#7903; h&#7841; t&#7847;ng v&iacute; &#273;i&#7879;n t&#7917; c&#7911;a ch&uacute;ng t&ocirc;i. Ch&uacute;ng d&ugrave;ng n&oacute; &#273;&#7875; gi&#7843; m&#7841;o d&#7919; li&#7879;u giao d&#7883;ch v&agrave; k&iacute;ch ho&#7841;t quy tr&igrave;nh x&aacute;c th&#7921;c c&#7911;a s&agrave;n &#273;&#7875; chuy&#7875;n ti&#7873;n ra ngo&agrave;i\", Chen m&ocirc; t&#7843; v&#7873; cu&#7897;c t&#7845;n c&ocirc;ng. Theo c&ocirc;, vi&#7879;c n&agrave;y gi&uacute;p t&aacute;c &#273;&#7897;ng c&#7911;a v&#7909; hack tr&#7903; n&ecirc;n &iacute;t &#273;&aacute;ng lo ng&#7841;i h&#417;n. C&aacute;c v&#7909; t&#7845;n c&ocirc;ng g&acirc;y t&#7893;n th&#7845;t l&#7899;n cho ng&agrave;nh c&ocirc;ng nghi&#7879;p ti&#7873;n m&atilde; h&oacute;a th&#432;&#7901;ng li&ecirc;n quan &#273;&#7871;n kh&oacute;a ri&ecirc;ng t&#432;.",
-          "M&#7895;i v&iacute; ti&#7873;n m&atilde; h&oacute;a &#273;&#7873;u c&oacute; hai kh&oacute;a. Kh&oacute;a c&ocirc;ng khai (public key) gi&#7889;ng nh&#432; s&#7889; t&agrave;i kho&#7843;n ng&acirc;n h&agrave;ng v&agrave; c&oacute; th&#7875; &#273;&#432;&#7907;c chia s&#7867; &#273;&#7875; ng&#432;&#7901;i kh&aacute;c chuy&#7875;n ti&#7873;n v&agrave;o. Trong khi &#273;&oacute;, kh&oacute;a ri&ecirc;ng t&#432; l&agrave; nh&#7919;ng t&#7915; kh&oacute;a b&iacute; m&#7853;t, d&ugrave;ng &#273;&#7875; ch&#7913;ng minh quy&#7873;n s&#7903; h&#7919;u v&agrave; cho ph&eacute;p k&yacute;, &#7911;y quy&#7873;n giao d&#7883;ch. Private key g&#7847;n gi&#7889;ng m&#7853;t kh&#7849;u v&agrave; m&#7853;t m&atilde; k&eacute;t s&#7855;t k&#7871;t h&#7907;p. N&#7871;u c&aacute;c kh&oacute;a ri&ecirc;ng t&#432; n&agrave;y b&#7883; sao ch&eacute;p, k&#7867; gian c&oacute; th&#7875; ti&#7871;p t&#7909;c k&yacute; c&aacute;c giao d&#7883;ch chuy&#7875;n ti&#7873;n v&agrave; r&uacute;t h&#7871;t ti&#7873;n kh&#7887;i v&iacute;.",
-          "Gracy Chen m&ocirc; t&#7843; v&#7909; t&#7845;n c&ocirc;ng n&agrave;y gi&#7889;ng vi&#7879;c l&agrave;m gi&#7843; phi&#7871;u r&uacute;t ti&#7873;n qua qu&#7847;y giao d&#7883;ch c&#7911;a ng&acirc;n h&agrave;ng. Ch&igrave;a kh&oacute;a k&eacute;t s&#7855;t ch&#432;a bao gi&#7901; r&#7901;i kh&#7887;i t&ograve;a nh&agrave;. Ai &#273;&oacute; &#273;&atilde; &#273;&#7897;t nh&#7853;p v&agrave;o v&#259;n ph&ograve;ng chu&#7849;n b&#7883; phi&#7871;u r&uacute;t ti&#7873;n, l&agrave;m gi&#7843; gi&#7845;y t&#7901; r&#7891;i g&#7917;i qua qu&#7847;y ph&ecirc; duy&#7879;t m&agrave; ng&acirc;n h&agrave;ng d&ugrave;ng h&#7857;ng ng&agrave;y. &#272;&#7889;i v&#7899;i h&#7879; th&#7889;ng th&#7921;c hi&#7879;n vi&#7879;c ph&ecirc; duy&#7879;t, vi&#7879;c n&agrave;y tr&ocirc;ng gi&#7889;ng nh&#432; kho&#7843;n thanh to&aacute;n b&igrave;nh th&#432;&#7901;ng n&ecirc;n &#273;&atilde; &#273;&aacute;nh l&#7915;a &#273;&#432;&#7907;c h&#7879; th&#7889;ng.",
-          "C&aacute;ch tin t&#7863;c x&acirc;m nh&#7853;p &#273;&#432;&#7907;c v&agrave;o h&#7879; th&#7889;ng v&#7851;n &#273;ang &#273;&#432;&#7907;c &#273;i&#7873;u tra. Nh&oacute;m b&#7843;o m&#7853;t c&#7911;a Bitget cho bi&#7871;t l&#7895; h&#7893;ng b&#7843;o m&#7853;t ti&#7873;m &#7849;n &#273;&atilde; &#273;&#432;&#7907;c x&aacute;c &#273;&#7883;nh v&agrave; kh&#7855;c ph&#7909;c. S&#7921; vi&#7879;c &#273;&atilde; &#273;&#432;&#7907;c ki&#7875;m so&aacute;t v&agrave; kh&ocirc;ng &#273;&#7875; x&#7843;y ra th&ecirc;m giao d&#7883;ch chuy&#7875;n ti&#7873;n tr&aacute;i ph&eacute;p n&agrave;o.",
-          "CEO Gracy Chen cho bi&#7871;t vi&#7879;c truy v&#7871;t on-chain &#273;&atilde; x&aacute;c nh&#7853;n 387,5 tri&#7879;u USD &#273;&#432;&#7907;c chuy&#7875;n &#273;&#7871;n c&aacute;c &#273;&#7883;a ch&#7881; c&#7911;a k&#7867; t&#7845;n c&ocirc;ng, con s&#7889; n&agrave;y cao h&#417;n &#432;&#7899;c t&iacute;nh ban &#273;&#7847;u l&agrave; 351,6 tri&#7879;u USD.",
-          "V&#7909; vi&#7879;c li&ecirc;n quan &#273;&#7871;n t&agrave;i s&#7843;n tr&ecirc;n c&aacute;c m&#7841;ng Ethereum v&agrave; m&#7897;t s&#7889; m&#7841;ng EVM, XRP Ledger, Zcash v&agrave; TRON. Bitget c&#361;ng c&ocirc;ng khai &#273;&#7883;a ch&#7881; v&iacute; c&#7911;a k&#7867; gian. &#272;&#7841;i di&#7879;n c&aacute;c s&agrave;n giao d&#7883;ch MEXC, Bybit &#273;&atilde; l&ecirc;n ti&#7871;ng &#7911;ng h&#7897; Bitget. T&#7881; ph&uacute; Changpeng Zhao (CZ), nh&agrave; s&aacute;ng l&#7853;p Binance, vi&#7871;t tr&ecirc;n X: \"M&#7897;t ng&agrave;y &#273;&#7847;y kh&oacute; kh&#259;n v&#7899;i Bitget. Binance, h&#7879; sinh th&aacute;i BNB Chain v&agrave; c&#7897;ng &#273;&#7891;ng s&#7869; n&#7895; l&#7921;c h&#7871;t m&igrave;nh &#273;&#7875; h&#7895; tr&#7907;\"."
-        ],
-        "source_depth_score": 92,
-        "source_depth_reason": "depth=92; paragraphs=6; words=486",
-        "link": "https://thanhnien.vn/ceo-bitget-tiet-lo-cach-hacker-danh-cap-3875-trieu-usd-185260926101823899.htm"
-      },
-      "title_vi": "CEO Bitget tiết lộ cách hacker đánh cắp 387,5 triệu USD",
-      "title_en": "",
-      "dek_vi": "\"Kẻ gian đã xâm nhập vào một hệ thống phụ trợ quan trọng trong cơ sở hạ tầng ví điện tử của chúng tôi. Chúng dùng nó để giả mạo dữ liệu giao dịch và kích hoạt quy trình xác thực của sàn để chuyển tiền ra ngoài\", Chen mô tả về cuộc tấn công. Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo.",
-      "dek_en": "",
-      "body_vi": "Điều gì đã xảy ra\nTheo cô, việc này giúp tác động của vụ hack trở nên ít đáng lo ngại hơn. Các vụ tấn công gây tổn thất lớn cho ngành công nghiệp tiền mã hóa thường liên quan đến khóa riêng tư.\n\nCác nguồn đang khớp nhau ở đâu\nMỗi ví tiền mã hóa đều có hai khóa. Khóa công khai (public key) giống như số tài khoản ngân hàng và có thể được chia sẻ để người khác chuyển tiền vào. Trong khi đó, khóa riêng tư là những từ khóa bí mật, dùng để chứng minh quyền sở hữu và cho phép ký, ủy quyền giao dịch. Private key gần giống mật khẩu và mật mã két sắt kết hợp. Nếu các khóa riêng tư này bị sao chép, kẻ gian có thể tiếp tục ký các giao dịch chuyển tiền và rút hết tiền khỏi ví.\n\nDữ kiện hiện có\nGracy Chen mô tả vụ tấn công này giống việc làm giả phiếu rút tiền qua quầy giao dịch của ngân hàng. Chìa khóa két sắt chưa bao giờ rời khỏi tòa nhà. Ai đó đã đột nhập vào văn phòng chuẩn bị phiếu rút tiền, làm giả giấy tờ rồi gửi qua quầy phê duyệt mà ngân hàng dùng hằng ngày. Đối với hệ thống thực hiện việc phê duyệt, việc này trông giống như khoản thanh toán bình thường nên đã đánh lừa được hệ thống.\n\nAi nên chú ý lúc này\nCách tin tặc xâm nhập được vào hệ thống vẫn đang được điều tra. Nhóm bảo mật của Bitget cho biết lỗ hổng bảo mật tiềm ẩn đã được xác định và khắc phục. Sự việc đã được kiểm soát và không để xảy ra thêm giao dịch chuyển tiền trái phép nào.\n\nĐiều chưa rõ\nCEO Gracy Chen cho biết việc truy vết on-chain đã xác nhận 387,5 triệu USD được chuyển đến các địa chỉ của kẻ tấn công, con số này cao hơn ước tính ban đầu là 351,6 triệu USD.",
-      "body_en": "",
-      "slug_vi": "ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
-      "slug_en": "ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
-      "category": "devices",
-      "geo_scope": "vn",
-      "hot_score": 50,
-      "source_urls": [
-        "https://thanhnien.vn/ceo-bitget-tiet-lo-cach-hacker-danh-cap-3875-trieu-usd-185260926101823899.htm"
-      ],
-      "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/tnw-san-giao-dich-bitget-1790392513192115883164-42-0-1299-2400-crop-17903927348811378156423.jpg",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-26T05:22:52.329Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-2717730e2619-vi",
-      "cluster_id": "feed-2717730e2619",
-      "language": "vi",
-      "topic_label": "Internet & Doanh nghiệp số",
-      "topic_slug": "internet-doanh-nghiep-so",
-      "topic_accent": "#9bff45",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
-      "title": "AI Việt giải bài toán khó trong y tế, khoa học và sản xuất",
-      "hook": "Ở lĩnh vực y tế và khoa học sự sống, các giải pháp AI do kỹ sư Việt Nam phát triển đang đi sâu vào phân tích cấu trúc vi mô thay vì chỉ dừng ở các tác vụ quản trị thông thường.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Ở lĩnh vực y tế và khoa học sự sống, các giải pháp AI do kỹ sư Việt Nam phát triển đang đi sâu vào phân tích cấu trúc vi mô thay vì chỉ dừng ở các tác vụ quản trị thông thường. Tiêu biểu như nền tảng BioAI ứng dụng thuật toán học máy để giải mã cơ chế phân tử của các bài thuốc y học cổ truyền.",
-      "dek": "Ở lĩnh vực y tế và khoa học sự sống, các giải pháp AI do kỹ sư Việt Nam phát triển đang đi sâu vào phân tích cấu trúc vi mô thay vì chỉ dừng ở các tác vụ quản trị thông thường.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Tiêu biểu như nền tảng BioAI ứng dụng thuật toán học máy để giải mã cơ chế phân tử của các bài thuốc y học cổ truyền. Bằng việc kết nối dữ liệu sinh học, cấu trúc hóa học và các thụ thể protein liên quan đến dược tính, hệ thống hỗ trợ mô phỏng và xác thực tác dụng sinh học, tạo cơ sở khoa học cho công tác nghiên cứu dược liệu."
-        },
-        {
-          "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Trong khi đó, giải pháp Pathology AI Lab phát triển hệ thống mô-đun thị giác máy tính hỗ trợ bác sĩ giải phẫu bệnh phân tích tế bào và khoanh vùng tổn thương ung thư cổ tử cung, rút ngắn thời gian sàng lọc sơ bộ mà vẫn đảm bảo vai trò kiểm soát cuối cùng của chuyên gia y tế."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Các giải pháp AI ngày càng đi sâu vào giải quyết những vấn đề còn vướng mắc ở các lĩnh vực quan trọng như y học, khoa học."
-        },
-        {
-          "heading": "Ai nên chú ý lúc này",
-          "body": "Bên cạnh y sinh, năng lực xử lý thuật toán của các nhóm phát triển trong nước còn hướng đến việc đẩy nhanh tốc độ nghiên cứu cơ bản. Dự án N2TP AI4Science Platform lựa chọn hướng tiếp cận Neuro-Symbolic AI, kết hợp mạng nơ-ron học sâu với hệ thống suy luận logic để phân tích giả thuyết khoa học, sàng lọc dữ liệu thực nghiệm và hỗ trợ chuẩn hóa tài sản trí tuệ."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "Trong mảng sản xuất công nghiệp và nông nghiệp kỹ thuật cao, nền tảng ViCore tích hợp thị giác máy tính 3D để kiểm soát chất lượng bề mặt sản phẩm và dẫn hướng di chuyển cho robot tại các dây chuyền nhà máy thông minh. Đáng chú ý, hệ thống Egg Vision kết hợp quang học và AI để phân loại sớm giới tính phôi gia cầm ngay trong giai đoạn ấp, giúp các cơ sở chăn nuôi cắt giảm chi phí vận hành và giải quyết bài toán lãng phí tài nguyên."
-        }
-      ],
-      "image": {
-        "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/techweek-social-post1web-1790393725980929914233-0-0-627-1198-crop-17903937460071433159814.jpg",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-        "credit": "Thanh Nien Cong Nghe",
-        "source_url": "https://thanhnien.vn/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat-185260926102916137.htm"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Thanh Nien Cong Nghe",
-          "source_url": "https://thanhnien.vn/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat-185260926102916137.htm",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-26T03:54:00.000Z",
-          "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/techweek-social-post1web-1790393725980929914233-0-0-627-1198-crop-17903937460071433159814.jpg",
-          "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-          "image_credit": "Thanh Nien Cong Nghe"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-26T03:54:00.000Z",
-      "updated_at": "2026-09-26T03:54:00.000Z",
-      "href": "/vi/tin-tuc/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
-      "draft_context": {
-        "source_title": "AI Việt giải bài toán khó trong y tế, khoa học và sản xuất",
-        "source_name": "Thanh Nien Cong Nghe",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "AI Việt dần thoát khỏi các ứng dụng bề nổi để giải quyết trực tiếp những vấn đề chuyên sâu hơn, đồng thời hướng đến tương lai về một nền trí tuệ nhân tạo chủ quyền quốc gia.",
-        "paragraphs": [
-          "&#7902; l&#297;nh v&#7921;c y t&#7871; v&agrave; khoa h&#7885;c s&#7921; s&#7889;ng, c&aacute;c gi&#7843;i ph&aacute;p AI do k&#7929; s&#432; Vi&#7879;t Nam ph&aacute;t tri&#7875;n &#273;ang &#273;i s&acirc;u v&agrave;o ph&acirc;n t&iacute;ch c&#7845;u tr&uacute;c vi m&ocirc; thay v&igrave; ch&#7881; d&#7915;ng &#7903; c&aacute;c t&aacute;c v&#7909; qu&#7843;n tr&#7883; th&ocirc;ng th&#432;&#7901;ng. Ti&ecirc;u bi&#7875;u nh&#432; n&#7873;n t&#7843;ng BioAI &#7913;ng d&#7909;ng thu&#7853;t to&aacute;n h&#7885;c m&aacute;y &#273;&#7875; gi&#7843;i m&atilde; c&#417; ch&#7871; ph&acirc;n t&#7917; c&#7911;a c&aacute;c b&agrave;i thu&#7889;c y h&#7885;c c&#7893; truy&#7873;n. B&#7857;ng vi&#7879;c k&#7871;t n&#7889;i d&#7919; li&#7879;u sinh h&#7885;c, c&#7845;u tr&uacute;c h&oacute;a h&#7885;c v&agrave; c&aacute;c th&#7909; th&#7875; protein li&ecirc;n quan &#273;&#7871;n d&#432;&#7907;c t&iacute;nh, h&#7879; th&#7889;ng h&#7895; tr&#7907; m&ocirc; ph&#7887;ng v&agrave; x&aacute;c th&#7921;c t&aacute;c d&#7909;ng sinh h&#7885;c, t&#7841;o c&#417; s&#7903; khoa h&#7885;c cho c&ocirc;ng t&aacute;c nghi&ecirc;n c&#7913;u d&#432;&#7907;c li&#7879;u.",
-          "Trong khi &#273;&oacute;, gi&#7843;i ph&aacute;p Pathology AI Lab ph&aacute;t tri&#7875;n h&#7879; th&#7889;ng m&ocirc;-&#273;un th&#7883; gi&aacute;c m&aacute;y t&iacute;nh h&#7895; tr&#7907; b&aacute;c s&#297; gi&#7843;i ph&#7851;u b&#7879;nh ph&acirc;n t&iacute;ch t&#7871; b&agrave;o v&agrave; khoanh v&ugrave;ng t&#7893;n th&#432;&#417;ng ung th&#432; c&#7893; t&#7917; cung, r&uacute;t ng&#7855;n th&#7901;i gian s&agrave;ng l&#7885;c s&#417; b&#7897; m&agrave; v&#7851;n &#273;&#7843;m b&#7843;o vai tr&ograve; ki&#7875;m so&aacute;t cu&#7889;i c&ugrave;ng c&#7911;a chuy&ecirc;n gia y t&#7871;.",
-          "C&aacute;c gi&#7843;i ph&aacute;p AI ng&agrave;y c&agrave;ng &#273;i s&acirc;u v&agrave;o gi&#7843;i quy&#7871;t nh&#7919;ng v&#7845;n &#273;&#7873; c&ograve;n v&#432;&#7899;ng m&#7855;c &#7903; c&aacute;c l&#297;nh v&#7921;c quan tr&#7885;ng nh&#432; y h&#7885;c, khoa h&#7885;c",
-          "B&ecirc;n c&#7841;nh y sinh, n&#259;ng l&#7921;c x&#7917; l&yacute; thu&#7853;t to&aacute;n c&#7911;a c&aacute;c nh&oacute;m ph&aacute;t tri&#7875;n trong n&#432;&#7899;c c&ograve;n h&#432;&#7899;ng &#273;&#7871;n vi&#7879;c &#273;&#7849;y nhanh t&#7889;c &#273;&#7897; nghi&ecirc;n c&#7913;u c&#417; b&#7843;n. D&#7921; &aacute;n N2TP AI4Science Platform l&#7921;a ch&#7885;n h&#432;&#7899;ng ti&#7871;p c&#7853;n Neuro-Symbolic AI, k&#7871;t h&#7907;p m&#7841;ng n&#417;-ron h&#7885;c s&acirc;u v&#7899;i h&#7879; th&#7889;ng suy lu&#7853;n logic &#273;&#7875; ph&acirc;n t&iacute;ch gi&#7843; thuy&#7871;t khoa h&#7885;c, s&agrave;ng l&#7885;c d&#7919; li&#7879;u th&#7921;c nghi&#7879;m v&agrave; h&#7895; tr&#7907; chu&#7849;n h&oacute;a t&agrave;i s&#7843;n tr&iacute; tu&#7879;.",
-          "Trong m&#7843;ng s&#7843;n xu&#7845;t c&ocirc;ng nghi&#7879;p v&agrave; n&ocirc;ng nghi&#7879;p k&#7929; thu&#7853;t cao, n&#7873;n t&#7843;ng ViCore t&iacute;ch h&#7907;p th&#7883; gi&aacute;c m&aacute;y t&iacute;nh 3D &#273;&#7875; ki&#7875;m so&aacute;t ch&#7845;t l&#432;&#7907;ng b&#7873; m&#7863;t s&#7843;n ph&#7849;m v&agrave; d&#7851;n h&#432;&#7899;ng di chuy&#7875;n cho robot t&#7841;i c&aacute;c d&acirc;y chuy&#7873;n nh&agrave; m&aacute;y th&ocirc;ng minh. &#272;&aacute;ng ch&uacute; &yacute;, h&#7879; th&#7889;ng Egg Vision k&#7871;t h&#7907;p quang h&#7885;c v&agrave; AI &#273;&#7875; ph&acirc;n lo&#7841;i s&#7899;m gi&#7899;i t&iacute;nh ph&ocirc;i gia c&#7847;m ngay trong giai &#273;o&#7841;n &#7845;p, gi&uacute;p c&aacute;c c&#417; s&#7903; ch&#259;n nu&ocirc;i c&#7855;t gi&#7843;m chi ph&iacute; v&#7853;n h&agrave;nh v&agrave; gi&#7843;i quy&#7871;t b&agrave;i to&aacute;n l&atilde;ng ph&iacute; t&agrave;i nguy&ecirc;n.",
-          "S&#7921; xu&#7845;t hi&#7879;n c&#7911;a nh&#7919;ng gi&#7843;i ph&aacute;p chuy&ecirc;n bi&#7879;t n&agrave;y cho th&#7845;y c&aacute;c k&#7929; s&#432; v&agrave; nh&agrave; nghi&ecirc;n c&#7913;u trong n&#432;&#7899;c &#273;ang ch&#7911; &#273;&#7897;ng x&acirc;y d&#7921;ng d&#7919; li&#7879;u chuy&ecirc;n ng&agrave;nh v&agrave; gi&#7843;i quy&#7871;t nh&#7919;ng &#273;i&#7875;m ngh&#7869;n th&#7921;c t&#7871; c&#7911;a n&#7873;n kinh t&#7871;. Trong b&#7889;i c&#7843;nh Ngh&#7883; quy&#7871;t 57 -NQ/TW x&aacute;c &#273;&#7883;nh khoa h&#7885;c, c&ocirc;ng ngh&#7879;, &#273;&#7893;i m&#7899;i s&aacute;ng t&#7841;o v&agrave; chuy&#7875;n &#273;&#7893;i s&#7889; l&agrave; nh&#7919;ng &#273;&#7897;ng l&#7921;c quan tr&#7885;ng cho ph&aacute;t tri&#7875;n &#273;&#7845;t n&#432;&#7899;c, &Acirc;u L&#7841;c Grand Prize g&oacute;p ph&#7847;n g&oacute;p ph&#7847;n hi&#7879;n th&#7921;c h&oacute;a c&aacute;c &#273;&#7883;nh h&#432;&#7899;ng th&ocirc;ng qua vi&#7879;c t&igrave;m ki&#7871;m, t&ocirc;n vinh v&agrave; th&uacute;c &#273;&#7849;y c&aacute;c gi&#7843;i ph&aacute;p AI do ng&#432;&#7901;i Vi&#7879;t ph&aacute;t tri&#7875;n v&agrave; l&agrave;m ch&#7911;."
-        ],
-        "source_depth_score": 86,
-        "source_depth_reason": "depth=86; paragraphs=6; words=523",
-        "link": "https://thanhnien.vn/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat-185260926102916137.htm"
-      },
-      "title_vi": "AI Việt giải bài toán khó trong y tế, khoa học và sản xuất",
-      "title_en": "",
-      "dek_vi": "Ở lĩnh vực y tế và khoa học sự sống, các giải pháp AI do kỹ sư Việt Nam phát triển đang đi sâu vào phân tích cấu trúc vi mô thay vì chỉ dừng ở các tác vụ quản trị thông thường.",
-      "dek_en": "",
-      "body_vi": "Điều gì đã xảy ra\nTiêu biểu như nền tảng BioAI ứng dụng thuật toán học máy để giải mã cơ chế phân tử của các bài thuốc y học cổ truyền. Bằng việc kết nối dữ liệu sinh học, cấu trúc hóa học và các thụ thể protein liên quan đến dược tính, hệ thống hỗ trợ mô phỏng và xác thực tác dụng sinh học, tạo cơ sở khoa học cho công tác nghiên cứu dược liệu.\n\nCác nguồn đang khớp nhau ở đâu\nTrong khi đó, giải pháp Pathology AI Lab phát triển hệ thống mô-đun thị giác máy tính hỗ trợ bác sĩ giải phẫu bệnh phân tích tế bào và khoanh vùng tổn thương ung thư cổ tử cung, rút ngắn thời gian sàng lọc sơ bộ mà vẫn đảm bảo vai trò kiểm soát cuối cùng của chuyên gia y tế.\n\nDữ kiện hiện có\nCác giải pháp AI ngày càng đi sâu vào giải quyết những vấn đề còn vướng mắc ở các lĩnh vực quan trọng như y học, khoa học.\n\nAi nên chú ý lúc này\nBên cạnh y sinh, năng lực xử lý thuật toán của các nhóm phát triển trong nước còn hướng đến việc đẩy nhanh tốc độ nghiên cứu cơ bản. Dự án N2TP AI4Science Platform lựa chọn hướng tiếp cận Neuro-Symbolic AI, kết hợp mạng nơ-ron học sâu với hệ thống suy luận logic để phân tích giả thuyết khoa học, sàng lọc dữ liệu thực nghiệm và hỗ trợ chuẩn hóa tài sản trí tuệ.\n\nĐiều chưa rõ\nTrong mảng sản xuất công nghiệp và nông nghiệp kỹ thuật cao, nền tảng ViCore tích hợp thị giác máy tính 3D để kiểm soát chất lượng bề mặt sản phẩm và dẫn hướng di chuyển cho robot tại các dây chuyền nhà máy thông minh. Đáng chú ý, hệ thống Egg Vision kết hợp quang học và AI để phân loại sớm giới tính phôi gia cầm ngay trong giai đoạn ấp, giúp các cơ sở chăn nuôi cắt giảm chi phí vận hành và giải quyết bài toán lãng phí tài nguyên.",
-      "body_en": "",
-      "slug_vi": "ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
-      "slug_en": "ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
-      "category": "social",
-      "geo_scope": "vn",
-      "hot_score": 50,
-      "source_urls": [
-        "https://thanhnien.vn/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat-185260926102916137.htm"
-      ],
-      "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/techweek-social-post1web-1790393725980929914233-0-0-627-1198-crop-17903937460071433159814.jpg",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "internet-business-tech",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-26T05:22:52.329Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-7cc39cb11a08-en",
-      "cluster_id": "feed-7cc39cb11a08",
+      "id": "feed-55dc2dcc13aa-en",
+      "cluster_id": "feed-55dc2dcc13aa",
       "language": "en",
-      "topic_label": "Devices",
-      "topic_slug": "devices",
-      "topic_accent": "#4e7dff",
+      "topic_label": "Apps & Software",
+      "topic_slug": "apps-software",
+      "topic_accent": "#17c9ff",
       "content_type": "NewsArticle",
       "content_type_label": "News",
       "path_segment": "news",
-      "slug": "scuf-s-premium-pc-only-wireless-controller-just-hit-its-lowest-price-ever",
-      "title": "SCUF’s premium PC-only wireless controller just hit its lowest price ever",
-      "hook": "Amazon is currently selling the SCUF Envision Pro Wireless V2 at a nice discount: normally $179.99, it’s now available for $139.99.",
+      "slug": "can-cloudflare-ceo-matthew-prince-save-the-web-from-ai",
+      "title": "Can Cloudflare CEO Matthew Prince save the web from AI",
+      "hook": "Matthew last joined us on the show about two and a half years ago, at what we thought then was a wild pivot point for the internet — and now it turns out things are even wilder because of AI, and Matthew and Cloudflare are right at the center of it.",
       "author_name": "",
       "author_role_vi": "",
       "author_role_en": "",
-      "summary": "Amazon is currently selling the SCUF Envision Pro Wireless V2 at a nice discount: normally $179.99, it’s now available for $139.99. That’s a new all-time low price for a wireless gaming controller that boasts some killer features, with one caveat—it’s PC only.",
-      "dek": "Amazon is currently selling the SCUF Envision Pro Wireless V2 at a nice discount: normally $179.99, it’s now available for $139.99.",
+      "summary": "Today, I’m talking with Matthew Prince, who is CEO of Cloudflare. This episode is part of a two-part series on the future of business.",
+      "dek": "Today, I’m talking with Matthew Prince, who is CEO of Cloudflare. This episode is part of a two-part series on the future of business. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
       "sections": [
         {
           "heading": "What happened",
-          "body": "That’s a new all-time low price for a wireless gaming controller that boasts some killer features, with one caveat—it’s PC only."
+          "body": "Today, I’m talking with Matthew Prince, who is CEO of Cloudflare. This episode is part of a two-part series on the future of business."
         },
         {
           "heading": "Where the sources line up",
-          "body": "This is the 2025 revised version of the SCUF Envision Pro Wireless, specifically designed for PC gaming. It offers a total of 11 configurable inputs, including four rear paddles, two side SAX buttons, and five G-keys on the front. Those G-keys can be programmed to Windows functions, keyboard shortcuts, or macros. Corsair’s iCUE software can also be used to customize key assignments, stick and trigger profiles, and RGB lighting."
+          "body": "Matthew last joined us on the show about two and a half years ago, at what we thought then was a wild pivot point for the internet — and now it turns out things are even wilder because of AI, and Matthew and Cloudflare are right at the center of it."
         },
         {
           "heading": "Practical impact for readers",
-          "body": "This controller can be connected either wirelessly via Corsair Slipstream or via USB-C cable. According to SCUF, the built-in battery lasts for approximately 19 hours with typical use. It weighs around 285 grams, features a 3. 5mm audio jack, and has a wireless range of up to 45 feet."
+          "body": "Cloudflare found in June that bots made up more than half of internet traffic. That number just keeps going up as more and more AI companies scrape more and more of the web, and now as more and more AI agents try and do things for people on the web. Cloudflare sits between websites and all those agents, and allows website owners some level of control: Owners can block all those AI tools, allow them, or, as you’ll hear, only allow those that might pay money for access."
         },
         {
           "heading": "Who should pay attention now",
-          "body": "Note that the package includes a wireless dongle, a 6-foot USB-C cable, two extra thumbsticks, and covers for the SAX buttons."
+          "body": "So Matthew and I talked about how to control all these bots, what kind of mess they’re making of the web, and what kinds of information might be valuable in the future as some of the payment schemes come into focus. You’ll hear me ask pretty directly if some of the outcomes he’s describing are actually good — Matthew is a thoughtful guy, and his answer is something I’m still thinking about well after we had this conversation."
         },
         {
           "heading": "What is still unclear",
-          "body": "Important: Unlike many Xbox and/or PlayStation controllers, the Envision Pro isn’t a multi-platform controller. SCUF lists Windows 10 and Windows 11 as compatible systems, while macOS and iOS are explicitly not supported. This model is therefore not a good pick for console gamers."
+          "body": "AI is also upending everything inside of Cloudflare. Earlier this year, the company laid off more than a thousand people — 20 percent of the company — and then Matthew wrote an op-ed about that decision that ran in the Wall Street Journal under the headline, “How I choose which Cloudflare employees to replace with AI. ” That’s pure Decoder bait in every single dimension: AI, big controversial decisions, and org charts, all in one."
         }
       ],
       "image": {
-        "src": "https://www.pcworld.com/wp-content/uploads/2026/09/3244480-0-89090700-1790355788-Scuf.jpg?quality=50&strip=all&w=1024",
+        "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/DCD_2026-09-26_Prince.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
         "alt": "",
-        "caption": "Reference image from PCWorld.",
-        "credit": "PCWorld",
-        "source_url": "https://www.pcworld.com/article/3244480/scufs-premium-pc-only-wireless-controller-just-hit-its-lowest-price-ever.html"
+        "caption": "Reference image from The Verge.",
+        "credit": "The Verge",
+        "source_url": "https://www.theverge.com/podcast/1000344/cloudflare-matthew-prince-google-zero-ai-web-advertising"
       },
       "verification_state": "emerging",
       "quality_score": 96,
       "ad_eligible": true,
       "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "PCWorld",
-          "source_url": "https://www.pcworld.com/article/3244480/scufs-premium-pc-only-wireless-controller-just-hit-its-lowest-price-ever.html",
-          "region": "Global",
-          "language": "en",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-25T17:02:53.000Z",
-          "image_url": "https://www.pcworld.com/wp-content/uploads/2026/09/3244480-0-89090700-1790355788-Scuf.jpg?quality=50&strip=all&w=1024",
-          "image_caption": "Reference image from PCWorld.",
-          "image_credit": "PCWorld"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-25T17:02:53.000Z",
-      "updated_at": "2026-09-25T17:02:53.000Z",
-      "href": "/en/news/scuf-s-premium-pc-only-wireless-controller-just-hit-its-lowest-price-ever",
-      "draft_context": {
-        "source_title": "SCUF’s premium PC-only wireless controller just hit its lowest price ever",
-        "source_name": "PCWorld",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "NEW LOWEST PRICE SCUF Envision Pro Wireless V2 Controller View Deal Amazon is currently selling the SCUF Envision Pro Wireless V2 at a nice discount: normally $179.99, it’s now available for $139.99. That’s a new all-time low price for a wireless gaming controller that boasts some killer features, with one caveat—it’s PC only. This is the 2025 revised version of the SCUF Envision Pro Wireless, specifically designed for PC gaming. It offers a total of 11 configurable inputs, including four rear paddles, two side SAX buttons, and five G-keys on the front. Those G-keys can be programmed to Windows functions, keyboard shortcuts, or macros. Corsair’s iCUE software can also be used to customize key assignments, stick and trigger profiles, and RGB lighting. For shooter gamers, the switchable Instant Triggers are a nice feature. A switch allows you to toggle between normal analog trigger travel and short trigger action that feels like a mouse click. The ABXY buttons and D-pad also feature mechanical Omron switches. This controller can be connected either wirelessly via Corsair Slipstream or via USB-C cable. According to SCUF, the built-in battery lasts for approximately 19 hours with typical use. It weighs around 285 grams, features a 3.5mm audio jack, and has a wireless range of up to 45 feet. Note that the package includes a wireless dongle, a 6-foot USB-C cable, two extra thumbsticks, and covers for the SAX buttons. Important: Unlike many Xbox and/or PlayStation controllers, the Envision Pro isn’t a multi-platform controller. SCUF lists Windows 10 and Windows 11 as compatible systems, while macOS and iOS are explicitly not supported. This model is therefore not a good pick for console gamers. If you’re exclusively a PC gamer and you want a premium wireless controller, this price drop is hard to ignore. Save $40 and get the SCUF Envision Pro V2 for its cheapest ever price—and that’s for the White colorway. If you don’t mind the less conventional Steel Gray option , you can save an additional $20.",
-        "paragraphs": [
-          "Amazon is currently selling the SCUF Envision Pro Wireless V2 at a nice discount: normally $179.99, it&rsquo;s now available for $139.99. That&rsquo;s a new all-time low price for a wireless gaming controller that boasts some killer features, with one caveat&mdash;it&rsquo;s PC only.",
-          "This is the 2025 revised version of the SCUF Envision Pro Wireless, specifically designed for PC gaming. It offers a total of 11 configurable inputs, including four rear paddles, two side SAX buttons, and five G-keys on the front. Those G-keys can be programmed to Windows functions, keyboard shortcuts, or macros. Corsair&rsquo;s iCUE software can also be used to customize key assignments, stick and trigger profiles, and RGB lighting.",
-          "This controller can be connected either wirelessly via Corsair Slipstream or via USB-C cable. According to SCUF, the built-in battery lasts for approximately 19 hours with typical use. It weighs around 285 grams, features a 3.5mm audio jack, and has a wireless range of up to 45 feet.",
-          "Note that the package includes a wireless dongle, a 6-foot USB-C cable, two extra thumbsticks, and covers for the SAX buttons.",
-          "Important: Unlike many Xbox and/or PlayStation controllers, the Envision Pro isn&rsquo;t a multi-platform controller. SCUF lists Windows 10 and Windows 11 as compatible systems, while macOS and iOS are explicitly not supported. This model is therefore not a good pick for console gamers."
-        ],
-        "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=5; words=555",
-        "link": "https://www.pcworld.com/article/3244480/scufs-premium-pc-only-wireless-controller-just-hit-its-lowest-price-ever.html"
-      },
-      "title_vi": "",
-      "title_en": "SCUF’s premium PC-only wireless controller just hit its lowest price ever",
-      "dek_vi": "",
-      "dek_en": "Amazon is currently selling the SCUF Envision Pro Wireless V2 at a nice discount: normally $179.99, it’s now available for $139.99.",
-      "body_vi": "",
-      "body_en": "What happened\nThat’s a new all-time low price for a wireless gaming controller that boasts some killer features, with one caveat—it’s PC only.\n\nWhere the sources line up\nThis is the 2025 revised version of the SCUF Envision Pro Wireless, specifically designed for PC gaming. It offers a total of 11 configurable inputs, including four rear paddles, two side SAX buttons, and five G-keys on the front. Those G-keys can be programmed to Windows functions, keyboard shortcuts, or macros. Corsair’s iCUE software can also be used to customize key assignments, stick and trigger profiles, and RGB lighting.\n\nPractical impact for readers\nThis controller can be connected either wirelessly via Corsair Slipstream or via USB-C cable. According to SCUF, the built-in battery lasts for approximately 19 hours with typical use. It weighs around 285 grams, features a 3. 5mm audio jack, and has a wireless range of up to 45 feet.\n\nWho should pay attention now\nNote that the package includes a wireless dongle, a 6-foot USB-C cable, two extra thumbsticks, and covers for the SAX buttons.\n\nWhat is still unclear\nImportant: Unlike many Xbox and/or PlayStation controllers, the Envision Pro isn’t a multi-platform controller. SCUF lists Windows 10 and Windows 11 as compatible systems, while macOS and iOS are explicitly not supported. This model is therefore not a good pick for console gamers.",
-      "slug_vi": "scuf-s-premium-pc-only-wireless-controller-just-hit-its-lowest-price-ever",
-      "slug_en": "scuf-s-premium-pc-only-wireless-controller-just-hit-its-lowest-price-ever",
-      "category": "devices",
-      "geo_scope": "global",
-      "hot_score": 50,
-      "source_urls": [
-        "https://www.pcworld.com/article/3244480/scufs-premium-pc-only-wireless-controller-just-hit-its-lowest-price-ever.html"
-      ],
-      "image_url": "https://www.pcworld.com/wp-content/uploads/2026/09/3244480-0-89090700-1790355788-Scuf.jpg?quality=50&strip=all&w=1024",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/scuf-s-premium-pc-only-wireless-controller-just-hit-its-lowest-price-ever",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-26T05:22:52.329Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-82a8de05ba68-vi",
-      "cluster_id": "feed-82a8de05ba68",
-      "language": "vi",
-      "topic_label": "Internet & Doanh nghiệp số",
-      "topic_slug": "internet-doanh-nghiep-so",
-      "topic_accent": "#9bff45",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "ly-do-ai-chua-the-giai-ma-hoan-toan-co-vua",
-      "title": "Lý do AI chưa thể 'giải mã' hoàn toàn cờ vua",
-      "hook": "Trí tuệ nhân tạo (AI) gây kinh ngạc khi giải quyết những bài toán khó trong toán học, nhưng lại chưa thể \"giải mã\" hoàn toàn cờ vua.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Trí tuệ nhân tạo (AI) gây kinh ngạc khi giải quyết những bài toán khó trong toán học, nhưng lại chưa thể \"giải mã\" hoàn toàn cờ vua. Dù AI có khả năng đánh bại kỳ thủ hàng đầu như Garry Kasparov, nó vẫn chưa tìm ra phương án thắng tuyệt đối trong mỗi ván cờ.",
-      "dek": "Trí tuệ nhân tạo (AI) gây kinh ngạc khi giải quyết những bài toán khó trong toán học, nhưng lại chưa thể \"giải mã\" hoàn toàn cờ vua.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Dù AI có khả năng đánh bại kỳ thủ hàng đầu như Garry Kasparov, nó vẫn chưa tìm ra phương án thắng tuyệt đối trong mỗi ván cờ."
-        },
-        {
-          "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Theo Wall Street Journal , vấn đề không nằm ở chỗ AI thiếu sức mạnh tính toán. Trong khi một số trò chơi như cờ đam hay cờ ca-rô bị máy tính giải mã hoàn toàn (tìm ra chuỗi nước đi tối ưu tuyệt đối để luôn thắng hoặc hòa), cờ vua quá phức tạp để có thể giải mã theo cách đó. Wiris cho biết dù trò chơi cờ vua chỉ có 64 ô và 32 quân cờ, số lượng ván cờ có thể xảy ra ở mức khổng lồ. Claude Elwood Shannon (1916-2001), nhà toán học người Mỹ được mệnh danh là \"cha đẻ của lý thuyết thông tin\" ước tính có khoảng 10 mũ 120 ván cờ vua có thể xảy ra (được gọi là Số Shannon), lớn hơn nhiều so với số lượng nguyên tử trong vũ trụ có thể quan sát (10 mũ 80)."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Daniel Rensch, kiện tướng quốc tế kiêm giám đốc điều hành mảng cờ vua ở nền tảng Chess. com, giải thích cờ vua là một bài toán vô tận dù chúng ta biết rõ quy tắc trò chơi. Sự đa dạng và phức tạp của những nước đi khiến AI không thể đưa ra một giải pháp duy nhất để thắng mọi ván đấu."
-        },
-        {
-          "heading": "Ai nên chú ý lúc này",
-          "body": "Tuy nhiên, AI đã phát triển theo hướng mở rộng các nước đi khả thi, trở thành bệ phóng cho sự sáng tạo của con người. Trong ba thập kỷ qua, công nghệ ngày càng tiến xa với sự xuất hiện của những công cụ AI cờ vua như Leela Chess Zero (Lc0). Lc0 là một công cụ mã nguồn mở lấy cảm hứng từ AlphaZero của Google DeepMind."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "Theo Chess. com , Lc0 sử dụng mạng nơ-ron sâu kết hợp thuật toán tìm kiếm cây Monte Carlo để đánh giá thế cờ. Ban đầu, hệ thống chỉ biết luật di chuyển cơ bản và tự học cờ vua thông qua phương pháp học tăng cường bằng cách tự đấu với chính mình hàng triệu ván. Đến khoảng cuối năm 2024, mô hình huấn luyện ứng dụng thêm phương pháp học giám sát từ dữ liệu tự đấu trước đó."
-        }
-      ],
-      "image": {
-        "src": "https://i2-vnexpress.vnecdn.net/2026/09/25/VNEChess-1790339746-6806-1790339800.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=2gTbnFtym1YktK7WwRrC2A",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ VnExpress So Hoa.",
-        "credit": "VnExpress So Hoa",
-        "source_url": "https://vnexpress.net/ly-do-ai-chua-the-giai-ma-hoan-toan-co-vua-5124874.html"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "VnExpress So Hoa",
-          "source_url": "https://vnexpress.net/ly-do-ai-chua-the-giai-ma-hoan-toan-co-vua-5124874.html",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-25T17:00:00.000Z",
-          "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/25/VNEChess-1790339746-6806-1790339800.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=2gTbnFtym1YktK7WwRrC2A",
-          "image_caption": "Ảnh tham khảo từ VnExpress So Hoa.",
-          "image_credit": "VnExpress So Hoa"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-25T17:00:00.000Z",
-      "updated_at": "2026-09-25T17:00:00.000Z",
-      "href": "/vi/tin-tuc/ly-do-ai-chua-the-giai-ma-hoan-toan-co-vua",
-      "draft_context": {
-        "source_title": "Lý do AI chưa thể 'giải mã' hoàn toàn cờ vua",
-        "source_name": "VnExpress So Hoa",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "Số lượng nước đi khả thi khổng lồ của cờ vua trở thành bức tường thành mà AI hiện nay chưa thể vượt qua.",
-        "paragraphs": [
-          "Trí tuệ nhân tạo (AI) gây kinh ngạc khi giải quyết những bài toán khó trong toán học, nhưng lại chưa thể \"giải mã\" hoàn toàn cờ vua. Dù AI có khả năng đánh bại kỳ thủ hàng đầu như Garry Kasparov, nó vẫn chưa tìm ra phương án thắng tuyệt đối trong mỗi ván cờ.",
-          "Theo Wall Street Journal , vấn đề không nằm ở chỗ AI thiếu sức mạnh tính toán. Trong khi một số trò chơi như cờ đam hay cờ ca-rô bị máy tính giải mã hoàn toàn (tìm ra chuỗi nước đi tối ưu tuyệt đối để luôn thắng hoặc hòa), cờ vua quá phức tạp để có thể giải mã theo cách đó. Wiris cho biết dù trò chơi cờ vua chỉ có 64 ô và 32 quân cờ, số lượng ván cờ có thể xảy ra ở mức khổng lồ. Claude Elwood Shannon (1916-2001), nhà toán học người Mỹ được mệnh danh là \"cha đẻ của lý thuyết thông tin\" ước tính có khoảng 10 mũ 120 ván cờ vua có thể xảy ra (được gọi là Số Shannon), lớn hơn nhiều so với số lượng nguyên tử trong vũ trụ có thể quan sát (10 mũ 80).",
-          "Daniel Rensch, kiện tướng quốc tế kiêm giám đốc điều hành mảng cờ vua ở nền tảng Chess.com, giải thích cờ vua là một bài toán vô tận dù chúng ta biết rõ quy tắc trò chơi. Sự đa dạng và phức tạp của những nước đi khiến AI không thể đưa ra một giải pháp duy nhất để thắng mọi ván đấu.",
-          "Tuy nhiên, AI đã phát triển theo hướng mở rộng các nước đi khả thi, trở thành bệ phóng cho sự sáng tạo của con người. Trong ba thập kỷ qua, công nghệ ngày càng tiến xa với sự xuất hiện của những công cụ AI cờ vua như Leela Chess Zero (Lc0). Lc0 là một công cụ mã nguồn mở lấy cảm hứng từ AlphaZero của Google DeepMind.",
-          "Theo Chess.com , Lc0 sử dụng mạng nơ-ron sâu kết hợp thuật toán tìm kiếm cây Monte Carlo để đánh giá thế cờ. Ban đầu, hệ thống chỉ biết luật di chuyển cơ bản và tự học cờ vua thông qua phương pháp học tăng cường bằng cách tự đấu với chính mình hàng triệu ván. Đến khoảng cuối năm 2024, mô hình huấn luyện ứng dụng thêm phương pháp học giám sát từ dữ liệu tự đấu trước đó."
-        ],
-        "source_depth_score": 92,
-        "source_depth_reason": "depth=92; paragraphs=5; words=441",
-        "link": "https://vnexpress.net/ly-do-ai-chua-the-giai-ma-hoan-toan-co-vua-5124874.html"
-      },
-      "title_vi": "Lý do AI chưa thể 'giải mã' hoàn toàn cờ vua",
-      "title_en": "",
-      "dek_vi": "Trí tuệ nhân tạo (AI) gây kinh ngạc khi giải quyết những bài toán khó trong toán học, nhưng lại chưa thể \"giải mã\" hoàn toàn cờ vua.",
-      "dek_en": "",
-      "body_vi": "Điều gì đã xảy ra\nDù AI có khả năng đánh bại kỳ thủ hàng đầu như Garry Kasparov, nó vẫn chưa tìm ra phương án thắng tuyệt đối trong mỗi ván cờ.\n\nCác nguồn đang khớp nhau ở đâu\nTheo Wall Street Journal , vấn đề không nằm ở chỗ AI thiếu sức mạnh tính toán. Trong khi một số trò chơi như cờ đam hay cờ ca-rô bị máy tính giải mã hoàn toàn (tìm ra chuỗi nước đi tối ưu tuyệt đối để luôn thắng hoặc hòa), cờ vua quá phức tạp để có thể giải mã theo cách đó. Wiris cho biết dù trò chơi cờ vua chỉ có 64 ô và 32 quân cờ, số lượng ván cờ có thể xảy ra ở mức khổng lồ. Claude Elwood Shannon (1916-2001), nhà toán học người Mỹ được mệnh danh là \"cha đẻ của lý thuyết thông tin\" ước tính có khoảng 10 mũ 120 ván cờ vua có thể xảy ra (được gọi là Số Shannon), lớn hơn nhiều so với số lượng nguyên tử trong vũ trụ có thể quan sát (10 mũ 80).\n\nDữ kiện hiện có\nDaniel Rensch, kiện tướng quốc tế kiêm giám đốc điều hành mảng cờ vua ở nền tảng Chess. com, giải thích cờ vua là một bài toán vô tận dù chúng ta biết rõ quy tắc trò chơi. Sự đa dạng và phức tạp của những nước đi khiến AI không thể đưa ra một giải pháp duy nhất để thắng mọi ván đấu.\n\nAi nên chú ý lúc này\nTuy nhiên, AI đã phát triển theo hướng mở rộng các nước đi khả thi, trở thành bệ phóng cho sự sáng tạo của con người. Trong ba thập kỷ qua, công nghệ ngày càng tiến xa với sự xuất hiện của những công cụ AI cờ vua như Leela Chess Zero (Lc0). Lc0 là một công cụ mã nguồn mở lấy cảm hứng từ AlphaZero của Google DeepMind.\n\nĐiều chưa rõ\nTheo Chess. com , Lc0 sử dụng mạng nơ-ron sâu kết hợp thuật toán tìm kiếm cây Monte Carlo để đánh giá thế cờ. Ban đầu, hệ thống chỉ biết luật di chuyển cơ bản và tự học cờ vua thông qua phương pháp học tăng cường bằng cách tự đấu với chính mình hàng triệu ván. Đến khoảng cuối năm 2024, mô hình huấn luyện ứng dụng thêm phương pháp học giám sát từ dữ liệu tự đấu trước đó.",
-      "body_en": "",
-      "slug_vi": "ly-do-ai-chua-the-giai-ma-hoan-toan-co-vua",
-      "slug_en": "ly-do-ai-chua-the-giai-ma-hoan-toan-co-vua",
-      "category": "social",
-      "geo_scope": "vn",
-      "hot_score": 50,
-      "source_urls": [
-        "https://vnexpress.net/ly-do-ai-chua-the-giai-ma-hoan-toan-co-vua-5124874.html"
-      ],
-      "image_url": "https://i2-vnexpress.vnecdn.net/2026/09/25/VNEChess-1790339746-6806-1790339800.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=2gTbnFtym1YktK7WwRrC2A",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/ly-do-ai-chua-the-giai-ma-hoan-toan-co-vua",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "internet-business-tech",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-26T05:22:52.329Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-90685e968403-vi",
-      "cluster_id": "feed-90685e968403",
-      "language": "vi",
-      "topic_label": "Thiết bị",
-      "topic_slug": "thiet-bi",
-      "topic_accent": "#4e7dff",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "vnpt-va-qualcomm-technologies-mo-rong-hop-tac-chien-luoc-thuc-ay-oi-moi-ai-bien",
-      "title": "VNPT và Qualcomm Technologies mở rộng hợp tác chiến lược, thúc đẩy đổi mới AI biên",
-      "hook": "Thỏa thuận thiết lập khuôn khổ hợp tác kỹ thuật giữa hai bên, tập trung đẩy nhanh quá trình phát triển và thương mại hóa danh mục đa dạng các giải pháp AI biên (Edge AI), bao gồm nền tảng XGS-PON tích hợp kết nối Wi-Fi 7 và Wi-Fi 8, AI Gateway, camera AI, laptop AI cùng các thiết bị và dịch vụ biên thông minh khác.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Thỏa thuận thiết lập khuôn khổ hợp tác kỹ thuật giữa hai bên, tập trung đẩy nhanh quá trình phát triển và thương mại hóa danh mục đa dạng các giải pháp AI biên (Edge AI), bao gồm nền tảng XGS-PON tích hợp kết nối Wi-Fi 7 và Wi-Fi 8, AI Gateway, camera AI, laptop AI cùng các thiết bị và dịch vụ biên thông minh khác. Phát huy thế mạnh của VNPT về năng lực kỹ thuật, hạ tầng mạng và các dịch vụ số, kết hợp với những đổi mới của Qualcomm Technologies trong lĩnh vực AI, kết nối và điện toán biên, hợp tác giữa hai bên hướng tới mở ra các cơ hội ứng dụng AI trong nhiều lĩnh vực như doanh nghiệp, chính phủ, công nghiệp, đô thị thông minh và thị trường tiêu dùng.",
-      "dek": "Thỏa thuận thiết lập khuôn khổ hợp tác kỹ thuật giữa hai bên, tập trung đẩy nhanh quá trình phát triển và thương mại hóa danh mục đa dạng các giải pháp AI biên (Edge AI), bao gồm nền tảng XGS-PON tích hợp kết nối Wi-Fi 7 và Wi-Fi 8, AI Gateway, camera AI, laptop AI cùng các thiết bị và dịch vụ biên thông minh khác.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Thỏa thuận thiết lập khuôn khổ hợp tác kỹ thuật giữa hai bên, tập trung đẩy nhanh quá trình phát triển và thương mại hóa danh mục đa dạng các giải pháp AI biên (Edge AI), bao gồm nền tảng XGS-PON tích hợp kết nối Wi-Fi 7 và Wi-Fi 8, AI Gateway, camera AI, laptop AI cùng các thiết bị và dịch vụ biên thông minh khác."
-        },
-        {
-          "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Phát huy thế mạnh của VNPT về năng lực kỹ thuật, hạ tầng mạng và các dịch vụ số, kết hợp với những đổi mới của Qualcomm Technologies trong lĩnh vực AI, kết nối và điện toán biên, hợp tác giữa hai bên hướng tới mở ra các cơ hội ứng dụng AI trong nhiều lĩnh vực như doanh nghiệp, chính phủ, công nghiệp, đô thị thông minh và thị trường tiêu dùng."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Trong bối cảnh Việt Nam đẩy mạnh tiến trình chuyển đổi số, AI và kết nối tiên tiến sẽ đóng vai trò quan trọng trong việc định hình thế hệ dịch vụ và ngành công nghiệp mới\". \" Vì thế, hợp tác với Qualcomm Technologies thể hiện tham vọng của VNPT trong việc phát triển các sản phẩm, giải pháp đổi mới sáng tạo tại Việt Nam, đồng thời xây dựng năng lực có thể cạnh tranh trên thị trường quốc tế \", ông Huỳnh Quang Liêm, Tổng Giám đốc Tập đoàn VNPT chia sẻ."
-        },
-        {
-          "heading": "Ai nên chú ý lúc này",
-          "body": "Theo khuôn khổ hợp tác, VNPT dự kiến đầu tư khoảng 15 triệu USD (khoảng 389 tỷ đồng) cho các hoạt động phát triển và thương mại hóa sản phẩm. Hai bên kỳ vọng mở ra cơ hội kinh doanh trị giá hơn 200 triệu USD (khoảng 5,196 tỷ đồng) đến năm 2028, trên cơ sở triển khai các sản phẩm, nền tảng và dịch vụ ứng dụng AI."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "Các giải pháp được hai bên phối hợp phát triển trước tiên sẽ hướng tới triển khai tại Việt Nam, sau đó mở rộng ra thị trường quốc tế. Hợp tác tập trung phát triển các trải nghiệm thông minh tại biên thông qua kết hợp kết nối tiên tiến, AI trên thiết bị (on-device AI) và năng lực thông minh trên nền tảng đám mây, góp phần hiện thực hóa định hướng đưa các sản phẩm, giải pháp đổi mới sáng tạo của Việt Nam đến khách hàng trên toàn cầu."
-        }
-      ],
-      "image": {
-        "src": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/25/photo1790313257312-1790313257694447981062-1790339422523405659676.jpg",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ GenK Tin ICT.",
-        "credit": "GenK Tin ICT",
-        "source_url": "https://genk.vn/vnpt-va-qualcomm-technologies-mo-rong-hop-tac-chien-luoc-thuc-day-doi-moi-ai-bien-165260925193018625.chn"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "GenK Tin ICT",
-          "source_url": "https://genk.vn/vnpt-va-qualcomm-technologies-mo-rong-hop-tac-chien-luoc-thuc-day-doi-moi-ai-bien-165260925193018625.chn",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-25T12:30:00.000Z",
-          "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/25/photo1790313257312-1790313257694447981062-1790339422523405659676.jpg",
-          "image_caption": "Ảnh tham khảo từ GenK Tin ICT.",
-          "image_credit": "GenK Tin ICT"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-25T12:30:00.000Z",
-      "updated_at": "2026-09-25T12:30:00.000Z",
-      "href": "/vi/tin-tuc/vnpt-va-qualcomm-technologies-mo-rong-hop-tac-chien-luoc-thuc-ay-oi-moi-ai-bien",
-      "draft_context": {
-        "source_title": "VNPT và Qualcomm Technologies mở rộng hợp tác chiến lược, thúc đẩy đổi mới AI biên",
-        "source_name": "GenK Tin ICT",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "internet-business-tech",
-        "content_type_hint": "",
-        "description": "Ngày 23/9/2026, tại New York, Hoa Kỳ (theo giờ địa phương), Tập đoàn VNPT công bố mở rộng hợp tác chiến lược với Qualcomm Technologies, Inc.",
-        "paragraphs": [
-          "Th&#7887;a thu&#7853;n thi&#7871;t l&#7853;p khu&ocirc;n kh&#7893; h&#7907;p t&aacute;c k&#7929; thu&#7853;t gi&#7919;a hai b&ecirc;n, t&#7853;p trung &#273;&#7849;y nhanh qu&aacute; tr&igrave;nh ph&aacute;t tri&#7875;n v&agrave; th&#432;&#417;ng m&#7841;i h&oacute;a danh m&#7909;c &#273;a d&#7841;ng c&aacute;c gi&#7843;i ph&aacute;p AI bi&ecirc;n (Edge AI), bao g&#7891;m n&#7873;n t&#7843;ng XGS-PON t&iacute;ch h&#7907;p k&#7871;t n&#7889;i Wi-Fi 7 v&agrave; Wi-Fi 8, AI Gateway, camera AI, laptop AI c&ugrave;ng c&aacute;c thi&#7871;t b&#7883; v&agrave; d&#7883;ch v&#7909; bi&ecirc;n th&ocirc;ng minh kh&aacute;c.",
-          "Ph&aacute;t huy th&#7871; m&#7841;nh c&#7911;a VNPT v&#7873; n&#259;ng l&#7921;c k&#7929; thu&#7853;t, h&#7841; t&#7847;ng m&#7841;ng v&agrave; c&aacute;c d&#7883;ch v&#7909; s&#7889;, k&#7871;t h&#7907;p v&#7899;i nh&#7919;ng &#273;&#7893;i m&#7899;i c&#7911;a Qualcomm Technologies trong l&#297;nh v&#7921;c AI, k&#7871;t n&#7889;i v&agrave; &#273;i&#7879;n to&aacute;n bi&ecirc;n, h&#7907;p t&aacute;c gi&#7919;a hai b&ecirc;n h&#432;&#7899;ng t&#7899;i m&#7903; ra c&aacute;c c&#417; h&#7897;i &#7913;ng d&#7909;ng AI trong nhi&#7873;u l&#297;nh v&#7921;c nh&#432; doanh nghi&#7879;p, ch&iacute;nh ph&#7911;, c&ocirc;ng nghi&#7879;p, &#273;&ocirc; th&#7883; th&ocirc;ng minh v&agrave; th&#7883; tr&#432;&#7901;ng ti&ecirc;u d&ugrave;ng.",
-          "Trong b&#7889;i c&#7843;nh Vi&#7879;t Nam &#273;&#7849;y m&#7841;nh ti&#7871;n tr&igrave;nh chuy&#7875;n &#273;&#7893;i s&#7889;, AI v&agrave; k&#7871;t n&#7889;i ti&ecirc;n ti&#7871;n s&#7869; &#273;&oacute;ng vai tr&ograve; quan tr&#7885;ng trong vi&#7879;c &#273;&#7883;nh h&igrave;nh th&#7871; h&#7879; d&#7883;ch v&#7909; v&agrave; ng&agrave;nh c&ocirc;ng nghi&#7879;p m&#7899;i\". \" V&igrave; th&#7871;, h&#7907;p t&aacute;c v&#7899;i Qualcomm Technologies th&#7875; hi&#7879;n tham v&#7885;ng c&#7911;a VNPT trong vi&#7879;c ph&aacute;t tri&#7875;n c&aacute;c s&#7843;n ph&#7849;m, gi&#7843;i ph&aacute;p &#273;&#7893;i m&#7899;i s&aacute;ng t&#7841;o t&#7841;i Vi&#7879;t Nam, &#273;&#7891;ng th&#7901;i x&acirc;y d&#7921;ng n&#259;ng l&#7921;c c&oacute; th&#7875; c&#7841;nh tranh tr&ecirc;n th&#7883; tr&#432;&#7901;ng qu&#7889;c t&#7871; \", &ocirc;ng Hu&#7923;nh Quang Li&ecirc;m, T&#7893;ng Gi&aacute;m &#273;&#7889;c T&#7853;p &#273;o&agrave;n VNPT chia s&#7867;.",
-          "Theo khu&ocirc;n kh&#7893; h&#7907;p t&aacute;c, VNPT d&#7921; ki&#7871;n &#273;&#7847;u t&#432; kho&#7843;ng 15 tri&#7879;u USD (kho&#7843;ng 389 t&#7927; &#273;&#7891;ng) cho c&aacute;c ho&#7841;t &#273;&#7897;ng ph&aacute;t tri&#7875;n v&agrave; th&#432;&#417;ng m&#7841;i h&oacute;a s&#7843;n ph&#7849;m. Hai b&ecirc;n k&#7923; v&#7885;ng m&#7903; ra c&#417; h&#7897;i kinh doanh tr&#7883; gi&aacute; h&#417;n 200 tri&#7879;u USD (kho&#7843;ng 5,196 t&#7927; &#273;&#7891;ng) &#273;&#7871;n n&#259;m 2028, tr&ecirc;n c&#417; s&#7903; tri&#7875;n khai c&aacute;c s&#7843;n ph&#7849;m, n&#7873;n t&#7843;ng v&agrave; d&#7883;ch v&#7909; &#7913;ng d&#7909;ng AI.",
-          "C&aacute;c gi&#7843;i ph&aacute;p &#273;&#432;&#7907;c hai b&ecirc;n ph&#7889;i h&#7907;p ph&aacute;t tri&#7875;n tr&#432;&#7899;c ti&ecirc;n s&#7869; h&#432;&#7899;ng t&#7899;i tri&#7875;n khai t&#7841;i Vi&#7879;t Nam, sau &#273;&oacute; m&#7903; r&#7897;ng ra th&#7883; tr&#432;&#7901;ng qu&#7889;c t&#7871;. H&#7907;p t&aacute;c t&#7853;p trung ph&aacute;t tri&#7875;n c&aacute;c tr&#7843;i nghi&#7879;m th&ocirc;ng minh t&#7841;i bi&ecirc;n th&ocirc;ng qua k&#7871;t h&#7907;p k&#7871;t n&#7889;i ti&ecirc;n ti&#7871;n, AI tr&ecirc;n thi&#7871;t b&#7883; (on-device AI) v&agrave; n&#259;ng l&#7921;c th&ocirc;ng minh tr&ecirc;n n&#7873;n t&#7843;ng &#273;&aacute;m m&acirc;y, g&oacute;p ph&#7847;n hi&#7879;n th&#7921;c h&oacute;a &#273;&#7883;nh h&#432;&#7899;ng &#273;&#432;a c&aacute;c s&#7843;n ph&#7849;m, gi&#7843;i ph&aacute;p &#273;&#7893;i m&#7899;i s&aacute;ng t&#7841;o c&#7911;a Vi&#7879;t Nam &#273;&#7871;n kh&aacute;ch h&agrave;ng tr&ecirc;n to&agrave;n c&#7847;u."
-        ],
-        "source_depth_score": 96,
-        "source_depth_reason": "depth=96; paragraphs=5; words=422",
-        "link": "https://genk.vn/vnpt-va-qualcomm-technologies-mo-rong-hop-tac-chien-luoc-thuc-day-doi-moi-ai-bien-165260925193018625.chn"
-      },
-      "title_vi": "VNPT và Qualcomm Technologies mở rộng hợp tác chiến lược, thúc đẩy đổi mới AI biên",
-      "title_en": "",
-      "dek_vi": "Thỏa thuận thiết lập khuôn khổ hợp tác kỹ thuật giữa hai bên, tập trung đẩy nhanh quá trình phát triển và thương mại hóa danh mục đa dạng các giải pháp AI biên (Edge AI), bao gồm nền tảng XGS-PON tích hợp kết nối Wi-Fi 7 và Wi-Fi 8, AI Gateway, camera AI, laptop AI cùng các thiết bị và dịch vụ biên thông minh khác.",
-      "dek_en": "",
-      "body_vi": "Điều gì đã xảy ra\nThỏa thuận thiết lập khuôn khổ hợp tác kỹ thuật giữa hai bên, tập trung đẩy nhanh quá trình phát triển và thương mại hóa danh mục đa dạng các giải pháp AI biên (Edge AI), bao gồm nền tảng XGS-PON tích hợp kết nối Wi-Fi 7 và Wi-Fi 8, AI Gateway, camera AI, laptop AI cùng các thiết bị và dịch vụ biên thông minh khác.\n\nCác nguồn đang khớp nhau ở đâu\nPhát huy thế mạnh của VNPT về năng lực kỹ thuật, hạ tầng mạng và các dịch vụ số, kết hợp với những đổi mới của Qualcomm Technologies trong lĩnh vực AI, kết nối và điện toán biên, hợp tác giữa hai bên hướng tới mở ra các cơ hội ứng dụng AI trong nhiều lĩnh vực như doanh nghiệp, chính phủ, công nghiệp, đô thị thông minh và thị trường tiêu dùng.\n\nDữ kiện hiện có\nTrong bối cảnh Việt Nam đẩy mạnh tiến trình chuyển đổi số, AI và kết nối tiên tiến sẽ đóng vai trò quan trọng trong việc định hình thế hệ dịch vụ và ngành công nghiệp mới\". \" Vì thế, hợp tác với Qualcomm Technologies thể hiện tham vọng của VNPT trong việc phát triển các sản phẩm, giải pháp đổi mới sáng tạo tại Việt Nam, đồng thời xây dựng năng lực có thể cạnh tranh trên thị trường quốc tế \", ông Huỳnh Quang Liêm, Tổng Giám đốc Tập đoàn VNPT chia sẻ.\n\nAi nên chú ý lúc này\nTheo khuôn khổ hợp tác, VNPT dự kiến đầu tư khoảng 15 triệu USD (khoảng 389 tỷ đồng) cho các hoạt động phát triển và thương mại hóa sản phẩm. Hai bên kỳ vọng mở ra cơ hội kinh doanh trị giá hơn 200 triệu USD (khoảng 5,196 tỷ đồng) đến năm 2028, trên cơ sở triển khai các sản phẩm, nền tảng và dịch vụ ứng dụng AI.\n\nĐiều chưa rõ\nCác giải pháp được hai bên phối hợp phát triển trước tiên sẽ hướng tới triển khai tại Việt Nam, sau đó mở rộng ra thị trường quốc tế. Hợp tác tập trung phát triển các trải nghiệm thông minh tại biên thông qua kết hợp kết nối tiên tiến, AI trên thiết bị (on-device AI) và năng lực thông minh trên nền tảng đám mây, góp phần hiện thực hóa định hướng đưa các sản phẩm, giải pháp đổi mới sáng tạo của Việt Nam đến khách hàng trên toàn cầu.",
-      "body_en": "",
-      "slug_vi": "vnpt-va-qualcomm-technologies-mo-rong-hop-tac-chien-luoc-thuc-ay-oi-moi-ai-bien",
-      "slug_en": "vnpt-va-qualcomm-technologies-mo-rong-hop-tac-chien-luoc-thuc-ay-oi-moi-ai-bien",
-      "category": "devices",
-      "geo_scope": "vn",
-      "hot_score": 50,
-      "source_urls": [
-        "https://genk.vn/vnpt-va-qualcomm-technologies-mo-rong-hop-tac-chien-luoc-thuc-day-doi-moi-ai-bien-165260925193018625.chn"
-      ],
-      "image_url": "https://genk.mediacdn.vn/thumb_w/1200/139269124445442048/2026/9/25/photo1790313257312-1790313257694447981062-1790339422523405659676.jpg",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/vnpt-va-qualcomm-technologies-mo-rong-hop-tac-chien-luoc-thuc-ay-oi-moi-ai-bien",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "devices",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-26T05:22:52.329Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-3c544043caef-en",
-      "cluster_id": "feed-3c544043caef",
-      "language": "en",
-      "topic_label": "Security",
-      "topic_slug": "security",
-      "topic_accent": "#1de59c",
-      "content_type": "NewsArticle",
-      "content_type_label": "News",
-      "path_segment": "news",
-      "slug": "firefox-security-response-to-pwn2own-2025",
-      "title": "Firefox Security Response to pwn2own 2025",
-      "hook": "This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices.",
-      "dek": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
-      "sections": [
-        {
-          "heading": "What happened",
-          "body": "These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system."
-        },
-        {
-          "heading": "Where the sources line up",
-          "body": "Out of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138. 0. 4, Firefox ESR 128. 10. 1, Firefox ESR 115. 23. 1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible."
-        },
-        {
-          "heading": "Practical impact for readers",
-          "body": "Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too."
-        },
-        {
-          "heading": "Who should pay attention now",
-          "body": "Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work."
-        },
-        {
-          "heading": "What is still unclear",
-          "body": "Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture."
-        }
-      ],
-      "image": {
-        "src": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
-        "alt": "",
-        "caption": "Reference image from Mozilla Security Blog.",
-        "credit": "Mozilla Security Blog",
-        "source_url": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
-      },
-      "verification_state": "verified",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": true,
       "indexable": true,
       "store_link_mode": "soft",
       "related_store_items": [
-        "secure-access-kit"
+        "creator-software-stack"
       ],
       "editorial_focus": [],
       "source_set": [
         {
-          "source_type": "official-site",
-          "source_name": "Mozilla Security Blog",
-          "source_url": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/",
+          "source_type": "press",
+          "source_name": "The Verge",
+          "source_url": "https://www.theverge.com/podcast/1000344/cloudflare-matthew-prince-google-zero-ai-web-advertising",
           "region": "Global",
           "language": "en",
-          "trust_tier": "official",
-          "published_at": "2025-05-17T21:17:47.000Z",
-          "image_url": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
-          "image_caption": "Reference image from Mozilla Security Blog.",
-          "image_credit": "Mozilla Security Blog"
+          "trust_tier": "established-media",
+          "published_at": "2026-09-25T22:13:20.000Z",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/DCD_2026-09-26_Prince.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+          "image_caption": "Reference image from The Verge.",
+          "image_credit": "The Verge"
         }
       ],
-      "author_id": "thao-nguyen",
-      "published_at": "2025-05-17T21:17:47.000Z",
-      "updated_at": "2025-05-17T21:17:47.000Z",
-      "href": "/en/news/firefox-security-response-to-pwn2own-2025",
+      "author_id": "mai-linh",
+      "published_at": "2026-09-25T22:13:20.000Z",
+      "updated_at": "2026-09-25T22:13:20.000Z",
+      "href": "/en/news/can-cloudflare-ceo-matthew-prince-save-the-web-from-ai",
       "draft_context": {
-        "source_title": "Firefox Security Response to pwn2own 2025",
-        "source_name": "Mozilla Security Blog",
-        "source_type": "official-site",
-        "trust_tier": "official",
-        "topic_hint": "security",
+        "source_title": "Can Cloudflare CEO Matthew Prince save the web from AI?",
+        "source_name": "The Verge",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
         "content_type_hint": "",
-        "description": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system. Out of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138.0.4, Firefox ESR 128.10.1, Firefox ESR 115.23.1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible. Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too. Background Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work. Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture. To review and fix the reported exploits a diverse team of people from all across the world and in various roles (engineering, QA, release management, security and many more) rushed to work. We tested and released a new version of Firefox for all of our supported platforms, operating systems, and configurations with rapid speed. Our work does not end here. We continue to use opportunities like this to improve our incident response. We will also continue to study the reports to identify new hardening features and security improvements to keep all of our Firefox users across the globe protected. Related Resources If you’re interested in learning more about Mozilla’s security initiatives or Firefox security, here are some resources to help you get started: Mozilla Security Mozilla Security Blog Bug Bounty Program Furthermore, if you want to kickstart your own security research in Firefox, we invite you to follow our deeply technical blog at Attack & Defense – Firefox Security Internals for Engineers, Researchers, and Bounty Hunters . Update – August 7th, 2025 We are pleased to share that Mozilla was awarded the Vanguard “Speedrunner” Award by the Zero Day Initiative (ZDI). This is in regonition to being consistently fast throghout the last 20 years of Zero Day Initiative’s pwn2own events. “Speedrunner” trophy, awarded to Mozilla Firefox for an outstanding security response during pwn2own. The post Firefox Security Response to pwn2own 2025 appeared first on Mozilla Security Blog .",
+        "description": "Today, I’m talking with Matthew Prince, who is CEO of Cloudflare. This episode is part of a two-part series on the future of business. Matthew last joined us on the show about two and a half years ago, at what we thought then was a wild pivot point for the internet — and now it turns out things are even wilder because of AI, and Matthew and Cloudflare are right at the center of it. Cloudflare found in June that bots made up more than half of internet traffic. That number just keeps going up as more and more AI companies scrape more and more of the web, and now as more and more AI agents try and do things for people on the web. Cloudflare sits between websites and all those agents, and allows website owners some level of control: Owners can block all those AI tools, allow them, or, as you’ll hear, only allow those that might pay money for access. Verge subscribers, don’t forget you get exclusive access to ad-free Decoder wherever you get your podcasts. Head here . Not a subscriber? You can sign up here . So Matthew and I talked about how to control all these bots, what kind of mess they’re making of the web, and what kinds of information might be valuable in the future as some of the payment schemes come into focus. You’ll hear me ask pretty directly if some of the outcomes he’s describing are actually good — Matthew is a thoughtful guy, and his answer is something I’m still thinking about well after we had this conversation. AI is also upending everything inside of Cloudflare. Earlier this year, the company laid off more than a thousand people — 20 percent of the company — and then Matthew wrote an op-ed about that decision that ran in the Wall Street Journal under the headline, “How I choose which Cloudflare employees to replace with AI.” That’s pure Decoder bait in every single dimension: AI, big controversial decisions, and org charts, all in one. And one last thing, before we get going: You can subscribe to Decoder on YouTube , where we put out new episodes every Monday and Thursday. Okay: Matthew Prince, CEO of Cloudflare. Here we go. This interview has been lightly edited for length and clarity. Matthew Prince, you’re the cofounder and CEO of Cloudflare. Welcome back to Decoder . Thanks for having me. I’m really excited to talk to you again. It’s been about two years since you were on the show. I was just looking back over that episode and I said something to you like, “it’s a momentous time for the internet.” And I was not even close. It’s now an even more momentous time for the internet. You are at the forefront of rebooting how companies work with AI. That is the most Decoder bait of all time. I want to talk about bots and the internet and publishers and Google and all the things that you are in the middle of. But let’s start at the very beginning. Cloudflare is a complicated, important company. The last time you were on the show, you said, “Cloudflare is a service that makes the internet faster and protects it from bad guys.” Is that still how you would describe what Cloudflare does? That’s usually what I say when I’m trying to answer a question at a cocktail party and I don’t want to talk to the person any more. What I say if I’m interested in talking to the person more is that Cloudflare is trying to rebuild the internet the way it should have been built from the beginning if we knew how important it was going to be. We run a giant network. We’re in over 350 cities worldwide, literally thousands of data centers. We have equipment running in all those places, and then we do a handful of things. If you’re trying to put an application or content online, we make sure that it’s safe. If you’re a person or an employee online, we make sure that wherever you go online is safe. We help give people the ability to write applications that can scale to an entire internet audience and run on the infrastructure that we have. That’s the fastest-growing part of our business. We’ve recently started to think about how the business model of the internet is changing dramatically and we’re trying to help shape what that future business model of the internet looks like and make it as healthy as possible. Can I connect the dots between the business model of the internet, how the internet should have worked, and Cloudflare trying to build the internet as it should have been? That is different than, “Cloudflare protects from bad guys.” I will note that’s what you said to me last time, which now makes me feel like you don’t want to talk to me at the cocktail party, but that’s fine. That’s a shift. It’s just a notable shift. The business model of the internet has dramatically changed because of AI, because of bot traffic, because of AI scrapers, the whole thing. Describe what you think the business model of the internet is right now and what it should be. For at least the last at least 30 years, the business model of the internet has been advertising. It’s not the entire business model of the internet, but it’s really driven all of the growth of the web and built what we all enjoy today, which really is a miracle. The company that is responsible for that more than any other is Google, which for the last 28 years has really defined that. We all think about it for search, but they really built out all of the ecosystem around advertising online. They bought DoubleClick, they built things like Google Analytics that let you actually see who was coming to your property. It really is the hero of what I call the first generation of the internet and the first generation of the web. What’s changing though, very quickly, is who is actually using the web, or what is using the web. Last November I was at Web Summit, the big European tech event, and I was asked, “When do you think that non-human traffic — agents and all of those things — are going to pass human traffic online?” We have a lot of data because we see a huge percentage of the internet, so we pulled all of that data and looked at it and said that in the second half of 2027, automated traffic would become larger than human traffic. It felt like a big deal that we could see that for the first time in the internet’s history. I was asked again at South by Southwest in March of this year, 2026, and we pulled the data again and it had moved up, where it was going to then be the first half of 2027. We’re like, “Wow, this is growing. This AI thing is a big deal and people are using it like crazy and it’s driving a huge amount of traffic.” I was stunned when just a few months later in May, the team came to me and said, “You won’t believe it, but automated traffic has now passed human traffic online.” And that’s just expanding like crazy. If you extrapolate that out, with the giant caveat that I’ve gone wrong so far in every prediction that I’ve made on this, five years from now, we think that automated traffic will be 1,000 times human traffic online. Not because human traffic is going to decline, we think it’ll stay around the same, but because we’re just seeing such an explosion in all of the rest of the traffic. The challenge of that is, if you have 1,000 times more traffic, someone’s got to pay for the infrastructure to power that. That’s going to require bandwidth, that’s going to require servers, that’s going to require a lot of things in order to make that happen. And, the traditional model of how to pay for that, which was advertising, doesn’t work for bots. Bots don’t click on ads. They don’t respond to pretty swirls of paint and what we traditionally think of as a brand. We’ve got to come up with something else that’s going to power that incredible insatiable demand that’s going to be put on the internet going forward. I’m spending a lot of my time trying to think about what that’s going to look like. When you describe that as a business model, that implies that there’s going to be customers and revenue and profits. And I don’t know if any of that’s true. There’s certainly a lot of revenue. Well, maybe for the CloudFlares and the Googles of the world, but for the — Or for the Anthropics of the world! Anthropic added $10 billion of revenue in a single month. There is enormous demand for these AI services. And if you’re an AI company, what you really need are three things. You need great talent and researchers. And right now, that’s scarce. Right now we have a scarcity of people who really understand how to build these systems, but that’s going to change. Every single university in the world is standing back up their AI department. We’re training people like crazy. Labor markets are pretty efficient. We’re going to have more and more people coming into the space. The second thing that you need is chips. You need the silicon to run these things. Today, Nvidia is the best in the world at that, but you’ve got a whole bunch of others, whether that’s AMD or Qualcomm or all the hyperscalers, that are building their own chips in order to power these things. While we have a massive shortage in the availability of silicon and the ability to actually power it up and turn it on, that’s going to change as well. The third thing that you’ve always needed is the data to feed into all of these different models. And that’s been the one thing that I think is going to go the other direction. Historically we’ve just made the internet completely open and given bots access to all of the stuff that’s being created. I think that’s starting to change. We’re seeing a shift where more and more of the people who are creating content, really creating information, are saying, “Maybe we’ll give that away for free to humans, but if a bot is coming for it, then bots have to pay for it because they don’t have that traditional give-to-get. We can’t put an ad in front of them and have that be something that allows me to help pay for the content creation that’s there.” What we’re seeing actually goes back to some of the original protocols of the internet. The 403 protocol, which was written in the very first version of Netscape, was actually payment required, and you actually have to pay for the content that you’re receiving. Oh, excuse me, I said 403, it’s actually 402. We are working with other leading companies like Coinbase and Stripe in order to say, “How do we make sure that we can allow people who are creating content, people who are doing things online, anyone who’s putting a website up, to say that in exchange for that thousands and thousands and thousands of times more traffic that’s going to come to you, you’re not going to maybe get the advertising revenue that comes from it, but maybe you can get a fraction of a penny every time somebody actually accesses that information.” Where does that fraction of a penny come from? It comes from the fee that people are going to be paying for their AI agents and other systems that are out there, similar to how a Spotify or an Apple Music works today. I like that we’re less than 10 minutes in and we’re already at the 1996 dream of micropayments on the web. We’re going to stick with that for one more turn here. When I said business model, what I was really pushing at was the idea of incentives. So maybe there is some business model for information. You’re going to publish some new information and bots will come and find it and yep, the 402 protocol will come back to life and we’re going to do, I don’t know, crypto micropayments using Stripe powered by Cloudflare. That’s a version of the future that many people have talked about for a long time. The incentives to stand all that up on the web is the thing that I’m worried about, when I say there’s a business model and customers and revenue. If I stand up a website, and I think most of my customers are going to be bots and not people, I might not do that. I might just start a TikTok channel instead, and then monetize my TikTok audience in whatever way I might want to monetize a TikTok audience. That seems like a really big inflection point right now at this second. You mentioned Google, and I’ve asked you about this many times. The incentives to put new information on the web just seem to be in permanent decline. It just doesn’t seem like a good idea any more. On the flip side, the web as an application program, it’s like the absolute apex. Every new app that comes out is a web app, or if it’s a desktop app, it’s just Electron. There’s something happening with the web as an application platform that is incredible, and something happening to the web as an information platform that is devastating. And you’re trying to connect those dots, right? You’re trying to say we can change the incentives over here. What’s a version of the future — maybe it’s microtransactions, maybe it’s not — where the incentives to make the web an information platform are as good as YouTube? You’ve illustrated a tough to reconcile dichotomy that’s happening right now. If you look at things like the publicly accessible data on Wikipedia contributions, it’s down significantly, because people are like, “What’s the incentive to put information on Wikipedia?” Something that, again, people are doing for a lot of different reasons. Back in the day, if you were contributing things to Wikipedia, you knew people were at least reading Wikipedia. Now, the interface through which people consume that information isn’t Wikipedia itself. It’s just reading the answer through whatever answer engine you’re using, whether that’s OpenAI, ChatGPT, or Anthropic Claude, or Grok on X or whatever it is. And that means that the people who are the editors of Wikipedia are saying, “Maybe it doesn’t make as much sense for me to do that.” The flip side of that is, the web as a whole actually had been declining since about 2012. The web grew like crazy in the late ’90s and through the 2000s. Starting around 2012, you really saw it plateauing and actually decreasing, up until about 2025, where something flipped. Starting in about October of 2025, the various vibe-coding platforms made it easy for anyone to create a website, and so more and more people were creating those applications. And as you said, even your desktop application, your mobile application, increasingly is just a wrapper around what is fundamentally a web application. The growth of the web itself — with really high-quality stuff and a lot more people contributing to it — is faster today than it has been at any time since the early 2000s. That’s the tension between those various things. What’s unique about Cloudflare is that because we sit in front of more than 20 percent of the web, we have the ability to overcome some of the incentives problems. We can very quickly turn something on and say, “Okay, you have to pay a fraction of a penny in order to get access to this information.” And that can kickstart the beginning of what we need. If you don’t have something like that, we face a massive tragedy of the commons problem. Let’s say today I ask my favorite AI agent where I should go to lunch.If I were doing research, I might go look at a couple of different menus as an individual. My AI agent today goes and scans every single menu in the local area in order to figure out what’s going on. Only one of those places is going to actually get my lunch dollars. If that just expands infinitely, if there’s no cost to doing that, at some point my agent’s just going to look at literally every resource that’s available everywhere on the internet, and then come back and say, “You know, you should go to Wendy’s.” That’s an enormous waste. We’ve got to have something saying that there’s a cost every time you load a webpage. There’s bandwidth, there are servers, there are things that are behind that, and someone has to pay for that. If it’s not going to be advertising and it’s not going to be direct commerce, then there has to be something that actually puts some constraints there. We are in a good place to say, yeah, it can be a tiny amount of money, a thousandth of a penny or something like that. But that’s enough that we can actually start to say, okay, that will help pay for the infrastructure. If you have incredibly valuable content, if you’re a news publisher or you’re an academic, then maybe there’s a premium on top of that that you charge and say, “Hey, I’m not going to give you this content unless you pay even more for it, but I believe that it’s valuable and we can create a market for it.” In order for that to happen, you’ve got to have a player like us that’s in the market that can kickstart that. But once you kickstart it, we’ve seen from the side of the buyers, the big AI companies, that they’re all willing to do this. We’ve seen from the side of the sellers, the big content creators, that they’re all really excited about this. What’s really been lacking is the technology that links those things together, and that’s what we’re spending a lot of time building. It feels like the theoretical underpinning of this conversation is the very notion of scarcity itself. I’m an old copyright lawyer, and copyright law for years and years and years had a built-in mechanism to be important, which was that one copy of a CD was one copy of a CD. And if you wanted another one, it was pretty hard to make another copy of a CD. Even when it got easy, you still needed another physical CD-R, and that imposed some cost on how many copies you could make, and then it was hard to distribute them. All of that went away with the internet. We moved everything to digital files and the burden of making another copy fell to zero. And I think a bunch of consumers expected everything would be free. There’s that famous quote, “Information wants to be free.” There’s a second half of that quote everyone forgets, which is, “Information also wants to be expensive because it’s hard to generate.” And the internet just turned that upside down. The gating mechanism of physical media, which provided some scarcity, and thus some economic value that you could measure, went away and we decided information should be zero and maybe supported by advertising. There was actually a tension that became valuable, because that was scarce in its way. You’re talking about imposing scarcity with your technology. We always talk about markets needing supply and demand. That’s not exactly right. You need demand for sure, and you want infinite demand ideally, or as much demand as you can get. Infinite would probably be bad, because then it would be hard to discover price, but you want demand. And then, you actually want constrained supply. There’s no market for air where either of us are sitting right now, because there’s plenty of air. But if we go scuba diving, then all of a sudden there’s a market for air, because air is constrained underwater, and so you have to buy it in order to be able to do it. Music is the example that I look to when I think about what this could look like in the future. I flew up to Stockholm to meet with Daniel Ek, who started Spotify, and it was just a fascinating conversation. If you think about the history of music, once upon a time, the majority of music sales were from CDs or albums or whatever it was. And then, along came the internet and along with it, Napster and Grokster and Kazaa, and all of the things that essentially commodified music and made it available for free for everyone. Even if you’re an incredibly law-abiding human, the majority of people were just downloading music because they wanted access to music. If you go back 23 years, the music industry in total was valued at about $8 billion, which is a lot of money, but it’s not a lot of money for the entire music industry. That’s The Beatles and The Rolling Stones and everything else. But people were like, “We can’t make any money off of this.” And then, Steve Jobs steps on stage, and announces iTunes and that it’s going to be 99 cents a song, but they include cover art and they’re going to make sure it’s high-quality and all these things. But mostly it appealed to this emotion of, “you should be paying for music.” Now, that’s not the business model that won, but it was a flag in the ground that said that this information is actually worth paying for, and it’s really valuable. And it was the iTunes that then eventually begat the Spotifys of the world. And the incredible thing is, just last year, Spotify sent something like $12 billion back into the music creator ecosystem. We can debate whether the right people are getting it and whether it’s fairly allocated. This is my favorite thing to argue about because I think whatever happens to the music industry happens to everybody else five years later. So I spend a lot of time thinking about it. And the turn there, which I think is fascinating and is either good or bad, is that the amount paid or the music files themselves became very small. You can get a million streams on Spotify and you’re not making any money, but the amount generated by touring, commercial sponsorships, sync licensing, and advertising all skyrocketed. That’s just simply not true. Why is private equity buying all of the music catalogs for hundreds of millions of dollars? The answer is because actually making money off the streaming of the music is extremely lucrative. Spotify alone is sending $12 billion back to the music industry, back to the actual rights holders behind these various things. There’s way more money coming from Spotify into this than there is from touring or any of the other things that are there. Those are other ways to make money, but it’s the streaming that is really driving all of the real growth. I just want to draw a distinction here. You’re not here to argue with me about music, which is my favorite thing to do, so I apologize for just doing it. But private equity is going to make that money, not the musicians. They’re paying some of the catalog holders for some of the things, but that money flooding in — If The Beatles or The Rolling Stones or whoever’s the latest ones to sell their music catalogs had held onto the music catalogs, then the musicians would’ve made that. They are making the determination. And when they sell the rights, they get the check. They do get the check, but the comparison I’m making here — If you win the lottery, is it better for you to take the annuity of payments over the course of the next 50 years or to take the lump sum up front? That’s the trade-off that they’re making, but there’s more money going into music creation at this point in time than there ever has been in human history. Technology is not inherently a destroyer of value of information. In this case, it has been a massive enabler of value and allowed people to find audiences, and yes, sell more tickets to their concerts as well. That’s actually the model that we need to think about. How do we take what Spotify has done, which is to say we pool together the resources of a bunch of people that are paying for access to the entire catalog of music, and then give that back to musicians based on some sort of algorithm that hopefully rewards real value creation. What if you had the same thing where with a portion of what is being paid for for the various AI companies, you had to pay for the researchers that built the AI systems and you had to pay for the chips, but also to pay for the content, which is actually the real knowledge that is training these things? That’s exactly the type of model that you need to actually unlock what could be a real golden age of information creation. The comparison I’m making is not whether a bunch of aging rock stars are going to sell their catalogs and cash out because they’re old. That’s fine. They can do that. It’s more that the shift you’re describing, into gaining access, into wide open access on Spotify to every song ever made, and then we’re going to move some pennies around and some people get rich, and we’ll create some winners and losers, fundamentally change the entire business model of music. The conversation with Dan was fascinating, but one of the things he said was he said, “Okay, listen, if you go onto Spotify and you search for Taylor Swift, ‘Shake It Off,’” they return a result and they’re pretty sure that they have given you what you are looking for.” On the other hand, if you go to Spotify and you search for, “I want a song to a disco beat about how much fun it is to dance with my cat,” there aren’t a lot of songs like that out there. They know that whatever they return is a pretty bad result. But the interesting thing is what happens next. They then take those searches for things that they don’t have good results for, and they publish that back to music creators. There’s something that’s pretty amazing about that. They’re saying, “Here’s an emotion that someone is searching for, which we don’t have a good answer for, which we’re then going to go and publish back to music creators. This is one of those moments where everyone’s going to be like, “I’m in the wrong profession.” There’s a guy in Denmark, who makes 40 million euros a year writing songs for unfulfilled Spotify queries, and he’s not alone. He’s the most successful, but there’s a whole bunch of people that are making literally millions of euros or millions of dollars a year doing this thing, writing songs for what people are searching for that isn’t out there. Now extrapolate that to the next level. For the first time in human history, we’ve built a mathematical model of human knowledge. That’s what the LLMs are. We know where they know things, but we also know where they’re missing things. I picture it like a giant block of Swiss cheese, and there’s a lot of cheese, but there’s a lot of holes in the cheese. The really interesting thing is, when you talk to the leaders at the big AI companies and you say, “What do you want to pay for?” They don’t want yet another story about what’s happening at 1500 Pennsylvania Avenue [ sic ], which is what the current media environment is feeding us like crazy. What they want is to fill in the holes in the cheese. They want new knowledge that no one ever knew about before. I have an example where this is actually working: My wife and I own a small local newspaper in our hometown of Park City, Utah. I think we will make more money off AI licensing deals this year than we do off digital advertising. Local media is exactly the sort of thing that is much more valuable in the media world that we’re going into, but was completely decimated in the media world that we are coming out of, where what mattered was volume and scale and dividing things. Whereas local media is all about, let’s tell you about the cool new restaurant that just opened down the street. If you’re an AI company, and you want to be able to be the best travel planner that’s out there, you want to have artificial general intelligence, you need to know what the hot new restaurant is in Park City, Utah. And if you don’t have access to the Park Record , our newspaper, you don’t know that. We’re not going to protect all media. In the same way that with the move to Spotify, there are a whole bunch of losers in the musician space, but there are going to be new winners, like that person in Denmark who’s creating things off unfulfilled Spotify queries. The winners in this new space might actually be the kind of things that people really want to come back to media: more local news, more unique things, more Reddits of the world, more of what the internet used to be when I was first on it in the ’90s. I think that’s actually what most internet users are craving. And I think if we get the incentives right, we actually have a way of incentivizing more of that unique original content as opposed to what we have today, which is a media ecosystem that is largely just rage-baiting people into clicking on things so that they can serve them an ad. One of the things you would need to build in order to make that work is a way to stop the AI crawlers, to stop the model companies from showing up. Just today, there’s yet another lawsuit. The music companies are going to sue Anthropic . The White House came out in support of OpenAI in its case against The New York Times today, saying that training should be fair use. I think I need to disclose that in some series of corporate mergers, The Verge ‘s parent company is now suing Google in some way. I have literally nothing to do with it. It’s just all that. It’s all the swirl, right? And that is a legal swirl. We’re going to use the law to say, “This is illegal and we’ll punish you if you do the bad thing.” That’s just up for grabs. Those are 50/50 and maybe existential problems. Maybe not. The law right now in the US is different than everywhere else, and so you’ve got this patchwork around it. But the best case on this is part of the Anthropic case, where the judge basically said that training is fair use against all the books. And by the way, you shouldn’t have stolen the books. That was bad. But if you hadn’t stolen the books, if you had actually bought the books, then it would be okay. That was a valuable enough result for Anthropic that they settled the rest of the case for $2 billion, which is a lot of money, even for Anthropic. So when you’re building technology, you’re keeping that in the back of your mind, right? The market is coming to some sort of understanding of what’s valuable and what’s not, and you need to stop them from showing up — Different regulations are going to be passed in different places around the world. Again, as an also recovering intellectual property attorney, I very quickly go to like, “Oh, let’s just use intellectual property.” But that’s such a kluge versus the much easier thing, which is, let’s just use technology. I remember sitting with a bunch of media execs and they’re like, “Oh, how are we going to stop these nerds in Palo Alto from scraping our stuff?” And I was like, “I go to war every day with North Korean and Iranian and Chinese hackers.” They’re really good at it and they hide. Whereas the nerds in Palo Alto have a Delaware-based C-corporation. It’s pretty easy to identify them versus the others. And it’s really difficult for them, at scale, to hide from us. What we’re seeing is actually much more of them being willing to say, “Listen, we will specifically identify when we are coming to a site that it is us, that you can rely on us, and we’ll tell you exactly what we’re doing, so that you can have the right to control how that information is being taken.” I think that was an interesting question, like, two years ago. But even the Googles of the world, who have been at times challenging through this — Google is sort of like a Marvel character, like the hero of yesterday becomes the villain of tomorrow. The challenge has been that they’re like, “We struck all these deals to get access to all the internet and now we can use it for whatever we want.” We were like, “Eh, in the past you were sending people traffic. Now you’re training on things and sending them no traffic. That’s a different give-to-get.” And what I’ve been really actually impressed by with the Google team is that they are much more willing to engage here. They understand the value of the ecosystem. There are people at Google who really do believe in making sure that there is a healthy, sustainable ecosystem going forward. Some of the things that they’ve already committed to around transparency of their crawler, and some of the things that I expect that they will do over the next little bit, I think that’s a good sign and it’s going to make it so that if even Google is doing it and is willing to say, “I’ll announce what I’m doing, and in many cases I’ll even be willing to pay for content,” that actually makes it even easier to convince all of the other AI companies to do the same. Do you think you need to turn the screws all the way and actually block the Google crawlers to get them to pay? As of September 15th, we’re going to set the defaults across all of our free customers for it to be that Google is going to be blocked for AI training, but if they won’t differentiate between AI training and search engine training, we’re just going to block them across the board. If you’re a site owner, you’re like, “I don’t want that to be for me,” we’ll make it easy for you to turn it off. It’s just about what we set the defaults to. But I’m really encouraged that the good forces at Google are realizing that this has to be a healthy ecosystem, and that they have to play by somewhat the same rules for this new AI market that everyone else is playing by, and that they can’t leverage the monopoly that they had in search yesterday to create a monopoly in AI tomorrow. I’ve talked to Sundar [Pichai, Google CEO] about this many times. I don’t think he loves the fact that I am the person who keeps calling it Google Zero , but so be it. Sundar is very thoughtful. He’s very kind. Every time I talk to him, I get the sense that what he wants to say is, “Well, you didn’t do anything about it. All you publishers are complaining. You got super addicted to my fire hose of traffic, and you have no leverage. You built no audience of your own. You didn’t do anything. Look at all of these other platforms that I have to compete with. TikTok showed up and YouTube had to compete with them. ChatGPT showed up and the search team had to compete with them, and you did nothing.” This feels like the something. We’re going to block the Google search traffic. We’re going to block the crawler. I think the CEO of People Inc. is talking about literally blocking Google. Steve [Huffman, CEO] at Reddit has really become more aggressive in this line. Google doesn’t work if it can’t search these things. And it’s actually more existential for them. The very nature of how Google’s search ranking works is it builds a tree. That’s what page rank was. It sort of says, “Okay, here’s a super reputable thing and then let’s see how it’s connected to everything else that’s online.” The problem is, with Cloudflare being 20-plus percent of the internet, if that just disappears, that’s in a giant hole in the middle of the tree. It doesn’t just break it for this, it breaks it for everything. That’s what we realized, that on behalf of and in conjunction with a lot of our customers, we could say, “Listen, this isn’t fair anymore. You are creating costs, you are taking content, you are getting value from that content, either in terms of the subscriptions that you’re selling to your AI tools, or to the ads that you’re running against that. And that’s just not a fair give-to-get anymore.” The deal has to change. I’m really proud of the fact that we’ve played a role in helping the publishing industry go from what was two years ago when I had dinner with Neil [Vogel] from People. He’s like, “Woe is me. What are we ever going to do?” I’m like, “I think we can fix this.” Now, last time I saw him, we gave each other high-fives and said, “I think we’re making progress.” And the deals that large publishers are doing are significantly better. Now the question is, how do we bring that to the rest of the internet? Because if we don’t, we have this massive tragedy of the commons problem, where it’s just going to be, take, take, take, impose cost, impose cost, impose costs, and there are no incentives for actually creating things, for contributing to the Wikipedias of the world, for putting up a new website, for writing about what the new local restaurant is, for creating local news and local media, for being an academic. If there’s not some way that you can do those things and still make enough to eat, then people aren’t going to do it. And that harms us all. Again, I’ve been very critical of Google over the years. I will say that their tune appears to be changing over the last few months. I believe that, at their core, they really do understand that this is an ecosystem, and that they play an important role in that ecosystem, and that they need to give back to that ecosystem and play by rules that allow the ecosystem to flourish. You said Google’s going to make some changes soon. What changes would those be? I think the thing that they’ve already committed to is just a lot more transparency on what their crawler is doing. So what we had pushed them to do is split their crawler apart and say, “We’re going to crawl for AI separate from crawling for the web.” They, for a lot of technical reasons, pushed back and said, “That actually is incredibly inefficient. We now have to crawl twice. It’s going to put twice as much load on everything that’s out there. What if instead, we just said when our crawler comes to a page, we’ll announce what it’s doing, and then give you the ability that if you don’t like it doing something to say, ‘no, no, that’s not allowed, but this is,’ and put that together.” They have signaled that, largely in response to what was a ruling out of the United Kingdom , that they were going to put those procedures in place to allow publishers to make that choice, and that they wouldn’t just do it in the United Kingdom, but they’d actually do it on a broader basis. I think we come out of this on the other side with a stronger web, and frankly, with even a better Google, which would be great. Again, I could argue with you about the music industry all day and all night. I think you know that, but it is true that changing access and copyright law and all that stuff around music industry changed the business. The incentives to put on shows and do residencies and all that changed because of the distribution changing. That I think we can generally grant. You’re describing an information market where the incentives will shift again, where it might be more economically lucrative to make information for the bots than for people. And that might shape the very nature of the information. You run a local paper, maybe your people are publishing restaurant reviews that are best ingested by an LLM and spit out. Or instead of reviewing a hotel, review every hotel room, right? For every word that appears in a story in The New York Times , that reporter has written down probably a hundred words somewhere else. That’s all that other metadata, which traditionally has been constrained by how many column inches you had in the physical paper, or how much attention a human would actually spend on that. Imagine if you could say to the LLMs, “Hey, listen, we’re gonna sell — “ and again, there are all kinds of things around protecting sources you have to get right, but if you get it right, there’s an enormous rich catalog of additional information. For every picture you see in a magazine or a newspaper, there are probably 50 or 60 that were taken of that same thing. And that’s all valuable to these AI systems that are out there. There’s just a bunch of content that’s literally being thrown on the floor today. That can be incredibly valuable. This is my universe. I feel confident about this one. I was in a packaging meeting today for one of our big stories, and we had a pretty fulsome debate about the lead image in a story we’re going to run in a few weeks. Then we disagreed, and eventually we picked one, or we picked a direction, and that was an editorial choice that was designed to elicit some reaction in humans. We could publish all the rest of the photos. They’re all really, really good. We decided one would be the winner and the rest wouldn’t. But if I publish all the photos and I give them to an LLM, it will change the thing that we made, because its distribution will necessarily change, and its intended audience will change. Maybe the biggest Decoder trope of all is that your distribution inevitably changes the thing you make, and at the end of the day, maybe my future is just making YouTube face slinging AG1 and that is the future of all podcasting. There’s just some force of distribution that changes the thing that you make. Is the outcome you’re describing good, where we’re just making an infinite flood of information GEO-optimized for some human to consume, digested by a chatbot in the middle? First of all, is the current model good? I’ve talked with lots of people at your parent corporation. I think you guys do a good job. There’s a lot of media that today just tries to create content as inexpensively as possible, and then A/B tests headlines in order to either stimulate a dopamine or cortisol response to that. If only the media was that scientific. But a lot of it is. I’ve sat with some of the folks from Huffington Post , some of the folks from BuzzFeed , where they were like, “Yeah, that’s the game and that’s the game that we play.” I don’t know that that’s a game you play everywhere, but you can track The New York Times , you can track The Wall Street Journal , you can track the FT and just watch how much more inflammatory and almost tabloid-ish the headlines have gotten over the last 20 years. Every one of those is an amazing media organization, but in order to win in this space, it’s been, “how do I provoke really a deep —” Well, what you’re describing is they’re playing to their distribution, which is largely social media. It’s algorithmic, social media algorithms, and that is the distribution, and it’s shaping the content. So I’m asking you about the new distribution that you’re describing — The sentence that I say that gets everyone at Google to yell at me is, “everything wrong with the world today is Google’s fault.” That is not fair to Google. Google has by and large been a great company, but Google begets Facebook, which begets TikTok, which has us in this attention economy hole, where we’re trying to get as much attention as possible. And the best way to do that is to actually stimulate, again, a deep mammalian response. That’s the media landscape that we live in today. And I think it’s deeply broken and I think it’s what’s divided the world. It’s what’s led to the rise of very destructive populism around the world, rather than real intellectual debate. So what could we move to? There’s a lot that can go wrong here, but if you talk to Sam [Altman] at OpenAI, or Dario [Amodei] at Anthropic, or you talk to the teams at Google, that are building the AI systems at DeepMind and others, what do they really want? They want new true knowledge. They want the thing that nobody knows about yet. They want the story about the interesting thing that no one else is covering. They want that thing which is actually advancing human knowledge forward. That’s what I want to read too. I don’t actually want to read yet another take of what happened in the Trump White House today. There’s plenty of that. And they don’t want it either. The best evidence of this is actually how some of these distribution deals have been done. The New York Times , amazing media organization, and Reddit, also an amazing media organization, have about the same amount of tokens. The New York Times has been publishing for a lot longer. Reddit is a lot higher volume. They do deals. Who gets more money for their tokens? The answer is Reddit, by at least seven, or by some measures, 14 — Just be clear for the audience, you’re using tokens as a measure of amount of new content. Of content, yeah. Content that’s in there. It’s not just new content, but it’s the legacy content as well. The question is, why? This is deeply unfair to The New York Times , but if you don’t have The New York Times , then you can just license The Wall Street Journal and ask AI to rewrite it as if it’s a New York liberal and you get The New York Times . Deeply unfair, except that all of these major media publications have made their business of telling the exact same story to their individual tribes. Whereas if you don’t have Reddit, there’s no substitute for it. Reddit is this unique thing that’s out there. I think a media of the future that looks more like truly unique storytelling around, again, local communities, unique stories that no one else has told. Real knowledge creation is what is valuable and is proven valuable by the market that exists today. But the other side of that market — just to be reductive here, just so I understand the model — the market, the buyer in this market is a bunch of model companies. It’s not people. But then ultimately, it’s the customers of those model companies, which is all of us. What’s been amazing is it doesn’t appear like any of these model companies, on their own, is going to run away. People are like, “Oh, well, what if OpenAI gets AGI?” I’m like, “Two days later, Anthropic will have AGI, and then Grok will have it a couple of days after that and Google will have a couple of days after that. And then AGI won’t be enough. It’ll be AGI Plus or AGI Plus Plus or whatever.” What is going to be interesting is, what’s going to turn these things from commodities into actually sticky products that people sell? The answer is going to be who has access to the most true knowledge that gets you the right answers. It seems like all of the incentives from the end consumers say, “I want to get as much back to the creators of real knowledge as I possibly can.” I think we can solve the financial piece. The piece that I’m actually much more worried about — and again, you should have Daniel Ek on your show, because he’s fascinating to talk about these things. But he’s like, “Listen, you’ve been thinking a lot about how to get content creators paid.” He said, “If you think about musicians, there are two reasons that people become musicians: to get rich and to get famous. And if you, at the end of the day, had to cause musicians to rank which one is more important, fame probably beats rich.” By the way, it’s a stupid strategy. Being rich and anonymous is the best. But that’s true. I think that a lot of people really do want recognition. This is part of why Wikipedia is seeing a drop in the number of contributors and information that’s contributed, because people don’t get recognized as much because you’re not going to the original sources. I think we’ll solve the financial problem, but the next problem is, how do we actually recognize the creators? What I’ve been pitching to the big AI labs is we should create, I don’t know if it’s the Nobel Prize or the Academy Awards, but some recognition where we use math to measure who contributed the most to, I don’t know, mammalian biological research in some specific field, and measure it in the last year, and then have a big ceremony and give them an award and celebrate them, and talk about how wonderful they were at advancing this. I think figuring out how we take the people who are actually out there creating the knowledge, and even though the medium through which that knowledge is going to get disseminated might be removed from the original research, it might be the AI bot or the chatbot that’s out there, we still have to say, “But you’re doing really important work, and we’re going to recognize you for that important work.” The last time you were on, we spent a lot of time talking about content moderation, and Cloudflare using its power on the internet to essentially make it harder for sites like Stormfront, the neo-Nazi website, to exist. And you were in torment about it. You had a lot of power, you were going to use it. You published some op-eds about it. We talked about it for a while, and eventually you came to decide you didn’t want to be in business with these folks, and the consequences are the consequences, but there should be some frameworks to regulate your power. Many things have changed, but we’ve kind of had a long conversation about Cloudflare using its power to block AI scrapers and create economic opportunity. It’s the same power in many ways, right? It’s a power of a layer of the internet that is pretty dominant to stop things from happening. Have you changed your mind? Is it just the economic rationale that’s made that more comfortable for you, or is there something else happening? It’s been interesting inside of Cloudflare. When we see these bad things that are using us, there’s a very human reaction. And it’s often my cofounder, Michelle [Zatlyn], who’s like, “Listen, I realize all the hard, thorny moral questions, but this is just per se bad. We should do something about it.” We have largely come out to say, “It’s tough.” We don’t want to be the ones that are deciding what’s good and bad. And there actually aren’t that many things that are just per se bad that are out there. But wouldn’t it be great if we could change the incentives, so that there’s less incentive to create these various things? And what I’ve found interesting around the question of what the business model of the future of the internet is going to be is… Trying to deal with a bad site here or there is basically just cutting down dandelions, more are going to spot up. You’re not solving the root problem. I think if we can get the incentives around the next business model of the internet to be less about “how do we create rage and emotion” — being a neo-Nazi is one of the most effective ways to just really piss people off, and they tend to click on your things, and then buy nutritional supplements or whatever. All these things have very weird business models that are behind them. But if we can get back to something where we’re actually rewarding not rage creation, but information creation and knowledge creation, maybe that’s actually getting at the fundamental roots that are there. And maybe I’m too much of an optimist, but I think the way that you stop a lot of horrible things we see online, is by solving the business model that is really broken, which has led to the online communities that we have today, and by getting away from what has been a very much an attention-based economy to one that is much more of an information knowledge-based economy. And so, as we are thinking about what the future of the internet looks like, that’s what we’re playing for. So it’s the same power, right? Cloudflare has a lot of power on the internet. It’s a platform layer, it has a lot of influence. You’re able to stop things. In the case of the neo-Nazi websites, you declined to use your power, right? No, no. We kicked them off our systems. Right. You said you can’t have Cloudflare protect you from DDoS attacks, and then maybe they’re just going to DDoS into oblivion or whatever. Yeah, they’re all still around, so at some level it shows that it’s limited. But in this case, you’re going to use your power. You’re going to say we will use Cloudflare to stop things from happening and that will create a market. I guess the question is power. So it takes five minutes to sign up for Cloudflare. We have a free version of service. It takes 30 seconds to leave. So if we’re ever doing something that’s not in our customers’ interest, we’ll lose our customers. And so, we are very much at the service of our customers. I remember the first time that a media company called me and said, “We have this new threat, you have to stop it.” And I was like, “What is the threat?” They’re like, “It’s the AI companies.” I rolled my eyes. I was like, “That’s the dumbest thing I’ve ever heard. Why are all media companies such Luddites?” But then we pulled the data, and we saw that really, again, that there was an existential threat to how the internet was working. I certainly became convinced that this was something that was worth us spending our time and our resources fighting. We have a really privileged position, because we have provided so much value to so many companies that are out there that they trust us. But if we ever screw that up, they’ll leave us in a second. Is that power, or is that just being a good steward to the internet? It’s 2026. The valence of speech on the internet has changed. If you had to make the Kiwi Farms, Daily Stormer, decisions again today, would you make them the same way? Each of those things is a moment in time, and I think there are puts and takes under all those things. At some level, at the time, when we made the decision around the Daily Stormer, no one knew what Cloudflare was, and we were seeing a bunch of regulation that was happening online that really could have been a real threat to the underlying way the internet worked, regulating key protocols like DNS and TLS. And we were nervous about that. And so, the question was, how did you make that point? And so, one of the real rationales of kicking Daily Stormer off, and then writing about it, talking about it, going on the news about it, writing another Wall Street Journal editorial about it, was because it helped us then frame the right policy decision that was out there. We talked about Rawls last time. I’ll talk about Kant this time. We very much offended Kant in that. We were using this site as a means to an end that was not into itself. But if you’re going to use something as a means to an end, to make a point, neo-Nazis are pretty fun to use for that point. I think we were able to make the point. We were able to change the policy discussion. We were able to talk about what the challenges were, and we could do it. Today, if the exact same set of facts came up, it just wouldn’t be the exact same set of facts, because today obviously Cloudflare is much more known. We’ve had those policy conversations. It feels like every five years another one of these things pops up, so we’re probably due for one sometime soon. But the situation behind each of them is going to be very, very different. I usually do the Decoder questions first, but we just got into it. So I want to ask the first one first really quickly, and then I want to spend a lot of time on structure. The last time you were on the show, I asked you how you made decisions, and we had a long conversation about values and mission and how you kind of came to figure out what your values and mission were and you came back to that. It’s been two years. Are you still there? Is that how you make all your decisions? Totally. Yeah. So, the big decision you recently made: In May, you laid off 1,100 people, which you said was about 20 percent of the company. How many employees is Cloudflare today? Somewhere between 4,500 and 5,000. So you’re growing compared to two years ago. Yeah. You very openly attributed the layoffs to AI usage inside the company. And I know that’s true because you literally published an op-ed in the Wall Street Journal . The title was, “How I Choose Which Employees to Replace with AI.” I didn’t get to choose the title, because again, the way media works today is they create the titles, but yes, but I wrote the rest of it. The op-ed supports said title. I don’t know that that’s how you tell that something is true, that somebody wrote a Wall Street Journal editorial, but that’s the editorial editor. That was the headline. And the opening is, two weeks ago you laid off more than 20 percent of your workforce. You wrote that, and then you said you didn’t do it because Cloudflare is struggling. You did it because in the future, Cloudflare needs to change. And then I’m just going to run through your rubric and I just want to ask you about that rubric, specifically. You said you broke people into builders, sellers, and measurers, and you’re basically going to cut all the people who did measurement, all the audit functions. Not all, but a lot. The majority of the people that we laid off came from that category. This all comes back to some old-school basic business research, which is that there are three functions with any firm. There are people that build things, so the engineers, the product managers, the folks that actually create new products. Then people that sell things, the people that are out there actually doing the deals and selling those things. And then the third category is what a lot of every organization is, which is the people that actually measure things. Each of those is going to be impacted by AI in very different ways. I’ve had a lot of software CEOs on the show recently, and we’ve talked about how AI is scrambling every software company. And I usually ask about product managers, designers, and engineers, the builders. All of those roles are totally scrambled. They’re all kind of doing one another’s jobs. That’s true. I do think that there’s an increasingly jack-of-all-trades aspect to this, where because you can have these tools, someone who’s a product manager can do a lot of what engineers do, an engineer can do a lot of what product managers do. The people that are winning in that space are the people that are ambidextrous. They can do multiple different things out there. But where I get lost is with some of the AI maximalists who are like, “We’re all going to lose our jobs.” If I can hire a builder, and they are now 10 times as productive — which they are, it is wild to watch how much more productive the builders on our team are today — I’m going to hire as many of them as I can, because I’ve got lots of stuff to do. That hasn’t decreased the incentive for hiring engineers and product managers and everyone else. It’s actually increased the incentive, because the return that I get for the salary dollars that I spend on one of these people is now essentially 10 times as much. Of course I’m going to hire as many as I possibly can, which is exactly what we’re doing. So, just walk me through this decision. You woke up one day and said, “I’ve got a…” It’s Peter Drucker, I think is who you quoted. Yeah, the builder / seller / measurer framework comes out of Drucker. For the Decoder heads out there, this is old-school management philosophy. How’d you make this decision? You were like, “I’ve got to do this. I’m going to sort these people into these categories, and we’re going to start making cuts.” Did you see any evidence in the data? Walk me through it. One thing that we saw was that the world was dividing into two camps. One camp tended to be two different demographics within the organization. It was either people who were very, very senior, or people who were very, very junior. And those folks were adopting AI like crazy. The junior folks, because they were just native to it. The senior folks, because they had the confidence to bet their career, that these paradigm shifts would be a way for them to learn new things and take on new challenges, and they were confident enough in their jobs that they could do that. The other camp was the folks who were earlier in their careers. They might not have been the most senior folks, but they weren’t just the brand-new folks who had come in. So they’d come through and been trained and been taught that the way you succeed at a business was by playing by a certain set of rules. And then, they watched around them as their colleagues were all of a sudden using these new tools that were out there to be able to deliver these things. There’s a wildly imperfect analogy that I use. If you imagine our job was to screw screws into wood, we hired the best people at using manual screwdrivers. And then all of a sudden we invented an electric screwdriver, or it came along, we were able to buy it. And for not every job, but for most jobs, using the electric screwdriver is just better and you can get a lot more done with it. The first thing that we started to do back in the middle of 2025 was say, “Hey guys, this is what’s going on. I understand all the incentives, if you’re in that second camp, are to fight against the electric screwdriver, but let’s give you the resources to train you. Let’s give you the confidence that you’re going to have a job and you’re going to do these things, but let’s make sure that everybody across every role is learning how they can do that.” That’s just a really important step that you have to do in the first part. What we then learned, though, is that as we got everyone, not just the engineers, but people on finance and legal and everything else, to start using these tools, we found that one place where AI just shined was in measuring things. One of the places where we don’t talk about the advantage of AI enough is that AI has bias, but the biases are uncorrelated to the rest of the organization. Humans have biases like crazy, but a group working together has biases that are massively correlated together. Even if you’re working on internal audit and you’re supposed to be the bad guy who’s looking over everyone’s shoulder, you still go to lunch in the same cafeteria, you talk to the same people, you participate in the same all-hands, you end up developing the same biases, whereas AI doesn’t. It has a very different set of things. We found that we could use these tools to do things significantly more efficiently. There’s a woman on our team named Heather. Heather was on our investor relations team. Every time we would close the books before we’d have earnings, because we’re a public company, her team of about 20 people would spend about two weeks working like crazy to generate all of the information. They basically took the measurements and then generated documents that we would then distribute during earnings to all of our investors. And Heather was like, “I think we can use tools to do this better.” We took what used to take two weeks and we reduced it down to three minutes and our investors are like, “Wow, these documents are much better. There are fewer errors. There are less mistakes, and our tools are auditing all of those different things.” So, for those 20 people, we looked for other places for them, but a lot of them, what they liked doing was that sort of work. And they would be great at doing that sort of work as the Heather at some startup or somewhere else, but we just didn’t need some of the functions that were there. And it tended to be all of those functions that were largely measurement. There were things like internal audit, which we were able to just get actually much more efficient at doing. There are also things like middle management. Traditionally the Harvard Business School number is that on average every manager should have six direct reports. We found with tooling, we could actually be much more efficient with managers. When we enabled managers to have more tools to better participate in surface issues early and see how their team was doing, we could get up to 12, on average, direct reports and everyone was actually happier. That matters because as you increase the number of direct reports, what you actually do is decrease the amount of hierarchy in any organization. That’s the way of measuring how flat versus how hierarchical an organization is. Again, we could use these tools to say, “Hey, let’s flatten the organization,” which has made the organization much faster and more nimble. But in the process, there are a whole bunch of middle managers that just weren’t the right folks. I think we sat there and we were like, “Gosh, we know we’ve got to get rid of these jobs, so the question is, do we do it now or do we do it later?” The problem with doing it now is we feel very exposed, we feel very alone. The number of death threats that I got, not even from our employees, but from just random people who are anti-AI, was really pretty scary. But at the same time, we’re like, “Is it kinder to say we’re going to make these changes now, and then do the work to not only give great severance and everything else, but actually go place these people? Because they’re great people, and we’ve been very successful at doing that across the board. Or is it better to cover our own ass and wait until everybody else in the industry is coming to the same conclusion?” By the way, that’s coming. Uber just did a layoff , that same rationale. You’re going to see across the industry, not just in tech, but everyone, start to get to this realization. I think we were early, but was it going to be easier to get a job back in April when we did this, or next April when everyone is doing it? Once we realized that, we were like: If we’re real leaders, we should be the ones taking the arrows. We should be protecting our team. We should be working to make sure that even the people that we said, “listen, we don’t have a role for you any more,” we can help them find great roles at other places because they’re great people. That is what real leadership is. When I talk to a lot of my peers, they’re sitting around saying, “Yeah, I know we need to do this, but gosh, I saw your stock went way down, and you got all these really scary death threats and other things, and I don’t want to have to go through that.” I think that’s chickenshit. If you’re a real leader, get out there and actually do the work. There are a lot of things about the economy that are going to change. It doesn’t mean jobs are over. We’re going to hire as many builders and as many sellers as we possibly can. And there are still some measurers on our team. Some people have to build the tools and do those things, but it’s going to look very different going forward. Once you realize that as an organization, the sooner that you can do that is the kindest way that you can be to your own team. Another Decoder trope is that structure is a rough proxy for culture. I’m always saying, if you tell me the structure of your company, I can tell you about 80 percent of your problems. The 20 percent is usually where the actual magic is. How has your structure changed and how has that changed your culture? The first thing is we’ve flattened the organization a lot. There’s a lot of middle management that went away, and not just because we laid people off. There’s a whole bunch of managers that are raising their hand and saying, “I don’t want to be a manager any more. I want to go back to being an individual contributor.” It’s wild to see all these really senior managers that are leaving big jobs to go to Anthropic to be an individual contributor. And that’s because there’s so much more leverage that you can have. What is a manager versus what’s an individual contributor is going to get really fuzzy. And that’s one of the things that we’re spending a lot of time thinking about. Does it even make sense to have those as two separate tracks? Maybe that all merges together into one thing, because even individual contributors now are managing a fleet of agents that are working on their behalf. The biggest thing is that we’ve flattened the organization quite a bit. And then the other thing is that we’ve centralized through something we call Cloudflare OS, which we’ve now open-sourced because enough of our customers were like, “That’s really cool. We want to use that too.” And so, we’ve got a whole bunch of customers that are taking it and turning it into XYZ company OS. It’s a set of tools that, essentially takes the knowledge that’s inherent to Cloudflare, the things that have to be true, the things that inform our decisions, and then allows anyone on our team to have access to a wide range of the different tools that are out there, but it’s continuously pulling and updating the information about what has to be true. And having it so that when you want to figure out what information is pulling out of Salesforce or Workday or any of the systems of record that we have at Cloudflare, being able to pull that into one consistent interface has allowed our teams to be significantly more productive and much better at cross-collaboration. There’s something here which maybe is just the nature of a software company, and that’s the way it is. It’s a worldview that I understand, because of how a software company or a tech company works, where everything that is happening in your company happens in a digital system and then that thing can be measured. You’ve got a line in your piece, “As CEO, I’ve never had better tools to measure exactly how the business is performing, including identifying our rising stars.” This implies that your rising stars are producing data that can be measured by an AI, and then the AI can tell you these people are rising stars. There’s something about that that is fascinating to me. Not every company works that way where everyone’s job is to tell Slack everything that’s going on or tell Cloudflare OS everything that’s going on. They’re out in the world doing stuff. How do you connect those dots? Because that seems to be the challenge of how Silicon Valley might see the world and how every other business might see itself. I think we’ve all at various times worked in jobs where we’re like, “Gosh, I’m just not being recognized for the hard work that I’m doing.” Or other times where you’re like, “I’m kind of over-recognized and maybe I don’t —” I’ve never felt over-recognized in my life. If I could get some more, that’d be great. You’re doing a great job.[ Laughs ] [ Laughs ] Now, can you get your chatbot to tell me I’m doing a good job? Because that’d be really good. It is absolutely the case that there have been great people who’ve worked at Cloudflare that we just missed in the past. And for a million different reasons. Maybe they’re part of the organization that we just didn’t recognize enough, maybe they didn’t have a great manager. One of the things that’s great about these tools is you can find different ways to say, “What do we as an organization value?” And then look more broadly across the people who are really performing incredibly well. But that has to be legible to the system, right? So it’s like the AI is going to watch every code commit and say that person’s doing a lot or that person is the nicest to their agents in Slack. You have to watch them in some way to get that data back out. Yeah. But there’s all kinds of signal inside of every organization. I’m just stuck on this and I’m running out time, so I’m sorry to interrupt. But give me an example of signal that helped you through AI identify rising stars. We knew people who were high performers. We trained models based on what their high performers were. We ingested a ton of things across that. Obviously code commits and all kinds of things, but those are gameable in various ways. And so, you really want to look at “this person did this thing” and then trace it all the way through the organization and see whether it resulted in either higher revenue or lower cost or better collaboration across the team. Because we are a very digital company, we’re able to pull that. But I think every company has signal in various ways. If you’re a supermarket, you’ve got cameras that are seeing things, you’re going to see the person who sees the spill on the floor and cleans it up. A manager may never see that, but the camera did. And if the AI can say, “Hey, that person just cleaned up a spill without having to be asked,” of course we should be rewarding that stuff. Now there’s plenty of Black Mirror horrible ways that this stuff can go wrong. We’re very privacy-respecting. It’s not a gotcha thing. But it was remarkable how much better I found it at being able to say, “Wow, there are some people across the team who might be very junior, but are just way outperforming.” And then what I can do as a leader is go to those people and say, “Hey, you’re doing a great job. Keep doing it. By the way, here’s my cell phone number, call me if you ever need anything.” And we’re just watching a bunch of those folks turn into the next leaders at the company. It goes back to one of the real values that these systems have, which is that AI has bias, but it’s uncorrelated to all the rest of the bias in the organization. That provides an independent outside lens that helps you then better run your organization in order to make smarter decisions. Whether that’s around internal audit functions or identifying great talent, these tools are various ways that you can do pretty amazing things. In our case, we didn’t go out and buy some widget. We just said, “Okay, let’s take all the things we’ve learned about who’s performing well or what products do well or whatever it is, train models on that, and then run it across the system and see what it shows up.” And yeah, there were some mistakes. There were some people where it said, “this person’s a huge star.” And then you actually look down and you’re like, “no, they’re not.” But for a lot of times there were people who really were incredible stars and it was great to be able to recognize them. Do you think being managed in an automated or quantified way will dehumanize or depersonalize your workforce? You can see how management by robot does get pretty blown up. If every promotion decision is made by some totally unaccountable AI system, that seems wrong. But on the other hand, if an AI system is better able to say, “Hey, Matthew, CEO, here’s this junior customer support person who’s just been giving amazing answers to customers. You may not have ever seen them before, but you should give them a call.” I think that’s actually incredibly humanizing. That means that you can be seen for the contribution that you’re doing. There are lots of ways that bad organizations will use these technologies to do bad things, but that comes back to the leadership. Don’t be a bad organization. Be organized around trying to do the right thing. Celebrate your employees, make them rich. That’s exactly what you want. I feel like we’ve become a better organization, better at recognizing where talent is, better at then being able to reward that talent and invest behind that because of these various tools. Let me connect that all the way. At the beginning, I asked how you make decisions, and you said you start with mission and values. And a thing that really struck me at our last conversation was that you came to that realization, that was emergent as you began leading Cloudflare. I think you had a joke that was like your mission was to just impress your mom. And then that became this much bigger mission about security and all these other things that you’re doing. How has your relationship to leadership changed as you’ve automated the management function? Because there’s something big in there. I think it is incorrect to say that we’ve automated the management function. I think that what we have done — We’re collecting a bunch of data on what everyone is doing, we’re measuring it perfectly, and then we’re calling the customers — I don’t think we’re measuring it perfectly. I think we’re measuring it. We’re giving managers more tools to help both recognize the people who are overperforming and to help the people who are struggling get the resources that they need. We’re surfacing data that allows managers to be better managers. I don’t think we’re replacing managers. I think we’re making managers better at their jobs. And that scales management, right? Actually, it’s funny you mentioned that you’re up to 12 direct reports. The last time, you said — By the way, we’re not there yet. You’re not there yet? We’re headed there. Two years ago you said your number was about eight, which you called high. So you’re going from eight to 12. Mark Zuckerberg is at like, “We should have 50.” And I keep saying Decoder has a long life ahead of it because it’s a show about org charts. We’re on the cusp of the weirdest org charts in history. Are you there? Are you at 50? Oh no, no, no. I really do think that humans are social creatures and we want to be able to know people. And the Dunbar number is real, which is the number of direct social relationships you can keep in your head, which is supposed to be something like 120, but people should have friends outside of work. So you can’t just occupy those all with work colleagues. If I said eight before, that was wishful thinking. We were probably closer to six, but we are making our way up. We’re probably closer to eight-ish now, but we’re headed more towards 12. You have to be very, very specific because you also don’t want people playing games with that, where they’re like, “I’m going to build out a big team of people” where we don’t need a big team. I think that can be aspirational and directional, but I don’t think you can be religious. I don’t think you can just say, “Oh, everyone has to have at least 12.” You’ve got to figure out where that makes sense and where it doesn’t make sense. As that evolves, you have to also have some foundation that aligns people, and that’s where mission comes in. And it’s absolutely true. Our mission in the beginning was to take advantage of this interesting market opportunity, hopefully make some money, and impress our parents so that they’d get off our backs about why we didn’t go work at a bank or whatever. It was only as we started to serve our customers, and we saw just how important the internet was, and how it really lacked defenders, that we realized that our mission was really to help build a better internet. If you talk to anyone at Cloudflare, anywhere through the organization, any country that we’re in, any office that we’re in, I think that what I find amazing is, time and time and time again, they come back to saying, “The reason I work here is because I believe that the mission is one of the most important things we can do.” There are a lot of days that people are like, “Why do you still work at Cloudflare?” And I’m like, “Because I can’t imagine anything more important right now than helping build a better internet, and I can’t imagine anything that’s more exciting to be working on.” Well, Matthew, that’s a great place to leave it. We’re going to have to have you back very soon because I feel like the internet’s going to change even faster than I did last time. Thank you so much for being on Decoder . Thanks for having me. Questions or comments? Hit us up at decoder@theverge.com. We really do read every email! ]]>",
         "paragraphs": [
-          "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. These practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system.",
-          "Out of abundance of caution, we just released new Firefox versions in response to these attacks &#8211; all within the same day of the second exploit announcement. The updated versions are Firefox 138.0.4, Firefox ESR 128.10.1, Firefox ESR 115.23.1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible.",
-          "Just last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too.",
-          "Pwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work.",
-          "Typically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox&#8217;s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture.",
-          "To review and fix the reported exploits a diverse team of people from all across the world and in various roles (engineering, QA, release management, security and many more) rushed to work. We tested and released a new version of Firefox for all of our supported platforms, operating systems, and configurations with rapid speed."
+          "Today, I’m talking with Matthew Prince, who is CEO of Cloudflare. This episode is part of a two-part series on the future of business.",
+          "Matthew last joined us on the show about two and a half years ago, at what we thought then was a wild pivot point for the internet — and now it turns out things are even wilder because of AI, and Matthew and Cloudflare are right at the center of it.",
+          "Cloudflare found in June that bots made up more than half of internet traffic. That number just keeps going up as more and more AI companies scrape more and more of the web, and now as more and more AI agents try and do things for people on the web. Cloudflare sits between websites and all those agents, and allows website owners some level of control: Owners can block all those AI tools, allow them, or, as you’ll hear, only allow those that might pay money for access.",
+          "So Matthew and I talked about how to control all these bots, what kind of mess they’re making of the web, and what kinds of information might be valuable in the future as some of the payment schemes come into focus. You’ll hear me ask pretty directly if some of the outcomes he’s describing are actually good — Matthew is a thoughtful guy, and his answer is something I’m still thinking about well after we had this conversation.",
+          "AI is also upending everything inside of Cloudflare. Earlier this year, the company laid off more than a thousand people — 20 percent of the company — and then Matthew wrote an op-ed about that decision that ran in the Wall Street Journal under the headline, “How I choose which Cloudflare employees to replace with AI.” That’s pure Decoder bait in every single dimension: AI, big controversial decisions, and org charts, all in one."
         ],
         "source_depth_score": 100,
-        "source_depth_reason": "depth=100; paragraphs=6; words=1109",
-        "link": "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+        "source_depth_reason": "depth=100; paragraphs=5; words=14495",
+        "link": "https://www.theverge.com/podcast/1000344/cloudflare-matthew-prince-google-zero-ai-web-advertising"
       },
-      "single_source_exception": true,
-      "is_single_source": true,
-      "editorial_label": "Verified",
       "title_vi": "",
-      "title_en": "Firefox Security Response to pwn2own 2025",
+      "title_en": "Can Cloudflare CEO Matthew Prince save the web from AI",
       "dek_vi": "",
-      "dek_en": "At Mozilla, we consider security to be a paramount aspect of the web. This is why not only does Firefox have a long running bug bounty program but also mature release management and security engineering practices. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
+      "dek_en": "Today, I’m talking with Matthew Prince, who is CEO of Cloudflare. This episode is part of a two-part series on the future of business. The useful part sits in the context, the practical impact, and what readers can use to decide the next step.",
       "body_vi": "",
-      "body_en": "What happened\nThese practices combined with well-trained and talented Firefox teams are also the reason why we respond to security bugs as quickly as we do. This week at the security hacking competition pwn2own, security researchers demonstrated two new content-process exploits against Firefox. Neither of the attacks managed to break out of our sandbox, which is required to gain control over the user’s system.\n\nWhere the sources line up\nOut of abundance of caution, we just released new Firefox versions in response to these attacks – all within the same day of the second exploit announcement. The updated versions are Firefox 138. 0. 4, Firefox ESR 128. 10. 1, Firefox ESR 115. 23. 1 and Firefox for Android. Despite the limited impact of these attacks, all users and administrators are advised to update Firefox as soon as possible.\n\nPractical impact for readers\nJust last year at the same security event, we responded to an exploitable security bug within 21 hours , for which we earned an award as the fastest to patch . But this year was special. This year, two security researchers signed up to attack Firefox at pwn2own. We continued the same rapid security response this year too.\n\nWho should pay attention now\nPwn2Own is an annual computer hacking contest where participants aim to find security vulnerabilities in major software such as browsers. This year, the event was held in Berlin, Germany, and a lot of popular software was listed as potential targets for security research . As part of the event preparation, we were informed that Firefox was also listed as a target. But it took until the day before the event when we learned that not just one but two groups signed up to demonstrate their work.\n\nWhat is still unclear\nTypically, people attacking a browser require a multi-step exploit. At first, they need to compromise the web browser tab to gain limited control of the user’s system. But due to Firefox’s robust security architecture, another bug (a sandbox escape) is required to break out of the current tab and gain wider system access. Unlike prior years, neither participating group was able to escape our sandbox this year. We have verbal confirmation that this is attributed to the recent architectural improvements to our Firefox sandbox which have neutered a wide range of such attacks. This continues to build confidence in Firefox’s strong security posture.",
-      "slug_vi": "firefox-security-response-to-pwn2own-2025",
-      "slug_en": "firefox-security-response-to-pwn2own-2025",
-      "category": "security",
+      "body_en": "What happened\nToday, I’m talking with Matthew Prince, who is CEO of Cloudflare. This episode is part of a two-part series on the future of business.\n\nWhere the sources line up\nMatthew last joined us on the show about two and a half years ago, at what we thought then was a wild pivot point for the internet — and now it turns out things are even wilder because of AI, and Matthew and Cloudflare are right at the center of it.\n\nPractical impact for readers\nCloudflare found in June that bots made up more than half of internet traffic. That number just keeps going up as more and more AI companies scrape more and more of the web, and now as more and more AI agents try and do things for people on the web. Cloudflare sits between websites and all those agents, and allows website owners some level of control: Owners can block all those AI tools, allow them, or, as you’ll hear, only allow those that might pay money for access.\n\nWho should pay attention now\nSo Matthew and I talked about how to control all these bots, what kind of mess they’re making of the web, and what kinds of information might be valuable in the future as some of the payment schemes come into focus. You’ll hear me ask pretty directly if some of the outcomes he’s describing are actually good — Matthew is a thoughtful guy, and his answer is something I’m still thinking about well after we had this conversation.\n\nWhat is still unclear\nAI is also upending everything inside of Cloudflare. Earlier this year, the company laid off more than a thousand people — 20 percent of the company — and then Matthew wrote an op-ed about that decision that ran in the Wall Street Journal under the headline, “How I choose which Cloudflare employees to replace with AI. ” That’s pure Decoder bait in every single dimension: AI, big controversial decisions, and org charts, all in one.",
+      "slug_vi": "can-cloudflare-ceo-matthew-prince-save-the-web-from-ai",
+      "slug_en": "can-cloudflare-ceo-matthew-prince-save-the-web-from-ai",
+      "category": "software",
       "geo_scope": "global",
       "hot_score": 50,
       "source_urls": [
-        "https://blog.mozilla.org/security/2025/05/17/firefox-security-response-to-pwn2own-2025/"
+        "https://www.theverge.com/podcast/1000344/cloudflare-matthew-prince-google-zero-ai-web-advertising"
       ],
-      "image_url": "https://blog.mozilla.org/security/files/2025/05/img_0215-600x800.jpg",
+      "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/DCD_2026-09-26_Prince.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
       "readiness": {
         "ready": true,
         "missing": [],
@@ -849,13 +138,14 @@
           "sourceCleanliness": true
         }
       },
-      "canonicalUrl": "https://patricktechmedia.com/en/news/firefox-security-response-to-pwn2own-2025",
+      "canonicalUrl": "https://patricktechmedia.com/en/news/can-cloudflare-ceo-matthew-prince-save-the-web-from-ai",
       "storeUrl": "https://patricktechmedia.store",
-      "topic": "security",
+      "editorial_label": null,
+      "topic": "apps-software",
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-26T05:22:52.329Z",
+        "generated_at": "2026-09-26T18:27:56.015Z",
         "origin": "local-curated-rss"
       }
     }
