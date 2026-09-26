@@ -1,11 +1,295 @@
 {
-  "generated_at": "2026-09-26T01:27:50.085Z",
+  "generated_at": "2026-09-26T05:08:59.585Z",
   "manager": {
     "id": "openclaw",
     "mode": "hidden-feed",
     "source": "local-curated-rss"
   },
   "articles": [
+    {
+      "id": "feed-73e9e84f09c1-vi",
+      "cluster_id": "feed-73e9e84f09c1",
+      "language": "vi",
+      "topic_label": "Thiết bị",
+      "topic_slug": "thiet-bi",
+      "topic_accent": "#4e7dff",
+      "content_type": "NewsArticle",
+      "content_type_label": "Tin nhanh",
+      "path_segment": "tin-tuc",
+      "slug": "ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
+      "title": "CEO Bitget tiết lộ cách hacker đánh cắp 387,5 triệu USD",
+      "hook": "\"Kẻ gian đã xâm nhập vào một hệ thống phụ trợ quan trọng trong cơ sở hạ tầng ví điện tử của chúng tôi. Điều khiến câu chuyện này đáng theo dõi là tín hiệu đã bắt đầu dày lên, nhưng vẫn chưa đến mức có thể chốt hạ.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "\"Kẻ gian đã xâm nhập vào một hệ thống phụ trợ quan trọng trong cơ sở hạ tầng ví điện tử của chúng tôi. Chúng dùng nó để giả mạo dữ liệu giao dịch và kích hoạt quy trình xác thực của sàn để chuyển tiền ra ngoài\", Chen mô tả về cuộc tấn công.",
+      "dek": "\"Kẻ gian đã xâm nhập vào một hệ thống phụ trợ quan trọng trong cơ sở hạ tầng ví điện tử của chúng tôi. Chúng dùng nó để giả mạo dữ liệu giao dịch và kích hoạt quy trình xác thực của sàn để chuyển tiền ra ngoài\", Chen mô tả về cuộc tấn công. Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo.",
+      "sections": [
+        {
+          "heading": "Điều gì đã xảy ra",
+          "body": "Theo cô, việc này giúp tác động của vụ hack trở nên ít đáng lo ngại hơn. Các vụ tấn công gây tổn thất lớn cho ngành công nghiệp tiền mã hóa thường liên quan đến khóa riêng tư."
+        },
+        {
+          "heading": "Các nguồn đang khớp nhau ở đâu",
+          "body": "Mỗi ví tiền mã hóa đều có hai khóa. Khóa công khai (public key) giống như số tài khoản ngân hàng và có thể được chia sẻ để người khác chuyển tiền vào. Trong khi đó, khóa riêng tư là những từ khóa bí mật, dùng để chứng minh quyền sở hữu và cho phép ký, ủy quyền giao dịch. Private key gần giống mật khẩu và mật mã két sắt kết hợp. Nếu các khóa riêng tư này bị sao chép, kẻ gian có thể tiếp tục ký các giao dịch chuyển tiền và rút hết tiền khỏi ví."
+        },
+        {
+          "heading": "Dữ kiện hiện có",
+          "body": "Gracy Chen mô tả vụ tấn công này giống việc làm giả phiếu rút tiền qua quầy giao dịch của ngân hàng. Chìa khóa két sắt chưa bao giờ rời khỏi tòa nhà. Ai đó đã đột nhập vào văn phòng chuẩn bị phiếu rút tiền, làm giả giấy tờ rồi gửi qua quầy phê duyệt mà ngân hàng dùng hằng ngày. Đối với hệ thống thực hiện việc phê duyệt, việc này trông giống như khoản thanh toán bình thường nên đã đánh lừa được hệ thống."
+        },
+        {
+          "heading": "Ai nên chú ý lúc này",
+          "body": "Cách tin tặc xâm nhập được vào hệ thống vẫn đang được điều tra. Nhóm bảo mật của Bitget cho biết lỗ hổng bảo mật tiềm ẩn đã được xác định và khắc phục. Sự việc đã được kiểm soát và không để xảy ra thêm giao dịch chuyển tiền trái phép nào."
+        },
+        {
+          "heading": "Điều chưa rõ",
+          "body": "CEO Gracy Chen cho biết việc truy vết on-chain đã xác nhận 387,5 triệu USD được chuyển đến các địa chỉ của kẻ tấn công, con số này cao hơn ước tính ban đầu là 351,6 triệu USD."
+        }
+      ],
+      "image": {
+        "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/tnw-san-giao-dich-bitget-1790392513192115883164-42-0-1299-2400-crop-17903927348811378156423.jpg",
+        "alt": "",
+        "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+        "credit": "Thanh Nien Cong Nghe",
+        "source_url": "https://thanhnien.vn/ceo-bitget-tiet-lo-cach-hacker-danh-cap-3875-trieu-usd-185260926101823899.htm"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Thanh Nien Cong Nghe",
+          "source_url": "https://thanhnien.vn/ceo-bitget-tiet-lo-cach-hacker-danh-cap-3875-trieu-usd-185260926101823899.htm",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-26T03:59:00.000Z",
+          "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/tnw-san-giao-dich-bitget-1790392513192115883164-42-0-1299-2400-crop-17903927348811378156423.jpg",
+          "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+          "image_credit": "Thanh Nien Cong Nghe"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-26T03:59:00.000Z",
+      "updated_at": "2026-09-26T03:59:00.000Z",
+      "href": "/vi/tin-tuc/ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
+      "draft_context": {
+        "source_title": "CEO Bitget tiết lộ cách hacker đánh cắp 387,5 triệu USD",
+        "source_name": "Thanh Nien Cong Nghe",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "CEO Gracy Chen của sàn giao dịch tiền số Bitget cho biết tin tặc đã chuyển 387,5 triệu USD sau khi xâm nhập máy chủ và giả mạo dữ liệu giao dịch.",
+        "paragraphs": [
+          "\"K&#7867; gian &#273;&atilde; x&acirc;m nh&#7853;p v&agrave;o m&#7897;t h&#7879; th&#7889;ng ph&#7909; tr&#7907; quan tr&#7885;ng trong c&#417; s&#7903; h&#7841; t&#7847;ng v&iacute; &#273;i&#7879;n t&#7917; c&#7911;a ch&uacute;ng t&ocirc;i. Ch&uacute;ng d&ugrave;ng n&oacute; &#273;&#7875; gi&#7843; m&#7841;o d&#7919; li&#7879;u giao d&#7883;ch v&agrave; k&iacute;ch ho&#7841;t quy tr&igrave;nh x&aacute;c th&#7921;c c&#7911;a s&agrave;n &#273;&#7875; chuy&#7875;n ti&#7873;n ra ngo&agrave;i\", Chen m&ocirc; t&#7843; v&#7873; cu&#7897;c t&#7845;n c&ocirc;ng. Theo c&ocirc;, vi&#7879;c n&agrave;y gi&uacute;p t&aacute;c &#273;&#7897;ng c&#7911;a v&#7909; hack tr&#7903; n&ecirc;n &iacute;t &#273;&aacute;ng lo ng&#7841;i h&#417;n. C&aacute;c v&#7909; t&#7845;n c&ocirc;ng g&acirc;y t&#7893;n th&#7845;t l&#7899;n cho ng&agrave;nh c&ocirc;ng nghi&#7879;p ti&#7873;n m&atilde; h&oacute;a th&#432;&#7901;ng li&ecirc;n quan &#273;&#7871;n kh&oacute;a ri&ecirc;ng t&#432;.",
+          "M&#7895;i v&iacute; ti&#7873;n m&atilde; h&oacute;a &#273;&#7873;u c&oacute; hai kh&oacute;a. Kh&oacute;a c&ocirc;ng khai (public key) gi&#7889;ng nh&#432; s&#7889; t&agrave;i kho&#7843;n ng&acirc;n h&agrave;ng v&agrave; c&oacute; th&#7875; &#273;&#432;&#7907;c chia s&#7867; &#273;&#7875; ng&#432;&#7901;i kh&aacute;c chuy&#7875;n ti&#7873;n v&agrave;o. Trong khi &#273;&oacute;, kh&oacute;a ri&ecirc;ng t&#432; l&agrave; nh&#7919;ng t&#7915; kh&oacute;a b&iacute; m&#7853;t, d&ugrave;ng &#273;&#7875; ch&#7913;ng minh quy&#7873;n s&#7903; h&#7919;u v&agrave; cho ph&eacute;p k&yacute;, &#7911;y quy&#7873;n giao d&#7883;ch. Private key g&#7847;n gi&#7889;ng m&#7853;t kh&#7849;u v&agrave; m&#7853;t m&atilde; k&eacute;t s&#7855;t k&#7871;t h&#7907;p. N&#7871;u c&aacute;c kh&oacute;a ri&ecirc;ng t&#432; n&agrave;y b&#7883; sao ch&eacute;p, k&#7867; gian c&oacute; th&#7875; ti&#7871;p t&#7909;c k&yacute; c&aacute;c giao d&#7883;ch chuy&#7875;n ti&#7873;n v&agrave; r&uacute;t h&#7871;t ti&#7873;n kh&#7887;i v&iacute;.",
+          "Gracy Chen m&ocirc; t&#7843; v&#7909; t&#7845;n c&ocirc;ng n&agrave;y gi&#7889;ng vi&#7879;c l&agrave;m gi&#7843; phi&#7871;u r&uacute;t ti&#7873;n qua qu&#7847;y giao d&#7883;ch c&#7911;a ng&acirc;n h&agrave;ng. Ch&igrave;a kh&oacute;a k&eacute;t s&#7855;t ch&#432;a bao gi&#7901; r&#7901;i kh&#7887;i t&ograve;a nh&agrave;. Ai &#273;&oacute; &#273;&atilde; &#273;&#7897;t nh&#7853;p v&agrave;o v&#259;n ph&ograve;ng chu&#7849;n b&#7883; phi&#7871;u r&uacute;t ti&#7873;n, l&agrave;m gi&#7843; gi&#7845;y t&#7901; r&#7891;i g&#7917;i qua qu&#7847;y ph&ecirc; duy&#7879;t m&agrave; ng&acirc;n h&agrave;ng d&ugrave;ng h&#7857;ng ng&agrave;y. &#272;&#7889;i v&#7899;i h&#7879; th&#7889;ng th&#7921;c hi&#7879;n vi&#7879;c ph&ecirc; duy&#7879;t, vi&#7879;c n&agrave;y tr&ocirc;ng gi&#7889;ng nh&#432; kho&#7843;n thanh to&aacute;n b&igrave;nh th&#432;&#7901;ng n&ecirc;n &#273;&atilde; &#273;&aacute;nh l&#7915;a &#273;&#432;&#7907;c h&#7879; th&#7889;ng.",
+          "C&aacute;ch tin t&#7863;c x&acirc;m nh&#7853;p &#273;&#432;&#7907;c v&agrave;o h&#7879; th&#7889;ng v&#7851;n &#273;ang &#273;&#432;&#7907;c &#273;i&#7873;u tra. Nh&oacute;m b&#7843;o m&#7853;t c&#7911;a Bitget cho bi&#7871;t l&#7895; h&#7893;ng b&#7843;o m&#7853;t ti&#7873;m &#7849;n &#273;&atilde; &#273;&#432;&#7907;c x&aacute;c &#273;&#7883;nh v&agrave; kh&#7855;c ph&#7909;c. S&#7921; vi&#7879;c &#273;&atilde; &#273;&#432;&#7907;c ki&#7875;m so&aacute;t v&agrave; kh&ocirc;ng &#273;&#7875; x&#7843;y ra th&ecirc;m giao d&#7883;ch chuy&#7875;n ti&#7873;n tr&aacute;i ph&eacute;p n&agrave;o.",
+          "CEO Gracy Chen cho bi&#7871;t vi&#7879;c truy v&#7871;t on-chain &#273;&atilde; x&aacute;c nh&#7853;n 387,5 tri&#7879;u USD &#273;&#432;&#7907;c chuy&#7875;n &#273;&#7871;n c&aacute;c &#273;&#7883;a ch&#7881; c&#7911;a k&#7867; t&#7845;n c&ocirc;ng, con s&#7889; n&agrave;y cao h&#417;n &#432;&#7899;c t&iacute;nh ban &#273;&#7847;u l&agrave; 351,6 tri&#7879;u USD.",
+          "V&#7909; vi&#7879;c li&ecirc;n quan &#273;&#7871;n t&agrave;i s&#7843;n tr&ecirc;n c&aacute;c m&#7841;ng Ethereum v&agrave; m&#7897;t s&#7889; m&#7841;ng EVM, XRP Ledger, Zcash v&agrave; TRON. Bitget c&#361;ng c&ocirc;ng khai &#273;&#7883;a ch&#7881; v&iacute; c&#7911;a k&#7867; gian. &#272;&#7841;i di&#7879;n c&aacute;c s&agrave;n giao d&#7883;ch MEXC, Bybit &#273;&atilde; l&ecirc;n ti&#7871;ng &#7911;ng h&#7897; Bitget. T&#7881; ph&uacute; Changpeng Zhao (CZ), nh&agrave; s&aacute;ng l&#7853;p Binance, vi&#7871;t tr&ecirc;n X: \"M&#7897;t ng&agrave;y &#273;&#7847;y kh&oacute; kh&#259;n v&#7899;i Bitget. Binance, h&#7879; sinh th&aacute;i BNB Chain v&agrave; c&#7897;ng &#273;&#7891;ng s&#7869; n&#7895; l&#7921;c h&#7871;t m&igrave;nh &#273;&#7875; h&#7895; tr&#7907;\"."
+        ],
+        "source_depth_score": 92,
+        "source_depth_reason": "depth=92; paragraphs=6; words=486",
+        "link": "https://thanhnien.vn/ceo-bitget-tiet-lo-cach-hacker-danh-cap-3875-trieu-usd-185260926101823899.htm"
+      },
+      "title_vi": "CEO Bitget tiết lộ cách hacker đánh cắp 387,5 triệu USD",
+      "title_en": "",
+      "dek_vi": "\"Kẻ gian đã xâm nhập vào một hệ thống phụ trợ quan trọng trong cơ sở hạ tầng ví điện tử của chúng tôi. Chúng dùng nó để giả mạo dữ liệu giao dịch và kích hoạt quy trình xác thực của sàn để chuyển tiền ra ngoài\", Chen mô tả về cuộc tấn công. Phần đáng đọc nằm ở bối cảnh, tác động thực tế và điều người đọc có thể dùng để quyết định bước tiếp theo.",
+      "dek_en": "",
+      "body_vi": "Điều gì đã xảy ra\nTheo cô, việc này giúp tác động của vụ hack trở nên ít đáng lo ngại hơn. Các vụ tấn công gây tổn thất lớn cho ngành công nghiệp tiền mã hóa thường liên quan đến khóa riêng tư.\n\nCác nguồn đang khớp nhau ở đâu\nMỗi ví tiền mã hóa đều có hai khóa. Khóa công khai (public key) giống như số tài khoản ngân hàng và có thể được chia sẻ để người khác chuyển tiền vào. Trong khi đó, khóa riêng tư là những từ khóa bí mật, dùng để chứng minh quyền sở hữu và cho phép ký, ủy quyền giao dịch. Private key gần giống mật khẩu và mật mã két sắt kết hợp. Nếu các khóa riêng tư này bị sao chép, kẻ gian có thể tiếp tục ký các giao dịch chuyển tiền và rút hết tiền khỏi ví.\n\nDữ kiện hiện có\nGracy Chen mô tả vụ tấn công này giống việc làm giả phiếu rút tiền qua quầy giao dịch của ngân hàng. Chìa khóa két sắt chưa bao giờ rời khỏi tòa nhà. Ai đó đã đột nhập vào văn phòng chuẩn bị phiếu rút tiền, làm giả giấy tờ rồi gửi qua quầy phê duyệt mà ngân hàng dùng hằng ngày. Đối với hệ thống thực hiện việc phê duyệt, việc này trông giống như khoản thanh toán bình thường nên đã đánh lừa được hệ thống.\n\nAi nên chú ý lúc này\nCách tin tặc xâm nhập được vào hệ thống vẫn đang được điều tra. Nhóm bảo mật của Bitget cho biết lỗ hổng bảo mật tiềm ẩn đã được xác định và khắc phục. Sự việc đã được kiểm soát và không để xảy ra thêm giao dịch chuyển tiền trái phép nào.\n\nĐiều chưa rõ\nCEO Gracy Chen cho biết việc truy vết on-chain đã xác nhận 387,5 triệu USD được chuyển đến các địa chỉ của kẻ tấn công, con số này cao hơn ước tính ban đầu là 351,6 triệu USD.",
+      "body_en": "",
+      "slug_vi": "ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
+      "slug_en": "ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
+      "category": "devices",
+      "geo_scope": "vn",
+      "hot_score": 50,
+      "source_urls": [
+        "https://thanhnien.vn/ceo-bitget-tiet-lo-cach-hacker-danh-cap-3875-trieu-usd-185260926101823899.htm"
+      ],
+      "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/tnw-san-giao-dich-bitget-1790392513192115883164-42-0-1299-2400-crop-17903927348811378156423.jpg",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/ceo-bitget-tiet-lo-cach-hacker-anh-cap-387-5-trieu-usd",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "devices",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-26T05:08:59.584Z",
+        "origin": "local-curated-rss"
+      }
+    },
+    {
+      "id": "feed-2717730e2619-vi",
+      "cluster_id": "feed-2717730e2619",
+      "language": "vi",
+      "topic_label": "Internet & Doanh nghiệp số",
+      "topic_slug": "internet-doanh-nghiep-so",
+      "topic_accent": "#9bff45",
+      "content_type": "NewsArticle",
+      "content_type_label": "Tin nhanh",
+      "path_segment": "tin-tuc",
+      "slug": "ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
+      "title": "AI Việt giải bài toán khó trong y tế, khoa học và sản xuất",
+      "hook": "Ở lĩnh vực y tế và khoa học sự sống, các giải pháp AI do kỹ sư Việt Nam phát triển đang đi sâu vào phân tích cấu trúc vi mô thay vì chỉ dừng ở các tác vụ quản trị thông thường.",
+      "author_name": "",
+      "author_role_vi": "",
+      "author_role_en": "",
+      "summary": "Ở lĩnh vực y tế và khoa học sự sống, các giải pháp AI do kỹ sư Việt Nam phát triển đang đi sâu vào phân tích cấu trúc vi mô thay vì chỉ dừng ở các tác vụ quản trị thông thường. Tiêu biểu như nền tảng BioAI ứng dụng thuật toán học máy để giải mã cơ chế phân tử của các bài thuốc y học cổ truyền.",
+      "dek": "Ở lĩnh vực y tế và khoa học sự sống, các giải pháp AI do kỹ sư Việt Nam phát triển đang đi sâu vào phân tích cấu trúc vi mô thay vì chỉ dừng ở các tác vụ quản trị thông thường.",
+      "sections": [
+        {
+          "heading": "Điều gì đã xảy ra",
+          "body": "Tiêu biểu như nền tảng BioAI ứng dụng thuật toán học máy để giải mã cơ chế phân tử của các bài thuốc y học cổ truyền. Bằng việc kết nối dữ liệu sinh học, cấu trúc hóa học và các thụ thể protein liên quan đến dược tính, hệ thống hỗ trợ mô phỏng và xác thực tác dụng sinh học, tạo cơ sở khoa học cho công tác nghiên cứu dược liệu."
+        },
+        {
+          "heading": "Các nguồn đang khớp nhau ở đâu",
+          "body": "Trong khi đó, giải pháp Pathology AI Lab phát triển hệ thống mô-đun thị giác máy tính hỗ trợ bác sĩ giải phẫu bệnh phân tích tế bào và khoanh vùng tổn thương ung thư cổ tử cung, rút ngắn thời gian sàng lọc sơ bộ mà vẫn đảm bảo vai trò kiểm soát cuối cùng của chuyên gia y tế."
+        },
+        {
+          "heading": "Dữ kiện hiện có",
+          "body": "Các giải pháp AI ngày càng đi sâu vào giải quyết những vấn đề còn vướng mắc ở các lĩnh vực quan trọng như y học, khoa học."
+        },
+        {
+          "heading": "Ai nên chú ý lúc này",
+          "body": "Bên cạnh y sinh, năng lực xử lý thuật toán của các nhóm phát triển trong nước còn hướng đến việc đẩy nhanh tốc độ nghiên cứu cơ bản. Dự án N2TP AI4Science Platform lựa chọn hướng tiếp cận Neuro-Symbolic AI, kết hợp mạng nơ-ron học sâu với hệ thống suy luận logic để phân tích giả thuyết khoa học, sàng lọc dữ liệu thực nghiệm và hỗ trợ chuẩn hóa tài sản trí tuệ."
+        },
+        {
+          "heading": "Điều chưa rõ",
+          "body": "Trong mảng sản xuất công nghiệp và nông nghiệp kỹ thuật cao, nền tảng ViCore tích hợp thị giác máy tính 3D để kiểm soát chất lượng bề mặt sản phẩm và dẫn hướng di chuyển cho robot tại các dây chuyền nhà máy thông minh. Đáng chú ý, hệ thống Egg Vision kết hợp quang học và AI để phân loại sớm giới tính phôi gia cầm ngay trong giai đoạn ấp, giúp các cơ sở chăn nuôi cắt giảm chi phí vận hành và giải quyết bài toán lãng phí tài nguyên."
+        }
+      ],
+      "image": {
+        "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/techweek-social-post1web-1790393725980929914233-0-0-627-1198-crop-17903937460071433159814.jpg",
+        "alt": "",
+        "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+        "credit": "Thanh Nien Cong Nghe",
+        "source_url": "https://thanhnien.vn/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat-185260926102916137.htm"
+      },
+      "verification_state": "emerging",
+      "quality_score": 96,
+      "ad_eligible": true,
+      "show_editorial_label": false,
+      "indexable": true,
+      "store_link_mode": "off",
+      "related_store_items": [],
+      "editorial_focus": [],
+      "source_set": [
+        {
+          "source_type": "press",
+          "source_name": "Thanh Nien Cong Nghe",
+          "source_url": "https://thanhnien.vn/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat-185260926102916137.htm",
+          "region": "VN",
+          "language": "vi",
+          "trust_tier": "established-media",
+          "published_at": "2026-09-26T03:54:00.000Z",
+          "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/techweek-social-post1web-1790393725980929914233-0-0-627-1198-crop-17903937460071433159814.jpg",
+          "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
+          "image_credit": "Thanh Nien Cong Nghe"
+        }
+      ],
+      "author_id": "quang-huy",
+      "published_at": "2026-09-26T03:54:00.000Z",
+      "updated_at": "2026-09-26T03:54:00.000Z",
+      "href": "/vi/tin-tuc/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
+      "draft_context": {
+        "source_title": "AI Việt giải bài toán khó trong y tế, khoa học và sản xuất",
+        "source_name": "Thanh Nien Cong Nghe",
+        "source_type": "press",
+        "trust_tier": "established-media",
+        "topic_hint": "devices",
+        "content_type_hint": "",
+        "description": "AI Việt dần thoát khỏi các ứng dụng bề nổi để giải quyết trực tiếp những vấn đề chuyên sâu hơn, đồng thời hướng đến tương lai về một nền trí tuệ nhân tạo chủ quyền quốc gia.",
+        "paragraphs": [
+          "&#7902; l&#297;nh v&#7921;c y t&#7871; v&agrave; khoa h&#7885;c s&#7921; s&#7889;ng, c&aacute;c gi&#7843;i ph&aacute;p AI do k&#7929; s&#432; Vi&#7879;t Nam ph&aacute;t tri&#7875;n &#273;ang &#273;i s&acirc;u v&agrave;o ph&acirc;n t&iacute;ch c&#7845;u tr&uacute;c vi m&ocirc; thay v&igrave; ch&#7881; d&#7915;ng &#7903; c&aacute;c t&aacute;c v&#7909; qu&#7843;n tr&#7883; th&ocirc;ng th&#432;&#7901;ng. Ti&ecirc;u bi&#7875;u nh&#432; n&#7873;n t&#7843;ng BioAI &#7913;ng d&#7909;ng thu&#7853;t to&aacute;n h&#7885;c m&aacute;y &#273;&#7875; gi&#7843;i m&atilde; c&#417; ch&#7871; ph&acirc;n t&#7917; c&#7911;a c&aacute;c b&agrave;i thu&#7889;c y h&#7885;c c&#7893; truy&#7873;n. B&#7857;ng vi&#7879;c k&#7871;t n&#7889;i d&#7919; li&#7879;u sinh h&#7885;c, c&#7845;u tr&uacute;c h&oacute;a h&#7885;c v&agrave; c&aacute;c th&#7909; th&#7875; protein li&ecirc;n quan &#273;&#7871;n d&#432;&#7907;c t&iacute;nh, h&#7879; th&#7889;ng h&#7895; tr&#7907; m&ocirc; ph&#7887;ng v&agrave; x&aacute;c th&#7921;c t&aacute;c d&#7909;ng sinh h&#7885;c, t&#7841;o c&#417; s&#7903; khoa h&#7885;c cho c&ocirc;ng t&aacute;c nghi&ecirc;n c&#7913;u d&#432;&#7907;c li&#7879;u.",
+          "Trong khi &#273;&oacute;, gi&#7843;i ph&aacute;p Pathology AI Lab ph&aacute;t tri&#7875;n h&#7879; th&#7889;ng m&ocirc;-&#273;un th&#7883; gi&aacute;c m&aacute;y t&iacute;nh h&#7895; tr&#7907; b&aacute;c s&#297; gi&#7843;i ph&#7851;u b&#7879;nh ph&acirc;n t&iacute;ch t&#7871; b&agrave;o v&agrave; khoanh v&ugrave;ng t&#7893;n th&#432;&#417;ng ung th&#432; c&#7893; t&#7917; cung, r&uacute;t ng&#7855;n th&#7901;i gian s&agrave;ng l&#7885;c s&#417; b&#7897; m&agrave; v&#7851;n &#273;&#7843;m b&#7843;o vai tr&ograve; ki&#7875;m so&aacute;t cu&#7889;i c&ugrave;ng c&#7911;a chuy&ecirc;n gia y t&#7871;.",
+          "C&aacute;c gi&#7843;i ph&aacute;p AI ng&agrave;y c&agrave;ng &#273;i s&acirc;u v&agrave;o gi&#7843;i quy&#7871;t nh&#7919;ng v&#7845;n &#273;&#7873; c&ograve;n v&#432;&#7899;ng m&#7855;c &#7903; c&aacute;c l&#297;nh v&#7921;c quan tr&#7885;ng nh&#432; y h&#7885;c, khoa h&#7885;c",
+          "B&ecirc;n c&#7841;nh y sinh, n&#259;ng l&#7921;c x&#7917; l&yacute; thu&#7853;t to&aacute;n c&#7911;a c&aacute;c nh&oacute;m ph&aacute;t tri&#7875;n trong n&#432;&#7899;c c&ograve;n h&#432;&#7899;ng &#273;&#7871;n vi&#7879;c &#273;&#7849;y nhanh t&#7889;c &#273;&#7897; nghi&ecirc;n c&#7913;u c&#417; b&#7843;n. D&#7921; &aacute;n N2TP AI4Science Platform l&#7921;a ch&#7885;n h&#432;&#7899;ng ti&#7871;p c&#7853;n Neuro-Symbolic AI, k&#7871;t h&#7907;p m&#7841;ng n&#417;-ron h&#7885;c s&acirc;u v&#7899;i h&#7879; th&#7889;ng suy lu&#7853;n logic &#273;&#7875; ph&acirc;n t&iacute;ch gi&#7843; thuy&#7871;t khoa h&#7885;c, s&agrave;ng l&#7885;c d&#7919; li&#7879;u th&#7921;c nghi&#7879;m v&agrave; h&#7895; tr&#7907; chu&#7849;n h&oacute;a t&agrave;i s&#7843;n tr&iacute; tu&#7879;.",
+          "Trong m&#7843;ng s&#7843;n xu&#7845;t c&ocirc;ng nghi&#7879;p v&agrave; n&ocirc;ng nghi&#7879;p k&#7929; thu&#7853;t cao, n&#7873;n t&#7843;ng ViCore t&iacute;ch h&#7907;p th&#7883; gi&aacute;c m&aacute;y t&iacute;nh 3D &#273;&#7875; ki&#7875;m so&aacute;t ch&#7845;t l&#432;&#7907;ng b&#7873; m&#7863;t s&#7843;n ph&#7849;m v&agrave; d&#7851;n h&#432;&#7899;ng di chuy&#7875;n cho robot t&#7841;i c&aacute;c d&acirc;y chuy&#7873;n nh&agrave; m&aacute;y th&ocirc;ng minh. &#272;&aacute;ng ch&uacute; &yacute;, h&#7879; th&#7889;ng Egg Vision k&#7871;t h&#7907;p quang h&#7885;c v&agrave; AI &#273;&#7875; ph&acirc;n lo&#7841;i s&#7899;m gi&#7899;i t&iacute;nh ph&ocirc;i gia c&#7847;m ngay trong giai &#273;o&#7841;n &#7845;p, gi&uacute;p c&aacute;c c&#417; s&#7903; ch&#259;n nu&ocirc;i c&#7855;t gi&#7843;m chi ph&iacute; v&#7853;n h&agrave;nh v&agrave; gi&#7843;i quy&#7871;t b&agrave;i to&aacute;n l&atilde;ng ph&iacute; t&agrave;i nguy&ecirc;n.",
+          "S&#7921; xu&#7845;t hi&#7879;n c&#7911;a nh&#7919;ng gi&#7843;i ph&aacute;p chuy&ecirc;n bi&#7879;t n&agrave;y cho th&#7845;y c&aacute;c k&#7929; s&#432; v&agrave; nh&agrave; nghi&ecirc;n c&#7913;u trong n&#432;&#7899;c &#273;ang ch&#7911; &#273;&#7897;ng x&acirc;y d&#7921;ng d&#7919; li&#7879;u chuy&ecirc;n ng&agrave;nh v&agrave; gi&#7843;i quy&#7871;t nh&#7919;ng &#273;i&#7875;m ngh&#7869;n th&#7921;c t&#7871; c&#7911;a n&#7873;n kinh t&#7871;. Trong b&#7889;i c&#7843;nh Ngh&#7883; quy&#7871;t 57 -NQ/TW x&aacute;c &#273;&#7883;nh khoa h&#7885;c, c&ocirc;ng ngh&#7879;, &#273;&#7893;i m&#7899;i s&aacute;ng t&#7841;o v&agrave; chuy&#7875;n &#273;&#7893;i s&#7889; l&agrave; nh&#7919;ng &#273;&#7897;ng l&#7921;c quan tr&#7885;ng cho ph&aacute;t tri&#7875;n &#273;&#7845;t n&#432;&#7899;c, &Acirc;u L&#7841;c Grand Prize g&oacute;p ph&#7847;n g&oacute;p ph&#7847;n hi&#7879;n th&#7921;c h&oacute;a c&aacute;c &#273;&#7883;nh h&#432;&#7899;ng th&ocirc;ng qua vi&#7879;c t&igrave;m ki&#7871;m, t&ocirc;n vinh v&agrave; th&uacute;c &#273;&#7849;y c&aacute;c gi&#7843;i ph&aacute;p AI do ng&#432;&#7901;i Vi&#7879;t ph&aacute;t tri&#7875;n v&agrave; l&agrave;m ch&#7911;."
+        ],
+        "source_depth_score": 86,
+        "source_depth_reason": "depth=86; paragraphs=6; words=523",
+        "link": "https://thanhnien.vn/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat-185260926102916137.htm"
+      },
+      "title_vi": "AI Việt giải bài toán khó trong y tế, khoa học và sản xuất",
+      "title_en": "",
+      "dek_vi": "Ở lĩnh vực y tế và khoa học sự sống, các giải pháp AI do kỹ sư Việt Nam phát triển đang đi sâu vào phân tích cấu trúc vi mô thay vì chỉ dừng ở các tác vụ quản trị thông thường.",
+      "dek_en": "",
+      "body_vi": "Điều gì đã xảy ra\nTiêu biểu như nền tảng BioAI ứng dụng thuật toán học máy để giải mã cơ chế phân tử của các bài thuốc y học cổ truyền. Bằng việc kết nối dữ liệu sinh học, cấu trúc hóa học và các thụ thể protein liên quan đến dược tính, hệ thống hỗ trợ mô phỏng và xác thực tác dụng sinh học, tạo cơ sở khoa học cho công tác nghiên cứu dược liệu.\n\nCác nguồn đang khớp nhau ở đâu\nTrong khi đó, giải pháp Pathology AI Lab phát triển hệ thống mô-đun thị giác máy tính hỗ trợ bác sĩ giải phẫu bệnh phân tích tế bào và khoanh vùng tổn thương ung thư cổ tử cung, rút ngắn thời gian sàng lọc sơ bộ mà vẫn đảm bảo vai trò kiểm soát cuối cùng của chuyên gia y tế.\n\nDữ kiện hiện có\nCác giải pháp AI ngày càng đi sâu vào giải quyết những vấn đề còn vướng mắc ở các lĩnh vực quan trọng như y học, khoa học.\n\nAi nên chú ý lúc này\nBên cạnh y sinh, năng lực xử lý thuật toán của các nhóm phát triển trong nước còn hướng đến việc đẩy nhanh tốc độ nghiên cứu cơ bản. Dự án N2TP AI4Science Platform lựa chọn hướng tiếp cận Neuro-Symbolic AI, kết hợp mạng nơ-ron học sâu với hệ thống suy luận logic để phân tích giả thuyết khoa học, sàng lọc dữ liệu thực nghiệm và hỗ trợ chuẩn hóa tài sản trí tuệ.\n\nĐiều chưa rõ\nTrong mảng sản xuất công nghiệp và nông nghiệp kỹ thuật cao, nền tảng ViCore tích hợp thị giác máy tính 3D để kiểm soát chất lượng bề mặt sản phẩm và dẫn hướng di chuyển cho robot tại các dây chuyền nhà máy thông minh. Đáng chú ý, hệ thống Egg Vision kết hợp quang học và AI để phân loại sớm giới tính phôi gia cầm ngay trong giai đoạn ấp, giúp các cơ sở chăn nuôi cắt giảm chi phí vận hành và giải quyết bài toán lãng phí tài nguyên.",
+      "body_en": "",
+      "slug_vi": "ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
+      "slug_en": "ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
+      "category": "social",
+      "geo_scope": "vn",
+      "hot_score": 50,
+      "source_urls": [
+        "https://thanhnien.vn/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat-185260926102916137.htm"
+      ],
+      "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/26/techweek-social-post1web-1790393725980929914233-0-0-627-1198-crop-17903937460071433159814.jpg",
+      "readiness": {
+        "ready": true,
+        "missing": [],
+        "checks": {
+          "title": true,
+          "summary": true,
+          "dek": true,
+          "hook": true,
+          "sourceImage": true,
+          "sourceAttribution": true,
+          "sourceBreadth": true,
+          "sourceVariety": true,
+          "sectionCount": true,
+          "sectionBodies": true,
+          "totalDepth": true,
+          "distinctSections": true,
+          "leadFieldVariety": true,
+          "valueDensity": true,
+          "noPlaceholderCopy": true,
+          "cleanEncoding": true,
+          "sourceCleanliness": true
+        }
+      },
+      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/ai-viet-giai-bai-toan-kho-trong-y-te-khoa-hoc-va-san-xuat",
+      "storeUrl": "https://patricktechmedia.store",
+      "editorial_label": null,
+      "topic": "internet-business-tech",
+      "machine_source": "openclaw-hidden-feed",
+      "hidden_feed": {
+        "manager": "openclaw",
+        "generated_at": "2026-09-26T05:08:59.584Z",
+        "origin": "local-curated-rss"
+      }
+    },
     {
       "id": "feed-7cc39cb11a08-en",
       "cluster_id": "feed-7cc39cb11a08",
@@ -143,7 +427,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-26T01:27:50.085Z",
+        "generated_at": "2026-09-26T05:08:59.584Z",
         "origin": "local-curated-rss"
       }
     },
@@ -284,149 +568,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-26T01:27:50.085Z",
-        "origin": "local-curated-rss"
-      }
-    },
-    {
-      "id": "feed-0e69a9f86a31-vi",
-      "cluster_id": "feed-0e69a9f86a31",
-      "language": "vi",
-      "topic_label": "Internet & Doanh nghiệp số",
-      "topic_slug": "internet-doanh-nghiep-so",
-      "topic_accent": "#9bff45",
-      "content_type": "NewsArticle",
-      "content_type_label": "Tin nhanh",
-      "path_segment": "tin-tuc",
-      "slug": "kinh-thong-minh-moi-cua-meta-se-khong-co-camera-vi-quyen-rieng-tu",
-      "title": "Kính thông minh mới của Meta sẽ không có camera vì quyền riêng tư",
-      "hook": "Theo Techspot , tại sự kiện Connect 2026, Meta đã mở đặt trước Ray-Ban Audio với giá từ 349 USD, điểm khác biệt lớn nhất của sản phẩm này so với nhiều mẫu kính thông minh trước đó của hãng là không được trang bị camera.",
-      "author_name": "",
-      "author_role_vi": "",
-      "author_role_en": "",
-      "summary": "Theo Techspot , tại sự kiện Connect 2026, Meta đã mở đặt trước Ray-Ban Audio với giá từ 349 USD, điểm khác biệt lớn nhất của sản phẩm này so với nhiều mẫu kính thông minh trước đó của hãng là không được trang bị camera. Ray-Ban Audio vẫn có microphone và các chức năng liên quan đến âm thanh.",
-      "dek": "Theo Techspot , tại sự kiện Connect 2026, Meta đã mở đặt trước Ray-Ban Audio với giá từ 349 USD, điểm khác biệt lớn nhất của sản phẩm này so với nhiều mẫu kính thông minh trước đó của hãng là không được trang bị camera.",
-      "sections": [
-        {
-          "heading": "Điều gì đã xảy ra",
-          "body": "Theo Techspot , tại sự kiện Connect 2026, Meta đã mở đặt trước Ray-Ban Audio với giá từ 349 USD, điểm khác biệt lớn nhất của sản phẩm này so với nhiều mẫu kính thông minh trước đó của hãng là không được trang bị camera."
-        },
-        {
-          "heading": "Các nguồn đang khớp nhau ở đâu",
-          "body": "Ray-Ban Audio vẫn có microphone và các chức năng liên quan đến âm thanh. Người dùng có thể nghe nhạc, podcast, thực hiện cuộc gọi và sử dụng trợ lý AI Muse. Theo Meta, trợ lý này chỉ được kích hoạt khi người dùng nói câu lệnh “Hey Meta” hoặc thao tác trực tiếp trên kính, thay vì liên tục lắng nghe môi trường xung quanh."
-        },
-        {
-          "heading": "Dữ kiện hiện có",
-          "body": "Meta tiếp tục phát triển kính thông minh, với thiết kế mới không camera nhằm giảm lo ngại về quyền riêng tư của người dùng."
-        },
-        {
-          "heading": "Ai nên chú ý lúc này",
-          "body": "Việc bỏ camera khiến Ray-Ban Audio không thể chụp ảnh hay quay video, hai chức năng từng là điểm gây tranh cãi trên các mẫu kính thông minh có khả năng ghi hình. Tuy nhiên, sản phẩm vẫn thu âm thông qua microphone để phục vụ cuộc gọi và tương tác với AI."
-        },
-        {
-          "heading": "Điều chưa rõ",
-          "body": "Meta không loại bỏ camera khỏi toàn bộ dòng kính thông minh . Ray-Ban Meta Gen 3 vẫn được bán với giá từ 449 USD, trang bị camera 12 MP có khả năng quay video 3K cùng sáu microphone. Điều này cho thấy hãng đang duy trì song song hai nhóm sản phẩm: kính có camera và kính chỉ tập trung vào âm thanh."
-        }
-      ],
-      "image": {
-        "src": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/25/screenshot-2026-09-25-100534-17903055596271535625947-0-0-555-1060-crop-179030558359262557156.png",
-        "alt": "",
-        "caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-        "credit": "Thanh Nien Cong Nghe",
-        "source_url": "https://thanhnien.vn/kinh-thong-minh-moi-cua-meta-se-khong-co-camera-vi-quyen-rieng-tu-1852609251010317.htm"
-      },
-      "verification_state": "emerging",
-      "quality_score": 96,
-      "ad_eligible": true,
-      "show_editorial_label": false,
-      "indexable": true,
-      "store_link_mode": "off",
-      "related_store_items": [],
-      "editorial_focus": [],
-      "source_set": [
-        {
-          "source_type": "press",
-          "source_name": "Thanh Nien Cong Nghe",
-          "source_url": "https://thanhnien.vn/kinh-thong-minh-moi-cua-meta-se-khong-co-camera-vi-quyen-rieng-tu-1852609251010317.htm",
-          "region": "VN",
-          "language": "vi",
-          "trust_tier": "established-media",
-          "published_at": "2026-09-25T12:57:00.000Z",
-          "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/25/screenshot-2026-09-25-100534-17903055596271535625947-0-0-555-1060-crop-179030558359262557156.png",
-          "image_caption": "Ảnh tham khảo từ Thanh Nien Cong Nghe.",
-          "image_credit": "Thanh Nien Cong Nghe"
-        }
-      ],
-      "author_id": "quang-huy",
-      "published_at": "2026-09-25T12:57:00.000Z",
-      "updated_at": "2026-09-25T12:57:00.000Z",
-      "href": "/vi/tin-tuc/kinh-thong-minh-moi-cua-meta-se-khong-co-camera-vi-quyen-rieng-tu",
-      "draft_context": {
-        "source_title": "Kính thông minh mới của Meta sẽ không có camera vì quyền riêng tư",
-        "source_name": "Thanh Nien Cong Nghe",
-        "source_type": "press",
-        "trust_tier": "established-media",
-        "topic_hint": "devices",
-        "content_type_hint": "",
-        "description": "Mẫu kính Ray-Ban Audio mới của Meta không có camera, thay vào đó tập trung vào nghe nhạc, gọi điện và tương tác với trợ lý AI.",
-        "paragraphs": [
-          "Theo Techspot , t&#7841;i s&#7921; ki&#7879;n Connect 2026, Meta &#273;&atilde; m&#7903; &#273;&#7863;t tr&#432;&#7899;c Ray-Ban Audio v&#7899;i gi&aacute; t&#7915; 349 USD, &#273;i&#7875;m kh&aacute;c bi&#7879;t l&#7899;n nh&#7845;t c&#7911;a s&#7843;n ph&#7849;m n&agrave;y so v&#7899;i nhi&#7873;u m&#7851;u k&iacute;nh th&ocirc;ng minh tr&#432;&#7899;c &#273;&oacute; c&#7911;a h&atilde;ng l&agrave; kh&ocirc;ng &#273;&#432;&#7907;c trang b&#7883; camera.",
-          "Ray-Ban Audio v&#7851;n c&oacute; microphone v&agrave; c&aacute;c ch&#7913;c n&#259;ng li&ecirc;n quan &#273;&#7871;n &acirc;m thanh. Ng&#432;&#7901;i d&ugrave;ng c&oacute; th&#7875; nghe nh&#7841;c, podcast, th&#7921;c hi&#7879;n cu&#7897;c g&#7885;i v&agrave; s&#7917; d&#7909;ng tr&#7907; l&yacute; AI Muse. Theo Meta, tr&#7907; l&yacute; n&agrave;y ch&#7881; &#273;&#432;&#7907;c k&iacute;ch ho&#7841;t khi ng&#432;&#7901;i d&ugrave;ng n&oacute;i c&acirc;u l&#7879;nh &ldquo;Hey Meta&rdquo; ho&#7863;c thao t&aacute;c tr&#7921;c ti&#7871;p tr&ecirc;n k&iacute;nh, thay v&igrave; li&ecirc;n t&#7909;c l&#7855;ng nghe m&ocirc;i tr&#432;&#7901;ng xung quanh.",
-          "Meta ti&#7871;p t&#7909;c ph&aacute;t tri&#7875;n k&iacute;nh th&ocirc;ng minh, v&#7899;i thi&#7871;t k&#7871; m&#7899;i kh&ocirc;ng camera nh&#7857;m gi&#7843;m lo ng&#7841;i v&#7873; quy&#7873;n ri&ecirc;ng t&#432; c&#7911;a ng&#432;&#7901;i d&ugrave;ng",
-          "Vi&#7879;c b&#7887; camera khi&#7871;n Ray-Ban Audio kh&ocirc;ng th&#7875; ch&#7909;p &#7843;nh hay quay video, hai ch&#7913;c n&#259;ng t&#7915;ng l&agrave; &#273;i&#7875;m g&acirc;y tranh c&atilde;i tr&ecirc;n c&aacute;c m&#7851;u k&iacute;nh th&ocirc;ng minh c&oacute; kh&#7843; n&#259;ng ghi h&igrave;nh. Tuy nhi&ecirc;n, s&#7843;n ph&#7849;m v&#7851;n thu &acirc;m th&ocirc;ng qua microphone &#273;&#7875; ph&#7909;c v&#7909; cu&#7897;c g&#7885;i v&agrave; t&#432;&#417;ng t&aacute;c v&#7899;i AI.",
-          "Meta kh&ocirc;ng lo&#7841;i b&#7887; camera kh&#7887;i to&agrave;n b&#7897; d&ograve;ng k&iacute;nh th&ocirc;ng minh . Ray-Ban Meta Gen 3 v&#7851;n &#273;&#432;&#7907;c b&aacute;n v&#7899;i gi&aacute; t&#7915; 449 USD, trang b&#7883; camera 12 MP c&oacute; kh&#7843; n&#259;ng quay video 3K c&ugrave;ng s&aacute;u microphone. &#272;i&#7873;u n&agrave;y cho th&#7845;y h&atilde;ng &#273;ang duy tr&igrave; song song hai nh&oacute;m s&#7843;n ph&#7849;m: k&iacute;nh c&oacute; camera v&agrave; k&iacute;nh ch&#7881; t&#7853;p trung v&agrave;o &acirc;m thanh.",
-          "Meta kh&ocirc;ng t&#7853;p trung qu&#7843;ng b&aacute; Ray-Ban Audio nh&#432; m&#7897;t s&#7843;n ph&#7849;m &#273;&#432;&#7907;c thi&#7871;t k&#7871; &#273;&#7875; gi&#7843;i quy&#7871;t v&#7845;n &#273;&#7873; quy&#7873;n ri&ecirc;ng t&#432;. Tuy nhi&ecirc;n, vi&#7879;c lo&#7841;i b&#7887; camera di&#7877;n ra trong b&#7889;i c&#7843;nh c&aacute;c thi&#7871;t b&#7883; &#273;eo c&oacute; kh&#7843; n&#259;ng ghi h&igrave;nh &#273;ang g&#7863;p nhi&#7873;u ph&#7843;n &#7913;ng t&#7915; ng&#432;&#7901;i d&ugrave;ng v&agrave; c&#417; quan qu&#7843;n l&yacute;."
-        ],
-        "source_depth_score": 84,
-        "source_depth_reason": "depth=84; paragraphs=6; words=337",
-        "link": "https://thanhnien.vn/kinh-thong-minh-moi-cua-meta-se-khong-co-camera-vi-quyen-rieng-tu-1852609251010317.htm"
-      },
-      "title_vi": "Kính thông minh mới của Meta sẽ không có camera vì quyền riêng tư",
-      "title_en": "",
-      "dek_vi": "Theo Techspot , tại sự kiện Connect 2026, Meta đã mở đặt trước Ray-Ban Audio với giá từ 349 USD, điểm khác biệt lớn nhất của sản phẩm này so với nhiều mẫu kính thông minh trước đó của hãng là không được trang bị camera.",
-      "dek_en": "",
-      "body_vi": "Điều gì đã xảy ra\nTheo Techspot , tại sự kiện Connect 2026, Meta đã mở đặt trước Ray-Ban Audio với giá từ 349 USD, điểm khác biệt lớn nhất của sản phẩm này so với nhiều mẫu kính thông minh trước đó của hãng là không được trang bị camera.\n\nCác nguồn đang khớp nhau ở đâu\nRay-Ban Audio vẫn có microphone và các chức năng liên quan đến âm thanh. Người dùng có thể nghe nhạc, podcast, thực hiện cuộc gọi và sử dụng trợ lý AI Muse. Theo Meta, trợ lý này chỉ được kích hoạt khi người dùng nói câu lệnh “Hey Meta” hoặc thao tác trực tiếp trên kính, thay vì liên tục lắng nghe môi trường xung quanh.\n\nDữ kiện hiện có\nMeta tiếp tục phát triển kính thông minh, với thiết kế mới không camera nhằm giảm lo ngại về quyền riêng tư của người dùng.\n\nAi nên chú ý lúc này\nViệc bỏ camera khiến Ray-Ban Audio không thể chụp ảnh hay quay video, hai chức năng từng là điểm gây tranh cãi trên các mẫu kính thông minh có khả năng ghi hình. Tuy nhiên, sản phẩm vẫn thu âm thông qua microphone để phục vụ cuộc gọi và tương tác với AI.\n\nĐiều chưa rõ\nMeta không loại bỏ camera khỏi toàn bộ dòng kính thông minh . Ray-Ban Meta Gen 3 vẫn được bán với giá từ 449 USD, trang bị camera 12 MP có khả năng quay video 3K cùng sáu microphone. Điều này cho thấy hãng đang duy trì song song hai nhóm sản phẩm: kính có camera và kính chỉ tập trung vào âm thanh.",
-      "body_en": "",
-      "slug_vi": "kinh-thong-minh-moi-cua-meta-se-khong-co-camera-vi-quyen-rieng-tu",
-      "slug_en": "kinh-thong-minh-moi-cua-meta-se-khong-co-camera-vi-quyen-rieng-tu",
-      "category": "social",
-      "geo_scope": "vn",
-      "hot_score": 50,
-      "source_urls": [
-        "https://thanhnien.vn/kinh-thong-minh-moi-cua-meta-se-khong-co-camera-vi-quyen-rieng-tu-1852609251010317.htm"
-      ],
-      "image_url": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/9/25/screenshot-2026-09-25-100534-17903055596271535625947-0-0-555-1060-crop-179030558359262557156.png",
-      "readiness": {
-        "ready": true,
-        "missing": [],
-        "checks": {
-          "title": true,
-          "summary": true,
-          "dek": true,
-          "hook": true,
-          "sourceImage": true,
-          "sourceAttribution": true,
-          "sourceBreadth": true,
-          "sourceVariety": true,
-          "sectionCount": true,
-          "sectionBodies": true,
-          "totalDepth": true,
-          "distinctSections": true,
-          "leadFieldVariety": true,
-          "valueDensity": true,
-          "noPlaceholderCopy": true,
-          "cleanEncoding": true,
-          "sourceCleanliness": true
-        }
-      },
-      "canonicalUrl": "https://patricktechmedia.com/vi/tin-tuc/kinh-thong-minh-moi-cua-meta-se-khong-co-camera-vi-quyen-rieng-tu",
-      "storeUrl": "https://patricktechmedia.store",
-      "editorial_label": null,
-      "topic": "internet-business-tech",
-      "machine_source": "openclaw-hidden-feed",
-      "hidden_feed": {
-        "manager": "openclaw",
-        "generated_at": "2026-09-26T01:27:50.085Z",
+        "generated_at": "2026-09-26T05:08:59.584Z",
         "origin": "local-curated-rss"
       }
     },
@@ -567,7 +709,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-26T01:27:50.085Z",
+        "generated_at": "2026-09-26T05:08:59.584Z",
         "origin": "local-curated-rss"
       }
     },
@@ -713,7 +855,7 @@
       "machine_source": "openclaw-hidden-feed",
       "hidden_feed": {
         "manager": "openclaw",
-        "generated_at": "2026-09-26T01:27:50.085Z",
+        "generated_at": "2026-09-26T05:08:59.584Z",
         "origin": "local-curated-rss"
       }
     }
